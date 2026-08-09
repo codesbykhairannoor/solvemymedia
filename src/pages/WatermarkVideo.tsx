@@ -1,3 +1,4 @@
+import { WatermarkVideoHeroSection, WatermarkVideoHowToSection, WatermarkVideoBrandSection, WatermarkVideoPrivacySection, WatermarkVideoFAQSection } from '../components/content-sections/tools/WatermarkVideoSections';
 import React, { useState, useRef } from 'react';
 import { Image, FileVideo, Trash2, Download, Loader2, Zap, Settings2 } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
@@ -66,7 +67,7 @@ export const WatermarkVideo: React.FC = () => {
             {smartHighlight('Add Custom Watermark Logo to Video')}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-            {"Upload your video and logo below to watermark your video directly in your browser without compromising privacy."}
+            {"Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online."}
           </p>
         </div>
       )}
@@ -282,6 +283,29 @@ export const WatermarkVideo: React.FC = () => {
         </div>
       </div>
       
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <WatermarkVideoHeroSection 
+          section={{ type: 'hero', title: "Stamp Your Brand on Video", content: "Hardcode your logo into any video file seamlessly within your browser to prevent content theft." }} 
+        />
+        <WatermarkVideoHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Watermark",
+            steps: [
+              { title: "Upload Video", description: "Select the video file you want to brand." },
+              { title: "Add Logo", description: "Upload your watermark image (PNG with transparency works best) and position it." },
+              { title: "Export", description: "Hit 'Add Watermark' and the video will be rendered completely on your local device." }
+            ]
+          }} 
+        />
+        <WatermarkVideoBrandSection 
+          section={{ type: 'brand', title: "Burned-In Protection", content: "By hardcoding the logo directly into the video stream, it is permanently merged with the video data and impossible to remove." }} 
+        />
+        <WatermarkVideoPrivacySection 
+          section={{ type: 'privacy', title: "Strict Confidentiality", content: "Your unreleased videos are never uploaded to any server. Protect your drafts safely offline." }} 
+        />
+        <WatermarkVideoFAQSection />
+      </div>
     
     </div>
   );

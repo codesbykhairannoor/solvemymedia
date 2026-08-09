@@ -15,6 +15,7 @@ interface CenteredActionWorkspaceProps {
   targetFormat?: string;
   title?: string;
   toolId?: string;
+  description?: string;
 }
 
 export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = ({
@@ -29,7 +30,8 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
   sidebarContent,
   targetFormat,
   title,
-  toolId
+  toolId,
+  description
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   
@@ -60,7 +62,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
             {smartHighlight(finalTitle)}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-            {ui.drag_drop} {ui.browse_files}
+            {description || `${ui.drag_drop} ${ui.browse_files}`}
           </p>
         </div>
       )}

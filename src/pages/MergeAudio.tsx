@@ -1,3 +1,6 @@
+import { HeroFeaturesSection } from '../components/content-sections/FeatureGroup';
+import { SecurityPrivacySection } from '../components/content-sections/SecurityGroup';
+import { MergeAudioHeroSection, MergeAudioHowToSection, MergeAudioPerformanceSection, MergeAudioPrivacySection, MergeAudioFAQSection } from '../components/content-sections/tools/MergeAudioSections';
 import React, { useState, useRef } from 'react';
 import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
@@ -7,7 +10,7 @@ export const MergeAudio: React.FC = () => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
   
   const t = {
-    upload: "Upload multiple audio files below to merge them into a single file directly in your browser without compromising privacy.",
+    upload: "Combine multiple audio tracks into a single seamless file. Rearrange, edit, and merge completely offline.",
     add: "Add Audio File",
     join: "Join Audio Files",
     desc: "Combine multiple audio tracks sequentially into a single file.",
@@ -167,7 +170,29 @@ export const MergeAudio: React.FC = () => {
         </div>
       </div>
       
-    
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <MergeAudioHeroSection 
+          section={{ type: 'hero', title: "Merge Audio Files Seamlessly", content: "Combine multiple audio tracks sequentially into a single file directly in your browser without compromising privacy." }} 
+        />
+        <MergeAudioHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Merge Audio",
+            steps: [
+              { title: "Upload Files", description: "Select multiple audio files you want to combine." },
+              { title: "Arrange Order", description: "The files will be merged in the order you added them." },
+              { title: "Join & Save", description: "Hit merge and download the single combined audio track." }
+            ]
+          }} 
+        />
+        <MergeAudioPerformanceSection 
+          section={{ type: 'performance', title: "Instant Concatenation", content: "By utilizing local WebAssembly, we concatenate audio streams rapidly without the massive delay of server uploads." }} 
+        />
+        <MergeAudioPrivacySection 
+          section={{ type: 'privacy', title: "Total Privacy Guarantee", content: "We respect your data. The audio files are never uploaded to any cloud server during the merging process." }} 
+        />
+        <MergeAudioFAQSection />
+      </div>
     </div>
   );
 };

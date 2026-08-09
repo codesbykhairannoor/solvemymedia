@@ -1,3 +1,4 @@
+import { CompressAudioHeroSection, CompressAudioHowToSection, CompressAudioPerformanceSection, CompressAudioPrivacySection, CompressAudioFAQSection } from '../components/content-sections/tools/CompressAudioSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
@@ -126,9 +127,10 @@ export const CompressAudio: React.FC = () => {
   return (
     <>
       <DualColumnWorkspace
-      accept="audio/*"
-      title="Compress Audio Files without Losing Quality"
-      toolId="compress-audio"
+        accept="audio/*"
+        title="Compress Audio Files without Losing Quality"
+        description="Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments."
+        toolId="compress-audio"
       file={file}
       setFile={setFile}
       outputUrl={outputUrl}
@@ -141,7 +143,29 @@ export const CompressAudio: React.FC = () => {
       targetFormat="mp3"
       />
 
-  
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <CompressAudioHeroSection 
+          section={{ type: 'hero', title: "Shrink Audio Size Instantly", content: "Compress your MP3, WAV, and AAC files securely offline. Save gigabytes of space for podcasts, voice notes, and music sharing." }} 
+        />
+        <CompressAudioHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Compress Audio",
+            steps: [
+              { title: "Upload Audio", description: "Select the audio file you want to compress from your device." },
+              { title: "Adjust Quality", description: "Use the slider to choose the right balance between file size and audio clarity." },
+              { title: "Compress & Save", description: "Hit compress and the file will be optimized and downloaded instantly." }
+            ]
+          }} 
+        />
+        <CompressAudioPerformanceSection 
+          section={{ type: 'performance', title: "Powered by WebAssembly", content: "Experience native-grade FFmpeg compression speed entirely in your browser without the need for desktop applications." }} 
+        />
+        <CompressAudioPrivacySection 
+          section={{ type: 'privacy', title: "100% Secure Local Execution", content: "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
+        />
+        <CompressAudioFAQSection />
+      </div>
     </>
   );
 };

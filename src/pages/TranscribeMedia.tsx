@@ -1,3 +1,4 @@
+import { TranscribeMediaHeroSection, TranscribeMediaHowToSection, TranscribeMediaPerformanceSection, TranscribeMediaPrivacySection, TranscribeMediaFAQSection } from '../components/content-sections/tools/TranscribeMediaSections';
 import React, { useState, useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, FileText } from 'lucide-react';
 import { useWhisper } from '../hooks/useWhisper';
@@ -15,7 +16,7 @@ export const TranscribeMedia: React.FC = () => {
   };
 
   const finalTitle = 'Transcribe Audio & Video Offline';
-  useSeoMeta(finalTitle + ' | Media Compressor', t.upload);
+  useSeoMeta(finalTitle + ' | SolveMyMedia', t.upload);
 
   const [file, setFile] = useState<File | null>(null);
   const [language, setLanguage] = useState<string>('indonesian');
@@ -191,11 +192,27 @@ export const TranscribeMedia: React.FC = () => {
     
     
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
-        
-        
-        
-        
-        
+        <TranscribeMediaHeroSection 
+          section={{ type: 'hero', title: "Transcribe Audio & Video Offline", content: "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
+        />
+        <TranscribeMediaHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Transcribe",
+            steps: [
+              { title: "Select Media", description: "Upload any audio or video file from your computer." },
+              { title: "AI Analysis", description: "The local AI engine listens and detects the spoken language." },
+              { title: "Get Text", description: "Instantly copy the transcription text to your clipboard." }
+            ]
+          }} 
+        />
+        <TranscribeMediaPerformanceSection 
+          section={{ type: 'performance', title: "Hardware Acceleration", content: "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
+        />
+        <TranscribeMediaPrivacySection 
+          section={{ type: 'privacy', title: "Total Privacy", content: "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
+        />
+        <TranscribeMediaFAQSection />
       </div>
   
     </div>

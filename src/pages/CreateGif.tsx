@@ -1,3 +1,4 @@
+import { CreateGifHeroSection, CreateGifHowToSection, CreateGifPerformanceSection, CreateGifPrivacySection, CreateGifFAQSection } from '../components/content-sections/tools/CreateGifSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -72,7 +73,8 @@ export const CreateGif: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title="Convert Video to Animated GIF"
+      title="Create GIF from Video"
+      description="Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud."
       toolId="create-gif"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
@@ -86,7 +88,29 @@ export const CreateGif: React.FC = () => {
       targetFormat="gif"
       />
 
-  
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <CreateGifHeroSection 
+          section={{ type: 'hero', title: "Turn Videos into Viral GIFs", content: "Convert MP4, WebM, and MOV to animated GIFs in seconds. No watermarks, no signups, completely free." }} 
+        />
+        <CreateGifHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Make a GIF",
+            steps: [
+              { title: "Upload Video", description: "Select any video file from your device." },
+              { title: "Set Framerate", description: "Choose the FPS and output size to balance quality and file size." },
+              { title: "Generate & Download", description: "Instantly create and save your animated GIF." }
+            ]
+          }} 
+        />
+        <CreateGifPerformanceSection 
+          section={{ type: 'performance', title: "Built for Speed", content: "Our advanced WebAssembly engine compiles video frames directly in your browser without communicating with external servers." }} 
+        />
+        <CreateGifPrivacySection 
+          section={{ type: 'privacy', title: "Your Files Stay Yours", content: "Because everything runs locally, your sensitive videos are completely safe. Disconnect from the internet and watch it still work." }} 
+        />
+        <CreateGifFAQSection />
+      </div>
     </>
   );
 };

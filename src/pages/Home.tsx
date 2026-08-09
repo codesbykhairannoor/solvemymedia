@@ -6,7 +6,7 @@ import { smartHighlight } from '../utils/textFormatting';
 
 export const Home: React.FC = () => {
   
-  useSeoMeta('Media Compressor | Next-Gen Browser Media Tools', 'Next-Gen Browser Media Tools');
+  useSeoMeta('SolveMyMedia | Next-Gen Browser Media Tools', 'Next-Gen Browser Media Tools');
 
   return (
     <div style={{ padding: '0 24px', maxWidth: 1000, margin: '64px auto 0 auto' }}>

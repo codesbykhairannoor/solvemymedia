@@ -1,3 +1,4 @@
+import { VideoToAudioHeroSection, VideoToAudioHowToSection, VideoToAudioPerformanceSection, VideoToAudioPrivacySection, VideoToAudioFAQSection } from '../components/content-sections/tools/VideoToAudioSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -46,6 +47,7 @@ export const ConvertVideoToAudio: React.FC = () => {
     <>
       <CenteredActionWorkspace
       title="Extract Audio from Video"
+      description="Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy."
       toolId="video-to-audio"
       file={file}
       onFileSelect={setFile}
@@ -60,6 +62,30 @@ export const ConvertVideoToAudio: React.FC = () => {
       />
 
   
+    
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <VideoToAudioHeroSection 
+          section={{ type: 'hero', title: "Extract Audio from Video", content: "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality." }} 
+        />
+        <VideoToAudioHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Extract Audio",
+            steps: [
+              { title: "Upload Video", description: "Select the video file you want to extract audio from." },
+              { title: "Choose Format", description: "Select MP3, WAV, or AAC depending on your needs." },
+              { title: "Extract", description: "We separate the audio track instantly right in your browser." }
+            ]
+          }} 
+        />
+        <VideoToAudioPerformanceSection 
+          section={{ type: 'performance', title: "Lightning Fast Extraction", content: "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds." }} 
+        />
+        <VideoToAudioPrivacySection 
+          section={{ type: 'privacy', title: "Offline Extraction", content: "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 
+        />
+        <VideoToAudioFAQSection />
+      </div>
     </>
   );
 };

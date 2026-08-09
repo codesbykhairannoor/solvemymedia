@@ -46,7 +46,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   };
 
   const finalTitle = title;
-  useSeoMeta(finalTitle + ' | Media Compressor', ui.upload_desc);
+  useSeoMeta(finalTitle + ' | SolveMyMedia', ui.upload_desc);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {

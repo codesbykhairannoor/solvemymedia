@@ -1,3 +1,4 @@
+import { MuteVideoHeroSection, MuteVideoHowToSection, MuteVideoSpeedSection, MuteVideoOfflineSection, MuteVideoFAQSection } from '../components/content-sections/tools/MuteVideoSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -45,6 +46,7 @@ export const MuteVideo: React.FC = () => {
     <>
       <CenteredActionWorkspace
       title="Remove Audio from Video Completely"
+      description="Quickly remove the audio track from any video file. Perfect for creating silent clips or preparing footage for social media."
       toolId="mute-video"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
@@ -58,7 +60,29 @@ export const MuteVideo: React.FC = () => {
       targetFormat="mp4"
       />
 
-  
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <MuteVideoHeroSection 
+          section={{ type: 'hero', title: "Instantly Remove Audio", content: "Strip out the sound track from any video file without re-encoding, preserving 100% of the original video quality." }} 
+        />
+        <MuteVideoHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Mute Videos",
+            steps: [
+              { title: "Select a Video", description: "Choose the video file that you want to mute from your device." },
+              { title: "Instant Mute", description: "The audio track is stripped instantly. You don't have to wait for any processing." },
+              { title: "Save Silently", description: "Download the muted video back to your local storage securely." }
+            ]
+          }} 
+        />
+        <MuteVideoSpeedSection 
+          section={{ type: 'speed', title: "Zero Wait Time", content: "By skipping the re-encoding step and just removing the audio stream directly, this process finishes almost instantly regardless of video length." }} 
+        />
+        <MuteVideoOfflineSection 
+          section={{ type: 'privacy', title: "Absolute Offline Privacy", content: "Your video files are strictly kept on your local machine. They are never uploaded or stored anywhere else." }} 
+        />
+        <MuteVideoFAQSection />
+      </div>
     </>
   );
 };

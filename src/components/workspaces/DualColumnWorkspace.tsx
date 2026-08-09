@@ -17,6 +17,7 @@ interface DualColumnWorkspaceProps {
   sidebarContent: React.ReactNode;
   targetFormat?: string;
   toolId?: string;
+  description?: string;
 }
 
 export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
@@ -32,7 +33,8 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
   processActionText,
   sidebarContent,
   targetFormat,
-  toolId
+  toolId,
+  description
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   
@@ -44,8 +46,9 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
     download_result: "Download Result"
   };
 
+  const finalDescription = description || ui.upload_desc;
   const finalTitle = title;
-  useSeoMeta(finalTitle + ' | Media Compressor', ui.upload_desc);
+  useSeoMeta(finalTitle + ' | SolveMyMedia', finalDescription);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -64,7 +67,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
             {smartHighlight(finalTitle)}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-            {ui.upload_desc}
+            {finalDescription}
           </p>
         </div>
       )}

@@ -1,3 +1,4 @@
+import { CropVideoHeroSection, CropVideoHowToSection, CropVideoPlatformSection, CropVideoPrivacySection, CropVideoFAQSection } from '../components/content-sections/tools/CropVideoSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -87,6 +88,7 @@ export const CropVideo: React.FC = () => {
     <>
       <CenteredActionWorkspace
       title="Crop Video Dimensions to Any Aspect Ratio"
+      description="Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device."
       toolId="crop-video"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
@@ -100,7 +102,29 @@ export const CropVideo: React.FC = () => {
       targetFormat="mp4"
       />
 
-  
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <CropVideoHeroSection 
+          section={{ type: 'hero', title: "Crop Video Perfectly", content: "Trim out the edges of your video for TikTok, Reels, and YouTube Shorts instantly without watermarks." }} 
+        />
+        <CropVideoHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Crop Videos",
+            steps: [
+              { title: "Select a Video", description: "Choose any video file from your local device." },
+              { title: "Pick Aspect Ratio", description: "Select the desired format like 9:16 vertical or 1:1 square." },
+              { title: "Crop & Export", description: "Hit crop and your video will be instantly ready for download." }
+            ]
+          }} 
+        />
+        <CropVideoPlatformSection 
+          section={{ type: 'platform', title: "Social Media Ready", content: "Perfectly align your video dimensions for any social platform and ensure it looks professional." }} 
+        />
+        <CropVideoPrivacySection 
+          section={{ type: 'privacy', title: "Secure Local Processing", content: "Your video files are strictly kept on your local machine and never uploaded or stored anywhere else." }} 
+        />
+        <CropVideoFAQSection />
+      </div>
     </>
   );
 };

@@ -70,15 +70,16 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       position: 'fixed', top: 0, left: 0, right: 0, height: 60,
       background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)',
       backdropFilter: 'blur(20px)', boxShadow: '0 4px 28px rgba(0,0,0,0.12)',
-      zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: '0 24px'
+      zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
     }}>
+      <div style={{ maxWidth: 1200, width: '100%', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
+        
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: 0 }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
           <div style={{ background: 'var(--brand-gradient)', padding: 6, borderRadius: 8, color: '#fff' }}>
             <Video size={20} />
           </div>
-          <span style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>MediaCompressor</span>
+          <span style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>SolveMyMedia</span>
         </Link>
       </div>
 
@@ -173,8 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         >
           {isLightMode ? <Moon size={16} /> : <Sun size={16} />}
         </button>
-        
-        
+      </div>
       </div>
 
       <style>{`

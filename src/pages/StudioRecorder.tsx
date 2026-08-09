@@ -1,3 +1,4 @@
+import { StudioRecorderHeroSection, StudioRecorderHowToSection, StudioRecorderPerformanceSection, StudioRecorderPrivacySection, StudioRecorderFAQSection } from '../components/content-sections/tools/StudioRecorderSections';
 import React, { useState } from 'react';
 import { Monitor, Video as VideoIcon, Mic, StopCircle, PlayCircle, Circle } from 'lucide-react';
 import { smartHighlight } from '../utils/textFormatting';
@@ -24,7 +25,7 @@ export const StudioRecorder: React.FC = () => {
   };
 
   useSeoMeta(
-    `$'Professional Browser Studio Recorder' | Media Compressor`,
+    `$'Professional Browser Studio Recorder' | SolveMyMedia`,
     t.desc
   );
 
@@ -168,11 +169,27 @@ export const StudioRecorder: React.FC = () => {
     
     
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
-        
-        
-        
-        
-        
+        <StudioRecorderHeroSection 
+          section={{ type: 'hero', title: "Professional Browser Studio Recorder", content: "Record your screen, webcam, and microphone all at once without installing any software. Perfect for tutorials, presentations, and vlogs." }} 
+        />
+        <StudioRecorderHowToSection 
+          section={{
+            type: 'howto',
+            title: "How to Record",
+            steps: [
+              { title: "Select Sources", description: "Toggle your screen, webcam, and microphone on or off." },
+              { title: "Start Recording", description: "Hit record. You can capture multiple sources simultaneously." },
+              { title: "Save Video", description: "Stop recording and download the final video file immediately." }
+            ]
+          }} 
+        />
+        <StudioRecorderPerformanceSection 
+          section={{ type: 'performance', title: "Zero Latency Capture", content: "Leveraging raw WebRTC APIs, we capture your screen and camera with absolutely zero network latency or server lag." }} 
+        />
+        <StudioRecorderPrivacySection 
+          section={{ type: 'privacy', title: "Secure & Offline", content: "Your camera feed and screen recordings are processed and stored locally. They are never transmitted over the internet." }} 
+        />
+        <StudioRecorderFAQSection />
       </div>
   
     </div>
