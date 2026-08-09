@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Compressão de vídeo do lado do cliente",
+      "content": "Nosso mecanismo é executado diretamente no seu navegador. Ao eliminar os uploads do servidor, garantimos tempo de espera zero para transferência de dados e início instantâneo da compactação."
+    },
+    "privacy": {
+      "title": "Total Privacidade de Vídeo",
+      "content": "Seus vídeos inéditos e gravações pessoais ficam em sua máquina. Usamos WASM para compactar arquivos localmente, o que significa que seus dados nunca são armazenados em nossos servidores."
+    },
+    "performance": {
+      "title": "Aceleração WebCodecs",
+      "content": "Aproveitando a codificação GPU acelerada por hardware, reduzimos enormes arquivos MP4 e WebM em até 90% em poucos segundos."
+    },
+    "howto": {
+      "title": "Como compactar vídeo",
+      "steps": [
+        {
+          "title": "Selecione MP4/WebM",
+          "desc": "Arraste seu arquivo de vídeo pesado para a zona de lançamento."
+        },
+        {
+          "title": "Definir meta de qualidade",
+          "desc": "Escolha entre compactação máxima ou qualidade balanceada."
+        },
+        {
+          "title": "Salvar instantaneamente",
+          "desc": "Baixe o vídeo otimizado instantaneamente."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre compactação de vídeo",
+      "items": [
+        {
+          "q": "Meu vídeo perderá qualidade?",
+          "a": "Usamos codificação de taxa de bits variável inteligente (VBR) para preservar a fidelidade visual enquanto descartamos dados invisíveis."
+        },
+        {
+          "q": "Existem limites de tamanho?",
+          "a": "Sem limites artificiais. Você pode processar gigabytes de vídeo se o seu dispositivo tiver RAM suficiente."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Conversão de vídeo local",
+      "content": "Traduza formatos de vídeo offline. Nossa ferramenta ignora a infraestrutura em nuvem, garantindo que você possa converter MKV em MP4 mesmo em conexões lentas."
+    },
+    "privacy": {
+      "title": "Tradução em formato Zero-Trust",
+      "content": "Vídeos corporativos confidenciais? Nós não os queremos. Nosso mecanismo baseado em FFmpeg traduz codecs de vídeo com segurança dentro da sandbox do seu dispositivo."
+    },
+    "performance": {
+      "title": "Transcodificação instantânea",
+      "content": "Ao pular a fase de upload/download, nosso transcodificador local é exponencialmente mais rápido do que os conversores de vídeo tradicionais baseados em nuvem."
+    },
+    "howto": {
+      "title": "Como converter formatos de vídeo",
+      "steps": [
+        {
+          "title": "Importar vídeo",
+          "desc": "Carregue qualquer formato de vídeo não suportado, como MKV ou AVI."
+        },
+        {
+          "title": "Selecione Saída",
+          "desc": "Escolha o codec desejado, como H.264 MP4 ou WebM."
+        },
+        {
+          "title": "Resultado do download",
+          "desc": "Obtenha o arquivo de vídeo reproduzível universalmente."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre conversor de vídeo",
+      "items": [
+        {
+          "q": "A conversão reduz a qualidade?",
+          "a": "Não se você escolher um alvo com alta taxa de bits ou sem perdas. Nosso padrão é preservar a resolução original."
+        },
+        {
+          "q": "Posso converter MKV com legendas?",
+          "a": "Sim, fluxos de legendas padrão são suportados durante a conversão para MP4."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Retiming de vídeo sem ping",
+      "content": "Diminua ou acelere seus clipes instantaneamente. Nosso retemporizador baseado em navegador processa quadros localmente sem latência do servidor."
+    },
+    "privacy": {
+      "title": "Processamento seguro de quadros",
+      "content": "Seus destaques esportivos e tutoriais de dança permanecem privados. A interpolação de quadros e os ajustes de velocidade acontecem totalmente offline."
+    },
+    "performance": {
+      "title": "Correção Rápida de Pitch",
+      "content": "Lidamos com a taxa de quadros visual e a correção de pitch de áudio simultaneamente em tempo real, entregando o vídeo final em segundos."
+    },
+    "howto": {
+      "title": "Como alterar a velocidade do vídeo",
+      "steps": [
+        {
+          "title": "Adicionar vídeo",
+          "desc": "Carregue o clipe que deseja acelerar ou desacelerar."
+        },
+        {
+          "title": "Ajustar controle deslizante",
+          "desc": "Defina o multiplicador (por exemplo, 0,5x para câmera lenta, 2x para avanço rápido)."
+        },
+        {
+          "title": "Renderizar",
+          "desc": "Salve o vídeo reprogramado em seu dispositivo."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre velocidade do vídeo",
+      "items": [
+        {
+          "q": "O áudio soará como um esquilo?",
+          "a": "Aplicamos correção dinâmica de tom para que as vozes soem naturais mesmo em velocidade 2x."
+        },
+        {
+          "q": "Quão suave é a câmera lenta?",
+          "a": "Depende da taxa de quadros original. Vídeos de 60fps ficarão incrivelmente suaves em velocidade de 0,5x."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Corte de vídeo baseado em navegador",
+      "content": "Corte marcas d'água ou ajuste as proporções instantaneamente. Não há necessidade de fazer upload de arquivos pesados ​​para a nuvem apenas para aparar as bordas."
+    },
+    "privacy": {
+      "title": "Edição de dimensão privada",
+      "content": "Edite o enquadramento do seu vlog pessoal com segurança. Nunca armazenamos ou transmitimos seus dados brutos de vídeo durante o processo de corte."
+    },
+    "performance": {
+      "title": "Corte preciso de quadros",
+      "content": "Nosso mecanismo local recodifica apenas a área selecionada, garantindo bordas nítidas e tempos de renderização extremamente rápidos."
+    },
+    "howto": {
+      "title": "Como cortar vídeos",
+      "steps": [
+        {
+          "title": "Carregar mídia",
+          "desc": "Importe o vídeo que deseja reformular."
+        },
+        {
+          "title": "Definir limites",
+          "desc": "Arraste a caixa de corte para a proporção desejada (por exemplo, 9:16 para TikTok)."
+        },
+        {
+          "title": "Exportar",
+          "desc": "Baixe o vídeo recém-cortado instantaneamente."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre corte de vídeo",
+      "items": [
+        {
+          "q": "O corte reduz o tamanho do arquivo?",
+          "a": "Sim, ao remover pixels do quadro, a taxa de bits geral necessária normalmente é menor."
+        },
+        {
+          "q": "Posso recortar para Instagram Reels?",
+          "a": "Com certeza. Basta definir sua caixa de corte para uma proporção vertical de 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Remoção instantânea de áudio",
+      "content": "Retire faixas de áudio de vídeos em milissegundos. Como ele é executado localmente, você não espera pelas filas do servidor."
+    },
+    "privacy": {
+      "title": "Secure Audio Stripping",
+      "content": "Silencie conversas confidenciais em segundo plano com segurança. A trilha de áudio é descartada dentro do seu navegador, sem deixar rastros digitais."
+    },
+    "performance": {
+      "title": "Recodificação zero necessária",
+      "content": "Quando possível, simplesmente multiplexamos o fluxo de vídeo sem a trilha de áudio, o que significa que o silenciamento leva menos de um segundo."
+    },
+    "howto": {
+      "title": "Como silenciar um vídeo",
+      "steps": [
+        {
+          "title": "Selecionar vídeo",
+          "desc": "Escolha o vídeo que contém o áudio que você deseja remover."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Clique em processo para excluir instantaneamente o fluxo de áudio."
+        },
+        {
+          "title": "Salvar vídeo silencioso",
+          "desc": "Baixe o arquivo de vídeo silenciado."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre silenciamento de vídeo",
+      "items": [
+        {
+          "q": "O silenciamento afeta a qualidade do vídeo?",
+          "a": "De jeito nenhum. Deixamos o fluxo de vídeo visual completamente intocado."
+        },
+        {
+          "q": "Quão rápido é isso?",
+          "a": "Extremamente rápido. Apenas copiamos o stream de vídeo, levando apenas alguns milissegundos."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Marca d'água de vídeo local",
+      "content": "Carimbe seu logotipo em seu conteúdo com segurança. O processamento local significa que você pode colocar marca d'água em gigabytes de vídeo sem atrasos na rede."
+    },
+    "privacy": {
+      "title": "Proteger conteúdo não lançado",
+      "content": "Adicionando uma marca d'água a um filme de pré-lançamento? Faça isso off-line. Sua propriedade intelectual nunca atinge nossos servidores."
+    },
+    "performance": {
+      "title": "Sobreposição acelerada por hardware",
+      "content": "Nosso mecanismo combina com eficiência seu logotipo PNG transparente sobre os quadros de vídeo usando otimizações WebGPU e WASM."
+    },
+    "howto": {
+      "title": "Como adicionar uma marca d'água",
+      "steps": [
+        {
+          "title": "Carregar vídeo e logotipo",
+          "desc": "Importe seu vídeo e uma imagem PNG transparente."
+        },
+        {
+          "title": "Posição",
+          "desc": "Ajusta a escala, a opacidade e a posição da marca d’água."
+        },
+        {
+          "title": "Renderizar vídeo",
+          "desc": "Coloque a marca d'água permanentemente no arquivo de vídeo."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre marcas d'água",
+      "items": [
+        {
+          "q": "Os ladrões podem remover minha marca d'água?",
+          "a": "Como codificamos a imagem nos quadros de vídeo, é extremamente difícil removê-la sem estragar o vídeo."
+        },
+        {
+          "q": "Posso colocar a marca d’água lado a lado?",
+          "a": "Sim, você pode ativar o mosaico para repetir seu logotipo em toda a tela."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Vídeo offline para GIF",
+      "content": "Converta momentos engraçados em GIFs instantaneamente. Nosso codificador GIF local funciona inteiramente em sua máquina, economizando largura de banda."
+    },
+    "privacy": {
+      "title": "Gerador de memes privados",
+      "content": "Transforme vídeos pessoais em GIFs sem enviá-los para servidores de memes públicos. Seu conteúdo permanece 100% privado."
+    },
+    "performance": {
+      "title": "Geração otimizada de paleta",
+      "content": "Usamos quantização avançada de cores para gerar GIFs de alta qualidade com tamanhos de arquivo pequenos, rodando diretamente em seu navegador."
+    },
+    "howto": {
+      "title": "Como criar um GIF",
+      "steps": [
+        {
+          "title": "Cortar vídeo",
+          "desc": "Selecione um pequeno segmento do seu vídeo."
+        },
+        {
+          "title": "Definir taxa de quadros",
+          "desc": "Escolha entre 15fps ou 30fps para a animação GIF."
+        },
+        {
+          "title": "Gerar",
+          "desc": "Salve a imagem GIF em loop."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre vídeo para GIF",
+      "items": [
+        {
+          "q": "Por que os GIFs às vezes são grandes?",
+          "a": "GIFs são um formato antigo que não é altamente compactado. Recomendamos manter os clipes com menos de 5 segundos."
+        },
+        {
+          "q": "Suporta fundos transparentes?",
+          "a": "Se o seu vídeo de origem tiver um canal alfa (como WebM), tentamos preservar a transparência."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Compressão de áudio local",
+      "content": "Reduza arquivos WAV ou podcasts enormes instantaneamente. Ao eliminar a fase de upload, nossa ferramenta baseada em navegador é a maneira mais rápida de compactar áudio."
+    },
+    "privacy": {
+      "title": "Processamento de áudio confidencial",
+      "content": "Compactando músicas não lançadas ou memorandos de voz privados? Seu áudio é estritamente processado localmente. Nunca armazenamos suas faixas."
+    },
+    "performance": {
+      "title": "Codificação psicoacústica",
+      "content": "Nosso codificador WASM elimina frequências inaudíveis, reduzindo o tamanho dos arquivos de áudio em até 80%, mantendo um som nítido."
+    },
+    "howto": {
+      "title": "Como compactar áudio",
+      "steps": [
+        {
+          "title": "Carregar faixa",
+          "desc": "Selecione seu arquivo MP3, WAV ou AAC."
+        },
+        {
+          "title": "Escolha o tamanho do destino",
+          "desc": "Ajuste a taxa de bits para uma compactação mais pesada."
+        },
+        {
+          "title": "Baixe",
+          "desc": "Obtenha o arquivo de áudio leve e otimizado."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre compressão de áudio",
+      "items": [
+        {
+          "q": "Minha música soará ruim?",
+          "a": "Usamos algoritmos perceptivos de alta qualidade para que a compressão seja praticamente indistinguível ao ouvido humano."
+        },
+        {
+          "q": "Posso compactar podcasts de uma hora?",
+          "a": "Sim, nossa ferramenta lida com áudio de formato longo sem esforço em seu navegador."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Conversor de áudio no navegador",
+      "content": "Traduza formatos de som instantaneamente sem executar ping em um servidor. Perfeito para alternar entre os formatos WAV, MP3 e OGG localmente."
+    },
+    "privacy": {
+      "title": "Tradução de áudio com upload zero",
+      "content": "Suas gravações de voz são exclusivamente suas. Nosso mecanismo de conversão offline garante privacidade absoluta para áudio sensível."
+    },
+    "performance": {
+      "title": "Codecs extremamente rápidos",
+      "content": "A conversão de áudio é computacionalmente leve. Nosso mecanismo local transcodifica uma música de 5 minutos em menos de 2 segundos."
+    },
+    "howto": {
+      "title": "Como converter formatos de áudio",
+      "steps": [
+        {
+          "title": "Selecione Áudio",
+          "desc": "Solte seu arquivo de áudio não suportado na ferramenta."
+        },
+        {
+          "title": "Escolha a saída",
+          "desc": "Escolha o formato desejado (por exemplo, MP3 para reprodução universal)."
+        },
+        {
+          "title": "Salvar arquivo",
+          "desc": "Baixe a faixa de áudio recém-formatada."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre conversor de áudio",
+      "items": [
+        {
+          "q": "Posso converter MP3 com perdas em WAV sem perdas?",
+          "a": "Você pode, mas não restaurará a qualidade perdida. Isso simplesmente mudará o formato do contêiner."
+        },
+        {
+          "q": "As tags ID3 são preservadas?",
+          "a": "Fazemos todos os esforços para transferir metadados como nome do artista e capa do álbum."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Extração local de vídeo para áudio",
+      "content": "Extraia MP3s de MP4s instantaneamente. Ignorar os uploads na nuvem significa que você pode extrair o áudio de um vídeo de 2 GB em segundos."
+    },
+    "privacy": {
+      "title": "Extração segura de áudio",
+      "content": "Extraia áudio de vídeos familiares privados com segurança. O processo acontece inteiramente na sandbox do seu navegador."
+    },
+    "performance": {
+      "title": "Tecnologia de Cópia de Stream",
+      "content": "Sempre que possível, utilizamos a cópia direta de stream para extrair o áudio sem recodificação, garantindo 100% de qualidade original."
+    },
+    "howto": {
+      "title": "Como extrair áudio",
+      "steps": [
+        {
+          "title": "Carregar vídeo",
+          "desc": "Selecione o arquivo MP4, MOV ou MKV."
+        },
+        {
+          "title": "Extrair",
+          "desc": "Clique em processo para extrair a trilha de áudio."
+        },
+        {
+          "title": "Baixar MP3",
+          "desc": "Salve o arquivo de som extraído."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre vídeo para áudio",
+      "items": [
+        {
+          "q": "A qualidade do áudio original foi preservada?",
+          "a": "Sim, extraímos o stream de áudio exato incorporado no vídeo."
+        },
+        {
+          "q": "Posso extrair áudio de um vídeo 4K?",
+          "a": "Com certeza. A resolução do vídeo não afeta a velocidade de extração de áudio."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Joiner de áudio baseado em navegador",
+      "content": "Combine várias faixas de áudio em um único arquivo localmente. Não há necessidade de fazer upload de sessões pesadas de múltiplas trilhas para um servidor."
+    },
+    "privacy": {
+      "title": "Private Track Splicing",
+      "content": "Participando de segmentos de podcast ou entrevistas confidenciais? Nossa ferramenta processa a mesclagem com segurança no seu dispositivo."
+    },
+    "performance": {
+      "title": "Crossfading contínuo",
+      "content": "Nosso mecanismo WASM une arquivos de áudio perfeitamente, garantindo uma reprodução sem intervalos e alinhamento perfeito."
+    },
+    "howto": {
+      "title": "Como mesclar áudio",
+      "steps": [
+        {
+          "title": "Carregar faixas",
+          "desc": "Selecione dois ou mais arquivos de áudio."
+        },
+        {
+          "title": "Ordem de organização",
+          "desc": "Arraste e solte para definir a sequência de reprodução."
+        },
+        {
+          "title": "Unir arquivos",
+          "desc": "Baixe a faixa master combinada."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre fusão de áudio",
+      "items": [
+        {
+          "q": "Posso mesclar MP3 e WAV?",
+          "a": "Sim, nosso mecanismo normalizará automaticamente os formatos durante a mesclagem."
+        },
+        {
+          "q": "Existe uma lacuna entre as faixas unidas?",
+          "a": "Não, as faixas são costuradas exatamente de ponta a ponta para uma reprodução sem intervalos."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Transcrição de IA local",
+      "content": "Transforme fala em texto diretamente no seu navegador. Usando o Whisper AI via WebAssembly, você não precisa enviar seu áudio para a nuvem."
+    },
+    "privacy": {
+      "title": "Confidencialidade Absoluta",
+      "content": "Transcrever registros legais ou médicos? Esta é a única maneira segura. A rede neural funciona localmente, garantindo zero vazamento de dados."
+    },
+    "performance": {
+      "title": "IA acelerada por WebGPU",
+      "content": "Aproveitamos a GPU do seu dispositivo para executar o modelo Whisper, fornecendo transcrições altamente precisas significativamente mais rápidas do que o processamento da CPU."
+    },
+    "howto": {
+      "title": "Como transcrever áudio",
+      "steps": [
+        {
+          "title": "Carregar modelo",
+          "desc": "Aguarde até que o modelo leve de IA seja armazenado em cache em seu navegador."
+        },
+        {
+          "title": "Carregar mídia",
+          "desc": "Selecione o arquivo de áudio ou vídeo a ser transcrito."
+        },
+        {
+          "title": "Exportar texto",
+          "desc": "Salve a transcrição gerada como legendas TXT ou SRT."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre transcrição de IA",
+      "items": [
+        {
+          "q": "Suporta vários idiomas?",
+          "a": "Sim, o modelo Whisper suporta inglês, indonésio, espanhol e dezenas de outros."
+        },
+        {
+          "q": "Por que ele baixa um arquivo primeiro?",
+          "a": "Ele precisa armazenar em cache os pesos da rede neural de IA no seu dispositivo uma vez. Depois disso, funciona offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Gravador de estúdio com latência zero",
+      "content": "Grave sua tela, webcam e microfone diretamente no navegador. Não é necessária instalação de software ou upload de servidor."
+    },
+    "privacy": {
+      "title": "Gravação segura do lado do cliente",
+      "content": "Gravando apresentações confidenciais? Seu vídeo é capturado diretamente na memória do seu navegador e salvo localmente."
+    },
+    "performance": {
+      "title": "Codificação de hardware HD",
+      "content": "Utilizamos a API MediaRecorder com aceleração de hardware para capturar imagens nítidas em 1080p e 4K sem perder quadros."
+    },
+    "howto": {
+      "title": "Como gravar",
+      "steps": [
+        {
+          "title": "Conceder permissões",
+          "desc": "Permitir acesso do navegador à sua câmera e microfone."
+        },
+        {
+          "title": "Selecionar fontes",
+          "desc": "Escolha entre compartilhamento de tela, webcam ou ambos."
+        },
+        {
+          "title": "Grave e salve",
+          "desc": "Clique em gravar e baixe o MP4 final instantaneamente quando terminar."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre o gravador de estúdio",
+      "items": [
+        {
+          "q": "Posso gravar o áudio do sistema?",
+          "a": "Sim, ao compartilhar uma aba do Chrome ou tela inteira no Windows, você pode marcar ‘Compartilhar Áudio do Sistema’."
+        },
+        {
+          "q": "Existe limite de tempo?",
+          "a": "Você está limitado apenas pela RAM e armazenamento disponíveis em seu dispositivo local."
+        }
+      ]
+    }
+  }
+}

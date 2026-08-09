@@ -1,0 +1,26 @@
+{
+  "langName": "한국어",
+  "flag": "🇰🇷",
+  "nav": {
+    "compress_video": "비디오 압축",
+    "convert_video": "비디오 변환",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "비디오 최적화",
+    "cat_video_edit": "비디오 편집",
+    "cat_audio": "오디오 도구",
+    "cat_ai": "AI & 스튜디오",
+    "speed": "속도 변경",
+    "gif": "비디오를 GIF로",
+    "crop": "비디오 자르기",
+    "mute": "비디오 음소거",
+    "watermark": "워터마크 추가",
+    "compress_audio": "오디오 압축",
+    "convert_audio": "오디오 변환",
+    "video_to_audio": "비디오를 오디오로",
+    "merge_audio": "오디오 병합",
+    "transcribe": "AI 미디어를 텍스트로",
+    "studio_recorder": "스튜디오 레코더"
+  },
+  "search_lang": "Search language..."
+}

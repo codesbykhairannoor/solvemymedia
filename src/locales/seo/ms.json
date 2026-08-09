@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Pemampatan Video Sisi Pelanggan",
+      "content": "Enjin kami berjalan terus di dalam penyemak imbas anda. Dengan menghapuskan muat naik pelayan, kami menjamin masa menunggu sifar untuk pemindahan data dan pemampatan segera bermula."
+    },
+    "privacy": {
+      "title": "Jumlah Privasi Video",
+      "content": "Video dan rakaman peribadi anda yang belum dikeluarkan kekal pada mesin anda. Kami menggunakan WASM untuk memampatkan fail secara setempat, bermakna data anda tidak pernah disimpan pada pelayan kami."
+    },
+    "performance": {
+      "title": "WebCodecs Acceleration",
+      "content": "Memanfaatkan pengekodan GPU dipercepatkan perkakasan, kami mengecilkan fail MP4 dan WebM besar-besaran sehingga 90% dalam beberapa saat sahaja."
+    },
+    "howto": {
+      "title": "Cara Memampatkan Video",
+      "steps": [
+        {
+          "title": "Pilih MP4/WebM",
+          "desc": "Seret fail video berat anda ke dalam dropzone."
+        },
+        {
+          "title": "Tetapkan Sasaran Kualiti",
+          "desc": "Pilih antara pemampatan maksimum atau kualiti seimbang."
+        },
+        {
+          "title": "Simpan Serta-merta",
+          "desc": "Muat turun video yang dioptimumkan serta-merta."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Pemampatan Video",
+      "items": [
+        {
+          "q": "Adakah video saya akan kehilangan kualiti?",
+          "a": "Kami menggunakan pengekodan kadar bit pembolehubah pintar (VBR) untuk mengekalkan kesetiaan visual sambil membuang data yang tidak kelihatan."
+        },
+        {
+          "q": "Adakah terdapat had saiz?",
+          "a": "Tiada had buatan. Anda boleh memproses gigabait video jika peranti anda mempunyai RAM yang mencukupi."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Penukaran Video Setempat",
+      "content": "Terjemah format video di luar talian. Alat kami memintas infrastruktur awan, memastikan anda boleh menukar MKV kepada MP4 walaupun pada sambungan perlahan."
+    },
+    "privacy": {
+      "title": "Terjemahan Format Sifar Amanah",
+      "content": "Video korporat sulit? Kami tidak mahu mereka. Enjin berasaskan FFmpeg kami menterjemah codec video dengan selamat di dalam kotak pasir peranti anda."
+    },
+    "performance": {
+      "title": "Transkod Segera",
+      "content": "Dengan melangkau fasa muat naik/muat turun, transkoder tempatan kami secara eksponen lebih pantas daripada penukar video berasaskan awan tradisional."
+    },
+    "howto": {
+      "title": "Cara Menukar Format Video",
+      "steps": [
+        {
+          "title": "Import Video",
+          "desc": "Muatkan sebarang format video yang tidak disokong seperti MKV atau AVI."
+        },
+        {
+          "title": "Pilih Output",
+          "desc": "Pilih codec yang anda inginkan, seperti H.264 MP4 atau WebM."
+        },
+        {
+          "title": "Hasil Muat Turun",
+          "desc": "Dapatkan fail video yang boleh dimainkan secara universal."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Penukar Video",
+      "items": [
+        {
+          "q": "Adakah penukaran mengurangkan kualiti?",
+          "a": "Tidak jika anda memilih sasaran kadar bit tinggi atau tanpa kerugian. Kami lalai untuk mengekalkan resolusi asal."
+        },
+        {
+          "q": "Bolehkah saya menukar MKV dengan sari kata?",
+          "a": "Ya, strim sari kata standard disokong semasa penukaran MP4."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Masa Semula Video Tanpa Ping",
+      "content": "Perlahankan atau percepatkan klip anda serta-merta. Pemasa semula berasaskan pelayar kami memproses bingkai secara setempat tanpa kependaman pelayan."
+    },
+    "privacy": {
+      "title": "Pemprosesan Bingkai Selamat",
+      "content": "Sorotan sukan dan tutorial tarian anda kekal peribadi. Interpolasi bingkai dan pelarasan kelajuan berlaku sepenuhnya di luar talian."
+    },
+    "performance": {
+      "title": "Pembetulan Padang Pantas",
+      "content": "Kami mengendalikan kedua-dua kadar bingkai visual dan pembetulan pic audio secara serentak dalam masa nyata, menyampaikan video terakhir dalam beberapa saat."
+    },
+    "howto": {
+      "title": "Cara Menukar Kelajuan Video",
+      "steps": [
+        {
+          "title": "Tambah Video",
+          "desc": "Muat naik klip yang anda ingin percepatkan atau perlahankan."
+        },
+        {
+          "title": "Laraskan Peluncur",
+          "desc": "Tetapkan pengganda (cth., 0.5x untuk slow-mo, 2x untuk fast-forward)."
+        },
+        {
+          "title": "Render",
+          "desc": "Simpan video yang dihentikan pada peranti anda."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Kelajuan Video",
+      "items": [
+        {
+          "q": "Adakah audio akan berbunyi seperti chipmunk?",
+          "a": "Kami menggunakan pembetulan nada dinamik supaya suara berbunyi semula jadi walaupun pada kelajuan 2x."
+        },
+        {
+          "q": "Seberapa lancarkah pergerakan perlahan?",
+          "a": "Ia bergantung pada kadar bingkai asal. Video 60fps akan kelihatan sangat lancar pada kelajuan 0.5x."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Pemotongan Video Berasaskan Pelayar",
+      "content": "Potong tera air atau laraskan nisbah bidang serta-merta. Tidak perlu memuat naik fail berat ke awan hanya untuk memangkas tepi."
+    },
+    "privacy": {
+      "title": "Penyuntingan Dimensi Peribadi",
+      "content": "Edit pembingkaian vlog peribadi anda dengan selamat. Kami tidak pernah menyimpan atau menghantar data video mentah anda semasa proses pemangkasan."
+    },
+    "performance": {
+      "title": "Pemotongan Bingkai Ketepatan",
+      "content": "Enjin tempatan kami mengekod semula hanya kawasan yang dipilih, memastikan tepi yang tajam dan masa pemaparan yang pantas."
+    },
+    "howto": {
+      "title": "Cara Memangkas Video",
+      "steps": [
+        {
+          "title": "Muatkan Media",
+          "desc": "Import video yang ingin anda rangkakan semula."
+        },
+        {
+          "title": "Tetapkan Sempadan",
+          "desc": "Seret kotak pangkas ke nisbah bidang yang anda inginkan (cth., 9:16 untuk TikTok)."
+        },
+        {
+          "title": "Eksport",
+          "desc": "Muat turun video yang baru dipangkas serta-merta."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Pemotongan Video",
+      "items": [
+        {
+          "q": "Adakah pemangkasan mengurangkan saiz fail?",
+          "a": "Ya, dengan mengalih keluar piksel daripada bingkai, kadar bit keseluruhan yang diperlukan biasanya lebih rendah."
+        },
+        {
+          "q": "Bolehkah saya memangkas untuk Gelendong Instagram?",
+          "a": "Sama sekali. Hanya tetapkan kotak pangkas anda kepada nisbah menegak 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Pembuangan Audio Segera",
+      "content": "Keluarkan trek audio daripada video dalam milisaat. Kerana ia berjalan secara tempatan, anda tidak menunggu giliran pelayan."
+    },
+    "privacy": {
+      "title": "Pelucutan Audio Selamat",
+      "content": "Redamkan perbualan latar belakang sensitif dengan selamat. Runut audio dibuang di dalam penyemak imbas anda, tidak meninggalkan kesan digital."
+    },
+    "performance": {
+      "title": "Pengekodan Semula Sifar Diperlukan",
+      "content": "Jika boleh, kami hanya memultiplekskan strim video tanpa trek audio, bermakna meredam mengambil masa kurang daripada satu saat."
+    },
+    "howto": {
+      "title": "Cara Membisukan Video",
+      "steps": [
+        {
+          "title": "Pilih Video",
+          "desc": "Pilih video yang mengandungi audio yang ingin anda alih keluar."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Klik proses untuk memadamkan strim audio dengan serta-merta."
+        },
+        {
+          "title": "Simpan Video Senyap",
+          "desc": "Muat turun fail video yang diredamkan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Redam Video",
+      "items": [
+        {
+          "q": "Adakah redaman menjejaskan kualiti video?",
+          "a": "Tidak sama sekali. Kami membiarkan aliran video visual tidak disentuh sepenuhnya."
+        },
+        {
+          "q": "Berapa cepat ini?",
+          "a": "Sangat laju. Kami hanya menyalin strim video, mengambil hanya beberapa milisaat."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Penanda Air Video Tempatan",
+      "content": "Cop logo anda pada kandungan anda dengan selamat. Pemprosesan tempatan bermakna anda boleh menanda air gigabait video tanpa kelewatan rangkaian."
+    },
+    "privacy": {
+      "title": "Lindungi Kandungan Belum Dikeluarkan",
+      "content": "Menambah tera air pada filem pra-keluaran? Lakukan di luar talian. Harta intelek anda tidak pernah menyentuh pelayan kami."
+    },
+    "performance": {
+      "title": "Tindanan Dipercepatkan Perkakasan",
+      "content": "Enjin kami menggabungkan logo PNG lutsinar anda dengan cekap pada bingkai video menggunakan pengoptimuman WebGPU dan WASM."
+    },
+    "howto": {
+      "title": "Cara Menambah Tera Air",
+      "steps": [
+        {
+          "title": "Muat Naik Video & Logo",
+          "desc": "Import video anda dan imej PNG telus."
+        },
+        {
+          "title": "Kedudukan",
+          "desc": "Laraskan skala, kelegapan dan kedudukan tera air."
+        },
+        {
+          "title": "Render Video",
+          "desc": "Bakar tera air secara kekal ke dalam fail video."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Penanda Air",
+      "items": [
+        {
+          "q": "Bolehkah pencuri mengalih keluar tera air saya?",
+          "a": "Kerana kami mengekod keras imej ke dalam bingkai video, amat sukar untuk dialih keluar tanpa merosakkan video."
+        },
+        {
+          "q": "Bolehkah saya jubinkan tera air?",
+          "a": "Ya, anda boleh mendayakan jubin mengulang logo anda di seluruh skrin."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Video Luar Talian kepada GIF",
+      "content": "Tukar detik lucu kepada GIF serta-merta. Pengekod GIF tempatan kami berfungsi sepenuhnya pada mesin anda, menjimatkan lebar jalur anda."
+    },
+    "privacy": {
+      "title": "Penjana Meme Peribadi",
+      "content": "Tukar video peribadi kepada GIF tanpa memuat naiknya ke pelayan meme awam. Kandungan anda kekal 100% peribadi."
+    },
+    "performance": {
+      "title": "Penjanaan Palet Dioptimumkan",
+      "content": "Kami menggunakan pengkuantitian warna lanjutan untuk menjana GIF berkualiti tinggi dengan saiz fail yang kecil, berjalan terus dalam penyemak imbas anda."
+    },
+    "howto": {
+      "title": "Cara Membuat GIF",
+      "steps": [
+        {
+          "title": "Potong Video",
+          "desc": "Pilih segmen pendek video anda."
+        },
+        {
+          "title": "Tetapkan Kadar Bingkai",
+          "desc": "Pilih antara 15fps atau 30fps untuk animasi GIF."
+        },
+        {
+          "title": "Jana",
+          "desc": "Simpan imej GIF gelung."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Video ke GIF",
+      "items": [
+        {
+          "q": "Mengapa GIF kadangkala besar?",
+          "a": "GIF ialah format lama yang tidak sangat dimampatkan. Kami mengesyorkan menyimpan klip di bawah 5 saat."
+        },
+        {
+          "q": "Adakah ia menyokong latar belakang lutsinar?",
+          "a": "Jika video sumber anda mempunyai saluran alfa (seperti WebM), kami cuba mengekalkan ketelusan."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Mampatan Audio Tempatan",
+      "content": "Kecilkan fail WAV besar-besaran atau podcast serta-merta. Dengan menghapuskan fasa muat naik, alat berasaskan penyemak imbas kami ialah cara terpantas untuk memampatkan audio."
+    },
+    "privacy": {
+      "title": "Pemprosesan Audio Sulit",
+      "content": "Memampatkan muzik yang belum dikeluarkan atau memo suara peribadi? Audio anda diproses dengan ketat secara setempat. Kami tidak pernah menyimpan jejak anda."
+    },
+    "performance": {
+      "title": "Pengekodan Psikoakustik",
+      "content": "Pengekod WASM kami mengeluarkan frekuensi yang tidak boleh didengar, mengurangkan saiz fail audio sehingga 80% sambil mengekalkan bunyi yang segar."
+    },
+    "howto": {
+      "title": "Cara Memampat Audio",
+      "steps": [
+        {
+          "title": "Muat Naik Trek",
+          "desc": "Pilih fail MP3, WAV atau AAC anda."
+        },
+        {
+          "title": "Pilih Saiz Sasaran",
+          "desc": "Laraskan kadar bit untuk pemampatan yang lebih berat."
+        },
+        {
+          "title": "Muat turun",
+          "desc": "Dapatkan fail audio yang dioptimumkan dan ringan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Pemampatan Audio",
+      "items": [
+        {
+          "q": "Adakah lagu saya berbunyi buruk?",
+          "a": "Kami menggunakan algoritma persepsi berkualiti tinggi supaya pemampatan hampir tidak dapat dibezakan dengan telinga manusia."
+        },
+        {
+          "q": "Bolehkah saya memampatkan podcast selama sejam?",
+          "a": "Ya, alat kami mengendalikan audio bentuk panjang dengan mudah dalam penyemak imbas anda."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Penukar Audio Dalam Penyemak Imbas",
+      "content": "Terjemah format bunyi serta-merta tanpa ping pelayan. Sesuai untuk menukar antara format WAV, MP3 dan OGG secara tempatan."
+    },
+    "privacy": {
+      "title": "Terjemahan Audio Muat Naik Sifar",
+      "content": "Rakaman suara anda adalah milik anda sahaja. Enjin penukaran luar talian kami menjamin privasi mutlak untuk audio sensitif."
+    },
+    "performance": {
+      "title": "Codec Sepantas Kilat",
+      "content": "Penukaran audio adalah ringan dari segi pengiraan. Enjin tempatan kami mengubah kod lagu 5 minit dalam masa kurang daripada 2 saat."
+    },
+    "howto": {
+      "title": "Cara Menukar Format Audio",
+      "steps": [
+        {
+          "title": "Pilih Audio",
+          "desc": "Letakkan fail audio anda yang tidak disokong ke dalam alat."
+        },
+        {
+          "title": "Pilih Output",
+          "desc": "Pilih format yang anda inginkan (cth., MP3 untuk main balik universal)."
+        },
+        {
+          "title": "Simpan Fail",
+          "desc": "Muat turun trek audio yang baru diformat."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Penukar Audio",
+      "items": [
+        {
+          "q": "Bolehkah saya menukar MP3 lossy kepada WAV tanpa kehilangan?",
+          "a": "Anda boleh, tetapi ia tidak akan memulihkan kualiti yang hilang. Ia hanya akan menukar format bekas."
+        },
+        {
+          "q": "Adakah tag ID3 dipelihara?",
+          "a": "Kami berusaha sedaya upaya untuk memindahkan metadata seperti nama artis dan seni album."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Video Tempatan ke Pengekstrakan Audio",
+      "content": "Ekstrak MP3 daripada MP4 serta-merta. Memintas muat naik awan bermakna anda boleh merobek audio daripada video 2GB dalam beberapa saat."
+    },
+    "privacy": {
+      "title": "Ripping Audio Selamat",
+      "content": "Ekstrak audio daripada video keluarga peribadi dengan selamat. Proses ini berlaku sepenuhnya dalam kotak pasir penyemak imbas anda."
+    },
+    "performance": {
+      "title": "Teknologi Penyalinan Strim",
+      "content": "Apabila boleh, kami menggunakan penyalinan strim langsung untuk mengekstrak audio tanpa pengekodan semula, memastikan kualiti asli 100%."
+    },
+    "howto": {
+      "title": "Cara Mengekstrak Audio",
+      "steps": [
+        {
+          "title": "Muat Naik Video",
+          "desc": "Pilih fail MP4, MOV atau MKV."
+        },
+        {
+          "title": "Ekstrak",
+          "desc": "Klik proses untuk merobek trek audio."
+        },
+        {
+          "title": "Muat turun MP3",
+          "desc": "Simpan fail bunyi yang diekstrak."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Video ke Audio",
+      "items": [
+        {
+          "q": "Adakah kualiti audio asal dikekalkan?",
+          "a": "Ya, kami mengekstrak strim audio tepat yang dibenamkan dalam video."
+        },
+        {
+          "q": "Bolehkah saya mengeluarkan audio daripada video 4K?",
+          "a": "Sama sekali. Peleraian video tidak menjejaskan kelajuan pengekstrakan audio."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Penyambung Audio Berasaskan Pelayar",
+      "content": "Gabungkan berbilang trek audio ke dalam satu fail secara setempat. Tidak perlu memuat naik sesi berbilang trek yang berat ke pelayan."
+    },
+    "privacy": {
+      "title": "Penyambungan Trek Peribadi",
+      "content": "Menyertai segmen podcast atau temu bual sulit? Alat kami memproses cantuman dengan selamat pada peranti anda."
+    },
+    "performance": {
+      "title": "Crossfading Lancar",
+      "content": "Enjin WASM kami mencantumkan fail audio bersama-sama dengan lancar, memastikan main balik tanpa celah dan penjajaran sempurna."
+    },
+    "howto": {
+      "title": "Cara Menggabungkan Audio",
+      "steps": [
+        {
+          "title": "Muat Naik Lagu",
+          "desc": "Pilih dua atau lebih fail audio."
+        },
+        {
+          "title": "Susun Tertib",
+          "desc": "Seret dan lepas untuk menetapkan urutan main balik."
+        },
+        {
+          "title": "Sertai Fail",
+          "desc": "Muat turun trek induk gabungan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Penggabungan Audio",
+      "items": [
+        {
+          "q": "Bolehkah saya menggabungkan MP3 dan WAV bersama-sama?",
+          "a": "Ya, enjin kami akan menormalkan format secara automatik semasa penggabungan."
+        },
+        {
+          "q": "Adakah terdapat jurang antara trek yang dicantumkan?",
+          "a": "Tidak, trek dijahit betul-betul hujung ke hujung untuk main balik tanpa celah."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Transkripsi AI Setempat",
+      "content": "Tukar pertuturan kepada teks terus dalam penyemak imbas anda. Menggunakan Whisper AI melalui WebAssembly, anda tidak perlu menghantar audio anda ke awan."
+    },
+    "privacy": {
+      "title": "Kerahsiaan Mutlak",
+      "content": "Mentranskripsi rekod undang-undang atau perubatan? Ini adalah satu-satunya cara selamat. Rangkaian saraf berjalan secara tempatan, memastikan kebocoran data sifar."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Kami memanfaatkan GPU peranti anda untuk menjalankan model Whisper, menyampaikan transkrip yang sangat tepat dengan ketara lebih pantas daripada pemprosesan CPU."
+    },
+    "howto": {
+      "title": "Cara Transkripsi Audio",
+      "steps": [
+        {
+          "title": "Muatkan Model",
+          "desc": "Tunggu model AI ringan dicache dalam penyemak imbas anda."
+        },
+        {
+          "title": "Muat Naik Media",
+          "desc": "Pilih fail audio atau video untuk ditranskripsikan."
+        },
+        {
+          "title": "Eksport Teks",
+          "desc": "Simpan transkrip yang dijana sebagai sari kata TXT atau SRT."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Transkripsi AI",
+      "items": [
+        {
+          "q": "Adakah ia menyokong berbilang bahasa?",
+          "a": "Ya, model Whisper menyokong bahasa Inggeris, Indonesia, Sepanyol dan berdozen-dozen lagi."
+        },
+        {
+          "q": "Mengapakah ia memuat turun fail dahulu?",
+          "a": "Ia perlu cache pemberat rangkaian saraf AI ke peranti anda sekali. Selepas itu, ia berfungsi di luar talian."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Perakam Studio Zero-Latency",
+      "content": "Rakam skrin, kamera web dan mikrofon anda terus dalam penyemak imbas. Tiada pemasangan perisian atau muat naik pelayan diperlukan."
+    },
+    "privacy": {
+      "title": "Rakaman Sebelah Klien Selamat",
+      "content": "Rakam pembentangan sensitif? Video anda ditangkap terus ke dalam memori penyemak imbas anda dan disimpan secara setempat."
+    },
+    "performance": {
+      "title": "Pengekodan Perkakasan HD",
+      "content": "Kami menggunakan API MediaRecorder dengan pecutan perkakasan untuk menangkap rakaman 1080p dan 4K yang jelas tanpa menjatuhkan bingkai."
+    },
+    "howto": {
+      "title": "Cara Merakam",
+      "steps": [
+        {
+          "title": "Berikan Kebenaran",
+          "desc": "Benarkan akses penyemak imbas ke kamera dan mikrofon anda."
+        },
+        {
+          "title": "Pilih Sumber",
+          "desc": "Pilih antara Kongsi Skrin, Webcam atau kedua-duanya."
+        },
+        {
+          "title": "Rakam & Simpan",
+          "desc": "Tekan rekod, kemudian muat turun MP4 terakhir serta-merta apabila selesai."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Soalan Lazim Perakam Studio",
+      "items": [
+        {
+          "q": "Bolehkah saya merakam audio sistem?",
+          "a": "Ya, apabila berkongsi tab Chrome atau keseluruhan skrin pada Windows, anda boleh menyemak 'Kongsi Audio Sistem'."
+        },
+        {
+          "q": "Adakah terdapat had masa?",
+          "a": "Anda hanya terhad oleh RAM dan storan yang tersedia pada peranti tempatan anda."
+        }
+      ]
+    }
+  }
+}

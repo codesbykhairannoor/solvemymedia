@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Asiakaspuolen videon pakkaus",
+      "content": "Moottorimme toimii suoraan selaimesi sisällä. Poistamalla palvelimen lataukset takaamme nollan odotusajan tiedonsiirrolle ja välittömän pakkauksen alkamisen."
+    },
+    "privacy": {
+      "title": "Täydellinen videon tietosuoja",
+      "content": "Julkaisemattomat videosi ja henkilökohtaiset nauhoitteesi pysyvät koneessasi. Käytämme WASM:ää tiedostojen pakkaamiseen paikallisesti, mikä tarkoittaa, että tietojasi ei koskaan tallenneta palvelimillemme."
+    },
+    "performance": {
+      "title": "WebCodecs Acceleration",
+      "content": "Hyödyntämällä laitteistokiihdytettyä GPU-koodausta supistamme massiiviset MP4- ja WebM-tiedostot jopa 90 % muutamassa sekunnissa."
+    },
+    "howto": {
+      "title": "Videon pakkaaminen",
+      "steps": [
+        {
+          "title": "Valitse MP4/WebM",
+          "desc": "Vedä painava videotiedosto pudotusalueelle."
+        },
+        {
+          "title": "Aseta laatutavoite",
+          "desc": "Valitse maksimipakkaus tai tasapainoinen laatu."
+        },
+        {
+          "title": "Tallenna heti",
+          "desc": "Lataa optimoitu video välittömästi."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videon pakkausta koskevat usein kysytyt kysymykset",
+      "items": [
+        {
+          "q": "Meneekö videoni laatu?",
+          "a": "Käytämme VBR (Smart Varable Bitrate) -koodausta visuaalisen tarkkuuden säilyttämiseksi samalla, kun hylkäämme näkymätöntä dataa."
+        },
+        {
+          "q": "Onko kokorajoituksia?",
+          "a": "Ei keinotekoisia rajoituksia. Voit käsitellä gigatavua videota, jos laitteessasi on tarpeeksi RAM-muistia."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Paikallinen videomuunnos",
+      "content": "Käännä videomuotoja offline-tilassa. Työkalumme ohittaa pilviinfrastruktuurin ja varmistaa, että voit muuntaa MKV:n MP4:ksi jopa hitailla yhteyksillä."
+    },
+    "privacy": {
+      "title": "Zero-Trust Format Translation",
+      "content": "Luottamuksellisia yritysvideoita? Emme halua niitä. FFmpeg-pohjainen moottorimme kääntää videokoodekit turvallisesti laitteesi hiekkalaatikossa."
+    },
+    "performance": {
+      "title": "Välitön transkoodaus",
+      "content": "Kun lataus-/latausvaihe ohitetaan, paikallinen transkooderimme on eksponentiaalisesti nopeampi kuin perinteiset pilvipohjaiset videomuuntimet."
+    },
+    "howto": {
+      "title": "Videomuotojen muuntaminen",
+      "steps": [
+        {
+          "title": "Tuo video",
+          "desc": "Lataa kaikki videomuodot, joita ei tueta, kuten MKV tai AVI."
+        },
+        {
+          "title": "Valitse lähtö",
+          "desc": "Valitse haluamasi koodekki, kuten H.264 MP4 tai WebM."
+        },
+        {
+          "title": "Lataa tulos",
+          "desc": "Hanki yleisesti toistettava videotiedosto."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Converter UKK",
+      "items": [
+        {
+          "q": "Heikentääkö muuntaminen laatua?",
+          "a": "Ei, jos valitset korkean bittinopeuden tai häviöttömän kohteen. Säilytämme oletuksena alkuperäisen resoluution."
+        },
+        {
+          "q": "Voinko muuntaa MKV:n tekstityksellä?",
+          "a": "Kyllä, tavallisia tekstitysvirtoja tuetaan MP4-muunnoksen aikana."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "No-Ping Video Retiming",
+      "content": "Hidasta tai nopeuta leikkeitäsi välittömästi. Selainpohjainen uudelleenajastimemme käsittelee kehyksiä paikallisesti ilman palvelimen viivettä."
+    },
+    "privacy": {
+      "title": "Suojattu kehyskäsittely",
+      "content": "Urheilukohokohdat ja tanssiopetusohjelmasi pysyvät yksityisinä. Kehyksen interpolointi ja nopeuden säädöt tapahtuvat täysin offline-tilassa."
+    },
+    "performance": {
+      "title": "Nopea sävelkorjaus",
+      "content": "Käsittelemme sekä visuaalisen kehysnopeuden että äänenkorkeuden korjauksen samanaikaisesti reaaliajassa, jolloin lopullinen video toimitetaan sekunneissa."
+    },
+    "howto": {
+      "title": "Videon nopeuden muuttaminen",
+      "steps": [
+        {
+          "title": "Lisää video",
+          "desc": "Lataa leike, jota haluat nopeuttaa tai hidastaa."
+        },
+        {
+          "title": "Säädä liukusäädintä",
+          "desc": "Aseta kerroin (esim. 0,5x hidastuksessa, 2x pikakelauksessa)."
+        },
+        {
+          "title": "Renderöi",
+          "desc": "Tallenna uusittu video laitteellesi."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videon nopeus UKK",
+      "items": [
+        {
+          "q": "Kuulostaako ääni maaoravalta?",
+          "a": "Käytämme dynaamista äänenkorkeuden korjausta, jotta äänet kuulostavat luonnolliselta jopa kaksinkertaisella nopeudella."
+        },
+        {
+          "q": "Kuinka sujuvaa hidastettu esitys on?",
+          "a": "Se riippuu alkuperäisestä kuvanopeudesta. 60 fps -videot näyttävät uskomattoman pehmeiltä 0,5-kertaisella nopeudella."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Selainpohjainen videon rajaus",
+      "content": "Rajaa pois vesileimat tai säädä kuvasuhteita välittömästi. Sinun ei tarvitse ladata raskaita tiedostoja pilveen vain reunojen leikkaamiseksi."
+    },
+    "privacy": {
+      "title": "Yksityisen ulottuvuuden muokkaaminen",
+      "content": "Muokkaa henkilökohtaisen vlogin kehystystä turvallisesti. Emme koskaan tallenna tai lähetä raakavideotietojasi rajausprosessin aikana."
+    },
+    "performance": {
+      "title": "Tarkka kehyksen rajaus",
+      "content": "Paikallinen moottorimme koodaa uudelleen vain valitun alueen, mikä varmistaa veitsenterävät reunat ja loistavan nopeat renderöintiajat."
+    },
+    "howto": {
+      "title": "Videoiden rajaaminen",
+      "steps": [
+        {
+          "title": "Lataa mediaa",
+          "desc": "Tuo video, jonka haluat rajata uudelleen."
+        },
+        {
+          "title": "Aseta rajat",
+          "desc": "Vedä rajausruutu haluamaasi kuvasuhteeseen (esim. 9:16 TikTokille)."
+        },
+        {
+          "title": "Vie",
+          "desc": "Lataa juuri rajattu video välittömästi."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videon rajaamisen UKK",
+      "items": [
+        {
+          "q": "Pienentääkö rajaus tiedostokokoa?",
+          "a": "Kyllä, poistamalla pikseleitä kehyksestä kokonaisbittinopeus on yleensä pienempi."
+        },
+        {
+          "q": "Voinko rajata Instagram-rullia?",
+          "a": "Ehdottomasti. Aseta rajauslaatikko pystysuoraan suhteeseen 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Välitön äänen poisto",
+      "content": "Poista ääniraitoja videoista millisekunneissa. Koska se toimii paikallisesti, et odota palvelinjonoja."
+    },
+    "privacy": {
+      "title": "Suojattu äänen poistaminen",
+      "content": "Mykistä arkaluontoiset taustakeskustelut turvallisesti. Ääniraita hylätään selaimesi sisällä, eikä se jätä digitaalista jälkiä."
+    },
+    "performance": {
+      "title": "Nolla uudelleenkoodausta vaaditaan",
+      "content": "Jos mahdollista, vain multipleksoimme videovirran ilman ääniraitaa, mikä tarkoittaa, että mykistys kestää alle sekunnin."
+    },
+    "howto": {
+      "title": "Videon mykistäminen",
+      "steps": [
+        {
+          "title": "Valitse Video",
+          "desc": "Valitse video, joka sisältää poistettavan äänen."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Napsauta Prosessoita poistaaksesi äänivirran välittömästi."
+        },
+        {
+          "title": "Tallenna äänetön video",
+          "desc": "Lataa mykistetty videotiedosto."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videon mykistyksen UKK",
+      "items": [
+        {
+          "q": "Vaikuttaako mykistys videon laatuun?",
+          "a": "Ei ollenkaan. Jätämme visuaalisen videovirran täysin koskemattomaksi."
+        },
+        {
+          "q": "Kuinka nopea tämä on?",
+          "a": "Erittäin nopea. Kopioimme vain videovirran, joka kestää vain muutaman millisekunnin."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Paikallinen videovesileima",
+      "content": "Leimaa logosi sisältöösi turvallisesti. Paikallinen käsittely tarkoittaa, että voit vesileimata gigatavua videota ilman verkkoviiveitä."
+    },
+    "privacy": {
+      "title": "Suojaa julkaisematon sisältö",
+      "content": "Lisätäänkö vesileima julkaisua edeltävään elokuvaan? Tee se offline-tilassa. Immateriaaliomaisuutesi ei koskaan koske palvelimiimme."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Moottorimme yhdistää läpinäkyvän PNG-logosi tehokkaasti videokehysten päälle WebGPU- ja WASM-optimoinnilla."
+    },
+    "howto": {
+      "title": "Vesileiman lisääminen",
+      "steps": [
+        {
+          "title": "Lataa video ja logo",
+          "desc": "Tuo videosi ja läpinäkyvä PNG-kuva."
+        },
+        {
+          "title": "Sijainti",
+          "desc": "Säädä vesileiman asteikkoa, peittävyyttä ja sijaintia."
+        },
+        {
+          "title": "Renderöi video",
+          "desc": "Leikkaa vesileima pysyvästi videotiedostoon."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vesileimauksen UKK",
+      "items": [
+        {
+          "q": "Voivatko varkaat poistaa vesileimani?",
+          "a": "Koska koodaamme kuvan videokehyksiin, sitä on erittäin vaikea poistaa pilaamatta videota."
+        },
+        {
+          "q": "Voinko laatoittaa vesileiman?",
+          "a": "Kyllä, voit ottaa käyttöön laatoituksen toistamaan logosi koko näytöllä."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Offline-video GIF-muotoon",
+      "content": "Muunna hauskat hetket GIF-tiedostoiksi välittömästi. Paikallinen GIF-kooderimme toimii täysin koneellasi ja säästää kaistanleveyttä."
+    },
+    "privacy": {
+      "title": "Yksityinen meemigeneraattori",
+      "content": "Muuta henkilökohtaiset videot GIF-tiedostoiksi lataamatta niitä julkisille meemipalvelimille. Sisältösi pysyy 100 % yksityisenä."
+    },
+    "performance": {
+      "title": "Optimoitu paletin luominen",
+      "content": "Käytämme kehittynyttä värien kvantisointia luodaksemme korkealaatuisia GIF-tiedostoja pienikokoisilla tiedostoilla, jotka toimivat suoraan selaimessasi."
+    },
+    "howto": {
+      "title": "GIF-tiedoston luominen",
+      "steps": [
+        {
+          "title": "Leikkaa videota",
+          "desc": "Valitse lyhyt osa videosta."
+        },
+        {
+          "title": "Aseta kuvataajuus",
+          "desc": "Valitse 15 fps tai 30 fps GIF-animaatiolle."
+        },
+        {
+          "title": "Luo",
+          "desc": "Tallenna silmukoitu GIF-kuva."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videosta GIF-muotoon UKK",
+      "items": [
+        {
+          "q": "Miksi GIF-tiedostot ovat joskus suuria?",
+          "a": "GIF-tiedostot ovat vanha muoto, jota ei ole kovin pakattu. Suosittelemme pitämään leikkeet alle 5 sekunnissa."
+        },
+        {
+          "q": "Tukeeko se läpinäkyviä taustoja?",
+          "a": "Jos lähdevideollasi on alfakanava (kuten WebM), yritämme säilyttää läpinäkyvyyden."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Paikallinen äänen pakkaus",
+      "content": "Pienennä massiivisia WAV-tiedostoja tai podcasteja välittömästi. Poistamalla latausvaiheen selainpohjainen työkalumme on nopein tapa pakata ääntä."
+    },
+    "privacy": {
+      "title": "Luottamuksellinen äänenkäsittely",
+      "content": "Pakkaatko julkaisematonta musiikkia tai yksityisiä äänimuistioita? Äänesi käsitellään tarkasti paikallisesti. Emme koskaan tallenna jälkiäsi."
+    },
+    "performance": {
+      "title": "Psykoakustinen koodaus",
+      "content": "WASM-kooderimme poistaa kuulumattomat taajuudet ja pienentää äänitiedostojen kokoa jopa 80 % säilyttäen samalla terävän äänen."
+    },
+    "howto": {
+      "title": "Äänen pakkaaminen",
+      "steps": [
+        {
+          "title": "Lataa raita",
+          "desc": "Valitse MP3-, WAV- tai AAC-tiedosto."
+        },
+        {
+          "title": "Valitse kohdekoko",
+          "desc": "Säädä bittinopeutta raskaampaa pakkausta varten."
+        },
+        {
+          "title": "Lataa",
+          "desc": "Hanki optimoitu, kevyt äänitiedosto."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Äänenpakkaus UKK",
+      "items": [
+        {
+          "q": "Kuulostaako kappaleeni huonolta?",
+          "a": "Käytämme korkealaatuisia havainnointialgoritmeja, joten pakkaus on lähes mahdoton erottaa ihmiskorvassa."
+        },
+        {
+          "q": "Voinko pakata tunnin mittaisia ​​podcasteja?",
+          "a": "Kyllä, työkalumme käsittelee pitkän muodon äänen vaivattomasti selaimessasi."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "In-Browser Audio Converter",
+      "content": "Kääntää ääniformaatteja välittömästi ilman pingia palvelimelle. Täydellinen vaihtamiseen WAV-, MP3- ja OGG-muotojen välillä paikallisesti."
+    },
+    "privacy": {
+      "title": "Nollalatausäänenkäännös",
+      "content": "Äänitalleneesi ovat vain sinun. Offline-muunnosmoottorimme takaa täydellisen yksityisyyden herkälle äänelle."
+    },
+    "performance": {
+      "title": "Salamannopeat koodekit",
+      "content": "Äänen muuntaminen on laskennallisesti kevyttä. Paikallinen moottorimme transkoodaa 5 minuutin kappaleen alle kahdessa sekunnissa."
+    },
+    "howto": {
+      "title": "Äänimuotojen muuntaminen",
+      "steps": [
+        {
+          "title": "Valitse ääni",
+          "desc": "Pudota ei-tuettu äänitiedosto työkaluun."
+        },
+        {
+          "title": "Valitse lähtö",
+          "desc": "Valitse haluamasi muoto (esim. MP3 yleiseen toistoon)."
+        },
+        {
+          "title": "Tallenna tiedosto",
+          "desc": "Lataa äskettäin alustettu ääniraita."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio Converter UKK",
+      "items": [
+        {
+          "q": "Voinko muuntaa häviöllisen MP3:n häviöttömäksi WAV:ksi?",
+          "a": "Voit, mutta se ei palauta menetettyä laatua. Se vain muuttaa säilön muotoa."
+        },
+        {
+          "q": "Säilytetäänkö ID3-tunnisteet?",
+          "a": "Teemme kaikkemme siirtääksemme metatiedot, kuten esittäjän nimet ja albumin kuvat."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Paikallinen video-äänenpoisto",
+      "content": "Pura MP3-tiedostoja MP4-tiedostoista välittömästi. Pilvilatausten ohittaminen tarkoittaa, että voit kopioida äänen 2 Gt:n videosta sekunneissa."
+    },
+    "privacy": {
+      "title": "Suojattu äänen kopiointi",
+      "content": "Poimi ääni yksityisistä perhevideoista turvallisesti. Prosessi tapahtuu kokonaan selaimesi hiekkalaatikossa."
+    },
+    "performance": {
+      "title": "Virtauskopiointitekniikka",
+      "content": "Käytämme aina kun mahdollista suoratoistokopiointia äänen purkamiseen ilman uudelleenkoodausta, mikä varmistaa 100 % alkuperäisen laadun."
+    },
+    "howto": {
+      "title": "Äänen purkaminen",
+      "steps": [
+        {
+          "title": "Lataa video",
+          "desc": "Valitse MP4-, MOV- tai MKV-tiedosto."
+        },
+        {
+          "title": "Pura",
+          "desc": "Kopioi ääniraita napsauttamalla prosessi."
+        },
+        {
+          "title": "Lataa MP3",
+          "desc": "Tallenna purettu äänitiedosto."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videosta ääneen UKK",
+      "items": [
+        {
+          "q": "Onko alkuperäinen äänenlaatu säilynyt?",
+          "a": "Kyllä, poimimme tarkan videoon upotetun äänivirran."
+        },
+        {
+          "q": "Voinko poimia ääntä 4K-videosta?",
+          "a": "Ehdottomasti. Videon resoluutio ei vaikuta äänen poimintanopeuteen."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Selainpohjainen ääniliitos",
+      "content": "Yhdistä useita ääniraitoja yhdeksi tiedostoksi paikallisesti. Ei tarvitse ladata raskaita moniraitaistuntoja palvelimelle."
+    },
+    "privacy": {
+      "title": "Yksityisten kappaleiden liittäminen",
+      "content": "Liitytkö podcast-segmentteihin tai luottamuksellisiin haastatteluihin? Työkalumme käsittelee yhdistämisen turvallisesti laitteellasi."
+    },
+    "performance": {
+      "title": "Saumaton ristihäivytys",
+      "content": "WASM-moottorimme yhdistää äänitiedostot saumattomasti yhteen, mikä varmistaa aukoton toiston ja täydellisen kohdistuksen."
+    },
+    "howto": {
+      "title": "Äänen yhdistäminen",
+      "steps": [
+        {
+          "title": "Lähetä kappaleita",
+          "desc": "Valitse kaksi tai useampi äänitiedosto."
+        },
+        {
+          "title": "Järjestä järjestys",
+          "desc": "Aseta toistojärjestys vetämällä ja pudottamalla."
+        },
+        {
+          "title": "Liity tiedostoihin",
+          "desc": "Lataa yhdistetty perusraita."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Ääniyhdistelmän UKK",
+      "items": [
+        {
+          "q": "Voinko yhdistää MP3:n ja WAV:n yhteen?",
+          "a": "Kyllä, koneemme normalisoi muodot automaattisesti yhdistämisen aikana."
+        },
+        {
+          "q": "Onko yhdistettyjen raitojen välillä rako?",
+          "a": "Ei, raidat on ommeltu täsmälleen päästä päähän välittömän toiston takaamiseksi."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Paikallinen tekoälytranskriptio",
+      "content": "Muuta puhe tekstiksi suoraan selaimessasi. Käyttämällä Whisper AI:tä WebAssemblyn kautta, sinun ei tarvitse lähettää ääntä pilveen."
+    },
+    "privacy": {
+      "title": "Ehdoton luottamuksellisuus",
+      "content": "Lakitietojen tai lääketieteellisten tietojen kopioiminen? Tämä on ainoa turvallinen tapa. Neuraaliverkko toimii paikallisesti varmistaen, ettei tietovuotoja ole."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Hyödynnämme laitteesi GPU:ta Whisper-mallin käyttämiseen, mikä tuottaa erittäin tarkat transkriptit huomattavasti nopeammin kuin suorittimen käsittely."
+    },
+    "howto": {
+      "title": "Äänen litteroiminen",
+      "steps": [
+        {
+          "title": "Lataa malli",
+          "desc": "Odota, että kevyt tekoälymalli tallentuu selaimesi välimuistiin."
+        },
+        {
+          "title": "Lataa mediaa",
+          "desc": "Valitse litteroitava ääni- tai videotiedosto."
+        },
+        {
+          "title": "Vie teksti",
+          "desc": "Tallenna luotu transkriptio TXT- tai SRT-tekstityksenä."
+        }
+      ]
+    },
+    "faq": {
+      "title": "AI-transkription UKK",
+      "items": [
+        {
+          "q": "Tukeeko se useita kieliä?",
+          "a": "Kyllä, Whisper-malli tukee englantia, indonesiaa, espanjaa ja kymmeniä muita."
+        },
+        {
+          "q": "Miksi se lataa tiedoston ensin?",
+          "a": "Sen on tallennettava tekoälyn hermoverkkojen painot laitteeseen kerran välimuistiin. Sen jälkeen se toimii offline-tilassa."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Tallenna näyttösi, verkkokamerasi ja mikrofonisi suoraan selaimeen. Ohjelmiston asennusta tai palvelimen latausta ei vaadita."
+    },
+    "privacy": {
+      "title": "Suojattu asiakaspuolen tallennus",
+      "content": "Tallennetaanko arkaluonteisia esityksiä? Videosi tallennetaan suoraan selaimesi muistiin ja tallennetaan paikallisesti."
+    },
+    "performance": {
+      "title": "HD-laitteistokoodaus",
+      "content": "Käytämme MediaRecorder-sovellusliittymää laitteistokiihdytyksen kanssa, jotta voimme kaapata terävää 1080p- ja 4K-materiaalia ilman, että kuvia putoaa."
+    },
+    "howto": {
+      "title": "Tallennus",
+      "steps": [
+        {
+          "title": "Myönnä käyttöoikeudet",
+          "desc": "Salli selaimen pääsy kameraan ja mikrofoniin."
+        },
+        {
+          "title": "Valitse lähteet",
+          "desc": "Valitse näytön jako, verkkokamera tai molemmat."
+        },
+        {
+          "title": "Tallenna ja tallenna",
+          "desc": "Paina levyä ja lataa lopullinen MP4 heti, kun olet valmis."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Studio Recorder UKK",
+      "items": [
+        {
+          "q": "Voinko tallentaa järjestelmän ääntä?",
+          "a": "Kyllä, kun jaat Chrome-välilehden tai koko näytön Windowsissa, voit valita Jaa järjestelmääänen."
+        },
+        {
+          "q": "Onko aikarajaa?",
+          "a": "Vain paikallisen laitteen käytettävissä oleva RAM-muisti ja tallennustila rajoittavat sinua."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Client-Side Video Compression",
+      "content": "Our engine runs directly inside your browser. By eliminating server uploads, we guarantee zero wait time for data transfer and instant compression starts."
+    },
+    "privacy": {
+      "title": "Total Video Privacy",
+      "content": "Your unreleased videos and personal recordings stay on your machine. We use WASM to compress files locally, meaning your data is never stored on our servers."
+    },
+    "performance": {
+      "title": "WebCodecs Acceleration",
+      "content": "Leveraging hardware-accelerated GPU encoding, we shrink massive MP4 and WebM files up to 90% in mere seconds."
+    },
+    "howto": {
+      "title": "How to Compress Video",
+      "steps": [
+        {
+          "title": "Select MP4/WebM",
+          "desc": "Drag your heavy video file into the dropzone."
+        },
+        {
+          "title": "Set Quality Target",
+          "desc": "Choose between maximum compression or balanced quality."
+        },
+        {
+          "title": "Save Instantly",
+          "desc": "Download the optimized video instantly."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Compression FAQ",
+      "items": [
+        {
+          "q": "Will my video lose quality?",
+          "a": "We use smart variable bitrate (VBR) encoding to preserve visual fidelity while discarding invisible data."
+        },
+        {
+          "q": "Are there size limits?",
+          "a": "No artificial limits. You can process gigabytes of video if your device has enough RAM."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Local Video Conversion",
+      "content": "Translate video formats offline. Our tool bypasses cloud infrastructure, ensuring you can convert MKV to MP4 even on slow connections."
+    },
+    "privacy": {
+      "title": "Zero-Trust Format Translation",
+      "content": "Confidential corporate videos? We don't want them. Our FFmpeg-based engine translates video codecs securely inside your device's sandbox."
+    },
+    "performance": {
+      "title": "Instant Transcoding",
+      "content": "By skipping the upload/download phase, our local transcoder is exponentially faster than traditional cloud-based video converters."
+    },
+    "howto": {
+      "title": "How to Convert Video Formats",
+      "steps": [
+        {
+          "title": "Import Video",
+          "desc": "Load any unsupported video format like MKV or AVI."
+        },
+        {
+          "title": "Select Output",
+          "desc": "Choose your desired codec, such as H.264 MP4 or WebM."
+        },
+        {
+          "title": "Download Result",
+          "desc": "Get the universally playable video file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Converter FAQ",
+      "items": [
+        {
+          "q": "Does converting reduce quality?",
+          "a": "Not if you choose a high-bitrate or lossless target. We default to preserving the original resolution."
+        },
+        {
+          "q": "Can I convert MKV with subtitles?",
+          "a": "Yes, standard subtitle streams are supported during MP4 conversion."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "No-Ping Video Retiming",
+      "content": "Slow down or speed up your clips instantly. Our browser-based re-timer processes frames locally without server latency."
+    },
+    "privacy": {
+      "title": "Secure Frame Processing",
+      "content": "Your sports highlights and dance tutorials remain private. The frame interpolation and speed adjustments happen entirely offline."
+    },
+    "performance": {
+      "title": "Fast Pitch Correction",
+      "content": "We handle both the visual framerate and audio pitch correction simultaneously in real-time, delivering the final video in seconds."
+    },
+    "howto": {
+      "title": "How to Change Video Speed",
+      "steps": [
+        {
+          "title": "Add Video",
+          "desc": "Upload the clip you want to speed up or slow down."
+        },
+        {
+          "title": "Adjust Slider",
+          "desc": "Set the multiplier (e.g., 0.5x for slow-mo, 2x for fast-forward)."
+        },
+        {
+          "title": "Render",
+          "desc": "Save the retimed video to your device."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Speed FAQ",
+      "items": [
+        {
+          "q": "Will the audio sound like a chipmunk?",
+          "a": "We apply dynamic pitch correction so voices sound natural even at 2x speed."
+        },
+        {
+          "q": "How smooth is the slow-motion?",
+          "a": "It depends on the original framerate. 60fps videos will look incredibly smooth at 0.5x speed."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Browser-Based Video Cropping",
+      "content": "Crop out watermarks or adjust aspect ratios instantly. No need to upload heavy files to the cloud just to trim the edges."
+    },
+    "privacy": {
+      "title": "Private Dimension Editing",
+      "content": "Edit your personal vlog framing safely. We never store or transmit your raw video data during the cropping process."
+    },
+    "performance": {
+      "title": "Precision Frame Cropping",
+      "content": "Our local engine re-encodes only the selected area, ensuring razor-sharp edges and blazing fast render times."
+    },
+    "howto": {
+      "title": "How to Crop Videos",
+      "steps": [
+        {
+          "title": "Load Media",
+          "desc": "Import the video you want to reframe."
+        },
+        {
+          "title": "Set Boundaries",
+          "desc": "Drag the crop box to your desired aspect ratio (e.g., 9:16 for TikTok)."
+        },
+        {
+          "title": "Export",
+          "desc": "Download the newly cropped video instantly."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Cropping FAQ",
+      "items": [
+        {
+          "q": "Does cropping reduce file size?",
+          "a": "Yes, by removing pixels from the frame, the overall bitrate required is typically lower."
+        },
+        {
+          "q": "Can I crop for Instagram Reels?",
+          "a": "Absolutely. Just set your crop box to a 9:16 vertical ratio."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Instant Audio Removal",
+      "content": "Strip audio tracks from videos in milliseconds. Because it runs locally, you don't wait for server queues."
+    },
+    "privacy": {
+      "title": "Secure Audio Stripping",
+      "content": "Mute sensitive background conversations securely. The audio track is discarded inside your browser, leaving no digital trace."
+    },
+    "performance": {
+      "title": "Zero Re-encoding Required",
+      "content": "When possible, we simply multiplex the video stream without the audio track, meaning muting takes less than a second."
+    },
+    "howto": {
+      "title": "How to Mute a Video",
+      "steps": [
+        {
+          "title": "Select Video",
+          "desc": "Choose the video containing the audio you want to remove."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Click process to instantly delete the audio stream."
+        },
+        {
+          "title": "Save Silent Video",
+          "desc": "Download the muted video file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Muting FAQ",
+      "items": [
+        {
+          "q": "Does muting affect video quality?",
+          "a": "Not at all. We leave the visual video stream completely untouched."
+        },
+        {
+          "q": "How fast is this?",
+          "a": "Extremely fast. We just copy the video stream, taking only a few milliseconds."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Local Video Watermarking",
+      "content": "Stamp your logo onto your content securely. Local processing means you can watermark gigabytes of video without network delays."
+    },
+    "privacy": {
+      "title": "Protect Unreleased Content",
+      "content": "Adding a watermark to a pre-release movie? Do it offline. Your intellectual property never touches our servers."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Our engine efficiently blends your transparent PNG logo over the video frames using WebGPU and WASM optimizations."
+    },
+    "howto": {
+      "title": "How to Add a Watermark",
+      "steps": [
+        {
+          "title": "Upload Video & Logo",
+          "desc": "Import your video and a transparent PNG image."
+        },
+        {
+          "title": "Position",
+          "desc": "Adjust the scale, opacity, and position of the watermark."
+        },
+        {
+          "title": "Render Video",
+          "desc": "Bake the watermark permanently into the video file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Watermarking FAQ",
+      "items": [
+        {
+          "q": "Can thieves remove my watermark?",
+          "a": "Because we hard-encode the image into the video frames, it is extremely difficult to remove without ruining the video."
+        },
+        {
+          "q": "Can I tile the watermark?",
+          "a": "Yes, you can enable tiling to repeat your logo across the entire screen."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Offline Video to GIF",
+      "content": "Convert funny moments into GIFs instantly. Our local GIF encoder works entirely on your machine, saving you bandwidth."
+    },
+    "privacy": {
+      "title": "Private Meme Generator",
+      "content": "Turn personal videos into GIFs without uploading them to public meme servers. Your content remains 100% private."
+    },
+    "performance": {
+      "title": "Optimized Palette Generation",
+      "content": "We use advanced color quantization to generate high-quality GIFs with small file sizes, running directly in your browser."
+    },
+    "howto": {
+      "title": "How to Create a GIF",
+      "steps": [
+        {
+          "title": "Trim Video",
+          "desc": "Select a short segment of your video."
+        },
+        {
+          "title": "Set Framerate",
+          "desc": "Choose between 15fps or 30fps for the GIF animation."
+        },
+        {
+          "title": "Generate",
+          "desc": "Save the looping GIF image."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video to GIF FAQ",
+      "items": [
+        {
+          "q": "Why are GIFs sometimes large?",
+          "a": "GIFs are an old format that isn't highly compressed. We recommend keeping clips under 5 seconds."
+        },
+        {
+          "q": "Does it support transparent backgrounds?",
+          "a": "If your source video has an alpha channel (like WebM), we attempt to preserve transparency."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Local Audio Compression",
+      "content": "Shrink massive WAV files or podcasts instantly. By eliminating the upload phase, our browser-based tool is the fastest way to compress audio."
+    },
+    "privacy": {
+      "title": "Confidential Audio Processing",
+      "content": "Compressing unreleased music or private voice memos? Your audio is strictly processed locally. We never store your tracks."
+    },
+    "performance": {
+      "title": "Psychoacoustic Encoding",
+      "content": "Our WASM encoder strips out inaudible frequencies, reducing audio file sizes by up to 80% while maintaining crisp sound."
+    },
+    "howto": {
+      "title": "How to Compress Audio",
+      "steps": [
+        {
+          "title": "Upload Track",
+          "desc": "Select your MP3, WAV, or AAC file."
+        },
+        {
+          "title": "Choose Target Size",
+          "desc": "Adjust the bitrate for heavier compression."
+        },
+        {
+          "title": "Download",
+          "desc": "Get the optimized, lightweight audio file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio Compression FAQ",
+      "items": [
+        {
+          "q": "Will my song sound bad?",
+          "a": "We use high-quality perceptual algorithms so the compression is virtually indistinguishable to the human ear."
+        },
+        {
+          "q": "Can I compress hour-long podcasts?",
+          "a": "Yes, our tool handles long-form audio effortlessly within your browser."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "In-Browser Audio Converter",
+      "content": "Translate sound formats instantly without pinging a server. Perfect for switching between WAV, MP3, and OGG formats locally."
+    },
+    "privacy": {
+      "title": "Zero-Upload Audio Translation",
+      "content": "Your voice recordings are yours alone. Our offline conversion engine guarantees absolute privacy for sensitive audio."
+    },
+    "performance": {
+      "title": "Lightning Fast Codecs",
+      "content": "Converting audio is computationally light. Our local engine transcodes a 5-minute song in less than 2 seconds."
+    },
+    "howto": {
+      "title": "How to Convert Audio Formats",
+      "steps": [
+        {
+          "title": "Select Audio",
+          "desc": "Drop your unsupported audio file into the tool."
+        },
+        {
+          "title": "Pick Output",
+          "desc": "Choose your desired format (e.g., MP3 for universal playback)."
+        },
+        {
+          "title": "Save File",
+          "desc": "Download the newly formatted audio track."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio Converter FAQ",
+      "items": [
+        {
+          "q": "Can I convert lossy MP3 to lossless WAV?",
+          "a": "You can, but it won't restore lost quality. It will simply change the container format."
+        },
+        {
+          "q": "Are ID3 tags preserved?",
+          "a": "We make every effort to transfer metadata like artist name and album art."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Local Video to Audio Extraction",
+      "content": "Extract MP3s from MP4s instantly. Bypassing cloud uploads means you can rip audio from a 2GB video in seconds."
+    },
+    "privacy": {
+      "title": "Secure Audio Ripping",
+      "content": "Extract audio from private family videos securely. The process happens entirely in your browser sandbox."
+    },
+    "performance": {
+      "title": "Stream Copying Technology",
+      "content": "Whenever possible, we use direct stream copying to extract the audio without re-encoding, ensuring 100% original quality."
+    },
+    "howto": {
+      "title": "How to Extract Audio",
+      "steps": [
+        {
+          "title": "Upload Video",
+          "desc": "Select the MP4, MOV, or MKV file."
+        },
+        {
+          "title": "Extract",
+          "desc": "Click process to rip the audio track."
+        },
+        {
+          "title": "Download MP3",
+          "desc": "Save the extracted sound file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video to Audio FAQ",
+      "items": [
+        {
+          "q": "Is the original audio quality preserved?",
+          "a": "Yes, we extract the exact audio stream embedded in the video."
+        },
+        {
+          "q": "Can I extract audio from a 4K video?",
+          "a": "Absolutely. The video resolution doesn't impact the audio extraction speed."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Browser-Based Audio Joiner",
+      "content": "Combine multiple audio tracks into a single file locally. No need to upload heavy multi-track sessions to a server."
+    },
+    "privacy": {
+      "title": "Private Track Splicing",
+      "content": "Joining podcast segments or confidential interviews? Our tool processes the merge securely on your device."
+    },
+    "performance": {
+      "title": "Seamless Crossfading",
+      "content": "Our WASM engine stitches audio files together seamlessly, ensuring gapless playback and perfect alignment."
+    },
+    "howto": {
+      "title": "How to Merge Audio",
+      "steps": [
+        {
+          "title": "Upload Tracks",
+          "desc": "Select two or more audio files."
+        },
+        {
+          "title": "Arrange Order",
+          "desc": "Drag and drop to set the playback sequence."
+        },
+        {
+          "title": "Join Files",
+          "desc": "Download the combined master track."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio Merger FAQ",
+      "items": [
+        {
+          "q": "Can I merge MP3 and WAV together?",
+          "a": "Yes, our engine will automatically normalize the formats during the merge."
+        },
+        {
+          "q": "Is there a gap between the joined tracks?",
+          "a": "No, the tracks are stitched exactly end-to-end for gapless playback."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Local AI Transcription",
+      "content": "Turn speech to text directly in your browser. Using Whisper AI via WebAssembly, you don't need to send your audio to the cloud."
+    },
+    "privacy": {
+      "title": "Absolute Confidentiality",
+      "content": "Transcribing legal or medical records? This is the only safe way. The neural network runs locally, ensuring zero data leaks."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "We leverage your device's GPU to run the Whisper model, delivering highly accurate transcripts significantly faster than CPU processing."
+    },
+    "howto": {
+      "title": "How to Transcribe Audio",
+      "steps": [
+        {
+          "title": "Load Model",
+          "desc": "Wait for the lightweight AI model to cache in your browser."
+        },
+        {
+          "title": "Upload Media",
+          "desc": "Select the audio or video file to transcribe."
+        },
+        {
+          "title": "Export Text",
+          "desc": "Save the generated transcript as TXT or SRT subtitles."
+        }
+      ]
+    },
+    "faq": {
+      "title": "AI Transcription FAQ",
+      "items": [
+        {
+          "q": "Does it support multiple languages?",
+          "a": "Yes, the Whisper model supports English, Indonesian, Spanish, and dozens more."
+        },
+        {
+          "q": "Why does it download a file first?",
+          "a": "It needs to cache the AI neural network weights to your device once. After that, it works offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Record your screen, webcam, and microphone directly in the browser. No software installation or server uploads required."
+    },
+    "privacy": {
+      "title": "Secure Client-Side Recording",
+      "content": "Recording sensitive presentations? Your video is captured directly into your browser's memory and saved locally."
+    },
+    "performance": {
+      "title": "HD Hardware Encoding",
+      "content": "We utilize the MediaRecorder API with hardware acceleration to capture crisp 1080p and 4K footage without dropping frames."
+    },
+    "howto": {
+      "title": "How to Record",
+      "steps": [
+        {
+          "title": "Grant Permissions",
+          "desc": "Allow browser access to your camera and microphone."
+        },
+        {
+          "title": "Select Sources",
+          "desc": "Choose between Screen Share, Webcam, or both."
+        },
+        {
+          "title": "Record & Save",
+          "desc": "Hit record, then download the final MP4 instantly when done."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Studio Recorder FAQ",
+      "items": [
+        {
+          "q": "Can I record system audio?",
+          "a": "Yes, when sharing a Chrome tab or entire screen on Windows, you can check 'Share System Audio'."
+        },
+        {
+          "q": "Is there a time limit?",
+          "a": "You are only limited by the available RAM and storage on your local device."
+        }
+      ]
+    }
+  }
+}

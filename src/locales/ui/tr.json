@@ -1,0 +1,26 @@
+{
+  "langName": "Türkçe",
+  "flag": "🇹🇷",
+  "nav": {
+    "compress_video": "Videoyu Sıkıştır",
+    "convert_video": "Videoyu Dönüştür",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "Video Optimizasyonu",
+    "cat_video_edit": "Video Düzenleme",
+    "cat_audio": "Ses Araçları",
+    "cat_ai": "Yapay Zeka ve Stüdyo",
+    "speed": "Hızı Değiştir",
+    "gif": "Videoyu GIF'e",
+    "crop": "Videoyu Kırp",
+    "mute": "Videoyu Kapat",
+    "watermark": "Filigran Ekle",
+    "compress_audio": "Sesi Sıkıştır",
+    "convert_audio": "Sesi Dönüştür",
+    "video_to_audio": "Videoyu Sese",
+    "merge_audio": "Sesi Birleştir",
+    "transcribe": "Yapay Zeka Ortamından Metne",
+    "studio_recorder": "Stüdyo Kaydedici"
+  },
+  "search_lang": "Search language..."
+}

@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Videokomprimering på klientsiden",
+      "content": "Motoren vår kjører direkte i nettleseren din. Ved å eliminere serveropplastinger garanterer vi null ventetid for dataoverføring og umiddelbar komprimering."
+    },
+    "privacy": {
+      "title": "Totalt videopersonvern",
+      "content": "Uutgitte videoer og personlige opptak forblir på maskinen din. Vi bruker WASM til å komprimere filer lokalt, noe som betyr at dataene dine aldri blir lagret på serverne våre."
+    },
+    "performance": {
+      "title": "WebCodecs Acceleration",
+      "content": "Ved å utnytte maskinvareakselerert GPU-koding krymper vi massive MP4- og WebM-filer med opptil 90 % på få sekunder."
+    },
+    "howto": {
+      "title": "Slik komprimerer du video",
+      "steps": [
+        {
+          "title": "Velg MP4/WebM",
+          "desc": "Dra den tunge videofilen til dropzone."
+        },
+        {
+          "title": "Sett kvalitetsmål",
+          "desc": "Velg mellom maksimal komprimering eller balansert kvalitet."
+        },
+        {
+          "title": "Lagre umiddelbart",
+          "desc": "Last ned den optimaliserte videoen umiddelbart."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om videokomprimering",
+      "items": [
+        {
+          "q": "Vil videoen min miste kvalitet?",
+          "a": "Vi bruker smart variabel bitrate (VBR)-koding for å bevare visuell troskap mens vi forkaster usynlige data."
+        },
+        {
+          "q": "Er det størrelsesgrenser?",
+          "a": "Ingen kunstige grenser. Du kan behandle gigabyte med video hvis enheten din har nok RAM."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Lokal videokonvertering",
+      "content": "Oversett videoformater offline. Verktøyet vårt omgår skyinfrastruktur, og sikrer at du kan konvertere MKV til MP4 selv på trege tilkoblinger."
+    },
+    "privacy": {
+      "title": "Zero-Trust Format Oversettelse",
+      "content": "Konfidensielle bedriftsvideoer? Vi vil ikke ha dem. Vår FFmpeg-baserte motor oversetter videokodeker sikkert inne i enhetens sandkasse."
+    },
+    "performance": {
+      "title": "Øyeblikkelig omkoding",
+      "content": "Ved å hoppe over opplastings-/nedlastingsfasen er vår lokale transkoder eksponentielt raskere enn tradisjonelle skybaserte videokonverterere."
+    },
+    "howto": {
+      "title": "Hvordan konvertere videoformater",
+      "steps": [
+        {
+          "title": "Importer video",
+          "desc": "Last inn alle videoformater som ikke støttes som MKV eller AVI."
+        },
+        {
+          "title": "Velg utgang",
+          "desc": "Velg ønsket kodek, for eksempel H.264 MP4 eller WebM."
+        },
+        {
+          "title": "Nedlastingsresultat",
+          "desc": "Få den universelt spillbare videofilen."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Converter FAQ",
+      "items": [
+        {
+          "q": "Reduserer konvertering kvaliteten?",
+          "a": "Ikke hvis du velger et mål med høy bithastighet eller tapsfritt. Vi beholder som standard den opprinnelige oppløsningen."
+        },
+        {
+          "q": "Kan jeg konvertere MKV med undertekster?",
+          "a": "Ja, standard undertekststrømmer støttes under MP4-konvertering."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "No-Ping Video Retiming",
+      "content": "Senk hastigheten eller få fart på klippene dine umiddelbart. Vår nettleserbaserte re-timer behandler rammer lokalt uten serverforsinkelse."
+    },
+    "privacy": {
+      "title": "Sikker rammebehandling",
+      "content": "Sportshøydepunktene og danseopplæringene dine forblir private. Rammeinterpoleringen og hastighetsjusteringene skjer helt offline."
+    },
+    "performance": {
+      "title": "Rask tonehøydekorreksjon",
+      "content": "Vi håndterer både den visuelle bildehastigheten og lydhøydekorreksjonen samtidig i sanntid, og leverer den endelige videoen på sekunder."
+    },
+    "howto": {
+      "title": "Slik endrer du videohastighet",
+      "steps": [
+        {
+          "title": "Legg til video",
+          "desc": "Last opp klippet du vil øke hastigheten på eller redusere hastigheten."
+        },
+        {
+          "title": "Juster glidebryteren",
+          "desc": "Sett multiplikatoren (f.eks. 0,5x for sakte bevegelse, 2x for spoling fremover)."
+        },
+        {
+          "title": "Gjengi",
+          "desc": "Lagre den tidsbestemte videoen på enheten din."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om videohastighet",
+      "items": [
+        {
+          "q": "Vil lyden høres ut som en jordekorn?",
+          "a": "Vi bruker dynamisk tonehøydekorreksjon slik at stemmene høres naturlig ut selv ved 2x hastighet."
+        },
+        {
+          "q": "Hvor jevn er sakte film?",
+          "a": "Det avhenger av den opprinnelige framerate. 60 fps videoer vil se utrolig jevne ut ved 0,5x hastighet."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Nettleserbasert videobeskjæring",
+      "content": "Beskjær vannmerker eller juster størrelsesforhold umiddelbart. Du trenger ikke å laste opp tunge filer til skyen bare for å trimme kantene."
+    },
+    "privacy": {
+      "title": "Redigering av privat dimensjon",
+      "content": "Rediger din personlige vlogg-innramming trygt. Vi lagrer eller overfører aldri dine rå videodata under beskjæringsprosessen."
+    },
+    "performance": {
+      "title": "Presisjonsrammebeskjæring",
+      "content": "Vår lokale motor omkoder kun det valgte området, og sikrer sylskarpe kanter og lynraske gjengivelsestider."
+    },
+    "howto": {
+      "title": "Slik beskjærer du videoer",
+      "steps": [
+        {
+          "title": "Last inn media",
+          "desc": "Importer videoen du vil reframe."
+        },
+        {
+          "title": "Sett grenser",
+          "desc": "Dra beskjæringsboksen til ønsket sideforhold (f.eks. 9:16 for TikTok)."
+        },
+        {
+          "title": "Eksporter",
+          "desc": "Last ned den nylig beskårede videoen umiddelbart."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om videobeskjæring",
+      "items": [
+        {
+          "q": "Reduserer beskjæring filstørrelsen?",
+          "a": "Ja, ved å fjerne piksler fra rammen, er den totale bithastigheten som kreves vanligvis lavere."
+        },
+        {
+          "q": "Kan jeg beskjære for Instagram-ruller?",
+          "a": "Absolutt. Bare sett beskjæringsboksen til et vertikalt forhold på 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Øyeblikkelig fjerning av lyd",
+      "content": "Fjern lydspor fra videoer på millisekunder. Fordi den kjører lokalt, venter du ikke på serverkøer."
+    },
+    "privacy": {
+      "title": "Sikker lydstripping",
+      "content": "Demp sensitive bakgrunnssamtaler sikkert. Lydsporet forkastes i nettleseren din, og etterlater ingen digitale spor."
+    },
+    "performance": {
+      "title": "Null omkoding påkrevd",
+      "content": "Når det er mulig, multiplekser vi ganske enkelt videostrømmen uten lydsporet, noe som betyr at demping tar mindre enn et sekund."
+    },
+    "howto": {
+      "title": "Hvordan dempe en video",
+      "steps": [
+        {
+          "title": "Velg video",
+          "desc": "Velg videoen som inneholder lyden du vil fjerne."
+        },
+        {
+          "title": "Strip lyd",
+          "desc": "Klikk prosess for å slette lydstrømmen umiddelbart."
+        },
+        {
+          "title": "Lagre stille video",
+          "desc": "Last ned den dempede videofilen."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om videodemping",
+      "items": [
+        {
+          "q": "Påvirker demping videokvaliteten?",
+          "a": "Ikke i det hele tatt. Vi lar den visuelle videostrømmen være helt urørt."
+        },
+        {
+          "q": "Hvor raskt er dette?",
+          "a": "Ekstremt rask. Vi kopierer bare videostrømmen, og tar bare noen få millisekunder."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Lokal videovannmerking",
+      "content": "Stempel logoen din på innholdet ditt sikkert. Lokal behandling betyr at du kan vannmerke gigabyte med video uten nettverksforsinkelser."
+    },
+    "privacy": {
+      "title": "Beskytt uutgitt innhold",
+      "content": "Legger du til et vannmerke i en forhåndsutgitt film? Gjør det offline. Din intellektuelle eiendom berører aldri serverne våre."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Motoren vår blander effektivt den gjennomsiktige PNG-logoen din over videorammene ved hjelp av WebGPU- og WASM-optimaliseringer."
+    },
+    "howto": {
+      "title": "Slik legger du til et vannmerke",
+      "steps": [
+        {
+          "title": "Last opp video og logo",
+          "desc": "Importer videoen din og et gjennomsiktig PNG-bilde."
+        },
+        {
+          "title": "Posisjon",
+          "desc": "Juster skalaen, opasiteten og plasseringen til vannmerket."
+        },
+        {
+          "title": "Gjengi video",
+          "desc": "Bak vannmerket permanent inn i videofilen."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om vannmerke",
+      "items": [
+        {
+          "q": "Kan tyver fjerne vannmerket mitt?",
+          "a": "Fordi vi hardkoder bildet inn i videorammene, er det ekstremt vanskelig å fjerne uten å ødelegge videoen."
+        },
+        {
+          "q": "Kan jeg flislegge vannmerket?",
+          "a": "Ja, du kan aktivere flislegging for å gjenta logoen din over hele skjermen."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Frakoblet video til GIF",
+      "content": "Konverter morsomme øyeblikk til GIF-er umiddelbart. Vår lokale GIF-koder fungerer utelukkende på maskinen din, og sparer båndbredde."
+    },
+    "privacy": {
+      "title": "Private Meme Generator",
+      "content": "Gjør personlige videoer til GIF-er uten å laste dem opp til offentlige meme-servere. Innholdet ditt forblir 100 % privat."
+    },
+    "performance": {
+      "title": "Optimalisert palettgenerering",
+      "content": "Vi bruker avansert fargekvantisering for å generere høykvalitets GIF-er med små filstørrelser, som kjører direkte i nettleseren din."
+    },
+    "howto": {
+      "title": "Hvordan lage en GIF",
+      "steps": [
+        {
+          "title": "Trim video",
+          "desc": "Velg et kort segment av videoen din."
+        },
+        {
+          "title": "Sett framerate",
+          "desc": "Velg mellom 15fps eller 30fps for GIF-animasjonen."
+        },
+        {
+          "title": "Generer",
+          "desc": "Lagre det looping GIF-bildet."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om video til GIF",
+      "items": [
+        {
+          "q": "Hvorfor er GIF-er noen ganger store?",
+          "a": "GIF-er er et gammelt format som ikke er veldig komprimert. Vi anbefaler å holde klipp under 5 sekunder."
+        },
+        {
+          "q": "Støtter den gjennomsiktige bakgrunner?",
+          "a": "Hvis kildevideoen din har en alfakanal (som WebM), prøver vi å bevare åpenheten."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Lokal lydkomprimering",
+      "content": "Krymp massive WAV-filer eller podcaster umiddelbart. Ved å eliminere opplastingsfasen er vårt nettleserbaserte verktøy den raskeste måten å komprimere lyd på."
+    },
+    "privacy": {
+      "title": "Konfidensiell lydbehandling",
+      "content": "Komprimerer du ikke-utgitt musikk eller private talememoer? Lyden din behandles strengt lokalt. Vi lagrer aldri sporene dine."
+    },
+    "performance": {
+      "title": "Psykoakustisk koding",
+      "content": "Vår WASM-koder fjerner uhørbare frekvenser, og reduserer lydfilstørrelsene med opptil 80 % samtidig som den opprettholder skarp lyd."
+    },
+    "howto": {
+      "title": "Hvordan komprimere lyd",
+      "steps": [
+        {
+          "title": "Last opp spor",
+          "desc": "Velg din MP3-, WAV- eller AAC-fil."
+        },
+        {
+          "title": "Velg målstørrelse",
+          "desc": "Juster bithastigheten for tyngre komprimering."
+        },
+        {
+          "title": "Last ned",
+          "desc": "Få den optimaliserte, lette lydfilen."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om lydkomprimering",
+      "items": [
+        {
+          "q": "Vil sangen min høres dårlig ut?",
+          "a": "Vi bruker høykvalitets perseptuelle algoritmer slik at komprimeringen er praktisk talt umulig å skille for det menneskelige øret."
+        },
+        {
+          "q": "Kan jeg komprimere timelange podcaster?",
+          "a": "Ja, verktøyet vårt håndterer lyd i lang format uten problemer i nettleseren din."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "In-Browser Audio Converter",
+      "content": "Oversett lydformater umiddelbart uten å pinge en server. Perfekt for å bytte mellom WAV-, MP3- og OGG-formater lokalt."
+    },
+    "privacy": {
+      "title": "Zero-Upload lydoversettelse",
+      "content": "Stemmeopptakene dine er dine alene. Vår offline konverteringsmotor garanterer absolutt personvern for sensitiv lyd."
+    },
+    "performance": {
+      "title": "Lynraske kodeker",
+      "content": "Konvertering av lyd er beregningsmessig lett. Vår lokale motor koder en 5-minutters sang på mindre enn 2 sekunder."
+    },
+    "howto": {
+      "title": "Slik konverterer du lydformater",
+      "steps": [
+        {
+          "title": "Velg lyd",
+          "desc": "Slipp lydfilen som ikke støttes i verktøyet."
+        },
+        {
+          "title": "Velg utgang",
+          "desc": "Velg ønsket format (f.eks. MP3 for universell avspilling)."
+        },
+        {
+          "title": "Lagre fil",
+          "desc": "Last ned det nylig formaterte lydsporet."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio Converter FAQ",
+      "items": [
+        {
+          "q": "Kan jeg konvertere lossy MP3 til lossless WAV?",
+          "a": "Du kan, men det vil ikke gjenopprette tapt kvalitet. Det vil ganske enkelt endre beholderformatet."
+        },
+        {
+          "q": "Er ID3-tagger bevart?",
+          "a": "Vi gjør vårt ytterste for å overføre metadata som artistnavn og albumgrafikk."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Lokal utvinning av video til lyd",
+      "content": "Trekk ut MP3-er fra MP4-er umiddelbart. Å omgå skyopplastinger betyr at du kan rippe lyd fra en video på 2 GB på sekunder."
+    },
+    "privacy": {
+      "title": "Sikker lydripping",
+      "content": "Trekk ut lyd fra private familievideoer på en sikker måte. Prosessen skjer helt i nettleserens sandkasse."
+    },
+    "performance": {
+      "title": "Strømkopieringsteknologi",
+      "content": "Når det er mulig, bruker vi direkte strømkopiering for å trekke ut lyden uten omkoding, og sikrer 100 % original kvalitet."
+    },
+    "howto": {
+      "title": "Hvordan trekke ut lyd",
+      "steps": [
+        {
+          "title": "Last opp video",
+          "desc": "Velg MP4-, MOV- eller MKV-filen."
+        },
+        {
+          "title": "Pakk ut",
+          "desc": "Klikk prosess for å rippe lydsporet."
+        },
+        {
+          "title": "Last ned MP3",
+          "desc": "Lagre den utpakkede lydfilen."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om video til lyd",
+      "items": [
+        {
+          "q": "Er den originale lydkvaliteten bevart?",
+          "a": "Ja, vi trekker ut den nøyaktige lydstrømmen som er innebygd i videoen."
+        },
+        {
+          "q": "Kan jeg trekke ut lyd fra en 4K-video?",
+          "a": "Absolutt. Videooppløsningen påvirker ikke lydutvinningshastigheten."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Nettleserbasert Audio Joiner",
+      "content": "Kombiner flere lydspor til en enkelt fil lokalt. Du trenger ikke å laste opp tunge flersporsøkter til en server."
+    },
+    "privacy": {
+      "title": "Spleising av privat spor",
+      "content": "Bli med i podcast-segmenter eller konfidensielle intervjuer? Verktøyet vårt behandler sammenslåingen sikkert på enheten din."
+    },
+    "performance": {
+      "title": "Sømløs kryssfading",
+      "content": "Vår WASM-motor syr sammen lydfiler sømløst, og sikrer gapfri avspilling og perfekt justering."
+    },
+    "howto": {
+      "title": "Slik slår du sammen lyd",
+      "steps": [
+        {
+          "title": "Last opp spor",
+          "desc": "Velg to eller flere lydfiler."
+        },
+        {
+          "title": "Ordne rekkefølge",
+          "desc": "Dra og slipp for å angi avspillingssekvensen."
+        },
+        {
+          "title": "Bli med filer",
+          "desc": "Last ned det kombinerte mastersporet."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om lydsammenslåing",
+      "items": [
+        {
+          "q": "Kan jeg slå sammen MP3 og WAV?",
+          "a": "Ja, motoren vår vil automatisk normalisere formatene under sammenslåingen."
+        },
+        {
+          "q": "Er det et gap mellom de sammenføyde sporene?",
+          "a": "Nei, sporene er satt sammen nøyaktig ende-til-ende for gapfri avspilling."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Lokal AI-transkripsjon",
+      "content": "Gjør tale til tekst direkte i nettleseren din. Ved å bruke Whisper AI via WebAssembly trenger du ikke sende lyden til skyen."
+    },
+    "privacy": {
+      "title": "Absolutt konfidensialitet",
+      "content": "Transkribere juridiske eller medisinske journaler? Dette er den eneste sikre måten. Det nevrale nettverket kjører lokalt, og sikrer null datalekkasjer."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Vi utnytter enhetens GPU for å kjøre Whisper-modellen, og leverer svært nøyaktige transkripsjoner betydelig raskere enn CPU-behandling."
+    },
+    "howto": {
+      "title": "Hvordan transkribere lyd",
+      "steps": [
+        {
+          "title": "Last inn modell",
+          "desc": "Vent til den lette AI-modellen bufres i nettleseren din."
+        },
+        {
+          "title": "Last opp media",
+          "desc": "Velg lyd- eller videofilen som skal transkriberes."
+        },
+        {
+          "title": "Eksporter tekst",
+          "desc": "Lagre den genererte transkripsjonen som TXT- eller SRT-undertekster."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om AI-transkripsjon",
+      "items": [
+        {
+          "q": "Støtter den flere språk?",
+          "a": "Ja, Whisper-modellen støtter engelsk, indonesisk, spansk og dusinvis til."
+        },
+        {
+          "q": "Hvorfor laster den ned en fil først?",
+          "a": "Den må bufre AI-nevrale nettverksvektene til enheten din én gang. Etter det fungerer det offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Ta opp skjermen, webkameraet og mikrofonen direkte i nettleseren. Ingen programvareinstallasjon eller serveropplasting kreves."
+    },
+    "privacy": {
+      "title": "Sikkert opptak på klientsiden",
+      "content": "Vil du spille inn sensitive presentasjoner? Videoen din fanges direkte inn i nettleserens minne og lagres lokalt."
+    },
+    "performance": {
+      "title": "HD-maskinvarekoding",
+      "content": "Vi bruker MediaRecorder API med maskinvareakselerasjon for å fange skarpe 1080p- og 4K-opptak uten å miste bilder."
+    },
+    "howto": {
+      "title": "Slik tar du opp",
+      "steps": [
+        {
+          "title": "Gi tillatelser",
+          "desc": "Tillat nettlesertilgang til kameraet og mikrofonen."
+        },
+        {
+          "title": "Velg kilder",
+          "desc": "Velg mellom Skjermdeling, Webkamera eller begge deler."
+        },
+        {
+          "title": "Ta opp og lagre",
+          "desc": "Trykk på record, og last ned den endelige MP4-en umiddelbart når du er ferdig."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vanlige spørsmål om studioopptaker",
+      "items": [
+        {
+          "q": "Kan jeg ta opp systemlyd?",
+          "a": "Ja, når du deler en Chrome-fane eller hele skjermen på Windows, kan du krysse av for \"Del systemlyd\"."
+        },
+        {
+          "q": "Er det en tidsbegrensning?",
+          "a": "Du er kun begrenset av tilgjengelig RAM og lagring på din lokale enhet."
+        }
+      ]
+    }
+  }
+}

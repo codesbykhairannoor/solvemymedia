@@ -1,0 +1,26 @@
+{
+  "langName": "Nederlands",
+  "flag": "🇳🇱",
+  "nav": {
+    "compress_video": "Video comprimeren",
+    "convert_video": "Video converteren",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "Video-optimalisatie",
+    "cat_video_edit": "Video bewerken",
+    "cat_audio": "Audiohulpmiddelen",
+    "cat_ai": "AI & Studio",
+    "speed": "Snelheid wijzigen",
+    "gif": "Video naar GIF",
+    "crop": "Video bijsnijden",
+    "mute": "Video dempen",
+    "watermark": "Watermerk toevoegen",
+    "compress_audio": "Audio comprimeren",
+    "convert_audio": "Audio converteren",
+    "video_to_audio": "Video naar audio",
+    "merge_audio": "Audio samenvoegen",
+    "transcribe": "AI Media naar tekst",
+    "studio_recorder": "Studiorecorder"
+  },
+  "search_lang": "Search language..."
+}

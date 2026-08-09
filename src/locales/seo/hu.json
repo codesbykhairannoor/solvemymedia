@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Kliensoldali videotömörítés",
+      "content": "Motorunk közvetlenül a böngészőben fut. A szerverfeltöltések kiiktatásával nulla várakozási időt garantálunk az adatátvitelhez és az azonnali tömörítés megkezdését."
+    },
+    "privacy": {
+      "title": "Teljes videós adatvédelem",
+      "content": "Kiadatlan videói és személyes felvételei a gépen maradnak. A WASM-et használjuk a fájlok helyi tömörítésére, ami azt jelenti, hogy az Ön adatait soha nem tároljuk a szervereinken."
+    },
+    "performance": {
+      "title": "WebCodecs-gyorsítás",
+      "content": "A hardveres gyorsítású GPU-kódolást kihasználva másodpercek alatt akár 90%-ra csökkentjük a hatalmas MP4- és WebM-fájlokat."
+    },
+    "howto": {
+      "title": "Videó tömörítése",
+      "steps": [
+        {
+          "title": "Válassza az MP4/WebM lehetőséget",
+          "desc": "Húzza a nehéz videofájlt a dropzone-ba."
+        },
+        {
+          "title": "Minőségi cél beállítása",
+          "desc": "Válasszon a maximális tömörítés vagy a kiegyensúlyozott minőség között."
+        },
+        {
+          "title": "Azonnali mentés",
+          "desc": "Azonnal töltse le az optimalizált videót."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videótömörítés GYIK",
+      "items": [
+        {
+          "q": "Romlik a videóm minősége?",
+          "a": "Intelligens változó bitsebességű (VBR) kódolást használunk, hogy megőrizzük a vizuális hűséget, miközben eldobjuk a láthatatlan adatokat."
+        },
+        {
+          "q": "Vannak méretkorlátok?",
+          "a": "Nincsenek mesterséges korlátok. Ha a készülék elegendő RAM-mal rendelkezik, gigabájtnyi videót dolgozhat fel."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Helyi videokonverzió",
+      "content": "Videóformátumok offline fordítása. Eszközünk megkerüli a felhő-infrastruktúrát, így biztosítva, hogy az MKV-t MP4-re konvertálhassa még lassú kapcsolatok esetén is."
+    },
+    "privacy": {
+      "title": "Zero-Trust formátumú fordítás",
+      "content": "Bizalmas vállalati videók? Nem akarjuk őket. Az FFmpeg-alapú motorunk biztonságosan lefordítja a videokodekeket az eszköz homokozójában."
+    },
+    "performance": {
+      "title": "Azonnali átkódolás",
+      "content": "A fel-/letöltési fázis kihagyásával a helyi átkódolónk exponenciálisan gyorsabb, mint a hagyományos felhőalapú videokonverterek."
+    },
+    "howto": {
+      "title": "Videoformátumok konvertálása",
+      "steps": [
+        {
+          "title": "Videó importálása",
+          "desc": "Töltsön be minden nem támogatott videóformátumot, például MKV-t vagy AVI-t."
+        },
+        {
+          "title": "Kimenet kiválasztása",
+          "desc": "Válassza ki a kívánt kodeket, például H.264 MP4 vagy WebM."
+        },
+        {
+          "title": "Eredmény letöltése",
+          "desc": "Szerezze be az univerzálisan lejátszható videofájlt."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Converter GYIK",
+      "items": [
+        {
+          "q": "A konvertálás rontja a minőséget?",
+          "a": "Nem, ha nagy bitsebességű vagy veszteségmentes célt választ. Alapértelmezés szerint megőrizzük az eredeti felbontást."
+        },
+        {
+          "q": "Átalakíthatom az MKV-t felirattal?",
+          "a": "Igen, a szabványos feliratfolyamok támogatottak az MP4-átalakítás során."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Ping nélküli videóidőzítés",
+      "content": "Azonnal lassíthatja vagy gyorsíthatja fel a klipeket. Böngésző-alapú újraidőzítőnk helyileg dolgozza fel a képkockákat a szerver késleltetése nélkül."
+    },
+    "privacy": {
+      "title": "Biztonságos keretfeldolgozás",
+      "content": "A legfontosabb sportesemények és táncoktatóprogramok privátak maradnak. A keretinterpoláció és a sebesség beállítása teljesen offline módban történik."
+    },
+    "performance": {
+      "title": "Gyors hangmagasság-korrekció",
+      "content": "Egyszerre, valós időben kezeljük a képkockafrekvenciát és a hangmagasság-korrekciót, így másodpercek alatt elkészítjük a végső videót."
+    },
+    "howto": {
+      "title": "A videó sebességének módosítása",
+      "steps": [
+        {
+          "title": "Videó hozzáadása",
+          "desc": "Töltsd fel a gyorsítani vagy lassítani kívánt klipet."
+        },
+        {
+          "title": "A csúszka beállítása",
+          "desc": "Állítsa be a szorzót (pl. 0,5-szeres lassításhoz, 2-szeres gyors előretekeréshez)."
+        },
+        {
+          "title": "Renderelés",
+          "desc": "Mentse el az újraállított videót az eszközére."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videósebesség GYIK",
+      "items": [
+        {
+          "q": "Úgy fog hangzani a hang, mint egy mókus?",
+          "a": "Dinamikus hangmagasság-korrekciót alkalmazunk, így a hangok még kétszeres sebességnél is természetesek."
+        },
+        {
+          "q": "Mennyire sima a lassítás?",
+          "a": "Ez az eredeti képkockasebességtől függ. A 60 képkocka/mp sebességű videók hihetetlenül simának tűnnek 0,5-szeres sebességgel."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Böngésző alapú videóvágás",
+      "content": "Vágja ki a vízjeleket vagy állítsa be a képarányt azonnal. Nem kell nehéz fájlokat feltölteni a felhőbe, csak a szélek levágásához."
+    },
+    "privacy": {
+      "title": "Privát dimenziós szerkesztés",
+      "content": "Szerkessze biztonságosan személyes vlog-keretét. Soha nem tároljuk vagy továbbítjuk nyers videóadatait a vágási folyamat során."
+    },
+    "performance": {
+      "title": "Precíziós keretkivágás",
+      "content": "Helyi motorunk csak a kiválasztott területet kódolja újra, így biztosítva a borotvaéles éleket és a rendkívül gyors renderelési időt."
+    },
+    "howto": {
+      "title": "Videók körbevágása",
+      "steps": [
+        {
+          "title": "Média betöltése",
+          "desc": "Importálja az átkeretezni kívánt videót."
+        },
+        {
+          "title": "Határok beállítása",
+          "desc": "Húzza a vágómezőt a kívánt képarányra (pl. 9:16 a TikTok esetében)."
+        },
+        {
+          "title": "Exportálás",
+          "desc": "Azonnal töltse le az újonnan kivágott videót."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videók vágása GYIK",
+      "items": [
+        {
+          "q": "Csökkenti a vágás a fájlméretet?",
+          "a": "Igen, ha eltávolítjuk a képpontokat a keretből, a szükséges teljes bitsebesség általában alacsonyabb."
+        },
+        {
+          "q": "Vághatok Instagram-tekercsekhez?",
+          "a": "Feltétlenül. Csak állítsa be a vágódobozt 9:16 függőleges arányra."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Azonnali hangeltávolítás",
+      "content": "Hangsávok eltávolítása a videókról ezredmásodpercek alatt. Mivel helyben fut, nem kell várni a szerversorokra."
+    },
+    "privacy": {
+      "title": "Biztonságos hangeltávolítás",
+      "content": "Az érzékeny háttérbeszélgetések biztonságos elnémítása. A hangsávot eldobja a böngészőben, nem hagy digitális nyomot."
+    },
+    "performance": {
+      "title": "Nulla újrakódolás szükséges",
+      "content": "Ha lehetséges, egyszerűen multiplexeljük a videofolyamot a hangsáv nélkül, ami azt jelenti, hogy a némítás kevesebb mint egy másodpercet vesz igénybe."
+    },
+    "howto": {
+      "title": "Videó némítása",
+      "steps": [
+        {
+          "title": "Válassza a Videót",
+          "desc": "Válassza ki az eltávolítani kívánt hangot tartalmazó videót."
+        },
+        {
+          "title": "Hangszalag csíkozása",
+          "desc": "Kattintson a folyamat gombra az audio adatfolyam azonnali törléséhez."
+        },
+        {
+          "title": "Néma videó mentése",
+          "desc": "Töltse le a némított videofájlt."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videó némítása GYIK",
+      "items": [
+        {
+          "q": "Befolyásolja a némítás a videó minőségét?",
+          "a": "Egyáltalán nem. A vizuális videofolyamot teljesen érintetlenül hagyjuk."
+        },
+        {
+          "q": "Milyen gyors ez?",
+          "a": "Rendkívül gyors. Csak a videofolyamot másoljuk, mindössze néhány ezredmásodpercig."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Helyi videó vízjel",
+      "content": "Bélyegezze logóját biztonságosan a tartalomra. A helyi feldolgozás azt jelenti, hogy gigabájtnyi videót vízjellel láthat el hálózati késések nélkül."
+    },
+    "privacy": {
+      "title": "Védi a kiadatlan tartalmat",
+      "content": "Vízjelet ad a megjelenés előtti filmhez? Csináld offline. Az Ön szellemi tulajdona soha nem érinti szervereinket."
+    },
+    "performance": {
+      "title": "Hardveresen gyorsított átfedés",
+      "content": "Motorunk hatékonyan ötvözi átlátszó PNG-logóját a videokockák között WebGPU és WASM optimalizálással."
+    },
+    "howto": {
+      "title": "Vízjel hozzáadása",
+      "steps": [
+        {
+          "title": "Videó és logó feltöltése",
+          "desc": "Importálja a videót és egy átlátszó PNG-képet."
+        },
+        {
+          "title": "Pozíció",
+          "desc": "Állítsa be a vízjel léptékét, átlátszatlanságát és helyzetét."
+        },
+        {
+          "title": "Videó renderelése",
+          "desc": "A vízjelet véglegesen beilleszti a videofájlba."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Vízjelekkel kapcsolatos GYIK",
+      "items": [
+        {
+          "q": "Eltávolíthatják a tolvajok a vízjelemet?",
+          "a": "Mivel a képet keményen kódoljuk a videókockákba, rendkívül nehéz eltávolítani a videó tönkretétele nélkül."
+        },
+        {
+          "q": "Csempézhetem a vízjelet?",
+          "a": "Igen, engedélyezheti a csempézést, hogy az emblémát a teljes képernyőn megismételje."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Offline videó GIF-be",
+      "content": "A vicces pillanatokat azonnal GIF-ekké alakíthatja. Helyi GIF kódolónk teljes egészében az Ön gépén működik, így sávszélességet takarít meg."
+    },
+    "privacy": {
+      "title": "Privát mémgenerátor",
+      "content": "A személyes videókat GIF-ekké alakíthatja anélkül, hogy feltöltené őket nyilvános mémszerverekre. A tartalmad 100%-ban privát marad."
+    },
+    "performance": {
+      "title": "Optimalizált palettagenerálás",
+      "content": "Speciális színkvantálást használunk, hogy kiváló minőségű, kis fájlméretű GIF-eket hozzunk létre, amelyek közvetlenül a böngészőben futnak."
+    },
+    "howto": {
+      "title": "GIF létrehozása",
+      "steps": [
+        {
+          "title": "Videó kivágása",
+          "desc": "Válasszon ki egy rövid részt a videóból."
+        },
+        {
+          "title": "Képkockaszám beállítása",
+          "desc": "Válasszon a 15 vagy 30 képkocka/mp között a GIF-animációhoz."
+        },
+        {
+          "title": "Létrehoz",
+          "desc": "Mentse el a hurkolt GIF-képet."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videóról GIF-re GYIK",
+      "items": [
+        {
+          "q": "Miért nagyok néha a GIF-ek? A",
+          "a": "A GIF egy régi formátum, amely nem túl tömörített. Javasoljuk, hogy a klipeket 5 másodpercnél rövidebb ideig tartsa."
+        },
+        {
+          "q": "Támogatja az átlátszó háttereket?",
+          "a": "Ha a forrásvideónak alfa-csatornája van (például a WebM), igyekszünk megőrizni az átláthatóságot."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Helyi hangtömörítés",
+      "content": "A hatalmas WAV-fájlok vagy podcastok azonnali zsugorítása. A feltöltési fázis kiiktatásával böngészőalapú eszközünk a leggyorsabb módja a hangtömörítésnek."
+    },
+    "privacy": {
+      "title": "Bizalmas hangfeldolgozás",
+      "content": "Tömöríti a kiadatlan zenéket vagy privát hangjegyzeteket? Hangjának feldolgozása szigorúan helyben történik. Soha nem tároljuk a nyomait."
+    },
+    "performance": {
+      "title": "Pszichoakusztikus kódolás",
+      "content": "WASM kódolónk kiszűri a nem hallható frekvenciákat, akár 80%-kal csökkenti az audiofájlok méretét, miközben megőrzi az éles hangzást."
+    },
+    "howto": {
+      "title": "Hang tömörítése",
+      "steps": [
+        {
+          "title": "Szám feltöltése",
+          "desc": "Válassza ki az MP3, WAV vagy AAC fájlt."
+        },
+        {
+          "title": "Válassza ki a célméretet",
+          "desc": "Állítsa be a bitsebességet a nagyobb tömörítés érdekében."
+        },
+        {
+          "title": "Letöltés",
+          "desc": "Szerezze be az optimalizált, könnyű hangfájlt."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Hangtömörítés GYIK",
+      "items": [
+        {
+          "q": "Rosszul fog szólni a dalom?",
+          "a": "Kiváló minőségű észlelési algoritmusokat használunk, így a tömörítés gyakorlatilag megkülönböztethetetlen az emberi fül számára."
+        },
+        {
+          "q": "Tömöríthetem az órás podcastokat?",
+          "a": "Igen, eszközünk könnyedén kezeli a hosszú formátumú hangokat a böngészőben."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "In-Browser Audio Converter",
+      "content": "A hangformátumok azonnali fordítása a szerver pingelése nélkül. Tökéletes a WAV, MP3 és OGG formátumok közötti helyi váltáshoz."
+    },
+    "privacy": {
+      "title": "Zero-Upload Audio Translation",
+      "content": "Hangfelvételei egyedül az Öné. Offline konverziós motorunk abszolút adatvédelmet garantál az érzékeny hangok számára."
+    },
+    "performance": {
+      "title": "Villámgyors kodekek",
+      "content": "A hang konvertálása számítási szempontból könnyű. Helyi motorunk kevesebb, mint 2 másodperc alatt átkódol egy 5 perces dalt."
+    },
+    "howto": {
+      "title": "Hangformátumok konvertálása",
+      "steps": [
+        {
+          "title": "Hang kiválasztása",
+          "desc": "Dobja be a nem támogatott hangfájlt az eszközbe."
+        },
+        {
+          "title": "Válassza ki a kimenetet",
+          "desc": "Válassza ki a kívánt formátumot (pl. MP3 univerzális lejátszáshoz)."
+        },
+        {
+          "title": "Fájl mentése",
+          "desc": "Töltse le az újonnan formázott hangsávot."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audiokonverter GYIK",
+      "items": [
+        {
+          "q": "Átalakíthatom a veszteséges MP3-at veszteségmentes WAV-vá?",
+          "a": "Megteheti, de nem állítja vissza az elveszett minőséget. Egyszerűen megváltoztatja a tároló formátumát."
+        },
+        {
+          "q": "Megőrzik az ID3 címkéket?",
+          "a": "Mindent megteszünk a metaadatok, például az előadó neve és az albumborítók átvitele érdekében."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Helyi videóból hangkivonás",
+      "content": "MP3-fájlok azonnali kinyerése MP4-ekből. A felhőfeltöltések megkerülésével másodpercek alatt másolhatja ki a hangot egy 2 GB-os videóból."
+    },
+    "privacy": {
+      "title": "Biztonságos hangmásolás",
+      "content": "Biztonságosan kivonhatja a hangot a privát családi videókból. A folyamat teljes egészében a böngésző homokozójában történik."
+    },
+    "performance": {
+      "title": "Stream-másolási technológia",
+      "content": "Amikor csak lehetséges, közvetlen adatfolyam-másolást használunk a hanganyag újrakódolás nélküli kinyerésére, így biztosítva a 100%-os eredeti minőséget."
+    },
+    "howto": {
+      "title": "Hang kibontása",
+      "steps": [
+        {
+          "title": "Videó feltöltése",
+          "desc": "Válassza ki az MP4, MOV vagy MKV fájlt."
+        },
+        {
+          "title": "Kivonat",
+          "desc": "Kattintson a folyamat gombra a hangsáv kimásolásához."
+        },
+        {
+          "title": "MP3 letöltése",
+          "desc": "Mentse el a kicsomagolt hangfájlt."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videóról hangra GYIK",
+      "items": [
+        {
+          "q": "Megőrizte az eredeti hangminőséget?",
+          "a": "Igen, pontosan a videóba ágyazott hangfolyamot bontjuk ki."
+        },
+        {
+          "q": "Kivonhatok hangot egy 4K-s videóból?",
+          "a": "Feltétlenül. A videó felbontása nincs hatással a hangkivonás sebességére."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Böngésző alapú audio Joiner",
+      "content": "Több hangsáv kombinálása egyetlen fájlba helyileg. Nem szükséges nehéz többsávos munkameneteket feltölteni a szerverre."
+    },
+    "privacy": {
+      "title": "Privát számok összeillesztése",
+      "content": "Csatlakozik a podcast szegmensekhez vagy bizalmas interjúkhoz? Eszközünk biztonságosan feldolgozza az egyesítést az Ön eszközén."
+    },
+    "performance": {
+      "title": "Zökkenőmentes áthaladás",
+      "content": "WASM-motorunk zökkenőmentesen fűzi össze az audiofájlokat, biztosítva a hézagmentes lejátszást és a tökéletes igazítást."
+    },
+    "howto": {
+      "title": "Hang egyesítése",
+      "steps": [
+        {
+          "title": "Számok feltöltése",
+          "desc": "Válasszon ki két vagy több hangfájlt."
+        },
+        {
+          "title": "Sorrend elrendezése",
+          "desc": "Húzással állítsa be a lejátszási sorrendet."
+        },
+        {
+          "title": "Fájlok összekapcsolása",
+          "desc": "Töltse le a kombinált fősávot."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio egyesülési GYIK",
+      "items": [
+        {
+          "q": "Egyesíthetem az MP3-at és a WAV-ot?",
+          "a": "Igen, motorunk automatikusan normalizálja a formátumokat az egyesítés során."
+        },
+        {
+          "q": "Van rés az egyesített sávok között?",
+          "a": "Nem, a műsorszámok pontosan egymás után vannak összefűzve a hézagmentes lejátszás érdekében."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Helyi mesterséges intelligencia átírása",
+      "content": "A beszédet szöveggé alakíthatja közvetlenül a böngészőben. A Whisper AI WebAssembly-n keresztüli használatával nem kell a hangot a felhőbe küldenie."
+    },
+    "privacy": {
+      "title": "Abszolút titoktartás",
+      "content": "Jogi vagy egészségügyi feljegyzések átírása? Ez az egyetlen biztonságos út. A neurális hálózat helyben fut, biztosítva az adatszivárgást."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Eszköze GPU-ját kihasználjuk a Whisper modell futtatásához, így a CPU-feldolgozásnál lényegesen gyorsabban biztosítjuk a rendkívül pontos átiratokat."
+    },
+    "howto": {
+      "title": "Audio átírása",
+      "steps": [
+        {
+          "title": "Modell betöltése",
+          "desc": "Várja meg, amíg a könnyű AI-modell gyorsítótárba kerül a böngészőben."
+        },
+        {
+          "title": "Média feltöltése",
+          "desc": "Válassza ki az átírni kívánt hang- vagy videofájlt."
+        },
+        {
+          "title": "Szöveg exportálása",
+          "desc": "Mentse el a generált átiratot TXT vagy SRT feliratként."
+        }
+      ]
+    },
+    "faq": {
+      "title": "AI átírással kapcsolatos GYIK",
+      "items": [
+        {
+          "q": "Több nyelvet is támogat?",
+          "a": "Igen, a Whisper modell támogatja az angol, az indonéz, a spanyol és még több tucat nyelvet."
+        },
+        {
+          "q": "Miért tölt le először egy fájlt?",
+          "a": "Egyszer gyorsítótárba kell helyeznie az AI neurális hálózat súlyozását az eszközén. Ezt követően offline módban működik."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Rögzítse képernyőjét, webkameráját és mikrofonját közvetlenül a böngészőben. Nincs szükség szoftvertelepítésre vagy szerverfeltöltésre."
+    },
+    "privacy": {
+      "title": "Biztonságos kliensoldali rögzítés",
+      "content": "Érzékeny prezentációkat rögzít? A videó közvetlenül a böngésző memóriájába kerül, és helyileg mentésre kerül."
+    },
+    "performance": {
+      "title": "HD hardveres kódolás",
+      "content": "A MediaRecorder API-t hardveres gyorsítással használjuk, hogy éles 1080p és 4K felvételeket készítsünk képkockák kiesése nélkül."
+    },
+    "howto": {
+      "title": "Felvétel módja",
+      "steps": [
+        {
+          "title": "Engedélyek megadása",
+          "desc": "Engedélyezze a böngésző hozzáférését a kamerához és a mikrofonhoz."
+        },
+        {
+          "title": "Források kiválasztása",
+          "desc": "Válasszon a Képernyőmegosztás, Webkamera vagy mindkettő közül."
+        },
+        {
+          "title": "Rögzítés és mentés",
+          "desc": "Nyomja meg a rekordot, majd töltse le azonnal a végső MP4-et, ha kész."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Stúdiófelvevő GYIK",
+      "items": [
+        {
+          "q": "Felvehetek rendszerhangot?",
+          "a": "Igen, ha megoszt egy Chrome-lapot vagy a teljes képernyőt Windows rendszeren, bejelölheti a „Rendszerhang megosztása” lehetőséget."
+        },
+        {
+          "q": "Van időkorlát?",
+          "a": "Csak a rendelkezésre álló RAM és tárhely korlátozza a helyi eszközön."
+        }
+      ]
+    }
+  }
+}

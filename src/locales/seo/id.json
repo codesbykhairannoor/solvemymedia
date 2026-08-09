@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Kompresi Video Sisi Klien",
+      "content": "Mesin kami berjalan langsung di dalam browser Anda. Dengan menghilangkan pengunggahan server, kami menjamin tidak ada waktu tunggu untuk transfer data dan kompresi instan dimulai."
+    },
+    "privacy": {
+      "title": "Privasi Video Total",
+      "content": "Video dan rekaman pribadi Anda yang belum dirilis tetap ada di komputer Anda. Kami menggunakan WASM untuk mengompres file secara lokal, artinya data Anda tidak pernah disimpan di server kami."
+    },
+    "performance": {
+      "title": "Akselerasi WebCodecs",
+      "content": "Memanfaatkan pengkodean GPU yang dipercepat perangkat keras, kami mengecilkan file MP4 dan WebM berukuran besar hingga 90% hanya dalam hitungan detik."
+    },
+    "howto": {
+      "title": "Cara Kompres Video",
+      "steps": [
+        {
+          "title": "Pilih MP4/WebM",
+          "desc": "Tarik file video berat anda ke dropzone."
+        },
+        {
+          "title": "Tetapkan Target Kualitas",
+          "desc": "Pilih antara kompresi maksimum atau kualitas seimbang."
+        },
+        {
+          "title": "Simpan Seketika",
+          "desc": "Unduh video yang dioptimalkan secara instan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Kompresi Video",
+      "items": [
+        {
+          "q": "Apakah kualitas video saya akan menurun?",
+          "a": "Kami menggunakan pengkodean kecepatan bit variabel cerdas (VBR) untuk menjaga fidelitas visual sambil membuang data yang tidak terlihat."
+        },
+        {
+          "q": "Apakah ada batasan ukuran?",
+          "a": "Tidak ada batasan buatan. Anda dapat memproses video berukuran gigabyte jika perangkat Anda memiliki cukup RAM."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Konversi Video Lokal",
+      "content": "Terjemahkan format video secara offline. Alat kami melewati infrastruktur cloud, memastikan Anda dapat mengonversi MKV ke MP4 bahkan pada koneksi yang lambat."
+    },
+    "privacy": {
+      "title": "Terjemahan Format Zero-Trust",
+      "content": "Video perusahaan rahasia? Kami tidak menginginkannya. Mesin berbasis FFmpeg kami menerjemahkan codec video dengan aman di dalam kotak pasir perangkat Anda."
+    },
+    "performance": {
+      "title": "Transcoding Instan",
+      "content": "Dengan melewatkan fase unggah/unduh, transcoder lokal kami jauh lebih cepat dibandingkan konverter video tradisional berbasis cloud."
+    },
+    "howto": {
+      "title": "Cara Mengonversi Format Video",
+      "steps": [
+        {
+          "title": "Impor Video",
+          "desc": "Memuat format video apa pun yang tidak didukung seperti MKV atau AVI."
+        },
+        {
+          "title": "Pilih Output",
+          "desc": "Pilih codec yang Anda inginkan, seperti H.264 MP4 atau WebM."
+        },
+        {
+          "title": "Hasil Download",
+          "desc": "Dapatkan file video yang dapat diputar secara universal."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Video Converter",
+      "items": [
+        {
+          "q": "Apakah konversi mengurangi kualitas?",
+          "a": "Tidak jika Anda memilih target dengan bitrate tinggi atau lossless. Kami secara default mempertahankan resolusi asli."
+        },
+        {
+          "q": "Bisakah saya mengonversi MKV dengan subtitle?",
+          "a": "Ya, streaming subtitle standar didukung selama konversi MP4."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Pengatur Waktu Ulang Video Tanpa Ping",
+      "content": "Memperlambat atau mempercepat klip Anda secara instan. Pengatur waktu berbasis browser kami memproses frame secara lokal tanpa latensi server."
+    },
+    "privacy": {
+      "title": "Pemrosesan Bingkai Aman",
+      "content": "Sorotan olahraga dan tutorial menari Anda tetap bersifat pribadi. Interpolasi bingkai dan penyesuaian kecepatan terjadi sepenuhnya secara offline."
+    },
+    "performance": {
+      "title": "Koreksi Pitch Cepat",
+      "content": "Kami menangani framerate visual dan koreksi nada audio secara bersamaan secara real-time, sehingga menghasilkan video akhir dalam hitungan detik."
+    },
+    "howto": {
+      "title": "Cara Mengubah Kecepatan Video",
+      "steps": [
+        {
+          "title": "Tambahkan Video",
+          "desc": "Upload klip yang ingin dipercepat atau diperlambat."
+        },
+        {
+          "title": "Sesuaikan Penggeser",
+          "desc": "Atur pengali (misalnya, 0,5x untuk gerak lambat, 2x untuk gerak cepat)."
+        },
+        {
+          "title": "Render",
+          "desc": "Simpan video yang sudah diatur waktunya ke perangkat Anda."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Kecepatan Video",
+      "items": [
+        {
+          "q": "Akankah audio terdengar seperti tupai?",
+          "a": "Kami menerapkan koreksi nada dinamis sehingga suara terdengar alami bahkan pada kecepatan 2x."
+        },
+        {
+          "q": "Seberapa halus gerakan lambatnya?",
+          "a": "Tergantung framerate aslinya. Video 60fps akan terlihat sangat mulus pada kecepatan 0,5x."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Pemangkasan Video Berbasis Browser",
+      "content": "Pangkas tanda air atau sesuaikan rasio aspek secara instan. Tidak perlu mengunggah file berat ke cloud hanya untuk memangkas bagian tepinya."
+    },
+    "privacy": {
+      "title": "Pengeditan Dimensi Pribadi",
+      "content": "Edit framing vlog pribadi Anda dengan aman. Kami tidak pernah menyimpan atau mengirimkan data video mentah Anda selama proses pemotongan."
+    },
+    "performance": {
+      "title": "Pemangkasan Bingkai Presisi",
+      "content": "Mesin lokal kami hanya mengkodekan ulang area yang dipilih, memastikan tepian yang tajam dan waktu render yang sangat cepat."
+    },
+    "howto": {
+      "title": "Cara Memotong Video",
+      "steps": [
+        {
+          "title": "Memuat Media",
+          "desc": "Impor video yang ingin Anda bingkai ulang."
+        },
+        {
+          "title": "Tetapkan Batas",
+          "desc": "Seret kotak pangkas ke rasio aspek yang Anda inginkan (misalnya, 9:16 untuk TikTok)."
+        },
+        {
+          "title": "Ekspor",
+          "desc": "Unduh video yang baru dipotong secara instan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Pemotongan Video",
+      "items": [
+        {
+          "q": "Apakah pemangkasan mengurangi ukuran file?",
+          "a": "Ya, dengan menghapus piksel dari bingkai, keseluruhan bitrate yang diperlukan biasanya lebih rendah."
+        },
+        {
+          "q": "Bisakah saya memotong untuk Reel Instagram?",
+          "a": "Tentu saja. Cukup atur kotak pangkas Anda ke rasio vertikal 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Penghapusan Audio Instan",
+      "content": "Menghapus trek audio dari video dalam hitungan milidetik. Karena berjalan secara lokal, Anda tidak perlu menunggu antrian server."
+    },
+    "privacy": {
+      "title": "Pengupasan Audio Aman",
+      "content": "Bisukan percakapan sensitif di latar belakang dengan aman. Trek audio dibuang ke dalam browser Anda, tidak meninggalkan jejak digital."
+    },
+    "performance": {
+      "title": "Tidak Perlu Pengkodean Ulang",
+      "content": "Jika memungkinkan, kami cukup melipatgandakan streaming video tanpa trek audio, yang berarti mematikan suara memerlukan waktu kurang dari satu detik."
+    },
+    "howto": {
+      "title": "Cara Mematikan Video",
+      "steps": [
+        {
+          "title": "Pilih Video",
+          "desc": "Pilih video yang berisi audio yang ingin Anda hapus."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Klik proses untuk langsung menghapus aliran audio."
+        },
+        {
+          "title": "Simpan Video Senyap",
+          "desc": "Unduh file video yang dibisukan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Mematikan Video",
+      "items": [
+        {
+          "q": "Apakah mematikan suara memengaruhi kualitas video?",
+          "a": "Tidak sama sekali. Kami membiarkan aliran video visual tidak tersentuh sama sekali."
+        },
+        {
+          "q": "Seberapa cepat ini?",
+          "a": "Sangat cepat. Kami hanya menyalin aliran video, hanya membutuhkan beberapa milidetik."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Watermark Video Lokal",
+      "content": "Stempel logo Anda ke konten Anda dengan aman. Pemrosesan lokal berarti Anda dapat memberi tanda air pada gigabyte video tanpa penundaan jaringan."
+    },
+    "privacy": {
+      "title": "Lindungi Konten yang Belum Dirilis",
+      "content": "Menambahkan tanda air ke film pra-rilis? Lakukan secara offline. Kekayaan intelektual Anda tidak pernah menyentuh server kami."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Mesin kami secara efisien memadukan logo PNG transparan Anda di atas bingkai video menggunakan pengoptimalan WebGPU dan WASM."
+    },
+    "howto": {
+      "title": "Cara Menambahkan Tanda Air",
+      "steps": [
+        {
+          "title": "Unggah Video & Logo",
+          "desc": "Impor video Anda dan gambar PNG transparan."
+        },
+        {
+          "title": "Posisi",
+          "desc": "Sesuaikan skala, opacity, dan posisi watermark."
+        },
+        {
+          "title": "Render Video",
+          "desc": "Masukkan watermark secara permanen ke dalam file video."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Watermarking",
+      "items": [
+        {
+          "q": "Bisakah pencuri menghapus watermark saya?",
+          "a": "Karena kami melakukan hard-encode gambar ke dalam bingkai video, sangat sulit untuk menghapusnya tanpa merusak video."
+        },
+        {
+          "q": "Bolehkah saya memasang tanda air?",
+          "a": "Ya, Anda dapat mengaktifkan ubin untuk mengulang logo Anda di seluruh layar."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Video Offline ke GIF",
+      "content": "Ubah momen lucu menjadi GIF secara instan. Encoder GIF lokal kami berfungsi sepenuhnya di mesin Anda, sehingga menghemat bandwidth Anda."
+    },
+    "privacy": {
+      "title": "Generator Meme Pribadi",
+      "content": "Ubah video pribadi menjadi GIF tanpa mengunggahnya ke server meme publik. Konten Anda tetap 100% pribadi."
+    },
+    "performance": {
+      "title": "Pembuatan Palet yang Dioptimalkan",
+      "content": "Kami menggunakan kuantisasi warna tingkat lanjut untuk menghasilkan GIF berkualitas tinggi dengan ukuran file kecil, yang dijalankan langsung di browser Anda."
+    },
+    "howto": {
+      "title": "Cara Membuat GIF",
+      "steps": [
+        {
+          "title": "Memangkas Video",
+          "desc": "Pilih segmen pendek dari video Anda."
+        },
+        {
+          "title": "Atur Framerate",
+          "desc": "Pilih antara 15fps atau 30fps untuk animasi GIF."
+        },
+        {
+          "title": "Hasilkan",
+          "desc": "Simpan gambar GIF perulangan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Video ke GIF",
+      "items": [
+        {
+          "q": "Mengapa GIF terkadang berukuran besar?",
+          "a": "GIF adalah format lama yang tidak terlalu terkompresi. Kami merekomendasikan untuk menyimpan klip di bawah 5 detik."
+        },
+        {
+          "q": "Apakah mendukung latar belakang transparan?",
+          "a": "Jika video sumber Anda memiliki saluran alfa (seperti WebM), kami berupaya menjaga transparansi."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Kompresi Audio Lokal",
+      "content": "Kecilkan file WAV atau podcast berukuran besar secara instan. Dengan menghilangkan fase pengunggahan, alat berbasis browser kami adalah cara tercepat untuk mengompresi audio."
+    },
+    "privacy": {
+      "title": "Pemrosesan Audio Rahasia",
+      "content": "Mengompresi musik yang belum dirilis atau memo suara pribadi? Audio Anda diproses secara ketat secara lokal. Kami tidak pernah menyimpan jejak Anda."
+    },
+    "performance": {
+      "title": "Pengkodean Psikoakustik",
+      "content": "Encoder WASM kami menghapus frekuensi yang tidak terdengar, mengurangi ukuran file audio hingga 80% sambil mempertahankan suara yang jernih."
+    },
+    "howto": {
+      "title": "Cara Kompres Audio",
+      "steps": [
+        {
+          "title": "Upload Lagu",
+          "desc": "Pilih file MP3, WAV, atau AAC Anda."
+        },
+        {
+          "title": "Pilih Ukuran Target",
+          "desc": "Sesuaikan bitrate untuk kompresi yang lebih berat."
+        },
+        {
+          "title": "Unduh",
+          "desc": "Dapatkan file audio ringan dan optimal."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Kompresi Audio",
+      "items": [
+        {
+          "q": "Apakah lagu saya akan terdengar jelek?",
+          "a": "Kami menggunakan algoritme persepsi berkualitas tinggi sehingga kompresinya hampir tidak dapat dibedakan oleh telinga manusia."
+        },
+        {
+          "q": "Bisakah saya mengompresi podcast berdurasi satu jam?",
+          "a": "Ya, alat kami menangani audio berdurasi panjang dengan mudah di browser Anda."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Konverter Audio Dalam Browser",
+      "content": "Menerjemahkan format suara secara instan tanpa melakukan ping ke server. Sempurna untuk beralih antara format WAV, MP3, dan OGG secara lokal."
+    },
+    "privacy": {
+      "title": "Terjemahan Audio Tanpa Upload",
+      "content": "Rekaman suara Anda adalah milik Anda sendiri. Mesin konversi offline kami menjamin privasi mutlak untuk audio sensitif."
+    },
+    "performance": {
+      "title": "Codec Secepat Kilat",
+      "content": "Mengonversi audio secara komputasi ringan. Mesin lokal kami mentranskode lagu berdurasi 5 menit dalam waktu kurang dari 2 detik."
+    },
+    "howto": {
+      "title": "Cara Mengonversi Format Audio",
+      "steps": [
+        {
+          "title": "Pilih Audio",
+          "desc": "Masukkan file audio Anda yang tidak didukung ke dalam alat."
+        },
+        {
+          "title": "Pilih Output",
+          "desc": "Pilih format yang Anda inginkan (misalnya, MP3 untuk pemutaran universal)."
+        },
+        {
+          "title": "Simpan File",
+          "desc": "Unduh trek audio yang baru diformat."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Konverter Audio",
+      "items": [
+        {
+          "q": "Dapatkah saya mengkonversi MP3 lossy ke WAV lossless?",
+          "a": "Bisa, tapi tidak akan mengembalikan kualitas yang hilang. Itu hanya akan mengubah format wadah."
+        },
+        {
+          "q": "Apakah tag ID3 dipertahankan?",
+          "a": "Kami melakukan segala upaya untuk mentransfer metadata seperti nama artis dan sampul album."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Ekstraksi Video ke Audio Lokal",
+      "content": "Ekstrak MP3 dari MP4 secara instan. Melewati unggahan cloud berarti Anda dapat menyalin audio dari video 2GB dalam hitungan detik."
+    },
+    "privacy": {
+      "title": "Ripping Audio Aman",
+      "content": "Ekstrak audio dari video keluarga pribadi dengan aman. Prosesnya sepenuhnya terjadi di kotak pasir browser Anda."
+    },
+    "performance": {
+      "title": "Teknologi Penyalinan Streaming",
+      "content": "Jika memungkinkan, kami menggunakan penyalinan streaming langsung untuk mengekstrak audio tanpa pengkodean ulang, memastikan kualitas asli 100%."
+    },
+    "howto": {
+      "title": "Cara Ekstrak Audio",
+      "steps": [
+        {
+          "title": "Upload Video",
+          "desc": "Pilih file MP4, MOV, atau MKV."
+        },
+        {
+          "title": "Ekstrak",
+          "desc": "Klik proses untuk menyalin trek audio."
+        },
+        {
+          "title": "Download MP3",
+          "desc": "Simpan file suara yang sudah diekstrak."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Video ke Audio",
+      "items": [
+        {
+          "q": "Apakah kualitas audio asli tetap terjaga?",
+          "a": "Ya, kami mengekstrak aliran audio persis yang tertanam dalam video."
+        },
+        {
+          "q": "Bisakah saya mengekstrak audio dari video 4K?",
+          "a": "Tentu saja. Resolusi video tidak mempengaruhi kecepatan ekstraksi audio."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Penggabung Audio Berbasis Browser",
+      "content": "Menggabungkan beberapa track audio ke dalam satu file secara lokal. Tidak perlu mengunggah sesi multi-track yang berat ke server."
+    },
+    "privacy": {
+      "title": "Penyambungan Track Pribadi",
+      "content": "Bergabung dengan segmen podcast atau wawancara rahasia? Alat kami memproses penggabungan dengan aman di perangkat Anda."
+    },
+    "performance": {
+      "title": "Crossfading Tanpa Batas",
+      "content": "Mesin WASM kami menyatukan file audio dengan mulus, memastikan pemutaran tanpa celah dan penyelarasan sempurna."
+    },
+    "howto": {
+      "title": "Cara Menggabungkan Audio",
+      "steps": [
+        {
+          "title": "Upload Lagu",
+          "desc": "Pilih dua file audio atau lebih."
+        },
+        {
+          "title": "Susun Urutan",
+          "desc": "Tarik dan lepas untuk mengatur urutan pemutaran."
+        },
+        {
+          "title": "Gabung File",
+          "desc": "Unduh track master gabungan."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Penggabungan Audio",
+      "items": [
+        {
+          "q": "Bisakah saya menggabungkan MP3 dan WAV bersama-sama?",
+          "a": "Ya, mesin kami akan secara otomatis menormalkan format selama penggabungan."
+        },
+        {
+          "q": "Apakah ada jarak antar track yang digabungkan?",
+          "a": "Tidak, trek digabungkan persis dari ujung ke ujung untuk pemutaran tanpa celah."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Transkripsi AI Lokal",
+      "content": "Ubah ucapan menjadi teks langsung di browser Anda. Menggunakan Whisper AI melalui WebAssembly, Anda tidak perlu mengirim audio ke cloud."
+    },
+    "privacy": {
+      "title": "Kerahasiaan Mutlak",
+      "content": "Mentranskripsikan catatan hukum atau medis? Ini adalah satu-satunya cara yang aman. Jaringan saraf berjalan secara lokal, memastikan tidak ada kebocoran data."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Kami memanfaatkan GPU perangkat Anda untuk menjalankan model Whisper, memberikan transkrip yang sangat akurat secara signifikan lebih cepat daripada pemrosesan CPU."
+    },
+    "howto": {
+      "title": "Cara Mentranskripsikan Audio",
+      "steps": [
+        {
+          "title": "Memuat Model",
+          "desc": "Tunggu hingga model AI ringan melakukan cache di browser Anda."
+        },
+        {
+          "title": "Unggah Media",
+          "desc": "Pilih file audio atau video yang akan ditranskripsikan."
+        },
+        {
+          "title": "Ekspor Teks",
+          "desc": "Simpan transkrip yang dihasilkan sebagai subtitle TXT atau SRT."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Transkripsi AI",
+      "items": [
+        {
+          "q": "Apakah mendukung banyak bahasa?",
+          "a": "Ya, model Whisper mendukung bahasa Inggris, Indonesia, Spanyol, dan banyak lagi."
+        },
+        {
+          "q": "Kenapa mendownload file terlebih dahulu?",
+          "a": "Bobot jaringan saraf AI perlu di-cache ke perangkat Anda satu kali. Setelah itu, berfungsi secara offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Rekam layar, webcam, dan mikrofon Anda langsung di browser. Tidak diperlukan instalasi perangkat lunak atau pengunggahan server."
+    },
+    "privacy": {
+      "title": "Perekaman Sisi Klien yang Aman",
+      "content": "Merekam presentasi sensitif? Video Anda diambil langsung ke memori browser Anda dan disimpan secara lokal."
+    },
+    "performance": {
+      "title": "Pengkodean Perangkat Keras HD",
+      "content": "Kami memanfaatkan API MediaRecorder dengan akselerasi perangkat keras untuk menangkap rekaman 1080p dan 4K yang tajam tanpa menghilangkan bingkai."
+    },
+    "howto": {
+      "title": "Cara Merekam",
+      "steps": [
+        {
+          "title": "Berikan Izin",
+          "desc": "Izinkan akses browser ke kamera dan mikrofon Anda."
+        },
+        {
+          "title": "Pilih Sumber",
+          "desc": "Pilih antara Berbagi Layar, Webcam, atau keduanya."
+        },
+        {
+          "title": "Rekam & Simpan",
+          "desc": "Tekan rekam, lalu unduh MP4 final secara instan setelah selesai."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ Perekam Studio",
+      "items": [
+        {
+          "q": "Dapatkah saya merekam audio sistem?",
+          "a": "Ya, saat berbagi tab Chrome atau seluruh layar di Windows, Anda dapat mencentang 'Bagikan Audio Sistem'."
+        },
+        {
+          "q": "Apakah ada batas waktunya?",
+          "a": "Anda hanya dibatasi oleh RAM dan penyimpanan yang tersedia di perangkat lokal Anda."
+        }
+      ]
+    }
+  }
+}

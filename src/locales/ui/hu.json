@@ -1,0 +1,26 @@
+{
+  "langName": "Magyar",
+  "flag": "🇭🇺",
+  "nav": {
+    "compress_video": "Compress Video",
+    "convert_video": "Convert Video",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "Video Optimization",
+    "cat_video_edit": "Video Editing",
+    "cat_audio": "Audio Tools",
+    "cat_ai": "AI & Studio",
+    "speed": "Change Speed",
+    "gif": "Video to GIF",
+    "crop": "Crop Video",
+    "mute": "Mute Video",
+    "watermark": "Add Watermark",
+    "compress_audio": "Compress Audio",
+    "convert_audio": "Convert Audio",
+    "video_to_audio": "Video to Audio",
+    "merge_audio": "Merge Audio",
+    "transcribe": "AI Media to Text",
+    "studio_recorder": "Studio Recorder"
+  },
+  "search_lang": "Search language..."
+}

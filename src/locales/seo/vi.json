@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Nén video phía máy khách",
+      "content": "Công cụ của chúng tôi chạy trực tiếp bên trong trình duyệt của bạn. Bằng cách loại bỏ việc tải lên máy chủ, chúng tôi đảm bảo không có thời gian chờ đợi để truyền dữ liệu và bắt đầu nén ngay lập tức."
+    },
+    "privacy": {
+      "title": "Tổng số quyền riêng tư của video",
+      "content": "Các video chưa phát hành và bản ghi cá nhân của bạn vẫn được lưu trên máy của bạn. Chúng tôi sử dụng WASM để nén tệp cục bộ, nghĩa là dữ liệu của bạn không bao giờ được lưu trữ trên máy chủ của chúng tôi."
+    },
+    "performance": {
+      "title": "Tăng tốc WebCodecs",
+      "content": "Tận dụng mã hóa GPU được tăng tốc phần cứng, chúng tôi thu nhỏ các tệp MP4 và WebM khổng lồ lên tới 90% chỉ trong vài giây."
+    },
+    "howto": {
+      "title": "Cách nén video",
+      "steps": [
+        {
+          "title": "Chọn MP4/WebM",
+          "desc": "Kéo tệp video nặng của bạn vào vùng thả."
+        },
+        {
+          "title": "Đặt mục tiêu chất lượng",
+          "desc": "Chọn giữa chất lượng nén tối đa hoặc chất lượng cân bằng."
+        },
+        {
+          "title": "Lưu ngay lập tức",
+          "desc": "Tải xuống video được tối ưu hóa ngay lập tức."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về nén video",
+      "items": [
+        {
+          "q": "Video của tôi có bị giảm chất lượng không?",
+          "a": "Chúng tôi sử dụng mã hóa tốc độ bit biến đổi thông minh (VBR) để duy trì độ trung thực của hình ảnh trong khi loại bỏ dữ liệu vô hình."
+        },
+        {
+          "q": "Có giới hạn kích thước không?",
+          "a": "Không có giới hạn nhân tạo. Bạn có thể xử lý hàng gigabyte video nếu thiết bị của bạn có đủ RAM."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Chuyển đổi video cục bộ",
+      "content": "Dịch các định dạng video ngoại tuyến. Công cụ của chúng tôi bỏ qua cơ sở hạ tầng đám mây, đảm bảo bạn có thể chuyển đổi MKV sang MP4 ngay cả khi kết nối chậm."
+    },
+    "privacy": {
+      "title": "Dịch thuật định dạng không tin cậy",
+      "content": "Video bí mật của công ty? Chúng tôi không muốn họ. Công cụ dựa trên FFmpeg của chúng tôi dịch codec video một cách an toàn bên trong hộp cát của thiết bị của bạn."
+    },
+    "performance": {
+      "title": "Chuyển mã tức thì",
+      "content": "Bằng cách bỏ qua giai đoạn tải lên/tải xuống, bộ chuyển mã cục bộ của chúng tôi nhanh hơn theo cấp số nhân so với các bộ chuyển đổi video dựa trên đám mây truyền thống."
+    },
+    "howto": {
+      "title": "Cách chuyển đổi định dạng video",
+      "steps": [
+        {
+          "title": "Nhập video",
+          "desc": "Tải mọi định dạng video không được hỗ trợ như MKV hoặc AVI."
+        },
+        {
+          "title": "Chọn đầu ra",
+          "desc": "Chọn codec bạn muốn, chẳng hạn như H.264 MP4 hoặc WebM."
+        },
+        {
+          "title": "Kết quả tải xuống",
+          "desc": "Nhận tệp video có thể phát được trên toàn cầu."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về Chuyển đổi Video",
+      "items": [
+        {
+          "q": "Chuyển đổi có làm giảm chất lượng không?",
+          "a": "Không nếu bạn chọn mục tiêu có tốc độ bit cao hoặc không bị mất dữ liệu. Chúng tôi mặc định giữ nguyên độ phân giải gốc."
+        },
+        {
+          "q": "Tôi có thể chuyển đổi MKV có phụ đề không?",
+          "a": "Có, dòng phụ đề tiêu chuẩn được hỗ trợ trong quá trình chuyển đổi MP4."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Xem lại thời gian video không Ping",
+      "content": "Làm chậm hoặc tăng tốc clip của bạn ngay lập tức. Bộ hẹn giờ lại dựa trên trình duyệt của chúng tôi xử lý các khung hình cục bộ mà không có độ trễ của máy chủ."
+    },
+    "privacy": {
+      "title": "Xử lý khung an toàn",
+      "content": "Các nội dung nổi bật về thể thao và hướng dẫn khiêu vũ của bạn vẫn ở chế độ riêng tư. Việc nội suy khung hình và điều chỉnh tốc độ diễn ra hoàn toàn ngoại tuyến."
+    },
+    "performance": {
+      "title": "Chỉnh sửa cao độ nhanh",
+      "content": "Chúng tôi xử lý đồng thời cả hiệu chỉnh tốc độ khung hình hình ảnh và cao độ âm thanh trong thời gian thực, cung cấp video cuối cùng trong vài giây."
+    },
+    "howto": {
+      "title": "Cách thay đổi tốc độ video",
+      "steps": [
+        {
+          "title": "Thêm video",
+          "desc": "Tải lên clip bạn muốn tăng tốc hoặc giảm tốc độ."
+        },
+        {
+          "title": "Điều chỉnh Thanh trượt",
+          "desc": "Đặt hệ số nhân (ví dụ: 0,5x cho chuyển động chậm, 2x cho chuyển tiếp nhanh)."
+        },
+        {
+          "title": "Render",
+          "desc": "Lưu video đã được chỉnh lại thời gian vào thiết bị của bạn."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về tốc độ video",
+      "items": [
+        {
+          "q": "Âm thanh có giống tiếng sóc chuột không?",
+          "a": "Chúng tôi áp dụng tính năng điều chỉnh cao độ động để giọng nói nghe tự nhiên ngay cả ở tốc độ gấp 2 lần."
+        },
+        {
+          "q": "Chuyển động chậm mượt mà đến mức nào?",
+          "a": "Nó phụ thuộc vào tốc độ khung hình ban đầu. Video 60 khung hình/giây sẽ trông cực kỳ mượt mà ở tốc độ 0,5 lần."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Cắt video dựa trên trình duyệt",
+      "content": "Cắt hình mờ hoặc điều chỉnh tỷ lệ khung hình ngay lập tức. Không cần phải tải các tệp nặng lên đám mây chỉ để cắt bớt các cạnh."
+    },
+    "privacy": {
+      "title": "Chỉnh sửa thứ nguyên riêng tư",
+      "content": "Chỉnh sửa khung vlog cá nhân của bạn một cách an toàn. Chúng tôi không bao giờ lưu trữ hoặc truyền dữ liệu video thô của bạn trong quá trình cắt xén."
+    },
+    "performance": {
+      "title": "Cắt khung chính xác",
+      "content": "Công cụ cục bộ của chúng tôi chỉ mã hóa lại khu vực đã chọn, đảm bảo các cạnh sắc như dao cạo và thời gian kết xuất nhanh."
+    },
+    "howto": {
+      "title": "Cách cắt video",
+      "steps": [
+        {
+          "title": "Tải phương tiện",
+          "desc": "Nhập video bạn muốn điều chỉnh lại khung hình."
+        },
+        {
+          "title": "Đặt ranh giới",
+          "desc": "Kéo hộp cắt theo tỷ lệ khung hình mong muốn của bạn (ví dụ: 9:16 cho TikTok)."
+        },
+        {
+          "title": "Xuất",
+          "desc": "Tải video vừa cắt ngay lập tức."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về cắt xén video",
+      "items": [
+        {
+          "q": "Việc cắt xén có làm giảm kích thước tệp không?",
+          "a": "Có, bằng cách loại bỏ các pixel khỏi khung, tốc độ bit tổng thể cần thiết thường thấp hơn."
+        },
+        {
+          "q": "Tôi có thể cắt cho Instagram Reels không?",
+          "a": "Chắc chắn rồi. Chỉ cần đặt hộp cắt của bạn theo tỷ lệ dọc 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Loại bỏ âm thanh tức thì",
+      "content": "Tách các đoạn âm thanh khỏi video trong một phần nghìn giây. Vì nó chạy cục bộ nên bạn không phải đợi hàng đợi máy chủ."
+    },
+    "privacy": {
+      "title": "Tách âm thanh an toàn",
+      "content": "Tắt tiếng các cuộc hội thoại nhạy cảm trong nền một cách an toàn. Đoạn âm thanh sẽ bị loại bỏ bên trong trình duyệt của bạn, không để lại dấu vết kỹ thuật số."
+    },
+    "performance": {
+      "title": "Không cần mã hóa lại",
+      "content": "Khi có thể, chúng tôi chỉ cần ghép kênh luồng video mà không có đoạn âm thanh, nghĩa là quá trình tắt tiếng chỉ mất chưa đến một giây."
+    },
+    "howto": {
+      "title": "Cách tắt tiếng video",
+      "steps": [
+        {
+          "title": "Chọn video",
+          "desc": "Chọn video chứa âm thanh bạn muốn loại bỏ."
+        },
+        {
+          "title": "Dải âm thanh",
+          "desc": "Nhấp vào quy trình để xóa ngay luồng âm thanh."
+        },
+        {
+          "title": "Lưu video im lặng",
+          "desc": "Tải xuống tệp video bị tắt tiếng."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về tắt tiếng video",
+      "items": [
+        {
+          "q": "Tắt tiếng có ảnh hưởng đến chất lượng video không?",
+          "a": "Không hề. Chúng tôi hoàn toàn giữ nguyên luồng video trực quan."
+        },
+        {
+          "q": "Tốc độ này nhanh đến mức nào?",
+          "a": "Cực nhanh. Chúng tôi chỉ sao chép luồng video, chỉ mất vài mili giây."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Hình mờ video cục bộ",
+      "content": "Đóng dấu logo vào nội dung của bạn một cách an toàn. Xử lý cục bộ có nghĩa là bạn có thể tạo hình mờ cho hàng gigabyte video mà không bị trễ mạng."
+    },
+    "privacy": {
+      "title": "Bảo vệ nội dung chưa được phát hành",
+      "content": "Thêm hình mờ vào phim phát hành trước? Làm điều đó ngoại tuyến. Tài sản trí tuệ của bạn không bao giờ chạm vào máy chủ của chúng tôi."
+    },
+    "performance": {
+      "title": "Lớp phủ tăng tốc phần cứng",
+      "content": "Công cụ của chúng tôi kết hợp hiệu quả biểu tượng PNG trong suốt của bạn trên các khung hình video bằng cách sử dụng tối ưu hóa WebGPU và WASM."
+    },
+    "howto": {
+      "title": "Cách thêm Hình mờ",
+      "steps": [
+        {
+          "title": "Tải lên Video & Logo",
+          "desc": "Nhập video của bạn và hình ảnh PNG trong suốt."
+        },
+        {
+          "title": "Vị trí",
+          "desc": "Điều chỉnh tỷ lệ, độ mờ và vị trí của hình mờ."
+        },
+        {
+          "title": "Render Video",
+          "desc": "Dán hình mờ vĩnh viễn vào file video."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về hình mờ",
+      "items": [
+        {
+          "q": "Kẻ trộm có thể xóa hình mờ của tôi không?",
+          "a": "Vì chúng tôi mã hóa cứng hình ảnh vào các khung hình video nên việc xóa bỏ mà không làm hỏng video là điều cực kỳ khó khăn."
+        },
+        {
+          "q": "Tôi có thể xếp hình mờ được không?",
+          "a": "Có, bạn có thể bật tính năng xếp lát để lặp lại biểu trưng của mình trên toàn bộ màn hình."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Video ngoại tuyến sang GIF",
+      "content": "Chuyển những khoảnh khắc hài hước thành ảnh GIF ngay lập tức. Bộ mã hóa GIF cục bộ của chúng tôi hoạt động hoàn toàn trên máy của bạn, giúp bạn tiết kiệm băng thông."
+    },
+    "privacy": {
+      "title": "Private Meme Generator",
+      "content": "Biến video cá nhân thành ảnh GIF mà không cần tải chúng lên máy chủ meme công cộng. Nội dung của bạn vẫn được giữ kín 100%."
+    },
+    "performance": {
+      "title": "Tạo bảng màu được tối ưu hóa",
+      "content": "Chúng tôi sử dụng lượng tử hóa màu nâng cao để tạo ảnh GIF chất lượng cao với kích thước tệp nhỏ, chạy trực tiếp trong trình duyệt của bạn."
+    },
+    "howto": {
+      "title": "Cách tạo ảnh GIF",
+      "steps": [
+        {
+          "title": "Cắt video",
+          "desc": "Chọn một đoạn ngắn trong video của bạn."
+        },
+        {
+          "title": "Đặt tốc độ khung hình",
+          "desc": "Chọn giữa 15 khung hình/giây hoặc 30 khung hình/giây cho ảnh động GIF."
+        },
+        {
+          "title": "Tạo",
+          "desc": "Lưu hình ảnh GIF lặp lại."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về Video to GIF",
+      "items": [
+        {
+          "q": "Tại sao ảnh GIF đôi khi có kích thước lớn?",
+          "a": "GIF là định dạng cũ không được nén nhiều. Chúng tôi khuyên bạn nên giữ clip dưới 5 giây."
+        },
+        {
+          "q": "Nó có hỗ trợ nền trong suốt không?",
+          "a": "Nếu video nguồn của bạn có kênh alpha (như WebM), chúng tôi sẽ cố gắng duy trì tính minh bạch."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Nén âm thanh cục bộ",
+      "content": "Thu nhỏ các tệp WAV hoặc podcast lớn ngay lập tức. Bằng cách loại bỏ giai đoạn tải lên, công cụ dựa trên trình duyệt của chúng tôi là cách nhanh nhất để nén âm thanh."
+    },
+    "privacy": {
+      "title": "Xử lý âm thanh bí mật",
+      "content": "Nén nhạc chưa phát hành hoặc ghi nhớ giọng nói riêng tư? Âm thanh của bạn được xử lý nghiêm ngặt cục bộ. Chúng tôi không bao giờ lưu trữ các bài hát của bạn."
+    },
+    "performance": {
+      "title": "Mã hóa âm thanh tâm lý",
+      "content": "Bộ mã hóa WASM của chúng tôi loại bỏ các tần số không nghe được, giảm kích thước tệp âm thanh tới 80% trong khi vẫn duy trì âm thanh sắc nét."
+    },
+    "howto": {
+      "title": "Cách nén âm thanh",
+      "steps": [
+        {
+          "title": "Tải bản nhạc lên",
+          "desc": "Chọn tệp MP3, WAV hoặc AAC của bạn."
+        },
+        {
+          "title": "Chọn Kích thước mục tiêu",
+          "desc": "Điều chỉnh tốc độ bit để nén nặng hơn."
+        },
+        {
+          "title": "Tải xuống",
+          "desc": "Nhận tệp âm thanh nhẹ, được tối ưu hóa."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về nén âm thanh",
+      "items": [
+        {
+          "q": "Bài hát của tôi có tệ không?",
+          "a": "Chúng tôi sử dụng các thuật toán nhận thức chất lượng cao nên khả năng nén hầu như không thể phân biệt được với tai người."
+        },
+        {
+          "q": "Tôi có thể nén các podcast dài hàng giờ không?",
+          "a": "Có, công cụ của chúng tôi xử lý âm thanh dạng dài một cách dễ dàng trong trình duyệt của bạn."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Trình chuyển đổi âm thanh trong trình duyệt",
+      "content": "Dịch các định dạng âm thanh ngay lập tức mà không cần ping máy chủ. Hoàn hảo để chuyển đổi cục bộ giữa các định dạng WAV, MP3 và OGG."
+    },
+    "privacy": {
+      "title": "Bản dịch âm thanh không tải lên",
+      "content": "Bản ghi âm giọng nói của bạn là của riêng bạn. Công cụ chuyển đổi ngoại tuyến của chúng tôi đảm bảo quyền riêng tư tuyệt đối cho âm thanh nhạy cảm."
+    },
+    "performance": {
+      "title": "Codec nhanh như chớp",
+      "content": "Việc chuyển đổi âm thanh rất nhẹ nhàng về mặt tính toán. Công cụ cục bộ của chúng tôi chuyển mã một bài hát dài 5 phút trong vòng chưa đầy 2 giây."
+    },
+    "howto": {
+      "title": "Cách chuyển đổi định dạng âm thanh",
+      "steps": [
+        {
+          "title": "Chọn âm thanh",
+          "desc": "Thả tệp âm thanh không được hỗ trợ của bạn vào công cụ."
+        },
+        {
+          "title": "Chọn đầu ra",
+          "desc": "Chọn định dạng bạn muốn (ví dụ: MP3 để phát lại phổ biến)."
+        },
+        {
+          "title": "Lưu tệp",
+          "desc": "Tải xuống bản âm thanh mới được định dạng."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về Trình chuyển đổi âm thanh",
+      "items": [
+        {
+          "q": "Tôi có thể chuyển đổi MP3 lossless sang WAV lossless không?",
+          "a": "Bạn có thể, nhưng nó sẽ không khôi phục được chất lượng đã mất. Nó chỉ đơn giản là sẽ thay đổi định dạng vùng chứa."
+        },
+        {
+          "q": "Thẻ ID3 có được bảo tồn không?",
+          "a": "Chúng tôi nỗ lực hết sức để chuyển siêu dữ liệu như tên nghệ sĩ và ảnh bìa album."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Trích xuất video cục bộ sang âm thanh",
+      "content": "Trích xuất MP3 từ MP4 ngay lập tức. Bỏ qua tải lên trên đám mây có nghĩa là bạn có thể trích xuất âm thanh từ video 2GB trong vài giây."
+    },
+    "privacy": {
+      "title": "Trích xuất âm thanh an toàn",
+      "content": "Trích xuất âm thanh từ video riêng tư của gia đình một cách an toàn. Quá trình diễn ra hoàn toàn trong hộp cát trình duyệt của bạn."
+    },
+    "performance": {
+      "title": "Công nghệ sao chép luồng",
+      "content": "Bất cứ khi nào có thể, chúng tôi sử dụng sao chép luồng trực tiếp để trích xuất âm thanh mà không cần mã hóa lại, đảm bảo chất lượng gốc 100%."
+    },
+    "howto": {
+      "title": "Cách trích xuất âm thanh",
+      "steps": [
+        {
+          "title": "Tải video lên",
+          "desc": "Chọn tệp MP4, MOV hoặc MKV."
+        },
+        {
+          "title": "Trích xuất",
+          "desc": "Nhấp vào quá trình để trích xuất đoạn âm thanh."
+        },
+        {
+          "title": "Tải xuống MP3",
+          "desc": "Lưu file âm thanh đã trích xuất."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về Video to Audio",
+      "items": [
+        {
+          "q": "Chất lượng âm thanh gốc có được giữ nguyên không?",
+          "a": "Có, chúng tôi trích xuất chính xác luồng âm thanh được nhúng trong video."
+        },
+        {
+          "q": "Tôi có thể trích xuất âm thanh từ video 4K không?",
+          "a": "Chắc chắn rồi. Độ phân giải video không ảnh hưởng đến tốc độ trích xuất âm thanh."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Trình kết nối âm thanh dựa trên trình duyệt",
+      "content": "Kết hợp nhiều bản âm thanh thành một tệp cục bộ. Không cần phải tải các phiên nhiều bản nhạc nặng lên máy chủ."
+    },
+    "privacy": {
+      "title": "Nối bản nhạc riêng",
+      "content": "Tham gia các phân đoạn podcast hoặc các cuộc phỏng vấn bí mật? Công cụ của chúng tôi xử lý việc hợp nhất một cách an toàn trên thiết bị của bạn."
+    },
+    "performance": {
+      "title": "Crossfading liền mạch",
+      "content": "Công cụ WASM của chúng tôi ghép các tệp âm thanh lại với nhau một cách liền mạch, đảm bảo phát lại liền mạch và căn chỉnh hoàn hảo."
+    },
+    "howto": {
+      "title": "Cách hợp nhất âm thanh",
+      "steps": [
+        {
+          "title": "Tải lên các bản nhạc",
+          "desc": "Chọn hai hoặc nhiều tệp âm thanh."
+        },
+        {
+          "title": "Sắp xếp thứ tự",
+          "desc": "Kéo và thả để đặt trình tự phát lại."
+        },
+        {
+          "title": "Tham gia tệp",
+          "desc": "Tải xuống bản nhạc chính tổng hợp."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về hợp nhất âm thanh",
+      "items": [
+        {
+          "q": "Tôi có thể hợp nhất MP3 và WAV lại với nhau không?",
+          "a": "Có, công cụ của chúng tôi sẽ tự động chuẩn hóa các định dạng trong quá trình hợp nhất."
+        },
+        {
+          "q": "Có khoảng cách giữa các bài hát được nối không?",
+          "a": "Không, các bản nhạc được ghép chính xác từ đầu đến cuối để phát lại liền mạch."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Phiên âm AI cục bộ",
+      "content": "Chuyển lời nói thành văn bản trực tiếp trong trình duyệt của bạn. Sử dụng Whisper AI qua WebAssugging, bạn không cần gửi âm thanh của mình lên đám mây."
+    },
+    "privacy": {
+      "title": "Bảo mật tuyệt đối",
+      "content": "Sao chép hồ sơ pháp lý hoặc y tế? Đây là cách an toàn duy nhất. Mạng nơ-ron chạy cục bộ, đảm bảo không rò rỉ dữ liệu."
+    },
+    "performance": {
+      "title": "AI tăng tốc WebGPU",
+      "content": "Chúng tôi tận dụng GPU của thiết bị của bạn để chạy mô hình Whisper, cung cấp bản ghi có độ chính xác cao nhanh hơn đáng kể so với xử lý CPU."
+    },
+    "howto": {
+      "title": "Cách phiên âm âm thanh",
+      "steps": [
+        {
+          "title": "Tải mô hình",
+          "desc": "Đợi mô hình AI nhẹ lưu vào bộ nhớ đệm trong trình duyệt của bạn."
+        },
+        {
+          "title": "Tải lên phương tiện",
+          "desc": "Chọn tệp âm thanh hoặc video để phiên âm."
+        },
+        {
+          "title": "Xuất văn bản",
+          "desc": "Lưu bản ghi được tạo dưới dạng phụ đề TXT hoặc SRT."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về Phiên âm AI",
+      "items": [
+        {
+          "q": "Nó có hỗ trợ nhiều ngôn ngữ không?",
+          "a": "Có, mô hình Whisper hỗ trợ tiếng Anh, tiếng Indonesia, tiếng Tây Ban Nha và hàng tá ngôn ngữ khác."
+        },
+        {
+          "q": "Tại sao nó lại tải file xuống trước?",
+          "a": "Nó cần lưu trọng số mạng nơ-ron AI vào bộ nhớ đệm một lần vào thiết bị của bạn. Sau đó, nó hoạt động ngoại tuyến."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Trình ghi Studio không có độ trễ",
+      "content": "Ghi lại màn hình, webcam và micrô của bạn trực tiếp trong trình duyệt. Không cần cài đặt phần mềm hoặc tải lên máy chủ."
+    },
+    "privacy": {
+      "title": "Ghi âm phía khách hàng an toàn",
+      "content": "Ghi lại các bài thuyết trình nhạy cảm? Video của bạn được ghi trực tiếp vào bộ nhớ của trình duyệt và được lưu cục bộ."
+    },
+    "performance": {
+      "title": "Mã hóa phần cứng HD",
+      "content": "Chúng tôi sử dụng API MediaRecorder với khả năng tăng tốc phần cứng để ghi lại cảnh quay 1080p và 4K sắc nét mà không làm rơi khung hình."
+    },
+    "howto": {
+      "title": "Cách ghi",
+      "steps": [
+        {
+          "title": "Cấp quyền",
+          "desc": "Cho phép trình duyệt truy cập vào máy ảnh và micrô của bạn."
+        },
+        {
+          "title": "Chọn nguồn",
+          "desc": "Chọn giữa Chia sẻ màn hình, Webcam hoặc cả hai."
+        },
+        {
+          "title": "Ghi và lưu",
+          "desc": "Nhấn bản ghi, sau đó tải xuống bản MP4 cuối cùng ngay lập tức khi hoàn tất."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về Trình ghi âm Studio",
+      "items": [
+        {
+          "q": "Tôi có thể ghi âm thanh hệ thống không?",
+          "a": "Có, khi chia sẻ một tab Chrome hoặc toàn bộ màn hình trên Windows, bạn có thể tích vào 'Chia sẻ âm thanh hệ thống'."
+        },
+        {
+          "q": "Có giới hạn thời gian không?",
+          "a": "Bạn chỉ bị giới hạn bởi RAM và bộ nhớ có sẵn trên thiết bị cục bộ của mình."
+        }
+      ]
+    }
+  }
+}

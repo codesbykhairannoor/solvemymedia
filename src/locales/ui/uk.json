@@ -1,0 +1,26 @@
+{
+  "langName": "Українська",
+  "flag": "🇺🇦",
+  "nav": {
+    "compress_video": "Стиснути відео",
+    "convert_video": "Перетворити відео",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "Оптимізація відео",
+    "cat_video_edit": "Редагування відео",
+    "cat_audio": "Аудіоінструменти",
+    "cat_ai": "AI & Studio",
+    "speed": "Змінити швидкість",
+    "gif": "Відео у GIF",
+    "crop": "Обрізати відео",
+    "mute": "Вимкнути відео",
+    "watermark": "Додати водяний знак",
+    "compress_audio": "Стиснути аудіо",
+    "convert_audio": "Перетворити аудіо",
+    "video_to_audio": "Відео в аудіо",
+    "merge_audio": "Об’єднання аудіо",
+    "transcribe": "AI Media to Text",
+    "studio_recorder": "Studio Recorder"
+  },
+  "search_lang": "Search language..."
+}

@@ -1,0 +1,26 @@
+{
+  "langName": "Español",
+  "flag": "🇪🇸",
+  "nav": {
+    "compress_video": "Comprimir video",
+    "convert_video": "Convertir video",
+    "recorder": "Grabadora",
+    "all_tools": "TODAS LAS HERRAMIENTAS",
+    "cat_video_opt": "Optimización de video",
+    "cat_video_edit": "Edición de video",
+    "cat_audio": "Herramientas de audio",
+    "cat_ai": "AI y Studio",
+    "speed": "Cambiar velocidad",
+    "gif": "Video a GIF",
+    "crop": "Recortar video",
+    "mute": "Silenciar video",
+    "watermark": "Agregar marca de agua",
+    "compress_audio": "Comprimir audio",
+    "convert_audio": "Convertir audio",
+    "video_to_audio": "Video a audio",
+    "merge_audio": "Fusionar audio",
+    "transcribe": "Medios AI a texto",
+    "studio_recorder": "Grabador de estudio"
+  },
+  "search_lang": "Buscar idioma..."
+}

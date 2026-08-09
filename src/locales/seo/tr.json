@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "İstemci Tarafında Video Sıkıştırma",
+      "content": "Motorumuz doğrudan tarayıcınızın içinde çalışır. Sunucu yüklemelerini ortadan kaldırarak, veri aktarımı için sıfır bekleme süresini ve sıkıştırmanın anında başlatılmasını garanti ediyoruz."
+    },
+    "privacy": {
+      "title": "Toplam Video Gizliliği",
+      "content": "Yayınlanmamış videolarınız ve kişisel kayıtlarınız makinenizde kalır. Dosyaları yerel olarak sıkıştırmak için WASM kullanıyoruz, yani verileriniz hiçbir zaman sunucularımızda saklanmıyor."
+    },
+    "performance": {
+      "title": "WebCodec Hızlandırması",
+      "content": "Donanımla hızlandırılmış GPU kodlamasından yararlanarak, büyük MP4 ve WebM dosyalarını yalnızca saniyeler içinde %90'a kadar küçültüyoruz."
+    },
+    "howto": {
+      "title": "Video Nasıl Sıkıştırılır",
+      "steps": [
+        {
+          "title": "MP4/WebM Seçin",
+          "desc": "Ağır video dosyanızı bırakma bölgesine sürükleyin."
+        },
+        {
+          "title": "Kalite Hedefini Belirleyin",
+          "desc": "Maksimum sıkıştırma veya dengeli kalite arasında seçim yapın."
+        },
+        {
+          "title": "Anında Kaydet",
+          "desc": "Optimize edilmiş videoyu anında indirin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Sıkıştırma SSS",
+      "items": [
+        {
+          "q": "Videomun kalitesi düşer mi?",
+          "a": "Görünmez verileri atarken görsel doğruluğu korumak için akıllı değişken bit hızı (VBR) kodlamasını kullanıyoruz."
+        },
+        {
+          "q": "Boyut sınırları var mı?",
+          "a": "Yapay sınırlama yok. Cihazınızda yeterli RAM varsa gigabaytlarca videoyu işleyebilirsiniz."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Yerel Video Dönüştürme",
+      "content": "Video formatlarını çevrimdışına çevirin. Aracımız bulut altyapısını atlayarak yavaş bağlantılarda bile MKV'yi MP4'e dönüştürebilmenizi sağlar."
+    },
+    "privacy": {
+      "title": "Sıfır Güven Formatında Çeviri",
+      "content": "Gizli kurumsal videolar mı? Onları istemiyoruz. FFmpeg tabanlı motorumuz, video codec bileşenlerini cihazınızın sanal alanına güvenli bir şekilde çevirir."
+    },
+    "performance": {
+      "title": "Anında Kod Dönüştürme",
+      "content": "Yükleme/indirme aşamasını atlayarak, yerel kod dönüştürücümüz geleneksel bulut tabanlı video dönüştürücülerden katlanarak daha hızlıdır."
+    },
+    "howto": {
+      "title": "Video Formatları Nasıl Dönüştürülür",
+      "steps": [
+        {
+          "title": "Videoyu İçe Aktarın",
+          "desc": "MKV veya AVI gibi desteklenmeyen video formatlarını yükleyin."
+        },
+        {
+          "title": "Çıkışı Seçin",
+          "desc": "H.264 MP4 veya WebM gibi istediğiniz codec bileşenini seçin."
+        },
+        {
+          "title": "İndirme Sonucu",
+          "desc": "Evrensel olarak oynatılabilen video dosyasını edinin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Dönüştürücü SSS",
+      "items": [
+        {
+          "q": "Dönüştürme kaliteyi düşürür mü?",
+          "a": "Yüksek bit hızına sahip veya kayıpsız bir hedef seçerseniz hayır. Varsayılan olarak orijinal çözünürlüğü korumayı tercih ediyoruz."
+        },
+        {
+          "q": "MKV'yi altyazılı olarak dönüştürebilir miyim?",
+          "a": "Evet, MP4 dönüşümü sırasında standart altyazı akışları desteklenir."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Pingsiz Video Yeniden Zamanlaması",
+      "content": "Kliplerinizi anında yavaşlatın veya hızlandırın. Tarayıcı tabanlı yeniden zamanlayıcımız, çerçeveleri sunucu gecikmesi olmadan yerel olarak işler."
+    },
+    "privacy": {
+      "title": "Güvenli Çerçeve İşleme",
+      "content": "Spor etkinlikleriniz ve dans eğitimleriniz gizli kalır. Çerçeve enterpolasyonu ve hız ayarlamaları tamamen çevrimdışı gerçekleşir."
+    },
+    "performance": {
+      "title": "Hızlı Perde Düzeltme",
+      "content": "Hem görsel çerçeve hızını hem de ses perdesi düzeltmesini gerçek zamanlı olarak aynı anda gerçekleştirerek son videoyu saniyeler içinde teslim ediyoruz."
+    },
+    "howto": {
+      "title": "Video Hızı Nasıl Değiştirilir",
+      "steps": [
+        {
+          "title": "Video Ekle",
+          "desc": "Hızlandırmak veya yavaşlatmak istediğiniz klibi yükleyin."
+        },
+        {
+          "title": "Kaydırıcıyı Ayarla",
+          "desc": "Çarpanı ayarlayın (örneğin, yavaş çekim için 0,5x, hızlı ileri sarma için 2x)."
+        },
+        {
+          "title": "Oluştur",
+          "desc": "Yeniden zamanlanan videoyu cihazınıza kaydedin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Hızı SSS",
+      "items": [
+        {
+          "q": "Ses sincap gibi mi çıkacak?",
+          "a": "Seslerin 2 kat hızda bile doğal çıkması için dinamik perde düzeltmesi uyguluyoruz."
+        },
+        {
+          "q": "Ağır çekim ne kadar akıcı?",
+          "a": "Orijinal kare hızına bağlıdır. 60 fps videolar 0,5x hızda inanılmaz derecede pürüzsüz görünecektir."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Tarayıcı Tabanlı Video Kırpma",
+      "content": "Filigranları kırpın veya en boy oranlarını anında ayarlayın. Sadece kenarları düzeltmek için ağır dosyaları buluta yüklemenize gerek yok."
+    },
+    "privacy": {
+      "title": "Özel Boyut Düzenleme",
+      "content": "Kişisel vlog çerçevenizi güvenle düzenleyin. Kırpma işlemi sırasında ham video verilerinizi asla saklamayız veya aktarmayız."
+    },
+    "performance": {
+      "title": "Hassas Çerçeve Kırpma",
+      "content": "Yerel motorumuz yalnızca seçilen alanı yeniden kodlayarak çok keskin kenarlar ve çok hızlı oluşturma süreleri sağlar."
+    },
+    "howto": {
+      "title": "Videolar Nasıl Kırpılır",
+      "steps": [
+        {
+          "title": "Medya Yükleme",
+          "desc": "Yeniden çerçevelemek istediğiniz videoyu içe aktarın."
+        },
+        {
+          "title": "Sınırları Ayarlayın",
+          "desc": "Kırpma kutusunu istediğiniz en boy oranına sürükleyin (örneğin, TikTok için 9:16)."
+        },
+        {
+          "title": "Dışa aktar",
+          "desc": "Yeni kırpılan videoyu anında indirin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Kırpma SSS",
+      "items": [
+        {
+          "q": "Kırpma dosya boyutunu küçültür mü?",
+          "a": "Evet, pikselleri çerçeveden çıkardığınızda gereken genel bit hızı genellikle daha düşük olur."
+        },
+        {
+          "q": "Instagram Reels için kırpma yapabilir miyim?",
+          "a": "Kesinlikle. Kırpma kutunuzu 9:16 dikey orana ayarlamanız yeterli."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Anında Sesi Kaldırma",
+      "content": "Videolardan ses parçalarını milisaniyeler içinde çıkarın. Yerel olarak çalıştığı için sunucu kuyruklarını beklemezsiniz."
+    },
+    "privacy": {
+      "title": "Güvenli Ses Çıkarma",
+      "content": "Arka plandaki hassas konuşmaları güvenli bir şekilde sessize alın. Ses parçası tarayıcınızın içine atılır ve hiçbir dijital iz bırakmaz."
+    },
+    "performance": {
+      "title": "Sıfır Yeniden Kodlama Gerekli",
+      "content": "Mümkün olduğunda, video akışını ses parçası olmadan çoğaltıyoruz, bu da sessize almanın bir saniyeden az sürdüğü anlamına geliyor."
+    },
+    "howto": {
+      "title": "Videonun Sesi Nasıl Kapatılır",
+      "steps": [
+        {
+          "title": "Videoyu Seçin",
+          "desc": "Kaldırmak istediğiniz sesi içeren videoyu seçin."
+        },
+        {
+          "title": "Sesi Şeritle",
+          "desc": "Ses akışını anında silmek için işleme tıklayın."
+        },
+        {
+          "title": "Sessiz Videoyu Kaydet",
+          "desc": "Sessiz video dosyasını indirin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videoyu Sessize Alma SSS",
+      "items": [
+        {
+          "q": "Sessize alma video kalitesini etkiler mi?",
+          "a": "Hiç de değil. Görsel video akışına tamamen dokunmadan bırakıyoruz."
+        },
+        {
+          "q": "Bu ne kadar hızlı?",
+          "a": "Son derece hızlı. Yalnızca birkaç milisaniye harcayarak video akışını kopyalıyoruz."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Yerel Video Filigranı",
+      "content": "Logonuzu içeriğinize güvenli bir şekilde damgalayın. Yerel işleme, ağ gecikmeleri olmadan gigabaytlarca videoya filigran ekleyebileceğiniz anlamına gelir."
+    },
+    "privacy": {
+      "title": "Yayınlanmamış İçeriği Koruyun",
+      "content": "Yayın öncesi bir filme filigran mı ekliyorsunuz? Çevrimdışı yapın. Fikri mülkiyetiniz hiçbir zaman sunucularımıza dokunmaz."
+    },
+    "performance": {
+      "title": "Donanım Hızlandırmalı Yer Paylaşımı",
+      "content": "Motorumuz, WebGPU ve WASM optimizasyonlarını kullanarak şeffaf PNG logonuzu video kareleri üzerinde verimli bir şekilde harmanlar."
+    },
+    "howto": {
+      "title": "Filigran Nasıl Eklenir",
+      "steps": [
+        {
+          "title": "Video ve Logo Yükleyin",
+          "desc": "Videonuzu ve şeffaf bir PNG görüntüsünü içe aktarın."
+        },
+        {
+          "title": "Konum",
+          "desc": "Filigranın ölçeğini, opaklığını ve konumunu ayarlayın."
+        },
+        {
+          "title": "Videoyu Oluştur",
+          "desc": "Filigranı kalıcı olarak video dosyasına ekleyin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Filigranlama SSS",
+      "items": [
+        {
+          "q": "Hırsızlar filigranımı kaldırabilir mi?",
+          "a": "Görüntüyü video karelerine sabit kodladığımız için, videoyu bozmadan kaldırmak son derece zordur."
+        },
+        {
+          "q": "Filigranı döşeyebilir miyim?",
+          "a": "Evet, logonuzun ekranın tamamında tekrarlanması için döşemeyi etkinleştirebilirsiniz."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Çevrimdışı Videodan GIF'e",
+      "content": "Komik anları anında GIF'lere dönüştürün. Yerel GIF kodlayıcımız tamamen makinenizde çalışarak bant genişliğinden tasarruf etmenizi sağlar."
+    },
+    "privacy": {
+      "title": "Özel Meme Oluşturucu",
+      "content": "Kişisel videoları, genel meme sunucularına yüklemeden GIF'lere dönüştürün. İçeriğiniz %100 gizli kalır."
+    },
+    "performance": {
+      "title": "Optimize Edilmiş Palet Oluşturma",
+      "content": "Doğrudan tarayıcınızda çalışan, küçük dosya boyutlarına sahip yüksek kaliteli GIF'ler oluşturmak için gelişmiş renk nicelemeyi kullanıyoruz."
+    },
+    "howto": {
+      "title": "GIF Nasıl Oluşturulur",
+      "steps": [
+        {
+          "title": "Videoyu Kırp",
+          "desc": "Videonuzun kısa bir bölümünü seçin."
+        },
+        {
+          "title": "Kare Hızını Ayarlayın",
+          "desc": "GIF animasyonu için 15 fps veya 30 fps arasında seçim yapın."
+        },
+        {
+          "title": "Oluştur",
+          "desc": "Döngüsel GIF görüntüsünü kaydedin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videodan GIF'e SSS",
+      "items": [
+        {
+          "q": "GIF'ler neden bazen büyüktür?",
+          "a": "GIF'ler yüksek oranda sıkıştırılmamış eski bir formattır. Klipleri 5 saniyenin altında tutmanızı öneririz."
+        },
+        {
+          "q": "Şeffaf arka planları destekliyor mu?",
+          "a": "Kaynak videonuzun bir alfa kanalı varsa (WebM gibi), şeffaflığı korumaya çalışırız."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Yerel Ses Sıkıştırma",
+      "content": "Büyük WAV dosyalarını veya podcast'leri anında küçültün. Yükleme aşamasını ortadan kaldıran tarayıcı tabanlı aracımız, sesi sıkıştırmanın en hızlı yoludur."
+    },
+    "privacy": {
+      "title": "Gizli Ses İşleme",
+      "content": "Yayınlanmamış müziği veya özel sesli notları mı sıkıştırıyorsunuz? Sesiniz kesinlikle yerel olarak işlenir. Parçalarınızı asla saklamayız."
+    },
+    "performance": {
+      "title": "Psikoakustik Kodlama",
+      "content": "WASM kodlayıcımız duyulamayan frekansları ortadan kaldırır, net sesi korurken ses dosyası boyutlarını %80'e kadar azaltır."
+    },
+    "howto": {
+      "title": "Sesi Sıkıştırma",
+      "steps": [
+        {
+          "title": "Parça Yükleme",
+          "desc": "MP3, WAV veya AAC dosyanızı seçin."
+        },
+        {
+          "title": "Hedef Boyutunu Seçin",
+          "desc": "Daha yoğun sıkıştırma için bit hızını ayarlayın."
+        },
+        {
+          "title": "İndir",
+          "desc": "Optimize edilmiş, hafif ses dosyasını edinin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Ses Sıkıştırma SSS",
+      "items": [
+        {
+          "q": "Şarkımın sesi kötü çıkacak mı?",
+          "a": "Yüksek kaliteli algısal algoritmalar kullanıyoruz, böylece sıkıştırma insan kulağı için neredeyse ayırt edilemez."
+        },
+        {
+          "q": "Bir saat süren podcast'leri sıkıştırabilir miyim?",
+          "a": "Evet, aracımız uzun biçimli sesi tarayıcınızda zahmetsizce işler."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Tarayıcı İçi Ses Dönüştürücü",
+      "content": "Sunucuya ping atmadan ses formatlarını anında çevirin. Yerel olarak WAV, MP3 ve OGG formatları arasında geçiş yapmak için mükemmeldir."
+    },
+    "privacy": {
+      "title": "Sıfır Yüklemeli Sesli Çeviri",
+      "content": "Ses kayıtlarınız yalnızca size aittir. Çevrimdışı dönüştürme motorumuz hassas ses için mutlak gizliliği garanti eder."
+    },
+    "performance": {
+      "title": "Işık Hızında Codec'ler",
+      "content": "Sesi dönüştürmek hesaplama açısından kolaydır. Yerel motorumuz 5 dakikalık bir şarkıyı 2 saniyeden kısa sürede dönüştürür."
+    },
+    "howto": {
+      "title": "Ses Formatları Nasıl Dönüştürülür",
+      "steps": [
+        {
+          "title": "Ses Seçin",
+          "desc": "Desteklenmeyen ses dosyanızı araca bırakın."
+        },
+        {
+          "title": "Çıkışı Seç",
+          "desc": "İstediğiniz formatı seçin (örn. evrensel oynatma için MP3)."
+        },
+        {
+          "title": "Dosyayı Kaydet",
+          "desc": "Yeni biçimlendirilmiş ses parçasını indirin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Ses Dönüştürücü SSS",
+      "items": [
+        {
+          "q": "Kayıplı MP3'ü kayıpsız WAV'a dönüştürebilir miyim?",
+          "a": "Yapabilirsiniz, ancak bu, kaybedilen kaliteyi geri getirmez. Sadece konteyner formatını değiştirecektir."
+        },
+        {
+          "q": "ID3 etiketleri korunuyor mu?",
+          "a": "Sanatçı adı ve albüm kapağı gibi meta verileri aktarmak için her türlü çabayı gösteriyoruz."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Yerel Videodan Ses Çıkarmaya",
+      "content": "MP3'leri MP4'lerden anında çıkarın. Bulut yüklemelerini atlamak, 2 GB'lik bir videodan sesi saniyeler içinde kopyalayabileceğiniz anlamına gelir."
+    },
+    "privacy": {
+      "title": "Güvenli Ses Kopyalama",
+      "content": "Özel aile videolarından sesi güvenli bir şekilde çıkarın. İşlem tamamen tarayıcınızın sanal alanında gerçekleşir."
+    },
+    "performance": {
+      "title": "Akış Kopyalama Teknolojisi",
+      "content": "Mümkün olduğunda, sesi yeniden kodlamadan çıkarmak için doğrudan akış kopyalamayı kullanıyoruz ve %100 orijinal kalite sağlıyoruz."
+    },
+    "howto": {
+      "title": "Ses Nasıl Çıkarılır",
+      "steps": [
+        {
+          "title": "Video Yükle",
+          "desc": "MP4, MOV veya MKV dosyasını seçin."
+        },
+        {
+          "title": "Çıkart",
+          "desc": "Ses parçasını kopyalamak için işleme tıklayın."
+        },
+        {
+          "title": "MP3'ü indirin",
+          "desc": "Çıkarılan ses dosyasını kaydedin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Videodan Sese SSS",
+      "items": [
+        {
+          "q": "Orijinal ses kalitesi korunuyor mu?",
+          "a": "Evet, videoya gömülü ses akışının aynısını çıkarıyoruz."
+        },
+        {
+          "q": "4K videodan ses çıkarabilir miyim?",
+          "a": "Kesinlikle. Video çözünürlüğü ses çıkarma hızını etkilemez."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Tarayıcı Tabanlı Ses Birleştirici",
+      "content": "Birden fazla ses parçasını yerel olarak tek bir dosyada birleştirin. Ağır çok kanallı oturumları bir sunucuya yüklemenize gerek yok."
+    },
+    "privacy": {
+      "title": "Özel Parça Ekleme",
+      "content": "Podcast bölümlerine veya gizli röportajlara mı katılıyorsunuz? Aracımız birleştirme işlemini cihazınızda güvenli bir şekilde işler."
+    },
+    "performance": {
+      "title": "Kesintisiz Çapraz Geçiş",
+      "content": "WASM motorumuz ses dosyalarını kusursuz bir şekilde bir araya getirerek boşluksuz oynatma ve mükemmel hizalama sağlar."
+    },
+    "howto": {
+      "title": "Ses Nasıl Birleştirilir",
+      "steps": [
+        {
+          "title": "Parçaları Yükleme",
+          "desc": "İki veya daha fazla ses dosyası seçin."
+        },
+        {
+          "title": "Sırayı Düzenle",
+          "desc": "Oynatma sırasını ayarlamak için sürükleyip bırakın."
+        },
+        {
+          "title": "Dosyaları Katılın",
+          "desc": "Birleştirilmiş ana parçayı indirin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Ses Birleşmesi SSS",
+      "items": [
+        {
+          "q": "MP3 ve WAV'ı birleştirebilir miyim?",
+          "a": "Evet, motorumuz birleştirme sırasında formatları otomatik olarak normalleştirecektir."
+        },
+        {
+          "q": "Birleştirilen parçalar arasında boşluk var mı?",
+          "a": "Hayır, boşluksuz oynatma için parçalar tam olarak uçtan uca birleştirilir."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Yerel Yapay Zeka Transkripsiyonu",
+      "content": "Tarayıcınızda konuşmayı doğrudan metne dönüştürün. Whisper AI'yi WebAssembly aracılığıyla kullandığınızda sesinizi buluta göndermenize gerek kalmaz."
+    },
+    "privacy": {
+      "title": "Mutlak Gizlilik",
+      "content": "Yasal veya tıbbi kayıtları yazıya dökmek mi istiyorsunuz? Bu tek güvenli yoldur. Sinir ağı yerel olarak çalışarak sıfır veri sızıntısı sağlar."
+    },
+    "performance": {
+      "title": "WebGPU ile Hızlandırılmış Yapay Zeka",
+      "content": "Whisper modelini çalıştırmak için cihazınızın GPU'sunu kullanıyoruz ve yüksek doğrulukta transkriptleri CPU işlemeden önemli ölçüde daha hızlı sunuyoruz."
+    },
+    "howto": {
+      "title": "Sesi Nasıl Metne Dönüştürülür",
+      "steps": [
+        {
+          "title": "Modeli Yükleme",
+          "desc": "Hafif AI modelinin tarayıcınızda önbelleğe alınmasını bekleyin."
+        },
+        {
+          "title": "Medyayı Yükle",
+          "desc": "Metne dönüştürülecek ses veya video dosyasını seçin."
+        },
+        {
+          "title": "Metni Dışa Aktar",
+          "desc": "Oluşturulan transkripti TXT veya SRT altyazıları olarak kaydedin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "AI Transkripsiyon SSS",
+      "items": [
+        {
+          "q": "Birden fazla dili destekliyor mu?",
+          "a": "Evet, Whisper modeli İngilizce, Endonezce, İspanyolca ve düzinelerce dili desteklemektedir."
+        },
+        {
+          "q": "Neden önce bir dosya indiriyor?",
+          "a": "AI sinir ağı ağırlıklarını cihazınıza bir kez önbelleğe alması gerekir. Bundan sonra çevrimdışı çalışır."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Sıfır Gecikmeli Stüdyo Kaydedici",
+      "content": "Ekranınızı, web kameranızı ve mikrofonunuzu doğrudan tarayıcıya kaydedin. Yazılım kurulumu veya sunucu yüklemesi gerekmez."
+    },
+    "privacy": {
+      "title": "Güvenli İstemci Tarafı Kayıt",
+      "content": "Hassas sunumları mı kaydediyorsunuz? Videonuz doğrudan tarayıcınızın belleğine alınır ve yerel olarak kaydedilir."
+    },
+    "performance": {
+      "title": "HD Donanım Kodlaması",
+      "content": "Kareleri kaybetmeden net 1080p ve 4K görüntüler yakalamak için donanım hızlandırmalı MediaRecorder API'sini kullanıyoruz."
+    },
+    "howto": {
+      "title": "Nasıl Kayıt Yapılır",
+      "steps": [
+        {
+          "title": "İzin Verme",
+          "desc": "Tarayıcının kameranıza ve mikrofonunuza erişmesine izin verin."
+        },
+        {
+          "title": "Kaynakları Seçin",
+          "desc": "Ekran Paylaşımı, Web Kamerası veya her ikisi arasında seçim yapın."
+        },
+        {
+          "title": "Kaydet ve Kaydet",
+          "desc": "Kaydet'e basın ve işiniz bittiğinde son MP4'ü anında indirin."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Stüdyo Kaydedici SSS",
+      "items": [
+        {
+          "q": "Sistem sesini kaydedebilir miyim?",
+          "a": "Evet, Windows'ta bir Chrome sekmesini veya ekranın tamamını paylaşırken 'Sistem Sesini Paylaş' seçeneğini işaretleyebilirsiniz."
+        },
+        {
+          "q": "Bir süre sınırı var mı?",
+          "a": "Yalnızca yerel cihazınızdaki kullanılabilir RAM ve depolama alanıyla sınırlıdır."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Komprese videa na straně klienta",
+      "content": "Náš engine běží přímo ve vašem prohlížeči. Eliminací odesílání na server zaručujeme nulovou dobu čekání na přenos dat a okamžité spuštění komprese."
+    },
+    "privacy": {
+      "title": "Úplné soukromí videa",
+      "content": "Vaše dosud nevydaná videa a osobní nahrávky zůstanou ve vašem počítači. K lokální kompresi souborů používáme WASM, což znamená, že vaše data nejsou nikdy uložena na našich serverech."
+    },
+    "performance": {
+      "title": "Akcelerace WebCodecs",
+      "content": "Využitím hardwarově akcelerovaného GPU kódování zmenšujeme masivní soubory MP4 a WebM až o 90 % během pouhých sekund."
+    },
+    "howto": {
+      "title": "Jak komprimovat video",
+      "steps": [
+        {
+          "title": "Vyberte MP4/WebM",
+          "desc": "Přetáhněte svůj těžký video soubor do dropzone."
+        },
+        {
+          "title": "Nastavit cíl kvality",
+          "desc": "Vyberte si mezi maximální kompresí nebo vyváženou kvalitou."
+        },
+        {
+          "title": "Okamžité uložení",
+          "desc": "Okamžité stažení optimalizovaného videa."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Nejčastější dotazy ke kompresi videa",
+      "items": [
+        {
+          "q": "Ztratí mé video kvalitu?",
+          "a": "K zachování vizuální věrnosti a odstranění neviditelných dat používáme kódování inteligentní proměnný bitrate (VBR)."
+        },
+        {
+          "q": "Existují omezení velikosti?",
+          "a": "Žádné umělé limity. Pokud má vaše zařízení dostatek paměti RAM, můžete zpracovat gigabajty videa."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Konverze místního videa",
+      "content": "Překlad formátů videa offline. Náš nástroj obchází cloudovou infrastrukturu a zajišťuje, že můžete převést MKV na MP4 i při pomalém připojení."
+    },
+    "privacy": {
+      "title": "Překlad formátu Zero-Trust",
+      "content": "Důvěrná firemní videa? My je nechceme. Náš engine založený na FFmpeg překládá video kodeky bezpečně v karanténě vašeho zařízení."
+    },
+    "performance": {
+      "title": "Okamžité překódování",
+      "content": "Přeskočením fáze nahrávání/stahování je náš místní transkodér exponenciálně rychlejší než tradiční cloudové převodníky videa."
+    },
+    "howto": {
+      "title": "Jak převést video formáty",
+      "steps": [
+        {
+          "title": "Importovat video",
+          "desc": "Načíst jakýkoli nepodporovaný formát videa, jako je MKV nebo AVI."
+        },
+        {
+          "title": "Vyberte výstup",
+          "desc": "Vyberte požadovaný kodek, například H.264 MP4 nebo WebM."
+        },
+        {
+          "title": "Výsledek stahování",
+          "desc": "Získejte univerzálně hratelný soubor videa."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Converter FAQ",
+      "items": [
+        {
+          "q": "Snižuje konverze kvalitu?",
+          "a": "Ne, pokud zvolíte cíl s vysokým datovým tokem nebo bezeztrátový. Ve výchozím nastavení zachováme původní rozlišení."
+        },
+        {
+          "q": "Mohu převést MKV s titulky?",
+          "a": "Ano, během převodu MP4 jsou podporovány standardní proudy titulků."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Retiming videa bez pingu",
+      "content": "Okamžitě zpomalte nebo zrychlete své klipy. Náš re-timer založený na prohlížeči zpracovává snímky lokálně bez latence serveru."
+    },
+    "privacy": {
+      "title": "Bezpečné zpracování snímků",
+      "content": "Vaše sportovní momenty a taneční výukové programy zůstávají soukromé. Interpolace snímků a úpravy rychlosti probíhají zcela offline."
+    },
+    "performance": {
+      "title": "Rychlá korekce výšky tónu",
+      "content": "Zpracováváme jak vizuální snímkovou frekvenci, tak korekci výšky zvuku současně v reálném čase, takže finální video poskytujeme během několika sekund."
+    },
+    "howto": {
+      "title": "Jak změnit rychlost videa",
+      "steps": [
+        {
+          "title": "Přidat video",
+          "desc": "Nahrajte klip, který chcete zrychlit nebo zpomalit."
+        },
+        {
+          "title": "Posuvník úprav",
+          "desc": "Nastavte násobitel (např. 0,5x pro pomalé přehrávání, 2x pro rychlý posun vpřed)."
+        },
+        {
+          "title": "Vykreslení",
+          "desc": "Uložte znovu načasované video do svého zařízení."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ o rychlosti videa",
+      "items": [
+        {
+          "q": "Bude zvuk znít jako veverka?",
+          "a": "Aplikujeme dynamickou korekci výšky tónu, takže hlasy zní přirozeně i při dvojnásobné rychlosti."
+        },
+        {
+          "q": "Jak plynulé je zpomalení?",
+          "a": "Záleží na původní snímkové rychlosti. 60fps videa budou vypadat neuvěřitelně plynule při 0,5x rychlosti."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Oříznutí videa v prohlížeči",
+      "content": "Okamžitě ořízněte vodoznaky nebo upravte poměr stran. Není třeba nahrávat těžké soubory do cloudu jen kvůli oříznutí okrajů."
+    },
+    "privacy": {
+      "title": "Úprava soukromých dimenzí",
+      "content": "Bezpečně upravujte rámování svého osobního vlogu. Během procesu oříznutí nikdy neukládáme ani nepřenášíme vaše nezpracovaná videodata."
+    },
+    "performance": {
+      "title": "Precision Frame Cropping",
+      "content": "Náš lokální engine překóduje pouze vybranou oblast, čímž zajistí ostré hrany a bleskově rychlé časy vykreslování."
+    },
+    "howto": {
+      "title": "Jak oříznout videa",
+      "steps": [
+        {
+          "title": "Načíst média",
+          "desc": "Importujte video, které chcete přerámovat."
+        },
+        {
+          "title": "Nastavit hranice",
+          "desc": "Přetáhněte ořezové pole na požadovaný poměr stran (např. 9:16 pro TikTok)."
+        },
+        {
+          "title": "Exportovat",
+          "desc": "Okamžitě stáhněte nově oříznuté video."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Nejčastější dotazy k oříznutí videa",
+      "items": [
+        {
+          "q": "Sníží oříznutí velikost souboru?",
+          "a": "Ano, odstraněním pixelů ze snímku je celkový požadovaný datový tok obvykle nižší."
+        },
+        {
+          "q": "Mohu oříznout pro instagramové kotouče?",
+          "a": "Rozhodně. Stačí nastavit ořezový rámeček na vertikální poměr 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Okamžité odstranění zvuku",
+      "content": "Odstraňte zvukové stopy z videí během milisekund. Protože běží lokálně, nemusíte čekat na fronty serveru."
+    },
+    "privacy": {
+      "title": "Bezpečné odstranění zvuku",
+      "content": "Bezpečně ztlumte citlivé konverzace na pozadí. Zvuková stopa je zahozena ve vašem prohlížeči a nezanechává žádnou digitální stopu."
+    },
+    "performance": {
+      "title": "Vyžadováno nulové překódování",
+      "content": "Pokud je to možné, jednoduše multiplexujeme video stream bez zvukové stopy, což znamená, že ztlumení trvá méně než sekundu."
+    },
+    "howto": {
+      "title": "Jak ztlumit video",
+      "steps": [
+        {
+          "title": "Vyberte video",
+          "desc": "Vyberte video obsahující zvuk, který chcete odstranit."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Kliknutím na proces okamžitě smažete audio stream."
+        },
+        {
+          "title": "Uložit tiché video",
+          "desc": "Stáhněte si ztlumený video soubor."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Časté dotazy o ztlumení videa",
+      "items": [
+        {
+          "q": "Ovlivňuje ztlumení kvalitu videa?",
+          "a": "Vůbec ne. Vizuální video stream necháme zcela nedotčený."
+        },
+        {
+          "q": "Jak je to rychlé?",
+          "a": "Extrémně rychlé. Pouze zkopírujeme video stream a zabere to jen několik milisekund."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Místní video vodoznak",
+      "content": "Bezpečně razítkem své logo na svůj obsah. Místní zpracování znamená, že můžete vodoznakovat gigabajty videa bez síťových zpoždění."
+    },
+    "privacy": {
+      "title": "Ochrana nevydaného obsahu",
+      "content": "Přidání vodoznaku do filmu před vydáním? Udělejte to offline. Vaše duševní vlastnictví se nikdy nedotkne našich serverů."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Náš engine efektivně spojuje vaše průhledné logo PNG přes snímky videa pomocí optimalizací WebGPU a WASM."
+    },
+    "howto": {
+      "title": "Jak přidat vodoznak",
+      "steps": [
+        {
+          "title": "Nahrát video a logo",
+          "desc": "Importujte své video a průhledný obrázek PNG."
+        },
+        {
+          "title": "Poloha",
+          "desc": "Upravte měřítko, krytí a polohu vodoznaku."
+        },
+        {
+          "title": "Vykreslení videa",
+          "desc": "Trvale vložte vodoznak do souboru videa."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Často kladené otázky o vodoznaku",
+      "items": [
+        {
+          "q": "Mohou zloději odstranit můj vodoznak?",
+          "a": "Protože obraz do rámečků videa pevně zakódujeme, je extrémně obtížné jej odstranit, aniž by se video zničilo."
+        },
+        {
+          "q": "Mohu vodoznak umístit vedle sebe?",
+          "a": "Ano, můžete povolit dlaždicové opakování vašeho loga přes celou obrazovku."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Offline video na GIF",
+      "content": "Okamžitě převeďte vtipné momenty na GIF. Náš místní kodér GIF funguje výhradně na vašem počítači a šetří vám šířku pásma."
+    },
+    "privacy": {
+      "title": "Generátor soukromých memů",
+      "content": "Přeměňte osobní videa na GIF, aniž byste je museli nahrávat na veřejné servery meme. Váš obsah zůstává 100% soukromý."
+    },
+    "performance": {
+      "title": "Optimalizované generování palet",
+      "content": "Používáme pokročilé kvantování barev ke generování vysoce kvalitních GIFů s malými velikostmi souborů, které běží přímo ve vašem prohlížeči."
+    },
+    "howto": {
+      "title": "Jak vytvořit GIF",
+      "steps": [
+        {
+          "title": "Oříznout video",
+          "desc": "Vyberte krátký úsek svého videa."
+        },
+        {
+          "title": "Nastavit snímkovou frekvenci",
+          "desc": "Vyberte si mezi 15 fps nebo 30 fps pro animaci GIF."
+        },
+        {
+          "title": "Generovat",
+          "desc": "Uložte opakující se obrázek GIF."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Nejčastější dotazy k videu ke GIFu",
+      "items": [
+        {
+          "q": "Proč jsou GIFy někdy velké?",
+          "a": "GIFy jsou starý formát, který není vysoce komprimovaný. Doporučujeme udržovat klipy kratší než 5 sekund."
+        },
+        {
+          "q": "Podporuje průhledné pozadí?",
+          "a": "Pokud má vaše zdrojové video kanál alfa (jako WebM), snažíme se zachovat průhlednost."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Místní komprese zvuku",
+      "content": "Okamžitě zmenšete velké soubory WAV nebo podcasty. Díky eliminaci fáze nahrávání je náš nástroj založený na prohlížeči nejrychlejším způsobem komprimace zvuku."
+    },
+    "privacy": {
+      "title": "Důvěrné zpracování zvuku",
+      "content": "Komprese nevydané hudby nebo soukromých hlasových poznámek? Váš zvuk je přísně zpracován lokálně. Vaše stopy nikdy neukládáme."
+    },
+    "performance": {
+      "title": "Psychoakustické kódování",
+      "content": "Náš kodér WASM odstraňuje neslyšitelné frekvence a zmenšuje velikost zvukových souborů až o 80 % při zachování ostrého zvuku."
+    },
+    "howto": {
+      "title": "Jak komprimovat zvuk",
+      "steps": [
+        {
+          "title": "Nahrát stopu",
+          "desc": "Vyberte soubor MP3, WAV nebo AAC."
+        },
+        {
+          "title": "Vyberte cílovou velikost",
+          "desc": "Upravte datový tok pro silnější kompresi."
+        },
+        {
+          "title": "Stáhnout",
+          "desc": "Získejte optimalizovaný, odlehčený zvukový soubor."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Časté dotazy ke kompresi zvuku",
+      "items": [
+        {
+          "q": "Bude moje skladba znít špatně?",
+          "a": "Používáme vysoce kvalitní percepční algoritmy, takže komprese je pro lidské ucho prakticky nerozeznatelná."
+        },
+        {
+          "q": "Mohu komprimovat hodinové podcasty?",
+          "a": "Ano, náš nástroj si bez námahy poradí s dlouhým zvukem ve vašem prohlížeči."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Převaděč zvuku v prohlížeči",
+      "content": "Okamžitý překlad zvukových formátů bez nutnosti pingnout na server. Ideální pro místní přepínání mezi formáty WAV, MP3 a OGG."
+    },
+    "privacy": {
+      "title": "Překlad zvuku s nulovým nahráváním",
+      "content": "Vaše hlasové nahrávky jsou pouze vaše. Náš offline převodní modul zaručuje absolutní soukromí pro citlivý zvuk."
+    },
+    "performance": {
+      "title": "Bleskově rychlé kodeky",
+      "content": "Převod zvuku je výpočetně nenáročný. Náš místní modul překóduje 5minutovou skladbu za méně než 2 sekundy."
+    },
+    "howto": {
+      "title": "Jak převést zvukové formáty",
+      "steps": [
+        {
+          "title": "Vybrat zvuk",
+          "desc": "Přetáhněte nepodporovaný zvukový soubor do nástroje."
+        },
+        {
+          "title": "Vybrat výstup",
+          "desc": "Vyberte požadovaný formát (např. MP3 pro univerzální přehrávání)."
+        },
+        {
+          "title": "Uložit soubor",
+          "desc": "Stáhnout nově naformátovanou zvukovou stopu."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Audio Converter FAQ",
+      "items": [
+        {
+          "q": "Mohu převést ztrátové MP3 na bezztrátové WAV?",
+          "a": "Můžete, ale neobnoví to ztracenou kvalitu. Jednoduše změní formát kontejneru."
+        },
+        {
+          "q": "Jsou ID3 tagy zachovány?",
+          "a": "Vynakládáme maximální úsilí na přenos metadat, jako je jméno interpreta a obrázek alba."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Místní extrakce videa do zvuku",
+      "content": "Okamžité extrahování MP3 z MP4. Vynechání nahrávání do cloudu znamená, že můžete ripovat zvuk z 2GB videa během několika sekund."
+    },
+    "privacy": {
+      "title": "Bezpečné kopírování zvuku",
+      "content": "Bezpečně extrahujte zvuk ze soukromých rodinných videí. Celý proces probíhá v karanténě vašeho prohlížeče."
+    },
+    "performance": {
+      "title": "Technologie kopírování streamu",
+      "content": "Kdykoli je to možné, používáme přímé kopírování streamu k extrahování zvuku bez překódování, což zajišťuje 100% původní kvalitu."
+    },
+    "howto": {
+      "title": "Jak extrahovat zvuk",
+      "steps": [
+        {
+          "title": "Nahrát video",
+          "desc": "Vyberte soubor MP4, MOV nebo MKV."
+        },
+        {
+          "title": "Extrahovat",
+          "desc": "Kliknutím na proces zkopírujete zvukovou stopu."
+        },
+        {
+          "title": "Stáhnout MP3",
+          "desc": "Uložte extrahovaný zvukový soubor."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video to Audio FAQ",
+      "items": [
+        {
+          "q": "Je zachována původní kvalita zvuku?",
+          "a": "Ano, extrahujeme přesný zvukový proud vložený do videa."
+        },
+        {
+          "q": "Mohu extrahovat zvuk z videa 4K?",
+          "a": "Rozhodně. Rozlišení videa nemá vliv na rychlost extrakce zvuku."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Prohlížeč-založené Audio Joiner",
+      "content": "Kombinovat více zvukových stop do jednoho souboru lokálně. Není třeba nahrávat těžké vícestopé relace na server."
+    },
+    "privacy": {
+      "title": "Private Track Splicing",
+      "content": "Připojení k podcastům nebo důvěrným rozhovorům? Náš nástroj zpracuje sloučení bezpečně na vašem zařízení."
+    },
+    "performance": {
+      "title": "Bezproblémové prolínání",
+      "content": "Náš WASM engine spojuje zvukové soubory hladce dohromady, zajišťuje přehrávání bez mezer a dokonalé zarovnání."
+    },
+    "howto": {
+      "title": "Jak sloučit zvuk",
+      "steps": [
+        {
+          "title": "Nahrát stopy",
+          "desc": "Vyberte dva nebo více zvukových souborů."
+        },
+        {
+          "title": "Uspořádat pořadí",
+          "desc": "Přetažením nastavíte sekvenci přehrávání."
+        },
+        {
+          "title": "Připojit soubory",
+          "desc": "Stáhněte si kombinovanou hlavní stopu."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Často kladené otázky o sloučení zvuku",
+      "items": [
+        {
+          "q": "Mohu sloučit MP3 a WAV dohromady?",
+          "a": "Ano, náš engine automaticky normalizuje formáty během sloučení."
+        },
+        {
+          "q": "Je mezi spojenými stopami mezera?",
+          "a": "Ne, stopy jsou sešity přesně od konce ke konci pro přehrávání bez mezer."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Místní přepis AI",
+      "content": "Přeměňte řeč na text přímo ve vašem prohlížeči. Pomocí Whisper AI přes WebAssembly nemusíte posílat zvuk do cloudu."
+    },
+    "privacy": {
+      "title": "Absolutní důvěrnost",
+      "content": "Přepis právních nebo lékařských záznamů? Toto je jediný bezpečný způsob. Neuronová síť běží lokálně a zajišťuje nulové úniky dat."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Ke spuštění modelu Whisper využíváme GPU vašeho zařízení, které poskytuje vysoce přesné přepisy výrazně rychlejší než zpracování CPU."
+    },
+    "howto": {
+      "title": "Jak přepisovat zvuk",
+      "steps": [
+        {
+          "title": "Načíst model",
+          "desc": "Počkejte, až se lehký model umělé inteligence uloží do mezipaměti ve vašem prohlížeči."
+        },
+        {
+          "title": "Nahrát média",
+          "desc": "Vyberte audio nebo video soubor, který chcete přepsat."
+        },
+        {
+          "title": "Export textu",
+          "desc": "Uložte vygenerovaný přepis jako titulky TXT nebo SRT."
+        }
+      ]
+    },
+    "faq": {
+      "title": "AI Transscription FAQ",
+      "items": [
+        {
+          "q": "Podporuje více jazyků?",
+          "a": "Ano, model Whisper podporuje angličtinu, indonéštinu, španělštinu a desítky dalších."
+        },
+        {
+          "q": "Proč nejprve stáhne soubor?",
+          "a": "Potřebuje jednou uložit do mezipaměti váhy AI neuronové sítě do vašeho zařízení. Poté to funguje offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Studio rekordér s nulovou latencí",
+      "content": "Nahrávejte obrazovku, webovou kameru a mikrofon přímo v prohlížeči. Není vyžadována žádná instalace softwaru ani nahrávání serveru."
+    },
+    "privacy": {
+      "title": "Zabezpečené nahrávání na straně klienta",
+      "content": "Nahrávání citlivých prezentací? Vaše video je zachyceno přímo do paměti vašeho prohlížeče a uloženo lokálně."
+    },
+    "performance": {
+      "title": "HD Hardwarové kódování",
+      "content": "Využíváme MediaRecorder API s hardwarovou akcelerací k zachycení ostrého 1080p a 4K záznamu bez vypadávání snímků."
+    },
+    "howto": {
+      "title": "Jak nahrávat",
+      "steps": [
+        {
+          "title": "Udělit oprávnění",
+          "desc": "Povolit prohlížeči přístup ke kameře a mikrofonu."
+        },
+        {
+          "title": "Vyberte zdroje",
+          "desc": "Vyberte si mezi Sdílením obrazovky, Webovou kamerou nebo obojím."
+        },
+        {
+          "title": "Nahrát a uložit",
+          "desc": "Nahrajte záznam a po dokončení si okamžitě stáhněte finální MP4."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Studio Recorder FAQ",
+      "items": [
+        {
+          "q": "Mohu nahrávat zvuk systému?",
+          "a": "Ano, při sdílení karty Chrome nebo celé obrazovky v systému Windows můžete zaškrtnout možnost Sdílet zvuk systému."
+        },
+        {
+          "q": "Je nějaký časový limit?",
+          "a": "Jste omezeni pouze dostupnou RAM a úložištěm na vašem místním zařízení."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Videocompressie aan clientzijde",
+      "content": "Onze engine draait rechtstreeks in uw browser. Door serveruploads te elimineren, garanderen we dat er geen wachttijd is voor gegevensoverdracht en dat de compressie onmiddellijk begint."
+    },
+    "privacy": {
+      "title": "Totale videoprivacy",
+      "content": "Uw niet-uitgebrachte video's en persoonlijke opnamen blijven op uw computer staan. We gebruiken WASM om bestanden lokaal te comprimeren, wat betekent dat uw gegevens nooit op onze servers worden opgeslagen."
+    },
+    "performance": {
+      "title": "WebCodecs-versnelling",
+      "content": "Door gebruik te maken van hardwareversnelde GPU-codering kunnen we enorme MP4- en WebM-bestanden in slechts enkele seconden tot 90% verkleinen."
+    },
+    "howto": {
+      "title": "Video comprimeren",
+      "steps": [
+        {
+          "title": "Selecteer MP4/WebM",
+          "desc": "Sleep uw zware videobestand naar de dropzone."
+        },
+        {
+          "title": "Kwaliteitsdoel instellen",
+          "desc": "Kies tussen maximale compressie of gebalanceerde kwaliteit."
+        },
+        {
+          "title": "Direct opslaan",
+          "desc": "Download de geoptimaliseerde video direct."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over videocompressie",
+      "items": [
+        {
+          "q": "Zal mijn video kwaliteit verliezen?",
+          "a": "We gebruiken slimme variabele bitrate-codering (VBR) om de visuele betrouwbaarheid te behouden en onzichtbare gegevens te verwijderen."
+        },
+        {
+          "q": "Zijn er maximale afmetingen?",
+          "a": "Geen kunstmatige grenzen. Je kunt gigabytes aan video verwerken als je apparaat voldoende RAM heeft."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Lokale videoconversie",
+      "content": "Vertaal videoformaten offline. Onze tool omzeilt de cloudinfrastructuur en zorgt ervoor dat u MKV naar MP4 kunt converteren, zelfs bij langzame verbindingen."
+    },
+    "privacy": {
+      "title": "Zero-Trust Format Translation",
+      "content": "Vertrouwelijke bedrijfsvideo's? Wij willen ze niet. Onze op FFmpeg gebaseerde engine vertaalt videocodecs veilig in de sandbox van uw apparaat."
+    },
+    "performance": {
+      "title": "Directe transcodering",
+      "content": "Door de upload-/downloadfase over te slaan, is onze lokale transcoder exponentieel sneller dan traditionele cloudgebaseerde videoconverters."
+    },
+    "howto": {
+      "title": "Videoformaten converteren",
+      "steps": [
+        {
+          "title": "Video importeren",
+          "desc": "Laad een niet-ondersteund videoformaat zoals MKV of AVI."
+        },
+        {
+          "title": "Selecteer Uitvoer",
+          "desc": "Kies de gewenste codec, zoals H.264 MP4 of WebM."
+        },
+        {
+          "title": "Downloadresultaat",
+          "desc": "Haal het universeel afspeelbare videobestand op."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over videoconversie",
+      "items": [
+        {
+          "q": "Vermindert het converteren de kwaliteit?",
+          "a": "Niet als u een doel met hoge bitsnelheid of verliesvrij kiest. Standaard behouden we de oorspronkelijke resolutie."
+        },
+        {
+          "q": "Kan ik MKV met ondertitels converteren?",
+          "a": "Ja, standaard ondertitelstreams worden ondersteund tijdens MP4-conversie."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Video opnieuw timen zonder ping",
+      "content": "Vertraag of versnel uw clips onmiddellijk. Onze browsergebaseerde re-timer verwerkt frames lokaal zonder serverlatentie."
+    },
+    "privacy": {
+      "title": "Veilige frameverwerking",
+      "content": "Je sporthoogtepunten en danslessen blijven privé. De frame-interpolatie en snelheidsaanpassingen gebeuren volledig offline."
+    },
+    "performance": {
+      "title": "Snelle pitchcorrectie",
+      "content": "We verwerken zowel de visuele framerate- als de audio-pitchcorrectie tegelijkertijd in realtime, waardoor de uiteindelijke video binnen enkele seconden wordt afgeleverd."
+    },
+    "howto": {
+      "title": "De videosnelheid wijzigen",
+      "steps": [
+        {
+          "title": "Video toevoegen",
+          "desc": "Upload de clip die je wilt versnellen of vertragen."
+        },
+        {
+          "title": "Schuifregelaar aanpassen",
+          "desc": "Stel de vermenigvuldiger in (bijvoorbeeld 0,5x voor slow motion, 2x voor snel vooruit)."
+        },
+        {
+          "title": "Renderen",
+          "desc": "Sla de opnieuw getimede video op uw apparaat op."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over videosnelheid",
+      "items": [
+        {
+          "q": "Klinkt het geluid als een aardeekhoorn?",
+          "a": "We passen dynamische toonhoogtecorrectie toe, zodat stemmen natuurlijk klinken, zelfs op 2x snelheid."
+        },
+        {
+          "q": "Hoe vloeiend is de slow motion?",
+          "a": "Het hangt af van de originele framerate. Video's van 60 fps zien er ongelooflijk vloeiend uit met een snelheid van 0,5x."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Video bijsnijden via browser",
+      "content": "Snijd watermerken uit of pas de beeldverhoudingen direct aan. U hoeft geen zware bestanden naar de cloud te uploaden, alleen maar om de randen bij te snijden."
+    },
+    "privacy": {
+      "title": "Privédimensie bewerken",
+      "content": "Bewerk uw persoonlijke vlog-framing veilig. We bewaren of verzenden uw onbewerkte videogegevens nooit tijdens het bijsnijdproces."
+    },
+    "performance": {
+      "title": "Precisieframe bijsnijden",
+      "content": "Onze lokale engine codeert alleen het geselecteerde gebied opnieuw, waardoor vlijmscherpe randen en razendsnelle weergavetijden worden gegarandeerd."
+    },
+    "howto": {
+      "title": "Video's bijsnijden",
+      "steps": [
+        {
+          "title": "Media laden",
+          "desc": "Importeer de video die u opnieuw wilt framen."
+        },
+        {
+          "title": "Grenzen instellen",
+          "desc": "Sleep het bijsnijdvak naar de gewenste beeldverhouding (bijvoorbeeld 9:16 voor TikTok)."
+        },
+        {
+          "title": "Exporteren",
+          "desc": "Download de nieuw bijgesneden video direct."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over het bijsnijden van video's",
+      "items": [
+        {
+          "q": "Verkleint het bijsnijden de bestandsgrootte?",
+          "a": "Ja, door pixels uit het frame te verwijderen, is de totale vereiste bitsnelheid doorgaans lager."
+        },
+        {
+          "q": "Kan ik bijsnijden voor Instagram-rollen?",
+          "a": "Absoluut. Stel uw bijsnijdvak gewoon in op een verticale verhouding van 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Directe audioverwijdering",
+      "content": "Strip audiotracks uit video's in milliseconden. Omdat het lokaal draait, hoeft u niet te wachten op serverwachtrijen."
+    },
+    "privacy": {
+      "title": "Veilige audiostripping",
+      "content": "Demp gevoelige achtergrondgesprekken veilig. De audiotrack wordt in uw browser weggegooid en laat geen digitaal spoor achter."
+    },
+    "performance": {
+      "title": "Nulhercodering vereist",
+      "content": "Indien mogelijk multiplexen we de videostream eenvoudigweg zonder de audiotrack, wat betekent dat het dempen minder dan een seconde duurt."
+    },
+    "howto": {
+      "title": "Een video dempen",
+      "steps": [
+        {
+          "title": "Selecteer Video",
+          "desc": "Kies de video met de audio die je wilt verwijderen."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Klik op proces om de audiostream onmiddellijk te verwijderen."
+        },
+        {
+          "title": "Stille video opslaan",
+          "desc": "Download het gedempte videobestand."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over het dempen van video's",
+      "items": [
+        {
+          "q": "Heeft het dempen invloed op de videokwaliteit?",
+          "a": "Helemaal niet. De visuele videostream laten we volledig onaangeroerd."
+        },
+        {
+          "q": "Hoe snel is dit?",
+          "a": "Extreem snel. We kopiëren gewoon de videostream en nemen slechts een paar milliseconden in beslag."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Lokale videowatermerken",
+      "content": "Stempel uw logo veilig op uw inhoud. Lokale verwerking betekent dat u gigabytes aan video kunt watermerken zonder netwerkvertragingen."
+    },
+    "privacy": {
+      "title": "Niet-uitgebrachte inhoud beschermen",
+      "content": "Een watermerk toevoegen aan een pre-releasefilm? Doe het offline. Uw intellectuele eigendom raakt nooit onze servers."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Onze engine mengt uw transparante PNG-logo efficiënt over de videoframes met behulp van WebGPU- en WASM-optimalisaties."
+    },
+    "howto": {
+      "title": "Een watermerk toevoegen",
+      "steps": [
+        {
+          "title": "Video en logo uploaden",
+          "desc": "Importeer uw video en een transparante PNG-afbeelding."
+        },
+        {
+          "title": "Positie",
+          "desc": "Pas de schaal, dekking en positie van het watermerk aan."
+        },
+        {
+          "title": "Video renderen",
+          "desc": "Bak het watermerk permanent in het videobestand."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over watermerken",
+      "items": [
+        {
+          "q": "Kunnen dieven mijn watermerk verwijderen?",
+          "a": "Omdat we de afbeelding hard in de videoframes coderen, is deze uiterst moeilijk te verwijderen zonder de video te verpesten."
+        },
+        {
+          "q": "Kan ik het watermerk betegelen?",
+          "a": "Ja, u kunt naast elkaar plaatsen inschakelen om uw logo over het hele scherm te herhalen."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Offline video naar GIF",
+      "content": "Converteer grappige momenten direct naar GIF's. Onze lokale GIF-encoder werkt volledig op uw machine, waardoor u bandbreedte bespaart."
+    },
+    "privacy": {
+      "title": "Private Meme Generator",
+      "content": "Verander persoonlijke video's in GIF's zonder ze naar openbare meme-servers te uploaden. Uw inhoud blijft 100% privé."
+    },
+    "performance": {
+      "title": "Geoptimaliseerde paletgeneratie",
+      "content": "We gebruiken geavanceerde kleurkwantisering om GIF's van hoge kwaliteit met kleine bestandsgroottes te genereren, die rechtstreeks in uw browser worden uitgevoerd."
+    },
+    "howto": {
+      "title": "Een GIF maken",
+      "steps": [
+        {
+          "title": "Video inkorten",
+          "desc": "Selecteer een kort segment van uw video."
+        },
+        {
+          "title": "Framerate instellen",
+          "desc": "Kies tussen 15 fps of 30 fps voor de GIF-animatie."
+        },
+        {
+          "title": "Genereren",
+          "desc": "Sla de looping GIF-afbeelding op."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over video naar GIF",
+      "items": [
+        {
+          "q": "Waarom zijn GIF's soms groot?",
+          "a": "GIF's zijn een oud formaat dat niet erg gecomprimeerd is. We raden aan om clips korter dan 5 seconden te houden."
+        },
+        {
+          "q": "Ondersteunt het transparante achtergronden?",
+          "a": "Als uw bronvideo een alfakanaal heeft (zoals WebM), proberen we de transparantie te behouden."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Lokale audiocompressie",
+      "content": "Verklein enorme WAV-bestanden of podcasts onmiddellijk. Door de uploadfase te elimineren, is onze browsergebaseerde tool de snelste manier om audio te comprimeren."
+    },
+    "privacy": {
+      "title": "Vertrouwelijke audioverwerking",
+      "content": "Niet-uitgebrachte muziek of privéspraakmemo's comprimeren? Uw audio wordt strikt lokaal verwerkt. Wij slaan uw tracks nooit op."
+    },
+    "performance": {
+      "title": "Psycho-akoestische codering",
+      "content": "Onze WASM-encoder verwijdert onhoorbare frequenties, waardoor de audiobestandsgrootte tot 80% wordt verminderd, terwijl het heldere geluid behouden blijft."
+    },
+    "howto": {
+      "title": "Audio comprimeren",
+      "steps": [
+        {
+          "title": "Track uploaden",
+          "desc": "Selecteer uw MP3-, WAV- of AAC-bestand."
+        },
+        {
+          "title": "Kies doelgrootte",
+          "desc": "Pas de bitsnelheid aan voor zwaardere compressie."
+        },
+        {
+          "title": "Downloaden",
+          "desc": "Verkrijg het geoptimaliseerde, lichtgewicht audiobestand."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over audiocompressie",
+      "items": [
+        {
+          "q": "Zal mijn nummer slecht klinken?",
+          "a": "We gebruiken hoogwaardige perceptuele algoritmen, zodat de compressie vrijwel niet te onderscheiden is voor het menselijk oor."
+        },
+        {
+          "q": "Kan ik podcasts van een uur comprimeren?",
+          "a": "Ja, onze tool verwerkt lange audio moeiteloos in uw browser."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "In-Browser Audio Converter",
+      "content": "Vertaal geluidsformaten direct zonder een server te pingen. Perfect om lokaal te schakelen tussen WAV-, MP3- en OGG-formaten."
+    },
+    "privacy": {
+      "title": "Audiovertaling zonder upload",
+      "content": "Uw stemopnamen zijn alleen van u. Onze offline conversie-engine garandeert absolute privacy voor gevoelige audio."
+    },
+    "performance": {
+      "title": "Bliksemsnelle codecs",
+      "content": "Het converteren van audio is rekenkundig licht. Onze lokale engine transcodeert een nummer van 5 minuten in minder dan 2 seconden."
+    },
+    "howto": {
+      "title": "Audioformaten converteren",
+      "steps": [
+        {
+          "title": "Selecteer Audio",
+          "desc": "Sleep uw niet-ondersteunde audiobestand naar de tool."
+        },
+        {
+          "title": "Kies uitvoer",
+          "desc": "Kies het gewenste formaat (bijvoorbeeld MP3 voor universeel afspelen)."
+        },
+        {
+          "title": "Bestand opslaan",
+          "desc": "Download de nieuw geformatteerde audiotrack."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over audioconverter",
+      "items": [
+        {
+          "q": "Kan ik MP3 met verlies naar WAV zonder verlies converteren?",
+          "a": "Dat kan, maar het herstelt de verloren kwaliteit niet. Het verandert eenvoudigweg het containerformaat."
+        },
+        {
+          "q": "Worden ID3-tags bewaard?",
+          "a": "We doen er alles aan om metagegevens, zoals de naam van de artiest en albumhoezen, over te dragen."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Lokale video-naar-audio-extractie",
+      "content": "Extraheer MP3's direct uit MP4's. Als u clouduploads omzeilt, kunt u binnen enkele seconden audio van een video van 2 GB rippen."
+    },
+    "privacy": {
+      "title": "Veilig audio rippen",
+      "content": "Extraheer audio veilig uit privé-familievideo's. Het proces vindt volledig plaats in de sandbox van uw browser."
+    },
+    "performance": {
+      "title": "Streamkopietechnologie",
+      "content": "Waar mogelijk gebruiken we directe streamkopie om de audio te extraheren zonder opnieuw te coderen, waardoor 100% originele kwaliteit wordt gegarandeerd."
+    },
+    "howto": {
+      "title": "Audio extraheren",
+      "steps": [
+        {
+          "title": "Video uploaden",
+          "desc": "Selecteer het MP4-, MOV- of MKV-bestand."
+        },
+        {
+          "title": "Extraheren",
+          "desc": "Klik op proces om de audiotrack te rippen."
+        },
+        {
+          "title": "MP3 downloaden",
+          "desc": "Sla het uitgepakte geluidsbestand op."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over video naar audio",
+      "items": [
+        {
+          "q": "Blijft de oorspronkelijke audiokwaliteit behouden?",
+          "a": "Ja, we extraheren de exacte audiostream die in de video is ingesloten."
+        },
+        {
+          "q": "Kan ik audio uit een 4K-video extraheren?",
+          "a": "Absoluut. De videoresolutie heeft geen invloed op de audio-extractiesnelheid."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Browsergebaseerde audiojoiner",
+      "content": "Combineer meerdere audiotracks lokaal in één bestand. Het is niet nodig om zware multi-track sessies naar een server te uploaden."
+    },
+    "privacy": {
+      "title": "Private Track Splicing",
+      "content": "Deelnemen aan podcastsegmenten of vertrouwelijke interviews? Onze tool verwerkt de samenvoeging veilig op uw apparaat."
+    },
+    "performance": {
+      "title": "Naadloze crossfading",
+      "content": "Onze WASM-engine voegt audiobestanden naadloos aan elkaar toe, wat zorgt voor een naadloze weergave en een perfecte uitlijning."
+    },
+    "howto": {
+      "title": "Audio samenvoegen",
+      "steps": [
+        {
+          "title": "Tracks uploaden",
+          "desc": "Selecteer twee of meer audiobestanden."
+        },
+        {
+          "title": "Volgorde rangschikken",
+          "desc": "Slepen en neerzetten om de afspeelvolgorde in te stellen."
+        },
+        {
+          "title": "Bestanden samenvoegen",
+          "desc": "Download de gecombineerde mastertrack."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over audiofusie",
+      "items": [
+        {
+          "q": "Kan ik MP3 en WAV samenvoegen?",
+          "a": "Ja, onze engine normaliseert automatisch de formaten tijdens het samenvoegen."
+        },
+        {
+          "q": "Is er ruimte tussen de samengevoegde sporen?",
+          "a": "Nee, de nummers zijn exact van begin tot eind aan elkaar geplakt, zodat ze zonder onderbrekingen kunnen worden afgespeeld."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Lokale AI-transcriptie",
+      "content": "Zet spraak rechtstreeks in uw browser om naar tekst. Met Whisper AI via WebAssembly hoeft u uw audio niet naar de cloud te sturen."
+    },
+    "privacy": {
+      "title": "Absolute vertrouwelijkheid",
+      "content": "Juridische of medische dossiers transcriberen? Dit is de enige veilige manier. Het neurale netwerk draait lokaal en zorgt ervoor dat er geen datalekken ontstaan."
+    },
+    "performance": {
+      "title": "WebGPU versnelde AI",
+      "content": "We maken gebruik van de GPU van uw apparaat om het Whisper-model uit te voeren, waardoor uiterst nauwkeurige transcripties aanzienlijk sneller worden geleverd dan CPU-verwerking."
+    },
+    "howto": {
+      "title": "Audio transcriberen",
+      "steps": [
+        {
+          "title": "Model laden",
+          "desc": "Wacht tot het lichtgewicht AI-model in de cache van uw browser is opgeslagen."
+        },
+        {
+          "title": "Media uploaden",
+          "desc": "Selecteer het audio- of videobestand dat u wilt transcriberen."
+        },
+        {
+          "title": "Tekst exporteren",
+          "desc": "Sla het gegenereerde transcript op als TXT- of SRT-ondertitels."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over AI-transcriptie",
+      "items": [
+        {
+          "q": "Ondersteunt het meerdere talen?",
+          "a": "Ja, het Whisper-model ondersteunt Engels, Indonesisch, Spaans en tientallen andere."
+        },
+        {
+          "q": "Waarom downloadt het eerst een bestand?",
+          "a": "Het moet de AI-neurale netwerkgewichten één keer in de cache op uw apparaat opslaan. Daarna werkt het offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Neem uw scherm, webcam en microfoon rechtstreeks in de browser op. Geen software-installatie of serveruploads vereist."
+    },
+    "privacy": {
+      "title": "Veilige opnamen aan de clientzijde",
+      "content": "Gevoelige presentaties opnemen? Uw video wordt rechtstreeks in het geheugen van uw browser vastgelegd en lokaal opgeslagen."
+    },
+    "performance": {
+      "title": "HD-hardwarecodering",
+      "content": "We gebruiken de MediaRecorder API met hardwareversnelling om scherpe 1080p- en 4K-beelden vast te leggen zonder frames te laten vallen."
+    },
+    "howto": {
+      "title": "Opnemen",
+      "steps": [
+        {
+          "title": "Toestemmingen verlenen",
+          "desc": "Geef browsertoegang tot uw camera en microfoon."
+        },
+        {
+          "title": "Bronnen selecteren",
+          "desc": "Kies tussen Scherm delen, Webcam of beide."
+        },
+        {
+          "title": "Opnemen en opslaan",
+          "desc": "Druk op opnemen en download direct de definitieve MP4 als u klaar bent."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen over Studio Recorder",
+      "items": [
+        {
+          "q": "Kan ik systeemaudio opnemen?",
+          "a": "Ja, als u een Chrome-tabblad of een volledig scherm op Windows deelt, kunt u 'Systeemaudio delen' aanvinken."
+        },
+        {
+          "q": "Is er een tijdslimiet?",
+          "a": "U wordt alleen beperkt door het beschikbare RAM-geheugen en de opslagruimte op uw lokale apparaat."
+        }
+      ]
+    }
+  }
+}

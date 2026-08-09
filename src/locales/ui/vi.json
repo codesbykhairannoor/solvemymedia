@@ -1,0 +1,26 @@
+{
+  "langName": "Tiếng Việt",
+  "flag": "🇻🇳",
+  "nav": {
+    "compress_video": "Nén video",
+    "convert_video": "Chuyển đổi video",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "Tối ưu hóa video",
+    "cat_video_edit": "Chỉnh sửa video",
+    "cat_audio": "Công cụ âm thanh",
+    "cat_ai": "AI & Studio",
+    "speed": "Thay đổi tốc độ",
+    "gif": "Video thành GIF",
+    "crop": "Cắt video",
+    "mute": "Tắt tiếng video",
+    "watermark": "Thêm hình mờ",
+    "compress_audio": "Nén âm thanh",
+    "convert_audio": "Chuyển đổi âm thanh",
+    "video_to_audio": "Video thành âm thanh",
+    "merge_audio": "Hợp nhất âm thanh",
+    "transcribe": "AI Media thành văn bản",
+    "studio_recorder": "Máy ghi âm phòng thu"
+  },
+  "search_lang": "Search language..."
+}

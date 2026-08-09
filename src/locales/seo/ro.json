@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Comprimarea video la nivelul clientului",
+      "content": "Motorul nostru rulează direct în browserul dumneavoastră. Prin eliminarea încărcărilor pe server, garantăm timp de așteptare zero pentru transferul de date și începerea compresiei instantanee."
+    },
+    "privacy": {
+      "title": "Confidențialitate video totală",
+      "content": "Videoclipurile și înregistrările personale nelansate rămân pe aparat. Folosim WASM pentru a comprima fișierele local, ceea ce înseamnă că datele dumneavoastră nu sunt niciodată stocate pe serverele noastre."
+    },
+    "performance": {
+      "title": "Accelerarea WebCodecs",
+      "content": "Folosind codificarea GPU accelerată de hardware, micșorăm fișierele MP4 și WebM masive cu până la 90% în doar câteva secunde."
+    },
+    "howto": {
+      "title": "Cum să comprimați videoclipul",
+      "steps": [
+        {
+          "title": "Selectați MP4/WebM",
+          "desc": "Trageți fișierul dvs. video greu în zona dropzone."
+        },
+        {
+          "title": "Setați ținta de calitate",
+          "desc": "Alegeți între compresie maximă sau calitate echilibrată."
+        },
+        {
+          "title": "Salvați instantaneu",
+          "desc": "Descărcați instantaneu videoclipul optimizat."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre compresia video",
+      "items": [
+        {
+          "q": "Va pierde calitatea videoclipului meu?",
+          "a": "Folosim codificare inteligentă cu rata de biți variabilă (VBR) pentru a păstra fidelitatea vizuală în timp ce eliminăm datele invizibile."
+        },
+        {
+          "q": "Există limite de dimensiune?",
+          "a": "Fără limite artificiale. Puteți procesa gigaocteți de video dacă dispozitivul dvs. are suficientă memorie RAM."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Conversie video locală",
+      "content": "Traduceți formatele video offline. Instrumentul nostru ocolește infrastructura cloud, asigurându-vă că puteți converti MKV în MP4 chiar și în conexiuni lente."
+    },
+    "privacy": {
+      "title": "Traducere în format Zero-Trust",
+      "content": "Videoclipuri corporative confidențiale? Nu le vrem. Motorul nostru bazat pe FFmpeg traduce codecurile video în siguranță în sandbox-ul dispozitivului dvs."
+    },
+    "performance": {
+      "title": "Transcodare instantanee",
+      "content": "Omitând faza de încărcare/descărcare, transcoderul nostru local este exponențial mai rapid decât convertoarele video tradiționale bazate pe cloud."
+    },
+    "howto": {
+      "title": "Cum se convertesc formate video",
+      "steps": [
+        {
+          "title": "Import video",
+          "desc": "Încărcați orice format video neacceptat, cum ar fi MKV sau AVI."
+        },
+        {
+          "title": "Selectați Ieșire",
+          "desc": "Alegeți codecul dorit, cum ar fi H.264 MP4 sau WebM."
+        },
+        {
+          "title": "Descărcare rezultat",
+          "desc": "Obțineți fișierul video care poate fi redat universal."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre Video Converter",
+      "items": [
+        {
+          "q": "Conversia reduce calitatea?",
+          "a": "Nu dacă alegeți o țintă cu rata de biți mare sau fără pierderi. În mod implicit, păstrăm rezoluția originală."
+        },
+        {
+          "q": "Pot converti MKV cu subtitrări?",
+          "a": "Da, fluxurile standard de subtitrare sunt acceptate în timpul conversiei MP4."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "Retemporizare video fără ping",
+      "content": "Încetiniți sau accelerați clipurile instantaneu. Temporizatorul nostru bazat pe browser procesează cadrele local, fără latență de server."
+    },
+    "privacy": {
+      "title": "Procesare securizată a cadrelor",
+      "content": "Cele mai importante momente sportive și tutorialele de dans rămân private. Interpolarea cadrului și ajustările vitezei au loc complet offline."
+    },
+    "performance": {
+      "title": "Corectare rapidă a înălțimii",
+      "content": "Ne ocupăm atât de frecvența de cadre vizuale, cât și de corecția de înălțime audio simultan, în timp real, oferind videoclipul final în câteva secunde."
+    },
+    "howto": {
+      "title": "Cum să schimbați viteza video",
+      "steps": [
+        {
+          "title": "Adăugați videoclip",
+          "desc": "Încărcați clipul pe care doriți să accelerați sau să încetiniți."
+        },
+        {
+          "title": "Reglați cursorul",
+          "desc": "Setați multiplicatorul (de exemplu, 0,5x pentru slow-mo, 2x pentru derulare rapidă înainte)."
+        },
+        {
+          "title": "Redare",
+          "desc": "Salvați videoclipul reprogramat pe dispozitiv."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre viteza video",
+      "items": [
+        {
+          "q": "Sunetul va suna ca un chipmunk?",
+          "a": "Aplicăm corecția dinamică a înălțimii, astfel încât vocile să sune natural chiar și la viteza de 2x."
+        },
+        {
+          "q": "Cât de netedă este mișcarea lentă?",
+          "a": "Depinde de framerate original. Videoclipurile de 60 fps vor arăta incredibil de fluide la o viteză de 0,5x."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Decupare video bazată pe browser",
+      "content": "Decupați filigranele sau ajustați raporturile de aspect instantaneu. Nu este nevoie să încărcați fișiere grele în cloud doar pentru a tăia marginile."
+    },
+    "privacy": {
+      "title": "Editarea dimensiunii private",
+      "content": "Editați-vă încadrarea vlogului personal în siguranță. Nu stocăm și nu transmitem niciodată datele dvs. video brute în timpul procesului de decupare."
+    },
+    "performance": {
+      "title": "Decuparea de precizie a cadrului",
+      "content": "Motorul nostru local re-codifică doar zona selectată, asigurând margini ascuțite și timpi de randare extraordinari."
+    },
+    "howto": {
+      "title": "Cum să decupați videoclipuri",
+      "steps": [
+        {
+          "title": "Încărcați conținutul media",
+          "desc": "Importați videoclipul pe care doriți să îl reîncadrați."
+        },
+        {
+          "title": "Setați limite",
+          "desc": "Trageți caseta de decupare la raportul de aspect dorit (de exemplu, 9:16 pentru TikTok)."
+        },
+        {
+          "title": "Exportați",
+          "desc": "Descărcați instantaneu videoclipul recent decupat."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente pentru decupare video",
+      "items": [
+        {
+          "q": "Decuparea reduce dimensiunea fișierului?",
+          "a": "Da, prin eliminarea pixelilor din cadru, rata de biți totală necesară este de obicei mai mică."
+        },
+        {
+          "q": "Pot decupa pentru Instagram Reels?",
+          "a": "Absolut. Doar setați caseta de decupare la un raport vertical de 9:16."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Eliminare instantanee a sunetului",
+      "content": "Eliminați melodiile audio din videoclipuri în milisecunde. Deoarece rulează local, nu așteptați cozile de server."
+    },
+    "privacy": {
+      "title": "Secure Audio Stripping",
+      "content": "Dezactivați în siguranță conversațiile sensibile de fundal. Piesa audio este aruncată în browser, fără a lăsa urme digitale."
+    },
+    "performance": {
+      "title": "Re-encodare zero necesară",
+      "content": "Când este posibil, pur și simplu multiplexăm fluxul video fără pista audio, ceea ce înseamnă că dezactivarea durează mai puțin de o secundă."
+    },
+    "howto": {
+      "title": "Cum să dezactivați sunetul unui videoclip",
+      "steps": [
+        {
+          "title": "Selectați Video",
+          "desc": "Alegeți videoclipul care conține sunetul pe care doriți să îl eliminați."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "Faceți clic pe proces pentru a șterge instantaneu fluxul audio."
+        },
+        {
+          "title": "Salvați videoclipul silențios",
+          "desc": "Descărcați fișierul video suprimat."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente privind dezactivarea sunetului video",
+      "items": [
+        {
+          "q": "Dezactivarea sunetului afectează calitatea video?",
+          "a": "Deloc. Lăsăm fluxul video vizual complet neatins."
+        },
+        {
+          "q": "Cât de repede este asta?",
+          "a": "Extrem de rapid. Copiem pur și simplu fluxul video, luând doar câteva milisecunde."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Filigran video local",
+      "content": "Ștampilați-vă logo-ul pe conținutul dvs. în siguranță. Procesarea locală înseamnă că puteți filigrana gigaocteți de video fără întârzieri în rețea."
+    },
+    "privacy": {
+      "title": "Protejați conținutul nelansat",
+      "content": "Adăugarea unui filigran la un film de pre-lansare? Fă-o offline. Proprietatea ta intelectuală nu atinge niciodată serverele noastre."
+    },
+    "performance": {
+      "title": "Suprapunere accelerată hardware",
+      "content": "Motorul nostru îmbină eficient sigla dumneavoastră PNG transparentă peste cadrele video folosind optimizări WebGPU și WASM."
+    },
+    "howto": {
+      "title": "Cum să adăugați un filigran",
+      "steps": [
+        {
+          "title": "Încărcați videoclip și logo",
+          "desc": "Importați videoclipul și o imagine PNG transparentă."
+        },
+        {
+          "title": "Poziție",
+          "desc": "Reglați scara, opacitatea și poziția filigranului."
+        },
+        {
+          "title": "Redați videoclipul",
+          "desc": "Coaceți permanent filigranul în fișierul video."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente privind filigranul",
+      "items": [
+        {
+          "q": "Pot hoții să-mi înlăture filigranul?",
+          "a": "Deoarece codificăm greu imaginea în cadrele video, este extrem de dificil să o eliminați fără a distruge videoclipul."
+        },
+        {
+          "q": "Pot plasa filigranul?",
+          "a": "Da, puteți activa placarea pentru a repeta logo-ul pe întregul ecran."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Video offline în GIF",
+      "content": "Transformați instantaneu momentele amuzante în GIF-uri. Codificatorul nostru GIF local funcționează în întregime pe mașina dvs., economisind lățime de bandă."
+    },
+    "privacy": {
+      "title": "Private Meme Generator",
+      "content": "Transformați videoclipurile personale în GIF-uri fără a le încărca pe serverele publice de meme. Conținutul tău rămâne 100% privat."
+    },
+    "performance": {
+      "title": "Generarea optimizată a paletei",
+      "content": "Folosim cuantificarea avansată a culorilor pentru a genera GIF-uri de înaltă calitate cu fișiere de dimensiuni mici, care rulează direct în browser."
+    },
+    "howto": {
+      "title": "Cum să creați un GIF",
+      "steps": [
+        {
+          "title": "Decupați videoclipul",
+          "desc": "Selectați un segment scurt al videoclipului dvs."
+        },
+        {
+          "title": "Set Framerate",
+          "desc": "Alegeți între 15fps sau 30fps pentru animația GIF."
+        },
+        {
+          "title": "Generați",
+          "desc": "Salvați imaginea GIF în buclă."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente video în GIF",
+      "items": [
+        {
+          "q": "De ce GIF-urile sunt uneori mari?",
+          "a": "GIF-urile sunt un format vechi care nu este foarte comprimat. Vă recomandăm să păstrați clipurile sub 5 secunde."
+        },
+        {
+          "q": "Acceptă fundaluri transparente?",
+          "a": "Dacă videoclipul sursă are un canal alfa (cum ar fi WebM), încercăm să păstrăm transparența."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Compresie audio locală",
+      "content": "Reduceți instantaneu fișierele WAV masive sau podcasturi. Prin eliminarea fazei de încărcare, instrumentul nostru bazat pe browser este cel mai rapid mod de a comprima audio."
+    },
+    "privacy": {
+      "title": "Procesare audio confidențială",
+      "content": "Comprimați muzică nelansată sau note vocale private? Sunetul dvs. este procesat strict local. Nu vă stocăm niciodată urmele."
+    },
+    "performance": {
+      "title": "Codificare psihoacustică",
+      "content": "Codificatorul nostru WASM elimină frecvențele inaudibile, reducând dimensiunea fișierelor audio cu până la 80%, menținând în același timp sunetul clar."
+    },
+    "howto": {
+      "title": "Cum să comprimați sunetul",
+      "steps": [
+        {
+          "title": "Încărcați piesa",
+          "desc": "Selectați fișierul MP3, WAV sau AAC."
+        },
+        {
+          "title": "Alegeți dimensiunea țintă",
+          "desc": "Ajustați rata de biți pentru o compresie mai puternică."
+        },
+        {
+          "title": "Descărcați",
+          "desc": "Obțineți fișierul audio optimizat, ușor."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre compresia audio",
+      "items": [
+        {
+          "q": "Va suna rău melodia mea?",
+          "a": "Folosim algoritmi de percepție de înaltă calitate, astfel încât compresia este practic imposibil de distins pentru urechea umană."
+        },
+        {
+          "q": "Pot comprima podcasturi de o oră?",
+          "a": "Da, instrumentul nostru gestionează audio de formă lungă fără efort în browser."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "Convertor audio în browser",
+      "content": "Traduceți instantaneu formatele de sunet, fără să faceți ping unui server. Perfect pentru comutarea locală între formatele WAV, MP3 și OGG."
+    },
+    "privacy": {
+      "title": "Traducere audio fără încărcare",
+      "content": "Înregistrările tale vocale sunt numai ale tale. Motorul nostru de conversie offline garantează confidențialitate absolută pentru sunetul sensibil."
+    },
+    "performance": {
+      "title": "Codecuri fulgerătoare",
+      "content": "Convertirea audio este ușoară din punct de vedere computațional. Motorul nostru local transcodează o melodie de 5 minute în mai puțin de 2 secunde."
+    },
+    "howto": {
+      "title": "Cum se convertesc formatele audio",
+      "steps": [
+        {
+          "title": "Selectați Audio",
+          "desc": "Aruncați fișierul audio neacceptat în instrument."
+        },
+        {
+          "title": "Alegeți ieșirea",
+          "desc": "Alegeți formatul dorit (de exemplu, MP3 pentru redare universală)."
+        },
+        {
+          "title": "Salvare fișier",
+          "desc": "Descărcați pista audio nou formatată."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre convertizorul audio",
+      "items": [
+        {
+          "q": "Pot converti MP3 cu pierderi în WAV fără pierderi?",
+          "a": "Puteți, dar nu va restabili calitatea pierdută. Pur și simplu va schimba formatul containerului."
+        },
+        {
+          "q": "Etichetele ID3 sunt păstrate?",
+          "a": "Facem toate eforturile pentru a transfera metadate precum numele artistului și grafica albumului."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Extragere locală video în audio",
+      "content": "Extrage instantaneu MP3-uri din MP4. Ocolirea încărcărilor în cloud înseamnă că puteți extrage audio dintr-un videoclip de 2 GB în câteva secunde."
+    },
+    "privacy": {
+      "title": "Extragere audio securizată",
+      "content": "Extrageți în siguranță sunetul din videoclipurile private ale familiei. Procesul are loc în întregime în caseta de testare a browserului."
+    },
+    "performance": {
+      "title": "Tehnologia de copiere a fluxului",
+      "content": "Ori de câte ori este posibil, folosim copierea directă a fluxului pentru a extrage audio fără recodificare, asigurând o calitate 100% originală."
+    },
+    "howto": {
+      "title": "Cum să extrageți sunetul",
+      "steps": [
+        {
+          "title": "Încărcați videoclipul",
+          "desc": "Selectați fișierul MP4, MOV sau MKV."
+        },
+        {
+          "title": "Extragere",
+          "desc": "Faceți clic pe proces pentru a extrage piesa audio."
+        },
+        {
+          "title": "Descărcați MP3",
+          "desc": "Salvați fișierul de sunet extras."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente video în audio",
+      "items": [
+        {
+          "q": "Calitatea audio originală este păstrată?",
+          "a": "Da, extragem exact fluxul audio încorporat în videoclip."
+        },
+        {
+          "q": "Pot extrage audio dintr-un videoclip 4K?",
+          "a": "Absolut. Rezoluția video nu afectează viteza de extracție audio."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Browser-Based Audio Joiner",
+      "content": "Combinați mai multe piese audio într-un singur fișier local. Nu este nevoie să încărcați sesiuni grele cu mai multe piese pe un server."
+    },
+    "privacy": {
+      "title": "Private Track Splicing",
+      "content": "Vă alăturați segmentelor de podcast sau interviurilor confidențiale? Instrumentul nostru procesează îmbinarea în siguranță pe dispozitivul dvs."
+    },
+    "performance": {
+      "title": "Fading fără întreruperi",
+      "content": "Motorul nostru WASM îmbină fără întreruperi fișierele audio, asigurând o redare fără întreruperi și o aliniere perfectă."
+    },
+    "howto": {
+      "title": "Cum să îmbinați sunetul",
+      "steps": [
+        {
+          "title": "Încărcați piese",
+          "desc": "Selectați două sau mai multe fișiere audio."
+        },
+        {
+          "title": "Aranjare Ordine",
+          "desc": "Trageți și plasați pentru a seta secvența de redare."
+        },
+        {
+          "title": "Unire fișiere",
+          "desc": "Descărcați piesa principală combinată."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre fuziunea audio",
+      "items": [
+        {
+          "q": "Pot îmbina MP3 și WAV împreună?",
+          "a": "Da, motorul nostru va normaliza automat formatele în timpul îmbinării."
+        },
+        {
+          "q": "Există un spațiu între căile îmbinate?",
+          "a": "Nu, piesele sunt cusute exact de la capăt la capăt pentru o redare fără întreruperi."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Transcriere AI locală",
+      "content": "Transformați vorbirea în text direct în browser. Folosind Whisper AI prin WebAssembly, nu trebuie să trimiteți sunetul în cloud."
+    },
+    "privacy": {
+      "title": "Confidențialitate absolută",
+      "content": "Transcrieți înregistrări legale sau medicale? Acesta este singurul mod sigur. Rețeaua neuronală rulează local, asigurând zero scurgeri de date."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Utilizăm GPU-ul dispozitivului dvs. pentru a rula modelul Whisper, oferind transcrieri foarte precise mult mai rapid decât procesarea CPU."
+    },
+    "howto": {
+      "title": "Cum se transcrie audio",
+      "steps": [
+        {
+          "title": "Încărcare model",
+          "desc": "Așteptați ca modelul AI ușor să fie stocat în cache în browser."
+        },
+        {
+          "title": "Încărcați media",
+          "desc": "Selectați fișierul audio sau video de transcris."
+        },
+        {
+          "title": "Exportați text",
+          "desc": "Salvați transcrierea generată ca subtitrări TXT sau SRT."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente privind transcrierea AI",
+      "items": [
+        {
+          "q": "Acceptă mai multe limbi?",
+          "a": "Da, modelul Whisper acceptă engleză, indoneziană, spaniolă și alte zeci."
+        },
+        {
+          "q": "De ce descarcă mai întâi un fișier?",
+          "a": "Trebuie să memoreze în cache greutățile rețelei neuronale AI pe dispozitivul dvs. o dată. După aceea, funcționează offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Studio Recorder cu latență zero",
+      "content": "Înregistrați-vă ecranul, camera web și microfonul direct în browser. Nu este necesară instalarea de software sau încărcare de server."
+    },
+    "privacy": {
+      "title": "Înregistrare securizată pe partea clientului",
+      "content": "Înregistrarea unor prezentări sensibile? Videoclipul dvs. este capturat direct în memoria browserului dvs. și salvat local."
+    },
+    "performance": {
+      "title": "Codificare hardware HD",
+      "content": "Utilizăm API-ul MediaRecorder cu accelerare hardware pentru a captura imagini clare de 1080p și 4K fără a pierde cadre."
+    },
+    "howto": {
+      "title": "Cum să înregistrați",
+      "steps": [
+        {
+          "title": "Acordați permisiuni",
+          "desc": "Permiteți accesul browserului la camera și microfonul dvs."
+        },
+        {
+          "title": "Selectați sursele",
+          "desc": "Alegeți între Partajare ecran, Cameră web sau ambele."
+        },
+        {
+          "title": "Înregistrați și salvați",
+          "desc": "Apăsați înregistrare, apoi descărcați instantaneu MP4-ul final când ați terminat."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Întrebări frecvente despre Studio Recorder",
+      "items": [
+        {
+          "q": "Pot înregistra sunetul sistemului?",
+          "a": "Da, atunci când partajați o filă Chrome sau întregul ecran pe Windows, puteți bifa „Partajare audio de sistem”."
+        },
+        {
+          "q": "Există o limită de timp?",
+          "a": "Sunteți limitat doar de memoria RAM disponibilă și de stocarea pe dispozitivul dvs. local."
+        }
+      ]
+    }
+  }
+}

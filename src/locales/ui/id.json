@@ -1,0 +1,26 @@
+{
+  "langName": "Indonesia",
+  "flag": "🇮🇩",
+  "nav": {
+    "compress_video": "Kompres Video",
+    "convert_video": "Konversi Video",
+    "recorder": "Perekam Studio",
+    "all_tools": "SEMUA ALAT MEDIA",
+    "cat_video_opt": "Optimasi Video",
+    "cat_video_edit": "Pengeditan Video",
+    "cat_audio": "Alat Audio",
+    "cat_ai": "AI & Studio",
+    "speed": "Ubah Kecepatan",
+    "gif": "Video ke GIF",
+    "crop": "Pangkas Video",
+    "mute": "Bisukan Video",
+    "watermark": "Tambahkan Tanda Air",
+    "compress_audio": "Kompres Audio",
+    "convert_audio": "Konversi Audio",
+    "video_to_audio": "Video ke Audio",
+    "merge_audio": "Gabungkan Audio",
+    "transcribe": "AI Media ke Teks",
+    "studio_recorder": "Perekam Studio"
+  },
+  "search_lang": "Cari bahasa..."
+}

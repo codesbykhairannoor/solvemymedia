@@ -1,0 +1,574 @@
+{
+  "compress_video": {
+    "geo": {
+      "title": "Client-Side Video Compression",
+      "content": "Ang aming makina ay direktang tumatakbo sa loob ng iyong browser. Sa pamamagitan ng pag-aalis ng mga pag-upload ng server, ginagarantiya namin ang zero na oras ng paghihintay para sa paglilipat ng data at pagsisimula ng instant compression."
+    },
+    "privacy": {
+      "title": "Kabuuang Video Privacy",
+      "content": "Ang iyong mga hindi pa nailalabas na video at mga personal na recording ay mananatili sa iyong makina. Ginagamit namin ang WASM upang i-compress ang mga file nang lokal, ibig sabihin, ang iyong data ay hindi kailanman nakaimbak sa aming mga server."
+    },
+    "performance": {
+      "title": "WebCodecs Acceleration",
+      "content": "Gamit ang hardware-accelerated GPU encoding, pinapaliit namin ang napakalaking MP4 at WebM file nang hanggang 90% sa loob lamang ng ilang segundo."
+    },
+    "howto": {
+      "title": "Paano I-compress ang Video",
+      "steps": [
+        {
+          "title": "Piliin ang MP4/WebM",
+          "desc": "I-drag ang iyong mabigat na video file sa dropzone."
+        },
+        {
+          "title": "Itakda ang Target ng Kalidad",
+          "desc": "Pumili sa pagitan ng maximum na compression o balanseng kalidad."
+        },
+        {
+          "title": "I-save Agad",
+          "desc": "I-download agad ang na-optimize na video."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ ng Compression ng Video",
+      "items": [
+        {
+          "q": "Mawawalan ba ng kalidad ang aking video?",
+          "a": "Gumagamit kami ng smart variable bitrate (VBR) encoding upang mapanatili ang visual fidelity habang itinatapon ang invisible na data."
+        },
+        {
+          "q": "Mayroon bang mga limitasyon sa laki?",
+          "a": "Walang artipisyal na limitasyon. Maaari mong iproseso ang gigabytes ng video kung may sapat na RAM ang iyong device."
+        }
+      ]
+    }
+  },
+  "convert_video": {
+    "geo": {
+      "title": "Lokal na Conversion ng Video",
+      "content": "Isalin ang mga format ng video offline. Ang aming tool ay lumalampas sa imprastraktura ng ulap, na tinitiyak na maaari mong i-convert ang MKV sa MP4 kahit na sa mabagal na koneksyon."
+    },
+    "privacy": {
+      "title": "Zero-Trust Format Translation",
+      "content": "Kumpidensyal na corporate video? Hindi namin sila gusto. Ang aming FFmpeg-based na engine ay nagsasalin ng mga video codec nang secure sa loob ng sandbox ng iyong device."
+    },
+    "performance": {
+      "title": "Instant Transcoding",
+      "content": "Sa pamamagitan ng paglaktaw sa yugto ng pag-upload/pag-download, ang aming lokal na transcoder ay mas mabilis kaysa sa mga tradisyonal na cloud-based na video converter."
+    },
+    "howto": {
+      "title": "Paano Mag-convert ng Mga Format ng Video",
+      "steps": [
+        {
+          "title": "Mag-import ng Video",
+          "desc": "Mag-load ng anumang hindi sinusuportahang format ng video tulad ng MKV o AVI."
+        },
+        {
+          "title": "Piliin ang Output",
+          "desc": "Piliin ang iyong gustong codec, gaya ng H.264 MP4 o WebM."
+        },
+        {
+          "title": "I-download ang Resulta",
+          "desc": "Kunin ang pangkalahatang nape-play na video file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ ng Video Converter",
+      "items": [
+        {
+          "q": "Nakakabawas ba ng kalidad ang pag-convert?",
+          "a": "Hindi kung pipili ka ng high-bitrate o lossless na target. Default namin ang pagpapanatili ng orihinal na resolusyon."
+        },
+        {
+          "q": "Maaari ko bang i-convert ang MKV na may mga subtitle?",
+          "a": "Oo, ang mga karaniwang subtitle stream ay sinusuportahan sa panahon ng MP4 conversion."
+        }
+      ]
+    }
+  },
+  "change_video_speed": {
+    "geo": {
+      "title": "No-Ping Video Retiming",
+      "content": "Pabagalin o pabilisin agad ang iyong mga clip. Ang aming re-timer na nakabatay sa browser ay nagpoproseso ng mga frame nang lokal nang walang latency ng server."
+    },
+    "privacy": {
+      "title": "Secure Frame Processing",
+      "content": "Nananatiling pribado ang iyong mga sports highlight at dance tutorial. Ang frame interpolation at mga pagsasaayos ng bilis ay ganap na nangyayari offline."
+    },
+    "performance": {
+      "title": "Fast Pitch Correction",
+      "content": "We handle both the visual framerate and audio pitch correction simultaneously in real-time, delivering the final video in seconds."
+    },
+    "howto": {
+      "title": "How to Change Video Speed",
+      "steps": [
+        {
+          "title": "Add Video",
+          "desc": "Upload the clip you want to speed up or slow down."
+        },
+        {
+          "title": "Adjust Slider",
+          "desc": "Set the multiplier (e.g., 0.5x for slow-mo, 2x for fast-forward)."
+        },
+        {
+          "title": "Render",
+          "desc": "Save the retimed video to your device."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Speed FAQ",
+      "items": [
+        {
+          "q": "Will the audio sound like a chipmunk?",
+          "a": "We apply dynamic pitch correction so voices sound natural even at 2x speed."
+        },
+        {
+          "q": "How smooth is the slow-motion?",
+          "a": "It depends on the original framerate. 60fps videos will look incredibly smooth at 0.5x speed."
+        }
+      ]
+    }
+  },
+  "crop_video": {
+    "geo": {
+      "title": "Browser-Based Video Cropping",
+      "content": "Crop out watermarks or adjust aspect ratios instantly. No need to upload heavy files to the cloud just to trim the edges."
+    },
+    "privacy": {
+      "title": "Private Dimension Editing",
+      "content": "Edit your personal vlog framing safely. We never store or transmit your raw video data during the cropping process."
+    },
+    "performance": {
+      "title": "Precision Frame Cropping",
+      "content": "Our local engine re-encodes only the selected area, ensuring razor-sharp edges and blazing fast render times."
+    },
+    "howto": {
+      "title": "How to Crop Videos",
+      "steps": [
+        {
+          "title": "Load Media",
+          "desc": "Import the video you want to reframe."
+        },
+        {
+          "title": "Set Boundaries",
+          "desc": "Drag the crop box to your desired aspect ratio (e.g., 9:16 for TikTok)."
+        },
+        {
+          "title": "Export",
+          "desc": "Download the newly cropped video instantly."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video Cropping FAQ",
+      "items": [
+        {
+          "q": "Does cropping reduce file size?",
+          "a": "Yes, by removing pixels from the frame, the overall bitrate required is typically lower."
+        },
+        {
+          "q": "Can I crop for Instagram Reels?",
+          "a": "Absolutely. Just set your crop box to a 9:16 vertical ratio."
+        }
+      ]
+    }
+  },
+  "mute_video": {
+    "geo": {
+      "title": "Instant Audio Removal",
+      "content": "Strip audio tracks from videos in milliseconds. Because it runs locally, you don't wait for server queues."
+    },
+    "privacy": {
+      "title": "Secure Audio Stripping",
+      "content": "Mute sensitive background conversations securely. The audio track is discarded inside your browser, leaving no digital trace."
+    },
+    "performance": {
+      "title": "Zero Re-encoding Required",
+      "content": "When possible, we simply multiplex the video stream without the audio track, meaning muting takes less than a second."
+    },
+    "howto": {
+      "title": "How to Mute a Video",
+      "steps": [
+        {
+          "title": "Select Video",
+          "desc": "Piliin ang video na naglalaman ng audio na gusto mong alisin."
+        },
+        {
+          "title": "Strip Audio",
+          "desc": "I-click ang proseso upang agad na tanggalin ang audio stream."
+        },
+        {
+          "title": "Save Silent Video",
+          "desc": "I-download ang naka-mute na video file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ sa Pag-mute ng Video",
+      "items": [
+        {
+          "q": "Nakakaapekto ba ang pag-mute sa kalidad ng video?",
+          "a": "Hindi naman. Iniiwan namin ang visual na video stream na ganap na hindi nagalaw."
+        },
+        {
+          "q": "Gaano kabilis ito?",
+          "a": "Napakabilis. Kinokopya lang namin ang video stream, na tumatagal lang ng ilang millisecond."
+        }
+      ]
+    }
+  },
+  "watermark_video": {
+    "geo": {
+      "title": "Local Video Watermarking",
+      "content": "I-stamp ang iyong logo sa iyong content nang secure. Ang ibig sabihin ng lokal na pagpoproseso ay maaari kang mag-watermark ng mga gigabyte ng video nang walang pagkaantala sa network."
+    },
+    "privacy": {
+      "title": "Protektahan ang Hindi Na-release na Nilalaman",
+      "content": "Pagdaragdag ng watermark sa isang pre-release na pelikula? Gawin ito offline. Ang iyong intelektwal na ari-arian ay hindi kailanman gumagalaw sa aming mga server."
+    },
+    "performance": {
+      "title": "Hardware Accelerated Overlay",
+      "content": "Ang aming engine ay mahusay na pinagsasama ang iyong transparent na PNG logo sa mga video frame gamit ang WebGPU at WASM optimizations."
+    },
+    "howto": {
+      "title": "Paano Magdagdag ng Watermark",
+      "steps": [
+        {
+          "title": "Mag-upload ng Video at Logo",
+          "desc": "I-import ang iyong video at isang transparent na PNG na imahe."
+        },
+        {
+          "title": "Posisyon",
+          "desc": "Ayusin ang sukat, opacity, at posisyon ng watermark."
+        },
+        {
+          "title": "Render Video",
+          "desc": "I-bake ang watermark nang permanente sa video file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ sa Watermarking",
+      "items": [
+        {
+          "q": "Maaari bang alisin ng mga magnanakaw ang aking watermark?",
+          "a": "Dahil hard-encode namin ang larawan sa mga video frame, napakahirap tanggalin nang hindi sinisira ang video."
+        },
+        {
+          "q": "Maaari ko bang i-tile ang watermark?",
+          "a": "Oo, maaari mong paganahin ang pag-tile upang ulitin ang iyong logo sa buong screen."
+        }
+      ]
+    }
+  },
+  "create_gif": {
+    "geo": {
+      "title": "Offline na Video sa GIF",
+      "content": "I-convert ang mga nakakatawang sandali sa GIF kaagad. Ang aming lokal na GIF encoder ay ganap na gumagana sa iyong makina, na nakakatipid sa iyo ng bandwidth."
+    },
+    "privacy": {
+      "title": "Pribadong Meme Generator",
+      "content": "Gawing GIF ang mga personal na video nang hindi ina-upload ang mga ito sa mga pampublikong server ng meme. Nananatiling 100% pribado ang iyong content."
+    },
+    "performance": {
+      "title": "Optimized Palette Generation",
+      "content": "Gumagamit kami ng advanced color quantization upang makabuo ng mga de-kalidad na GIF na may maliliit na laki ng file, na direktang tumatakbo sa iyong browser."
+    },
+    "howto": {
+      "title": "Paano Gumawa ng GIF",
+      "steps": [
+        {
+          "title": "Trim Video",
+          "desc": "Pumili ng maikling segment ng iyong video."
+        },
+        {
+          "title": "Itakda ang Framerate",
+          "desc": "Pumili sa pagitan ng 15fps o 30fps para sa GIF animation."
+        },
+        {
+          "title": "Bumuo",
+          "desc": "I-save ang looping GIF na imahe."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video to GIF FAQ",
+      "items": [
+        {
+          "q": "Bakit kung minsan ay malalaki ang mga GIF?",
+          "a": "Ang mga GIF ay isang lumang format na hindi masyadong naka-compress. Inirerekomenda naming panatilihing wala pang 5 segundo ang mga clip."
+        },
+        {
+          "q": "Sinusuportahan ba nito ang mga transparent na background?",
+          "a": "Kung ang iyong pinagmulang video ay may alpha channel (tulad ng WebM), sinusubukan naming panatilihin ang transparency."
+        }
+      ]
+    }
+  },
+  "compress_audio": {
+    "geo": {
+      "title": "Lokal na Audio Compression",
+      "content": "Paliitin ang napakalaking WAV file o podcast kaagad. Sa pamamagitan ng pag-aalis sa yugto ng pag-upload, ang aming tool na nakabatay sa browser ay ang pinakamabilis na paraan upang i-compress ang audio."
+    },
+    "privacy": {
+      "title": "Kumpidensyal na Pagproseso ng Audio",
+      "content": "Kino-compress ang hindi na-release na musika o pribadong voice memo? Ang iyong audio ay mahigpit na pinoproseso nang lokal. Hindi namin iniimbak ang iyong mga track."
+    },
+    "performance": {
+      "title": "Psychoacoustic Encoding",
+      "content": "Tinatanggal ng aming WASM encoder ang mga hindi naririnig na frequency, binabawasan ang laki ng audio file nang hanggang 80% habang pinapanatili ang malutong na tunog."
+    },
+    "howto": {
+      "title": "Paano I-compress ang Audio",
+      "steps": [
+        {
+          "title": "Mag-upload ng Track",
+          "desc": "Piliin ang iyong MP3, WAV, o AAC file."
+        },
+        {
+          "title": "Pumili ng Target na Sukat",
+          "desc": "Ayusin ang bitrate para sa mas mabigat na compression."
+        },
+        {
+          "title": "I-download",
+          "desc": "Kunin ang na-optimize, magaan na audio file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ ng Audio Compression",
+      "items": [
+        {
+          "q": "Masama ba ang tunog ng aking kanta?",
+          "a": "Gumagamit kami ng mga de-kalidad na perceptual algorithm kaya ang compression ay halos hindi nakikilala sa tainga ng tao."
+        },
+        {
+          "q": "Maaari ko bang i-compress ang isang oras na podcast?",
+          "a": "Oo, pinangangasiwaan ng aming tool ang long-form na audio nang walang kahirap-hirap sa loob ng iyong browser."
+        }
+      ]
+    }
+  },
+  "convert_audio": {
+    "geo": {
+      "title": "In-Browser Audio Converter",
+      "content": "Isalin agad ang mga format ng tunog nang hindi nagpi-ping sa isang server. Perpekto para sa paglipat sa pagitan ng WAV, MP3, at OGG na mga format nang lokal."
+    },
+    "privacy": {
+      "title": "Zero-Upload Audio Translation",
+      "content": "Ang iyong mga voice recording ay sa iyo lamang. Ginagarantiyahan ng aming offline na engine ng conversion ang ganap na privacy para sa sensitibong audio."
+    },
+    "performance": {
+      "title": "Lightning Fast Codec",
+      "content": "Ang pag-convert ng audio ay magaan sa computation. Ang aming lokal na makina ay nag-transcode ng 5 minutong kanta sa wala pang 2 segundo."
+    },
+    "howto": {
+      "title": "Paano Mag-convert ng Mga Format ng Audio",
+      "steps": [
+        {
+          "title": "Piliin ang Audio",
+          "desc": "I-drop ang iyong hindi sinusuportahang audio file sa tool."
+        },
+        {
+          "title": "Pumili ng Output",
+          "desc": "Piliin ang gusto mong format (hal., MP3 para sa universal playback)."
+        },
+        {
+          "title": "Save File",
+          "desc": "I-download ang bagong format na audio track."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ ng Audio Converter",
+      "items": [
+        {
+          "q": "Maaari ko bang i-convert ang lossy MP3 sa lossless WAV?",
+          "a": "Maaari mo, ngunit hindi nito maibabalik ang nawalang kalidad. Papalitan lang nito ang format ng lalagyan."
+        },
+        {
+          "q": "Napapanatili ba ang mga tag ng ID3?",
+          "a": "Ginagawa namin ang lahat ng pagsisikap na ilipat ang metadata tulad ng pangalan ng artist at album art."
+        }
+      ]
+    }
+  },
+  "convert_video_to_audio": {
+    "geo": {
+      "title": "Lokal na Video hanggang Audio Extraction",
+      "content": "I-extract kaagad ang mga MP3 mula sa mga MP4. Ang pag-bypass sa mga cloud upload ay nangangahulugan na maaari mong i-rip ang audio mula sa isang 2GB na video sa loob ng ilang segundo."
+    },
+    "privacy": {
+      "title": "Secure Audio Ripping",
+      "content": "I-extract ang audio mula sa mga pribadong video ng pamilya nang secure. Ang proseso ay ganap na nangyayari sa iyong browser sandbox."
+    },
+    "performance": {
+      "title": "Stream Copying Technology",
+      "content": "Hangga't maaari, gumagamit kami ng direktang stream na pagkopya upang i-extract ang audio nang walang muling pag-encode, na tinitiyak ang 100% orihinal na kalidad."
+    },
+    "howto": {
+      "title": "Paano Mag-extract ng Audio",
+      "steps": [
+        {
+          "title": "Mag-upload ng Video",
+          "desc": "Piliin ang MP4, MOV, o MKV file."
+        },
+        {
+          "title": "Extract",
+          "desc": "I-click ang proseso upang i-rip ang audio track."
+        },
+        {
+          "title": "I-download ang MP3",
+          "desc": "I-save ang na-extract na sound file."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Video to Audio FAQ",
+      "items": [
+        {
+          "q": "Napapanatili ba ang orihinal na kalidad ng audio?",
+          "a": "Oo, kinukuha namin ang eksaktong audio stream na naka-embed sa video."
+        },
+        {
+          "q": "Maaari ba akong mag-extract ng audio mula sa isang 4K na video?",
+          "a": "Talagang. Ang resolution ng video ay hindi nakakaapekto sa bilis ng pagkuha ng audio."
+        }
+      ]
+    }
+  },
+  "merge_audio": {
+    "geo": {
+      "title": "Browser-Based Audio Joiner",
+      "content": "Pagsamahin ang maramihang mga audio track sa isang solong file nang lokal. Hindi na kailangang mag-upload ng mabibigat na multi-track session sa isang server."
+    },
+    "privacy": {
+      "title": "Private Track Splicing",
+      "content": "Sumali sa mga segment ng podcast o kumpidensyal na panayam? Pinoproseso ng aming tool ang pagsasama nang secure sa iyong device."
+    },
+    "performance": {
+      "title": "Seamless Crossfading",
+      "content": "Ang aming WASM engine ay nagtatahi ng mga audio file nang walang putol, tinitiyak ang walang puwang na pag-playback at perpektong pagkakahanay."
+    },
+    "howto": {
+      "title": "Paano Pagsamahin ang Audio",
+      "steps": [
+        {
+          "title": "Mag-upload ng Mga Track",
+          "desc": "Pumili ng dalawa o higit pang mga audio file."
+        },
+        {
+          "title": "Ayusin ang Pagkakasunud-sunod",
+          "desc": "I-drag at i-drop upang itakda ang sequence ng playback."
+        },
+        {
+          "title": "Join Files",
+          "desc": "I-download ang pinagsamang master track."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ ng Audio Merger",
+      "items": [
+        {
+          "q": "Maaari ko bang pagsamahin ang MP3 at WAV nang magkasama?",
+          "a": "Oo, awtomatikong i-normalize ng aming makina ang mga format sa panahon ng pagsasanib."
+        },
+        {
+          "q": "Mayroon bang agwat sa pagitan ng mga pinagsamang track?",
+          "a": "Hindi, ang mga track ay natahi nang eksakto end-to-end para sa walang puwang na pag-playback."
+        }
+      ]
+    }
+  },
+  "transcribe_media": {
+    "geo": {
+      "title": "Lokal na Transkripsyon ng AI",
+      "content": "Direktang gawing teksto ang pagsasalita sa iyong browser. Gamit ang Whisper AI sa pamamagitan ng WebAssembly, hindi mo kailangang ipadala ang iyong audio sa cloud."
+    },
+    "privacy": {
+      "title": "Ganap na Kumpidensyal",
+      "content": "Pag-transcribe ng mga legal o medikal na rekord? Ito ang tanging ligtas na paraan. Ang neural network ay tumatakbo nang lokal, na tinitiyak ang zero data na tumagas."
+    },
+    "performance": {
+      "title": "WebGPU Accelerated AI",
+      "content": "Ginagamit namin ang GPU ng iyong device para patakbuhin ang Whisper model, na naghahatid ng mga napakatumpak na transcript na mas mabilis kaysa sa pagpoproseso ng CPU."
+    },
+    "howto": {
+      "title": "Paano Mag-transcribe ng Audio",
+      "steps": [
+        {
+          "title": "Mag-load ng Modelo",
+          "desc": "Hintayin na mag-cache ang magaan na modelo ng AI sa iyong browser."
+        },
+        {
+          "title": "Mag-upload ng Media",
+          "desc": "Piliin ang audio o video file na isasalin."
+        },
+        {
+          "title": "I-export ang Teksto",
+          "desc": "I-save ang nabuong transcript bilang TXT o SRT subtitle."
+        }
+      ]
+    },
+    "faq": {
+      "title": "AI Transcription FAQ",
+      "items": [
+        {
+          "q": "Sinusuportahan ba nito ang maraming wika?",
+          "a": "Oo, sinusuportahan ng modelong Whisper ang English, Indonesian, Spanish, at dose-dosenang higit pa."
+        },
+        {
+          "q": "Bakit ito unang nagda-download ng file?",
+          "a": "Kailangan nitong i-cache ang mga timbang ng AI neural network sa iyong device nang isang beses. Pagkatapos nito, gumagana ito offline."
+        }
+      ]
+    }
+  },
+  "studio_recorder": {
+    "geo": {
+      "title": "Zero-Latency Studio Recorder",
+      "content": "Direktang i-record ang iyong screen, webcam, at mikropono sa browser. Walang kinakailangang pag-install ng software o pag-upload ng server."
+    },
+    "privacy": {
+      "title": "Secure Client-Side Recording",
+      "content": "Pagre-record ng mga sensitibong presentasyon? Direktang nakunan ang iyong video sa memorya ng iyong browser at lokal na nai-save."
+    },
+    "performance": {
+      "title": "HD Hardware Encoding",
+      "content": "Ginagamit namin ang MediaRecorder API na may hardware acceleration para kumuha ng malinaw na 1080p at 4K na footage nang hindi nahuhulog ang mga frame."
+    },
+    "howto": {
+      "title": "Paano Mag-record",
+      "steps": [
+        {
+          "title": "Magbigay ng Mga Pahintulot",
+          "desc": "Payagan ang browser ng access sa iyong camera at mikropono."
+        },
+        {
+          "title": "Pumili ng Mga Pinagmulan",
+          "desc": "Pumili sa pagitan ng Screen Share, Webcam, o pareho."
+        },
+        {
+          "title": "I-record at I-save",
+          "desc": "Pindutin ang record, pagkatapos ay i-download kaagad ang huling MP4 kapag tapos na."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ ng Studio Recorder",
+      "items": [
+        {
+          "q": "Maaari ba akong mag-record ng system audio?",
+          "a": "Oo, kapag nagbabahagi ng tab ng Chrome o buong screen sa Windows, maaari mong suriin ang 'Ibahagi ang System Audio'."
+        },
+        {
+          "q": "Mayroon bang limitasyon sa oras?",
+          "a": "Ikaw ay limitado lamang sa magagamit na RAM at storage sa iyong lokal na device."
+        }
+      ]
+    }
+  }
+}

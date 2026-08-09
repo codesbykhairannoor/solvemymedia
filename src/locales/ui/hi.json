@@ -1,0 +1,26 @@
+{
+  "langName": "हिन्दी",
+  "flag": "🇮🇳",
+  "nav": {
+    "compress_video": "कंप्रेस वीडियो",
+    "convert_video": "वीडियो कनवर्ट करें",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "वीडियो अनुकूलन",
+    "cat_video_edit": "वीडियो संपादन",
+    "cat_audio": "ऑडियो टूल्स",
+    "cat_ai": "AI और स्टूडियो",
+    "speed": "गति बदलें",
+    "gif": "वीडियो को जीआईएफ",
+    "crop": "वीडियो क्रॉप करें",
+    "mute": "वीडियो म्यूट करें",
+    "watermark": "वॉटरमार्क जोड़ें",
+    "compress_audio": "ऑडियो कंप्रेस करें",
+    "convert_audio": "ऑडियो कन्वर्ट करें",
+    "video_to_audio": "वीडियो को ऑडियो में बदलें",
+    "merge_audio": "ऑडियो मर्ज करें",
+    "transcribe": "एआई मीडिया टू टेक्स्ट",
+    "studio_recorder": "स्टूडियो रिकॉर्डर"
+  },
+  "search_lang": "Search language..."
+}

@@ -1,0 +1,26 @@
+{
+  "langName": "Italiano",
+  "flag": "🇮🇹",
+  "nav": {
+    "compress_video": "Comprimi video",
+    "convert_video": "Converti video",
+    "recorder": "Studio Recorder",
+    "all_tools": "ALL MEDIA TOOLS",
+    "cat_video_opt": "Ottimizzazione video",
+    "cat_video_edit": "Modifica video",
+    "cat_audio": "Strumenti audio",
+    "cat_ai": "AI e Studio",
+    "speed": "Cambia velocità",
+    "gif": "Video in GIF",
+    "crop": "Ritaglia video",
+    "mute": "Disattiva video",
+    "watermark": "Aggiungi filigrana",
+    "compress_audio": "Comprimi audio",
+    "convert_audio": "Converti audio",
+    "video_to_audio": "Video in audio",
+    "merge_audio": "Unisci audio",
+    "transcribe": "AI Da supporto a testo",
+    "studio_recorder": "Registratore da studio"
+  },
+  "search_lang": "Search language..."
+}
