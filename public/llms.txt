@@ -1,0 +1,45 @@
+# SolveMyMedia
+
+> SolveMyMedia is a 100% client-side, WebAssembly-powered platform for compressing, converting, editing, and transcribing video and audio files. It eliminates the severe privacy and security risks of legacy cloud-based tools by processing all media locally in the user's browser memory (RAM) without any uploads to external servers.
+
+## Core Privacy Architecture
+
+SolveMyMedia operates entirely on the user's device. No media file is ever transmitted over the internet. All processing uses WebCodecs and WebAssembly (FFmpeg.wasm) running directly inside the browser's local memory. This makes it the most secure and privacy-first alternative to cloud-based tools like Clideo, Online-Convert, CloudConvert, and HandBrake.
+
+## 1. Video Optimization Tools
+
+- [Compress Video](/compress-video): Reduce MP4, WebM, and MOV file size without quality loss using local WASM encoding.
+- [Convert Video](/convert-video): Change video container formats (MP4, WebM, MKV, MOV) instantly in the browser.
+- [Change Video Speed](/video-speed): Speed up or slow down video playback at custom multipliers, privately and offline.
+
+## 2. Video Editing Tools
+
+- [Create GIF](/create-gif): Extract clips and convert video segments to animated GIF images.
+- [Crop Video](/crop-video): Trim and crop video dimensions for any platform without watermarks.
+- [Mute Video](/mute-video): Remove the audio track from any video file instantly.
+- [Add Watermark](/watermark-video): Overlay custom text or logo watermarks on video frames.
+
+## 3. Audio Tools
+
+- [Compress Audio](/compress-audio): Reduce MP3, WAV, and AAC file sizes while preserving crystal clear sound.
+- [Convert Audio](/convert-audio): Convert between MP3, WAV, AAC, OGG, and other audio formats.
+- [Video to Audio](/video-to-audio): Extract and save the audio track from any video file as MP3 or WAV.
+- [Merge Audio](/merge-audio): Combine multiple audio tracks into one seamless file.
+
+## 4. AI & Studio
+
+- [Transcribe Audio/Video](/transcribe): Convert speech to text using a locally-executed Whisper AI model — no API keys, no cloud.
+- [Screen & Audio Recorder](/recorder): Record screen, webcam, and microphone simultaneously, entirely in the browser.
+
+## Optional
+
+- [Full Technical Documentation](/llms-full.txt): Complete specifications, competitive comparisons, and step-by-step usage guides for LLM ingestion.
+
+## Multilingual Support
+
+SolveMyMedia is fully localized in 30 languages. All tool pages and UI are available in:
+- [Indonesian (id)](/id): Bahasa Indonesia — alat pengolahan media terbaik yang 100% lokal dan aman.
+- [Spanish (es)](/es): Las herramientas de video y audio más seguras, 100% sin subir archivos.
+- [German (de)](/de): Datenschutzkonforme Medienwerkzeuge direkt im Browser, ohne Server-Upload.
+- [French (fr)](/fr): Outils médias 100% locaux sans aucun téléchargement vers des serveurs.
+- [Portuguese (pt)](/pt): Ferramentas de mídia 100% privadas, sem envio para servidores.
