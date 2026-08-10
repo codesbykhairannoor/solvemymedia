@@ -286,6 +286,13 @@ textarea {
   min-height: 100%;
 }
 
+@media (max-width: 1024px) {
+  .dropzone {
+    min-height: 300px !important;
+    padding: 32px 16px;
+  }
+}
+
 .dropzone-icon {
   width: 80px;
   height: 80px;
