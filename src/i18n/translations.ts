@@ -554,7 +554,7 @@ export interface UiDictionary {
 }
 
 const baseDict: UiDictionary = {
-  seoHomeTitle: "SolveMyMedia - Free Online Media Optimization Tools",
+  seoHomeTitle: "SolveMyMedia | All Media Tools in One Place",
   seoHomeDesc: "Optimize, compress, convert, and edit audio and video files securely in your browser. No server uploads, 100% offline processing for ultimate privacy.",
   seoCompressVideoTitle: "Compress Video Online - SolveMyMedia",
   seoCompressVideoDesc: "Reduce video file size without losing quality. Compress MP4, WebM, and MOV securely in your browser with our offline-capable compression tool.",
