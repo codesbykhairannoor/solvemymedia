@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { Wallet, Check, X, CreditCard, Infinity, ShieldCheck, Heart, Crown, CheckCircle2 } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const Pricing: React.FC = () => {
-  useSeoMeta('Pricing | SolveMyMedia', '100% Free. No subscriptions, no hidden fees. See why our next-gen media tools cost $0 forever.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

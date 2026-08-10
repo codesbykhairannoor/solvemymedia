@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { ScrollText, Gavel, Scale, AlertTriangle, PenTool, Mail, FileWarning } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const TermsOfService: React.FC = () => {
-  useSeoMeta('Terms of Service | SolveMyMedia', 'Read the terms and conditions for using our local media processing tools.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

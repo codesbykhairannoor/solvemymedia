@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { Languages, Globe2, Captions, MessageSquare, MapPin, SearchCheck, CheckCircle2 } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const SupportedLanguages: React.FC = () => {
-  useSeoMeta('Supported Languages | SolveMyMedia', 'See all the languages supported by our UI and AI transcription models.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

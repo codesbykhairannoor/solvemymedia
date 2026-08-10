@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { Shield, Fingerprint, Lock, Cpu, Globe, Search, Code, CheckCircle2 } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const SecurityTrust: React.FC = () => {
-  useSeoMeta('Security & Trust | SolveMyMedia', 'Discover the technical architecture that makes SolveMyMedia the most secure media tool on the web.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

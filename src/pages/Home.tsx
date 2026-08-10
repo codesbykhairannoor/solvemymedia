@@ -5,7 +5,7 @@ import {
   VolumeX, Stamp, AudioLines, Search, X, ShieldCheck, Zap, ServerOff, Database, Quote,
   ChevronDown, ChevronUp
 } from 'lucide-react';
-import { useSeoMeta } from '../hooks/useSeoMeta';
+import { SEO } from '../components/seo/SEO';
 import { useLanguage } from '../hooks/useLanguage';
 import { getLocalizedSlug } from '../i18n/slugs';
 import { smartHighlight } from '../utils/textFormatting';
@@ -18,11 +18,6 @@ export const Home: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useSeoMeta(
-    t('seoHomeTitle') || 'SolveMyMedia - Free Online Media Optimization Tools', 
-    t('seoHomeDesc') || 'Optimize, compress, convert, and edit audio and video files securely in your browser.'
-  );
 
   const getToolName = (toolId: string) => {
     const localized = getLocalizedSlug(toolId, currentLang);
@@ -54,6 +49,7 @@ export const Home: React.FC = () => {
 
   return (
     <main style={{ width: '100%', position: 'relative', overflowX: 'hidden' }}>
+      <SEO titleKey="seoHomeTitle" descKey="seoHomeDesc" />
       
       {/* SECTION 1: HERO & FINDER */}
       <section style={{ 

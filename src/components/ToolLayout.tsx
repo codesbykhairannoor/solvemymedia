@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Download, Loader2, Zap } from 'lucide-react';
 import type { EngineTier } from '../hooks/useUniversalCompressor';
 import { smartHighlight } from '../utils/textFormatting';
-import { useSeoMeta } from '../hooks/useSeoMeta';
 
 interface ToolLayoutProps {
   title: string;
@@ -46,7 +45,6 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   };
 
   const finalTitle = title;
-  useSeoMeta(finalTitle + ' | SolveMyMedia', ui.upload_desc);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {

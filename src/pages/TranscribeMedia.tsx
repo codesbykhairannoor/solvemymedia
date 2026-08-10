@@ -3,7 +3,6 @@ import React, { useState, useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, FileText } from 'lucide-react';
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
-import { useSeoMeta } from '../hooks/useSeoMeta';
 import { useLanguage } from '../hooks/useLanguage';
 
 export const TranscribeMedia: React.FC = () => {
@@ -18,7 +17,6 @@ export const TranscribeMedia: React.FC = () => {
   };
 
   const finalTitle = translate('transTitle') || 'Transcribe Audio & Video Offline';
-  useSeoMeta(finalTitle + ' | SolveMyMedia', t.upload);
 
   const [file, setFile] = useState<File | null>(null);
   const [language, setLanguage] = useState<string>('indonesian');

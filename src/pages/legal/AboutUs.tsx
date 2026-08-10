@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { ShieldCheck, Heart, Zap, CheckCircle2, Globe, Users, Code, Lock } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const AboutUs: React.FC = () => {
-  useSeoMeta('About Us | SolveMyMedia', 'Learn about the mission and team behind SolveMyMedia.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

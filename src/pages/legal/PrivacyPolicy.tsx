@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { Shield, EyeOff, ServerOff, Cookie, Lock, HardDrive, CheckCircle2 } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const PrivacyPolicy: React.FC = () => {
-  useSeoMeta('Privacy Policy | SolveMyMedia', 'Our commitment to your privacy. Learn why SolveMyMedia is the most secure way to process your media.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

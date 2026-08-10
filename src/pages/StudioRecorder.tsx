@@ -4,7 +4,6 @@ import { Monitor, Video as VideoIcon, Mic, StopCircle, PlayCircle, Circle } from
 import { smartHighlight } from '../utils/textFormatting';
 import { useStudioRecorder } from '../hooks/useStudioRecorder';
 import { VideoTrimmer } from '../components/VideoTrimmer';
-import { useSeoMeta } from '../hooks/useSeoMeta';
 import { useLanguage } from '../hooks/useLanguage';
 
 export const StudioRecorder: React.FC = () => {
@@ -30,10 +29,6 @@ export const StudioRecorder: React.FC = () => {
     captureDesktop: translate('recCaptureDesktop') || "Capture Desktop"
   };
 
-  useSeoMeta(
-    `${translate('recTitle') || 'Professional Browser Studio Recorder'} | SolveMyMedia`,
-    t.desc
-  );
 
   React.useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {

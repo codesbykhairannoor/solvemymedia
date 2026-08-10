@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { GitCompare, Zap, CloudOff, ShieldAlert, ShieldCheck, Scale, FileWarning, Timer, DollarSign, Target } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 
 export const Compare: React.FC = () => {
-  useSeoMeta('Compare | SolveMyMedia', 'See how SolveMyMedia stacks up against traditional cloud-based media converters. Faster, private, and free.');
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>

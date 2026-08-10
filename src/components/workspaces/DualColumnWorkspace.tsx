@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Download, Loader2, Zap } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
-import { useSeoMeta } from '../../hooks/useSeoMeta';
 import { useLanguage } from '../../hooks/useLanguage';
 import { getLocalizedSlug } from '../../i18n/slugs';
 
@@ -55,9 +54,8 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
     return localized.replace(/-/g, " ");
   };
 
-  const finalDescription = description || ui.upload_desc;
   const finalTitle = toolId ? getToolName(toolId) : title;
-  useSeoMeta(finalTitle + ' | SolveMyMedia', finalDescription);
+  const finalDescription = description || ui.upload_desc;
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
