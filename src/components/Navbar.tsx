@@ -24,7 +24,7 @@ const MI: React.FC<{
     className="mega-menu-item"
     style={highlight ? { background: 'rgba(225,29,72,0.04)', borderColor: 'rgba(225,29,72,0.15)' } : {}}
   >
-    <Icon size={15} style={{ flexShrink: 0, color: highlight ? 'var(--brand-primary)' : undefined }} />
+    <Icon size={15} color="var(--brand-primary)" style={{ flexShrink: 0 }} />
     <span className="item-title" style={{ textTransform: 'uppercase', ...(highlight ? { color: 'var(--brand-primary)' } : {}) }}>{label}</span>
   </div>
 );
