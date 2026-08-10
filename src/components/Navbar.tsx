@@ -25,7 +25,7 @@ const MI: React.FC<{
     style={highlight ? { background: 'rgba(225,29,72,0.04)', borderColor: 'rgba(225,29,72,0.15)' } : {}}
   >
     <Icon size={15} style={{ flexShrink: 0, color: highlight ? 'var(--brand-primary)' : undefined }} />
-    <span className="item-title" style={{ textTransform: 'capitalize', ...(highlight ? { color: 'var(--brand-primary)' } : {}) }}>{label}</span>
+    <span className="item-title" style={{ textTransform: 'uppercase', ...(highlight ? { color: 'var(--brand-primary)' } : {}) }}>{label}</span>
   </div>
 );
 
@@ -382,9 +382,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                       <button
                         key={id}
                         onClick={() => handleToolClick(id)}
-                        style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '9px 11px', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', fontSize: '0.78rem', cursor: 'pointer', textAlign: 'left', textTransform: 'capitalize' }}
+                        style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '9px 11px', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', fontSize: '0.85rem', cursor: 'pointer', textAlign: 'left', textTransform: 'uppercase' }}
                       >
-                        <Icon size={13} color="var(--brand-primary)" />
+                        <Icon size={14} color="var(--brand-primary)" />
                         <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{getToolName(id)}</span>
                       </button>
                     ))}
