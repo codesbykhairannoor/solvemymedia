@@ -2,9 +2,12 @@
 import React from 'react';
 import { Crop, CheckCircle2, Shield, Zap, MapPin, Target, FileText } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const CropHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const CropHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       {/* Viewfinder Graphic */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 48, position: 'relative' }}>
@@ -28,10 +31,13 @@ export const CropHeroSection: React.FC<SectionProps> = ({ section, badges, stats
       <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const CropHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const CropHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, position: 'relative', zIndex: 1 }}>
       {/* 2-Column Split: Sticky Left, Scrolling Right */}
       <div style={{ flex: '1 1 400px' }}>
@@ -61,10 +67,13 @@ export const CropHowToSection: React.FC<SectionProps> = ({ section, badges, stat
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const CropGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const CropGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(225, 29, 72, 0.1)', color: 'var(--brand-primary)', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 32, border: '1px solid rgba(225, 29, 72, 0.2)' }}>
         <MapPin size={14} /> {section.badgeText || 'Local Processing'}
@@ -82,10 +91,13 @@ export const CropGeoSection: React.FC<SectionProps> = ({ section, badges, stats,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const CropPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const CropPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'var(--bg-card)', border: '1px solid var(--border-color)', boxShadow: '0 30px 60px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }} className="hover-lift">
@@ -103,10 +115,13 @@ export const CropPrivacySection: React.FC<SectionProps> = ({ section, badges, st
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const CropPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const CropPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 64 }}>
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>
@@ -137,4 +152,5 @@ export const CropPerformanceSection: React.FC<SectionProps> = ({ section, badges
       </div>
     </div>
   </section>
-);
+  );
+};

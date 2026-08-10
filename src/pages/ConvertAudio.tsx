@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
+import { useLanguage } from '../hooks/useLanguage';
 
 export const ConvertAudio: React.FC = () => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   
+  const { t: translate } = useLanguage();
+  
   const t = {
-    format: "Target Format",
-    desc: "Select the format you want to convert this audio into.",
-    action: "Convert to"
+    format: translate('cvaFormat') || "Target Format",
+    desc: translate('cvaDesc') || "Select the format you want to convert this audio into.",
+    action: translate('cvaAction') || "Convert to"
   };
 
   const [file, setFile] = useState<File | null>(null);
@@ -46,8 +49,8 @@ export const ConvertAudio: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title="Convert Audio Formats Fast"
-      description="Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser."
+      title={translate('cvaTitle') || "Convert Audio Formats Fast"}
+      description={translate('cvaSub') || "Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser."}
       toolId="convert-audio"
       file={file}
       onFileSelect={setFile}
@@ -65,24 +68,24 @@ export const ConvertAudio: React.FC = () => {
     
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <ConvertAudioHeroSection 
-          section={{ type: 'hero', title: "High-Fidelity Audio Converter", content: "Convert WAV to MP3, or OGG to AAC. We support a wide range of codecs to ensure you get the exact format you need for any project without compromising privacy." }} 
+          section={{ type: 'hero', title: translate('cvaHeroTitle') || "High-Fidelity Audio Converter", content: translate('cvaHeroDesc') || "Convert WAV to MP3, or OGG to AAC. We support a wide range of codecs to ensure you get the exact format you need for any project without compromising privacy." }} 
         />
         <ConvertAudioHowToSection 
           section={{
             type: 'howto',
-            title: "How to Convert Audio",
+            title: translate('cvaHowTo') || "How to Convert Audio",
             steps: [
-              { title: "Upload Audio", description: "Select any audio format from your computer." },
-              { title: "Transcode", description: "We instantly convert the stream without uploading it to a server." },
-              { title: "Save File", description: "Download the converted MP3 or WAV directly to your local drive." }
+              { title: translate('cvaHowTo1') || "Upload Audio", description: translate('cvaHowTo1Desc') || "Select any audio format from your computer." },
+              { title: translate('cvaHowTo2') || "Transcode", description: translate('cvaHowTo2Desc') || "We instantly convert the stream without uploading it to a server." },
+              { title: translate('cvaHowTo3') || "Save File", description: translate('cvaHowTo3Desc') || "Download the converted MP3 or WAV directly to your local drive." }
             ]
           }} 
         />
         <ConvertAudioSecuritySection 
-          section={{ type: 'security', title: "Offline Conversion", content: "Run intensive audio conversions entirely offline using our local WebAssembly engine." }} 
+          section={{ type: 'security', title: translate('cvaSecTitle') || "Offline Conversion", content: translate('cvaSecDesc') || "Run intensive audio conversions entirely offline using our local WebAssembly engine." }} 
         />
         <ConvertAudioPrivacySection 
-          section={{ type: 'privacy', title: "Strict Privacy", content: "Your media is never uploaded. Period." }} 
+          section={{ type: 'privacy', title: translate('cvaPrivTitle') || "Strict Privacy", content: translate('cvaPrivDesc') || "Your media is never uploaded. Period." }} 
         />
         <ConvertAudioFAQSection />
       </div>

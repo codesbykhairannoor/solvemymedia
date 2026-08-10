@@ -1,9 +1,12 @@
 import React from 'react';
 import { AlignLeft, Terminal, FileText, Download, ShieldAlert, Cpu, Settings2, FileCheck, Music, FileAudio, RefreshCw, Volume2 } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ConvertAudioHeroSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', marginBottom: '80px', background: '#0f172a', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
+export const ConvertAudioHeroSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', marginBottom: '80px', background: '#0f172a', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)', backgroundSize: '20px 20px', zIndex: 0 }} />
     
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
@@ -50,10 +53,13 @@ export const ConvertAudioHeroSection: React.FC<SectionProps> = ({ section }) => 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ConvertAudioHowToSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const ConvertAudioHowToSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 32 }}>
@@ -70,10 +76,13 @@ export const ConvertAudioHowToSection: React.FC<SectionProps> = ({ section }) =>
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const ConvertAudioSecuritySection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const ConvertAudioSecuritySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 64, alignItems: 'center' }}>
        <div>
          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
@@ -89,10 +98,13 @@ export const ConvertAudioSecuritySection: React.FC<SectionProps> = ({ section })
        </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ConvertAudioPrivacySection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--brand-primary)', position: 'relative', overflow: 'hidden' }}>
+export const ConvertAudioPrivacySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--brand-primary)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', color: '#0f172a', position: 'relative', zIndex: 1 }}>
        <div style={{ width: 100, height: 100, margin: '0 auto 40px', background: '#0f172a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <ShieldAlert size={48} color="white" />
@@ -101,15 +113,17 @@ export const ConvertAudioPrivacySection: React.FC<SectionProps> = ({ section }) 
        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', opacity: 0.9, fontWeight: 700, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
 export const ConvertAudioFAQSection: React.FC<{
   faqs?: Array<{q: string, a: string}>
 }> = ({ faqs }) => {
+  const { t } = useLanguage();
   const defaultFaqs = [
-    { q: "Is MP3 better than WAV?", a: "WAV is uncompressed and offers the highest possible audio quality, making it ideal for professional production. MP3 is compressed and takes up significantly less space, making it perfect for streaming and general listening." },
-    { q: "Will I lose quality when converting?", a: "Converting from a lossless format (like WAV) to a lossy format (like MP3 or AAC) will result in some quality loss. However, converting between formats with similar bitrates or from lossy to lossless preserves the current quality." },
-    { q: "Can I convert large podcast files offline?", a: "Yes, because this tool uses WebAssembly to run FFmpeg locally, you can convert hours of audio without ever uploading it. Your bandwidth and privacy are protected." }
+    { q: t('convVFaq1Q') || "Is MP3 better than WAV?", a: t('convVFaq1A') || "WAV is uncompressed and offers the highest possible audio quality, making it ideal for professional production. MP3 is compressed and takes up significantly less space, making it perfect for streaming and general listening." },
+    { q: t('convVFaq2Q') || "Will I lose quality when converting?", a: t('convVFaq2A') || "Converting from a lossless format (like WAV) to a lossy format (like MP3 or AAC) will result in some quality loss. However, converting between formats with similar bitrates or from lossy to lossless preserves the current quality." },
+    { q: t('convVFaq3Q') || "Can I convert large podcast files offline?", a: t('convVFaq3A') || "Yes, because this tool uses WebAssembly to run FFmpeg locally, you can convert hours of audio without ever uploading it. Your bandwidth and privacy are protected." }
   ];
   
   const faqList = faqs || defaultFaqs;
@@ -117,7 +131,7 @@ export const ConvertAudioFAQSection: React.FC<{
   return (
     <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {faqList.map((faq, idx) => (
             <div key={idx} style={{ background: 'var(--bg-app)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>

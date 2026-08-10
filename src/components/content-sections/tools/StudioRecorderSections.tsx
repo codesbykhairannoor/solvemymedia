@@ -1,9 +1,12 @@
 import React from 'react';
 import { Monitor, CheckCircle2, ShieldCheck, Zap, Video as VideoIcon, Mic, FastForward } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const StudioRecorderHeroSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const StudioRecorderHeroSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ position: 'absolute', top: '-20%', left: '-10%', right: '-10%', bottom: '-20%', display: 'flex', flexWrap: 'wrap', gap: 40, opacity: 0.03, pointerEvents: 'none', transform: 'rotate(-15deg)' }}>
        {Array.from({ length: 50 }).map((_, i) => (
          <span key={i} style={{ fontSize: '3rem', fontWeight: 900, whiteSpace: 'nowrap', color: 'var(--text-main)' }}>RECORD</span>
@@ -13,7 +16,7 @@ export const StudioRecorderHeroSection: React.FC<SectionProps> = ({ section }) =
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', padding: '12px 24px', background: 'var(--brand-gradient)', borderRadius: 100, color: 'white', fontWeight: 800, fontSize: '0.9rem', marginBottom: 40, gap: 12, alignItems: 'center', boxShadow: '0 10px 30px rgba(59, 130, 246, 0.3)' }}>
-          <Monitor size={18} /> Professional Browser Studio
+          <Monitor size={18} /> {t('recHeroPill') || 'Professional Browser Studio'}
         </div>
         
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.2 }}>{section.title}</h2>
@@ -36,10 +39,13 @@ export const StudioRecorderHeroSection: React.FC<SectionProps> = ({ section }) =
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const StudioRecorderHowToSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const StudioRecorderHowToSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -56,10 +62,13 @@ export const StudioRecorderHowToSection: React.FC<SectionProps> = ({ section }) 
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const StudioRecorderPerformanceSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative' }}>
+export const StudioRecorderPerformanceSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
       <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, letterSpacing: '-0.04em', lineHeight: 1.2 }}>{section.title}</h2>
@@ -68,16 +77,19 @@ export const StudioRecorderPerformanceSection: React.FC<SectionProps> = ({ secti
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)', position: 'relative' }} className="hover-lift">
             <Zap size={48} color="white" style={{ marginBottom: 24 }} />
-            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>Native WebRTC</h3>
-            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>Built on native WebRTC and MediaRecorder APIs for zero-latency screen and camera capture up to 4K resolution.</p>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>{t('recPerfPill') || 'Native WebRTC'}</h3>
+            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>{t('recPerfPillDesc') || 'Built on native WebRTC and MediaRecorder APIs for zero-latency screen and camera capture up to 4K resolution.'}</p>
          </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const StudioRecorderPrivacySection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const StudioRecorderPrivacySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'inline-flex', padding: 32, background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', marginBottom: 40 }}>
         <ShieldCheck size={80} color="var(--brand-primary)" />
@@ -86,15 +98,17 @@ export const StudioRecorderPrivacySection: React.FC<SectionProps> = ({ section }
       <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
 export const StudioRecorderFAQSection: React.FC<{
   faqs?: Array<{q: string, a: string}>
 }> = ({ faqs }) => {
+  const { t } = useLanguage();
   const defaultFaqs = [
-    { q: "Do I need to install any software?", a: "No installation is required. The Studio Recorder runs entirely in your modern web browser using standard web APIs." },
-    { q: "Is there a time limit for recording?", a: "There is no artificial time limit. You can record for as long as your computer has enough free memory and storage space to hold the video." },
-    { q: "Where are the recordings saved?", a: "Recordings are saved directly to your device's download folder. They are never uploaded to any remote server, ensuring complete privacy." }
+    { q: t('recFaq1Q') || "Do I need to install any software?", a: t('recFaq1A') || "No installation is required. The Studio Recorder runs entirely in your modern web browser using standard web APIs." },
+    { q: t('recFaq2Q') || "Is there a time limit for recording?", a: t('recFaq2A') || "There is no artificial time limit. You can record for as long as your computer has enough free memory and storage space to hold the video." },
+    { q: t('recFaq3Q') || "Where are the recordings saved?", a: t('recFaq3A') || "Recordings are saved directly to your device's download folder. They are never uploaded to any remote server, ensuring complete privacy." }
   ];
   
   const faqList = faqs || defaultFaqs;
@@ -102,7 +116,7 @@ export const StudioRecorderFAQSection: React.FC<{
   return (
     <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {faqList.map((faq, idx) => (
             <div key={idx} style={{ background: 'var(--bg-app)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>

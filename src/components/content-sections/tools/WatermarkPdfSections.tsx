@@ -2,9 +2,12 @@
 import React from 'react';
 import { Stamp, Image as ImageIcon, Type, Layers, ShieldCheck, MapPin, FastForward, CheckCircle2, Droplets } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const WatermarkHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const WatermarkHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     {/* Diagonal Watermark background */}
     <div style={{ position: 'absolute', top: '-20%', left: '-10%', right: '-10%', bottom: '-20%', display: 'flex', flexWrap: 'wrap', gap: 40, opacity: 0.03, pointerEvents: 'none', transform: 'rotate(-15deg)' }}>
        {Array.from({ length: 50 }).map((_, i) => (
@@ -44,10 +47,13 @@ export const WatermarkHeroSection: React.FC<SectionProps> = ({ section, badges, 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const WatermarkHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -64,10 +70,13 @@ export const WatermarkHowToSection: React.FC<SectionProps> = ({ section, badges,
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative' }}>
+export const WatermarkGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
       <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -82,10 +91,13 @@ export const WatermarkGeoSection: React.FC<SectionProps> = ({ section, badges, s
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const WatermarkPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'inline-flex', padding: 32, background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', marginBottom: 40 }}>
         <ShieldCheck size={80} color="var(--brand-primary)" />
@@ -94,10 +106,13 @@ export const WatermarkPrivacySection: React.FC<SectionProps> = ({ section, badge
       <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const WatermarkPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center' }}>
        <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
           <div style={{ width: 280, height: 280, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
@@ -122,4 +137,5 @@ export const WatermarkPerformanceSection: React.FC<SectionProps> = ({ section, b
        </div>
     </div>
   </section>
-);
+  );
+};

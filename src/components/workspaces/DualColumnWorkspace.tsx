@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Download, Loader2, Zap } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 import { useSeoMeta } from '../../hooks/useSeoMeta';
+import { useLanguage } from '../../hooks/useLanguage';
+import { getLocalizedSlug } from '../../i18n/slugs';
 
 interface DualColumnWorkspaceProps {
   title: string;
@@ -46,8 +48,15 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
     download_result: "Download Result"
   };
 
+  const { currentLang } = useLanguage();
+
+  const getToolName = (id: string) => {
+    const localized = getLocalizedSlug(id, currentLang);
+    return localized.replace(/-/g, " ");
+  };
+
   const finalDescription = description || ui.upload_desc;
-  const finalTitle = title;
+  const finalTitle = toolId ? getToolName(toolId) : title;
   useSeoMeta(finalTitle + ' | SolveMyMedia', finalDescription);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +72,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
       
       {!file && (
         <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif', textTransform: 'capitalize' }}>
             {smartHighlight(finalTitle)}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>

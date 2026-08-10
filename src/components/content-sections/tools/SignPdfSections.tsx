@@ -2,9 +2,12 @@
 import React from 'react';
 import { PenTool, MousePointer2, FileSignature, Fingerprint, Shield, Zap, Edit3, Briefcase } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const SignHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: '#0f172a', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
+export const SignHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: '#0f172a', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
     {/* Abstract ink splatters */}
     <div style={{ position: 'absolute', top: -50, right: -50, width: 300, height: 300, background: 'var(--brand-primary)', filter: 'blur(100px)', opacity: 0.2, borderRadius: '50%' }} />
     <div style={{ position: 'absolute', bottom: -50, left: -50, width: 200, height: 200, background: '#3b82f6', filter: 'blur(80px)', opacity: 0.1, borderRadius: '50%' }} />
@@ -45,10 +48,13 @@ export const SignHeroSection: React.FC<SectionProps> = ({ section, badges, stats
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const SignHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const SignHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40 }}>
@@ -65,10 +71,13 @@ export const SignHowToSection: React.FC<SectionProps> = ({ section, badges, stat
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const SignGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative', overflow: 'hidden' }}>
+export const SignGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ padding: 48, borderRadius: 32, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }} className="hover-lift">
@@ -83,10 +92,13 @@ export const SignGeoSection: React.FC<SectionProps> = ({ section, badges, stats,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const SignPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const SignPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ position: 'relative', width: 120, height: 120, marginBottom: 40 }}>
          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(225, 29, 72, 0.1)', borderRadius: '50%', animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite' }} />
@@ -100,10 +112,13 @@ export const SignPrivacySection: React.FC<SectionProps> = ({ section, badges, st
       <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800 }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const SignPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const SignPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
        <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -126,4 +141,5 @@ export const SignPerformanceSection: React.FC<SectionProps> = ({ section, badges
        </div>
     </div>
   </section>
-);
+  );
+};

@@ -4,21 +4,24 @@ import { Image, FileVideo, Trash2, Download, Loader2, Zap, Settings2 } from 'luc
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 
+import { useLanguage } from '../hooks/useLanguage';
+
 export const WatermarkVideo: React.FC = () => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
+  const { t } = useLanguage();
   
-  const t = {
-    pos: "Position",
-    desc: "Choose where the logo should appear on the video.",
-    tl: "Top Left",
-    tr: "Top Right",
-    bl: "Bottom Left",
-    br: "Bottom Right",
-    c: "Center",
-    tiled: "Tiled",
-    scale: "Scale",
-    opacity: "Opacity",
-    action: "Add Watermark"
+  const ui = {
+    pos: t('wmPos') || "Position",
+    desc: t('wmDesc') || "Choose where the logo should appear on the video.",
+    tl: t('wmTL') || "Top Left",
+    tr: t('wmTR') || "Top Right",
+    bl: t('wmBL') || "Bottom Left",
+    br: t('wmBR') || "Bottom Right",
+    c: t('wmC') || "Center",
+    tiled: t('wmTiled') || "Tiled",
+    scale: t('wmScale') || "Scale",
+    opacity: t('wmOpac') || "Opacity",
+    action: t('wmAction') || "Add Watermark"
   };
 
   const [videoFile, setVideoFile] = useState<File | null>(null);
@@ -64,10 +67,10 @@ export const WatermarkVideo: React.FC = () => {
       {!videoFile && (
         <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
-            {smartHighlight('Add Custom Watermark Logo to Video')}
+            {smartHighlight(t('wmTitle') || 'Add Custom Watermark Logo to Video')}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-            {"Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online."}
+            {t('wmSub') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online."}
           </p>
         </div>
       )}
@@ -139,7 +142,7 @@ export const WatermarkVideo: React.FC = () => {
           <div className="dropzone" style={{ flex: 1 }} onClick={() => videoInputRef.current?.click()}>
             <input type="file" ref={videoInputRef} onChange={(e) => { if(e.target.files) setVideoFile(e.target.files[0]); setOutputUrl(null); }} style={{ display: 'none' }} />
             <FileVideo size={32} color="var(--brand-primary)" style={{ marginBottom: 8 }} />
-            <p style={{ fontSize: '0.95rem' }}>Add Main Video</p>
+            <p style={{ fontSize: '0.95rem' }}>{ui.addVideo}</p>
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-input)', padding: 16, borderRadius: 'var(--radius-md)' }}>
@@ -165,7 +168,7 @@ export const WatermarkVideo: React.FC = () => {
           <div className="dropzone" style={{ flex: 1 }} onClick={() => imageInputRef.current?.click()}>
             <input type="file" ref={imageInputRef} onChange={(e) => { if(e.target.files) setImageFile(e.target.files[0]); setOutputUrl(null); }} style={{ display: 'none' }} />
             <Image size={32} color="var(--brand-secondary)" style={{ marginBottom: 8 }} />
-            <p style={{ fontSize: '0.95rem' }}>Add Watermark Logo (PNG/JPG)</p>
+            <p style={{ fontSize: '0.95rem' }}>{ui.addLogo}</p>
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-input)', padding: 16, borderRadius: 'var(--radius-md)' }}>
@@ -189,7 +192,7 @@ export const WatermarkVideo: React.FC = () => {
         {processing && (
           <div style={{ marginTop: 8, padding: 24, background: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-              <span style={{ fontWeight: 600 }}>Applying Watermark {progress}%</span>
+              <span style={{ fontWeight: 600 }}>{ui.applying} {progress}%</span>
             </div>
             <div className="progress-container">
               <div className="progress-bar" style={{ width: `${progress}%` }}></div>
@@ -199,32 +202,39 @@ export const WatermarkVideo: React.FC = () => {
       </div>
 
       <div className="tool-workspace-right glass-panel">
-        <h3 style={{ marginBottom: 24, paddingBottom: 16, borderBottom: '1px solid var(--border-color)', fontWeight: 800 }}>
-          'Add Watermark'
-        </h3>
-        
-        <div style={{ marginBottom: 24 }}>
+        <div style={{ padding: 24, background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', height: '100%', display: 'flex', flexDirection: 'column' }}>
           <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
             <Settings2 size={18} className="text-brand-primary" />
-            <span>{t.pos}</span>
+            <span>{ui.pos}</span>
           </h4>
-          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{t.desc}</p>
+          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{ui.desc}</p>
           
-          <div className="sidebar-options" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-            <button className={`option-btn ${position === 'top-left' ? 'active' : ''}`} onClick={() => setPosition('top-left')} disabled={processing || !!outputUrl} style={{ padding: 12 }}>{t.tl}</button>
-            <button className={`option-btn ${position === 'top-right' ? 'active' : ''}`} onClick={() => setPosition('top-right')} disabled={processing || !!outputUrl} style={{ padding: 12 }}>{t.tr}</button>
-            <button className={`option-btn ${position === 'bottom-left' ? 'active' : ''}`} onClick={() => setPosition('bottom-left')} disabled={processing || !!outputUrl} style={{ padding: 12 }}>{t.bl}</button>
-            <button className={`option-btn ${position === 'bottom-right' ? 'active' : ''}`} onClick={() => setPosition('bottom-right')} disabled={processing || !!outputUrl} style={{ padding: 12 }}>{t.br}</button>
-            <button className={`option-btn ${position === 'center' ? 'active' : ''}`} onClick={() => setPosition('center')} disabled={processing || !!outputUrl} style={{ padding: 12 }}>{t.c}</button>
-            <button className={`option-btn ${position === 'tiled' ? 'active' : ''}`} onClick={() => setPosition('tiled')} disabled={processing || !!outputUrl} style={{ padding: 12 }}>{t.tiled}</button>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 24 }}>
+            {[
+              { id: 'top-left', label: ui.tl },
+              { id: 'top-right', label: ui.tr },
+              { id: 'bottom-left', label: ui.bl },
+              { id: 'bottom-right', label: ui.br },
+              { id: 'center', label: ui.c },
+              { id: 'tiled', label: ui.tiled }
+            ].map(pos => (
+              <button 
+                key={pos.id} 
+                className={`option-btn ${position === pos.id ? 'active' : ''}`} 
+                onClick={() => setPosition(pos.id)} 
+                disabled={processing || !!outputUrl} 
+                style={{ padding: 12 }}
+              >
+                {pos.label}
+              </button>
+            ))}
           </div>
-        </div>
 
         {/* Sliders */}
-        <div style={{ marginBottom: 24 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontWeight: 700, color: 'var(--text-main)', fontSize: '0.9rem' }}>
-            <span>{t.scale}</span>
-            <span>{Math.round(scale * 100)}%</span>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: '0.9rem', fontWeight: 600 }}>
+            <span>{ui.scale}</span>
+            <span>{(scale * 100).toFixed(0)}%</span>
           </div>
           <input 
             type="range" 
@@ -238,10 +248,10 @@ export const WatermarkVideo: React.FC = () => {
           />
         </div>
 
-        <div style={{ marginBottom: 24 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontWeight: 700, color: 'var(--text-main)', fontSize: '0.9rem' }}>
-            <span>{t.opacity}</span>
-            <span>{Math.round(opacity * 100)}%</span>
+        <div style={{ marginBottom: 'auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: '0.9rem', fontWeight: 600 }}>
+            <span>{ui.opacity}</span>
+            <span>{(opacity * 100).toFixed(0)}%</span>
           </div>
           <input 
             type="range" 
@@ -276,35 +286,42 @@ export const WatermarkVideo: React.FC = () => {
               ) : (
                 <Zap size={18} />
               )}
-              <span>{processing ? ('Processing...') : t.action}</span>
+              <span>{processing ? ('Processing...') : ui.action}</span>
             </button>
           )}
         </div>
         </div>
       </div>
+      </div>
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <WatermarkVideoHeroSection 
-          section={{ type: 'hero', title: "Stamp Your Brand on Video", content: "Hardcode your logo into any video file seamlessly within your browser to prevent content theft." }} 
+          section={{ type: 'hero', title: t('wmHero') || "Add Custom Watermark Logo to Video", content: t('wmHeroDesc') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online." }} 
         />
         <WatermarkVideoHowToSection 
           section={{
             type: 'howto',
-            title: "How to Watermark",
+            title: t('wmHowTo') || "How to Add a Watermark",
             steps: [
-              { title: "Upload Video", description: "Select the video file you want to brand." },
-              { title: "Add Logo", description: "Upload your watermark image (PNG with transparency works best) and position it." },
-              { title: "Export", description: "Hit 'Add Watermark' and the video will be rendered completely on your local device." }
+              { title: t('wmHowTo1') || "Upload Media", description: t('wmHowTo1Desc') || "Select your main video and your logo image file." },
+              { title: t('wmHowTo2') || "Position Logo", description: t('wmHowTo2Desc') || "Choose where you want the watermark to appear and set opacity." },
+              { title: t('wmHowTo3') || "Process", description: t('wmHowTo3Desc') || "Export your video with the watermark permanently burned in." }
             ]
           }} 
         />
         <WatermarkVideoBrandSection 
-          section={{ type: 'brand', title: "Burned-In Protection", content: "By hardcoding the logo directly into the video stream, it is permanently merged with the video data and impossible to remove." }} 
+          section={{ type: 'brand', title: t('wmBrand') || "Permanent Branding", content: t('wmBrandDesc') || "Once burned into the video, your watermark cannot be removed by simple cropping or metadata stripping." }} 
         />
         <WatermarkVideoPrivacySection 
-          section={{ type: 'privacy', title: "Strict Confidentiality", content: "Your unreleased videos are never uploaded to any server. Protect your drafts safely offline." }} 
+          section={{ type: 'privacy', title: t('wmPriv') || "100% Secure & Private", content: t('wmPrivDesc') || "Your videos are never uploaded to any cloud server. The entire watermarking process runs securely inside your device." }} 
         />
-        <WatermarkVideoFAQSection />
+        <WatermarkVideoFAQSection 
+          faqs={[
+            { q: t('wmFaq1Q') || "Can I remove the watermark later?", a: t('wmFaq1A') || "No, this tool permanently burns the image watermark into the video frames (hard-subbing). This is specifically designed to protect your copyright." },
+            { q: t('wmFaq2Q') || "Does it support transparent PNGs?", a: t('wmFaq2A') || "Yes! Using a transparent PNG logo will overlay perfectly with the specified opacity settings." },
+            { q: t('wmFaq3Q') || "Does adding a watermark re-encode my video?", a: t('wmFaq3A') || "Yes, in order to burn the watermark into the actual video frames permanently, the video stream must be re-encoded." }
+          ]}
+        />
       </div>
     
     </div>

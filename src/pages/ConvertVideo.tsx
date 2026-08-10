@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
+import { useLanguage } from '../hooks/useLanguage';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { ConvertVideoHeroSection, ConvertVideoHowToSection, ConvertVideoGeoSection, ConvertVideoPrivacySection, ConvertVideoPerformanceSection } from '../components/content-sections/tools/ConvertVideoSections';
 
 export const ConvertVideo: React.FC = () => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
+  const { t } = useLanguage();
   
-  const ui = { target_format: "Target Format", select_format: "Select the format you want to convert this video into.", convert_mp4: "Convert to MP4" };
+  const ui = { 
+    target_format: t('convVSettings') || "Target Format", 
+    select_format: t('convVTargetDesc') || "Select the format you want to convert this video into.", 
+    convert_mp4: t('convVAction') || "Convert to MP4" 
+  };
   
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
@@ -47,8 +53,8 @@ export const ConvertVideo: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-        title="Convert Video Formats Fast"
-        description="Seamlessly convert your video files into MP4, WebM, MOV, and AVI formats right from your browser. 100% private and ultra-fast."
+        title={t('convVTitle') || "Convert Video Formats Instantly"}
+        description={t('convVDesc') || "Change your video from MP4 to WebM, MKV to AVI, and more. Processing runs directly in your browser without waiting for server uploads."}
         toolId="convert-video"
         file={file}
         onFileSelect={setFile}
@@ -68,18 +74,22 @@ export const ConvertVideo: React.FC = () => {
           flipLayout={false}
           section={{
             type: 'hero',
-            title: 'Convert Any Video Format Instantly',
-            content: "Say goodbye to 'unsupported codec' errors. Convert your heavy MKV, AVI, MOV, and WebM files into universally playable MP4 videos directly within your browser."
+            title: t('convVHeroTitle2') || 'Convert Any Video Format Instantly',
+            content: t('convVHeroDesc2') || "Say goodbye to 'unsupported codec' errors. Convert your heavy MKV, AVI, MOV, and WebM files into universally playable MP4 videos directly within your browser."
           }}
         />
 
         <ConvertVideoPerformanceSection 
           flipLayout={true}
-          badges={["No FFmpeg installation", "Preserves original quality", "Supports 4K and 60FPS"]}
+          badges={[
+            t('convVFeat1') || "No FFmpeg installation", 
+            t('convVFeat2') || "Preserves original quality", 
+            t('convVFeat3') || "Supports 4K and 60FPS"
+          ]}
           section={{
             type: 'performance',
-            title: 'WebAssembly Transcoding Engine',
-            content: "We've ported industry-standard media frameworks directly into the browser. Unlike basic converters, SolveMyMedia utilizes SharedArrayBuffer and Web Workers to transcode gigabytes of video data blazingly fast without crashing your tab."
+            title: t('convVWasmTitle') || 'WebAssembly Transcoding Engine',
+            content: t('convVWasmDesc') || "We've ported industry-standard media frameworks directly into the browser. Unlike basic converters, SolveMyMedia utilizes SharedArrayBuffer and Web Workers to transcode gigabytes of video data blazingly fast without crashing your tab."
           }}
         />
 
@@ -87,8 +97,8 @@ export const ConvertVideo: React.FC = () => {
           flipLayout={false}
           section={{
             type: 'privacy',
-            title: 'Play Anywhere, On Any Device',
-            content: 'By converting your videos to MP4 (H.264/AAC), you ensure they will play flawlessly on iPhones, Androids, Smart TVs, and social media platforms.'
+            title: t('convVPrivTitle') || 'Play Anywhere, On Any Device',
+            content: t('convVPrivDesc') || 'By converting your videos to MP4 (H.264/AAC), you ensure they will play flawlessly on iPhones, Androids, Smart TVs, and social media platforms.'
           }}
         />
 
@@ -96,11 +106,11 @@ export const ConvertVideo: React.FC = () => {
           flipLayout={false}
           section={{
             type: 'how-to',
-            title: 'How to Convert Videos Offline',
+            title: t('convVHowTo') || 'How to Convert Videos Offline',
             steps: [
-              { title: 'Drop your Video', description: 'Select any obscure video format from your local drive.' },
-              { title: 'Choose Target', description: 'Select MP4 for universal playback or WebM for web optimization.' },
-              { title: 'Save File', description: 'The conversion happens locally. Click download when done.' }
+              { title: t('convVHowTo1') || 'Drop your Video', description: t('convVHowTo1Desc') || 'Select any obscure video format from your local drive.' },
+              { title: t('convVHowTo2') || 'Choose Target', description: t('convVHowTo2Desc') || 'Select MP4 for universal playback or WebM for web optimization.' },
+              { title: t('convVHowTo3') || 'Save File', description: t('convVHowTo3Desc') || 'The conversion happens locally. Click download when done.' }
             ]
           }}
         />
@@ -109,31 +119,31 @@ export const ConvertVideo: React.FC = () => {
           flipLayout={false}
           section={{
             type: 'geo',
-            title: '100% Local Execution',
-            content: 'No accounts, no software installation, and no upload limits. Just drag, drop, and convert.'
+            title: t('convVGeoTitle') || '100% Local Execution',
+            content: t('convVGeoDesc') || 'No accounts, no software installation, and no upload limits. Just drag, drop, and convert.'
           }}
         />
 
         {/* SECTION 5: FAQ */}
         <section className="content-section faq-section" style={{ padding: '0 24px' }}>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               {[
                 {
-                  q: "Why convert MKV to MP4?",
-                  a: "MKV is a great container, but many default media players (like QuickTime on Mac) and social networks do not support it natively. Converting it to MP4 guarantees it can be viewed by anyone, anywhere."
+                  q: t('convVFaq1Q') || "Why convert MKV to MP4?",
+                  a: t('convVFaq1A') || "MKV is a great container, but many default media players (like QuickTime on Mac) and social networks do not support it natively. Converting it to MP4 guarantees it can be viewed by anyone, anywhere."
                 },
                 {
-                  q: "Is there a file size limit for conversion?",
-                  a: "No! Because our tool runs locally on your browser using WebAssembly, there are no artificial limits. You can convert 10GB+ movies as long as you have enough disk space and memory."
+                  q: t('convVFaq2Q') || "Is there a file size limit for conversion?",
+                  a: t('convVFaq2A') || "No! Because our tool runs locally on your browser using WebAssembly, there are no artificial limits. You can convert 10GB+ movies as long as you have enough disk space and memory."
                 },
                 {
-                  q: "Does this conversion reduce the video quality?",
-                  a: "By default, we set the target quality to 100% to ensure a virtually lossless conversion. The output MP4 will look identical to your original source file."
+                  q: t('convVFaq3Q') || "Does this conversion reduce the video quality?",
+                  a: t('convVFaq3A') || "By default, we set the target quality to 100% to ensure a virtually lossless conversion. The output MP4 will look identical to your original source file."
                 }
-              ].map((faq, idx) => (
-                <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+              ].map((faq, i) => (
+                <div key={i} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                     <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}
                   </h3>

@@ -2,9 +2,12 @@
 import React from 'react';
 import { Eraser, FileX, Trash2, MapPin, Shield, Zap, CheckCircle2, UserX, ScanEye, EyeOff } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const MetadataHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const MetadataHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ position: 'relative', width: 340, height: 400 }}>
@@ -52,10 +55,13 @@ export const MetadataHeroSection: React.FC<SectionProps> = ({ section, badges, s
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const MetadataHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const MetadataHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
       {section.steps?.map((step: any, i: number) => (
@@ -73,10 +79,13 @@ export const MetadataHowToSection: React.FC<SectionProps> = ({ section, badges, 
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const MetadataGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const MetadataGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(225, 29, 72, 0.1)', color: 'var(--brand-primary)', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 32, border: '1px solid rgba(225, 29, 72, 0.2)' }}>
@@ -94,10 +103,13 @@ export const MetadataGeoSection: React.FC<SectionProps> = ({ section, badges, st
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const MetadataPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const MetadataPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ background: 'var(--bg-card)', borderRadius: 40, padding: '80px 48px', border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }}>
         <div style={{ width: 80, height: 80, margin: '0 auto 32px', borderRadius: 24, background: 'var(--bg-app)', border: '2px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -108,10 +120,13 @@ export const MetadataPrivacySection: React.FC<SectionProps> = ({ section, badges
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const MetadataPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const MetadataPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: 280, height: 280, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
@@ -138,4 +153,5 @@ export const MetadataPerformanceSection: React.FC<SectionProps> = ({ section, ba
       </div>
     </div>
   </section>
-);
+  );
+};

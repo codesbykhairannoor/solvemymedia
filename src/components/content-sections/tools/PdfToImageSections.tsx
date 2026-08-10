@@ -2,9 +2,12 @@
 import React from 'react';
 import { FileImage, Image as ImageIcon, Download, Search, LayoutGrid, Monitor, ShieldCheck, Zap } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const PdfToImageHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--brand-gradient)', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
+export const PdfToImageHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--brand-gradient)', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
     {/* Abstract gallery frames */}
     <div style={{ position: 'absolute', top: -50, right: -50, width: 400, height: 400, background: 'rgba(255,255,255,0.05)', borderRadius: 40, transform: 'rotate(15deg)', pointerEvents: 'none' }} />
     <div style={{ position: 'absolute', bottom: -50, left: -50, width: 300, height: 300, background: 'rgba(255,255,255,0.05)', borderRadius: 40, transform: 'rotate(-15deg)', pointerEvents: 'none' }} />
@@ -46,10 +49,13 @@ export const PdfToImageHeroSection: React.FC<SectionProps> = ({ section, badges,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PdfToImageHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const PdfToImageHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 32 }}>
@@ -66,10 +72,13 @@ export const PdfToImageHowToSection: React.FC<SectionProps> = ({ section, badges
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const PdfToImageGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const PdfToImageGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center' }}>
       <div style={{ flex: '1 1 500px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ position: 'relative', width: 300, height: 300 }}>
@@ -86,10 +95,13 @@ export const PdfToImageGeoSection: React.FC<SectionProps> = ({ section, badges, 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PdfToImagePrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#09090b', position: 'relative' }}>
+export const PdfToImagePrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#09090b', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', color: 'white' }}>
       <div style={{ width: 120, height: 120, margin: '0 auto 40px', background: 'rgba(255,255,255,0.05)', border: '2px solid rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
          <ShieldCheck size={56} color="var(--brand-primary)" />
@@ -99,10 +111,13 @@ export const PdfToImagePrivacySection: React.FC<SectionProps> = ({ section, badg
       <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: '#a1a1aa', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const PdfToImagePerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const PdfToImagePerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
        <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -126,4 +141,5 @@ export const PdfToImagePerformanceSection: React.FC<SectionProps> = ({ section, 
        </div>
     </div>
   </section>
-);
+  );
+};

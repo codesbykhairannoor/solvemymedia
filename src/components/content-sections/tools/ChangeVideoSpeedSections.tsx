@@ -2,8 +2,11 @@
 import React from 'react';
 import { FastForward, CheckCircle2, Shield, Zap, MapPin, ArrowRight, Gauge, Play } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ChangeVideoSpeedHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
+export const ChangeVideoSpeedHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
@@ -26,23 +29,26 @@ export const ChangeVideoSpeedHeroSection: React.FC<SectionProps> = ({ section, b
             <div style={{ width: 140, height: 180, background: 'var(--bg-card)', border: '2px solid var(--brand-primary)', borderRadius: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12, boxShadow: '0 20px 40px rgba(225, 29, 72, 0.15)', position: 'relative' }} className="hover-lift">
                <Gauge size={40} color="var(--brand-primary)" />
                <span style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--brand-primary)' }}>2.0x</span>
-               <div style={{ position: 'absolute', top: -12, right: -12, background: 'var(--brand-primary)', color: 'white', padding: '4px 12px', borderRadius: 20, fontSize: '0.85rem', fontWeight: 800 }}>Master Time</div>
+               <div style={{ position: 'absolute', top: -12, right: -12, background: 'var(--brand-primary)', color: 'white', padding: '4px 12px', borderRadius: 20, fontSize: '0.85rem', fontWeight: 800 }}>{t('speedVMasterTime') || 'Master Time'}</div>
             </div>
          </div>
       </div>
       
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', padding: '10px 20px', background: 'rgba(225, 29, 72, 0.1)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 700, fontSize: '0.9rem', marginBottom: 24, gap: 8, alignItems: 'center' }}>
-          <FastForward size={16} /> Cinematic Speed Adjustments
+          <FastForward size={16} /> {t('speedVHeroPill') || 'Cinematic Speed Adjustments'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
         <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ChangeVideoSpeedHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
+export const ChangeVideoSpeedHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto' }}>
       <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
@@ -59,9 +65,12 @@ export const ChangeVideoSpeedHowToSection: React.FC<SectionProps> = ({ section, 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ChangeVideoSpeedGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
+export const ChangeVideoSpeedGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px' }}>
@@ -83,9 +92,12 @@ export const ChangeVideoSpeedGeoSection: React.FC<SectionProps> = ({ section, ba
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ChangeVideoSpeedPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
+export const ChangeVideoSpeedPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ background: 'var(--bg-card)', borderRadius: 40, padding: '80px 48px', border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }}>
@@ -97,9 +109,12 @@ export const ChangeVideoSpeedPrivacySection: React.FC<SectionProps> = ({ section
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ChangeVideoSpeedPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
+export const ChangeVideoSpeedPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
@@ -112,7 +127,7 @@ export const ChangeVideoSpeedPerformanceSection: React.FC<SectionProps> = ({ sec
       </div>
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>
-          <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
+          <Zap size={14} /> {section.badgeText || t('speedVPerfPill') || 'Lightning Fast'}
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
@@ -127,4 +142,5 @@ export const ChangeVideoSpeedPerformanceSection: React.FC<SectionProps> = ({ sec
       </div>
     </div>
   </section>
-);
+  );
+};

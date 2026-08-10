@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
+import { useLanguage } from '../hooks/useLanguage';
 
 export const ConvertVideoToAudio: React.FC = () => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   
+  const { t: translate } = useLanguage();
+  
   const t = {
-    format: "Target Audio Format",
-    desc: "Select the format you want to extract the audio into.",
-    action: "Extract to"
+    format: translate('vtaFormat') || "Target Audio Format",
+    desc: translate('vtaDesc') || "Select the format you want to extract the audio into.",
+    action: translate('vtaAction') || "Extract to"
   };
 
   const [file, setFile] = useState<File | null>(null);
@@ -46,8 +49,8 @@ export const ConvertVideoToAudio: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title="Extract Audio from Video"
-      description="Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy."
+      title={translate('vtaTitle') || "Extract Audio from Video"}
+      description={translate('vtaSub') || "Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy."}
       toolId="video-to-audio"
       file={file}
       onFileSelect={setFile}
@@ -65,24 +68,24 @@ export const ConvertVideoToAudio: React.FC = () => {
     
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <VideoToAudioHeroSection 
-          section={{ type: 'hero', title: "Extract Audio from Video", content: "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality." }} 
+          section={{ type: 'hero', title: translate('vtaHeroTitle') || "Extract Audio from Video", content: translate('vtaHeroDesc') || "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality." }} 
         />
         <VideoToAudioHowToSection 
           section={{
             type: 'howto',
-            title: "How to Extract Audio",
+            title: translate('vtaHowTo') || "How to Extract Audio",
             steps: [
-              { title: "Upload Video", description: "Select the video file you want to extract audio from." },
-              { title: "Choose Format", description: "Select MP3, WAV, or AAC depending on your needs." },
-              { title: "Extract", description: "We separate the audio track instantly right in your browser." }
+              { title: translate('vtaHowTo1') || "Upload Video", description: translate('vtaHowTo1Desc') || "Select the video file you want to extract audio from." },
+              { title: translate('vtaHowTo2') || "Choose Format", description: translate('vtaHowTo2Desc') || "Select MP3, WAV, or AAC depending on your needs." },
+              { title: translate('vtaHowTo3') || "Extract", description: translate('vtaHowTo3Desc') || "We separate the audio track instantly right in your browser." }
             ]
           }} 
         />
         <VideoToAudioPerformanceSection 
-          section={{ type: 'performance', title: "Lightning Fast Extraction", content: "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds." }} 
+          section={{ type: 'performance', title: translate('vtaPerfTitle') || "Lightning Fast Extraction", content: translate('vtaPerfDesc') || "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds." }} 
         />
         <VideoToAudioPrivacySection 
-          section={{ type: 'privacy', title: "Offline Extraction", content: "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 
+          section={{ type: 'privacy', title: translate('vtaPrivTitle') || "Offline Extraction", content: translate('vtaPrivDesc') || "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 
         />
         <VideoToAudioFAQSection />
       </div>

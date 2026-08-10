@@ -2,9 +2,12 @@
 import React from 'react';
 import { Terminal, FileSpreadsheet, FileJson, Code2, Database, UploadCloud, ServerCrash, LayoutList, ChevronRight, Binary } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ExcelToCsvHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: '#020617', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
+export const ExcelToCsvHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: '#020617', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
     {/* Terminal scanline effect */}
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))', backgroundSize: '100% 2px, 3px 100%', zIndex: 0, pointerEvents: 'none', opacity: 0.5 }} />
     
@@ -40,10 +43,13 @@ export const ExcelToCsvHeroSection: React.FC<SectionProps> = ({ section, badges,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExcelToCsvHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const ExcelToCsvHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -63,10 +69,13 @@ export const ExcelToCsvHowToSection: React.FC<SectionProps> = ({ section, badges
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const ExcelToCsvGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const ExcelToCsvGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'var(--brand-primary)', color: 'white', position: 'relative', boxShadow: '0 30px 60px rgba(225, 29, 72, 0.3)' }} className="hover-lift">
@@ -81,10 +90,13 @@ export const ExcelToCsvGeoSection: React.FC<SectionProps> = ({ section, badges, 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExcelToCsvPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#020617', position: 'relative', overflow: 'hidden' }}>
+export const ExcelToCsvPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#020617', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'inline-flex', padding: 24, background: 'rgba(239, 68, 68, 0.1)', borderRadius: '50%', marginBottom: 40, border: '2px dashed #ef4444' }}>
         <ServerCrash size={64} color="#ef4444" />
@@ -96,10 +108,13 @@ export const ExcelToCsvPrivacySection: React.FC<SectionProps> = ({ section, badg
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExcelToCsvPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const ExcelToCsvPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
        <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -120,4 +135,5 @@ export const ExcelToCsvPerformanceSection: React.FC<SectionProps> = ({ section, 
        </div>
     </div>
   </section>
-);
+  );
+};

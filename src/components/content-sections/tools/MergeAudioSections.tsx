@@ -1,9 +1,12 @@
 import React from 'react';
 import { Combine, CheckCircle2, Shield, Zap, MapPin, Music } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const MergeAudioHeroSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const MergeAudioHeroSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
       <div className="floating-object hidden-mobile" style={{ position: 'absolute', top: '10%', left: '5%', width: 64, height: 64, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', border: '1px solid rgba(255,255,255,0.8)', zIndex: 20, transform: 'rotate(6deg)', animation: 'float 6s ease-in-out infinite' }}>
         🎵
       </div>
@@ -22,14 +25,17 @@ export const MergeAudioHeroSection: React.FC<SectionProps> = ({ section }) => (
       <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const MergeAudioHowToSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const MergeAudioHowToSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <div style={{ textAlign: 'center', marginBottom: 80 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-          <CheckCircle2 size={14} /> Quick Guide
+          <CheckCircle2 size={14} /> {t('cvQuickGuide') || 'Quick Guide'}
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
       </div>
@@ -46,14 +52,17 @@ export const MergeAudioHowToSection: React.FC<SectionProps> = ({ section }) => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const MergeAudioPrivacySection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const MergeAudioPrivacySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--brand-primary)', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24, border: '1px solid rgba(16, 185, 129, 0.2)', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-          <Shield size={14} /> Security First
+          <Shield size={14} /> {t('cvSecurityFirst') || 'Security First'}
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
@@ -65,10 +74,13 @@ export const MergeAudioPrivacySection: React.FC<SectionProps> = ({ section }) =>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const MergeAudioPerformanceSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const MergeAudioPerformanceSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', position: 'relative', display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: 240, height: 240, borderRadius: '50%', background: 'var(--bg-app)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', zIndex: 1, transition: 'transform 0.5s ease' }} className="hover-lift">
@@ -77,12 +89,12 @@ export const MergeAudioPerformanceSection: React.FC<SectionProps> = ({ section }
       </div>
       <div style={{ flex: '1 1 400px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24, boxShadow: '0 10px 20px rgba(16, 185, 129, 0.2)' }}>
-          <Zap size={14} /> Lightning Fast
+          <Zap size={14} /> {t('maLightningFast') || 'Lightning Fast'}
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {['Zero server latency', 'No upload bandwidth', 'Instant concatenation'].map((item, i) => (
+          {[t('maZeroLatency') || 'Zero server latency', t('maNoUpload') || 'No upload bandwidth', t('maInstantConcat') || 'Instant concatenation'].map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '24px', background: 'var(--bg-app)', borderRadius: 24, border: '1px solid var(--border-color)', transition: 'transform 0.3s ease', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }} className="hover-lift">
               <CheckCircle2 color="var(--brand-primary)" size={24} style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--text-main)' }}>{item}</span>
@@ -92,15 +104,17 @@ export const MergeAudioPerformanceSection: React.FC<SectionProps> = ({ section }
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export const MergeAudioFAQSection: React.FC<{
   faqs?: Array<{q: string, a: string}>
 }> = ({ faqs }) => {
+  const { t } = useLanguage();
   const defaultFaqs = [
-    { q: "Can I merge different audio formats together?", a: "Yes, you can merge MP3 with WAV, AAC, or OGG. The final merged file will be converted into a single unified format." },
-    { q: "Is there a limit to how many files I can merge?", a: "Since the merging happens directly in your browser using local memory, the limit depends on your device's RAM. Usually, merging dozens of files works effortlessly." },
-    { q: "Does merging reduce the audio quality?", a: "If you merge files of the same bitrate and format without transcoding, there is zero quality loss. If transcoding is required to unify them, we use high-quality encoding to preserve the sound." }
+    { q: t('maFaq1Q') || "Can I merge different audio formats together?", a: t('maFaq1A') || "Yes, you can merge MP3 with WAV, AAC, or OGG. The final merged file will be converted into a single unified format." },
+    { q: t('maFaq2Q') || "Is there a limit to how many files I can merge?", a: t('maFaq2A') || "Since the merging happens directly in your browser using local memory, the limit depends on your device's RAM. Usually, merging dozens of files works effortlessly." },
+    { q: t('maFaq3Q') || "Does merging reduce the audio quality?", a: t('maFaq3A') || "If you merge files of the same bitrate and format without transcoding, there is zero quality loss. If transcoding is required to unify them, we use high-quality encoding to preserve the sound." }
   ];
   
   const faqList = faqs || defaultFaqs;
@@ -108,7 +122,7 @@ export const MergeAudioFAQSection: React.FC<{
   return (
     <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || "Frequently Asked Questions"}</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {faqList.map((faq, idx) => (
             <div key={idx} style={{ background: 'var(--bg-app)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>

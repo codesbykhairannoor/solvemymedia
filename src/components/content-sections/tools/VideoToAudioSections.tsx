@@ -1,9 +1,12 @@
 import React from 'react';
 import { Scissors, CheckCircle2, Shield, Zap, MapPin, Video, Music, ChevronRight } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const VideoToAudioHeroSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const VideoToAudioHeroSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div className="floating-object hidden-mobile" style={{ position: 'absolute', top: '10%', right: '5%', width: 64, height: 64, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', border: '1px solid rgba(255,255,255,0.8)', zIndex: 20, transform: 'rotate(15deg)', animation: 'float 6s ease-in-out infinite' }}>
       🎵
     </div>
@@ -33,10 +36,13 @@ export const VideoToAudioHeroSection: React.FC<SectionProps> = ({ section }) => 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const VideoToAudioHowToSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const VideoToAudioHowToSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
         <CheckCircle2 size={14} /> Quick Guide
@@ -62,31 +68,37 @@ export const VideoToAudioHowToSection: React.FC<SectionProps> = ({ section }) =>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const VideoToAudioPrivacySection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const VideoToAudioPrivacySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'flex-start' }}>
          <div style={{ width: '100%', maxWidth: 400, padding: 40, borderRadius: 32, background: 'var(--bg-app)', border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.03)' }} className="hover-lift">
             <Shield size={64} color="var(--brand-primary)" style={{ marginBottom: 32 }} />
-            <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>Offline Extraction</h3>
-            <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Videos never touch external servers. Audio is extracted directly within your browser.</p>
+            <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{t('vtaOfflineExTitle') || "Offline Extraction"}</h3>
+            <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>{t('vtaOfflineExDesc') || "Videos never touch external servers. Audio is extracted directly within your browser."}</p>
          </div>
       </div>
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--brand-primary)', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24, border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-          <Shield size={14} /> Security First
+          <Shield size={14} /> {t('cvSecurityFirst') || "Security First"}
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const VideoToAudioPerformanceSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const VideoToAudioPerformanceSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1, textAlign: 'center' }}>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>
         <Zap size={14} /> Lightning Fast
@@ -104,15 +116,17 @@ export const VideoToAudioPerformanceSection: React.FC<SectionProps> = ({ section
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export const VideoToAudioFAQSection: React.FC<{
   faqs?: Array<{q: string, a: string}>
 }> = ({ faqs }) => {
+  const { t } = useLanguage();
   const defaultFaqs = [
-    { q: "Which video formats can I extract audio from?", a: "You can upload almost any video format including MP4, MKV, AVI, MOV, and WebM. The tool will parse the video container and extract the underlying audio track." },
-    { q: "Is the audio quality degraded when extracting?", a: "No, if you choose the original format, the audio stream is simply copied out of the video container (remuxed) with absolutely zero quality loss." },
-    { q: "Is it safe to upload private home videos?", a: "Your videos are never uploaded anywhere. The entire extraction process happens securely offline within your web browser." }
+    { q: t('vtaFaq1Q') || "Which video formats can I extract audio from?", a: t('vtaFaq1A') || "You can upload almost any video format including MP4, MKV, AVI, MOV, and WebM. The tool will parse the video container and extract the underlying audio track." },
+    { q: t('vtaFaq2Q') || "Is the audio quality degraded when extracting?", a: t('vtaFaq2A') || "No, if you choose the original format, the audio stream is simply copied out of the video container (remuxed) with absolutely zero quality loss." },
+    { q: t('vtaFaq3Q') || "Is it safe to upload private home videos?", a: t('vtaFaq3A') || "Your videos are never uploaded anywhere. The entire extraction process happens securely offline within your web browser." }
   ];
   
   const faqList = faqs || defaultFaqs;
@@ -120,7 +134,7 @@ export const VideoToAudioFAQSection: React.FC<{
   return (
     <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {faqList.map((faq, idx) => (
             <div key={idx} style={{ background: 'var(--bg-app)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>

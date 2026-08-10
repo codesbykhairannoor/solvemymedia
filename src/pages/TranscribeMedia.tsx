@@ -4,18 +4,20 @@ import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, F
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useSeoMeta } from '../hooks/useSeoMeta';
+import { useLanguage } from '../hooks/useLanguage';
 
 export const TranscribeMedia: React.FC = () => {
   const { ready, loadingProgress, processing, resultText, transcribe, initModel } = useWhisper();
+  const { t: translate } = useLanguage();
   
   const t = {
-    upload: "Upload your audio or video file below to transcribe it to text securely in your browser using AI.",
-    result: "Transcription Result",
-    placeholder: "Transcription will appear here.",
-    action: "Start Transcription"
+    upload: translate('transDesc') || "Upload your audio or video file below to transcribe it to text securely in your browser using AI.",
+    result: translate('transResult') || "Transcription Result",
+    placeholder: translate('transPlaceholder') || "Transcription will appear here.",
+    action: translate('transAction') || "Start Transcription"
   };
 
-  const finalTitle = 'Transcribe Audio & Video Offline';
+  const finalTitle = translate('transTitle') || 'Transcribe Audio & Video Offline';
   useSeoMeta(finalTitle + ' | SolveMyMedia', t.upload);
 
   const [file, setFile] = useState<File | null>(null);
@@ -71,7 +73,7 @@ export const TranscribeMedia: React.FC = () => {
             <div className="dropzone-icon">
               <UploadCloud size={40} />
             </div>
-            <p>{'Drag & drop'} audio/video {'or Browse Files'}</p>
+            <p>{translate('dragDrop') || 'Drag & drop'} audio/video <span className="browse-text">{translate('browseFiles') || 'Browse Files'}</span></p>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -94,8 +96,8 @@ export const TranscribeMedia: React.FC = () => {
             {(!ready && file) && (
               <div style={{ marginTop: 24 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-                  <span style={{ fontWeight: 600 }}>Loading AI Model... {loadingProgress}%</span>
-                  <span style={{ color: 'var(--brand-primary)', fontSize: '0.85rem' }}>One-time download</span>
+                  <span style={{ fontWeight: 600 }}>{translate('transLoading') || 'Loading AI Model...'} {loadingProgress}%</span>
+                  <span style={{ color: 'var(--brand-primary)', fontSize: '0.85rem' }}>{translate('transDownload') || 'One-time download'}</span>
                 </div>
                 <div className="progress-container">
                   <div className="progress-bar" style={{ width: `${loadingProgress}%`, background: 'var(--brand-primary)' }}></div>
@@ -107,7 +109,7 @@ export const TranscribeMedia: React.FC = () => {
               <div style={{ marginTop: 24 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: 'center' }}>
                   <div style={{ animation: 'spin 1s linear infinite', display: 'flex', color: 'var(--brand-primary)' }}><Loader2 size={24} /></div>
-                  <span style={{ fontWeight: 600 }}>AI is transcribing your media...</span>
+                  <span style={{ fontWeight: 600 }}>{translate('transTranscribing') || 'AI is transcribing your media...'}</span>
                 </div>
               </div>
             )}
@@ -117,7 +119,7 @@ export const TranscribeMedia: React.FC = () => {
 
       <div className="tool-workspace-right glass-panel" style={{ display: 'flex', flexDirection: 'column' }}>
         <h3 style={{ marginBottom: 24, paddingBottom: 16, borderBottom: '1px solid var(--border-color)', fontWeight: 800 }}>
-          'Transcribe Media'
+          {translate('transTitle') || 'Transcribe Media'}
         </h3>
         
         <div style={{ marginBottom: 24, flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -168,7 +170,7 @@ export const TranscribeMedia: React.FC = () => {
               style={{ flex: 1, background: 'var(--brand-primary)' }}
             >
               <Copy size={18} />
-              <span>Copy to Clipboard</span>
+              <span>{translate('transCopy') || 'Copy to Clipboard'}</span>
             </button>
           ) : (
             <button
@@ -193,24 +195,24 @@ export const TranscribeMedia: React.FC = () => {
     
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
         <TranscribeMediaHeroSection 
-          section={{ type: 'hero', title: "Transcribe Audio & Video Offline", content: "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
+          section={{ type: 'hero', title: translate('transHeroTitle') || "Transcribe Audio & Video Offline", content: translate('transHeroDesc') || "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
         />
         <TranscribeMediaHowToSection 
           section={{
             type: 'howto',
-            title: "How to Transcribe",
+            title: translate('transHowTo') || "How to Transcribe",
             steps: [
-              { title: "Select Media", description: "Upload any audio or video file from your computer." },
-              { title: "AI Analysis", description: "The local AI engine listens and detects the spoken language." },
-              { title: "Get Text", description: "Instantly copy the transcription text to your clipboard." }
+              { title: translate('transHowTo1') || "Select Media", description: translate('transHowTo1Desc') || "Upload any audio or video file from your computer." },
+              { title: translate('transHowTo2') || "AI Analysis", description: translate('transHowTo2Desc') || "The local AI engine listens and detects the spoken language." },
+              { title: translate('transHowTo3') || "Get Text", description: translate('transHowTo3Desc') || "Instantly copy the transcription text to your clipboard." }
             ]
           }} 
         />
         <TranscribeMediaPerformanceSection 
-          section={{ type: 'performance', title: "Hardware Acceleration", content: "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
+          section={{ type: 'performance', title: translate('transPerfTitle') || "Hardware Acceleration", content: translate('transPerfDesc') || "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
         />
         <TranscribeMediaPrivacySection 
-          section={{ type: 'privacy', title: "Total Privacy", content: "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
+          section={{ type: 'privacy', title: translate('transPrivTitle') || "Total Privacy", content: translate('transPrivDesc') || "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
         />
         <TranscribeMediaFAQSection />
       </div>

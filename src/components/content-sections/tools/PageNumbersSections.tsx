@@ -2,9 +2,12 @@
 import React from 'react';
 import { FileDigit, CheckCircle2, Shield, Zap, MapPin, ListOrdered, FileText } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const PageNumbersHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const PageNumbersHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     {/* Floating Objects - Ordered Theme */}
     <div className="floating-object hidden-mobile" style={{ position: 'absolute', top: '10%', right: '8%', width: 64, height: 64, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 900, color: 'var(--brand-primary)', border: '1px solid rgba(255,255,255,0.8)', zIndex: 20, transform: 'rotate(10deg)', animation: 'float 7s ease-in-out infinite' }}>
       1
@@ -37,10 +40,13 @@ export const PageNumbersHeroSection: React.FC<SectionProps> = ({ section, badges
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PageNumbersHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const PageNumbersHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <div style={{ textAlign: 'center', marginBottom: 80 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-gradient)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
@@ -70,10 +76,13 @@ export const PageNumbersHowToSection: React.FC<SectionProps> = ({ section, badge
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PageNumbersGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const PageNumbersGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       {/* Wide Stacked Card */}
       <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 32, padding: '64px 48px', textAlign: 'center' }} className="hover-lift">
@@ -85,10 +94,13 @@ export const PageNumbersGeoSection: React.FC<SectionProps> = ({ section, badges,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PageNumbersPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const PageNumbersPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 32, padding: '64px 48px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 48 }} className="hover-lift">
         <div style={{ flex: '1 1 400px' }}>
@@ -104,10 +116,13 @@ export const PageNumbersPrivacySection: React.FC<SectionProps> = ({ section, bad
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PageNumbersPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const PageNumbersPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
          <div style={{ width: 280, height: 280, borderRadius: 32, background: 'var(--bg-app)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', position: 'relative', zIndex: 1 }}>
@@ -134,4 +149,5 @@ export const PageNumbersPerformanceSection: React.FC<SectionProps> = ({ section,
       </div>
     </div>
   </section>
-);
+  );
+};

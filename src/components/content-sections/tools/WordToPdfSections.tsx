@@ -1,10 +1,13 @@
 // @ts-nocheck
 import React from 'react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 import { FileText, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
 
-export const WordToPdfHeroSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => (
-  <section className="seo-section word-hero" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--brand-gradient)', borderRadius: 32, position: 'relative', overflow: 'hidden' }}>
+export const WordToPdfHeroSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section word-hero" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--brand-gradient)', borderRadius: 32, position: 'relative', overflow: 'hidden' }}>
     <div style={{ position: 'absolute', top: -50, right: -50, width: 250, height: 250, borderRadius: '50%', background: 'radial-gradient(circle at center, rgba(225,29,72,0.1) 0%, transparent 70%) 0%, transparent 70%)' }} />
     <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: flipLayout ? 'row-reverse' : 'row', flexWrap: 'wrap', gap: 48, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px' }}>
@@ -29,10 +32,13 @@ export const WordToPdfHeroSection: React.FC<SectionProps> = ({ section, flipLayo
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WordToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section word-howto" style={{ padding: '80px 24px', margin: '40px 0' }}>
+export const WordToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section word-howto" style={{ padding: '80px 24px', margin: '40px 0' }}>
     <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, textAlign: 'center', marginBottom: 60, color: 'var(--text-main)' }}>{section.title}</h2>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 32 }}>
       {section.steps?.map((step, i) => (
@@ -46,10 +52,13 @@ export const WordToPdfHowToSection: React.FC<SectionProps> = ({ section, badges,
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const WordToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => (
-  <section className="seo-section word-geo" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--bg-main)' }}>
+export const WordToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section word-geo" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--bg-main)' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: flipLayout ? 'row-reverse' : 'row', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 400px' }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
@@ -67,10 +76,13 @@ export const WordToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayou
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WordToPdfPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section word-privacy" style={{ padding: '80px 24px', margin: '60px 0', background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)', textAlign: 'center' }}>
+export const WordToPdfPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section word-privacy" style={{ padding: '80px 24px', margin: '60px 0', background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)', textAlign: 'center' }}>
     <div style={{ maxWidth: 700, margin: '0 auto' }}>
       <ShieldCheck size={56} color="var(--brand-primary)" style={{ margin: '0 auto 24px' }} />
       <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)' }}>{section.title}</h2>
@@ -81,10 +93,13 @@ export const WordToPdfPrivacySection: React.FC<SectionProps> = ({ section, badge
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WordToPdfPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section word-performance" style={{ padding: '80px 24px', margin: '40px 0' }}>
+export const WordToPdfPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section word-performance" style={{ padding: '80px 24px', margin: '40px 0' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 360px' }}>
         <Zap size={48} color="var(--brand-primary)" style={{ marginBottom: 24 }} />
@@ -101,4 +116,5 @@ export const WordToPdfPerformanceSection: React.FC<SectionProps> = ({ section, b
       </div>
     </div>
   </section>
-);
+  );
+};

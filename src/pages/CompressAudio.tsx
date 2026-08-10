@@ -4,6 +4,7 @@ import { Settings2 } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import type { Quality } from '../hooks/useUniversalCompressor';
+import { useLanguage } from '../hooks/useLanguage';
 
 export const CompressAudio: React.FC = () => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
@@ -13,11 +14,13 @@ export const CompressAudio: React.FC = () => {
   const [quality, setQuality] = useState<Quality>(60);
   const [realSizeMB, setRealSizeMB] = useState<number | null>(null);
   
+  const { t: translate } = useLanguage();
+  
   const t = {
-    desc: "Choose compression target for audio.",
-    small: "Small (64k)",
-    hq: "HQ (192k)",
-    action: "Compress Audio"
+    desc: translate('caDesc') || "Choose compression target for audio.",
+    small: translate('caSmall') || "Small (64k)",
+    hq: translate('caHq') || "HQ (192k)",
+    action: translate('caAction') || "Compress Audio"
   };
 
   React.useEffect(() => {
@@ -91,7 +94,7 @@ export const CompressAudio: React.FC = () => {
       <div>
         <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
           <Settings2 size={18} className="text-brand-primary" />
-          <span>{"Compression Settings"}</span>
+          <span>{translate('caSettings') || "Compression Settings"}</span>
         </h4>
         <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 12 }}>{t.desc}</p>
       </div>
@@ -117,7 +120,7 @@ export const CompressAudio: React.FC = () => {
         />
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           <span>{t.small}</span>
-          <span>{"Balanced"}</span>
+          <span>{translate('caBalanced') || "Balanced"}</span>
           <span>{t.hq}</span>
         </div>
       </div>
@@ -128,8 +131,8 @@ export const CompressAudio: React.FC = () => {
     <>
       <DualColumnWorkspace
         accept="audio/*"
-        title="Compress Audio Files without Losing Quality"
-        description="Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments."
+        title={translate('caTitle') || "Compress Audio Files without Losing Quality"}
+        description={translate('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments."}
         toolId="compress-audio"
       file={file}
       setFile={setFile}
@@ -145,24 +148,24 @@ export const CompressAudio: React.FC = () => {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CompressAudioHeroSection 
-          section={{ type: 'hero', title: "Shrink Audio Size Instantly", content: "Compress your MP3, WAV, and AAC files securely offline. Save gigabytes of space for podcasts, voice notes, and music sharing." }} 
+          section={{ type: 'hero', title: translate('caHeroTitle') || "Shrink Audio Size Instantly", content: translate('caHeroDesc') || "Compress your MP3, WAV, and AAC files securely offline. Save gigabytes of space for podcasts, voice notes, and music sharing." }} 
         />
         <CompressAudioHowToSection 
           section={{
             type: 'howto',
-            title: "How to Compress Audio",
+            title: translate('caHowTo') || "How to Compress Audio",
             steps: [
-              { title: "Upload Audio", description: "Select the audio file you want to compress from your device." },
-              { title: "Adjust Quality", description: "Use the slider to choose the right balance between file size and audio clarity." },
-              { title: "Compress & Save", description: "Hit compress and the file will be optimized and downloaded instantly." }
+              { title: translate('caHowTo1') || "Upload Audio", description: translate('caHowTo1Desc') || "Select the audio file you want to compress from your device." },
+              { title: translate('caHowTo2') || "Adjust Quality", description: translate('caHowTo2Desc') || "Use the slider to choose the right balance between file size and audio clarity." },
+              { title: translate('caHowTo3') || "Compress & Save", description: translate('caHowTo3Desc') || "Hit compress and the file will be optimized and downloaded instantly." }
             ]
           }} 
         />
         <CompressAudioPerformanceSection 
-          section={{ type: 'performance', title: "Powered by WebAssembly", content: "Experience native-grade FFmpeg compression speed entirely in your browser without the need for desktop applications." }} 
+          section={{ type: 'performance', title: translate('caPerfTitle') || "Powered by WebAssembly", content: translate('caPerfDesc') || "Experience native-grade FFmpeg compression speed entirely in your browser without the need for desktop applications." }} 
         />
         <CompressAudioPrivacySection 
-          section={{ type: 'privacy', title: "100% Secure Local Execution", content: "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
+          section={{ type: 'privacy', title: translate('caPrivTitle') || "100% Secure Local Execution", content: translate('caPrivDesc') || "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
         />
         <CompressAudioFAQSection />
       </div>

@@ -2,9 +2,12 @@
 import React from 'react';
 import { Image, CheckCircle2, Shield, Zap, MapPin } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ExtractImagesHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '60px 0', background: 'radial-gradient(circle at center, rgba(225,29,72,0.1) 0%, transparent 70%) 0%, transparent 70%)', borderRadius: 40 }}>
+export const ExtractImagesHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '60px 0', background: 'radial-gradient(circle at center, rgba(225,29,72,0.1) 0%, transparent 70%) 0%, transparent 70%)', borderRadius: 40 }}>
     <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
       <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 80, height: 80, borderRadius: '50%', background: 'var(--brand-gradient)', color: 'white', marginBottom: 32, boxShadow: '0 10px 30px rgba(225, 29, 72, 0.4)' }}>
         <Image size={40} />
@@ -13,10 +16,13 @@ export const ExtractImagesHeroSection: React.FC<SectionProps> = ({ section, badg
       <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '80px 24px', background: 'var(--bg-card)', borderTop: '1px solid var(--border-color)' }}>
+export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '80px 24px', background: 'var(--bg-card)', borderTop: '1px solid var(--border-color)' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto' }}>
       <h2 style={{ fontSize: '2.5rem', fontWeight: 800, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)' }}>{section.title}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
@@ -32,10 +38,13 @@ export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, bad
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '80px 24px' }}>
+export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '80px 24px' }}>
     <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', alignItems: 'flex-start', gap: 24, padding: 40, background: 'var(--brand-gradient)', borderRadius: 24, borderLeft: '4px solid var(--brand-primary)' }}>
       <MapPin size={32} color="var(--brand-primary)" style={{ flexShrink: 0, marginTop: 4 }} />
       <div>
@@ -44,20 +53,26 @@ export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badge
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
+export const ExtractImagesPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
     <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
       <Shield size={64} color="var(--brand-primary)" style={{ margin: '0 auto 24px' }} />
       <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)' }}>{section.title}</h2>
       <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '80px 24px' }}>
+export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '80px 24px' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 48, flexWrap: 'wrap' }}>
       <div style={{ flex: 1, minWidth: 300 }}>
         <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)' }}>{section.title}</h2>
@@ -76,4 +91,5 @@ export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ sectio
       </div>
     </div>
   </section>
-);
+  );
+};

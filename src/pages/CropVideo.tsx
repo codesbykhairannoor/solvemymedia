@@ -4,19 +4,22 @@ import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 
+import { useLanguage } from '../hooks/useLanguage';
+
 export const CropVideo: React.FC = () => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
+  const { t } = useLanguage();
   
-  const t = {
-    ratio: "Crop Aspect Ratio",
-    desc: "Center-crop your video to a specific social media aspect ratio.",
-    square: "1:1 (Square)",
-    square_desc: "Perfect for Instagram Feed",
-    vert: "9:16 (Vertical)",
-    vert_desc: "For TikTok, Reels, Shorts",
-    land: "16:9 (Landscape)",
-    land_desc: "For YouTube or TV",
-    action: "Crop Video"
+  const ui = {
+    ratio: t('cropRatio') || "Crop Aspect Ratio",
+    desc: t('cropDesc') || "Center-crop your video to a specific social media aspect ratio.",
+    square: t('cropSquare') || "1:1 (Square)",
+    square_desc: t('cropSquareDesc') || "Perfect for Instagram Feed",
+    vert: t('cropVert') || "9:16 (Vertical)",
+    vert_desc: t('cropVertDesc') || "For TikTok, Reels, Shorts",
+    land: t('cropLand') || "16:9 (Landscape)",
+    land_desc: t('cropLandDesc') || "For YouTube or TV",
+    action: t('cropAction') || "Crop Video"
   };
 
   const [file, setFile] = useState<File | null>(null);
@@ -45,9 +48,9 @@ export const CropVideo: React.FC = () => {
       <div>
         <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
           <Settings2 size={18} className="text-brand-primary" />
-          <span>{t.ratio}</span>
+          <span>{ui.ratio}</span>
         </h4>
-        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{t.desc}</p>
+        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{ui.desc}</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <button 
@@ -56,8 +59,8 @@ export const CropVideo: React.FC = () => {
             disabled={processing || !!outputUrl}
             style={{ padding: 12, textAlign: 'left', border: aspectRatio === '1:1' ? '2px solid var(--brand-primary)' : '2px solid transparent', cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer', opacity: processing || !!outputUrl ? 0.6 : 1 }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{t.square}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.square_desc}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.square}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.square_desc}</div>
           </button>
 
           <button 
@@ -66,8 +69,8 @@ export const CropVideo: React.FC = () => {
             disabled={processing || !!outputUrl}
             style={{ padding: 12, textAlign: 'left', border: aspectRatio === '9:16' ? '2px solid var(--brand-primary)' : '2px solid transparent', cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer', opacity: processing || !!outputUrl ? 0.6 : 1 }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{t.vert}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.vert_desc}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.vert}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.vert_desc}</div>
           </button>
 
           <button 
@@ -76,8 +79,8 @@ export const CropVideo: React.FC = () => {
             disabled={processing || !!outputUrl}
             style={{ padding: 12, textAlign: 'left', border: aspectRatio === '16:9' ? '2px solid var(--brand-primary)' : '2px solid transparent', cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer', opacity: processing || !!outputUrl ? 0.6 : 1 }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{t.land}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.land_desc}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.land}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.land_desc}</div>
           </button>
         </div>
       </div>
@@ -87,8 +90,8 @@ export const CropVideo: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title="Crop Video Dimensions to Any Aspect Ratio"
-      description="Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device."
+      title={t('cropTitle') || "Crop Video Dimensions to Any Aspect Ratio"}
+      description={t('cropSub') || "Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device."}
       toolId="crop-video"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
@@ -97,33 +100,39 @@ export const CropVideo: React.FC = () => {
       progress={progress}
       engine="tier3"
       onProcess={handleProcess}
-      processActionText={t.action}
+      processActionText={ui.action}
       sidebarContent={sidebarContent}
       targetFormat="mp4"
       />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CropVideoHeroSection 
-          section={{ type: 'hero', title: "Crop Video Perfectly", content: "Trim out the edges of your video for TikTok, Reels, and YouTube Shorts instantly without watermarks." }} 
+          section={{ type: 'hero', title: t('cropHero') || "Crop Video Perfectly", content: t('cropHeroDesc') || "Trim out the edges of your video for TikTok, Reels, and YouTube Shorts instantly without watermarks." }} 
         />
         <CropVideoHowToSection 
           section={{
             type: 'howto',
-            title: "How to Crop Videos",
+            title: t('cropHowTo') || "How to Crop Videos",
             steps: [
-              { title: "Select a Video", description: "Choose any video file from your local device." },
-              { title: "Pick Aspect Ratio", description: "Select the desired format like 9:16 vertical or 1:1 square." },
-              { title: "Crop & Export", description: "Hit crop and your video will be instantly ready for download." }
+              { title: t('cropHowTo1') || "Select a Video", description: t('cropHowTo1Desc') || "Choose any video file from your local device." },
+              { title: t('cropHowTo2') || "Pick Aspect Ratio", description: t('cropHowTo2Desc') || "Select the desired format like 9:16 vertical or 1:1 square." },
+              { title: t('cropHowTo3') || "Crop & Export", description: t('cropHowTo3Desc') || "Hit crop and your video will be instantly ready for download." }
             ]
           }} 
         />
         <CropVideoPlatformSection 
-          section={{ type: 'platform', title: "Social Media Ready", content: "Perfectly align your video dimensions for any social platform and ensure it looks professional." }} 
+          section={{ type: 'platform', title: t('cropPlat') || "Social Media Ready", content: t('cropPlatDesc') || "Perfectly align your video dimensions for any social platform and ensure it looks professional." }} 
         />
         <CropVideoPrivacySection 
-          section={{ type: 'privacy', title: "Secure Local Processing", content: "Your video files are strictly kept on your local machine and never uploaded or stored anywhere else." }} 
+          section={{ type: 'privacy', title: t('cropPriv') || "Secure Local Processing", content: t('cropPrivDesc') || "Your video files are strictly kept on your local machine and never uploaded or stored anywhere else." }} 
         />
-        <CropVideoFAQSection />
+        <CropVideoFAQSection 
+          faqs={[
+            { q: t('cropFaq1Q') || "Does cropping reduce video quality?", a: t('cropFaq1A') || "Cropping technically re-encodes the video, but we use high-quality presets to ensure the cropped area retains its original sharpness." },
+            { q: t('cropFaq2Q') || "Can I do custom free-form cropping?", a: t('cropFaq2A') || "Currently we only support center-cropping to standard social media aspect ratios (1:1, 9:16, 16:9) to keep the process lightning fast and simple." },
+            { q: t('cropFaq3Q') || "Is it really private?", a: t('cropFaq3A') || "Absolutely. Everything happens directly inside your web browser. Try turning off your Wi-Fi before clicking 'Crop'!" }
+          ]}
+        />
       </div>
     </>
   );

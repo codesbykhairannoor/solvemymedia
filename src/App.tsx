@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, Outlet, useParams } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { DynamicToolRoute } from './components/DynamicToolRoute';
@@ -11,13 +11,52 @@ import { SecurityTrust } from './pages/legal/SecurityTrust';
 import { Pricing } from './pages/legal/Pricing';
 import { Compare } from './pages/legal/Compare';
 import { SupportedLanguages } from './pages/legal/SupportedLanguages';
+import { LanguageProvider } from './hooks/useLanguage';
+import { SEO } from './components/seo/SEO';
+import { isValidLanguageCode, SUPPORTED_LANGUAGES } from './i18n/languages';
 
 function ScrollToTop() {
   const location = useLocation();
   useEffect(() => {
+    if (location.state && location.state.skipScroll) return;
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.state]);
   return null;
+}
+
+const getLegalSeoKeys = (pathname: string) => {
+  if (pathname.includes('/about-us')) return { title: 'seoAboutUsTitle', desc: 'seoAboutUsDesc' };
+  if (pathname.includes('/privacy-policy')) return { title: 'seoPrivacyTitle', desc: 'seoPrivacyDesc' };
+  if (pathname.includes('/terms-of-service')) return { title: 'seoTermsTitle', desc: 'seoTermsDesc' };
+  if (pathname.includes('/security')) return { title: 'seoSecurityTitle', desc: 'seoSecurityDesc' };
+  if (pathname.includes('/pricing')) return { title: 'seoPricingTitle', desc: 'seoPricingDesc' };
+  if (pathname.includes('/compare')) return { title: 'seoCompareTitle', desc: 'seoCompareDesc' };
+  if (pathname.includes('/supported-languages')) return { title: 'seoSupportedLanguagesTitle', desc: 'seoSupportedLanguagesDesc' };
+  return null;
+};
+
+function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggleTheme: () => void }) {
+  const location = useLocation();
+  const firstPathSegment = location.pathname.split('/')[1];
+  const isLangCode = isValidLanguageCode(firstPathSegment) && firstPathSegment !== 'en';
+  
+  const currentLang = isLangCode ? firstPathSegment : 'en';
+  const seoKeys = getLegalSeoKeys(location.pathname);
+
+  return (
+    <LanguageProvider currentLang={currentLang}>
+      {seoKeys && <SEO titleKey={seoKeys.title} descKey={seoKeys.desc} />}
+      <div className="app-container" style={{ paddingTop: 60 }}>
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <Outlet />
+        </div>
+        
+        <Footer />
+      </div>
+    </LanguageProvider>
+  );
 }
 
 function App() {
@@ -36,34 +75,40 @@ function App() {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
+  const langCodes = SUPPORTED_LANGUAGES.map(l => l.code).filter(c => c !== 'en');
+
   return (
     <Router>
       <ScrollToTop />
-        <div className="app-container" style={{ paddingTop: 60 }}>
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
-          
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-            <Routes>
-              {/* English / Default routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/:slug" element={<DynamicToolRoute />} />
-              
-              {/* Legal Pages */}
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/security" element={<SecurityTrust />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/compare" element={<Compare />} />
-              <Route path="/supported-languages" element={<SupportedLanguages />} />
-              
-              {/* Fallback */}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </div>
-          
-          <Footer />
-        </div>
+      <Routes>
+        <Route path="/" element={<LanguageLayout theme={theme} toggleTheme={toggleTheme} />}>
+          <Route index element={<Home />} />
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="security" element={<SecurityTrust />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="compare" element={<Compare />} />
+          <Route path="supported-languages" element={<SupportedLanguages />} />
+          <Route path=":slug" element={<DynamicToolRoute />} />
+        </Route>
+        
+        {langCodes.map(code => (
+          <Route key={code} path={`/${code}`} element={<LanguageLayout theme={theme} toggleTheme={toggleTheme} />}>
+            <Route index element={<Home />} />
+            <Route path="about-us" element={<AboutUs />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms-of-service" element={<TermsOfService />} />
+            <Route path="security" element={<SecurityTrust />} />
+            <Route path="pricing" element={<Pricing />} />
+            <Route path="compare" element={<Compare />} />
+            <Route path="supported-languages" element={<SupportedLanguages />} />
+            <Route path=":slug" element={<DynamicToolRoute />} />
+          </Route>
+        ))}
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </Router>
   );
 }

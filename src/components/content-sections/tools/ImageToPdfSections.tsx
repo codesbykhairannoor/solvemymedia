@@ -2,9 +2,12 @@
 import React from 'react';
 import { Image as ImageIcon, Images, Focus, FileDown, ShieldCheck, Zap, Maximize } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ImageToPdfHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--brand-primary)', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
+export const ImageToPdfHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--brand-primary)', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
     {/* Decorative background circles */}
     <div style={{ position: 'absolute', top: -100, left: -100, width: 400, height: 400, borderRadius: '50%', background: 'white', opacity: 0.05, pointerEvents: 'none' }} />
     <div style={{ position: 'absolute', bottom: -50, right: -50, width: 300, height: 300, borderRadius: '50%', background: 'white', opacity: 0.05, pointerEvents: 'none' }} />
@@ -53,10 +56,13 @@ export const ImageToPdfHeroSection: React.FC<SectionProps> = ({ section, badges,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ImageToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const ImageToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 40, position: 'relative' }}>
@@ -76,10 +82,13 @@ export const ImageToPdfHowToSection: React.FC<SectionProps> = ({ section, badges
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const ImageToPdfGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: '#111827', position: 'relative', overflow: 'hidden' }}>
+export const ImageToPdfGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: '#111827', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', color: 'white', position: 'relative', zIndex: 1 }}>
        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: '#9ca3af', lineHeight: 1.7, maxWidth: 800, margin: '0 auto 60px' }}>{section.content}</p>
@@ -94,10 +103,13 @@ export const ImageToPdfGeoSection: React.FC<SectionProps> = ({ section, badges, 
        </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ImageToPdfPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const ImageToPdfPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
       <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -111,10 +123,13 @@ export const ImageToPdfPrivacySection: React.FC<SectionProps> = ({ section, badg
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ImageToPdfPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative', color: 'white' }}>
+export const ImageToPdfPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative', color: 'white' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
        <Zap size={64} style={{ margin: '0 auto 40px' }} />
        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -132,4 +147,5 @@ export const ImageToPdfPerformanceSection: React.FC<SectionProps> = ({ section, 
        </div>
     </div>
   </section>
-);
+  );
+};

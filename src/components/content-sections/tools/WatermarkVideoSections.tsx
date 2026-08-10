@@ -1,19 +1,22 @@
 import React from 'react';
 import { Stamp, Image as ImageIcon, Type, Layers, ShieldCheck, FastForward, CheckCircle2, Droplets, Video } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const WatermarkVideoHeroSection: React.FC<SectionProps> = ({ section }) => (
+export const WatermarkVideoHeroSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ position: 'absolute', top: '-20%', left: '-10%', right: '-10%', bottom: '-20%', display: 'flex', flexWrap: 'wrap', gap: 40, opacity: 0.03, pointerEvents: 'none', transform: 'rotate(-15deg)' }}>
        {Array.from({ length: 50 }).map((_, i) => (
-         <span key={i} style={{ fontSize: '3rem', fontWeight: 900, whiteSpace: 'nowrap', color: 'var(--text-main)' }}>WATERMARK</span>
+         <span key={i} style={{ fontSize: '3rem', fontWeight: 900, whiteSpace: 'nowrap', color: 'var(--text-main)' }}>{t('wvBranded') || 'BRANDED'}</span>
        ))}
     </div>
     
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px' }}>
         <div style={{ display: 'inline-flex', padding: '12px 24px', background: 'var(--brand-gradient)', borderRadius: 100, color: 'white', fontWeight: 800, fontSize: '0.9rem', marginBottom: 40, gap: 12, alignItems: 'center', boxShadow: '0 10px 30px rgba(59, 130, 246, 0.3)' }}>
-          <Stamp size={18} /> Instant Brand Protection
+          <Stamp size={18} /> {t('wvInstant') || "Instant Brand Protection"}
         </div>
         
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.2 }}>{section.title}</h2>
@@ -28,7 +31,7 @@ export const WatermarkVideoHeroSection: React.FC<SectionProps> = ({ section }) =
             
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', animation: 'stampDown 3s infinite' }}>
                <div style={{ padding: '16px 32px', border: '8px solid rgba(59, 130, 246, 0.5)', color: 'rgba(59, 130, 246, 0.5)', fontSize: '2.5rem', fontWeight: 900, transform: 'rotate(-30deg)', borderRadius: 16, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  BRANDED
+                  {t('wvBranded') || 'BRANDED'}
                </div>
             </div>
             <style>{`@keyframes stampDown { 0% { transform: scale(3); opacity: 0; } 10% { transform: scale(1); opacity: 1; } 80% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }`}</style>
@@ -36,9 +39,12 @@ export const WatermarkVideoHeroSection: React.FC<SectionProps> = ({ section }) =
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkVideoHowToSection: React.FC<SectionProps> = ({ section }) => (
+export const WatermarkVideoHowToSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
     
@@ -56,9 +62,12 @@ export const WatermarkVideoHowToSection: React.FC<SectionProps> = ({ section }) 
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkVideoBrandSection: React.FC<SectionProps> = ({ section }) => (
+export const WatermarkVideoBrandSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
       <div style={{ flex: '1 1 500px' }}>
@@ -68,15 +77,18 @@ export const WatermarkVideoBrandSection: React.FC<SectionProps> = ({ section }) 
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)', position: 'relative' }} className="hover-lift">
             <ImageIcon size={48} color="white" style={{ marginBottom: 24 }} />
-            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>Logo Support</h3>
-            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>Type custom text as a watermark and burn it directly into your video files instantly.</p>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>{t('wvLogoSupport') || "Logo Support"}</h3>
+            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>{t('wvLogoDesc') || "Type custom text as a watermark and burn it directly into your video files instantly."}</p>
          </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const WatermarkVideoPrivacySection: React.FC<SectionProps> = ({ section }) => (
+export const WatermarkVideoPrivacySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
   <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ display: 'inline-flex', padding: 32, background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', marginBottom: 40 }}>
@@ -86,24 +98,26 @@ export const WatermarkVideoPrivacySection: React.FC<SectionProps> = ({ section }
       <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
 export const WatermarkVideoFAQSection: React.FC<{
   faqs?: Array<{q: string, a: string}>
 }> = ({ faqs }) => {
+  const { t } = useLanguage();
   const defaultFaqs = [
-    { q: "Can I remove the watermark later?", a: "No, this tool permanently burns the text watermark into the video frames (hard-subbing/hard-stamping). This is specifically designed to protect your copyright so others cannot easily remove it." },
-    { q: "Can I use an image logo instead of text?", a: "Currently, our local WASM engine supports text-based watermarks. You can customize the font size, position, and text color directly from the interface." },
-    { q: "Does adding a watermark re-encode my video?", a: "Yes, in order to burn the watermark into the actual video frames permanently, the video stream must be re-encoded. This may take longer for large videos depending on your computer's CPU speed." }
+    { q: t('wmFaq1Q') || "Can I remove the watermark later?", a: t('wmFaq1A') || "No, this tool permanently burns the text watermark into the video frames (hard-subbing/hard-stamping). This is specifically designed to protect your copyright so others cannot easily remove it." },
+    { q: t('wmFaq2Q') || "Can I use an image logo instead of text?", a: t('wmFaq2A') || "Currently, our local WASM engine supports text-based watermarks. You can customize the font size, position, and text color directly from the interface." },
+    { q: t('wmFaq3Q') || "Does adding a watermark re-encode my video?", a: t('wmFaq3A') || "Yes, in order to burn the watermark into the actual video frames permanently, the video stream must be re-encoded. This may take longer for large videos depending on your computer's CPU speed." }
   ];
   
   const faqList = faqs || defaultFaqs;
   
   return (
-    <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
+    <section className="seo-section faq" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || "Frequently Asked Questions"}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {faqList.map((faq, idx) => (
             <div key={idx} style={{ background: 'var(--bg-app)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
               <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>

@@ -3,18 +3,20 @@ import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
+import { useLanguage } from '../hooks/useLanguage';
 
 export const CreateGif: React.FC = () => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
+  const { t } = useLanguage();
   
-  const t = {
-    settings: "GIF Settings",
-    desc: "Customize the frame rate and size of your GIF.",
-    small: "Small & Fast (Meme)",
-    fps10: "10 FPS, 320px width",
-    fps15: "15 FPS, 480px width",
-    fps24: "24 FPS, 640px width",
-    gen: "Generate GIF"
+  const ui = {
+    settings: t('gifSettings') || "GIF Settings",
+    desc: t('gifDesc') || "Customize the frame rate and size of your GIF.",
+    small: t('gifSmall') || "Small & Fast (Meme)",
+    fps10: t('gifFps10') || "10 FPS, 320px width",
+    fps15: t('gifFps15') || "15 FPS, 480px width",
+    fps24: t('gifFps24') || "24 FPS, 640px width",
+    gen: t('gifGen') || "Generate GIF"
   };
 
   const [file, setFile] = useState<File | null>(null);
@@ -34,9 +36,9 @@ export const CreateGif: React.FC = () => {
       <div>
         <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
           <Settings2 size={18} className="text-brand-primary" />
-          <span>{t.settings}</span>
+          <span>{ui.settings}</span>
         </h4>
-        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{t.desc}</p>
+        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{ui.desc}</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <button 
@@ -44,8 +46,8 @@ export const CreateGif: React.FC = () => {
             onClick={() => { setFps(10); setWidth(320); }}
             style={{ padding: 12, textAlign: 'left', border: fps === 10 && width === 320 ? '2px solid var(--brand-primary)' : '2px solid transparent' }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{t.small}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.fps10}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.small}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.fps10}</div>
           </button>
 
           <button 
@@ -53,8 +55,8 @@ export const CreateGif: React.FC = () => {
             onClick={() => { setFps(15); setWidth(480); }}
             style={{ padding: 12, textAlign: 'left', border: fps === 15 && width === 480 ? '2px solid var(--brand-primary)' : '2px solid transparent' }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>Balanced</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.fps15}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{t('gifBalanced') || "Balanced"}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.fps15}</div>
           </button>
 
           <button 
@@ -62,8 +64,8 @@ export const CreateGif: React.FC = () => {
             onClick={() => { setFps(24); setWidth(640); }}
             style={{ padding: 12, textAlign: 'left', border: fps === 24 && width === 640 ? '2px solid var(--brand-primary)' : '2px solid transparent' }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>High Quality (Heavy)</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.fps24}</div>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{t('gifHigh') || "High Quality (Heavy)"}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.fps24}</div>
           </button>
         </div>
       </div>
@@ -73,8 +75,8 @@ export const CreateGif: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title="Create GIF from Video"
-      description="Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud."
+      title={t('gifTitle') || "Create GIF from Video"}
+      description={t('gifSub') || "Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud."}
       toolId="create-gif"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
@@ -83,33 +85,39 @@ export const CreateGif: React.FC = () => {
       progress={progress}
       engine="tier3"
       onProcess={handleProcess}
-      processActionText={t.gen}
+      processActionText={ui.gen}
       sidebarContent={sidebarContent}
       targetFormat="gif"
       />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CreateGifHeroSection 
-          section={{ type: 'hero', title: "Turn Videos into Viral GIFs", content: "Convert MP4, WebM, and MOV to animated GIFs in seconds. No watermarks, no signups, completely free." }} 
+          section={{ type: 'hero', title: t('gifHero') || "Turn Videos into Viral GIFs", content: t('gifHeroDesc') || "Convert MP4, WebM, and MOV to animated GIFs in seconds. No watermarks, no signups, completely free." }} 
         />
         <CreateGifHowToSection 
           section={{
             type: 'howto',
-            title: "How to Make a GIF",
+            title: t('gifHowTo') || "How to Make a GIF",
             steps: [
-              { title: "Upload Video", description: "Select any video file from your device." },
-              { title: "Set Framerate", description: "Choose the FPS and output size to balance quality and file size." },
-              { title: "Generate & Download", description: "Instantly create and save your animated GIF." }
+              { title: t('gifHowTo1') || "Upload Video", description: t('gifHowTo1Desc') || "Select any video file from your device." },
+              { title: t('gifHowTo2') || "Set Framerate", description: t('gifHowTo2Desc') || "Choose the FPS and output size to balance quality and file size." },
+              { title: t('gifHowTo3') || "Generate & Download", description: t('gifHowTo3Desc') || "Instantly create and save your animated GIF." }
             ]
           }} 
         />
         <CreateGifPerformanceSection 
-          section={{ type: 'performance', title: "Built for Speed", content: "Our advanced WebAssembly engine compiles video frames directly in your browser without communicating with external servers." }} 
+          section={{ type: 'performance', title: t('gifPerf') || "Built for Speed", content: t('gifPerfDesc') || "Our advanced WebAssembly engine compiles video frames directly in your browser without communicating with external servers." }} 
         />
         <CreateGifPrivacySection 
-          section={{ type: 'privacy', title: "Your Files Stay Yours", content: "Because everything runs locally, your sensitive videos are completely safe. Disconnect from the internet and watch it still work." }} 
+          section={{ type: 'privacy', title: t('gifPriv') || "Your Files Stay Yours", content: t('gifPrivDesc') || "Because everything runs locally, your sensitive videos are completely safe. Disconnect from the internet and watch it still work." }} 
         />
-        <CreateGifFAQSection />
+        <CreateGifFAQSection 
+          faqs={[
+            { q: t('gifFaq1Q') || "Is this really free?", a: t('gifFaq1A') || "Yes, completely free with no watermarks." },
+            { q: t('gifFaq2Q') || "Why does it happen instantly?", a: t('gifFaq2A') || "Everything is processed locally." },
+            { q: t('gifFaq3Q') || "Do you store my GIF?", a: t('gifFaq3A') || "No, we don't have access to it." }
+          ]}
+        />
       </div>
     </>
   );

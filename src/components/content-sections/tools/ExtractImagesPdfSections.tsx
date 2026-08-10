@@ -2,9 +2,12 @@
 import React from 'react';
 import { Search, ImagePlus, Archive, Fingerprint, Eye, Zap, Layers, Image as ImageIcon } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ExtractImagesHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const ExtractImagesHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     {/* Grid pattern */}
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.3, pointerEvents: 'none' }} />
     
@@ -41,10 +44,13 @@ export const ExtractImagesHeroSection: React.FC<SectionProps> = ({ section, badg
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative', color: 'white' }}>
+export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--brand-gradient)', position: 'relative', color: 'white' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
@@ -59,10 +65,13 @@ export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, bad
       ))}
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
        <div style={{ width: 100, height: 100, margin: '0 auto 40px', background: 'var(--bg-card)', border: '4px solid var(--text-main)', borderRadius: 24, transform: 'rotate(10deg)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '8px 8px 0 var(--text-main)' }}>
           <div style={{ transform: 'rotate(-10deg)' }}>
@@ -73,10 +82,13 @@ export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badge
        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#09090b', position: 'relative' }}>
+export const ExtractImagesPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#09090b', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center' }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ position: 'relative', width: 300, height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -91,10 +103,13 @@ export const ExtractImagesPrivacySection: React.FC<SectionProps> = ({ section, b
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
        <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -112,4 +127,5 @@ export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ sectio
        </div>
     </div>
   </section>
-);
+  );
+};

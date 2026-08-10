@@ -2,9 +2,12 @@
 import React from 'react';
 import { Lock, KeyRound, ShieldAlert, Cpu, EyeOff, FolderLock, Hexagon, Fingerprint } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const ProtectHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--brand-primary)', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
+export const ProtectHeroSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--brand-primary)', borderRadius: 40, position: 'relative', overflow: 'hidden' }}>
     {/* Abstract encryption nodes */}
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px', zIndex: 0 }} />
     
@@ -40,10 +43,13 @@ export const ProtectHeroSection: React.FC<SectionProps> = ({ section, badges, st
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ProtectHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const ProtectHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em' }}>{section.title}</h2>
     
     <div style={{ maxWidth: 1000, margin: '0 auto', position: 'relative' }}>
@@ -65,10 +71,13 @@ export const ProtectHowToSection: React.FC<SectionProps> = ({ section, badges, s
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ProtectGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const ProtectGeoSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section geo" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
        <div style={{ width: 100, height: 100, margin: '0 auto 40px', background: 'var(--brand-gradient)', borderRadius: 24, transform: 'rotate(15deg)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 40px rgba(225, 29, 72, 0.3)' }}>
           <div style={{ transform: 'rotate(-15deg)' }}>
@@ -79,10 +88,13 @@ export const ProtectGeoSection: React.FC<SectionProps> = ({ section, badges, sta
        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const ProtectPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#09090b', position: 'relative', overflow: 'hidden' }}>
+export const ProtectPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: '#09090b', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'white', letterSpacing: '-0.04em', lineHeight: 1.05 }}>{section.title}</h2>
@@ -97,10 +109,13 @@ export const ProtectPrivacySection: React.FC<SectionProps> = ({ section, badges,
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const ProtectPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
+export const ProtectPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center' }}>
        <div style={{ flex: '1 1 400px' }}>
           <div style={{ padding: 48, background: 'var(--bg-app)', borderRadius: 32, border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -118,4 +133,5 @@ export const ProtectPerformanceSection: React.FC<SectionProps> = ({ section, bad
        </div>
     </div>
   </section>
-);
+  );
+};

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Download, Loader2, Zap } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
+import { useLanguage } from '../../hooks/useLanguage';
 
 interface CenteredActionWorkspaceProps {
   file: File | null;
@@ -35,11 +36,13 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   
+  const { t } = useLanguage();
+  
   const ui = {
-    drag_drop: "Drag & drop file or",
-    browse_files: "Browse Files",
-    processing: "Processing...",
-    download_result: "Download Result"
+    drag_drop: t('cwDragDrop') || "Drag & drop file or",
+    browse_files: t('cwBrowse') || "Browse Files",
+    processing: t('cwProcessing') || "Processing...",
+    download_result: t('cwDownload') || "Download Result"
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {

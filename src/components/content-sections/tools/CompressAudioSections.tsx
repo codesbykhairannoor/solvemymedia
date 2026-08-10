@@ -1,9 +1,12 @@
 import React from 'react';
 import { Minimize2, CheckCircle2, Shield, Zap, MapPin, ArrowRight, Music, FileAudio } from 'lucide-react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 
-export const CompressAudioHeroSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+export const CompressAudioHeroSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section hero" style={{ padding: '100px 24px', margin: '80px 0 60px', background: 'var(--bg-card)', borderRadius: 40, border: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
@@ -36,10 +39,13 @@ export const CompressAudioHeroSection: React.FC<SectionProps> = ({ section }) =>
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const CompressAudioHowToSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
+export const CompressAudioHowToSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section how-to" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto' }}>
       <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 80, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2 }}>{section.title}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
@@ -55,10 +61,13 @@ export const CompressAudioHowToSection: React.FC<SectionProps> = ({ section }) =
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const CompressAudioPrivacySection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
+export const CompressAudioPrivacySection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section privacy" style={{ padding: '120px 24px', background: 'var(--bg-card)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ background: 'var(--bg-app)', borderRadius: 40, padding: '80px 48px', border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }}>
         <div style={{ width: 80, height: 80, margin: '0 auto 32px', borderRadius: 24, background: 'var(--bg-card)', border: '2px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -69,10 +78,13 @@ export const CompressAudioPrivacySection: React.FC<SectionProps> = ({ section })
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const CompressAudioPerformanceSection: React.FC<SectionProps> = ({ section }) => (
-  <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
+export const CompressAudioPerformanceSection: React.FC<SectionProps> = ({ section }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section performance" style={{ padding: '120px 24px', background: 'var(--bg-app)', position: 'relative', overflow: 'hidden' }}>
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: 280, height: 280, background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
@@ -99,15 +111,17 @@ export const CompressAudioPerformanceSection: React.FC<SectionProps> = ({ sectio
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export const CompressAudioFAQSection: React.FC<{
   faqs?: Array<{q: string, a: string}>
 }> = ({ faqs }) => {
+  const { t } = useLanguage();
   const defaultFaqs = [
-    { q: "Does compressing an audio file reduce its quality?", a: "Yes, reducing the bitrate compresses the audio data by removing certain frequencies, which reduces file size but can affect clarity. However, dropping from 320kbps to 128kbps is often unnoticeable for standard voice recordings." },
-    { q: "What is the best bitrate for spoken word (podcasts)?", a: "For speech and podcasts, a bitrate of 64kbps to 96kbps is usually more than enough and keeps the file size very small." },
-    { q: "Is this tool completely free and secure?", a: "Yes, our audio compressor runs entirely in your web browser. No audio files are ever uploaded to a server, ensuring 100% privacy." }
+    { q: t('compVFaq1Q') || "Does compressing an audio file reduce its quality?", a: t('compVFaq1A') || "Yes, reducing the bitrate compresses the audio data by removing certain frequencies, which reduces file size but can affect clarity. However, dropping from 320kbps to 128kbps is often unnoticeable for standard voice recordings." },
+    { q: t('compVFaq2Q') || "What is the best bitrate for spoken word (podcasts)?", a: t('compVFaq2A') || "For speech and podcasts, a bitrate of 64kbps to 96kbps is usually more than enough and keeps the file size very small." },
+    { q: t('compVFaq3Q') || "Is this tool completely free and secure?", a: t('compVFaq3A') || "Yes, our audio compressor runs entirely in your web browser. No audio files are ever uploaded to a server, ensuring 100% privacy." }
   ];
   
   const faqList = faqs || defaultFaqs;
@@ -115,7 +129,7 @@ export const CompressAudioFAQSection: React.FC<{
   return (
     <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {faqList.map((faq, idx) => (
             <div key={idx} style={{ background: 'var(--bg-app)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>

@@ -1,10 +1,13 @@
 // @ts-nocheck
 import React from 'react';
 import type { SectionProps } from '../types';
+import { useLanguage } from '../../../hooks/useLanguage';
 import { Presentation, Shield, FastForward, PlayCircle } from 'lucide-react';
 
-export const PptToPdfHeroSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => (
-  <section className="seo-section ppt-hero" style={{ padding: '80px 24px', margin: '40px 0', background: 'radial-gradient(circle at center, rgba(225,29,72,0.1) 0%, transparent 70%) 0%, #0f172a 100%)', borderRadius: 32 }}>
+export const PptToPdfHeroSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section ppt-hero" style={{ padding: '80px 24px', margin: '40px 0', background: 'radial-gradient(circle at center, rgba(225,29,72,0.1) 0%, transparent 70%) 0%, #0f172a 100%)', borderRadius: 32 }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: flipLayout ? 'row-reverse' : 'row', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 350px' }}>
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 24, color: '#fff', lineHeight: 1.1 }}>{section.title}</h2>
@@ -31,10 +34,13 @@ export const PptToPdfHeroSection: React.FC<SectionProps> = ({ section, flipLayou
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PptToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section ppt-howto" style={{ padding: '80px 24px', margin: '40px 0' }}>
+export const PptToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section ppt-howto" style={{ padding: '80px 24px', margin: '40px 0' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
       <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 60, color: 'var(--text-main)' }}>{section.title}</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
@@ -48,10 +54,13 @@ export const PptToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, 
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PptToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => (
-  <section className="seo-section ppt-geo" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--brand-gradient)', borderRadius: 32 }}>
+export const PptToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayout, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section ppt-geo" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--brand-gradient)', borderRadius: 32 }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: flipLayout ? 'row-reverse' : 'row', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 400px' }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
@@ -66,19 +75,25 @@ export const PptToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayout
       </div>
     </div>
   </section>
-);
+  );
+};
 
-export const PptToPdfPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section ppt-privacy" style={{ padding: '80px 24px', margin: '60px 0' }}>
+export const PptToPdfPrivacySection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section ppt-privacy" style={{ padding: '80px 24px', margin: '60px 0' }}>
     <div style={{ maxWidth: 900, margin: '0 auto', background: 'var(--bg-card)', border: '2px solid var(--brand-primary)', borderRadius: 32, padding: 60, textAlign: 'center' }}>
       <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)' }}>{section.title}</h2>
       <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 600, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
-);
+  );
+};
 
-export const PptToPdfPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => (
-  <section className="seo-section ppt-performance" style={{ padding: '80px 24px', margin: '40px 0' }}>
+export const PptToPdfPerformanceSection: React.FC<SectionProps> = ({ section, badges, stats, buttonText }) => {
+  const { t } = useLanguage();
+  return (
+    <section className="seo-section ppt-performance" style={{ padding: '80px 24px', margin: '40px 0' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 360px' }}>
         <FastForward size={48} color="var(--brand-primary)" style={{ marginBottom: 24 }} />
@@ -97,4 +112,5 @@ export const PptToPdfPerformanceSection: React.FC<SectionProps> = ({ section, ba
       </div>
     </div>
   </section>
-);
+  );
+};

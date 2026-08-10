@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
-  Sun, Moon, ChevronDown, 
+  Sun, Moon, ChevronDown, Search, Menu, X,
   Video, Music, Scissors, Minimize2, Image,
   Mic, FileAudio, RotateCw, Crop, VolumeX, Stamp, FastForward
 } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
+import { getLocalizedSlug, getStandardSlug } from '../i18n/slugs';
 
 interface NavbarProps {
   theme: 'light' | 'dark';
@@ -28,26 +30,63 @@ const MI: React.FC<{
 );
 
 export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { currentLang, t, languages } = useLanguage();
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [langSearch, setLangSearch] = useState('');
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const handleLanguageChange = (newLang: string) => {
+    setIsLangOpen(false);
+    setLangSearch('');
+    if (newLang === currentLang) return;
+    
+    const currentPath = location.pathname;
+    let cleanPath = currentPath;
+    if (currentLang !== 'en' && cleanPath.startsWith(`/${currentLang}`)) {
+      cleanPath = cleanPath.slice(currentLang.length + 1) || '/';
+    }
+    
+    // Convert current localized slug to standard, then to new localized slug
+    if (cleanPath !== '/') {
+      const parts = cleanPath.split('/').filter(Boolean);
+      const slugCandidate = parts[0];
+      if (slugCandidate) {
+        const standardSlug = getStandardSlug(slugCandidate, currentLang);
+        const newLocalizedSlug = getLocalizedSlug(standardSlug, newLang);
+        cleanPath = `/${newLocalizedSlug}`;
+      }
+    }
+    
+    const newPath = newLang === 'en' ? (cleanPath || '/') : `/${newLang}${cleanPath === '/' ? '' : cleanPath}`;
+    navigate(newPath, { replace: true, state: { skipScroll: true } });
+  };
   
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const navRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const megaTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 
-  const getToolName = (toolId: string) => toolId.replace(/-/g, " ");
+  const getToolName = (toolId: string) => {
+    const localized = getLocalizedSlug(toolId, currentLang);
+    return localized.replace(/-/g, " ");
+  };
 
   const handleToolClick = (path: string) => {
     setIsMegaOpen(false);
     setIsMobileMenuOpen(false);
-    navigate(`/${path}`);
+    const localizedSlug = getLocalizedSlug(path, currentLang);
+    const prefix = currentLang === 'en' ? '' : `/${currentLang}`;
+    navigate(`${prefix}/${localizedSlug}`);
   };
 
   const handleMegaEnter = () => {
     if (megaTimerRef.current) clearTimeout(megaTimerRef.current);
     setIsMegaOpen(true);
   };
+
   const handleMegaLeave = () => {
     megaTimerRef.current = setTimeout(() => setIsMegaOpen(false), 120);
   };
@@ -58,12 +97,16 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         setIsMegaOpen(false);
         setIsMobileMenuOpen(false);
       }
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setIsLangOpen(false);
+      }
     };
     document.addEventListener('mousedown', fn);
     return () => document.removeEventListener('mousedown', fn);
   }, []);
 
   const isLightMode = theme === 'light';
+  const prefix = currentLang === 'en' ? '' : `/${currentLang}`;
 
   return (
     <nav ref={navRef} aria-label="Main Site Header" style={{
@@ -75,26 +118,26 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       <div style={{ maxWidth: 1200, width: '100%', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: 0 }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
-          <div style={{ background: 'var(--brand-gradient)', padding: 6, borderRadius: 8, color: '#fff' }}>
-            <Video size={20} />
-          </div>
-          <span style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>SolveMyMedia</span>
+        <Link to={`${prefix}/`} style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
+          <img src="/logoweb.png" alt="SolveMyMedia Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
+          <span style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
+            SolveMy<span style={{ background: 'var(--brand-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Media</span>
+          </span>
         </Link>
       </div>
 
       <div aria-label="Desktop Quick Navigation" className="desktop-only" style={{ flex: '0 1 auto', display: 'flex', alignItems: 'center', gap: 4 }}>
         {[
-          { id: 'compress-video', label: 'COMPRESS VIDEO' },
-          { id: 'compress-audio', label: 'COMPRESS AUDIO' },
-          { id: 'video-to-audio', label: 'VIDEO TO AUDIO' },
+          { id: 'compress-video', label: getToolName('compress-video') },
+          { id: 'compress-audio', label: getToolName('compress-audio') },
+          { id: 'video-to-audio', label: getToolName('video-to-audio') },
         ].map(({ id, label }) => (
           <button
             key={id}
             onClick={() => handleToolClick(id)}
             className="nav-tab-btn"
-            style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', padding: '6px 12px', borderRadius: 8, fontSize: '0.84rem', fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s', letterSpacing: '0.02em' }}
-          >{id.replace(/-/g, " ").toUpperCase()}</button>
+            style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', padding: '6px 12px', borderRadius: 8, fontSize: '0.84rem', fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s', letterSpacing: '0.02em', textTransform: 'uppercase' }}
+          >{label}</button>
         ))}
 
         {/* ALL TOOLS - hover dropdown trigger */}
@@ -114,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               transition: 'all 0.2s', marginLeft: 8
             }}
           >
-            'ALL TOOLS' <ChevronDown size={14} style={{ transform: isMegaOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+            {t('navbarAllTools') || 'ALL TOOLS'} <ChevronDown size={14} style={{ transform: isMegaOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
           </button>
 
           {isMegaOpen && (
@@ -127,14 +170,14 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, width: '100%', maxWidth: 1000 }}>
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">'VIDEO OPTIMIZATION'</div>
+                  <div className="mega-menu-title">{t('navCatVideoOpt') || 'VIDEO OPTIMIZATION'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-video')} onClick={() => handleToolClick('compress-video')} />
                   <MI icon={RotateCw} label={getToolName('convert-video')} onClick={() => handleToolClick('convert-video')} />
                   <MI icon={FastForward} label={getToolName('video-speed')} onClick={() => handleToolClick('video-speed')} />
                 </div>
                 
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">'VIDEO EDITING'</div>
+                  <div className="mega-menu-title">{t('navCatVideoEdit') || 'VIDEO EDITING'}</div>
                   <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
                   <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
                   <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
@@ -142,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 </div>
 
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">'AUDIO TOOLS'</div>
+                  <div className="mega-menu-title">{t('navCatAudio') || 'AUDIO TOOLS'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-audio')} onClick={() => handleToolClick('compress-audio')} />
                   <MI icon={Music} label={getToolName('convert-audio')} onClick={() => handleToolClick('convert-audio')} />
                   <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
@@ -150,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 </div>
 
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">'AI & STUDIO'</div>
+                  <div className="mega-menu-title">{t('navCatAiStudio') || 'AI & STUDIO'}</div>
                   <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} />
                   <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} />
                 </div>
@@ -162,7 +205,93 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
       {/* Right: Theme + Lang */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, justifyContent: 'flex-end' }}>
+        
+        <div ref={langRef} style={{ position: 'relative' }}>
+          <button 
+            onClick={() => setIsLangOpen(!isLangOpen)}
+            style={{ 
+              padding: '6px 12px', 
+              borderRadius: '8px', 
+              border: '1.5px solid var(--border-color)',
+              background: 'var(--bg-app)',
+              color: 'var(--text-main)',
+              cursor: 'pointer',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6
+            }}
+          >
+            {languages.find(l => l.code === currentLang)?.flag} {currentLang.toUpperCase()}
+            <ChevronDown size={14} style={{ transform: isLangOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', marginLeft: 4 }} />
+          </button>
+          
+          {isLangOpen && (
+            <div style={{
+              position: 'absolute',
+              top: '100%',
+              right: 0,
+              marginTop: 8,
+              width: 200,
+              background: 'var(--bg-app)',
+              border: '1px solid var(--border-color)',
+              borderRadius: 12,
+              boxShadow: '0 10px 40px rgba(0,0,0,0.15)',
+              zIndex: 1000,
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden'
+            }}>
+              <div style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Search size={14} color="var(--text-muted)" />
+                <input 
+                  type="text" 
+                  placeholder={t('navbarAllTools') ? 'Search...' : 'Search...'} 
+                  value={langSearch}
+                  onChange={(e) => setLangSearch(e.target.value)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    color: 'var(--text-main)',
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    width: '100%'
+                  }}
+                  autoFocus
+                />
+              </div>
+              <div style={{ maxHeight: 300, overflowY: 'auto' }} className="custom-scrollbar">
+                {languages.filter(l => l.name.toLowerCase().includes(langSearch.toLowerCase()) || l.code.includes(langSearch.toLowerCase())).map(lang => (
+                  <button
+                    key={lang.code}
+                    onClick={() => handleLanguageChange(lang.code)}
+                    style={{
+                      width: '100%',
+                      padding: '10px 16px',
+                      background: currentLang === lang.code ? 'rgba(225,29,72,0.1)' : 'transparent',
+                      border: 'none',
+                      textAlign: 'left',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 12,
+                      cursor: 'pointer',
+                      fontSize: '0.9rem',
+                      color: currentLang === lang.code ? 'var(--brand-primary)' : 'var(--text-main)'
+                    }}
+                    className="hover-bg-subtle"
+                  >
+                    <span style={{ fontSize: '1.1rem' }}>{lang.flag}</span>
+                    <span style={{ fontWeight: currentLang === lang.code ? 700 : 500 }}>{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+        
         <button 
+          className="desktop-only"
           onClick={toggleTheme}
           style={{
             background: isLightMode ? '#fef3c7' : '#1e1b4b', color: isLightMode ? '#d97706' : '#a855f7',
@@ -174,8 +303,77 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         >
           {isLightMode ? <Moon size={16} /> : <Sun size={16} />}
         </button>
+        
+        {/* Mobile Hamburger Button */}
+        <button
+          className="mobile-only"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: 'var(--text-main)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 4
+          }}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
       </div>
+      
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-overlay" style={{ background: 'var(--bg-app)', borderTop: '1px solid var(--border-color)', animation: 'fadeInDown 0.2s ease forwards' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 10, borderBottom: '1px solid var(--border-color)' }}>
+               <span style={{ fontWeight: 800, color: 'var(--text-main)', fontSize: '1.1rem' }}>Menu</span>
+               <button 
+                  onClick={toggleTheme}
+                  style={{
+                    background: isLightMode ? '#fef3c7' : '#1e1b4b', color: isLightMode ? '#d97706' : '#a855f7',
+                    border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`, cursor: 'pointer',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    width: 36, height: 36, borderRadius: '50%'
+                  }}
+               >
+                  {isLightMode ? <Moon size={16} /> : <Sun size={16} />}
+               </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <div className="mega-menu-title">{t('navCatVideoOpt') || 'VIDEO OPTIMIZATION'}</div>
+              <MI icon={Minimize2} label={getToolName('compress-video')} onClick={() => handleToolClick('compress-video')} />
+              <MI icon={RotateCw} label={getToolName('convert-video')} onClick={() => handleToolClick('convert-video')} />
+              <MI icon={FastForward} label={getToolName('video-speed')} onClick={() => handleToolClick('video-speed')} />
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <div className="mega-menu-title">{t('navCatVideoEdit') || 'VIDEO EDITING'}</div>
+              <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
+              <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
+              <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
+              <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <div className="mega-menu-title">{t('navCatAudio') || 'AUDIO TOOLS'}</div>
+              <MI icon={Minimize2} label={getToolName('compress-audio')} onClick={() => handleToolClick('compress-audio')} />
+              <MI icon={Music} label={getToolName('convert-audio')} onClick={() => handleToolClick('convert-audio')} />
+              <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
+              <MI icon={Scissors} label={getToolName('merge-audio')} onClick={() => handleToolClick('merge-audio')} />
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <div className="mega-menu-title">{t('navCatAiStudio') || 'AI & STUDIO'}</div>
+              <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} />
+              <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} />
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         .nav-tab-btn:hover {
@@ -223,9 +421,13 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         }
         @media (max-width: 768px) {
           .desktop-only { display: none !important; }
+          .mobile-only { display: flex !important; }
+          .mega-menu-item { padding: 4px 6px; }
+          .mega-menu-item .item-title { font-size: 0.9rem; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }
+          .mobile-only { display: none !important; }
         }
         @keyframes fadeInDown {
           from { opacity: 0; transform: translateY(-8px); }
