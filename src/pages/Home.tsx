@@ -77,7 +77,9 @@ export const Home: React.FC = () => {
               letterSpacing: '-0.03em', 
               lineHeight: 1.15,
               color: 'var(--text-main)',
-              marginBottom: 24,
+              maxWidth: 1000,
+              margin: '0 auto 24px auto',
+              textWrap: 'balance',
               fontFamily: 'var(--font-display)'
             }}
           >
