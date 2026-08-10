@@ -382,7 +382,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                       <button
                         key={id}
                         onClick={() => handleToolClick(id)}
-                        style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '9px 11px', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', fontSize: '0.85rem', cursor: 'pointer', textAlign: 'left', textTransform: 'uppercase' }}
+                        style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '9px 11px', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', fontSize: '0.79rem', cursor: 'pointer', textAlign: 'left', textTransform: 'uppercase' }}
                       >
                         <Icon size={14} color="var(--brand-primary)" />
                         <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{getToolName(id)}</span>
@@ -432,7 +432,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           transform: translateX(3px);
         }
         .mega-menu-item .item-title {
-          font-size: 0.98rem;
+          font-size: 0.92rem;
           font-weight: 700;
           color: var(--text-main);
           line-height: 1.2;
@@ -445,7 +445,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           .mobile-only { display: flex !important; }
           .mobile-menu-container { display: block !important; }
           .mega-menu-item { padding: 4px 6px; }
-          .mega-menu-item .item-title { font-size: 0.9rem; }
+          .mega-menu-item .item-title { font-size: 0.84rem; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }
