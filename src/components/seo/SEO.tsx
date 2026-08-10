@@ -15,8 +15,8 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
   const { currentLang, t, languages } = useLanguage();
   const location = useLocation();
   
-  const title = t(titleKey) || defaultTitle || 'SolveMyMedia';
-  const description = t(descKey) || defaultDesc || 'Optimize your media files';
+  const title = t(titleKey as any) || defaultTitle || 'SolveMyMedia';
+  const description = t(descKey as any) || defaultDesc || 'Optimize your media files';
   
   const domain = 'https://solvemymedia.com';
   
@@ -84,7 +84,7 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     ],
     link: [
       { rel: 'canonical', href: canonicalUrl },
-      ...alternateLinks
+      ...(alternateLinks as any[])
     ]
   });
 

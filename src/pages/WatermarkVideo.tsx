@@ -21,7 +21,10 @@ export const WatermarkVideo: React.FC = () => {
     tiled: t('wmTiled') || "Tiled",
     scale: t('wmScale') || "Scale",
     opacity: t('wmOpac') || "Opacity",
-    action: t('wmAction') || "Add Watermark"
+    action: t('wmAction') || "Add Watermark",
+    addVideo: t('dragDrop') || "Select Video",
+    addLogo: t('browseFiles') || "Select Logo",
+    applying: t('cwProcessing') || "Applying..."
   };
 
   const [videoFile, setVideoFile] = useState<File | null>(null);

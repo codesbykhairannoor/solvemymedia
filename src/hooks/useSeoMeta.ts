@@ -34,7 +34,7 @@ export const useSeoMeta = (title: string, description: string) => {
     ],
     link: [
       { rel: 'canonical', href: `${domain}${pathname}` },
-      ...hreflangs
+      ...(hreflangs as any[])
     ]
   });
 };
