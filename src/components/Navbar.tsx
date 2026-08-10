@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
-  Sun, Moon, ChevronDown, Search, Menu, X,
+  Sun, Moon, ChevronDown, ChevronUp, Search, Menu, X,
   Video, Music, Scissors, Minimize2, Image,
   Mic, FileAudio, RotateCw, Crop, VolumeX, Stamp, FastForward
 } from 'lucide-react';
@@ -65,6 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileAllOpen, setIsMobileAllOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const megaTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -326,52 +327,72 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu-overlay" style={{ background: 'var(--bg-app)', borderTop: '1px solid var(--border-color)', animation: 'fadeInDown 0.2s ease forwards' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 10, borderBottom: '1px solid var(--border-color)' }}>
-               <span style={{ fontWeight: 800, color: 'var(--text-main)', fontSize: '1.1rem' }}>Menu</span>
-               <button 
-                  onClick={toggleTheme}
-                  style={{
-                    background: isLightMode ? '#fef3c7' : '#1e1b4b', color: isLightMode ? '#d97706' : '#a855f7',
-                    border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`, cursor: 'pointer',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    width: 36, height: 36, borderRadius: '50%'
-                  }}
-               >
-                  {isLightMode ? <Moon size={16} /> : <Sun size={16} />}
-               </button>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <div className="mega-menu-title">{t('navCatVideoOpt') || 'VIDEO OPTIMIZATION'}</div>
-              <MI icon={Minimize2} label={getToolName('compress-video')} onClick={() => handleToolClick('compress-video')} />
-              <MI icon={RotateCw} label={getToolName('convert-video')} onClick={() => handleToolClick('convert-video')} />
-              <MI icon={FastForward} label={getToolName('video-speed')} onClick={() => handleToolClick('video-speed')} />
-            </div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <div className="mega-menu-title">{t('navCatVideoEdit') || 'VIDEO EDITING'}</div>
-              <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
-              <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
-              <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
-              <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <div className="mega-menu-title">{t('navCatAudio') || 'AUDIO TOOLS'}</div>
-              <MI icon={Minimize2} label={getToolName('compress-audio')} onClick={() => handleToolClick('compress-audio')} />
-              <MI icon={Music} label={getToolName('convert-audio')} onClick={() => handleToolClick('convert-audio')} />
-              <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
-              <MI icon={Scissors} label={getToolName('merge-audio')} onClick={() => handleToolClick('merge-audio')} />
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <div className="mega-menu-title">{t('navCatAiStudio') || 'AI & STUDIO'}</div>
-              <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} />
-              <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} />
-            </div>
+        <div className="mobile-menu-container" style={{ position: 'absolute', top: 60, left: 0, right: 0, background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)', padding: '16px 16px 28px', maxHeight: 'calc(100vh - 60px)', overflowY: 'auto', zIndex: 40, boxShadow: '0 12px 30px rgba(0,0,0,0.15)' }}>
+          {/* Quick 3 buttons */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, marginBottom: 16 }}>
+            {[
+              { id: 'compress-video', label: getToolName('compress-video') },
+              { id: 'compress-audio', label: getToolName('compress-audio') },
+              { id: 'video-to-audio', label: getToolName('video-to-audio') },
+            ].map(({ id, label }) => (
+              <button key={id} onClick={() => handleToolClick(id)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '10px', borderRadius: 8, fontWeight: 700, color: 'var(--text-main)', fontSize: '0.82rem', cursor: 'pointer', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</button>
+            ))}
           </div>
+
+          {/* Accordion: All Tools */}
+          <button
+            onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
+            style={{ width: '100%', background: 'var(--brand-gradient)', color: '#fff', border: 'none', padding: '11px 16px', borderRadius: 8, fontWeight: 800, fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', marginBottom: isMobileAllOpen ? 12 : 0 }}
+          >
+            <span style={{ textTransform: 'uppercase' }}>{t('navAllTools') || 'ALL MEDIA TOOLS'}</span>
+            {isMobileAllOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+
+          {isMobileAllOpen && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {[
+                { section: t('navCatVideoOpt') || 'VIDEO OPTIMIZATION', tools: [
+                  { id: 'compress-video', Icon: Minimize2 },
+                  { id: 'convert-video', Icon: RotateCw },
+                  { id: 'video-speed', Icon: FastForward },
+                ]},
+                { section: t('navCatVideoEdit') || 'VIDEO EDITING', tools: [
+                  { id: 'create-gif', Icon: Image },
+                  { id: 'crop-video', Icon: Crop },
+                  { id: 'mute-video', Icon: VolumeX },
+                  { id: 'watermark-video', Icon: Stamp },
+                ]},
+                { section: t('navCatAudio') || 'AUDIO TOOLS', tools: [
+                  { id: 'compress-audio', Icon: Minimize2 },
+                  { id: 'convert-audio', Icon: Music },
+                  { id: 'video-to-audio', Icon: FileAudio },
+                  { id: 'merge-audio', Icon: Scissors },
+                ]},
+                { section: t('navCatAiStudio') || 'AI & STUDIO', tools: [
+                  { id: 'transcribe', Icon: Mic },
+                  { id: 'recorder', Icon: Video },
+                ]},
+              ].map(group => (
+                <div key={group.section}>
+                  <div style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--text-accent)', letterSpacing: '0.06em', marginTop: 8, marginBottom: 8, paddingBottom: 6, borderBottom: '1px dashed var(--border-color)', textTransform: 'uppercase' }}>
+                    {group.section}
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                    {group.tools.map(({ id, Icon }) => (
+                      <button
+                        key={id}
+                        onClick={() => handleToolClick(id)}
+                        style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '9px 11px', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', fontSize: '0.78rem', cursor: 'pointer', textAlign: 'left', textTransform: 'capitalize' }}
+                      >
+                        <Icon size={13} color="var(--brand-primary)" />
+                        <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{getToolName(id)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
@@ -422,12 +443,13 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         @media (max-width: 768px) {
           .desktop-only { display: none !important; }
           .mobile-only { display: flex !important; }
+          .mobile-menu-container { display: block !important; }
           .mega-menu-item { padding: 4px 6px; }
           .mega-menu-item .item-title { font-size: 0.9rem; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }
-          .mobile-only { display: none !important; }
+          .mobile-only, .mobile-menu-container { display: none !important; }
         }
         @keyframes fadeInDown {
           from { opacity: 0; transform: translateY(-8px); }
