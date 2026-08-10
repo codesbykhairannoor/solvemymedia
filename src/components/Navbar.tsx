@@ -344,7 +344,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
             style={{ width: '100%', background: 'var(--brand-gradient)', color: '#fff', border: 'none', padding: '11px 16px', borderRadius: 8, fontWeight: 800, fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', marginBottom: isMobileAllOpen ? 12 : 0 }}
           >
-            <span style={{ textTransform: 'uppercase' }}>{t('navAllTools') || 'ALL MEDIA TOOLS'}</span>
+            <span style={{ textTransform: 'uppercase' }}>{t('allTools') || 'ALL MEDIA TOOLS'}</span>
             {isMobileAllOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
 
