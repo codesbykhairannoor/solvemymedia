@@ -94,10 +94,21 @@ async function run() {
   const server = await startServer();
   console.log(`Server listening on http://localhost:${PORT}`);
 
-  const browser = await puppeteer.launch({ 
-    headless: "new",
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
+  let browser;
+  if (process.env.VERCEL) {
+    const chromium = require('@sparticuz/chromium');
+    browser = await puppeteer.launch({
+      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  } else {
+    browser = await puppeteer.launch({ 
+      headless: "new",
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+  }
   
   const urls = extractUrlsFromSitemap();
   console.log(`Found ${urls.length} URLs to prerender.`);
