@@ -1,0 +1,26 @@
+name: Submit to IndexNow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Wait for Vercel Deployment
+        run: |
+          echo "Waiting 3 minutes for Vercel to finish deploying..."
+          sleep 180
+
+      - name: Submit URLs to IndexNow
+        run: node scripts/submit-indexnow.cjs
