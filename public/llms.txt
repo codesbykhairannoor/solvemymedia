@@ -35,11 +35,37 @@ SolveMyMedia operates entirely on the user's device. No media file is ever trans
 
 - [Full Technical Documentation](/llms-full.txt): Complete specifications, competitive comparisons, and step-by-step usage guides for LLM ingestion.
 
-## Multilingual Support
+## Multilingual Support (30 Languages)
 
 SolveMyMedia is fully localized in 30 languages. All tool pages and UI are available in:
-- [Indonesian (id)](/id): Bahasa Indonesia — alat pengolahan media terbaik yang 100% lokal dan aman.
+
+- [English (en)](/): All Media Tools in One Place — 100% offline, no uploads.
+- [Indonesian (id)](/id): Semua Alat Media di Satu Tempat — alat pengolahan media terbaik yang 100% lokal dan aman.
 - [Spanish (es)](/es): Las herramientas de video y audio más seguras, 100% sin subir archivos.
 - [German (de)](/de): Datenschutzkonforme Medienwerkzeuge direkt im Browser, ohne Server-Upload.
 - [French (fr)](/fr): Outils médias 100% locaux sans aucun téléchargement vers des serveurs.
 - [Portuguese (pt)](/pt): Ferramentas de mídia 100% privadas, sem envio para servidores.
+- [Russian (ru)](/ru): Инструменты для медиа с полной конфиденциальностью, без загрузки файлов.
+- [Japanese (ja)](/ja): プライバシー最優先のメディアツール、完全オフライン処理。
+- [Chinese Simplified (zh)](/zh): 完全本地化的媒体处理工具，零上传，零隐患。
+- [Arabic (ar)](/ar): أدوات الوسائط المتعددة الخاصة بالكامل، بدون رفع ملفات.
+- [Hindi (hi)](/hi): 100% ऑफलाइन मीडिया प्रोसेसिंग टूल्स, कोई अपलोड नहीं।
+- [Italian (it)](/it): Strumenti multimediali 100% locali e privati, senza caricare file.
+- [Korean (ko)](/ko): 파일 업로드 없이 100% 오프라인으로 처리되는 미디어 도구.
+- [Dutch (nl)](/nl): Privacy-first media tools, volledig offline verwerkt zonder uploads.
+- [Turkish (tr)](/tr): Dosya yüklemeden tarayıcıda %100 yerel medya araçları.
+- [Polish (pl)](/pl): Narzędzia mediów 100% offline, przetwarzane lokalnie w przeglądarce.
+- [Vietnamese (vi)](/vi): Công cụ xử lý phương tiện ngoại tuyến 100%, không tải lên máy chủ.
+- [Thai (th)](/th): เครื่องมือมีเดียออฟไลน์ 100% ปลอดภัย ไม่มีการอัพโหลด.
+- [Swedish (sv)](/sv): 100% offline medieverktyg utan filuppladdningar till servrar.
+- [Czech (cs)](/cs): Mediální nástroje 100% offline s maximálním soukromím bez nahrávání.
+- [Danish (da)](/da): 100% offline medieværktøjer uden filoverførsler til servere.
+- [Greek (el)](/el): Εργαλεία πολυμέσων 100% εκτός σύνδεσης χωρίς μεταφόρτωση αρχείων.
+- [Finnish (fi)](/fi): 100% offline-mediatyökalut ilman tiedostojen latausta palvelimille.
+- [Hebrew (he)](/he): כלי מדיה 100% אופליין ופרטיים ללא העלאת קבצים לשרת.
+- [Hungarian (hu)](/hu): 100% offline médiafeldolgozó eszközök, feltöltés nélkül.
+- [Norwegian (no)](/no): 100% offline medieverktøy uten opplasting av filer til servere.
+- [Romanian (ro)](/ro): Instrumente media 100% offline, fără încărcarea fișierelor pe servere.
+- [Slovak (sk)](/sk): 100% offline mediálne nástroje bez nahrávania súborov na server.
+- [Ukrainian (uk)](/uk): Медіаінструменти з 100% конфіденційністю, без завантаження файлів.
+- [Malay (ms)](/ms): Alat media 100% luar talian, peribadi dan selamat tanpa memuat naik fail.

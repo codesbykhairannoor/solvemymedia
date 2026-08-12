@@ -51,9 +51,78 @@ const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
   'merge-audio': { title: 'seoMergeAudioTitle', desc: 'seoMergeAudioDesc' }
 };
 
+// FAQ translation key pairs for each tool
+const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = {
+  'compress-video': [
+    { qKey: 'compVFaq1Q', aKey: 'compVFaq1A' },
+    { qKey: 'compVFaq2Q', aKey: 'compVFaq2A' },
+    { qKey: 'compVFaq3Q', aKey: 'compVFaq3A' },
+  ],
+  'compress-audio': [
+    { qKey: 'compAFaq1Q', aKey: 'compAFaq1A' },
+    { qKey: 'compAFaq2Q', aKey: 'compAFaq2A' },
+    { qKey: 'compAFaq3Q', aKey: 'compAFaq3A' },
+  ],
+  'convert-video': [
+    { qKey: 'convVFaq1Q', aKey: 'convVFaq1A' },
+    { qKey: 'convVFaq2Q', aKey: 'convVFaq2A' },
+    { qKey: 'convVFaq3Q', aKey: 'convVFaq3A' },
+  ],
+  'convert-audio': [
+    { qKey: 'convAFaq1Q', aKey: 'convAFaq1A' },
+    { qKey: 'convAFaq2Q', aKey: 'convAFaq2A' },
+    { qKey: 'convAFaq3Q', aKey: 'convAFaq3A' },
+  ],
+  'video-to-audio': [
+    { qKey: 'vtaFaq1Q', aKey: 'vtaFaq1A' },
+    { qKey: 'vtaFaq2Q', aKey: 'vtaFaq2A' },
+    { qKey: 'vtaFaq3Q', aKey: 'vtaFaq3A' },
+  ],
+  'transcribe': [
+    { qKey: 'transFaq1Q', aKey: 'transFaq1A' },
+    { qKey: 'transFaq2Q', aKey: 'transFaq2A' },
+    { qKey: 'transFaq3Q', aKey: 'transFaq3A' },
+  ],
+  'recorder': [
+    { qKey: 'recFaq1Q', aKey: 'recFaq1A' },
+    { qKey: 'recFaq2Q', aKey: 'recFaq2A' },
+    { qKey: 'recFaq3Q', aKey: 'recFaq3A' },
+  ],
+  'create-gif': [
+    { qKey: 'gifFaq1Q', aKey: 'gifFaq1A' },
+    { qKey: 'gifFaq2Q', aKey: 'gifFaq2A' },
+    { qKey: 'gifFaq3Q', aKey: 'gifFaq3A' },
+  ],
+  'video-speed': [
+    { qKey: 'speedVFaq1Q', aKey: 'speedVFaq1A' },
+    { qKey: 'speedVFaq2Q', aKey: 'speedVFaq2A' },
+    { qKey: 'speedVFaq3Q', aKey: 'speedVFaq3A' },
+  ],
+  'crop-video': [
+    { qKey: 'cropVFaq1Q', aKey: 'cropVFaq1A' },
+    { qKey: 'cropVFaq2Q', aKey: 'cropVFaq2A' },
+    { qKey: 'cropVFaq3Q', aKey: 'cropVFaq3A' },
+  ],
+  'mute-video': [
+    { qKey: 'muteVFaq1Q', aKey: 'muteVFaq1A' },
+    { qKey: 'muteVFaq2Q', aKey: 'muteVFaq2A' },
+    { qKey: 'muteVFaq3Q', aKey: 'muteVFaq3A' },
+  ],
+  'watermark-video': [
+    { qKey: 'wmFaq1Q', aKey: 'wmFaq1A' },
+    { qKey: 'wmFaq2Q', aKey: 'wmFaq2A' },
+    { qKey: 'wmFaq3Q', aKey: 'wmFaq3A' },
+  ],
+  'merge-audio': [
+    { qKey: 'maFaq1Q', aKey: 'maFaq1A' },
+    { qKey: 'maFaq2Q', aKey: 'maFaq2A' },
+    { qKey: 'maFaq3Q', aKey: 'maFaq3A' },
+  ],
+};
+
 export const DynamicToolRoute: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { currentLang } = useLanguage();
+  const { currentLang, t } = useLanguage();
 
   if (!slug) {
     return <Navigate to="/" replace />;
@@ -68,11 +137,16 @@ export const DynamicToolRoute: React.FC = () => {
   const Component = TOOL_COMPONENTS[standardSlug];
   const seoKeys = SLUG_TO_SEO[standardSlug] || { title: 'seoHomeTitle', desc: 'seoHomeDesc' };
 
+  // Build FAQ items for JSON-LD FAQPage schema using translation keys
+  const faqKeys = SLUG_TO_FAQ_KEYS[standardSlug] || [];
+  const faqItems = faqKeys
+    .map(({ qKey, aKey }) => ({ q: t(qKey as any) || '', a: t(aKey as any) || '' }))
+    .filter(item => item.q && item.a);
+
   return (
     <>
-      <SEO titleKey={seoKeys.title} descKey={seoKeys.desc} />
+      <SEO titleKey={seoKeys.title} descKey={seoKeys.desc} faqItems={faqItems} />
       <Component />
     </>
   );
 };
-

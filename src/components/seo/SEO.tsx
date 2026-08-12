@@ -9,6 +9,7 @@ interface SEOProps {
   descKey: string;
   defaultTitle?: string;
   defaultDesc?: string;
+  faqItems?: Array<{ q: string; a: string }>;
 }
 
 // JSON-LD schema for each tool slug
@@ -132,7 +133,7 @@ const TOOL_SCHEMA: Record<string, { appName: string; category: string; steps: Ar
   },
 };
 
-export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defaultDesc }) => {
+export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defaultDesc, faqItems }) => {
   const { currentLang, t, languages } = useLanguage();
   const location = useLocation();
   
@@ -242,6 +243,22 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     });
   }
 
+  // FAQ schema
+  if (faqItems && faqItems.length > 0) {
+    schemaGraph.push({
+      '@type': 'FAQPage',
+      '@id': `${canonicalUrl}#faqpage`,
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a,
+        },
+      })),
+    });
+  }
+
   const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph });
 
   useHead({
@@ -253,9 +270,15 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'SolveMyMedia' },
+      { property: 'og:image', content: 'https://solvemymedia.com/og-image.png' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: 'SolveMyMedia — Free, Private Media Tools' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: 'https://solvemymedia.com/og-image.png' },
+      { name: 'twitter:image:alt', content: 'SolveMyMedia — Free, Private Media Tools' },
     ],
     link: [
       { rel: 'canonical', href: canonicalUrl },
