@@ -5,7 +5,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { ConvertVideoHeroSection, ConvertVideoHowToSection, ConvertVideoGeoSection, ConvertVideoPrivacySection, ConvertVideoPerformanceSection } from '../components/content-sections/tools/ConvertVideoSections';
 
-export const ConvertVideo: React.FC = () => {
+export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   const { t } = useLanguage();
   
@@ -15,9 +15,10 @@ export const ConvertVideo: React.FC = () => {
     convert_mp4: t('convVAction') || "Convert to MP4" 
   };
   
+  const initialFormat = pseoData ? pseoData.path.split('-to-')[1] : 'mp4';
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
-  const [targetFormat, setTargetFormat] = useState<string>('mp4');
+  const [targetFormat, setTargetFormat] = useState<string>(initialFormat);
 
   const handleProcess = async () => {
     if (!file) return;
@@ -53,8 +54,8 @@ export const ConvertVideo: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-        title={t('convVTitle') || "Convert Video Formats Instantly"}
-        description={t('convVDesc') || "Change your video from MP4 to WebM, MKV to AVI, and more. Processing runs directly in your browser without waiting for server uploads."}
+        title={pseoData ? pseoData.h1 : (t('convVTitle') || "Convert Video Formats Instantly")}
+        description={pseoData ? pseoData.description : (t('convVDesc') || "Change your video from MP4 to WebM, MKV to AVI, and more. Processing runs directly in your browser without waiting for server uploads.")}
         toolId="convert-video"
         file={file}
         onFileSelect={setFile}
@@ -74,8 +75,8 @@ export const ConvertVideo: React.FC = () => {
           flipLayout={false}
           section={{
             type: 'hero',
-            title: t('convVHeroTitle2') || 'Convert Any Video Format Instantly',
-            content: t('convVHeroDesc2') || "Say goodbye to 'unsupported codec' errors. Convert your heavy MKV, AVI, MOV, and WebM files into universally playable MP4 videos directly within your browser."
+            title: pseoData ? pseoData.h1 : (t('convVHeroTitle2') || 'Convert Any Video Format Instantly'),
+            content: pseoData ? pseoData.description : (t('convVHeroDesc2') || "Say goodbye to 'unsupported codec' errors. Convert your heavy MKV, AVI, MOV, and WebM files into universally playable MP4 videos directly within your browser.")
           }}
         />
 
@@ -88,8 +89,8 @@ export const ConvertVideo: React.FC = () => {
           ]}
           section={{
             type: 'performance',
-            title: t('convVWasmTitle') || 'WebAssembly Transcoding Engine',
-            content: t('convVWasmDesc') || "We've ported industry-standard media frameworks directly into the browser. Unlike basic converters, SolveMyMedia utilizes SharedArrayBuffer and Web Workers to transcode gigabytes of video data blazingly fast without crashing your tab."
+            title: pseoData && pseoData.features[0] ? pseoData.features[0].title : (t('convVWasmTitle') || 'WebAssembly Transcoding Engine'),
+            content: pseoData && pseoData.features[0] ? pseoData.features[0].desc : (t('convVWasmDesc') || "We've ported industry-standard media frameworks directly into the browser. Unlike basic converters, SolveMyMedia utilizes SharedArrayBuffer and Web Workers to transcode gigabytes of video data blazingly fast without crashing your tab.")
           }}
         />
 

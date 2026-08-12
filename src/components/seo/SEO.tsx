@@ -9,6 +9,8 @@ interface SEOProps {
   descKey: string;
   defaultTitle?: string;
   defaultDesc?: string;
+  customTitle?: string;
+  customDesc?: string;
   faqItems?: Array<{ q: string; a: string }>;
 }
 
@@ -133,12 +135,12 @@ const TOOL_SCHEMA: Record<string, { appName: string; category: string; steps: Ar
   },
 };
 
-export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defaultDesc, faqItems }) => {
+export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defaultDesc, customTitle, customDesc, faqItems }) => {
   const { currentLang, t, languages } = useLanguage();
   const location = useLocation();
   
-  const title = t(titleKey as any) || defaultTitle || 'SolveMyMedia';
-  const description = t(descKey as any) || defaultDesc || 'Optimize your media files';
+  const title = customTitle || t(titleKey as any) || defaultTitle || 'SolveMyMedia';
+  const description = customDesc || t(descKey as any) || defaultDesc || 'Optimize your media files';
   
   const domain = 'https://solvemymedia.com';
   

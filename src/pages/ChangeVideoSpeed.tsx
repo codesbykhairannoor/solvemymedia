@@ -5,7 +5,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { ChangeVideoSpeedHeroSection, ChangeVideoSpeedPerformanceSection, ChangeVideoSpeedPrivacySection, ChangeVideoSpeedGeoSection, ChangeVideoSpeedHowToSection } from '../components/content-sections/tools/ChangeVideoSpeedSections';
 
-export const ChangeVideoSpeed: React.FC = () => {
+export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
   
@@ -78,8 +78,8 @@ export const ChangeVideoSpeed: React.FC = () => {
     <>
       <DualColumnWorkspace
         accept="video/*"
-        title={t('speedVTitle') || "Change Video Playback Speed"}
-        description={t('speedVDesc') || "Easily speed up or slow down your videos. Create slow-motion effects or fast-forward timelapses without leaving your browser."}
+        title={pseoData ? pseoData.h1 : (t('speedVTitle') || "Change Video Playback Speed")}
+        description={pseoData ? pseoData.description : (t('speedVDesc') || "Easily speed up or slow down your videos. Create slow-motion effects or fast-forward timelapses without leaving your browser.")}
         toolId="change-video-speed"
         file={file}
         setFile={(f) => { setFile(f); setOutputUrl(null); }}

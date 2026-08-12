@@ -5,7 +5,7 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
 
-export const ConvertAudio: React.FC = () => {
+export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   
   const { t: translate } = useLanguage();
@@ -16,9 +16,10 @@ export const ConvertAudio: React.FC = () => {
     action: translate('cvaAction') || "Convert to"
   };
 
+  const initialFormat = pseoData ? pseoData.path.split('-to-')[1] : 'mp3';
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
-  const [targetFormat, setTargetFormat] = useState<string>('mp3');
+  const [targetFormat, setTargetFormat] = useState<string>(initialFormat);
 
   const handleProcess = async () => {
     if (!file) return;
@@ -49,8 +50,8 @@ export const ConvertAudio: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title={translate('cvaTitle') || "Convert Audio Formats Fast"}
-      description={translate('cvaSub') || "Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser."}
+      title={pseoData ? pseoData.h1 : (translate('cvaTitle') || "Convert Audio Formats Fast")}
+      description={pseoData ? pseoData.description : (translate('cvaSub') || "Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser.")}
       toolId="convert-audio"
       file={file}
       onFileSelect={setFile}
@@ -68,7 +69,11 @@ export const ConvertAudio: React.FC = () => {
     
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <ConvertAudioHeroSection 
-          section={{ type: 'hero', title: translate('cvaHeroTitle') || "High-Fidelity Audio Converter", content: translate('cvaHeroDesc') || "Convert WAV to MP3, or OGG to AAC. We support a wide range of codecs to ensure you get the exact format you need for any project without compromising privacy." }} 
+          section={{ 
+            type: 'hero', 
+            title: pseoData ? pseoData.h1 : (translate('cvaHeroTitle') || "High-Fidelity Audio Converter"), 
+            content: pseoData ? pseoData.description : (translate('cvaHeroDesc') || "Convert WAV to MP3, or OGG to AAC. We support a wide range of codecs to ensure you get the exact format you need for any project without compromising privacy.") 
+          }} 
         />
         <ConvertAudioHowToSection 
           section={{
@@ -82,7 +87,11 @@ export const ConvertAudio: React.FC = () => {
           }} 
         />
         <ConvertAudioSecuritySection 
-          section={{ type: 'security', title: translate('cvaSecTitle') || "Offline Conversion", content: translate('cvaSecDesc') || "Run intensive audio conversions entirely offline using our local WebAssembly engine." }} 
+          section={{ 
+            type: 'security', 
+            title: pseoData && pseoData.features[0] ? pseoData.features[0].title : (translate('cvaSecTitle') || "Offline Conversion"), 
+            content: pseoData && pseoData.features[0] ? pseoData.features[0].desc : (translate('cvaSecDesc') || "Run intensive audio conversions entirely offline using our local WebAssembly engine.") 
+          }} 
         />
         <ConvertAudioPrivacySection 
           section={{ type: 'privacy', title: translate('cvaPrivTitle') || "Strict Privacy", content: translate('cvaPrivDesc') || "Your media is never uploaded. Period." }} 

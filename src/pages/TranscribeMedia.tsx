@@ -5,7 +5,7 @@ import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
 
-export const TranscribeMedia: React.FC = () => {
+export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, loadingProgress, processing, resultText, transcribe, initModel } = useWhisper();
   const { t: translate } = useLanguage();
   
@@ -16,7 +16,8 @@ export const TranscribeMedia: React.FC = () => {
     action: translate('transAction') || "Start Transcription"
   };
 
-  const finalTitle = translate('transTitle') || 'Transcribe Audio & Video Offline';
+  const finalTitle = pseoData ? pseoData.h1 : (translate('transTitle') || 'Transcribe Audio & Video Offline');
+  const finalDesc = pseoData ? pseoData.description : t.upload;
 
   const [file, setFile] = useState<File | null>(null);
   const [language, setLanguage] = useState<string>('indonesian');
@@ -50,7 +51,7 @@ export const TranscribeMedia: React.FC = () => {
             {smartHighlight(finalTitle)}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-            {t.upload}
+            {finalDesc}
           </p>
         </div>
       )}

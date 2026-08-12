@@ -6,7 +6,7 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 
 import { useLanguage } from '../hooks/useLanguage';
 
-export const CropVideo: React.FC = () => {
+export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
   
@@ -90,8 +90,8 @@ export const CropVideo: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title={t('cropTitle') || "Crop Video Dimensions to Any Aspect Ratio"}
-      description={t('cropSub') || "Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device."}
+      title={pseoData ? pseoData.h1 : (t('cropTitle') || "Crop Video Dimensions to Any Aspect Ratio")}
+      description={pseoData ? pseoData.description : (t('cropSub') || "Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device.")}
       toolId="crop-video"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}

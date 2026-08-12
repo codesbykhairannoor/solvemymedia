@@ -5,14 +5,18 @@ import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
 import type { Quality } from '../hooks/useUniversalCompressor';
 
-export const CompressVideo: React.FC = () => {
+export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   const { t } = useLanguage();
   
+  const initialFormat = pseoData && pseoData.path.includes('compress-') ? pseoData.path.split('compress-')[1] : 'mp4';
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [quality, setQuality] = useState<Quality>(60);
   const [realSizeMB, setRealSizeMB] = useState<number | null>(null);
+  
+  // Note: we can use initialFormat to set target format if CompressVideo supported it, but it outputs MP4.
+  // Actually, we pass 'mp4' to processMedia below anyway.
   
   const sidebarStrings = {
     settings: t('cvSettings') || "Compression Settings",
@@ -129,8 +133,8 @@ export const CompressVideo: React.FC = () => {
     <>
       <DualColumnWorkspace
         accept="video/*"
-        title={t('cvTitle') || "Compress Video Files without Losing Quality"}
-        description={t('cvDesc') || "Shrink massive video files down to manageable sizes in seconds. Advanced local compression keeps visual quality high and file size low."}
+        title={pseoData ? pseoData.h1 : (t('cvTitle') || "Compress Video Files without Losing Quality")}
+        description={pseoData ? pseoData.description : (t('cvDesc') || "Shrink massive video files down to manageable sizes in seconds. Advanced local compression keeps visual quality high and file size low.")}
         toolId="compress-video"
         file={file}
         setFile={setFile}

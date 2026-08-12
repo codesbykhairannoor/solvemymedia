@@ -534,6 +534,32 @@ ${xhtmlLinks}
     }
   }
 
+  // Inject pSEO routes (English only for now)
+  const PSEO_ROUTES = [
+    '/mp4-to-mp3', '/mov-to-mp4', '/mkv-to-mp4', '/webm-to-mp4', '/avi-to-mp4',
+    '/wav-to-mp3', '/m4a-to-mp3', '/flac-to-mp3', '/ogg-to-mp3',
+    '/compress-mp4', '/compress-mov', '/compress-webm',
+    '/mp4-to-gif', '/mov-to-gif',
+    '/compress-mp3', '/compress-wav',
+    '/transcribe-mp3', '/transcribe-mp4',
+    '/screen-recorder', '/audio-recorder',
+    '/speed-up-mp4', '/slow-down-mp4',
+    '/crop-mp4', '/resize-video-for-tiktok',
+    '/mute-mp4', '/remove-audio-from-video',
+    '/add-watermark-to-mp4',
+    '/join-audio-files', '/merge-mp3'
+  ];
+
+  for (const path of PSEO_ROUTES) {
+    const url = `${DOMAIN}${path}`;
+    urls.push(`  <url>
+    <loc>${url}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>`);
+  }
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">

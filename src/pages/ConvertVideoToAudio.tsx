@@ -5,7 +5,7 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
 
-export const ConvertVideoToAudio: React.FC = () => {
+export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   
   const { t: translate } = useLanguage();
@@ -16,9 +16,10 @@ export const ConvertVideoToAudio: React.FC = () => {
     action: translate('vtaAction') || "Extract to"
   };
 
+  const initialFormat = pseoData ? pseoData.path.split('-to-')[1] : 'mp3';
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
-  const [targetFormat, setTargetFormat] = useState<string>('mp3');
+  const [targetFormat, setTargetFormat] = useState<string>(initialFormat);
 
   const handleProcess = async () => {
     if (!file) return;
@@ -49,8 +50,8 @@ export const ConvertVideoToAudio: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title={translate('vtaTitle') || "Extract Audio from Video"}
-      description={translate('vtaSub') || "Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy."}
+      title={pseoData ? pseoData.h1 : (translate('vtaTitle') || "Extract Audio from Video")}
+      description={pseoData ? pseoData.description : (translate('vtaSub') || "Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy.")}
       toolId="video-to-audio"
       file={file}
       onFileSelect={setFile}
@@ -68,7 +69,11 @@ export const ConvertVideoToAudio: React.FC = () => {
     
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <VideoToAudioHeroSection 
-          section={{ type: 'hero', title: translate('vtaHeroTitle') || "Extract Audio from Video", content: translate('vtaHeroDesc') || "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality." }} 
+          section={{ 
+            type: 'hero', 
+            title: pseoData ? pseoData.h1 : (translate('vtaHeroTitle') || "Extract Audio from Video"), 
+            content: pseoData ? pseoData.description : (translate('vtaHeroDesc') || "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality.") 
+          }} 
         />
         <VideoToAudioHowToSection 
           section={{
@@ -82,7 +87,11 @@ export const ConvertVideoToAudio: React.FC = () => {
           }} 
         />
         <VideoToAudioPerformanceSection 
-          section={{ type: 'performance', title: translate('vtaPerfTitle') || "Lightning Fast Extraction", content: translate('vtaPerfDesc') || "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds." }} 
+          section={{ 
+            type: 'performance', 
+            title: pseoData && pseoData.features[0] ? pseoData.features[0].title : (translate('vtaPerfTitle') || "Lightning Fast Extraction"), 
+            content: pseoData && pseoData.features[0] ? pseoData.features[0].desc : (translate('vtaPerfDesc') || "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds.") 
+          }} 
         />
         <VideoToAudioPrivacySection 
           section={{ type: 'privacy', title: translate('vtaPrivTitle') || "Offline Extraction", content: translate('vtaPrivDesc') || "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 

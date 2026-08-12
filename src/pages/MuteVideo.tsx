@@ -6,7 +6,7 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 
 import { useLanguage } from '../hooks/useLanguage';
 
-export const MuteVideo: React.FC = () => {
+export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
   
@@ -48,8 +48,8 @@ export const MuteVideo: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title={t('mvTitle') || "Remove Audio from Video Completely"}
-      description={t('mvSub') || "Quickly remove the audio track from any video file. Perfect for creating silent clips or preparing footage for social media."}
+      title={pseoData ? pseoData.h1 : (t('mvTitle') || "Remove Audio from Video Completely")}
+      description={pseoData ? pseoData.description : (t('mvSub') || "Quickly remove the audio track from any video file. Perfect for creating silent clips or preparing footage for social media.")}
       toolId="mute-video"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}

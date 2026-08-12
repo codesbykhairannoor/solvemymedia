@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { SEO } from './seo/SEO';
 import { getStandardSlug } from '../i18n/slugs';
 import { useLanguage } from '../hooks/useLanguage';
+import { PSEO_ROUTES } from '../data/pseo-routes';
 
 // Import all tools
 import { CompressVideo } from '../pages/CompressVideo';
@@ -19,7 +20,7 @@ import { MuteVideo } from '../pages/MuteVideo';
 import { WatermarkVideo } from '../pages/WatermarkVideo';
 import { MergeAudio } from '../pages/MergeAudio';
 
-const TOOL_COMPONENTS: Record<string, React.FC> = {
+const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'compress-video': CompressVideo,
   'compress-audio': CompressAudio,
   'convert-video': ConvertVideo,
@@ -128,25 +129,48 @@ export const DynamicToolRoute: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
-  const standardSlug = getStandardSlug(slug, currentLang);
+  let standardSlug = getStandardSlug(slug, currentLang);
+  
+  // Try to find a pSEO route match
+  const pseoData = PSEO_ROUTES.find(r => r.path === `/${slug}`);
+  if (pseoData) {
+    standardSlug = pseoData.tool;
+  }
 
   if (!TOOL_COMPONENTS[standardSlug]) {
     return <Navigate to="/" replace />;
   }
 
   const Component = TOOL_COMPONENTS[standardSlug];
-  const seoKeys = SLUG_TO_SEO[standardSlug] || { title: 'seoHomeTitle', desc: 'seoHomeDesc' };
+  let seoKeys = SLUG_TO_SEO[standardSlug] || { title: 'seoHomeTitle', desc: 'seoHomeDesc' };
+  
+  let customTitle, customDesc;
+  if (pseoData) {
+    customTitle = pseoData.h1;
+    customDesc = pseoData.description;
+  }
 
   // Build FAQ items for JSON-LD FAQPage schema using translation keys
-  const faqKeys = SLUG_TO_FAQ_KEYS[standardSlug] || [];
-  const faqItems = faqKeys
-    .map(({ qKey, aKey }) => ({ q: t(qKey as any) || '', a: t(aKey as any) || '' }))
-    .filter(item => item.q && item.a);
+  let faqItems = [];
+  if (pseoData) {
+    faqItems = pseoData.faqs;
+  } else {
+    const faqKeys = SLUG_TO_FAQ_KEYS[standardSlug] || [];
+    faqItems = faqKeys
+      .map(({ qKey, aKey }) => ({ q: t(qKey as any) || '', a: t(aKey as any) || '' }))
+      .filter(item => item.q && item.a);
+  }
 
   return (
     <>
-      <SEO titleKey={seoKeys.title} descKey={seoKeys.desc} faqItems={faqItems} />
-      <Component />
+      <SEO 
+        titleKey={seoKeys.title} 
+        descKey={seoKeys.desc} 
+        customTitle={customTitle}
+        customDesc={customDesc}
+        faqItems={faqItems} 
+      />
+      <Component pseoData={pseoData} />
     </>
   );
 };

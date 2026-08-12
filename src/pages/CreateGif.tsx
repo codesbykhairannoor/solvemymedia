@@ -5,7 +5,7 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 
-export const CreateGif: React.FC = () => {
+export const CreateGif: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
   
@@ -75,8 +75,8 @@ export const CreateGif: React.FC = () => {
   return (
     <>
       <CenteredActionWorkspace
-      title={t('gifTitle') || "Create GIF from Video"}
-      description={t('gifSub') || "Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud."}
+      title={pseoData ? pseoData.h1 : (t('gifTitle') || "Create GIF from Video")}
+      description={pseoData ? pseoData.description : (t('gifSub') || "Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud.")}
       toolId="create-gif"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
@@ -92,7 +92,11 @@ export const CreateGif: React.FC = () => {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CreateGifHeroSection 
-          section={{ type: 'hero', title: t('gifHero') || "Turn Videos into Viral GIFs", content: t('gifHeroDesc') || "Convert MP4, WebM, and MOV to animated GIFs in seconds. No watermarks, no signups, completely free." }} 
+          section={{ 
+            type: 'hero', 
+            title: pseoData ? pseoData.h1 : (t('gifHero') || "Turn Videos into Viral GIFs"), 
+            content: pseoData ? pseoData.description : (t('gifHeroDesc') || "Convert MP4, WebM, and MOV to animated GIFs in seconds. No watermarks, no signups, completely free.") 
+          }} 
         />
         <CreateGifHowToSection 
           section={{
@@ -106,7 +110,11 @@ export const CreateGif: React.FC = () => {
           }} 
         />
         <CreateGifPerformanceSection 
-          section={{ type: 'performance', title: t('gifPerf') || "Built for Speed", content: t('gifPerfDesc') || "Our advanced WebAssembly engine compiles video frames directly in your browser without communicating with external servers." }} 
+          section={{ 
+            type: 'performance', 
+            title: pseoData && pseoData.features[0] ? pseoData.features[0].title : (t('gifPerf') || "Built for Speed"), 
+            content: pseoData && pseoData.features[0] ? pseoData.features[0].desc : (t('gifPerfDesc') || "Most GIF makers limit your video size because of server costs. We use WebAssembly to run the conversion on your device, allowing you to process large videos effortlessly.") 
+          }} 
         />
         <CreateGifPrivacySection 
           section={{ type: 'privacy', title: t('gifPriv') || "Your Files Stay Yours", content: t('gifPrivDesc') || "Because everything runs locally, your sensitive videos are completely safe. Disconnect from the internet and watch it still work." }} 

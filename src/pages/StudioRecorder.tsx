@@ -6,7 +6,7 @@ import { useStudioRecorder } from '../hooks/useStudioRecorder';
 import { VideoTrimmer } from '../components/VideoTrimmer';
 import { useLanguage } from '../hooks/useLanguage';
 
-export const StudioRecorder: React.FC = () => {
+export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { isRecording, recordingTime, recordedBlobUrl, startRecording, stopRecording, resetRecording } = useStudioRecorder();
   
   const [screen, setScreen] = useState(true);
@@ -73,9 +73,9 @@ export const StudioRecorder: React.FC = () => {
       
       <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
         <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
-          {smartHighlight(translate('recTitle') || 'Professional Browser Studio Recorder')}
+          {smartHighlight(pseoData ? pseoData.h1 : (translate('recTitle') || 'Professional Browser Studio Recorder'))}
         </h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>{t.desc}</p>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>{pseoData ? pseoData.description : t.desc}</p>
       </div>
 
       <div className="tool-workspace-container" style={{ margin: '0 auto' }}>

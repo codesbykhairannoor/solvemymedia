@@ -5,8 +5,7 @@ import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspac
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import type { Quality } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
-
-export const CompressAudio: React.FC = () => {
+export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   
   const [file, setFile] = useState<File | null>(null);
@@ -131,8 +130,8 @@ export const CompressAudio: React.FC = () => {
     <>
       <DualColumnWorkspace
         accept="audio/*"
-        title={translate('caTitle') || "Compress Audio Files without Losing Quality"}
-        description={translate('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments."}
+        title={pseoData ? pseoData.h1 : (translate('caTitle') || "Compress Audio Files without Losing Quality")}
+        description={pseoData ? pseoData.description : (translate('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments.")}
         toolId="compress-audio"
       file={file}
       setFile={setFile}
