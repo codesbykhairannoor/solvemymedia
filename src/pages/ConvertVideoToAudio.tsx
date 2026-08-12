@@ -96,7 +96,7 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         <VideoToAudioPrivacySection 
           section={{ type: 'privacy', title: translate('vtaPrivTitle') || "Offline Extraction", content: translate('vtaPrivDesc') || "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 
         />
-        <VideoToAudioFAQSection />
+        <VideoToAudioFAQSection faqs={pseoData?.faqs} />
       </div>
     </>
   );

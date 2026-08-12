@@ -213,7 +213,7 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <TranscribeMediaPrivacySection 
           section={{ type: 'privacy', title: translate('transPrivTitle') || "Total Privacy", content: translate('transPrivDesc') || "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
         />
-        <TranscribeMediaFAQSection />
+        <TranscribeMediaFAQSection faqs={pseoData?.faqs} />
       </div>
   
     </div>

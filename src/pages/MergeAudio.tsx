@@ -215,7 +215,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <MergeAudioPrivacySection 
           section={{ type: 'privacy', title: translate('maPrivTitle') || "100% Offline & Private", content: translate('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
         />
-        <MergeAudioFAQSection />
+        <MergeAudioFAQSection faqs={pseoData?.faqs} />
       </div>
     </div>
   );

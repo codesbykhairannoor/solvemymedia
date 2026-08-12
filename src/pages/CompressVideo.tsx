@@ -303,7 +303,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {[
+              {(pseoData?.faqs || [
                 {
                   q: t('compVFaq1Q') || "Is the compression really done in my browser?",
                   a: t('compVFaq1A') || "Yes! We use WebAssembly and WebCodecs to run the compression algorithms locally. Your video never leaves your device."
@@ -316,7 +316,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                   q: t('compVFaq3Q') || "What formats are supported?",
                   a: t('compVFaq3A') || "You can compress MP4, WebM, MOV, and AVI files. The output will typically be formatted as MP4 for maximum compatibility."
                 }
-              ].map((faq, idx) => (
+              ]).map((faq: any, idx: number) => (
                 <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                     <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}

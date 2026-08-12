@@ -84,7 +84,7 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <MuteVideoOfflineSection 
           section={{ type: 'privacy', title: t('muteVPrivTitle') || "Absolute Offline Privacy", content: t('muteVPrivDesc') || "Your video files are strictly kept on your local machine. They are never uploaded or stored anywhere else." }} 
         />
-        <MuteVideoFAQSection />
+        <MuteVideoFAQSection faqs={pseoData?.faqs} />
       </div>
     </>
   );

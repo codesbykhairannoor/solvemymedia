@@ -130,7 +130,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {[
+              {(pseoData?.faqs || [
                 {
                   q: t('convVFaq1Q') || "Why convert MKV to MP4?",
                   a: t('convVFaq1A') || "MKV is a great container, but many default media players (like QuickTime on Mac) and social networks do not support it natively. Converting it to MP4 guarantees it can be viewed by anyone, anywhere."
@@ -143,7 +143,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                   q: t('convVFaq3Q') || "Does this conversion reduce the video quality?",
                   a: t('convVFaq3A') || "By default, we set the target quality to 100% to ensure a virtually lossless conversion. The output MP4 will look identical to your original source file."
                 }
-              ].map((faq, i) => (
+              ]).map((faq: any, i: number) => (
                 <div key={i} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                     <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}

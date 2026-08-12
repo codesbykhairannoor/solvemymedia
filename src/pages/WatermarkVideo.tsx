@@ -319,7 +319,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           section={{ type: 'privacy', title: t('wmPriv') || "100% Secure & Private", content: t('wmPrivDesc') || "Your videos are never uploaded to any cloud server. The entire watermarking process runs securely inside your device." }} 
         />
         <WatermarkVideoFAQSection 
-          faqs={[
+          faqs={pseoData?.faqs || [
             { q: t('wmFaq1Q') || "Can I remove the watermark later?", a: t('wmFaq1A') || "No, this tool permanently burns the image watermark into the video frames (hard-subbing). This is specifically designed to protect your copyright." },
             { q: t('wmFaq2Q') || "Does it support transparent PNGs?", a: t('wmFaq2A') || "Yes! Using a transparent PNG logo will overlay perfectly with the specified opacity settings." },
             { q: t('wmFaq3Q') || "Does adding a watermark re-encode my video?", a: t('wmFaq3A') || "Yes, in order to burn the watermark into the actual video frames permanently, the video stream must be re-encoded." }

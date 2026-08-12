@@ -131,8 +131,8 @@ export const DynamicToolRoute: React.FC = () => {
 
   let standardSlug = getStandardSlug(slug, currentLang);
   
-  // Try to find a pSEO route match
-  const pseoData = PSEO_ROUTES.find(r => r.path === `/${slug}`);
+  // Try to find a pSEO route match using the standard (English) slug
+  const pseoData = PSEO_ROUTES.find(r => r.path === `/${standardSlug}`);
   if (pseoData) {
     standardSlug = pseoData.tool;
   }
@@ -152,7 +152,7 @@ export const DynamicToolRoute: React.FC = () => {
 
   // Build FAQ items for JSON-LD FAQPage schema using translation keys
   let faqItems = [];
-  if (pseoData) {
+  if (pseoData?.faqs) {
     faqItems = pseoData.faqs;
   } else {
     const faqKeys = SLUG_TO_FAQ_KEYS[standardSlug] || [];
