@@ -534,7 +534,7 @@ ${xhtmlLinks}
     }
   }
 
-  // Inject pSEO routes (English only for now)
+  // Inject pSEO routes for ALL 30 languages
   const PSEO_ROUTES = [
     '/mp4-to-mp3', '/mov-to-mp4', '/mkv-to-mp4', '/webm-to-mp4', '/avi-to-mp4',
     '/wav-to-mp3', '/m4a-to-mp3', '/flac-to-mp3', '/ogg-to-mp3',
@@ -551,13 +551,23 @@ ${xhtmlLinks}
   ];
 
   for (const path of PSEO_ROUTES) {
-    const url = `${DOMAIN}${path}`;
-    urls.push(`  <url>
+    for (const lang of LANGUAGES) {
+      const prefix = lang.code === 'en' ? '' : `/${lang.code}`;
+      const url = `${DOMAIN}${prefix}${path}`;
+
+      const xhtmlLinks = LANGUAGES.map(l => {
+        const lPrefix = l.code === 'en' ? '' : `/${l.code}`;
+        return `      <xhtml:link rel="alternate" hreflang="${l.code}" href="${DOMAIN}${lPrefix}${path}"/>`;
+      }).join('\n') + `\n      <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}${path}"/>`;
+
+      urls.push(`  <url>
     <loc>${url}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>${lang.code === 'en' ? '0.85' : '0.75'}</priority>
+${xhtmlLinks}
   </url>`);
+    }
   }
 
   return `<?xml version="1.0" encoding="UTF-8"?>
