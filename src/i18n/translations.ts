@@ -556,6 +556,8 @@ export interface UiDictionary {
 }
 
 const baseDict: UiDictionary = {
+  ratingScore: "4.9/5 Rating",
+  ratingReviews: "(from 1,250 reviews)",
   seoHomeTitle: "SolveMyMedia | All Media Tools in One Place",
   seoHomeDesc: "Optimize, compress, convert, and edit audio and video files securely in your browser. No server uploads, 100% offline processing for ultimate privacy.",
   seoCompressVideoTitle: "Compress Video Online - SolveMyMedia",

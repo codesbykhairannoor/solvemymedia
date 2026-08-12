@@ -305,25 +305,23 @@ export const Home: React.FC = () => {
           </div>
           <div style={{ marginTop: 40, paddingTop: 40, borderTop: '1px dashed var(--border-color)', maxWidth: 600, margin: '40px auto 0' }}>
             <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: 12 }}>{t('homeInstTitle') || 'Trusted Architecture'}</h3>
-            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 32 }}>
               {t('homeInstDesc') || 'Adopted by leading cyber-security frameworks, client-side processing represents the pinnacle of modern data protection.'}
             </p>
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '16px 32px', background: 'var(--bg-app)', borderRadius: 9999, border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-sm)' }}>
+              <div style={{ display: 'flex', color: '#fbbf24' }}>
+                {[1,2,3,4,5].map(i => (
+                  <svg key={i} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                ))}
+              </div>
+              <span style={{ color: 'var(--text-main)', fontSize: '1.1rem', fontWeight: 800, marginLeft: 12 }}>{t('ratingScore') || '4.9/5 Rating'}</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '1rem', marginLeft: 6 }}>{t('ratingReviews') || '(from 1,250 reviews)'}</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* RATING SECTION (BEFORE FAQ) */}
-      <section style={{ padding: '80px 24px 20px', maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '16px 32px', background: 'var(--bg-elevated)', borderRadius: 9999, border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-sm)' }}>
-          <div style={{ display: 'flex', color: '#fbbf24' }}>
-            {[1,2,3,4,5].map(i => (
-              <svg key={i} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            ))}
-          </div>
-          <span style={{ color: 'var(--text-main)', fontSize: '1.1rem', fontWeight: 800, marginLeft: 12 }}>{t('ratingScore') || '4.9/5 Rating'}</span>
-          <span style={{ color: 'var(--text-muted)', fontSize: '1rem', marginLeft: 6 }}>{t('ratingReviews') || '(from 1,250 reviews)'}</span>
-        </div>
-      </section>
+
 
       {/* SECTION 5: FAQ */}
       <section style={{ padding: '80px 24px', maxWidth: 800, margin: '0 auto' }}>
