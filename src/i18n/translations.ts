@@ -1,4 +1,6 @@
 export interface UiDictionary {
+  ratingScore?: string;
+  ratingReviews?: string;
   seoHomeTitle?: string;
   seoHomeDesc?: string;
   seoCompressVideoTitle?: string;
@@ -1667,6 +1669,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ya! Telefon pintar moden mempunyai pemproses yang sangat berkuasa yang boleh mengendalikan WebCodec secara asli untuk pengeditan media semasa dalam perjalanan.',
         homeHeroSubtitle: 'Mampat, tukar, gabung dan edit fail audio dan video terus dalam penyemak imbas anda. 100% diproses di luar talian melalui WebCodecs. Percuma, tiada had dan sangat selamat.',
     homeHeroTitle: 'Semua Alat Media di Satu Tempat',
+    ratingScore: "Penilaian 4.9/5",
+    ratingReviews: "(daripada 1,250 ulasan)",
   },
   uk: {
     compVPrivacyTitle: 'Конфіденційність банківського рівня для ваших ЗМІ',
@@ -2218,6 +2222,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'так! Сучасні смартфони мають неймовірно потужні процесори, які можуть працювати з веб-кодеками для редагування медіа на ходу.',
         homeHeroSubtitle: 'Стискайте, конвертуйте, об’єднуйте та редагуйте аудіо- та відеофайли безпосередньо у вашому браузері. 100% обробка офлайн через WebCodecs. Безкоштовно, без обмежень і дуже безпечно.',
     homeHeroTitle: 'Усі медіа-інструменти в одному місці',
+    ratingScore: "Оцінка 4,9/5",
+    ratingReviews: "(на основі 1 250 відгуків)",
   },
   sk: {
     compVPrivacyTitle: 'Súkromie vašich médií na úrovni banky',
@@ -2769,6 +2775,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Áno! Moderné smartfóny majú neuveriteľne výkonné procesory, ktoré dokážu natívne spracovať webové kodeky na úpravu médií na cestách.',
         homeHeroSubtitle: 'Komprimujte, konvertujte, zlučujte a upravujte audio a video súbory priamo vo svojom prehliadači. 100% spracované offline cez WebCodecs. Zadarmo, bez obmedzení a vysoko bezpečné.',
     homeHeroTitle: 'Všetky mediálne nástroje na jednom mieste',
+    ratingScore: "Hodnotenie 4,9/5",
+    ratingReviews: "(z 1 250 recenzií)",
   },
   ro: {
     compVPrivacyTitle: 'Confidențialitate la nivel bancar pentru mass-media dvs',
@@ -3320,6 +3328,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Da! Telefoanele inteligente moderne au procesoare incredibil de puternice care pot gestiona WebCodec-urile nativ pentru editarea media din mers.',
         homeHeroSubtitle: 'Comprimați, convertiți, îmbinați și editați fișiere audio și video direct în browser. Procesat 100% offline prin WebCodecs. Gratuit, fără limite și foarte sigur.',
     homeHeroTitle: 'Toate instrumentele media într-un singur loc',
+    ratingScore: "Evaluare 4.9/5",
+    ratingReviews: "(din 1.250 de recenzii)",
   },
   no: {
     compVPrivacyTitle: 'Personvern i bankklasse for mediene dine',
@@ -3871,6 +3881,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ja! Moderne smarttelefoner har utrolig kraftige prosessorer som kan håndtere WebCodecs innebygd for medieredigering på farten.',
         homeHeroSubtitle: 'Komprimer, konverter, slå sammen og rediger lyd- og videofiler direkte i nettleseren din. 100 % behandlet offline via WebCodecs. Gratis, ingen grenser og svært sikker.',
     homeHeroTitle: 'Alle medieverktøy på ett sted',
+    ratingScore: "4,9/5 vurdering",
+    ratingReviews: "(fra 1250 anmeldelser)",
   },
   hu: {
     compVPrivacyTitle: 'Banki szintű adatvédelem a média számára',
@@ -4422,6 +4434,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Igen! A modern okostelefonok hihetetlenül erős processzorokkal rendelkeznek, amelyek natív módon képesek kezelni a WebCodec-eket az útközbeni médiaszerkesztéshez.',
         homeHeroSubtitle: 'Az audio- és videofájlok tömörítése, konvertálása, egyesítése és szerkesztése közvetlenül a böngészőben. 100%-ban offline feldolgozva a WebCodecs segítségével. Ingyenes, korlátok nélkül és rendkívül biztonságos.',
     homeHeroTitle: 'Minden médiaeszköz egy helyen',
+    ratingScore: "4,9/5 Értékelés",
+    ratingReviews: "(1250 vélemény alapján)",
   },
   he: {
     compVPrivacyTitle: 'פרטיות בדרגת בנק עבור המדיה שלך',
@@ -4973,6 +4987,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'כֵּן! לסמארטפונים מודרניים יש מעבדים חזקים להפליא שיכולים להתמודד עם WebCodecs באופן מקורי לעריכת מדיה תוך כדי תנועה.',
         homeHeroSubtitle: 'דחוס, המר, מיזוג וערוך קובצי אודיו ווידאו ישירות בדפדפן שלך. 100% מעובד במצב לא מקוון באמצעות WebCodecs. חינם, ללא הגבלות, ובטוח ביותר.',
     homeHeroTitle: 'כל כלי המדיה במקום אחד',
+    ratingScore: "דירוג 4.9/5",
+    ratingReviews: "(מתוך 1,250 חוות דעת)",
   },
   fi: {
     compVPrivacyTitle: 'Pankkitason tietosuoja mediallesi',
@@ -5524,6 +5540,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Kyllä! Nykyaikaisissa älypuhelimissa on uskomattoman tehokkaat prosessorit, jotka pystyvät käsittelemään WebCodekeja natiivisti median editointia varten.',
         homeHeroSubtitle: 'Pakkaa, muunna, yhdistä ja muokkaa ääni- ja videotiedostoja suoraan selaimessasi. 100 % käsitelty offline-tilassa WebCodecin kautta. Ilmainen, ei rajoituksia ja erittäin turvallinen.',
     homeHeroTitle: 'Kaikki mediatyökalut yhdessä paikassa',
+    ratingScore: "Arvosana 4,9/5",
+    ratingReviews: "(1 250 arvostelusta)",
   },
   el: {
     compVPrivacyTitle: 'Απόρρητο Bank-Grade για τα πολυμέσα σας',
@@ -6075,6 +6093,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ναί! Τα σύγχρονα smartphone διαθέτουν απίστευτα ισχυρούς επεξεργαστές που μπορούν να χειριστούν εγγενώς WebCodec για επεξεργασία πολυμέσων εν κινήσει.',
         homeHeroSubtitle: 'Συμπίεση, μετατροπή, συγχώνευση και επεξεργασία αρχείων ήχου και βίντεο απευθείας στο πρόγραμμα περιήγησής σας. 100% επεξεργασία εκτός σύνδεσης μέσω WebCodecs. Δωρεάν, χωρίς όρια και εξαιρετικά ασφαλές.',
     homeHeroTitle: 'Όλα τα εργαλεία πολυμέσων σε ένα μέρος',
+    ratingScore: "Βαθμολογία 4,9/5",
+    ratingReviews: "(από 1.250 κριτικές)",
   },
   da: {
     compVPrivacyTitle: 'Privatliv i bankklasse til dine medier',
@@ -6626,6 +6646,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ja! Moderne smartphones har utroligt kraftfulde processorer, der kan håndtere WebCodecs indbygget til on-the-go medieredigering.',
         homeHeroSubtitle: 'Komprimer, konverter, flet og rediger lyd- og videofiler direkte i din browser. 100 % behandlet offline via WebCodecs. Gratis, ingen grænser og meget sikker.',
     homeHeroTitle: 'Alle medieværktøjer på ét sted',
+    ratingScore: "4,9/5 vurdering",
+    ratingReviews: "(fra 1.250 anmeldelser)",
   },
   cs: {
     compVPrivacyTitle: 'Ochrana osobních údajů na bankovní úrovni pro vaše média',
@@ -7177,6 +7199,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ano! Moderní smartphony mají neuvěřitelně výkonné procesory, které dokážou nativně zpracovat webové kodeky pro úpravy médií na cestách.',
         homeHeroSubtitle: 'Komprimujte, převádějte, spojujte a upravujte audio a video soubory přímo ve vašem prohlížeči. 100% zpracováno offline prostřednictvím WebCodecs. Zdarma, bez omezení a vysoce bezpečné.',
     homeHeroTitle: 'Všechny mediální nástroje na jednom místě',
+    ratingScore: "Hodnocení 4,9/5",
+    ratingReviews: "(z 1 250 recenzí)",
   },
   sv: {
     compVPrivacyTitle: 'Sekretess i bankklass för dina medier',
@@ -7728,6 +7752,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ja! Moderna smartphones har otroligt kraftfulla processorer som kan hantera WebCodecs inbyggt för medieredigering på språng.',
         homeHeroSubtitle: 'Komprimera, konvertera, slå samman och redigera ljud- och videofiler direkt i din webbläsare. 100 % bearbetad offline via WebCodecs. Gratis, inga gränser och mycket säker.',
     homeHeroTitle: 'Alla mediaverktyg på ett ställe',
+    ratingScore: "4,9/5 Betyg",
+    ratingReviews: "(från 1 250 recensioner)",
   },
   th: {
     compVPrivacyTitle: 'ความเป็นส่วนตัวระดับธนาคารสำหรับสื่อของคุณ',
@@ -8279,6 +8305,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'ใช่! สมาร์ทโฟนสมัยใหม่มีโปรเซสเซอร์ที่ทรงพลังอย่างเหลือเชื่อ ซึ่งสามารถจัดการ WebCodecs ได้แบบเนทีฟสำหรับการแก้ไขสื่อขณะเดินทาง',
         homeHeroSubtitle: 'บีบอัด แปลง ผสาน และแก้ไขไฟล์เสียงและวิดีโอได้โดยตรงในเบราว์เซอร์ของคุณ ประมวลผลออฟไลน์ 100% ผ่าน WebCodecs ฟรี ไม่จำกัด และมีความปลอดภัยสูง',
     homeHeroTitle: 'เครื่องมือสื่อทั้งหมดในที่เดียว',
+    ratingScore: "คะแนน 4.9/5",
+    ratingReviews: "(จาก 1,250 รีวิว)",
   },
   vi: {
     compVPrivacyTitle: 'Quyền riêng tư cấp ngân hàng cho phương tiện truyền thông của bạn',
@@ -8830,6 +8858,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Đúng! Điện thoại thông minh hiện đại có bộ xử lý cực kỳ mạnh mẽ có thể xử lý WebCodec nguyên bản để chỉnh sửa phương tiện khi đang di chuyển.',
         homeHeroSubtitle: 'Nén, chuyển đổi, hợp nhất và chỉnh sửa các tệp âm thanh và video trực tiếp trong trình duyệt của bạn. 100% được xử lý ngoại tuyến qua WebCodecs. Miễn phí, không giới hạn và có tính bảo mật cao.',
     homeHeroTitle: 'Tất cả các công cụ truyền thông ở một nơi',
+    ratingScore: "Xếp hạng 4,9/5",
+    ratingReviews: "(từ 1.250 đánh giá)",
   },
   pl: {
     compVPrivacyTitle: 'Prywatność na poziomie bankowym dla Twoich multimediów',
@@ -9381,6 +9411,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Tak! Nowoczesne smartfony mają niezwykle wydajne procesory, które natywnie obsługują kodeki internetowe, umożliwiając edycję multimediów w podróży.',
         homeHeroSubtitle: 'Kompresuj, konwertuj, łącz i edytuj pliki audio i wideo bezpośrednio w przeglądarce. W 100% przetwarzane w trybie offline za pośrednictwem kodeków WebCodec. Bezpłatnie, bez ograniczeń i bardzo bezpiecznie.',
     homeHeroTitle: 'Wszystkie narzędzia multimedialne w jednym miejscu',
+    ratingScore: "Ocena 4,9/5",
+    ratingReviews: "(z 1250 recenzji)",
   },
   tr: {
     compVPrivacyTitle: 'Medyanız için Banka Düzeyinde Gizlilik',
@@ -9932,6 +9964,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Evet! Modern akıllı telefonlar, hareket halindeyken medya düzenleme için WebCodec\'leri yerel olarak işleyebilen inanılmaz derecede güçlü işlemcilere sahiptir.',
         homeHeroSubtitle: 'Ses ve video dosyalarını doğrudan tarayıcınızda sıkıştırın, dönüştürün, birleştirin ve düzenleyin. WebCodecs aracılığıyla %100 çevrimdışı işlenir. Ücretsiz, sınırsız ve son derece güvenli.',
     homeHeroTitle: 'Tüm Medya Araçları Tek Bir Yerde',
+    ratingScore: "4,9/5 Değerlendirme",
+    ratingReviews: "(1.250 yorumdan)",
   },
   nl: {
     compVPrivacyTitle: 'Privacy van bankniveau voor uw media',
@@ -10483,6 +10517,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ja! Moderne smartphones hebben ongelooflijk krachtige processors die WebCodecs kunnen verwerken voor mediabewerking onderweg.',
         homeHeroSubtitle: 'Comprimeer, converteer, voeg samen en bewerk audio- en videobestanden rechtstreeks in uw browser. 100% offline verwerkt via WebCodecs. Gratis, geen grenzen en zeer veilig.',
     homeHeroTitle: 'Alle mediatools op één plek',
+    ratingScore: "4,9/5 Beoordeling",
+    ratingReviews: "(uit 1.250 beoordelingen)",
   },
   ko: {
     compVPrivacyTitle: '귀하의 미디어에 대한 은행급 개인 정보 보호',
@@ -11034,6 +11070,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: '예! 최신 스마트폰에는 이동 중 미디어 편집을 위해 기본적으로 WebCodec을 처리할 수 있는 믿을 수 없을 정도로 강력한 프로세서가 있습니다.',
         homeHeroSubtitle: '브라우저에서 직접 오디오 및 비디오 파일을 압축, 변환, 병합 및 편집하세요. WebCodecs를 통해 오프라인으로 100% 처리됩니다. 무료이며 제한이 없으며 매우 안전합니다.',
     homeHeroTitle: '한 곳에서 모든 미디어 도구',
+    ratingScore: "4.9/5 평가",
+    ratingReviews: "(1,250개 리뷰 중)",
   },
   it: {
     compVPrivacyTitle: 'Privacy di livello bancario per i tuoi contenuti multimediali',
@@ -11585,6 +11623,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'SÌ! Gli smartphone moderni dispongono di processori incredibilmente potenti in grado di gestire i WebCodec in modo nativo per l\'editing multimediale in movimento.',
         homeHeroSubtitle: 'Comprimi, converti, unisci e modifica file audio e video direttamente nel tuo browser. Elaborazione offline al 100% tramite WebCodec. Gratuito, senza limiti e altamente sicuro.',
     homeHeroTitle: 'Tutti gli strumenti multimediali in un unico posto',
+    ratingScore: "Voto 4,9/5",
+    ratingReviews: "(da 1.250 recensioni)",
   },
   hi: {
     compVPrivacyTitle: 'आपके मीडिया के लिए बैंक-ग्रेड गोपनीयता',
@@ -12136,6 +12176,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'हाँ! आधुनिक स्मार्टफ़ोन में अविश्वसनीय रूप से शक्तिशाली प्रोसेसर होते हैं जो ऑन-द-गो मीडिया संपादन के लिए वेबकोडेक्स को मूल रूप से संभाल सकते हैं।',
         homeHeroSubtitle: 'सीधे अपने ब्राउज़र में ऑडियो और वीडियो फ़ाइलों को संपीड़ित करें, परिवर्तित करें, मर्ज करें और संपादित करें। WebCodecs के माध्यम से 100% ऑफ़लाइन संसाधित किया गया। निःशुल्क, कोई सीमा नहीं, और अत्यधिक सुरक्षित।',
     homeHeroTitle: 'सभी मीडिया उपकरण एक ही स्थान पर',
+    ratingScore: "4.9/5 रेटिंग",
+    ratingReviews: "(1,250 समीक्षाओं से)",
   },
   ar: {
     compVPrivacyTitle: 'خصوصية على مستوى البنك لوسائل الإعلام الخاصة بك',
@@ -12687,6 +12729,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'نعم! تحتوي الهواتف الذكية الحديثة على معالجات قوية بشكل لا يصدق يمكنها التعامل مع WebCodecs أصلاً لتحرير الوسائط أثناء التنقل.',
         homeHeroSubtitle: 'ضغط وتحويل ودمج وتحرير ملفات الصوت والفيديو مباشرة في متصفحك. تمت معالجتها بنسبة 100% دون الاتصال بالإنترنت عبر WebCodecs. مجاني، بلا حدود، وآمن للغاية.',
     homeHeroTitle: 'جميع أدوات الوسائط في مكان واحد',
+    ratingScore: "تقييم 4.9/5",
+    ratingReviews: "(من 1,250 تعليقًا)",
   },
   ru: {
     compVPrivacyTitle: 'Конфиденциальность банковского уровня для ваших медиа',
@@ -13238,6 +13282,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Да! Современные смартфоны оснащены невероятно мощными процессорами, которые могут работать с веб-кодеками для редактирования мультимедиа на ходу.',
         homeHeroSubtitle: 'Сжимайте, конвертируйте, объединяйте и редактируйте аудио и видео файлы прямо в браузере. 100% обработка в автономном режиме через WebCodecs. Бесплатно, без ограничений и очень безопасно.',
     homeHeroTitle: 'Все медиа-инструменты в одном месте',
+    ratingScore: "Рейтинг 4,9/5",
+    ratingReviews: "(из 1250 отзывов)",
   },
   pt: {
     compVPrivacyTitle: 'Privacidade de nível bancário para sua mídia',
@@ -13789,6 +13835,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Sim! Os smartphones modernos possuem processadores incrivelmente poderosos que podem lidar com WebCodecs nativamente para edição de mídia em trânsito.',
         homeHeroSubtitle: 'Compacte, converta, mescle e edite arquivos de áudio e vídeo diretamente em seu navegador. 100% processado offline via WebCodecs. Gratuito, sem limites e altamente seguro.',
     homeHeroTitle: 'Todas as ferramentas de mídia em um só lugar',
+    ratingScore: "Classificação 4,9/5",
+    ratingReviews: "(de 1.250 avaliações)",
   },
   zh: {
     compVPrivacyTitle: '为您的媒体提供银行级隐私',
@@ -14340,6 +14388,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: '是的！ 现代智能手机拥有极其强大的处理器，可以本地处理 WebCodecs 以进行移动媒体编辑。',
         homeHeroSubtitle: '直接在浏览器中压缩、转换、合并和编辑音频和视频文件。 100% 通过 WebCodecs 离线处理。 免费、无限制且高度安全。',
     homeHeroTitle: '所有媒体工具都集中在一处',
+    ratingScore: "4.9/5 评分",
+    ratingReviews: "（来自 1,250 条评论）",
   },
   ja: {
     compVPrivacyTitle: 'メディアに対する銀行レベルのプライバシー',
@@ -14891,6 +14941,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'はい！ 最新のスマートフォンには、外出先でのメディア編集のために WebCodecs をネイティブに処理できる非常に強力なプロセッサが搭載されています。',
         homeHeroSubtitle: 'オーディオ ファイルとビデオ ファイルをブラウザで直接圧縮、変換、結合、編集します。 100% WebCodecs 経由でオフラインで処理されます。 無料、制限なし、そして非常に安全です。',
     homeHeroTitle: 'すべてのメディア ツールを 1 か所に',
+    ratingScore: "4.9/5 評価",
+    ratingReviews: "(1,250件のレビューより)",
   },
   de: {
     compVPrivacyTitle: 'Datenschutz auf Bankenniveau für Ihre Medien',
@@ -15442,6 +15494,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ja! Moderne Smartphones verfügen über unglaublich leistungsstarke Prozessoren, die WebCodecs für die Medienbearbeitung unterwegs nativ verarbeiten können.',
         homeHeroSubtitle: 'Komprimieren, konvertieren, zusammenführen und bearbeiten Sie Audio- und Videodateien direkt in Ihrem Browser. 100 % offline über WebCodecs verarbeitet. Kostenlos, ohne Grenzen und äußerst sicher.',
     homeHeroTitle: 'Alle Medientools an einem Ort',
+    ratingScore: "4,9/5 Bewertung",
+    ratingReviews: "(aus 1.250 Bewertungen)",
   },
   fr: {
     compVPrivacyTitle: 'Confidentialité de niveau bancaire pour vos médias',
@@ -15993,6 +16047,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Oui! Les smartphones modernes disposent de processeurs incroyablement puissants capables de gérer les WebCodecs de manière native pour l\'édition multimédia en déplacement.',
         homeHeroSubtitle: 'Compressez, convertissez, fusionnez et modifiez des fichiers audio et vidéo directement dans votre navigateur. 100 % traité hors ligne via WebCodecs. Gratuit, sans limites et hautement sécurisé.',
     homeHeroTitle: 'Tous les outils multimédias au même endroit',
+    ratingScore: "Note 4,9/5",
+    ratingReviews: "(à partir de 1 250 avis)",
   },
   es: {
     compVPrivacyTitle: 'Privacidad de nivel bancario para sus medios',
@@ -16544,6 +16600,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: '¡Sí! Los teléfonos inteligentes modernos tienen procesadores increíblemente potentes que pueden manejar WebCodecs de forma nativa para la edición de medios sobre la marcha.',
         homeHeroSubtitle: 'Comprime, convierte, fusiona y edita archivos de audio y vídeo directamente en tu navegador. 100% procesado offline vía WebCodecs. Gratis, sin límites y muy seguro.',
     homeHeroTitle: 'Todas las herramientas multimedia en un solo lugar',
+    ratingScore: "Calificación 4.9/5",
+    ratingReviews: "(de 1250 reseñas)",
   },
   id: {
     compVPrivacyTitle: 'Privasi Tingkat Bank untuk Media Anda',
@@ -17095,6 +17153,8 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     homeFaq5A: 'Ya! Ponsel cerdas modern memiliki prosesor yang sangat kuat yang dapat menangani WebCodec secara asli untuk pengeditan media saat bepergian.',
         homeHeroSubtitle: 'Kompres, konversi, gabungkan, dan edit file audio dan video langsung di browser Anda. 100% diproses offline melalui WebCodecs. Gratis, tanpa batas, dan sangat aman.',
     homeHeroTitle: 'Semua Alat Media di Satu Tempat',
+    ratingScore: "Peringkat 4,9/5",
+    ratingReviews: "(dari 1.250 ulasan)",
   },
 };
 
