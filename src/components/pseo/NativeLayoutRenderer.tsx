@@ -14,10 +14,11 @@ interface PseoData {
   features?: { title: string; desc: string }[];
   faqs?: { q: string; a: string }[];
   dynamicSection?: {
-    type: 'steps' | 'benefits' | 'comparison';
+    type: string;
     heading: string;
     items: { title: string; content: string }[];
   };
+  bentoSections?: { type: string; data: any }[];
 }
 
 interface NativeLayoutRendererProps {
@@ -28,16 +29,117 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
   const { t } = useLanguage();
   if (!data) return null;
 
-  // Split features into two arrays if we have enough, to showcase different layout components
-  const halfFeatures = data.features && data.features.length > 0 ? Math.ceil(data.features.length / 2) : 0;
-  const firstHalfFeatures = data.features ? data.features.slice(0, halfFeatures) : [];
-  const secondHalfFeatures = data.features ? data.features.slice(halfFeatures) : [];
+  // Helper to map string[] or object[] to {title, content}[] for steps/features
+  const parseList = (list: any[]) => {
+    if (!list || !Array.isArray(list)) return [];
+    return list.map(item => {
+      if (typeof item === 'string') {
+        const parts = item.split(' - ');
+        return { title: parts[0], content: parts[1] || parts[0] };
+      }
+      return { 
+        title: item.title || item.date || item.label || '', 
+        content: item.content || item.description || item.desc || item.value || '' 
+      };
+    });
+  };
+
+  // Helper to extract list data from various possible JSON keys
+  const getListData = (sData: any) => {
+    return sData.features || sData.items || sData.steps || sData.cards || sData.events || sData.stats || sData.points || [];
+  };
+
+  const renderSection = (section: { type: string; data: any }, index: number) => {
+    const { type, data: sData } = section;
+    
+    // 1. Skip duplicate hero
+    if (['hero-split', 'big-typography-hero', 'big-typo-hero'].includes(type)) return null;
+    if (sData.title && data.h1 && sData.title.toLowerCase() === data.h1.toLowerCase()) return null;
+
+    // Extract list if any
+    const rawList = getListData(sData);
+    const parsedList = parseList(rawList);
+
+    // 2. Map Security/Privacy types
+    if (['security-arch', 'alert', 'trust-badge', 'highlight-box'].includes(type)) {
+      return (
+        <PseoPrivacySplit 
+          key={index}
+          title={sData.title || t('compVPrivacyTitle') || "Security Focus"}
+          description={sData.description || sData.content || ""}
+          badgeText={sData.label || sData.badge || t('compVPrivacyBadge1') || "Secure Architecture"}
+        />
+      );
+    }
+
+    // 3. Map Geo/Global types
+    if (['global-reach-map', 'stat-counter', 'progress-stats'].includes(type)) {
+      return (
+        <PseoGeoBox 
+          key={index}
+          title={sData.title || "Global Reach"}
+          description={sData.description || sData.content || ""}
+          badgeText={sData.badge || "Local Processing"}
+        />
+      );
+    }
+
+    // 4. Map Banners/CTAs
+    if (['bottom-cta', 'floating-cta', 'gamified-progress', 'split-screen-cta', 'newsletter-signup'].includes(type)) {
+      return (
+        <PseoSlimBanner 
+          key={index}
+          title={sData.title || "Powered by WebAssembly"}
+          description={sData.description || sData.content || ""}
+          tags={[sData.buttonText || 'Try Now']}
+        />
+      );
+    }
+
+    // 5. Map Steps/HowTo
+    if (['terminal-steps', 'how-to-steps', 'numbered-list', 'timeline-view'].includes(type)) {
+      return (
+        <PseoHowTo 
+          key={index}
+          title={sData.title || "How it Works"}
+          steps={parsedList}
+          badgeText={sData.badge || "Quick Guide"}
+        />
+      );
+    }
+
+    // 6. Map Features/Split
+    if (['feature-zigzag', 'feature-comparison-matrix', 'pros-cons-table', 'before-after', 'bento-cards'].includes(type)) {
+      return (
+        <PseoFeatureSplit 
+          key={index}
+          title={sData.title || "Why Choose Our Tool?"}
+          description={sData.description || sData.content || ""}
+          features={parsedList}
+        />
+      );
+    }
+
+    // 7. Map Grids/Values (Default fallback for roi-calculator, etc)
+    return (
+      <PseoValuesGrid 
+        key={index}
+        title={sData.title || "Key Benefits"}
+        items={parsedList.length > 0 
+          ? parsedList 
+          : [{ title: sData.title || "", content: sData.description || sData.content || "" }]}
+      />
+    );
+  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px' }}>
       
-      {/* 1. DYNAMIC SECTION (How-To or Values Grid) */}
-      {data.dynamicSection && (
+      {/* 1. Map Translated Bento Sections */}
+      {data.bentoSections && data.bentoSections.map((section, idx) => renderSection(section, idx))}
+
+      {/* 2. Fallback to Dynamic Section if no Bento Sections */}
+      {!data.bentoSections && data.dynamicSection && (
         <>
           {data.dynamicSection.type === 'steps' ? (
              <PseoHowTo 
@@ -54,37 +156,7 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
         </>
       )}
 
-      {/* 2. FEATURE SPLIT (First half of features, if any exist in the JSON) */}
-      {firstHalfFeatures.length > 0 && (
-        <PseoFeatureSplit 
-          title={t('compVPerfTitle') || "Why Choose Our Tool?"}
-          description={t('compVPerfDesc') || "Everything runs directly on your machine. No uploads, no waiting in queues."}
-          features={firstHalfFeatures}
-        />
-      )}
-
-      {/* 3. PRIVACY / SECURITY SECTION (Generic localized wrapper) */}
-      <PseoPrivacySplit 
-        title={t('compVPrivacyTitle') || "Total Data Privacy"}
-        description={t('compVPrivacyDesc') || "Your files never leave your device. All processing happens locally in your browser memory."}
-        badgeText={t('compVPrivacyBadge1') || "Secure Architecture"}
-      />
-
-      {/* 4. OFFLINE GEO BOX (Generic localized wrapper) */}
-      <PseoGeoBox 
-        title={t('compVGeoTitle2') || "100% Offline Processing"}
-        description={t('compVGeoDesc2') || "Process files instantly without an internet connection after the page loads. No server limits, no bandwidth costs."}
-        badgeText={t('homeSecurityBadge') || "Local Processing"}
-      />
-
-      {/* 5. SLIM BANNER */}
-      <PseoSlimBanner 
-        title={t('homeArchTitle') || "Powered by WebAssembly"}
-        description={t('homeArchDesc') || "We bring desktop-class algorithms straight to your browser."}
-        tags={[t('compVPrivacyBadge1') || 'Offline Processing', t('compVPrivacyBadge2') || 'No Uploads', t('compVPrivacyBadge3') || 'Browser Sandbox']}
-      />
-
-      {/* 6. FAQ */}
+      {/* 3. FAQ */}
       {data.faqs && data.faqs.length > 0 && (
         <PseoFaq faqs={data.faqs} />
       )}
