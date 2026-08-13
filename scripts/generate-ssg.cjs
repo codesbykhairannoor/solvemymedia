@@ -66,11 +66,7 @@ async function run() {
   let generatedCount = 0;
 
   for (const lang of langCodes) {
-    const transPath = path.join(langsDir, lang, 'translation.json');
     let translations = null;
-    if (fs.existsSync(transPath)) {
-      translations = JSON.parse(fs.readFileSync(transPath, 'utf8'));
-    }
 
     // 1. Generate Core Tools
     for (const tool of CORE_TOOLS) {
