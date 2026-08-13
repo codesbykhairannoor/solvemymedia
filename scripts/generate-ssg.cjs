@@ -90,11 +90,7 @@ async function run() {
     '/about-us', '/privacy-policy', '/terms-of-service', '/security', '/pricing', '/compare', '/supported-languages'
   ];
   for (const lang of langCodes) {
-    const transPath = path.join(langsDir, lang, 'translation.json');
     let translations = null;
-    if (fs.existsSync(transPath)) {
-      translations = JSON.parse(fs.readFileSync(transPath, 'utf8'));
-    }
     for (const route of staticRoutes) {
       const urlPath = lang === 'en' ? route : `/${lang}${route}`;
       await generatePage(urlPath, lang, translations, serverRender, baseHtml, distDir);
