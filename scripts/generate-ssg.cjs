@@ -61,7 +61,34 @@ async function run() {
     pseoDb = JSON.parse(fs.readFileSync(pseoDbPath, 'utf8'));
   }
 
-  console.log(`🚀 Starting Blazing Fast SSG generation for ${langCodes.length} languages...`);
+  let slugsMap = {};
+  try {
+    const slugsTsPath = path.join(__dirname, '../src/i18n/slugs.ts');
+    if (fs.existsSync(slugsTsPath)) {
+      const slugsTs = fs.readFileSync(slugsTsPath, 'utf8');
+      const match = slugsTs.match(/export const SLUGS_MAP[^=]*= (\{[\s\S]*?\});/);
+      if (match) {
+        // Evaluate the object strictly, it's just a JS object literal
+        slugsMap = eval('(' + match[1] + ')');
+      }
+    }
+  } catch (e) {
+    console.warn("Could not parse SLUGS_MAP", e.message);
+  }
+
+  const getLocalizedSlug = (enSlug, lang) => {
+    const cleanEn = enSlug.replace(/^\//, '');
+    if (lang === 'en' || !cleanEn) return cleanEn; // root path returns ''
+    
+    if (slugsMap[lang]) {
+      for (const [locKey, enVal] of Object.entries(slugsMap[lang])) {
+        if (enVal === cleanEn) {
+          return locKey;
+        }
+      }
+    }
+    return cleanEn;
+  };
 
   let generatedCount = 0;
 
@@ -70,7 +97,8 @@ async function run() {
 
     // 1. Generate Core Tools
     for (const tool of CORE_TOOLS) {
-      const urlPath = lang === 'en' ? tool : `/${lang}${tool === '/' ? '' : tool}`;
+      const locSlug = getLocalizedSlug(tool, lang);
+      const urlPath = lang === 'en' ? (locSlug ? `/${locSlug}` : '/') : `/${lang}${locSlug ? `/${locSlug}` : ''}`;
       await generatePage(urlPath, lang, translations, serverRender, baseHtml, distDir);
       generatedCount++;
     }
@@ -79,7 +107,8 @@ async function run() {
     const langPseo = pseoDb[lang] || [];
     for (const pseoItem of langPseo) {
       const toolSlug = pseoItem.path.startsWith('/') ? pseoItem.path : `/${pseoItem.path}`;
-      const urlPath = lang === 'en' ? toolSlug : `/${lang}${toolSlug}`;
+      const locSlug = getLocalizedSlug(toolSlug, lang);
+      const urlPath = lang === 'en' ? `/${locSlug}` : `/${lang}/${locSlug}`;
       await generatePage(urlPath, lang, translations, serverRender, baseHtml, distDir);
       generatedCount++;
     }
