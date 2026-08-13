@@ -150,7 +150,7 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
         {/* DYNAMIC PSEO SECTION */}
         {pseoData && pseoData.bentoSections && (
           <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} />
+             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
           </div>
         )}
 

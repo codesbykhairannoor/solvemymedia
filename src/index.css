@@ -554,3 +554,45 @@ textarea {
   padding: 24px;
   overflow-y: auto;
 }
+
+/* ============================================================
+   Bento Typography & Premium Harmonization Overrides
+   ============================================================ */
+.bento-container *,
+.bento-container h1,
+.bento-container h2,
+.bento-container h3,
+.bento-container h4,
+.bento-container p,
+.bento-container span,
+.bento-container button,
+.bento-container div {
+  font-family: var(--font-main) !important;
+}
+
+.bento-container h1,
+.bento-container h2,
+.bento-container h3,
+.bento-container h4 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--text-main) !important;
+}
+
+.bento-container p {
+  font-size: 1.15rem !important;
+  line-height: 1.8 !important;
+  color: var(--text-muted) !important;
+}
+
+/* Sub-headings inside bento cards shouldn't have giant font sizes */
+.bento-container .glass-panel h3,
+.bento-container div[style*="grid"] h3,
+.bento-container div[style*="flex"] h3,
+.bento-container div[style*="border"] h3 {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+}

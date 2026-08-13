@@ -85,6 +85,7 @@ export interface BentoSection {
 
 interface BentoRendererProps {
   sections: BentoSection[];
+  pageTitle?: string;
 }
 
 const normalizeBentoData = (type: string, rawData: any) => {
@@ -118,16 +119,16 @@ const normalizeBentoData = (type: string, rawData: any) => {
   return data;
 };
 
-export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections }) => {
+export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections, pageTitle }) => {
   if (!sections || !Array.isArray(sections) || sections.length === 0) {
     return null;
   }
 
   return (
     <div className="bento-container" style={{
-      maxWidth: 1000,
+      maxWidth: 1200,
       margin: '0 auto',
-      padding: '40px 0',
+      padding: '40px 24px',
       display: 'flex',
       flexDirection: 'column',
       gap: '80px'
@@ -135,6 +136,15 @@ export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections }) => {
       {sections.map((section, index) => {
         const { type, data: rawData } = section;
         const data = normalizeBentoData(type, rawData);
+
+        // Skip redundant top-level hero section
+        if (index === 0 && (type === 'hero-split' || type === 'big-typo-hero')) {
+          const sectionTitle = (data.title || data.text || '').toLowerCase().trim();
+          const cleanPageTitle = (pageTitle || '').toLowerCase().trim();
+          if (cleanPageTitle && (sectionTitle === cleanPageTitle || sectionTitle.includes(cleanPageTitle) || cleanPageTitle.includes(sectionTitle))) {
+            return null;
+          }
+        }
         
         switch (type) {
           // BATCH 1

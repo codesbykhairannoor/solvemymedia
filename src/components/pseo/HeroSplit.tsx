@@ -12,7 +12,7 @@ export const HeroSplit: React.FC<HeroSplitProps> = ({ title, description, ctaTex
   return (
     <div style={{ marginBottom: '80px', padding: '0 24px', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
       <div style={{ flex: '1 1 400px' }}>
-        <h1 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, fontFamily: 'Outfit, sans-serif', color: 'var(--text-main)', lineHeight: 1.2, marginBottom: 24, letterSpacing: '-0.03em' }}>{title}</h1>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, fontFamily: 'Outfit, sans-serif', color: 'var(--text-main)', lineHeight: 1.2, marginBottom: 24, letterSpacing: '-0.03em' }}>{title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40 }}>{description}</p>
         <button style={{ padding: '16px 32px', background: 'var(--text-main)', color: 'var(--bg-main)', border: 'none', borderRadius: 99, fontSize: '1.1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}>
           {ctaText} <ArrowRight size={20} />
