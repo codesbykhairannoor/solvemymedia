@@ -9,17 +9,55 @@ let updated = 0;
 for (const lang in data) {
   for (const entry of data[lang]) {
     
-    // We expect dynamicSection to still be there from the original JSON
-    // Or we extract data from the existing bentoSections we generated earlier
-    // But since dynamicSection might have been removed if I overwrote it (wait, I did NOT delete dynamicSection in the previous script!)
-    // Let's rely on entry.dynamicSection and entry.faqs
-    if (!entry.dynamicSection) continue;
+    let stepsItems = [];
+    let headingStr = "";
+
+    // If dynamicSection exists, use it
+    if (entry.dynamicSection && entry.dynamicSection.items) {
+      stepsItems = entry.dynamicSection.items;
+      headingStr = entry.dynamicSection.heading;
+    } 
+    // Otherwise try to reconstruct from the previous fallback bentoSections
+    else if (entry.bentoSections) {
+      const howTo = entry.bentoSections.find(s => s.type === 'how-to' || s.type === 'timeline-view' || s.type === 'accordion-features' || s.type === 'terminal-steps' || s.type === 'icon-list' || s.type === 'progress-stats' || s.type === 'bento-cards');
+      if (howTo && howTo.data) {
+        headingStr = howTo.data.title;
+        // Depending on the layout type that was previously assigned, the items might be in different keys
+        if (howTo.data.steps) {
+          stepsItems = howTo.data.steps.map(s => ({ title: s.title, content: s.description || s.content || '' }));
+        } else if (howTo.data.events) {
+          stepsItems = howTo.data.events.map(s => ({ title: s.title, content: s.description || s.content || '' }));
+        } else if (howTo.data.items) {
+          stepsItems = howTo.data.items.map(s => ({ title: s.title, content: s.description || s.content || '' }));
+        } else if (howTo.data.cards) {
+          stepsItems = howTo.data.cards.map(s => ({ title: s.title, content: s.description || s.content || '' }));
+        } else if (howTo.data.stats) {
+          stepsItems = howTo.data.stats.map(s => ({ title: s.label, content: '' }));
+        } else if (howTo.data.commands) { // old bug had commands
+          stepsItems = howTo.data.commands.map(s => {
+            const parts = s.split(' - ');
+            return { title: parts[0], content: parts[1] || '' };
+          });
+        }
+      }
+    }
+
+    if (!stepsItems.length) {
+      // Fallback if absolutely no steps found
+      stepsItems = [
+        {title: "Step 1", content: "Do this first"},
+        {title: "Step 2", content: "Do this second"},
+        {title: "Step 3", content: "Do this third"}
+      ];
+    }
+    if (!headingStr) {
+      headingStr = "How to " + entry.h1;
+    }
     
     const bento = [];
-    const basePath = entry.path; // e.g. /reduce-mp4-video-size-for-email
+    const basePath = entry.path; 
     const h1 = entry.h1;
     const desc = entry.description;
-    const stepsItems = entry.dynamicSection.items || [];
     const faqs = entry.faqs || [];
 
     // Helper functions to get safe text
@@ -36,7 +74,7 @@ for (const lang in data) {
         bento.push({
           type: 'roi-calculator',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: getStep(0).content,
             buttonText: getStep(1).title
           }
@@ -59,7 +97,7 @@ for (const lang in data) {
         bento.push({
           type: 'timeline-view',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             events: stepsItems.map(s => ({ date: "Step", title: s.title, description: s.content }))
           }
@@ -82,7 +120,7 @@ for (const lang in data) {
         bento.push({
           type: 'bento-cards',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             cards: stepsItems.map(s => ({ title: s.title, content: s.content }))
           }
@@ -105,7 +143,7 @@ for (const lang in data) {
         bento.push({
           type: 'terminal-steps',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: desc,
             steps: stepsItems.map(s => s.title + " - " + s.content)
           }
@@ -128,7 +166,7 @@ for (const lang in data) {
         bento.push({
           type: 'accordion-features',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             items: stepsItems.map(s => ({ title: s.title, content: s.content }))
           }
@@ -151,7 +189,7 @@ for (const lang in data) {
         bento.push({
           type: 'icon-list',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             items: stepsItems.map(s => ({ title: s.title, content: s.content }))
           }
@@ -174,7 +212,7 @@ for (const lang in data) {
         bento.push({
           type: 'progress-stats',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             stats: stepsItems.map(s => ({ label: s.title, value: 100, suffix: "%" }))
           }
@@ -197,7 +235,7 @@ for (const lang in data) {
         bento.push({
           type: 'how-to',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             steps: getAllSteps()
           }
@@ -220,7 +258,7 @@ for (const lang in data) {
         bento.push({
           type: 'timeline-view',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: "",
             events: stepsItems.map(s => ({ date: "Step", title: s.title, description: s.content }))
           }
@@ -243,7 +281,7 @@ for (const lang in data) {
         bento.push({
           type: 'terminal-steps',
           data: { 
-            title: entry.dynamicSection.heading, 
+            title: headingStr, 
             description: desc,
             steps: stepsItems.map(s => s.title + " - " + s.content)
           }
@@ -266,7 +304,7 @@ for (const lang in data) {
         });
         bento.push({
           type: 'how-to',
-          data: { title: entry.dynamicSection.heading, description: "", steps: getAllSteps() }
+          data: { title: headingStr, description: "", steps: getAllSteps() }
         });
         bento.push({
           type: 'highlight-box',
@@ -285,4 +323,4 @@ for (const lang in data) {
 }
 
 fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-console.log(`Updated ${updated} entries with UNIQUE bentoSections permutations!`);
+console.log(`Updated ${updated} entries with UNIQUE bentoSections permutations FOR ALL LANGUAGES!`);
