@@ -16,10 +16,11 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     convert_mp4: t('convVAction') || "Convert to MP4" 
   };
   
-  const initialFormat = pseoData ? pseoData.path.split('-to-')[1] : 'mp4';
+  const pathParts = pseoData ? pseoData.path.split('-to-') : [];
+  const initialFormat = pathParts.length > 1 ? pathParts[1] : 'mp4';
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
-  const [targetFormat, setTargetFormat] = useState<string>(initialFormat);
+  const [targetFormat, setTargetFormat] = useState<string>(initialFormat || 'mp4');
 
   const handleProcess = async () => {
     if (!file) return;

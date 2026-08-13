@@ -17,10 +17,11 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
     action: translate('vtaAction') || "Extract to"
   };
 
-  const initialFormat = pseoData ? pseoData.path.split('-to-')[1] : 'mp3';
+  const pathParts = pseoData ? pseoData.path.split('-to-') : [];
+  const initialFormat = pathParts.length > 1 ? pathParts[1] : 'mp3';
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
-  const [targetFormat, setTargetFormat] = useState<string>(initialFormat);
+  const [targetFormat, setTargetFormat] = useState<string>(initialFormat || 'mp3');
 
   const handleProcess = async () => {
     if (!file) return;
