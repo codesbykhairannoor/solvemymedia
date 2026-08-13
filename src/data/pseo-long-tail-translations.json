@@ -5,24 +5,6 @@
       "tool": "compress-video",
       "h1": "Reduce MP4 Video Size for Email",
       "description": "Compress large MP4 files to fit within the 25MB email attachment limit. Free, instant, and fully local processing.",
-      "dynamicSection": {
-        "type": "steps",
-        "heading": "How to Compress Videos for Email Attachments",
-        "items": [
-          {
-            "title": "Check the Limit",
-            "content": "Most email providers like Gmail and Outlook restrict attachments to 25MB. Ensure your target size is below this limit."
-          },
-          {
-            "title": "Adjust Quality Slider",
-            "content": "Drop the quality slider to around 40-50% to achieve maximum compression without making the video unwatchable."
-          },
-          {
-            "title": "Download and Attach",
-            "content": "Save the optimized MP4 directly to your device and drag it into your email composer."
-          }
-        ]
-      },
       "faqs": [
         {
           "q": "What is the maximum video size for Gmail?",
@@ -37,7 +19,54 @@
           "a": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
         }
       ],
-      "translatedPath": "/reduce-mp4-video-size-for-email"
+      "translatedPath": "/reduce-mp4-video-size-for-email",
+      "bentoSections": [
+        {
+          "type": "stat-box",
+          "data": {
+            "title": "Email Attachment Limits",
+            "description": "Never see the 'file too large' error again.",
+            "statValue": "25MB",
+            "statLabel": "Gmail Limit Ready"
+          }
+        },
+        {
+          "type": "how-to",
+          "data": {
+            "title": "How to compress MP4 for Email",
+            "description": "Just 3 simple steps.",
+            "steps": [
+              {
+                "title": "Select your MP4",
+                "description": "Drag and drop your large video file."
+              },
+              {
+                "title": "Choose Target Size",
+                "description": "Set the slider to 20MB to be safe for email."
+              },
+              {
+                "title": "Download & Attach",
+                "description": "Save the compressed file and email it instantly."
+              }
+            ]
+          }
+        },
+        {
+          "type": "security-arch",
+          "data": {
+            "title": "100% Private Compression",
+            "description": "Your private home videos stay on your device."
+          }
+        },
+        {
+          "type": "bottom-cta",
+          "data": {
+            "title": "Ready to email your video?",
+            "description": "Compress your MP4 now for free.",
+            "buttonText": "Start Compressing"
+          }
+        }
+      ]
     },
     {
       "path": "/compress-large-video-for-whatsapp",
@@ -389,24 +418,6 @@
       "tool": "compress-video",
       "h1": "Kurangi Ukuran Video MP4 untuk Email",
       "description": "Kompres file MP4 besar agar sesuai dengan batas lampiran email 25MB. Pemrosesan yang gratis, instan, dan sepenuhnya lokal.",
-      "dynamicSection": {
-        "type": "steps",
-        "heading": "Cara Mengompres Video untuk Lampiran Email",
-        "items": [
-          {
-            "title": "Periksa Batasnya",
-            "content": "Kebanyakan penyedia email seperti Gmail dan Outlook membatasi lampiran hingga 25 MB. Pastikan ukuran target Anda di bawah batas ini."
-          },
-          {
-            "title": "Sesuaikan Penggeser Kualitas",
-            "content": "Turunkan penggeser kualitas menjadi sekitar 40-50% untuk mencapai kompresi maksimum tanpa membuat video tidak dapat ditonton."
-          },
-          {
-            "title": "Unduh dan Lampirkan",
-            "content": "Simpan MP4 yang dioptimalkan langsung ke perangkat Anda dan seret ke pembuat email Anda."
-          }
-        ]
-      },
       "faqs": [
         {
           "q": "Berapa ukuran video maksimum untuk Gmail?",
@@ -421,7 +432,54 @@
           "a": "Sangat. Mesin WebAssembly kami berjalan secara lokal di browser iOS dan Android, cocok untuk email seluler."
         }
       ],
-      "translatedPath": "/kurangi-ukuran-video-mp4-untuk-email"
+      "translatedPath": "/kurangi-ukuran-video-mp4-untuk-email",
+      "bentoSections": [
+        {
+          "type": "stat-box",
+          "data": {
+            "title": "Batas Lampiran Email",
+            "description": "Jangan pernah melihat pesan error 'file terlalu besar' lagi.",
+            "statValue": "25MB",
+            "statLabel": "Siap untuk Gmail"
+          }
+        },
+        {
+          "type": "how-to",
+          "data": {
+            "title": "Cara kompres MP4 untuk Email",
+            "description": "Hanya 3 langkah mudah.",
+            "steps": [
+              {
+                "title": "Pilih MP4 Anda",
+                "description": "Seret dan jatuhkan file video besar Anda."
+              },
+              {
+                "title": "Pilih Ukuran Target",
+                "description": "Atur slider ke 20MB agar aman untuk email."
+              },
+              {
+                "title": "Unduh & Lampirkan",
+                "description": "Simpan file yang dikompresi dan email seketika."
+              }
+            ]
+          }
+        },
+        {
+          "type": "security-arch",
+          "data": {
+            "title": "Kompresi 100% Privat",
+            "description": "Video pribadi Anda tetap berada di perangkat Anda."
+          }
+        },
+        {
+          "type": "bottom-cta",
+          "data": {
+            "title": "Siap untuk mengirim video Anda?",
+            "description": "Kompres MP4 Anda sekarang secara gratis.",
+            "buttonText": "Mulai Mengompres"
+          }
+        }
+      ]
     },
     {
       "path": "/compress-large-video-for-whatsapp",
@@ -773,24 +831,6 @@
       "tool": "compress-video",
       "h1": "Reducir el tamaño del video MP4 para correo electrónico",
       "description": "Comprima archivos MP4 grandes para que quepan dentro del límite de archivos adjuntos de correo electrónico de 25 MB. Procesamiento gratuito, instantáneo y totalmente local.",
-      "dynamicSection": {
-        "type": "steps",
-        "heading": "Cómo comprimir vídeos para archivos adjuntos de correo electrónico",
-        "items": [
-          {
-            "title": "Verifique el límite",
-            "content": "La mayoría de los proveedores de correo electrónico como Gmail y Outlook restringen los archivos adjuntos a 25 MB. Asegúrese de que el tamaño de su objetivo esté por debajo de este límite."
-          },
-          {
-            "title": "Ajustar el control deslizante de calidad",
-            "content": "Baje el control deslizante de calidad a alrededor del 40-50% para lograr la máxima compresión sin que el video no se pueda ver."
-          },
-          {
-            "title": "Descargar y adjuntar",
-            "content": "Guarde el MP4 optimizado directamente en su dispositivo y arrástrelo a su redactor de correo electrónico."
-          }
-        ]
-      },
       "faqs": [
         {
           "q": "¿Cuál es el tamaño máximo de video para Gmail?",
@@ -805,7 +845,54 @@
           "a": "Absolutamente. Nuestro motor WebAssembly se ejecuta localmente en navegadores iOS y Android, perfecto para correo electrónico móvil."
         }
       ],
-      "translatedPath": "/reducir-el-tamano-del-video-mp4-para-correo-electronico"
+      "translatedPath": "/reducir-el-tamano-del-video-mp4-para-correo-electronico",
+      "bentoSections": [
+        {
+          "type": "stat-box",
+          "data": {
+            "title": "Límites de Correo Electrónico",
+            "description": "Nunca vuelva a ver el error de 'archivo demasiado grande'.",
+            "statValue": "25MB",
+            "statLabel": "Listo para Gmail"
+          }
+        },
+        {
+          "type": "how-to",
+          "data": {
+            "title": "Cómo comprimir MP4 para Correo",
+            "description": "Solo 3 sencillos pasos.",
+            "steps": [
+              {
+                "title": "Seleccione su MP4",
+                "description": "Arrastre y suelte su archivo de video grande."
+              },
+              {
+                "title": "Elija el Tamaño Objetivo",
+                "description": "Ajuste el control deslizante a 20MB para estar seguro."
+              },
+              {
+                "title": "Descargar y Adjuntar",
+                "description": "Guarde el archivo comprimido y envíelo por correo al instante."
+              }
+            ]
+          }
+        },
+        {
+          "type": "security-arch",
+          "data": {
+            "title": "Compresión 100% Privada",
+            "description": "Sus videos privados permanecen en su dispositivo."
+          }
+        },
+        {
+          "type": "bottom-cta",
+          "data": {
+            "title": "¿Listo para enviar su video?",
+            "description": "Comprima su MP4 ahora gratis.",
+            "buttonText": "Comenzar a Comprimir"
+          }
+        }
+      ]
     },
     {
       "path": "/compress-large-video-for-whatsapp",
