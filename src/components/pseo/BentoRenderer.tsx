@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../hooks/useLanguage';
 
 // === BATCH 1 COMPONENTS (30) ===
 // Features & Benefits
@@ -88,7 +89,55 @@ interface BentoRendererProps {
   pageTitle?: string;
 }
 
-const normalizeBentoData = (type: string, rawData: any) => {
+const toTitleCase = (str: string): string => {
+  if (!str) return '';
+  const minorWords = ['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'with', 'is', 'it', 'do', 'i', 'my', 'your'];
+  return str.split(' ').map((word, index, arr) => {
+    const cleanWord = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g,"");
+    if (index > 0 && index < arr.length - 1 && minorWords.includes(cleanWord.toLowerCase())) {
+      return word.toLowerCase();
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }).join(' ');
+};
+
+const getCtaTextFallback = (lang: string) => {
+  const dict: Record<string, string> = {
+    en: 'Get Started',
+    id: 'Mulai Sekarang',
+    es: 'Empezar',
+    fr: 'Commencer',
+    de: 'Loslegen',
+    it: 'Inizia',
+    pt: 'Iniciar',
+    nl: 'Beginnen',
+    pl: 'Rozpocznij',
+    ru: 'Начать',
+    ja: '今すぐ開始',
+    ko: '시작하기',
+    zh: '开始使用',
+    'zh-TW': '開始使用',
+    tr: 'Başla',
+    vi: 'Bắt đầu',
+    th: 'เริ่มต้น',
+    ar: 'ابدأ الآن',
+    hi: 'शुरू करें',
+    sv: 'Börja',
+    no: 'Start',
+    da: 'Kom i gang',
+    fi: 'Aloita',
+    cs: 'Začít',
+    hu: 'Kezdés',
+    el: 'Ξεκινήστε',
+    ro: 'Începe',
+    uk: 'Почати',
+    ms: 'Mulakan',
+    tl: 'Magsimula'
+  };
+  return dict[lang] || 'Get Started';
+};
+
+const normalizeBentoData = (type: string, rawData: any, lang: string) => {
   if (!rawData) return {};
   const data = { ...rawData };
 
@@ -97,6 +146,20 @@ const normalizeBentoData = (type: string, rawData: any) => {
   if (data.subtitle && !data.description) data.description = data.subtitle;
   if (data.buttonText && !data.ctaText) data.ctaText = data.buttonText;
   
+  // Clean up bad buttonText (e.g. "→")
+  if (data.ctaText === '→' || !data.ctaText || data.ctaText.trim() === '') {
+    data.ctaText = getCtaTextFallback(lang);
+  }
+  if (data.buttonText === '→' || !data.buttonText || data.buttonText.trim() === '') {
+    data.buttonText = getCtaTextFallback(lang);
+  }
+
+  // Capitalize English Headings to look premium
+  if (lang === 'en') {
+    if (data.title) data.title = toTitleCase(data.title);
+    if (data.text) data.text = toTitleCase(data.text);
+  }
+  
   // 2. Component specific fixes
   if (type === 'big-typo-hero' && data.title && !data.text) data.text = data.title;
   if (type === 'hero-split' && !data.imagePlaceholder) data.imagePlaceholder = '✨';
@@ -104,6 +167,7 @@ const normalizeBentoData = (type: string, rawData: any) => {
   // 3. Array deep mapping
   const mapArrayItem = (obj: any) => typeof obj === 'object' ? {
     ...obj,
+    title: (lang === 'en' && obj.title) ? toTitleCase(obj.title) : obj.title,
     desc: obj.desc || obj.description || obj.content || "",
     description: obj.description || obj.desc || obj.content || "",
     time: obj.time || obj.date || "Step",
@@ -120,6 +184,8 @@ const normalizeBentoData = (type: string, rawData: any) => {
 };
 
 export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections, pageTitle }) => {
+  const { currentLang } = useLanguage();
+
   if (!sections || !Array.isArray(sections) || sections.length === 0) {
     return null;
   }
@@ -135,7 +201,7 @@ export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections, pageTitl
     }}>
       {sections.map((section, index) => {
         const { type, data: rawData } = section;
-        const data = normalizeBentoData(type, rawData);
+        const data = normalizeBentoData(type, rawData, currentLang);
 
         // Skip redundant top-level hero section
         if (index === 0 && (type === 'hero-split' || type === 'big-typo-hero')) {
