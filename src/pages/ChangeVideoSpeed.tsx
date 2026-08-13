@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Settings2, FastForward, Clock, Shield, CheckCircle, Globe2, Gauge } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
+import { DynamicSection } from '../components/DynamicSection';
 import { useLanguage } from '../hooks/useLanguage';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { ChangeVideoSpeedHeroSection, ChangeVideoSpeedPerformanceSection, ChangeVideoSpeedPrivacySection, ChangeVideoSpeedGeoSection, ChangeVideoSpeedHowToSection } from '../components/content-sections/tools/ChangeVideoSpeedSections';

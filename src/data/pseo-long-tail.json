@@ -1,0 +1,374 @@
+[
+  {
+    "path": "/reduce-mp4-video-size-for-email",
+    "tool": "compress-video",
+    "h1": "Reduce MP4 Video Size for Email",
+    "description": "Compress large MP4 files to fit within the 25MB email attachment limit. Free, instant, and fully local processing.",
+    "dynamicSection": {
+      "type": "steps",
+      "heading": "How to Compress Videos for Email Attachments",
+      "items": [
+        {
+          "title": "Check the Limit",
+          "content": "Most email providers like Gmail and Outlook restrict attachments to 25MB. Ensure your target size is below this limit."
+        },
+        {
+          "title": "Adjust Quality Slider",
+          "content": "Drop the quality slider to around 40-50% to achieve maximum compression without making the video unwatchable."
+        },
+        {
+          "title": "Download and Attach",
+          "content": "Save the optimized MP4 directly to your device and drag it into your email composer."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "What is the maximum video size for Gmail?",
+        "a": "Gmail limits attachments to 25MB. If your video is larger, you must compress it using our tool first."
+      },
+      {
+        "q": "Will the video still look good in an email?",
+        "a": "Yes, for casual sharing via email, reducing the bitrate significantly still provides a highly acceptable viewing experience."
+      },
+      {
+        "q": "Does this work on mobile devices?",
+        "a": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
+      }
+    ]
+  },
+  {
+    "path": "/compress-large-video-for-whatsapp",
+    "tool": "compress-video",
+    "h1": "Compress Large Video for WhatsApp",
+    "description": "Easily shrink videos to bypass WhatsApp size limits. Send full-length videos without error messages.",
+    "dynamicSection": {
+      "type": "benefits",
+      "heading": "Why Use Our WhatsApp Compressor?",
+      "items": [
+        {
+          "title": "Bypass Limits",
+          "content": "WhatsApp often blocks videos larger than 16MB or 64MB depending on the version. We shrink it to fit seamlessly."
+        },
+        {
+          "title": "Instant Offline Processing",
+          "content": "No need to waste data uploading a 1GB video just to compress it. We do it locally on your phone."
+        },
+        {
+          "title": "Retain Audio Sync",
+          "content": "Unlike some cheap apps, our advanced encoder guarantees that your audio remains perfectly synced."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Why is WhatsApp saying my video is too large?",
+        "a": "WhatsApp has strict file size limits (usually 16MB for standard videos) to save bandwidth on their servers."
+      },
+      {
+        "q": "Can I compress a 4K video for WhatsApp?",
+        "a": "Yes, our tool will automatically downscale and compress 4K files to a WhatsApp-friendly format and size."
+      },
+      {
+        "q": "Is this safer than using an app?",
+        "a": "Yes. Apps often ask for intrusive permissions. Our web tool runs in a secure browser sandbox with zero uploads."
+      }
+    ]
+  },
+  {
+    "path": "/convert-mov-to-mp4-for-android",
+    "tool": "convert-video",
+    "h1": "Convert iPhone MOV to MP4 for Android",
+    "description": "Fix playback issues by converting Apple MOV videos to universally supported MP4 format for Android users.",
+    "dynamicSection": {
+      "type": "comparison",
+      "heading": "MOV vs MP4 Compatibility",
+      "items": [
+        {
+          "title": "MOV (QuickTime)",
+          "content": "Designed by Apple. Plays flawlessly on iPhones and Macs, but often fails on Android, Windows, and smart TVs."
+        },
+        {
+          "title": "MP4 (H.264)",
+          "content": "The universal web standard. Supported natively by 100% of modern devices, ensuring your friends can always watch your clips."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Why do my iPhone videos not play on my Android?",
+        "a": "iPhones often record in the MOV container using HEVC codecs, which some Android devices do not natively support."
+      },
+      {
+        "q": "Will converting MOV to MP4 reduce the quality?",
+        "a": "No, we can repackage the video streams into an MP4 container without re-encoding, preserving 100% of the original quality."
+      },
+      {
+        "q": "Do I need to install anything on my Android?",
+        "a": "No installation required. Just open this page in Chrome and convert your files instantly."
+      }
+    ]
+  },
+  {
+    "path": "/extract-audio-from-video-for-podcast",
+    "tool": "video-to-audio",
+    "h1": "Extract Audio from Video for Podcasts",
+    "description": "Rip pristine audio from video interviews and recordings. Perfect for podcasters needing high-quality MP3s.",
+    "dynamicSection": {
+      "type": "steps",
+      "heading": "3 Steps to Pristine Podcast Audio",
+      "items": [
+        {
+          "title": "Import Video File",
+          "content": "Drag your Zoom or camera recording into the converter. We support huge files up to 10GB."
+        },
+        {
+          "title": "Lossless Extraction",
+          "content": "Our tool analyzes the container and extracts the raw AAC or MP3 audio track without touching the actual sound wave."
+        },
+        {
+          "title": "Export for Editing",
+          "content": "Download the pure audio file immediately, ready to be dropped into Audacity or Adobe Audition."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Does extracting the audio degrade its quality?",
+        "a": "No, our tool performs a direct stream copy, meaning the audio is exactly identical to the original video recording."
+      },
+      {
+        "q": "Can I extract audio from a 2-hour Zoom recording?",
+        "a": "Yes, because processing is local, there are no timeout errors. It takes just seconds to extract hours of audio."
+      },
+      {
+        "q": "Is my unreleased podcast episode safe?",
+        "a": "Completely. Your video and audio never leave your computer. We value absolute privacy for creators."
+      }
+    ]
+  },
+  {
+    "path": "/make-video-smaller-without-losing-quality",
+    "tool": "compress-video",
+    "h1": "Make Video Smaller Without Losing Quality",
+    "description": "Use advanced visual optimizations to drastically reduce video file sizes while retaining crisp visual fidelity.",
+    "dynamicSection": {
+      "type": "use-cases",
+      "heading": "Who Needs Lossless-Feeling Compression?",
+      "items": [
+        {
+          "title": "Content Creators",
+          "content": "Save hard drive space while archiving raw footage without destroying the visual details."
+        },
+        {
+          "title": "Web Developers",
+          "content": "Optimize background videos for websites to ensure fast load times and better SEO scores."
+        },
+        {
+          "title": "Gamers",
+          "content": "Compress massive screen recordings of gameplay to share on Discord without pixelation."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "How is it possible to compress a video without losing quality?",
+        "a": "We use intelligent variable bitrate (VBR) encoding. It allocates data only where it is visually necessary, dropping invisible details."
+      },
+      {
+        "q": "What is the best setting for archiving videos?",
+        "a": "We recommend setting the quality slider to 75-80%. It provides a massive reduction in size with nearly imperceptible changes."
+      },
+      {
+        "q": "Do you use hardware acceleration?",
+        "a": "Yes, we leverage WebCodecs to use your devices GPU, making the high-quality compression extremely fast."
+      }
+    ]
+  },
+  {
+    "path": "/remove-sound-from-video-completely",
+    "tool": "mute-video",
+    "h1": "Remove Sound from Video Completely",
+    "description": "Strip the audio track from any video file instantly. Create perfectly silent clips for social media or presentations.",
+    "dynamicSection": {
+      "type": "use-cases",
+      "heading": "Why Mute Videos?",
+      "items": [
+        {
+          "title": "Stock Footage",
+          "content": "Prepare pristine B-roll footage by removing distracting background noise or wind sounds."
+        },
+        {
+          "title": "Social Media Backgrounds",
+          "content": "Create looping, silent videos for Instagram or TikTok where you plan to overlay a trending music track."
+        },
+        {
+          "title": "Privacy Protection",
+          "content": "Ensure no sensitive conversations are accidentally shared when posting a video online."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Can the audio be recovered once muted?",
+        "a": "No, the exported file will permanently have its audio track removed, guaranteeing absolute silence."
+      },
+      {
+        "q": "Will muting the video change its resolution?",
+        "a": "Not at all. The visual stream is untouched. We simply delete the audio track and repackage the file instantly."
+      },
+      {
+        "q": "How fast is this process?",
+        "a": "Because we do not re-encode the video frames, removing the audio takes a fraction of a second."
+      }
+    ]
+  },
+  {
+    "path": "/speed-up-video-for-tiktok",
+    "tool": "video-speed",
+    "h1": "Speed Up Video for TikTok Fast",
+    "description": "Accelerate your videos to fit within TikTok time limits while keeping the action smooth and engaging.",
+    "dynamicSection": {
+      "type": "steps",
+      "heading": "Optimize Pacing for Social Media",
+      "items": [
+        {
+          "title": "Trim the Fat",
+          "content": "First, ensure your video contains only the necessary action to keep the audience hooked."
+        },
+        {
+          "title": "Apply 1.5x or 2x Speed",
+          "content": "Use our slider to increase the speed. Faster videos are proven to increase audience retention on TikTok."
+        },
+        {
+          "title": "Export Instantly",
+          "content": "Save the sped-up MP4 locally and upload it directly to your social media accounts."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Will the audio sound like a chipmunk?",
+        "a": "Our tool automatically applies pitch correction to keep the audio sounding as natural as possible, even at high speeds."
+      },
+      {
+        "q": "Can I speed up a video beyond 2x?",
+        "a": "Yes, our custom speed slider allows you to aggressively speed up videos for dramatic time-lapse effects."
+      },
+      {
+        "q": "Is this better than using the TikTok app editor?",
+        "a": "Using our tool allows you to process high-resolution videos offline without dealing with app crashes or lag."
+      }
+    ]
+  },
+  {
+    "path": "/crop-video-for-instagram-story",
+    "tool": "crop-video",
+    "h1": "Crop Video for Instagram Story (9:16)",
+    "description": "Instantly format your landscape or square videos into the perfect 9:16 vertical aspect ratio for Instagram Stories.",
+    "dynamicSection": {
+      "type": "comparison",
+      "heading": "Understanding Social Media Ratios",
+      "items": [
+        {
+          "title": "16:9 Landscape",
+          "content": "Standard for YouTube and TV. When posted on Instagram Stories, it creates massive black bars on the top and bottom."
+        },
+        {
+          "title": "9:16 Vertical",
+          "content": "The ideal format for Stories, Reels, and TikTok. It fills the entire mobile screen, maximizing engagement."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Will cropping cut off the edges of my video?",
+        "a": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point."
+      },
+      {
+        "q": "Does this tool add a watermark?",
+        "a": "No, we never add watermarks to your cropped videos. It is 100% clean."
+      },
+      {
+        "q": "Can I preview the crop before saving?",
+        "a": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+      }
+    ]
+  },
+  {
+    "path": "/combine-multiple-voice-memos-into-one",
+    "tool": "merge-audio",
+    "h1": "Combine Multiple Voice Memos into One",
+    "description": "Merge separate audio recordings, voice notes, and M4A files into a single, seamless audio track.",
+    "dynamicSection": {
+      "type": "benefits",
+      "heading": "The Easiest Way to Merge Audio",
+      "items": [
+        {
+          "title": "Drag and Drop Reordering",
+          "content": "Simply drag your files into the timeline and rearrange them exactly how you want them to play."
+        },
+        {
+          "title": "Cross-Format Merging",
+          "content": "Combine an M4A voice memo, an MP3 music track, and a WAV recording effortlessly."
+        },
+        {
+          "title": "Gapless Playback",
+          "content": "Our audio engine splices the files together perfectly without any annoying clicks, pops, or silent gaps."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Can I merge recordings from an iPhone?",
+        "a": "Yes, iPhones save voice memos as M4A files, which our tool fully supports and can merge instantly."
+      },
+      {
+        "q": "Is there a limit to how many memos I can merge?",
+        "a": "You are only limited by your devices RAM. You can comfortably merge dozens of long audio files."
+      },
+      {
+        "q": "Are my private recordings secure?",
+        "a": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+      }
+    ]
+  },
+  {
+    "path": "/transcribe-zoom-meeting-recording-to-text",
+    "tool": "transcribe",
+    "h1": "Transcribe Zoom Meeting to Text",
+    "description": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
+    "dynamicSection": {
+      "type": "use-cases",
+      "heading": "Maximize Meeting Productivity",
+      "items": [
+        {
+          "title": "Generate Meeting Minutes",
+          "content": "Stop taking manual notes. Get a full transcript of what was said and use AI to summarize it later."
+        },
+        {
+          "title": "Searchable Archives",
+          "content": "Turn hours of unsearchable video into a text document so you can easily find exactly what was discussed."
+        },
+        {
+          "title": "Corporate Privacy",
+          "content": "Unlike cloud transcription services, our tool runs locally, ensuring confidential company data is never leaked."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Can it transcribe a video file, or do I need to extract audio first?",
+        "a": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically."
+      },
+      {
+        "q": "How accurate is the transcription for Zoom calls?",
+        "a": "We use advanced AI models (like Whisper) that provide near-human accuracy, even with slight background noise."
+      },
+      {
+        "q": "Is my corporate meeting data safe?",
+        "a": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+      }
+    ]
+  }
+]

@@ -4,7 +4,8 @@ import { SEO } from './seo/SEO';
 import { getStandardSlug } from '../i18n/slugs';
 import { useLanguage } from '../hooks/useLanguage';
 import { PSEO_ROUTES } from '../data/pseo-routes';
-
+import PseoTranslations from '../data/pseo-translations.json';
+import LongTailTranslations from '../data/pseo-long-tail-translations.json';
 // Import all tools
 import { CompressVideo } from '../pages/CompressVideo';
 import { CompressAudio } from '../pages/CompressAudio';
@@ -132,7 +133,19 @@ export const DynamicToolRoute: React.FC = () => {
   let standardSlug = getStandardSlug(slug, currentLang);
   
   // Try to find a pSEO route match using the standard (English) slug
-  const pseoData = PSEO_ROUTES.find(r => r.path === `/${standardSlug}`);
+  let pseoData = null;
+  const targetLang = (currentLang === 'zh-cn' || currentLang === 'zh') ? 'zh' : 
+                     (currentLang === 'zh-tw' ? 'zh-TW' : currentLang);
+
+  const findRoute = (translations: any) => {
+    if (!translations) return null;
+    const langData = translations[targetLang] || translations['en'];
+    if (!langData) return null;
+    return langData.find((r: any) => r.path === `/${standardSlug}` || r.path === standardSlug);
+  };
+
+  pseoData = findRoute(LongTailTranslations) || findRoute(PseoTranslations);
+  
   if (pseoData) {
     standardSlug = pseoData.tool;
   }
