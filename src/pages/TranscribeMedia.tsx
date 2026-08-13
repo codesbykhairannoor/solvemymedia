@@ -4,6 +4,7 @@ import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, F
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
+import { BentoRenderer } from '../components/pseo/BentoRenderer';
 
 export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, loadingProgress, processing, resultText, transcribe, initModel } = useWhisper();
@@ -193,26 +194,37 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     
     
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
-        <TranscribeMediaHeroSection 
-          section={{ type: 'hero', title: translate('transHeroTitle') || "Transcribe Audio & Video Offline", content: translate('transHeroDesc') || "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
-        />
-        <TranscribeMediaHowToSection 
-          section={{
-            type: 'howto',
-            title: translate('transHowTo') || "How to Transcribe",
-            steps: [
-              { title: translate('transHowTo1') || "Select Media", description: translate('transHowTo1Desc') || "Upload any audio or video file from your computer." },
-              { title: translate('transHowTo2') || "AI Analysis", description: translate('transHowTo2Desc') || "The local AI engine listens and detects the spoken language." },
-              { title: translate('transHowTo3') || "Get Text", description: translate('transHowTo3Desc') || "Instantly copy the transcription text to your clipboard." }
-            ]
-          }} 
-        />
-        <TranscribeMediaPerformanceSection 
-          section={{ type: 'performance', title: translate('transPerfTitle') || "Hardware Acceleration", content: translate('transPerfDesc') || "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
-        />
-        <TranscribeMediaPrivacySection 
-          section={{ type: 'privacy', title: translate('transPrivTitle') || "Total Privacy", content: translate('transPrivDesc') || "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
-        />
+        {!pseoData && (
+          <>
+            <TranscribeMediaHeroSection 
+              section={{ type: 'hero', title: translate('transHeroTitle') || "Transcribe Audio & Video Offline", content: translate('transHeroDesc') || "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
+            />
+            <TranscribeMediaHowToSection 
+              section={{
+                type: 'howto',
+                title: translate('transHowTo') || "How to Transcribe",
+                steps: [
+                  { title: translate('transHowTo1') || "Select Media", description: translate('transHowTo1Desc') || "Upload any audio or video file from your computer." },
+                  { title: translate('transHowTo2') || "AI Analysis", description: translate('transHowTo2Desc') || "The local AI engine listens and detects the spoken language." },
+                  { title: translate('transHowTo3') || "Get Text", description: translate('transHowTo3Desc') || "Instantly copy the transcription text to your clipboard." }
+                ]
+              }} 
+            />
+            <TranscribeMediaPerformanceSection 
+              section={{ type: 'performance', title: translate('transPerfTitle') || "Hardware Acceleration", content: translate('transPerfDesc') || "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
+            />
+            <TranscribeMediaPrivacySection 
+              section={{ type: 'privacy', title: translate('transPrivTitle') || "Total Privacy", content: translate('transPrivDesc') || "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
+            />
+          </>
+        )}
+
+        {/* DYNAMIC PSEO SECTION */}
+        {pseoData && pseoData.bentoSections && (
+          <div style={{ padding: '40px 0' }}>
+             <BentoRenderer sections={pseoData.bentoSections} />
+          </div>
+        )}
         <TranscribeMediaFAQSection faqs={pseoData?.faqs} />
       </div>
   

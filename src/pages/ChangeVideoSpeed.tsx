@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Settings2, FastForward, Clock, Shield, CheckCircle, Globe2, Gauge } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
-import { DynamicSection } from '../components/DynamicSection';
+import { BentoRenderer } from '../components/pseo/BentoRenderer';
 import { useLanguage } from '../hooks/useLanguage';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { ChangeVideoSpeedHeroSection, ChangeVideoSpeedPerformanceSection, ChangeVideoSpeedPrivacySection, ChangeVideoSpeedGeoSection, ChangeVideoSpeedHowToSection } from '../components/content-sections/tools/ChangeVideoSpeedSections';
@@ -96,52 +96,63 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         
-        <ChangeVideoSpeedHowToSection 
-          flipLayout={false}
-          section={{
-            type: 'how-to',
-            title: t('speedVHowTo') || 'How to Adjust Video Speed',
-            steps: [
-              { title: t('speedVHowTo1') || 'Import Video', description: t('speedVHowTo1Desc') || 'Select any MP4, WebM, or MOV file from your device.' },
-              { title: t('speedVHowTo2') || 'Set Speed Factor', description: t('speedVHowTo2Desc') || 'Use the slider to set a speed between 0.5x (slow motion) and 2.0x (fast forward).' },
-              { title: t('speedVHowTo3') || 'Export Video', description: t('speedVHowTo3Desc') || 'Click process to apply the changes and download the new video instantly.' }
-            ]
-          }}
-        />
+        {!pseoData && (
+          <>
+            <ChangeVideoSpeedHowToSection 
+              flipLayout={false}
+              section={{
+                type: 'how-to',
+                title: t('speedVHowTo') || 'How to Adjust Video Speed',
+                steps: [
+                  { title: t('speedVHowTo1') || 'Import Video', description: t('speedVHowTo1Desc') || 'Select any MP4, WebM, or MOV file from your device.' },
+                  { title: t('speedVHowTo2') || 'Set Speed Factor', description: t('speedVHowTo2Desc') || 'Use the slider to set a speed between 0.5x (slow motion) and 2.0x (fast forward).' },
+                  { title: t('speedVHowTo3') || 'Export Video', description: t('speedVHowTo3Desc') || 'Click process to apply the changes and download the new video instantly.' }
+                ]
+              }}
+            />
 
-        <ChangeVideoSpeedGeoSection 
-          flipLayout={false}
-          section={{
-            type: 'geo',
-            title: t('speedVGeoTitle') || 'Process Videos Anywhere',
-            content: t('speedVGeoDesc') || 'No internet connection needed after the first load. Change video speeds even while completely offline.',
-            badgeText: t('speedVGeoPill') || 'Local Processing'
-          }}
-        />
+            <ChangeVideoSpeedGeoSection 
+              flipLayout={false}
+              section={{
+                type: 'geo',
+                title: t('speedVGeoTitle') || 'Process Videos Anywhere',
+                content: t('speedVGeoDesc') || 'No internet connection needed after the first load. Change video speeds even while completely offline.',
+                badgeText: t('speedVGeoPill') || 'Local Processing'
+              }}
+            />
 
-        <ChangeVideoSpeedPrivacySection 
-          flipLayout={false}
-          section={{
-            type: 'privacy',
-            title: t('speedVPrivTitle') || 'Complete Privacy Protection',
-            content: t('speedVPrivDesc') || 'Your video content is never uploaded to any remote server. The entire speed adjustment process happens securely within your browser sandbox, keeping your media 100% private.'
-          }}
-        />
+            <ChangeVideoSpeedPrivacySection 
+              flipLayout={false}
+              section={{
+                type: 'privacy',
+                title: t('speedVPrivTitle') || 'Complete Privacy Protection',
+                content: t('speedVPrivDesc') || 'Your video content is never uploaded to any remote server. The entire speed adjustment process happens securely within your browser sandbox, keeping your media 100% private.'
+              }}
+            />
 
-        <ChangeVideoSpeedPerformanceSection 
-          flipLayout={false}
-          section={{
-            type: 'performance',
-            title: t('speedVPerfTitle') || 'Precision Control Without Distortion',
-            content: t('speedVPerfDesc') || 'Adjusting video speed usually breaks the audio pitch. We use advanced FFmpeg atempo filters to preserve the natural sound of your audio track even at 2x speeds.',
-            badgeText: t('speedVPerfPill') || 'Lightning Fast'
-          }}
-          badges={[
-            t('speedVFeat1Title') || 'Time Manipulation',
-            t('speedVFeat2Title') || 'Pitch Correction',
-            t('speedVFeat3Title') || 'Fast Export'
-          ]}
-        />
+            <ChangeVideoSpeedPerformanceSection 
+              flipLayout={false}
+              section={{
+                type: 'performance',
+                title: t('speedVPerfTitle') || 'Precision Control Without Distortion',
+                content: t('speedVPerfDesc') || 'Adjusting video speed usually breaks the audio pitch. We use advanced FFmpeg atempo filters to preserve the natural sound of your audio track even at 2x speeds.',
+                badgeText: t('speedVPerfPill') || 'Lightning Fast'
+              }}
+              badges={[
+                t('speedVFeat1Title') || 'Time Manipulation',
+                t('speedVFeat2Title') || 'Pitch Correction',
+                t('speedVFeat3Title') || 'Fast Export'
+              ]}
+            />
+          </>
+        )}
+
+        {/* DYNAMIC PSEO SECTION */}
+        {pseoData && pseoData.bentoSections && (
+          <div style={{ padding: '40px 0' }}>
+             <BentoRenderer sections={pseoData.bentoSections} />
+          </div>
+        )}
 
         {/* SECTION 5: FAQ */}
         <section className="content-section faq-section" style={{ padding: '0 24px' }}>

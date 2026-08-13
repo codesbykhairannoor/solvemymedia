@@ -6,6 +6,7 @@ import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, U
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
+import { BentoRenderer } from '../components/pseo/BentoRenderer';
 export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
   
@@ -195,26 +196,37 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       </div>
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-        <MergeAudioHeroSection 
-          section={{ type: 'hero', title: translate('maHeroTitle') || "Combine Audio Tracks Seamlessly", content: translate('maHeroDesc') || "Merge multiple MP3, WAV, or OGG files into a single continuous track. Perfect for podcasts, mixtapes, and audiobooks." }} 
-        />
-        <MergeAudioHowToSection 
-          section={{
-            type: 'howto',
-            title: translate('maHowTo') || "How to Merge Audio",
-            steps: [
-              { title: translate('maHowTo1') || "Add Audio Files", description: translate('maHowTo1Desc') || "Upload two or more audio tracks you want to combine." },
-              { title: translate('maHowTo2') || "Rearrange Order", description: translate('maHowTo2Desc') || "Drag and drop the files to get the perfect sequence." },
-              { title: translate('maHowTo3') || "Merge & Save", description: translate('maHowTo3Desc') || "Click merge and download your single combined audio file." }
-            ]
-          }} 
-        />
-        <MergeAudioPerformanceSection 
-          section={{ type: 'performance', title: translate('maPerfTitle') || "Zero Latency Processing", content: translate('maPerfDesc') || "No queue times or upload delays. Everything is merged instantaneously in your browser using local resources." }} 
-        />
-        <MergeAudioPrivacySection 
-          section={{ type: 'privacy', title: translate('maPrivTitle') || "100% Offline & Private", content: translate('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
-        />
+        {!pseoData && (
+          <>
+            <MergeAudioHeroSection 
+              section={{ type: 'hero', title: translate('maHeroTitle') || "Combine Audio Tracks Seamlessly", content: translate('maHeroDesc') || "Merge multiple MP3, WAV, or OGG files into a single continuous track. Perfect for podcasts, mixtapes, and audiobooks." }} 
+            />
+            <MergeAudioHowToSection 
+              section={{
+                type: 'howto',
+                title: translate('maHowTo') || "How to Merge Audio",
+                steps: [
+                  { title: translate('maHowTo1') || "Add Audio Files", description: translate('maHowTo1Desc') || "Upload two or more audio tracks you want to combine." },
+                  { title: translate('maHowTo2') || "Rearrange Order", description: translate('maHowTo2Desc') || "Drag and drop the files to get the perfect sequence." },
+                  { title: translate('maHowTo3') || "Merge & Save", description: translate('maHowTo3Desc') || "Click merge and download your single combined audio file." }
+                ]
+              }} 
+            />
+            <MergeAudioPerformanceSection 
+              section={{ type: 'performance', title: translate('maPerfTitle') || "Zero Latency Processing", content: translate('maPerfDesc') || "No queue times or upload delays. Everything is merged instantaneously in your browser using local resources." }} 
+            />
+            <MergeAudioPrivacySection 
+              section={{ type: 'privacy', title: translate('maPrivTitle') || "100% Offline & Private", content: translate('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
+            />
+          </>
+        )}
+
+        {/* DYNAMIC PSEO SECTION */}
+        {pseoData && pseoData.bentoSections && (
+          <div style={{ padding: '40px 0' }}>
+             <BentoRenderer sections={pseoData.bentoSections} />
+          </div>
+        )}
         <MergeAudioFAQSection faqs={pseoData?.faqs} />
       </div>
     </div>

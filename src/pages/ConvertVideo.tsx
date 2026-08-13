@@ -4,7 +4,7 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useLanguage } from '../hooks/useLanguage';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { ConvertVideoHeroSection, ConvertVideoHowToSection, ConvertVideoGeoSection, ConvertVideoPrivacySection, ConvertVideoPerformanceSection } from '../components/content-sections/tools/ConvertVideoSections';
-import { DynamicSection } from '../components/DynamicSection';
+import { BentoRenderer } from '../components/pseo/BentoRenderer';
 
 export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
@@ -131,9 +131,9 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
         
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.dynamicSection && (
-          <div style={{ padding: '0 24px' }}>
-             <DynamicSection data={pseoData.dynamicSection} />
+        {pseoData && pseoData.bentoSections && (
+          <div style={{ padding: '40px 0' }}>
+             <BentoRenderer sections={pseoData.bentoSections} />
           </div>
         )}
 
