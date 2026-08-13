@@ -7,20 +7,24 @@ export const useFFmpeg = () => {
   const [progress, setProgress] = useState(0);
   const [processing, setProcessing] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
-  const ffmpegRef = useRef(new FFmpeg());
+  // In Vite SSR, import.meta.env.SSR is true on the server
+  const ffmpegRef = useRef<any>(import.meta.env.SSR ? null : new FFmpeg());
 
   useEffect(() => {
+    if (!ffmpegRef.current) {
+      ffmpegRef.current = new FFmpeg();
+    }
     load();
   }, []);
 
   const load = async () => {
     const ffmpeg = ffmpegRef.current;
     
-    ffmpeg.on('log', ({ message }) => {
+    ffmpeg.on('log', ({ message }: { message: string }) => {
       setLogs((prev) => [...prev, message]);
     });
 
-    ffmpeg.on('progress', ({ progress, time }) => {
+    ffmpeg.on('progress', ({ progress, time }: { progress: number; time: number }) => {
       setProgress(Math.round(progress * 100));
     });
 

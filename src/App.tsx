@@ -78,7 +78,7 @@ function App() {
   const langCodes = SUPPORTED_LANGUAGES.map(l => l.code).filter(c => c !== 'en');
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LanguageLayout theme={theme} toggleTheme={toggleTheme} />}>
@@ -109,7 +109,7 @@ function App() {
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
