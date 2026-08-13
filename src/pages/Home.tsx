@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
               lineHeight: 1.15,
               color: 'var(--text-main)',
               maxWidth: 1000,
-              margin: '0 auto 24px auto',
+              margin: '24px auto 24px auto', // Added 24px top margin
               textWrap: 'balance',
               fontFamily: 'var(--font-display)'
             }}
@@ -96,25 +96,6 @@ export const Home: React.FC = () => {
           }}>
             {t('homeHeroSubtitle') || 'Compress, convert, merge, and edit audio and video files directly in your browser. 100% processed offline via WebCodecs. Free, no limits, and highly secure.'}
           </p>
-
-
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            padding: '10px 20px',
-            background: 'var(--bg-elevated)',
-            borderRadius: 9999,
-            border: '1px solid var(--border-color)',
-            marginBottom: 48,
-            boxShadow: 'var(--shadow-sm)',
-            color: 'var(--text-main)',
-            fontSize: '0.95rem',
-            fontWeight: 600,
-          }}>
-            <ShieldCheck size={18} style={{ color: 'var(--success-color)' }} />
-            <span>{t('homeSecurityBadge') || 'Security Architecture: 100% Client-Side Processing • 0 Bytes Uploaded'}</span>
-          </div>
 
           <div style={{ maxWidth: 640, margin: '0 auto', position: 'relative' }}>
             <Search size={22} style={{ position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', zIndex: 2 }} />
