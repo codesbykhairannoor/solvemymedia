@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Settings2, Shield, CheckCircle, Zap, Activity, Wifi, Star, ShieldCheck, Monitor } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
-import { BentoRenderer } from '../components/pseo/BentoRenderer';
+import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
 import type { Quality } from '../hooks/useUniversalCompressor';
@@ -304,18 +304,17 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.bentoSections && (
-          <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
-          </div>
+        {pseoData && (
+          <NativeLayoutRenderer data={pseoData} />
         )}
 
         {/* SEO Section FAQ */}
+        {!pseoData && (
         <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {(pseoData?.faqs || [
+              {([
                 {
                   q: t('compVFaq1Q') || "Is the compression really done in my browser?",
                   a: t('compVFaq1A') || "Yes! We use WebAssembly and WebCodecs to run the compression algorithms locally. Your video never leaves your device."
@@ -341,6 +340,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             </div>
           </div>
         </section>
+        )}
       </div>
     </>
   );

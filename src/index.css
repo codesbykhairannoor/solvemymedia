@@ -4,6 +4,7 @@
   --bg-app: #06050b;
   --bg-main: #06050b;
   --bg-card: #0f0c1a;
+  --bg-elevated: #0f0c1a;
   --bg-card-hover: #161224;
   --bg-input: #0a0912;
   --border-color: rgba(168, 85, 247, 0.15);
@@ -29,6 +30,7 @@
   --bg-app: #f8fafc;
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
   --bg-card-hover: #f1f5f9;
   --bg-input: #f1f5f9;
   --border-color: rgba(168, 85, 247, 0.2);
