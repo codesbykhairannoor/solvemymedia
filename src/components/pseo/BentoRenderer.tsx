@@ -87,6 +87,37 @@ interface BentoRendererProps {
   sections: BentoSection[];
 }
 
+const normalizeBentoData = (type: string, rawData: any) => {
+  if (!rawData) return {};
+  const data = { ...rawData };
+
+  // 1. Global mappings
+  if (data.content && !data.description) data.description = data.content;
+  if (data.subtitle && !data.description) data.description = data.subtitle;
+  if (data.buttonText && !data.ctaText) data.ctaText = data.buttonText;
+  
+  // 2. Component specific fixes
+  if (type === 'big-typo-hero' && data.title && !data.text) data.text = data.title;
+  if (type === 'hero-split' && !data.imagePlaceholder) data.imagePlaceholder = '✨';
+  
+  // 3. Array deep mapping
+  const mapArrayItem = (obj: any) => typeof obj === 'object' ? {
+    ...obj,
+    desc: obj.desc || obj.description || obj.content || "",
+    description: obj.description || obj.desc || obj.content || "",
+    time: obj.time || obj.date || "Step",
+    imagePlaceholder: obj.imagePlaceholder || "🚀"
+  } : obj;
+
+  if (Array.isArray(data.events)) data.events = data.events.map(mapArrayItem);
+  if (Array.isArray(data.cards)) data.cards = data.cards.map(mapArrayItem);
+  if (Array.isArray(data.steps)) data.steps = data.steps.map(mapArrayItem);
+  if (Array.isArray(data.features)) data.features = data.features.map(mapArrayItem);
+  if (Array.isArray(data.items)) data.items = data.items.map(mapArrayItem);
+
+  return data;
+};
+
 export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections }) => {
   if (!sections || !Array.isArray(sections) || sections.length === 0) {
     return null;
@@ -102,7 +133,8 @@ export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections }) => {
       gap: '80px'
     }}>
       {sections.map((section, index) => {
-        const { type, data } = section;
+        const { type, data: rawData } = section;
+        const data = normalizeBentoData(type, rawData);
         
         switch (type) {
           // BATCH 1
