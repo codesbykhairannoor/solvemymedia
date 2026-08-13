@@ -2,6 +2,7 @@
 
 :root[data-theme="dark"] {
   --bg-app: #06050b;
+  --bg-main: #06050b;
   --bg-card: #0f0c1a;
   --bg-card-hover: #161224;
   --bg-input: #0a0912;
@@ -26,6 +27,7 @@
 
 :root[data-theme="light"] {
   --bg-app: #f8fafc;
+  --bg-main: #f8fafc;
   --bg-card: #ffffff;
   --bg-card-hover: #f1f5f9;
   --bg-input: #f1f5f9;
@@ -575,17 +577,17 @@ textarea {
 .bento-container h3,
 .bento-container h4 {
   font-family: var(--font-display) !important;
-  font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 800 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.03em !important;
-  color: var(--text-main) !important;
+  color: var(--text-main);
 }
 
 .bento-container p {
-  font-size: 1.15rem !important;
+  font-size: 1.15rem;
   line-height: 1.8 !important;
-  color: var(--text-muted) !important;
+  color: var(--text-muted);
 }
 
 /* Sub-headings inside bento cards shouldn't have giant font sizes */
@@ -593,6 +595,6 @@ textarea {
 .bento-container div[style*="grid"] h3,
 .bento-container div[style*="flex"] h3,
 .bento-container div[style*="border"] h3 {
-  font-size: 1.4rem !important;
+  font-size: 1.4rem;
   font-weight: 700 !important;
 }
