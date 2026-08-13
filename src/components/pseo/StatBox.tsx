@@ -39,7 +39,7 @@ export const StatBox: React.FC<StatBoxProps> = ({ title, description, statValue,
         <div style={{ flex: '1 1 300px' }}>
           <h2 style={{
             fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-            fontWeight: 800,
+            fontWeight: 800, fontFamily: 'Outfit, sans-serif',
             lineHeight: 1.2,
             color: 'var(--text-main)',
             marginBottom: 16
@@ -80,10 +80,10 @@ export const StatBox: React.FC<StatBoxProps> = ({ title, description, statValue,
             <TrendingUp size={24} style={{ color: 'var(--brand-primary)' }} />
           </div>
           <div style={{
-            fontSize: 'clamp(3rem, 6vw, 4.5rem)',
-            fontWeight: 900,
+            fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+            fontWeight: 800, fontFamily: 'Outfit, sans-serif',
             color: 'var(--text-main)',
-            lineHeight: 1,
+            lineHeight: 1.2,
             letterSpacing: '-0.03em'
           }}>
             {statValue}

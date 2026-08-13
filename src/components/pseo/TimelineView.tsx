@@ -10,7 +10,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({ title, description, 
   return (
     <div style={{ marginBottom: '80px', padding: 'clamp(32px, 5vw, 64px)', background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)' }}>
       <div style={{ textAlign: 'center', marginBottom: 64 }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', marginBottom: 16 }}>{title}</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, fontFamily: 'Outfit, sans-serif', color: 'var(--text-main)', marginBottom: 16 }}>{title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)' }}>{description}</p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 40, position: 'relative', paddingLeft: 32 }}>

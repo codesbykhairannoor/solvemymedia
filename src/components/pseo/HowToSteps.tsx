@@ -22,7 +22,7 @@ export const HowToSteps: React.FC<HowToStepsProps> = ({ title, description, step
       <div style={{ textAlign: 'center', marginBottom: 56 }}>
         <h2 style={{
           fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-          fontWeight: 800,
+          fontWeight: 800, fontFamily: 'Outfit, sans-serif',
           lineHeight: 1.2,
           color: 'var(--text-main)',
           marginBottom: 16
@@ -64,7 +64,7 @@ export const HowToSteps: React.FC<HowToStepsProps> = ({ title, description, step
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '1.25rem',
+              fontSize: '1.15rem',
               fontWeight: 800,
               marginBottom: 24,
               boxShadow: '0 4px 12px rgba(168,85,247,0.3)'
@@ -72,7 +72,7 @@ export const HowToSteps: React.FC<HowToStepsProps> = ({ title, description, step
               {index + 1}
             </div>
             <h3 style={{
-              fontSize: '1.25rem',
+              fontSize: '1.15rem',
               fontWeight: 700,
               color: 'var(--text-main)',
               marginBottom: 12

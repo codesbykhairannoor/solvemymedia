@@ -96,10 +96,10 @@ export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections }) => {
     <div className="bento-container" style={{
       maxWidth: 1000,
       margin: '0 auto',
-      padding: '0 24px',
+      padding: '40px 0',
       display: 'flex',
       flexDirection: 'column',
-      gap: '24px'
+      gap: '80px'
     }}>
       {sections.map((section, index) => {
         const { type, data } = section;

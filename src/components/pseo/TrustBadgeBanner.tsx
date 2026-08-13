@@ -9,7 +9,7 @@ export const TrustBadgeBanner: React.FC<TrustBadgeBannerProps> = ({ title }) => 
   return (
     <div style={{ marginBottom: '80px', padding: '0 24px' }}>
       <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 24, padding: 32, display: 'flex', flexWrap: 'wrap', gap: 48, justifyContent: 'center', alignItems: 'center', boxShadow: 'var(--shadow-sm)' }}>
-        <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>{title}</h3>
+        <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>{title}</h3>
         <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap' }}>
           {[
             { icon: <ShieldCheck />, text: 'Bank-grade Security' },

@@ -13,7 +13,7 @@ export const AccordionFeatures: React.FC<AccordionFeaturesProps> = ({ title, des
   return (
     <div style={{ marginBottom: '80px', padding: '0 24px', maxWidth: 800, margin: '0 auto 80px' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', marginBottom: 16 }}>{title}</h2>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, fontFamily: 'Outfit, sans-serif', color: 'var(--text-main)', marginBottom: 16 }}>{title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)' }}>{description}</p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -23,7 +23,7 @@ export const AccordionFeatures: React.FC<AccordionFeaturesProps> = ({ title, des
             <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 16, overflow: 'hidden' }}>
               <button 
                 onClick={() => setOpenIdx(isOpen ? null : i)}
-                style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'transparent', border: 'none', color: 'var(--text-main)', fontSize: '1.2rem', fontWeight: 700, cursor: 'pointer' }}
+                style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'transparent', border: 'none', color: 'var(--text-main)', fontSize: '1.15rem', fontWeight: 700, cursor: 'pointer' }}
               >
                 {item.title}
                 <ChevronDown size={24} style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />

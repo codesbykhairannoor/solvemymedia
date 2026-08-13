@@ -9,7 +9,7 @@ interface ProgressStatsProps {
 export const ProgressStats: React.FC<ProgressStatsProps> = ({ title, description, stats }) => {
   return (
     <div style={{ marginBottom: '80px', padding: 'clamp(32px, 5vw, 64px)', background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)' }}>
-      <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', marginBottom: 16 }}>{title}</h2>
+      <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, fontFamily: 'Outfit, sans-serif', color: 'var(--text-main)', marginBottom: 16 }}>{title}</h2>
       <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', marginBottom: 48 }}>{description}</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
         {stats.map((stat, i) => (
