@@ -166,7 +166,9 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <CompressAudioPrivacySection 
           section={{ type: 'privacy', title: translate('caPrivTitle') || "100% Secure Local Execution", content: translate('caPrivDesc') || "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
         />
-        <CompressAudioFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <CompressAudioFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
     </>
   );

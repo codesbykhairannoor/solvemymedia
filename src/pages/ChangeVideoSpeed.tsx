@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Settings2, FastForward, Clock, Shield, CheckCircle, Globe2, Gauge } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
-import { BentoRenderer } from '../components/pseo/BentoRenderer';
+import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 import { useLanguage } from '../hooks/useLanguage';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { ChangeVideoSpeedHeroSection, ChangeVideoSpeedPerformanceSection, ChangeVideoSpeedPrivacySection, ChangeVideoSpeedGeoSection, ChangeVideoSpeedHowToSection } from '../components/content-sections/tools/ChangeVideoSpeedSections';
@@ -148,10 +148,8 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
         )}
 
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.bentoSections && (
-          <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
-          </div>
+        {pseoData && (
+          <NativeLayoutRenderer data={pseoData} />
         )}
 
         {/* SECTION 5: FAQ */}

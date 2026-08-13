@@ -5,7 +5,7 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useFFmpeg } from '../hooks/useFFmpeg';
 
 import { useLanguage } from '../hooks/useLanguage';
-import { BentoRenderer } from '../components/pseo/BentoRenderer';
+import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
@@ -91,12 +91,12 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.bentoSections && (
-          <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
-          </div>
+        {pseoData && (
+          <NativeLayoutRenderer data={pseoData} />
         )}
-        <MuteVideoFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <MuteVideoFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
     </>
   );

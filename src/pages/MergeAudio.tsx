@@ -6,7 +6,7 @@ import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, U
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
-import { BentoRenderer } from '../components/pseo/BentoRenderer';
+import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
   
@@ -222,12 +222,12 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.bentoSections && (
-          <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
-          </div>
+        {pseoData && (
+          <NativeLayoutRenderer data={pseoData} />
         )}
-        <MergeAudioFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <MergeAudioFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
     </div>
   );

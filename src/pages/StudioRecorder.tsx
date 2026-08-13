@@ -190,7 +190,9 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <StudioRecorderPrivacySection 
           section={{ type: 'privacy', title: translate('recPrivTitle') || "Secure & Offline", content: translate('recPrivDesc') || "Your camera feed and screen recordings are processed and stored locally. They are never transmitted over the internet." }} 
         />
-        <StudioRecorderFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <StudioRecorderFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
   
     </div>

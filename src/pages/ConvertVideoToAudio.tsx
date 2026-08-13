@@ -4,7 +4,7 @@ import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
-import { BentoRenderer } from '../components/pseo/BentoRenderer';
+import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
@@ -104,12 +104,12 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         )}
         
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.bentoSections && (
-          <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
-          </div>
+        {pseoData && (
+          <NativeLayoutRenderer data={pseoData} />
         )}
-        <VideoToAudioFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <VideoToAudioFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
     </>
   );

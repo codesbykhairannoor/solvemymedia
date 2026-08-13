@@ -96,7 +96,9 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <ConvertAudioPrivacySection 
           section={{ type: 'privacy', title: translate('cvaPrivTitle') || "Strict Privacy", content: translate('cvaPrivDesc') || "Your media is never uploaded. Period." }} 
         />
-        <ConvertAudioFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <ConvertAudioFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
     </>
   );

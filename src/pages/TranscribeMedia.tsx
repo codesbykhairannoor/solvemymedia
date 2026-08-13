@@ -4,7 +4,7 @@ import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, F
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
-import { BentoRenderer } from '../components/pseo/BentoRenderer';
+import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, loadingProgress, processing, resultText, transcribe, initModel } = useWhisper();
@@ -220,12 +220,12 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         {/* DYNAMIC PSEO SECTION */}
-        {pseoData && pseoData.bentoSections && (
-          <div style={{ padding: '40px 0' }}>
-             <BentoRenderer sections={pseoData.bentoSections} pageTitle={pseoData.h1} />
-          </div>
+        {pseoData && (
+          <NativeLayoutRenderer data={pseoData} />
         )}
-        <TranscribeMediaFAQSection faqs={pseoData?.faqs} />
+        {!pseoData && (
+          <TranscribeMediaFAQSection faqs={pseoData?.faqs} />
+        )}
       </div>
   
     </div>
