@@ -85,8 +85,19 @@ function extractUrlsFromSitemap() {
     urls.push(url.pathname);
   }
   
+  // Filter URLs: Only prerender the core English tools and the home page to save build time.
+  // Googlebot will render the rest (foreign languages and pSEO long-tail keywords) via Client-Side Rendering (CSR).
+  const coreTools = [
+    '/', '/compress-video', '/compress-audio', '/convert-video', 
+    '/convert-audio', '/video-to-audio', '/transcribe', '/recorder', 
+    '/create-gif', '/video-speed', '/crop-video', '/mute-video', 
+    '/watermark-video', '/merge-audio'
+  ];
+  
+  const filteredUrls = urls.filter(url => coreTools.includes(url));
+  
   // Dedup and sort
-  return [...new Set(urls)].sort((a, b) => a.length - b.length);
+  return [...new Set(filteredUrls)].sort((a, b) => a.length - b.length);
 }
 
 async function run() {
