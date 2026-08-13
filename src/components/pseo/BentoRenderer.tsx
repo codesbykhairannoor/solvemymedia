@@ -174,7 +174,7 @@ export const BentoRenderer: React.FC<BentoRendererProps> = ({ sections }) => {
           case 'minimal-footer': return <MinimalFooterBento key={index} {...data} />;
 
           default:
-            console.warn(\`BentoRenderer: Unknown component type '\${type}'\`);
+            console.warn(`BentoRenderer: Unknown component type '${type}'`);
             return null;
         }
       })}
