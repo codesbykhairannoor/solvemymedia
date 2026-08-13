@@ -57,8 +57,8 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
       {/* 2. FEATURE SPLIT (First half of features, if any exist in the JSON) */}
       {firstHalfFeatures.length > 0 && (
         <PseoFeatureSplit 
-          title={t('cvPerfTitle') || "Why Choose Our Tool?"}
-          description={t('cvPerfDesc') || "Everything runs directly on your machine. No uploads, no waiting in queues."}
+          title={t('compVPerfTitle') || "Why Choose Our Tool?"}
+          description={t('compVPerfDesc') || "Everything runs directly on your machine. No uploads, no waiting in queues."}
           features={firstHalfFeatures}
         />
       )}
