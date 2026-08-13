@@ -159,8 +159,8 @@ export const DynamicToolRoute: React.FC = () => {
   
   let customTitle, customDesc;
   if (pseoData) {
-    customTitle = pseoData.h1;
-    customDesc = pseoData.description;
+    customTitle = pseoData.meta_title || pseoData.h1;
+    customDesc = pseoData.meta_description || pseoData.description;
   }
 
   // Build FAQ items for JSON-LD FAQPage schema using translation keys

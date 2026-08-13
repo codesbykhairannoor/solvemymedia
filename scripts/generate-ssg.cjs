@@ -48,9 +48,11 @@ async function run() {
 
   const baseHtml = fs.readFileSync(indexPath, 'utf8');
 
-  // Load translations
-  const langsDir = path.join(__dirname, '../public/locales');
-  const langCodes = fs.existsSync(langsDir) ? fs.readdirSync(langsDir).filter(f => fs.statSync(path.join(langsDir, f)).isDirectory()) : ['en'];
+  const langCodes = [
+    'en','id','es','fr','de','it','pt','nl','pl','ru',
+    'ja','ko','zh','zh-TW','tr','vi','th','ar','hi','sv',
+    'no','da','fi','cs','hu','el','ro','uk','ms','tl'
+  ];
 
   // Load pSEO data
   const pseoDbPath = path.join(__dirname, '../src/data/pseo-long-tail-translations.json');

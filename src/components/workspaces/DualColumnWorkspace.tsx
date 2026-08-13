@@ -49,12 +49,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
 
   const { currentLang } = useLanguage();
 
-  const getToolName = (id: string) => {
-    const localized = getLocalizedSlug(id, currentLang);
-    return localized.replace(/-/g, " ");
-  };
-
-  const finalTitle = toolId ? getToolName(toolId) : title;
+  const finalTitle = title;
   const finalDescription = description || ui.upload_desc;
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
