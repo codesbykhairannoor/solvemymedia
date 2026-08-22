@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, Outlet, useParams } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Home } from './pages/Home';
-import { DynamicToolRoute } from './components/DynamicToolRoute';
 import { Footer } from './components/Footer';
-import { AboutUs } from './pages/legal/AboutUs';
-import { PrivacyPolicy } from './pages/legal/PrivacyPolicy';
-import { TermsOfService } from './pages/legal/TermsOfService';
-import { SecurityTrust } from './pages/legal/SecurityTrust';
-import { Pricing } from './pages/legal/Pricing';
-import { Compare } from './pages/legal/Compare';
-import { SupportedLanguages } from './pages/legal/SupportedLanguages';
 import { LanguageProvider } from './hooks/useLanguage';
 import { SEO } from './components/seo/SEO';
 import { isValidLanguageCode, SUPPORTED_LANGUAGES } from './i18n/languages';
+
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
+const DynamicToolRoute = lazy(() => import('./components/DynamicToolRoute').then(m => ({ default: m.DynamicToolRoute })));
+const AboutUs = lazy(() => import('./pages/legal/AboutUs').then(m => ({ default: m.AboutUs })));
+const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import('./pages/legal/TermsOfService').then(m => ({ default: m.TermsOfService })));
+const SecurityTrust = lazy(() => import('./pages/legal/SecurityTrust').then(m => ({ default: m.SecurityTrust })));
+const Pricing = lazy(() => import('./pages/legal/Pricing').then(m => ({ default: m.Pricing })));
+const Compare = lazy(() => import('./pages/legal/Compare').then(m => ({ default: m.Compare })));
+const SupportedLanguages = lazy(() => import('./pages/legal/SupportedLanguages').then(m => ({ default: m.SupportedLanguages })));
 
 function ScrollToTop() {
   const location = useLocation();
@@ -35,6 +36,16 @@ const getLegalSeoKeys = (pathname: string) => {
   return null;
 };
 
+// Simple Fallback Loader for Route Transitions
+const RouteFallback = () => (
+  <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+      <div className="loader-spinner" style={{ width: 40, height: 40, border: '3px solid var(--border-color)', borderTopColor: 'var(--brand-primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    </div>
+  </div>
+);
+
 function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggleTheme: () => void }) {
   const location = useLocation();
   const firstPathSegment = location.pathname.split('/')[1];
@@ -50,7 +61,9 @@ function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggl
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <Outlet />
+          <Suspense fallback={<RouteFallback />}>
+            <Outlet />
+          </Suspense>
         </div>
         
         <Footer />

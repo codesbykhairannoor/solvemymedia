@@ -5,7 +5,6 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useFFmpeg } from '../hooks/useFFmpeg';
 
 import { useLanguage } from '../hooks/useLanguage';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
@@ -132,10 +131,7 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </>
         )}
 
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
         <CropVideoFAQSection 
           faqs={pseoData?.faqs || [
             { q: t('cropFaq1Q') || "Does cropping reduce video quality?", a: t('cropFaq1A') || "Cropping technically re-encodes the video, but we use high-quality presets to ensure the cropped area retains its original sharpness." },

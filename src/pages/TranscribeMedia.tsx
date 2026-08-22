@@ -4,7 +4,6 @@ import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, F
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, loadingProgress, processing, resultText, transcribe, initModel } = useWhisper();
@@ -219,10 +218,7 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </>
         )}
 
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
         {!pseoData && (
           <TranscribeMediaFAQSection faqs={pseoData?.faqs} />
         )}

@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { SEO } from './seo/SEO';
 import { getStandardSlug } from '../i18n/slugs';
 import { useLanguage } from '../hooks/useLanguage';
-import { PSEO_ROUTES } from '../data/pseo-routes';
+import { NativeLayoutRenderer } from './pseo/NativeLayoutRenderer';
 import PseoTranslations from '../data/pseo-translations.json';
 import LongTailTranslations from '../data/pseo-long-tail-translations.json';
-// Import all tools
-import { CompressVideo } from '../pages/CompressVideo';
-import { CompressAudio } from '../pages/CompressAudio';
-import { ConvertVideo } from '../pages/ConvertVideo';
-import { ConvertAudio } from '../pages/ConvertAudio';
-import { ConvertVideoToAudio } from '../pages/ConvertVideoToAudio';
-import { TranscribeMedia } from '../pages/TranscribeMedia';
-import { StudioRecorder } from '../pages/StudioRecorder';
-import { CreateGif } from '../pages/CreateGif';
-import { ChangeVideoSpeed } from '../pages/ChangeVideoSpeed';
-import { CropVideo } from '../pages/CropVideo';
-import { MuteVideo } from '../pages/MuteVideo';
-import { WatermarkVideo } from '../pages/WatermarkVideo';
-import { MergeAudio } from '../pages/MergeAudio';
+
+// Import all tools lazily to enable massive code splitting
+const CompressVideo = lazy(() => import('../pages/CompressVideo').then(m => ({ default: m.CompressVideo })));
+const CompressAudio = lazy(() => import('../pages/CompressAudio').then(m => ({ default: m.CompressAudio })));
+const ConvertVideo = lazy(() => import('../pages/ConvertVideo').then(m => ({ default: m.ConvertVideo })));
+const ConvertAudio = lazy(() => import('../pages/ConvertAudio').then(m => ({ default: m.ConvertAudio })));
+const ConvertVideoToAudio = lazy(() => import('../pages/ConvertVideoToAudio').then(m => ({ default: m.ConvertVideoToAudio })));
+const TranscribeMedia = lazy(() => import('../pages/TranscribeMedia').then(m => ({ default: m.TranscribeMedia })));
+const StudioRecorder = lazy(() => import('../pages/StudioRecorder').then(m => ({ default: m.StudioRecorder })));
+const CreateGif = lazy(() => import('../pages/CreateGif').then(m => ({ default: m.CreateGif })));
+const ChangeVideoSpeed = lazy(() => import('../pages/ChangeVideoSpeed').then(m => ({ default: m.ChangeVideoSpeed })));
+const CropVideo = lazy(() => import('../pages/CropVideo').then(m => ({ default: m.CropVideo })));
+const MuteVideo = lazy(() => import('../pages/MuteVideo').then(m => ({ default: m.MuteVideo })));
+const WatermarkVideo = lazy(() => import('../pages/WatermarkVideo').then(m => ({ default: m.WatermarkVideo })));
+const MergeAudio = lazy(() => import('../pages/MergeAudio').then(m => ({ default: m.MergeAudio })));
 
 const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'compress-video': CompressVideo,
@@ -122,6 +123,14 @@ const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = 
   ],
 };
 
+const ToolFallback = () => (
+  <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '50vh', background: 'var(--bg-main)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+      <div className="loader-spinner" style={{ width: 40, height: 40, border: '3px solid var(--border-color)', borderTopColor: 'var(--brand-primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+    </div>
+  </div>
+);
+
 export const DynamicToolRoute: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { currentLang, t } = useLanguage();
@@ -133,7 +142,7 @@ export const DynamicToolRoute: React.FC = () => {
   let standardSlug = getStandardSlug(slug, currentLang);
   
   // Try to find a pSEO route match using the standard (English) slug
-  let pseoData = null;
+  let pseoData: any = null;
   const targetLang = (currentLang === 'zh-cn' || currentLang === 'zh') ? 'zh' : 
                      (currentLang === 'zh-tw' ? 'zh-TW' : currentLang);
 
@@ -164,7 +173,7 @@ export const DynamicToolRoute: React.FC = () => {
   }
 
   // Build FAQ items for JSON-LD FAQPage schema using translation keys
-  let faqItems = [];
+  let faqItems: any[] = [];
   if (pseoData?.faqs) {
     faqItems = pseoData.faqs;
   } else {
@@ -177,13 +186,46 @@ export const DynamicToolRoute: React.FC = () => {
   return (
     <>
       <SEO 
-        titleKey={seoKeys.title} 
-        descKey={seoKeys.desc} 
+        titleKey={seoKeys.title as any} 
+        descKey={seoKeys.desc as any} 
         customTitle={customTitle}
         customDesc={customDesc}
         faqItems={faqItems} 
       />
-      <Component pseoData={pseoData} />
+      <Suspense fallback={<ToolFallback />}>
+        {/* Pass pseoData down just in case the component uses it for title inside UI */}
+        <Component pseoData={pseoData} />
+      </Suspense>
+
+      {/* RENDER PSEO DATA EXTERNALLY SO SSG CAN READ IT WITHOUT WAITING FOR LAZY TOOL TO LOAD */}
+      {pseoData && (
+        <div style={{ marginTop: '40px' }}>
+          <NativeLayoutRenderer data={pseoData} />
+        </div>
+      )}
+
+      {/* SEO Section FAQ for Standard Tools */}
+      {!pseoData && faqItems.length > 0 && (
+        <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
+          <div style={{ maxWidth: 800, margin: '0 auto' }}>
+            <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>
+              {t('faqTitle') || 'Frequently Asked Questions'}
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {faqItems.map((faq: any, idx: number) => (
+                <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                    <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}
+                  </h3>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
+                    <strong style={{ color: 'var(--brand-secondary)' }}>A:</strong> {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 };

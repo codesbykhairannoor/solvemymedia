@@ -4,7 +4,6 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useLanguage } from '../hooks/useLanguage';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { ConvertVideoHeroSection, ConvertVideoHowToSection, ConvertVideoGeoSection, ConvertVideoPrivacySection, ConvertVideoPerformanceSection } from '../components/content-sections/tools/ConvertVideoSections';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
@@ -130,10 +129,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </>
         )}
         
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
 
         {/* SECTION 5: FAQ */}
         <section className="content-section faq-section" style={{ padding: '0 24px' }}>

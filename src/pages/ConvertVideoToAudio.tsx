@@ -4,7 +4,6 @@ import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
@@ -103,10 +102,7 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
           </>
         )}
         
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
         {!pseoData && (
           <VideoToAudioFAQSection faqs={pseoData?.faqs} />
         )}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Settings2, FastForward, Clock, Shield, CheckCircle, Globe2, Gauge } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 import { useLanguage } from '../hooks/useLanguage';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { ChangeVideoSpeedHeroSection, ChangeVideoSpeedPerformanceSection, ChangeVideoSpeedPrivacySection, ChangeVideoSpeedGeoSection, ChangeVideoSpeedHowToSection } from '../components/content-sections/tools/ChangeVideoSpeedSections';
@@ -147,10 +146,7 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
           </>
         )}
 
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
 
         {/* SECTION 5: FAQ */}
         <section className="content-section faq-section" style={{ padding: '0 24px' }}>

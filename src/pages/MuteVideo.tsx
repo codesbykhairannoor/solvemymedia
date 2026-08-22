@@ -5,7 +5,6 @@ import { CenteredActionWorkspace } from '../components/workspaces/CenteredAction
 import { useFFmpeg } from '../hooks/useFFmpeg';
 
 import { useLanguage } from '../hooks/useLanguage';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 
 export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
@@ -90,10 +89,7 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </>
         )}
 
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
         {!pseoData && (
           <MuteVideoFAQSection faqs={pseoData?.faqs} />
         )}

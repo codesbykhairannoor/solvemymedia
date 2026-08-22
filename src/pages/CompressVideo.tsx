@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Settings2, Shield, CheckCircle, Zap, Activity, Wifi, Star, ShieldCheck, Monitor } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
-import { NativeLayoutRenderer } from '../components/pseo/NativeLayoutRenderer';
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
 import type { Quality } from '../hooks/useUniversalCompressor';
@@ -303,10 +302,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </>
         )}
 
-        {/* DYNAMIC PSEO SECTION */}
-        {pseoData && (
-          <NativeLayoutRenderer data={pseoData} />
-        )}
+        
 
         {/* SEO Section FAQ */}
         {!pseoData && (
