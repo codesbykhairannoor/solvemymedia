@@ -88,9 +88,9 @@ async function run() {
     if (lang === 'en' || !cleanEn) return cleanEn; // root path returns ''
     
     if (slugsMap[lang]) {
-      for (const [locKey, enVal] of Object.entries(slugsMap[lang])) {
-        if (enVal === cleanEn) {
-          return locKey;
+      for (const [enKey, locVal] of Object.entries(slugsMap[lang])) {
+        if (enKey === cleanEn) {
+          return locVal;
         }
       }
     }
