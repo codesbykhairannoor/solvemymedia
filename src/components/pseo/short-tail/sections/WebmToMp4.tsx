@@ -1,66 +1,36 @@
 import React from 'react';
-import { Globe, Code2, MonitorSmartphone, Shield, Zap, FileJson } from 'lucide-react';
+import { Globe, Smartphone, ArrowRight, Video, Link2, DownloadCloud } from 'lucide-react';
 
 export const WebmToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
-  const { h1, description, bespokeData } = data;
-  const safeData = bespokeData || {};
-
   return (
     <section style={{ 
+      background: 'linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%)', 
       padding: '100px 24px 80px', 
-      background: 'linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%)',
-      fontFamily: 'system-ui, -apple-system, sans-serif'
+      position: 'relative',
+      overflow: 'hidden'
     }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <div style={{ 
-          background: '#0f766e', 
-          color: 'white', 
-          padding: '8px 24px', 
-          borderRadius: 8, 
-          display: 'inline-flex', 
-          alignItems: 'center', 
-          gap: 12, 
-          marginBottom: 40,
-          boxShadow: '0 4px 15px rgba(15, 118, 110, 0.2)',
-          fontWeight: 600,
-          fontFamily: '"Fira Code", monospace'
-        }}>
-          <Code2 size={18} /> WEB MEDIA TO UNIVERSAL MP4
+      {/* Decorative abstract elements */}
+      <div style={{ position: 'absolute', top: '10%', right: '5%', width: 120, height: 120, background: 'linear-gradient(135deg, #c084fc, #9333ea)', borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%', opacity: 0.6, filter: 'blur(10px)', transform: 'rotate(45deg)' }} />
+      <div style={{ position: 'absolute', bottom: '10%', left: '5%', width: 150, height: 150, background: 'linear-gradient(135deg, #f472b6, #db2777)', borderRadius: '50%', opacity: 0.5, filter: 'blur(15px)' }} />
+
+      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.7)', padding: '8px 24px', borderRadius: 999, marginBottom: 32, border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 4px 20px rgba(147, 51, 234, 0.1)', backdropFilter: 'blur(10px)' }}>
+          <Globe size={18} color="#9333ea" />
+          <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#9333ea', textTransform: 'uppercase', letterSpacing: '1px' }}>Web Optimized</span>
         </div>
         
-        <h1 style={{ 
-          fontSize: 'clamp(2.5rem, 6vw, 4rem)', 
-          fontWeight: 900, 
-          color: '#111827',
-          lineHeight: 1.1,
-          marginBottom: 24,
-          letterSpacing: '-0.02em',
-          maxWidth: 900
-        }}>
-          {h1 || "Make WebM Files Playable Everywhere"}
+        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 24, color: '#4c1d95', letterSpacing: '-0.03em' }}>
+          {data.h1}
         </h1>
         
-        <p style={{ 
-          fontSize: '1.25rem', 
-          color: '#4b5563', 
-          lineHeight: 1.7, 
-          maxWidth: 750,
-          marginBottom: 48
-        }}>
-          {description || "WebM is great for browsers, but terrible for iPhones and video editors. Instantly convert WebM videos to the universally compatible MP4 format."}
+        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', lineHeight: 1.6, color: '#6b21a8', maxWidth: 700, margin: '0 auto 40px', fontWeight: 500 }}>
+          {data.description}
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, width: '100%', maxWidth: 800 }}>
-          {safeData.heroTags?.map((tag: string, i: number) => (
-            <div key={i} style={{ 
-              background: 'white', 
-              border: '2px solid #ccfbf1', 
-              padding: '16px', 
-              borderRadius: 12, 
-              color: '#0f766e', 
-              fontWeight: 700,
-              boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
-            }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16 }}>
+          {data.bespokeData?.heroTags?.map((tag: string, idx: number) => (
+            <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'white', padding: '12px 24px', borderRadius: 16, color: '#4c1d95', fontSize: '1rem', fontWeight: 700, boxShadow: '0 10px 30px rgba(147, 51, 234, 0.05)' }}>
+              <Link2 size={18} color="#c084fc" />
               {tag}
             </div>
           ))}
@@ -71,38 +41,60 @@ export const WebmToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const WebmToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
-  const safeData = data.bespokeData || {};
   return (
-    <section style={{ padding: '80px 24px', background: 'white' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
-        <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: 32 }}>
-          <div style={{ padding: 40, background: '#f8fafc', borderRadius: 24, border: '1px solid #e2e8f0' }}>
-             <Globe size={40} color="#0f766e" style={{ marginBottom: 24 }} />
-             <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', marginBottom: 16 }}>
-               {safeData.benefitsTitle || "The iPhone Problem"}
-             </h3>
-             <p style={{ color: '#475569', lineHeight: 1.6, fontSize: '1.1rem' }}>
-               {safeData.benefitsDesc || "If you download a video from Twitter or Reddit, it's often a WebM. Try sending that to an iPhone user, and they won't be able to open it. MP4 solves this completely."}
-             </p>
+    <section style={{ padding: '120px 24px', background: 'white' }}>
+      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 80 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: '#4c1d95', lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.02em' }}>
+            {data.bespokeData?.benefitsTitle || "Bridge the Gap Between Web and Mobile"}
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#6b21a8', maxWidth: 700, margin: '0 auto', lineHeight: 1.7 }}>
+            {data.bespokeData?.benefitsDesc || "WebM is fantastic for Chrome and Firefox, but it completely breaks on iPhones and iPads. We solve this by instantly converting WebM into universally accepted MP4 files."}
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3vw', flexWrap: 'wrap' }}>
+          {/* WebM Side */}
+          <div style={{ background: '#fdf4ff', border: '2px solid #f3e8ff', borderRadius: 32, padding: 40, flex: '1 1 300px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ width: 80, height: 80, background: 'white', borderRadius: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24, boxShadow: '0 10px 30px rgba(147, 51, 234, 0.1)' }}>
+              <Globe size={40} color="#9333ea" />
+            </div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#4c1d95', marginBottom: 16 }}>Source WebM</h3>
+            <p style={{ color: '#7e22ce', fontSize: '1.05rem', lineHeight: 1.6 }}>Plays on Chrome/Firefox. Often downloaded from Discord or 4chan. Fails on iOS.</p>
+          </div>
+
+          <div style={{ background: 'white', width: 60, height: 60, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 30px rgba(147, 51, 234, 0.1)', zIndex: 2 }}>
+            <ArrowRight size={30} color="#c084fc" />
+          </div>
+
+          {/* MP4 Side */}
+          <div style={{ background: 'linear-gradient(135deg, #9333ea, #4c1d95)', borderRadius: 32, padding: 40, flex: '1 1 300px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', color: 'white', boxShadow: '0 20px 40px rgba(147, 51, 234, 0.2)' }}>
+            <div style={{ width: 80, height: 80, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
+              <Smartphone size={40} color="white" />
+            </div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', marginBottom: 16 }}>Target MP4</h3>
+            <p style={{ color: '#e9d5ff', fontSize: '1.05rem', lineHeight: 1.6 }}>Plays natively everywhere. Shareable on WhatsApp, iMessage, and Instagram.</p>
           </div>
         </div>
-        <div style={{ flex: '1 1 500px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            {[
-              { icon: <MonitorSmartphone />, title: "Cross-Platform", desc: safeData.benefitsItems?.[0] || "Plays on iOS, macOS, Android, and Windows." },
-              { icon: <FileJson />, title: "Metadata Preserved", desc: safeData.benefitsItems?.[1] || "Keeps duration, resolution, and framerate intact." }
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
-                <div style={{ width: 56, height: 56, background: '#ccfbf1', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f766e', flexShrink: 0 }}>
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0f172a', marginBottom: 8 }}>{item.title}</h4>
-                  <p style={{ color: '#475569', lineHeight: 1.6 }}>{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+      </div>
+    </section>
+  );
+};
+
+export const WebmToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
+  return (
+    <section style={{ padding: '100px 24px', background: '#fdf4ff' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', gap: 32, alignItems: 'center', flexWrap: 'wrap', background: 'white', padding: 40, borderRadius: 32, boxShadow: '0 10px 30px rgba(147, 51, 234, 0.05)' }}>
+        <div style={{ flex: '1 1 300px' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.2rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 16, color: '#4c1d95' }}>
+            {data.features?.[0]?.title || "High-Speed WebCodecs"}
+          </h2>
+          <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: '#6b21a8' }}>
+            {data.features?.[0]?.desc || "Transcode VP8/VP9 streams to H.264 right inside your browser. We utilize your device's hardware acceleration to make the conversion incredibly fast."}
+          </p>
+        </div>
+        <div style={{ flex: '0 0 auto', background: '#f3e8ff', width: 120, height: 120, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Video size={48} color="#9333ea" />
         </div>
       </div>
     </section>
@@ -110,46 +102,16 @@ export const WebmToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const WebmToMp4Privacy: React.FC<{ data: any }> = ({ data }) => {
-  const safeData = data.bespokeData || {};
-  return (
-    <section style={{ padding: '80px 24px', background: '#0f172a', color: 'white' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-        <Shield size={64} color="#5eead4" style={{ margin: '0 auto 32px' }} />
-        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24 }}>
-          {safeData.privacyTitle || "Secure In-Browser Conversion"}
-        </h2>
-        <p style={{ fontSize: '1.2rem', color: '#cbd5e1', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>
-          {safeData.privacyDesc || "WebM files can contain sensitive screen recordings. We ensure your privacy by converting the file entirely within your browser's local sandbox using WebAssembly."}
-        </p>
-      </div>
-    </section>
-  );
-};
-
-export const WebmToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
-  const safeData = data.bespokeData || {};
   return (
     <section style={{ padding: '80px 24px', background: 'white' }}>
-      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-        <div style={{ background: 'linear-gradient(135deg, #f0fdfa, #ccfbf1)', borderRadius: 40, padding: '64px', border: '1px solid #99f6e4', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 48 }}>
-          <div style={{ flex: '1 1 300px' }}>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 800, color: '#0f172a', marginBottom: 16 }}>
-              {safeData.performanceTitle || "Fast Native Processing"}
-            </h2>
-            <p style={{ fontSize: '1.1rem', color: '#334155', lineHeight: 1.7, marginBottom: 32 }}>
-              {safeData.performanceDesc || "Converting VP8/VP9 (WebM) to H.264 (MP4) requires heavy lifting. We utilize your device's multi-core CPU to crunch the pixels fast."}
-            </p>
-          </div>
-          <div style={{ flex: '1 1 300px' }}>
-             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
-               {safeData.performanceItems?.map((item: string, i: number) => (
-                 <li key={i} style={{ padding: '16px 24px', background: 'white', borderRadius: 12, color: '#0f766e', fontWeight: 700, boxShadow: '0 4px 10px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', gap: 12 }}>
-                   <Zap size={20} /> {item}
-                 </li>
-               ))}
-             </ul>
-          </div>
-        </div>
+      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+        <DownloadCloud size={64} color="#db2777" style={{ marginBottom: 24 }} />
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: '#111827' }}>
+          {data.features?.[1]?.title || "Zero Server Dependency"}
+        </h2>
+        <p style={{ fontSize: '1.2rem', color: '#4b5563', lineHeight: 1.8 }}>
+          {data.features?.[1]?.desc || "Why wait in a server queue to convert a file you already downloaded? WebM to MP4 conversion runs 100% on your local machine, keeping your files completely private."}
+        </p>
       </div>
     </section>
   );

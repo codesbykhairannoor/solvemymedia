@@ -1,53 +1,36 @@
 import React from 'react';
-import { Archive, Video, Clock, HardDrive, ShieldAlert, FastForward } from 'lucide-react';
+import { Film, MonitorPlay, History, Disc, ArrowUpRight, CheckSquare } from 'lucide-react';
 
 export const AviToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
-  const { h1, description, bespokeData } = data;
-  const safeData = bespokeData || {};
-
   return (
     <section style={{ 
-      padding: '120px 24px', 
-      background: '#fdf6e3', // warm retro background
-      borderBottom: '4px solid #d4c5b0',
-      fontFamily: '"Roboto Slab", serif'
+      background: 'linear-gradient(to right, #1f2937, #111827)', 
+      padding: '120px 24px 80px', 
+      position: 'relative',
+      overflow: 'hidden',
+      color: 'white'
     }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap');
-      `}</style>
-      <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
-        <Archive size={48} color="#b45309" style={{ margin: '0 auto 24px' }} />
-        <h1 style={{ 
-          fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
-          fontWeight: 900, 
-          color: '#451a03',
-          lineHeight: 1.1,
-          marginBottom: 24
-        }}>
-          {h1 || "Modernize Your Old AVI Files"}
+      {/* Retro VHS scanline effect overlay */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'repeating-linear-gradient(transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)', pointerEvents: 'none', opacity: 0.5 }} />
+      
+      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(234, 179, 8, 0.1)', padding: '6px 20px', borderRadius: 6, marginBottom: 24, border: '1px solid rgba(234, 179, 8, 0.2)' }}>
+          <History size={16} color="#eab308" />
+          <span style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', color: '#fef08a' }}>Legacy Format</span>
+        </div>
+        
+        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 24, textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+          {data.h1}
         </h1>
         
-        <p style={{ 
-          fontSize: '1.25rem', 
-          color: '#78350f', 
-          lineHeight: 1.7, 
-          maxWidth: 700,
-          margin: '0 auto 48px',
-          fontFamily: 'system-ui, sans-serif'
-        }}>
-          {description || "AVI was the king of video in the 90s and 2000s. Today, it struggles to play on modern devices. Convert your archives to MP4 instantly."}
+        <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.25rem)', lineHeight: 1.6, color: '#9ca3af', maxWidth: 650, margin: '0 auto 40px' }}>
+          {data.description}
         </p>
 
-        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', fontFamily: 'system-ui, sans-serif' }}>
-          {safeData.heroTags?.map((tag: string, i: number) => (
-            <div key={i} style={{ 
-              background: '#fef3c7', 
-              padding: '8px 20px', 
-              borderRadius: 30, 
-              color: '#92400e', 
-              fontWeight: 600,
-              border: '1px solid #fde68a'
-            }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 12 }}>
+          {data.bespokeData?.heroTags?.map((tag: string, idx: number) => (
+            <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#374151', padding: '8px 16px', borderRadius: 8, color: '#e5e7eb', fontSize: '0.9rem', fontWeight: 600 }}>
+              <CheckSquare size={16} color="#eab308" />
               {tag}
             </div>
           ))}
@@ -58,87 +41,79 @@ export const AviToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const AviToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
-  const safeData = data.bespokeData || {};
   return (
-    <section style={{ padding: '80px 24px', background: '#fffbeb', fontFamily: 'system-ui, sans-serif' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
-        <div style={{ flex: '1 1 500px' }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#451a03', marginBottom: 24, fontFamily: '"Roboto Slab", serif' }}>
-            {safeData.benefitsTitle || "Rescue Your Digital Memories"}
+    <section style={{ padding: '120px 24px', background: '#f3f4f6' }}>
+      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 80 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: 20 }}>
+            {data.bespokeData?.benefitsTitle || "Modernize Your Legacy Media"}
           </h2>
-          <p style={{ fontSize: '1.15rem', color: '#78350f', lineHeight: 1.7, marginBottom: 32 }}>
-            {safeData.benefitsDesc || "Old home videos stored in AVI format take up too much space and are often incompatible with iOS and modern Smart TVs. Convert them to MP4 to preserve them forever in a compressed, universal format."}
+          <p style={{ fontSize: '1.2rem', color: '#4b5563', maxWidth: 700, margin: '0 auto' }}>
+            {data.bespokeData?.benefitsDesc || "Bring your older digital camera or camcorder AVI files into the modern era. Convert to highly compressed MP4s that play anywhere."}
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-            {[
-              { icon: <Clock />, text: safeData.benefitsItems?.[0] || "Future-proof format" },
-              { icon: <Video />, text: safeData.benefitsItems?.[1] || "Mobile playback" },
-              { icon: <HardDrive />, text: safeData.benefitsItems?.[2] || "Saves hard drive space" }
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#92400e', fontWeight: 600 }}>
-                {item.icon} {item.text}
-              </div>
-            ))}
+        </div>
+
+        <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
+          {/* Before: AVI */}
+          <div style={{ flex: '1 1 300px', background: 'white', padding: 40, borderRadius: 16, border: '1px solid #e5e7eb', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: -20, left: 40, background: '#ef4444', color: 'white', padding: '4px 12px', borderRadius: 999, fontSize: '0.8rem', fontWeight: 700 }}>PAST</div>
+            <Film size={48} color="#9ca3af" style={{ marginBottom: 24 }} />
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#111827', marginBottom: 12 }}>.AVI Format</h3>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <li style={{ color: '#ef4444', display: 'flex', gap: 8 }}><span style={{ fontWeight: 800 }}>×</span> Huge file sizes</li>
+              <li style={{ color: '#ef4444', display: 'flex', gap: 8 }}><span style={{ fontWeight: 800 }}>×</span> Unsupported on iPhones</li>
+              <li style={{ color: '#ef4444', display: 'flex', gap: 8 }}><span style={{ fontWeight: 800 }}>×</span> Won't play on Smart TVs</li>
+            </ul>
+          </div>
+
+          {/* Arrow */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <ArrowUpRight size={48} color="#eab308" />
+          </div>
+
+          {/* After: MP4 */}
+          <div style={{ flex: '1 1 300px', background: 'white', padding: 40, borderRadius: 16, border: '2px solid #eab308', boxShadow: '0 20px 40px rgba(234, 179, 8, 0.15)', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: -20, left: 40, background: '#eab308', color: '#111827', padding: '4px 12px', borderRadius: 999, fontSize: '0.8rem', fontWeight: 700 }}>PRESENT</div>
+            <MonitorPlay size={48} color="#111827" style={{ marginBottom: 24 }} />
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#111827', marginBottom: 12 }}>.MP4 Format</h3>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <li style={{ color: '#10b981', display: 'flex', gap: 8 }}><span style={{ fontWeight: 800 }}>✓</span> Tiny file sizes (H.264)</li>
+              <li style={{ color: '#10b981', display: 'flex', gap: 8 }}><span style={{ fontWeight: 800 }}>✓</span> Natively supported on iOS</li>
+              <li style={{ color: '#10b981', display: 'flex', gap: 8 }}><span style={{ fontWeight: 800 }}>✓</span> Perfect for WhatsApp/Web</li>
+            </ul>
           </div>
         </div>
-        <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
-           <div style={{ width: 300, height: 400, background: '#d4c5b0', borderRadius: 16, position: 'relative', boxShadow: '20px 20px 0 #b45309' }}>
-             <div style={{ position: 'absolute', top: 20, left: 20, right: 20, bottom: 20, background: '#fff', borderRadius: 8, display: 'flex', flexDirection: 'column', padding: 24 }}>
-               <div style={{ flex: 1, background: '#f5f5f5', borderRadius: 4, marginBottom: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ccc' }}>
-                 <Video size={48} />
-               </div>
-               <div style={{ height: 16, background: '#e5e5e5', borderRadius: 4, width: '80%', marginBottom: 8 }} />
-               <div style={{ height: 16, background: '#e5e5e5', borderRadius: 4, width: '60%' }} />
-             </div>
-           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export const AviToMp4Privacy: React.FC<{ data: any }> = ({ data }) => {
-  const safeData = data.bespokeData || {};
-  return (
-    <section style={{ padding: '80px 24px', background: '#fdf6e3', fontFamily: 'system-ui, sans-serif' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', padding: '64px', background: 'white', borderRadius: 32, boxShadow: '0 10px 40px rgba(0,0,0,0.05)', border: '1px solid #fde68a' }}>
-        <ShieldAlert size={56} color="#b45309" style={{ margin: '0 auto 24px' }} />
-        <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#451a03', marginBottom: 20, fontFamily: '"Roboto Slab", serif' }}>
-          {safeData.privacyTitle || "Keep Family Archives Private"}
-        </h2>
-        <p style={{ fontSize: '1.15rem', color: '#78350f', lineHeight: 1.8, maxWidth: 600, margin: '0 auto' }}>
-          {safeData.privacyDesc || "Your 20-year-old family videos shouldn't be uploaded to a random server. Our converter works 100% offline in your browser. We never see your files."}
-        </p>
       </div>
     </section>
   );
 };
 
 export const AviToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
-  const safeData = data.bespokeData || {};
   return (
-    <section style={{ padding: '100px 24px', background: '#451a03', color: '#fef3c7', fontFamily: 'system-ui, sans-serif' }}>
-      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
-          <div style={{ flex: '1 1 400px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'white', marginBottom: 24, fontFamily: '"Roboto Slab", serif' }}>
-              {safeData.performanceTitle || "Hardware Accelerated Decoding"}
-            </h2>
-            <p style={{ fontSize: '1.1rem', color: '#fcd34d', lineHeight: 1.8, marginBottom: 32 }}>
-              {safeData.performanceDesc || "Decoding ancient AVI codecs (like DivX or Xvid) can be slow. We leverage modern WebAssembly to decode them efficiently and re-encode to crisp H.264 MP4 using your device's hardware."}
-            </p>
-          </div>
-          <div style={{ flex: '1 1 400px' }}>
-             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
-               {safeData.performanceItems?.map((item: string, i: number) => (
-                 <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '24px', background: 'rgba(255,255,255,0.05)', borderRadius: 16 }}>
-                   <FastForward size={24} color="#fcd34d" />
-                   <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>{item}</span>
-                 </li>
-               ))}
-             </ul>
-          </div>
-        </div>
+    <section style={{ padding: '80px 24px', background: 'white' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+        <Disc size={48} color="#eab308" style={{ marginBottom: 24 }} />
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 24, color: '#111827' }}>
+          {data.features?.[0]?.title || "Massive Space Savings"}
+        </h2>
+        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#4b5563', padding: '24px', background: '#fef9c3', borderRadius: 16 }}>
+          {data.features?.[0]?.desc || "MP4 (H.264) compression is vastly superior to older AVI codecs. You can often reduce the file size of your old home videos by 70-80% without noticing any loss in quality."}
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export const AviToMp4Privacy: React.FC<{ data: any }> = ({ data }) => {
+  return (
+    <section style={{ padding: '100px 24px', background: '#111827', color: 'white', textAlign: 'center' }}>
+      <div style={{ maxWidth: 700, margin: '0 auto' }}>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: '#f8fafc' }}>
+          {data.features?.[1]?.title || "Private Archives"}
+        </h2>
+        <p style={{ fontSize: '1.2rem', color: '#9ca3af', lineHeight: 1.7 }}>
+          {data.features?.[1]?.desc || "Your old family videos from 2005 are private. Because our tool runs offline in your browser, those memories are never uploaded to our servers. Transcode them securely on your own device."}
+        </p>
       </div>
     </section>
   );
