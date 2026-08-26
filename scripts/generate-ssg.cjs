@@ -54,11 +54,18 @@ async function run() {
     'no','da','fi','cs','hu','el','ro','uk','ms','tl'
   ];
 
-  // Load pSEO data
+  // Load pSEO Long Tail data
   const pseoDbPath = path.join(__dirname, '../src/data/pseo-long-tail-translations.json');
   let pseoDb = {};
   if (fs.existsSync(pseoDbPath)) {
     pseoDb = JSON.parse(fs.readFileSync(pseoDbPath, 'utf8'));
+  }
+
+  // Load pSEO Short Tail data
+  const pseoShortTailPath = path.join(__dirname, '../src/data/pseo-translations.json');
+  let pseoShortTailDb = {};
+  if (fs.existsSync(pseoShortTailPath)) {
+    pseoShortTailDb = JSON.parse(fs.readFileSync(pseoShortTailPath, 'utf8'));
   }
 
   let slugsMap = {};
@@ -106,6 +113,16 @@ async function run() {
     // 2. Generate pSEO Long Tail pages
     const langPseo = pseoDb[lang] || [];
     for (const pseoItem of langPseo) {
+      const toolSlug = pseoItem.path.startsWith('/') ? pseoItem.path : `/${pseoItem.path}`;
+      const locSlug = getLocalizedSlug(toolSlug, lang);
+      const urlPath = lang === 'en' ? `/${locSlug}` : `/${lang}/${locSlug}`;
+      await generatePage(urlPath, lang, translations, serverRender, baseHtml, distDir);
+      generatedCount++;
+    }
+
+    // 3. Generate pSEO Short Tail pages
+    const shortTailPseo = pseoShortTailDb[lang] || [];
+    for (const pseoItem of shortTailPseo) {
       const toolSlug = pseoItem.path.startsWith('/') ? pseoItem.path : `/${pseoItem.path}`;
       const locSlug = getLocalizedSlug(toolSlug, lang);
       const urlPath = lang === 'en' ? `/${locSlug}` : `/${lang}/${locSlug}`;
