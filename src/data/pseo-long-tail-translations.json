@@ -28711,7 +28711,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Завантаження не потрібне",
+          "Готовий до Gmail і Outlook"
+        ],
+        "benefitsTitle": "Перестаньте отримувати повідомлення про помилку \"Завеликий файл\".",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Максимальний розмір вкладених файлів Gmail – 25 Мб",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Обмеження Yahoo Mail 25 Мб"
+        ],
+        "privacyTitle": "Ваше відео ніколи не покидає ваш пристрій",
+        "privacyDesc": "На відміну від хмарних компресорів, ми обробляємо все у вашому браузері за допомогою WebAssembly. Ваші приватні сімейні відео, ділові презентації та записи залишаються на 100% на вашому комп’ютері.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Наш движок використовує нативну WebAssembly FFmpeg. Без хмарних подорожей туди й назад. Швидкість апаратного рівня, безпосередньо на вашому ЦП.",
+        "performanceItems": [
+          "Нульова затримка завантаження",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Без встановлення програми"
+        ]
+      }
     },
     {
       "path": "/compress-large-video-for-whatsapp",
@@ -28799,7 +28822,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Завантаження не потрібне",
+          "Готовий до Gmail і Outlook"
+        ],
+        "benefitsTitle": "Перестаньте отримувати повідомлення про помилку \"Завеликий файл\".",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Максимальний розмір вкладених файлів Gmail – 25 Мб",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Обмеження Yahoo Mail 25 Мб"
+        ],
+        "privacyTitle": "Ваше відео ніколи не покидає ваш пристрій",
+        "privacyDesc": "На відміну від хмарних компресорів, ми обробляємо все у вашому браузері за допомогою WebAssembly. Ваші приватні сімейні відео, ділові презентації та записи залишаються на 100% на вашому комп’ютері.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Наш движок використовує нативну WebAssembly FFmpeg. Без хмарних подорожей туди й назад. Швидкість апаратного рівня, безпосередньо на вашому ЦП.",
+        "performanceItems": [
+          "Нульова затримка завантаження",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Без встановлення програми"
+        ]
+      }
     },
     {
       "path": "/convert-mov-to-mp4-for-android",
@@ -28875,7 +28921,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Ідеально підходить для Android",
+          "Працює офлайн"
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Файли MOV від Apple часто не відтворюються на пристроях Android або ПК з Windows. Перетворіть їх на універсально підтримуваний формат MP4 за лічені секунди, щоб легко ділитися ними.",
+        "benefitsItems": [
+          "Грає на будь-якому пристрої Android",
+          "Сумісність з ПК Windows",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Ваші відеозаписи залишаються на вашому пристрої",
+        "privacyDesc": "Перетворення особистих відео онлайн може бути ризикованим. Ми повністю усуваємо цей ризик, обробляючи ваші файли MOV безпосередньо в ізольованому програмному середовищі браузера. Немає завантажень. Немає серверів.",
+        "performanceTitle": "Миттєве повторне мультиплексування формату",
+        "performanceDesc": "Більшість перетворень MOV у MP4 навіть не потребують повторного кодування. Наш інструмент «повторно муксує» файл, миттєво змінюючи контейнер для світлошвидкого перетворення без втрати якості.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/extract-audio-from-video-for-podcast",
@@ -28951,7 +29020,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Зйомка камерою та дзеркальним фотоапаратом",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Копія прямого потоку (без перекодування)",
+          "Обслуговує 10 ГБ+ записів",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/make-video-smaller-without-losing-quality",
@@ -29038,7 +29130,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Завантаження не потрібне",
+          "Готовий до Gmail і Outlook"
+        ],
+        "benefitsTitle": "Перестаньте отримувати повідомлення про помилку \"Завеликий файл\".",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Максимальний розмір вкладених файлів Gmail – 25 Мб",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Обмеження Yahoo Mail 25 Мб"
+        ],
+        "privacyTitle": "Ваше відео ніколи не покидає ваш пристрій",
+        "privacyDesc": "На відміну від хмарних компресорів, ми обробляємо все у вашому браузері за допомогою WebAssembly. Ваші приватні сімейні відео, ділові презентації та записи залишаються на 100% на вашому комп’ютері.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Наш движок використовує нативну WebAssembly FFmpeg. Без хмарних подорожей туди й назад. Швидкість апаратного рівня, безпосередньо на вашому ЦП.",
+        "performanceItems": [
+          "Нульова затримка завантаження",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Без встановлення програми"
+        ]
+      }
     },
     {
       "path": "/remove-sound-from-video-completely",
@@ -29122,7 +29237,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Ідеальна тиша",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Видаліть небажаний фоновий шум",
+        "benefitsDesc": "Ви записали чудове відео, але шум вітру чи фоновий шум жахливі? Видаліть звукову доріжку одним клацанням миші перед публікацією в соціальних мережах.",
+        "benefitsItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Не надсилайте свої файли на випадкові сервери лише для того, щоб заглушити їх. Наш механізм WebAssembly видаляє звукову доріжку безпосередньо на вашому пристрої, забезпечуючи повну конфіденційність.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Без перекодування відео",
+          "Легко обробляє файли понад 10 ГБ"
+        ]
+      }
     },
     {
       "path": "/speed-up-video-for-tiktok",
@@ -29211,7 +29349,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Корекція висоти",
+          "Швидкість до 4x",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Дослідження показують, що дещо пришвидшені відео мають значно вищі показники завершення в TikTok. Пришвидште довгі навчальні посібники чи відеоблоги, щоб захопити аудиторію до самого кінця.",
+        "benefitsItems": [
+          "Збільшує утримання аудиторії",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Аудіо з корекцією висоти звуку звучить природно"
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Експортуйте як MP4, сумісний із TikTok"
+        ]
+      }
     },
     {
       "path": "/crop-video-for-instagram-story",
@@ -29287,7 +29448,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Без водяного знака",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Припиніть мати справу з чорними смугами",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Вертикальне кадрування 9:16",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Ваші зміни залишаються на вашому пристрої",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Миттєво обріжте відео 4K за допомогою вбудованого процесора вашого пристрою. Немає очікування завантажень або черг на сервері. Швидше, ніж відкривати важку програму для редагування.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/combine-multiple-voice-memos-into-one",
@@ -29374,7 +29558,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Об’єднайте десятки окремих голосових нагадувань iPhone, продиктованих нотаток і записаних інтерв’ю в єдиний бездоганний аудіофайл — готовий для редагування або спільного використання.",
+        "benefitsItems": [
+          "Голосові нагадування iPhone M4A",
+          "Файли диктофона Android",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Миттєво об’єднайте десятки записів",
+        "performanceDesc": "Немає обмежень на завантаження. Без тайм-ауту. Об’єднайте стільки записів, скільки може вмістити оперативна пам’ять вашого пристрою. Наш механізм зшиває їх разом без проміжків за лічені секунди.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Без обмежень на кількість файлів"
+        ]
+      }
     },
     {
       "path": "/transcribe-zoom-meeting-recording-to-text",
@@ -29450,7 +29657,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Шепіт на основі AI",
+          "Майже людська точність",
+          "100% локальна обробка"
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Припиніть паузу в записах, щоб записати речі. Автоматично отримуйте повну стенограму всієї зустрічі Zoom із можливістю пошуку, а потім надішліть її в ChatGPT для миттєвого підсумку.",
+        "benefitsItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Текстові архіви з можливістю пошуку",
+          "Введіть підсумки в ШІ"
+        ],
+        "privacyTitle": "Конфіденційні зустрічі залишаються конфіденційними",
+        "privacyDesc": "На відміну від хмарних служб транскрипції, наша модель Whisper AI повністю працює на вашому ЦП. Ваші розмови в залі засідань, медичні консультації та судові дзвінки ніколи не передаються на наші сервери.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Майже людська точність із Whisper",
+          "Немає тайм-ауту для довгих записів"
+        ]
+      }
     }
   ],
   "ms": [
@@ -29524,7 +29754,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Bawah 25MB",
+          "Tiada Muat Naik Diperlukan",
+          "Gmail & Outlook Sedia"
+        ],
+        "benefitsTitle": "Berhenti Mendapat Ralat \"Fail Terlalu Besar\".",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Had lampiran Gmail 25MB",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Mampatkan Video 500MB Dalam Minit",
+        "performanceDesc": "Enjin kami menggunakan WebAssembly FFmpeg asli. Tiada perjalanan pergi balik awan. Kelajuan peringkat perkakasan, betul-betul pada CPU anda.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Pengekodan Dipercepatkan GPU",
+          "Tiada Pemasangan Apl"
+        ]
+      }
     },
     {
       "path": "/compress-large-video-for-whatsapp",
@@ -29612,7 +29865,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Bawah 25MB",
+          "Tiada Muat Naik Diperlukan",
+          "Gmail & Outlook Sedia"
+        ],
+        "benefitsTitle": "Berhenti Mendapat Ralat \"Fail Terlalu Besar\".",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Had lampiran Gmail 25MB",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Mampatkan Video 500MB Dalam Minit",
+        "performanceDesc": "Enjin kami menggunakan WebAssembly FFmpeg asli. Tiada perjalanan pergi balik awan. Kelajuan peringkat perkakasan, betul-betul pada CPU anda.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Pengekodan Dipercepatkan GPU",
+          "Tiada Pemasangan Apl"
+        ]
+      }
     },
     {
       "path": "/convert-mov-to-mp4-for-android",
@@ -29688,7 +29964,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Dimainkan pada mana-mana peranti Android",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Format MP4 sejagat"
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/extract-audio-from-video-for-podcast",
@@ -29764,7 +30063,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Sokongan rakaman zum",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Rakaman skrin robek"
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Ekstrak Zum 2 Jam dalam Saat",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Tiada tamat masa untuk fail panjang"
+        ]
+      }
     },
     {
       "path": "/make-video-smaller-without-losing-quality",
@@ -29851,7 +30173,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Bawah 25MB",
+          "Tiada Muat Naik Diperlukan",
+          "Gmail & Outlook Sedia"
+        ],
+        "benefitsTitle": "Berhenti Mendapat Ralat \"Fail Terlalu Besar\".",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Had lampiran Gmail 25MB",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceTitle": "Mampatkan Video 500MB Dalam Minit",
+        "performanceDesc": "Enjin kami menggunakan WebAssembly FFmpeg asli. Tiada perjalanan pergi balik awan. Kelajuan peringkat perkakasan, betul-betul pada CPU anda.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Pengekodan Dipercepatkan GPU",
+          "Tiada Pemasangan Apl"
+        ]
+      }
     },
     {
       "path": "/remove-sound-from-video-completely",
@@ -29935,7 +30280,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Adakah anda merakam video yang hebat tetapi bunyi angin atau perbualan latar belakang adalah mengerikan? Keluarkan trek audio sepenuhnya dalam satu klik sebelum menyiarkan ke media sosial.",
+        "benefitsItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Jangan hantar fail anda ke pelayan rawak hanya untuk meredamkannya. Enjin WebAssembly kami menanggalkan trek audio terus pada peranti anda, memastikan privasi sepenuhnya.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Mengalih keluar trek audio tidak memerlukan pengekodan semula video. Enjin kami hanya melepaskan aliran audio, bermakna walaupun fail 5GB 4K boleh diredam serta-merta.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Tiada pengekodan semula video",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/speed-up-video-for-tiktok",
@@ -30024,7 +30392,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Pembetulan Padang",
+          "Sehingga 4x Kelajuan",
+          "Output MP4 TikTok"
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Muatkan lebih banyak kandungan ke dalam 60-an",
+          "Audio yang diperbetulkan nada berbunyi semula jadi"
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Video viral masa depan anda ialah aset eksklusif anda. Proseskannya secara setempat sebelum ia menyentuh internet. Kami tidak pernah menerima kandungan anda — hanya anda yang menerimanya.",
+        "performanceTitle": "Lebih Baik Daripada Editor Terbina Dalam TikTok",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Perhalusi 0.5x hingga 4x kelajuan",
+          "Pembetulan nada automatik",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/crop-video-for-instagram-story",
@@ -30100,7 +30491,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Tiada Tera Air",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Video landskap kelihatan mengerikan di Cerita dan Kekili Instagram. Pangkasnya dengan sempurna kepada 9:16 dalam saat, memastikan tindakan penting tertumpu.",
+        "benefitsItems": [
+          "Pemotongan menegak 9:16",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Resolusi penuh dikekalkan"
+        ],
+        "privacyTitle": "Suntingan Anda Kekal pada Peranti Anda",
+        "privacyDesc": "Jangan hantar rakaman peribadi anda kepada perkhidmatan awan lakaran. Enjin WebAssembly kami memproses video anda terus dalam penyemak imbas anda. Privasi lengkap, muat naik sifar.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Kependaman muat naik sifar",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."
+        ]
+      }
     },
     {
       "path": "/combine-multiple-voice-memos-into-one",
@@ -30187,7 +30601,30 @@
             "buttonText": "Start"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "M4A/MP3/WAV",
+          "100% Persendirian"
+        ],
+        "benefitsTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsDesc": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "benefitsItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Fail perakam suara Android",
+          "Zum atau Meet rakaman audio"
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Imlak perubatan, nota undang-undang, mesyuarat perniagaan — rakaman audio sangat sensitif. Kami menggabungkan audio anda sepenuhnya dalam penyemak imbas anda dengan WebAssembly. Penghantaran pelayan sifar.",
+        "performanceTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "performanceDesc": "Tiada had muat naik. Tiada tamat masa. Gabungkan seberapa banyak rakaman yang boleh disimpan oleh RAM peranti anda. Enjin kami mencantumkannya tanpa celah dalam beberapa saat.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Format silang: M4A, MP3, WAV",
+          "Tiada had kiraan fail"
+        ]
+      }
     },
     {
       "path": "/transcribe-zoom-meeting-recording-to-text",
@@ -30263,7 +30700,30 @@
             "buttonText": "→"
           }
         }
-      ]
+      ],
+      "bespokeData": {
+        "heroTags": [
+          "Bisikan Dikuasakan AI",
+          "Ketepatan Hampir-Manusia",
+          "100% Pemprosesan Tempatan"
+        ],
+        "benefitsTitle": "Jangan Ambil Nota Mesyuarat Manual Lagi",
+        "benefitsDesc": "Berhenti menjeda rakaman untuk mencatat perkara. Dapatkan transkrip penuh yang boleh dicari bagi keseluruhan mesyuarat Zum anda secara automatik, kemudian suapkannya ke dalam ChatGPT untuk ringkasan segera.",
+        "benefitsItems": [
+          "Hasilkan minit mesyuarat serta-merta",
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Suap ke AI untuk ringkasan"
+        ],
+        "privacyTitle": "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+        "privacyDesc": "Tidak seperti perkhidmatan transkripsi awan, model Whisper AI kami berjalan sepenuhnya pada CPU anda. Perbualan bilik lembaga, perundingan perubatan dan panggilan undang-undang anda tidak sekali-kali dihantar ke pelayan kami.",
+        "performanceTitle": "Muat Naik Video Secara Terus — Tiada Pra-Pemprosesan",
+        "performanceDesc": "Langkau langkah pengekstrakan audio. Hanya lepaskan rakaman MP4 Zoom anda dan alat kami mengeluarkan audio secara automatik dan menjalankannya melalui Whisper AI dalam satu saluran paip yang lancar.",
+        "performanceItems": [
+          "Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.",
+          "Ketepatan hampir manusia dengan Whisper",
+          "Tiada tamat masa untuk rakaman lama"
+        ]
+      }
     }
   ],
   "tl": [
