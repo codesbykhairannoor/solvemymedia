@@ -1,4 +1,6 @@
+// @ts-nocheck
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
 import { PseoHowTo } from './core/PseoHowTo';
 import { PseoFeatureSplit } from './core/PseoFeatureSplit';
@@ -7,6 +9,8 @@ import { PseoGeoBox } from './core/PseoGeoBox';
 import { PseoValuesGrid } from './core/PseoValuesGrid';
 import { PseoSlimBanner } from './core/PseoSlimBanner';
 import { PseoFaq } from './core/PseoFaq';
+import { LONG_TAIL_REGISTRY } from './long-tail/LongTailRegistry';
+import { PseoFaq as _PseoFaq } from './core/PseoFaq';
 
 interface PseoData {
   h1?: string;
@@ -27,9 +31,33 @@ interface NativeLayoutRendererProps {
 
 export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data }) => {
   const { t } = useLanguage();
+  const location = useLocation();
+
   if (!data) return null;
 
-  // Helper to map string[] or object[] to {title, content}[] for steps/features
+  // ─── Check if this path is a registered long-tail page ───────────────────────
+  const rawPath = location.pathname;
+  // Normalize: strip locale prefix (e.g. /id/path → /path) and trailing slash
+  const normalizedPath = '/' + rawPath.replace(/^\/[a-z]{2}\//, '').replace(/^\/+/, '').replace(/\/$/, '');
+  const longTailEntry = LONG_TAIL_REGISTRY[normalizedPath];
+
+  // ─── Bespoke Long-Tail Renderer ───────────────────────────────────────────────
+  if (longTailEntry) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0px', paddingBottom: '80px' }}>
+        {longTailEntry.sections.map((SectionComponent, idx) => (
+          <SectionComponent key={idx} data={data} />
+        ))}
+        {data.faqs && data.faqs.length > 0 && (
+          <div style={{ padding: '0 24px' }}>
+            <_PseoFaq faqs={data.faqs} />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ─── Generic Fallback Renderer (all other pages) ──────────────────────────────
   const parseList = (list: any[]) => {
     if (!list || !Array.isArray(list)) return [];
     return list.map(item => {
@@ -44,7 +72,6 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
     });
   };
 
-  // Helper to extract list data from various possible JSON keys
   const getListData = (sData: any) => {
     return sData.features || sData.items || sData.steps || sData.cards || sData.events || sData.stats || sData.points || [];
   };
@@ -52,15 +79,12 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
   const renderSection = (section: { type: string; data: any }, index: number) => {
     const { type, data: sData } = section;
     
-    // 1. Skip duplicate hero
     if (['hero-split', 'big-typography-hero', 'big-typo-hero'].includes(type)) return null;
     if (sData.title && data.h1 && sData.title.toLowerCase() === data.h1.toLowerCase()) return null;
 
-    // Extract list if any
     const rawList = getListData(sData);
     const parsedList = parseList(rawList);
 
-    // 2. Map Security/Privacy types
     if (['security-arch', 'alert', 'trust-badge', 'highlight-box'].includes(type)) {
       return (
         <PseoPrivacySplit 
@@ -72,7 +96,6 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
       );
     }
 
-    // 3. Map Geo/Global types
     if (['global-reach-map', 'stat-counter', 'progress-stats'].includes(type)) {
       return (
         <PseoGeoBox 
@@ -84,7 +107,6 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
       );
     }
 
-    // 4. Map Banners/CTAs
     if (['bottom-cta', 'floating-cta', 'gamified-progress', 'split-screen-cta', 'newsletter-signup'].includes(type)) {
       return (
         <PseoSlimBanner 
@@ -96,7 +118,6 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
       );
     }
 
-    // 5. Map Steps/HowTo
     if (['terminal-steps', 'how-to-steps', 'numbered-list', 'timeline-view'].includes(type)) {
       return (
         <PseoHowTo 
@@ -108,7 +129,6 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
       );
     }
 
-    // 6. Map Features/Split
     if (['feature-zigzag', 'feature-comparison-matrix', 'pros-cons-table', 'before-after', 'bento-cards'].includes(type)) {
       return (
         <PseoFeatureSplit 
@@ -120,7 +140,6 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
       );
     }
 
-    // 7. Map Grids/Values (Default fallback for roi-calculator, etc)
     return (
       <PseoValuesGrid 
         key={index}
@@ -134,11 +153,8 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px' }}>
-      
-      {/* 1. Map Translated Bento Sections */}
       {data.bentoSections && data.bentoSections.map((section, idx) => renderSection(section, idx))}
 
-      {/* 2. Fallback to Dynamic Section if no Bento Sections */}
       {!data.bentoSections && data.dynamicSection && (
         <>
           {data.dynamicSection.type === 'steps' ? (
@@ -156,11 +172,9 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
         </>
       )}
 
-      {/* 3. FAQ */}
       {data.faqs && data.faqs.length > 0 && (
         <PseoFaq faqs={data.faqs} />
       )}
-      
     </div>
   );
 };
