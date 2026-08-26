@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scissors, Film, ShieldCheck, Zap, Youtube, Clock } from 'lucide-react';
+import { Scissors, Film, ShieldCheck, Zap, MonitorPlay, Clock } from 'lucide-react';
 
 export const TrimVideoHero: React.FC<{ data: any }> = ({ data }) => {
   const { h1, description, bespokeData } = data;
@@ -100,7 +100,7 @@ export const TrimVideoBenefits: React.FC<{ data: any }> = ({ data }) => {
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
           {[
-            { icon: <Youtube />, title: "Social Media Limits", desc: safeData.benefitsItems?.[0] || "Instagram Reels and TikTok have strict time limits. Trim your video down to exactly 59 seconds to ensure it uploads without issues." },
+            { icon: <MonitorPlay />, title: "Social Media Limits", desc: safeData.benefitsItems?.[0] || "Instagram Reels and TikTok have strict time limits. Trim your video down to exactly 59 seconds to ensure it uploads without issues." },
             { icon: <Scissors />, title: "Remove Bloopers", desc: safeData.benefitsItems?.[1] || "Cut out the awkward silence at the beginning of your screen recording, or the mistakes at the very end." },
             { icon: <Clock />, title: "Save Bandwidth", desc: safeData.benefitsItems?.[2] || "Why send a 500MB video when the part you want to show is only 20MB? Trimming saves time and internet data." }
           ].map((item, i) => (

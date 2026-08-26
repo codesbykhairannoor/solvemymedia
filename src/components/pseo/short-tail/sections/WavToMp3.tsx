@@ -1,5 +1,5 @@
 import React from 'react';
-import { Waveform, Headphones, HardDrive, Lock, Zap, FileAudio } from 'lucide-react';
+import { Activity, Headphones, HardDrive, Lock, Zap, FileAudio } from 'lucide-react';
 
 export const WavToMp3Hero: React.FC<{ data: any }> = ({ data }) => {
   const { h1, description, bespokeData } = data;
