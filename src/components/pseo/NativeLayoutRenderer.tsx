@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
 import { getStandardSlug } from '../../i18n/slugs';
 import { LONG_TAIL_REGISTRY } from './long-tail/LongTailRegistry';
-import { SHORT_TAIL_REGISTRY } from './short-tail/ShortTailRegistry';
+
 import { PseoFaq as _PseoFaq } from './core/PseoFaq';
 
 interface PseoData {
@@ -34,29 +34,13 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
   const standardSlug = '/' + getStandardSlug(strippedPath, currentLang);
   
   const longTailEntry = LONG_TAIL_REGISTRY[standardSlug];
-  const shortTailEntry = SHORT_TAIL_REGISTRY[standardSlug];
+
 
   // ─── Bespoke Long-Tail Renderer ───────────────────────────────────────────────
   if (longTailEntry) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0px', paddingBottom: '80px' }}>
         {longTailEntry.sections.map((SectionComponent, idx) => (
-          <SectionComponent key={idx} data={data} />
-        ))}
-        {data.faqs && data.faqs.length > 0 && (
-          <div style={{ padding: '0 24px' }}>
-            <_PseoFaq faqs={data.faqs} />
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // ─── Bespoke Short-Tail Renderer ──────────────────────────────────────────────
-  if (shortTailEntry) {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0px', paddingBottom: '80px' }}>
-        {shortTailEntry.sections.map((SectionComponent, idx) => (
           <SectionComponent key={idx} data={data} />
         ))}
         {data.faqs && data.faqs.length > 0 && (

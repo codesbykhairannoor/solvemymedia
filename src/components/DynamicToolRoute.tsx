@@ -4,7 +4,6 @@ import { SEO } from './seo/SEO';
 import { getStandardSlug } from '../i18n/slugs';
 import { useLanguage } from '../hooks/useLanguage';
 import { NativeLayoutRenderer } from './pseo/NativeLayoutRenderer';
-import PseoTranslations from '../data/pseo-translations.json';
 import LongTailTranslations from '../data/pseo-long-tail-translations.json';
 
 // Import all tools lazily to enable massive code splitting
@@ -153,7 +152,7 @@ export const DynamicToolRoute: React.FC = () => {
     return langData.find((r: any) => r.path === `/${standardSlug}` || r.path === standardSlug);
   };
 
-  pseoData = findRoute(LongTailTranslations) || findRoute(PseoTranslations);
+  pseoData = findRoute(LongTailTranslations);
   
   if (pseoData) {
     standardSlug = pseoData.tool;

@@ -61,12 +61,6 @@ async function run() {
     pseoDb = JSON.parse(fs.readFileSync(pseoDbPath, 'utf8'));
   }
 
-  // Load pSEO Short Tail data
-  const pseoShortTailPath = path.join(__dirname, '../src/data/pseo-translations.json');
-  let pseoShortTailDb = {};
-  if (fs.existsSync(pseoShortTailPath)) {
-    pseoShortTailDb = JSON.parse(fs.readFileSync(pseoShortTailPath, 'utf8'));
-  }
 
   let slugsMap = {};
   try {
@@ -120,15 +114,6 @@ async function run() {
       generatedCount++;
     }
 
-    // 3. Generate pSEO Short Tail pages
-    const shortTailPseo = pseoShortTailDb[lang] || [];
-    for (const pseoItem of shortTailPseo) {
-      const toolSlug = pseoItem.path.startsWith('/') ? pseoItem.path : `/${pseoItem.path}`;
-      const locSlug = getLocalizedSlug(toolSlug, lang);
-      const urlPath = lang === 'en' ? `/${locSlug}` : `/${lang}/${locSlug}`;
-      await generatePage(urlPath, lang, translations, serverRender, baseHtml, distDir);
-      generatedCount++;
-    }
   }
 
   // Generate legal pages (English only for now, or multi if needed)
