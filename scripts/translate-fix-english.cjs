@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
+const translate = require('google-translate-api-x');
 
 const DB_PATH = path.join(__dirname, '../src/data/pseo-long-tail-translations.json');
 const db = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
@@ -8,23 +8,21 @@ const LANGS = Object.keys(db).filter(l => l !== 'en');
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-function gtx(text, target) {
-  return new Promise((resolve) => {
-    if (!text || typeof text !== 'string' || text.trim() === '') return resolve(text);
-    const encoded = encodeURIComponent(text);
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${target}&dt=t&q=${encoded}`;
-    https.get(url, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(data);
-          const translated = parsed[0].map(x => x[0]).join('');
-          resolve(translated);
-        } catch { resolve(text); }
-      });
-    }).on('error', () => resolve(text));
-  });
+async function gtx(text, target) {
+  if (!text || typeof text !== 'string' || text.trim() === '') return text;
+  try {
+    const res = await translate(text, { to: target, rejectOnPartialFail: false });
+    return res.text;
+  } catch (err) {
+    console.log(`[API ERROR] ${err.message}. Retrying in 5 seconds...`);
+    await sleep(5000);
+    try {
+      const res2 = await translate(text, { to: target, rejectOnPartialFail: false });
+      return res2.text;
+    } catch (e) {
+      return text;
+    }
+  }
 }
 
 async function fixArray(enArr, langArr, lang) {
@@ -32,9 +30,10 @@ async function fixArray(enArr, langArr, lang) {
   for (let i = 0; i < enArr.length; i++) {
     if (typeof enArr[i] === 'string') {
       if (!langArr[i] || langArr[i] === enArr[i]) {
-        console.log(`    [RE-TRANSLATE array item] ${enArr[i]}`);
+        process.stdout.write(`    [TR-ARR] ${lang}: ${enArr[i].substring(0,20)}... `);
         langArr[i] = await gtx(enArr[i], lang);
-        await sleep(150);
+        console.log(`-> ${langArr[i].substring(0,20)}`);
+        await sleep(100);
       }
     }
   }
@@ -43,9 +42,9 @@ async function fixArray(enArr, langArr, lang) {
 
 async function main() {
   const enEntries = db['en'] || [];
+  let totalFixed = 0;
   
   for (const lang of LANGS) {
-    console.log(`\n=== Fixing lang: ${lang} ===`);
     let changed = false;
     
     for (const enEntry of enEntries) {
@@ -59,24 +58,29 @@ async function main() {
       for (const [k, v] of Object.entries(enEntry.bespokeData)) {
         if (typeof v === 'string') {
           if (!langEntry.bespokeData[k] || langEntry.bespokeData[k] === v) {
-             console.log(`  [RE-TRANSLATE ${k}] ${v}`);
+             process.stdout.write(`  [TR-STR] ${lang} [${k}]: ${v.substring(0,20)}... `);
              langEntry.bespokeData[k] = await gtx(v, lang);
+             console.log(`-> ${langEntry.bespokeData[k].substring(0,20)}`);
              changed = true;
-             await sleep(150);
+             totalFixed++;
+             await sleep(100);
           }
         } else if (Array.isArray(v)) {
           const oldArrStr = JSON.stringify(langEntry.bespokeData[k]);
           langEntry.bespokeData[k] = await fixArray(v, langEntry.bespokeData[k], lang);
-          if (JSON.stringify(langEntry.bespokeData[k]) !== oldArrStr) changed = true;
+          if (JSON.stringify(langEntry.bespokeData[k]) !== oldArrStr) {
+            changed = true;
+            totalFixed++;
+          }
         }
       }
     }
     
     if (changed) {
       fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2), 'utf8');
-      console.log(`  -> Saved ${lang}`);
     }
   }
-  console.log('Done fixing!');
+  console.log(`\n✅ Done! Successfully translated ${totalFixed} items that were stuck in English.`);
 }
+
 main().catch(console.error);
