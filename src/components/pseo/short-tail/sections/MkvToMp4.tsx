@@ -1,7 +1,9 @@
 import React from 'react';
-import { Database, FileVideo, CheckCircle2, ChevronRight, PlaySquare, Workflow } from 'lucide-react';
+import { Database, FileVideo, CheckCircle2, ChevronRight, PlaySquare, Workflow, Layers } from 'lucide-react';
+import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const MkvToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ 
       background: '#09090b', 
@@ -15,8 +17,8 @@ export const MkvToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
       
       <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#18181b', padding: '6px 16px', borderRadius: 6, marginBottom: 24, border: '1px solid #3f3f46' }}>
-          <Database size={16} color="var(--brand-secondary)" />
-          <span style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: '#a1a1aa' }}>Heavy Duty Demuxing</span>
+          <Layers size={16} color="var(--brand-secondary)" />
+          <span style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: '#a1a1aa' }}>{t('mkvToMp4_heroBadge')}</span>
         </div>
         
         <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, lineHeight: 1.05, marginBottom: 24, textShadow: '0 4px 20px rgba(0,0,0,0.5)', letterSpacing: '-0.02em' }}>
@@ -41,15 +43,16 @@ export const MkvToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const MkvToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '120px 24px', background: '#18181b' }}>
+    <section style={{ padding: '120px 24px', background: 'var(--bg-main)' }}>
       <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 80 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 900, color: '#f8fafc', lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.03em' }}>
-            {data.bespokeData?.benefitsTitle || "The Smart Demuxing Pipeline"}
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 24, padding: 60, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--text-main)', lineHeight: 1.1, marginBottom: 24 }}>
+            {data.bespokeData?.benefitsTitle || t('mkvToMp4_heroTitle')}
           </h2>
-          <p style={{ fontSize: '1.15rem', color: '#a1a1aa', maxWidth: 800, margin: '0 auto' }}>
-            {data.bespokeData?.benefitsDesc || "MKV is a container, not a codec. If your MKV already contains H.264 video, we simply extract the video track and package it into an MP4 container. No quality loss, zero rendering time."}
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40, maxWidth: 800 }}>
+            {data.bespokeData?.benefitsDesc || t('mkvToMp4_heroDesc')}
           </p>
         </div>
 
@@ -91,14 +94,16 @@ export const MkvToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const MkvToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '80px 24px', background: '#09090b', borderTop: '1px solid #27272a' }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'left' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 24, color: '#f8fafc' }}>
-          {data.features?.[0]?.title || "Subtitle Support"}
+    <section style={{ padding: '100px 24px', background: 'var(--bg-main)' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+        <Subtitles size={48} color="var(--brand-primary)" style={{ margin: '0 auto 24px' }} />
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 24, color: 'var(--text-main)' }}>
+          {data.features?.[0]?.title || t('mkvToMp4_perfTitle')}
         </h2>
-        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#a1a1aa', borderLeft: '4px solid var(--brand-secondary)', paddingLeft: 24 }}>
-          {data.features?.[0]?.desc || "Maintains video integrity and audio synchronization flawlessly. We preserve all primary video and audio tracks precisely as they were in the original MKV."}
+        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>
+          {data.features?.[0]?.desc || t('mkvToMp4_perfDesc')}
         </p>
       </div>
     </section>
@@ -106,14 +111,16 @@ export const MkvToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const MkvToMp4Privacy: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '100px 24px', background: '#18181b' }}>
-      <div style={{ maxWidth: 1000, margin: '0 auto', background: '#27272a', borderRadius: 24, padding: '60px 40px', color: '#f8fafc' }}>
-        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 24 }}>
-          {data.features?.[1]?.title || "Offline by Design"}
+    <section style={{ padding: '100px 24px', background: 'var(--bg-main)' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+        <Shield size={64} color="var(--brand-secondary)" style={{ margin: '0 auto 24px' }} />
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)' }}>
+          {data.features?.[1]?.title || t('mkvToMp4_privTitle')}
         </h2>
-        <p style={{ fontSize: '1.15rem', color: '#a1a1aa', maxWidth: 600, lineHeight: 1.7, marginBottom: 40 }}>
-          {data.features?.[1]?.desc || "MKV files are often huge movie rips or long recordings. Uploading a 5GB file to a cloud converter is impractical. We run the conversion locally, saving you hours of upload time and ensuring your files stay strictly on your hard drive."}
+        <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40 }}>
+          {data.features?.[1]?.desc || t('mkvToMp4_privDesc')}
         </p>
         <div style={{ display: 'flex', gap: 16 }}>
           <div style={{ background: '#09090b', padding: '12px 24px', borderRadius: 8, fontWeight: 700, color: 'var(--brand-secondary)', border: '1px solid #3f3f46' }}>Zero Upload</div>

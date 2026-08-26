@@ -1,7 +1,9 @@
 import React from 'react';
 import { ArrowRight, AudioWaveform, Cpu, Download, FileAudio, Lock, Settings, ShieldCheck, Zap } from 'lucide-react';
+import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const Mp4ToMp3Hero: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ background: 'linear-gradient(180deg, #0f172a 0%, #1e293b 100%)', color: 'white', padding: '120px 24px 80px', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: -100, right: -100, width: 400, height: 400, background: 'var(--brand-primary)', filter: 'blur(150px)', opacity: 0.15, borderRadius: '50%' }} />
@@ -10,7 +12,7 @@ export const Mp4ToMp3Hero: React.FC<{ data: any }> = ({ data }) => {
       <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', padding: '6px 16px', borderRadius: 999, marginBottom: 24, border: '1px solid rgba(255,255,255,0.05)' }}>
           <AudioWaveform size={16} color="var(--brand-primary)" />
-          <span style={{ fontSize: '0.9rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>Studio-Grade Extraction</span>
+          <span style={{ fontSize: '0.9rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>{t('mp4ToMp3_heroBadge')}</span>
         </div>
         
         <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 24, textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
@@ -35,16 +37,17 @@ export const Mp4ToMp3Hero: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const Mp4ToMp3Benefits: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ padding: '100px 24px', background: 'var(--bg-main)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '60px', alignItems: 'center', flexWrap: 'wrap' }}>
           <div style={{ flex: '1 1 400px' }}>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--text-main)', lineHeight: 1.1, marginBottom: 24 }}>
-              {data.bespokeData?.benefitsTitle || "Lossless Audio Extraction Pipeline"}
+              {data.bespokeData?.benefitsTitle || t('mp4ToMp3_heroTitle')}
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40 }}>
-              {data.bespokeData?.benefitsDesc || "Unlike traditional converters that re-record the audio and ruin quality, our engine demuxes the MP4 container and pulls out the pristine audio stream."}
+              {data.bespokeData?.benefitsDesc || t('mp4ToMp3_heroDesc')}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {data.bespokeData?.benefitsItems?.map((item: string, idx: number) => (
@@ -88,6 +91,7 @@ export const Mp4ToMp3Benefits: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const Mp4ToMp3Performance: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ padding: '80px 24px', background: 'var(--bg-card)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
@@ -95,10 +99,10 @@ export const Mp4ToMp3Performance: React.FC<{ data: any }> = ({ data }) => {
           <Cpu size={32} color="var(--brand-primary)" />
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 24, color: 'var(--text-main)' }}>
-          {data.features?.[0]?.title || "Client-Side Processing"}
+          {data.features?.[0]?.title || t('mp4ToMp3_perfTitle')}
         </h2>
         <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>
-          {data.features?.[0]?.desc || "Harness the power of WebAssembly. Your MP4 is decoded and transcribed right inside your browser using your CPU, making it up to 10x faster than cloud services."}
+          {data.features?.[0]?.desc || t('mp4ToMp3_perfDesc')}
         </p>
       </div>
     </section>
@@ -106,6 +110,7 @@ export const Mp4ToMp3Performance: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const Mp4ToMp3Privacy: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ padding: '100px 24px', background: 'var(--bg-main)' }}>
       <div style={{ maxWidth: 1000, margin: '0 auto', background: 'linear-gradient(135deg, #0f172a, #020617)', borderRadius: 40, padding: '60px 40px', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -113,10 +118,10 @@ export const Mp4ToMp3Privacy: React.FC<{ data: any }> = ({ data }) => {
         
         <Lock size={48} color="var(--brand-secondary)" style={{ marginBottom: 24, position: 'relative', zIndex: 1 }} />
         <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 24, position: 'relative', zIndex: 1 }}>
-          {data.features?.[1]?.title || "Strict Zero-Upload Privacy"}
+          {data.features?.[1]?.title || t('mp4ToMp3_privTitle')}
         </h2>
         <p style={{ fontSize: '1.15rem', color: 'rgba(255,255,255,0.7)', maxWidth: 600, lineHeight: 1.7, marginBottom: 40, position: 'relative', zIndex: 1 }}>
-          {data.features?.[1]?.desc || "Because the extraction runs locally, your videos are never uploaded to any server. Perfect for unreleased music, confidential recordings, and private videos."}
+          {data.features?.[1]?.desc || t('mp4ToMp3_privDesc')}
         </p>
         
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', justifyContent: 'center', position: 'relative', zIndex: 1 }}>

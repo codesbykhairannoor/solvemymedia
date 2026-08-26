@@ -1,22 +1,23 @@
 import React from 'react';
-import { Film, MonitorPlay, History, Disc, ArrowUpRight, CheckSquare } from 'lucide-react';
+import { Archive, ArrowRight, Save, Clock, History, Disc, MonitorPlay, ArrowUpRight, CheckSquare, Film } from 'lucide-react';
+import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const AviToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ 
-      background: 'linear-gradient(to right, #1f2937, #111827)', 
-      padding: '120px 24px 80px', 
-      position: 'relative',
+      background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)', 
+      padding: '120px 24px 100px', 
+      position: 'relative', 
       overflow: 'hidden',
       color: 'white'
     }}>
-      {/* Retro VHS scanline effect overlay */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'repeating-linear-gradient(transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)', pointerEvents: 'none', opacity: 0.5 }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.1, backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
       
       <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(234, 179, 8, 0.1)', padding: '6px 20px', borderRadius: 6, marginBottom: 24, border: '1px solid rgba(234, 179, 8, 0.2)' }}>
-          <History size={16} color="#eab308" />
-          <span style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', color: '#fef08a' }}>Legacy Format</span>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', color: '#c7d2fe', padding: '6px 20px', borderRadius: 999, marginBottom: 24, backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+          <History size={16} />
+          <span style={{ fontSize: '0.9rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>{t('aviToMp4_heroBadge')}</span>
         </div>
         
         <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 24, textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
@@ -41,15 +42,16 @@ export const AviToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const AviToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '120px 24px', background: '#f3f4f6' }}>
+    <section style={{ padding: '120px 24px', background: 'var(--bg-main)' }}>
       <div style={{ maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 80 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: 20 }}>
-            {data.bespokeData?.benefitsTitle || "Modernize Your Legacy Media"}
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--text-main)', lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.02em' }}>
+            {data.bespokeData?.benefitsTitle || t('aviToMp4_heroTitle')}
           </h2>
-          <p style={{ fontSize: '1.2rem', color: '#4b5563', maxWidth: 700, margin: '0 auto' }}>
-            {data.bespokeData?.benefitsDesc || "Bring your older digital camera or camcorder AVI files into the modern era. Convert to highly compressed MP4s that play anywhere."}
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: 800, margin: '0 auto', lineHeight: 1.8 }}>
+            {data.bespokeData?.benefitsDesc || t('aviToMp4_heroDesc')}
           </p>
         </div>
 
@@ -89,15 +91,18 @@ export const AviToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const AviToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '80px 24px', background: 'white' }}>
+    <section style={{ padding: '100px 24px', background: 'var(--bg-card)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
       <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-        <Disc size={48} color="#eab308" style={{ marginBottom: 24 }} />
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 24, color: '#111827' }}>
-          {data.features?.[0]?.title || "Massive Space Savings"}
+        <div style={{ width: 80, height: 80, background: 'rgba(var(--brand-primary-rgb), 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
+          <Save size={40} color="var(--brand-primary)" />
+        </div>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 24, color: 'var(--text-main)' }}>
+          {data.features?.[0]?.title || t('aviToMp4_perfTitle')}
         </h2>
-        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#4b5563', padding: '24px', background: '#fef9c3', borderRadius: 16 }}>
-          {data.features?.[0]?.desc || "MP4 (H.264) compression is vastly superior to older AVI codecs. You can often reduce the file size of your old home videos by 70-80% without noticing any loss in quality."}
+        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>
+          {data.features?.[0]?.desc || t('aviToMp4_perfDesc')}
         </p>
       </div>
     </section>
@@ -105,14 +110,18 @@ export const AviToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const AviToMp4Privacy: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '100px 24px', background: '#111827', color: 'white', textAlign: 'center' }}>
-      <div style={{ maxWidth: 700, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: '#f8fafc' }}>
-          {data.features?.[1]?.title || "Private Archives"}
+    <section style={{ padding: '100px 24px', background: 'var(--bg-main)' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ display: 'inline-flex', padding: 20, background: 'rgba(var(--brand-secondary-rgb), 0.1)', borderRadius: '50%', marginBottom: 32 }}>
+          <Shield size={48} color="var(--brand-secondary)" />
+        </div>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)' }}>
+          {data.features?.[1]?.title || t('aviToMp4_privTitle')}
         </h2>
-        <p style={{ fontSize: '1.2rem', color: '#9ca3af', lineHeight: 1.7 }}>
-          {data.features?.[1]?.desc || "Your old family videos from 2005 are private. Because our tool runs offline in your browser, those memories are never uploaded to our servers. Transcode them securely on your own device."}
+        <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40, maxWidth: 700, margin: '0 auto' }}>
+          {data.features?.[1]?.desc || t('aviToMp4_privDesc')}
         </p>
       </div>
     </section>

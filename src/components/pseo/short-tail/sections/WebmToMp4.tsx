@@ -1,7 +1,9 @@
 import React from 'react';
 import { Globe, Smartphone, ArrowRight, Video, Link2, DownloadCloud } from 'lucide-react';
+import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const WebmToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ 
       background: 'linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%)', 
@@ -16,7 +18,7 @@ export const WebmToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
       <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.7)', padding: '8px 24px', borderRadius: 999, marginBottom: 32, border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 4px 20px rgba(147, 51, 234, 0.1)', backdropFilter: 'blur(10px)' }}>
           <Globe size={18} color="#9333ea" />
-          <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#9333ea', textTransform: 'uppercase', letterSpacing: '1px' }}>Web Optimized</span>
+          <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#9333ea', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('webmToMp4_heroBadge')}</span>
         </div>
         
         <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 24, color: '#4c1d95', letterSpacing: '-0.03em' }}>
@@ -41,15 +43,16 @@ export const WebmToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const WebmToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
     <section style={{ padding: '120px 24px', background: 'white' }}>
-      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 80 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: '#4c1d95', lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.02em' }}>
-            {data.bespokeData?.benefitsTitle || "Bridge the Gap Between Web and Mobile"}
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.02em' }}>
+            {data.bespokeData?.benefitsTitle || t('webmToMp4_heroTitle')}
           </h2>
-          <p style={{ fontSize: '1.2rem', color: '#6b21a8', maxWidth: 700, margin: '0 auto', lineHeight: 1.7 }}>
-            {data.bespokeData?.benefitsDesc || "WebM is fantastic for Chrome and Firefox, but it completely breaks on iPhones and iPads. We solve this by instantly converting WebM into universally accepted MP4 files."}
+          <p style={{ fontSize: '1.2rem', color: '#4b5563', maxWidth: 800, margin: '0 auto', lineHeight: 1.8 }}>
+            {data.bespokeData?.benefitsDesc || t('webmToMp4_heroDesc')}
           </p>
         </div>
 
@@ -82,35 +85,37 @@ export const WebmToMp4Benefits: React.FC<{ data: any }> = ({ data }) => {
 };
 
 export const WebmToMp4Performance: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '100px 24px', background: '#fdf4ff' }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', gap: 32, alignItems: 'center', flexWrap: 'wrap', background: 'white', padding: 40, borderRadius: 32, boxShadow: '0 10px 30px rgba(147, 51, 234, 0.05)' }}>
-        <div style={{ flex: '1 1 300px' }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.2rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: 16, color: '#4c1d95' }}>
-            {data.features?.[0]?.title || "High-Speed WebCodecs"}
-          </h2>
-          <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: '#6b21a8' }}>
-            {data.features?.[0]?.desc || "Transcode VP8/VP9 streams to H.264 right inside your browser. We utilize your device's hardware acceleration to make the conversion incredibly fast."}
-          </p>
+    <section style={{ padding: '100px 24px', background: '#faf5ff' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ width: 80, height: 80, background: 'rgba(147, 51, 234, 0.1)', borderRadius: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
+          <Zap size={40} color="#9333ea" />
         </div>
-        <div style={{ flex: '0 0 auto', background: '#f3e8ff', width: 120, height: 120, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Video size={48} color="#9333ea" />
-        </div>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, lineHeight: 1.2, marginBottom: 24, color: '#4c1d95', letterSpacing: '-0.02em' }}>
+          {data.features?.[0]?.title || t('webmToMp4_perfTitle')}
+        </h2>
+        <p style={{ fontSize: '1.2rem', lineHeight: 1.8, color: '#6b21a8' }}>
+          {data.features?.[0]?.desc || t('webmToMp4_perfDesc')}
+        </p>
       </div>
     </section>
   );
 };
 
 export const WebmToMp4Privacy: React.FC<{ data: any }> = ({ data }) => {
+  const { t } = useLanguage();
   return (
-    <section style={{ padding: '80px 24px', background: 'white' }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-        <DownloadCloud size={64} color="#db2777" style={{ marginBottom: 24 }} />
-        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: '#111827' }}>
-          {data.features?.[1]?.title || "Zero Server Dependency"}
+    <section style={{ padding: '120px 24px', background: 'white' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ display: 'inline-flex', padding: 20, background: '#fdf4ff', borderRadius: '50%', marginBottom: 32 }}>
+          <Lock size={48} color="#c026d3" />
+        </div>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 24, color: '#4c1d95', letterSpacing: '-0.02em' }}>
+          {data.features?.[1]?.title || t('webmToMp4_privTitle')}
         </h2>
-        <p style={{ fontSize: '1.2rem', color: '#4b5563', lineHeight: 1.8 }}>
-          {data.features?.[1]?.desc || "Why wait in a server queue to convert a file you already downloaded? WebM to MP4 conversion runs 100% on your local machine, keeping your files completely private."}
+        <p style={{ fontSize: '1.2rem', color: '#6b21a8', lineHeight: 1.8, marginBottom: 40, maxWidth: 700, margin: '0 auto 40px' }}>
+          {data.features?.[1]?.desc || t('webmToMp4_privDesc')}
         </p>
       </div>
     </section>
