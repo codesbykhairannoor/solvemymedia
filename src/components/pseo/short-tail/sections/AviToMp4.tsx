@@ -1,5 +1,5 @@
 import React from 'react';
-import { Archive, ArrowRight, Save, Clock, History, Disc, MonitorPlay, ArrowUpRight, CheckSquare, Film } from 'lucide-react';
+import { Archive, ArrowRight, Save, Clock, History, Disc, MonitorPlay, ArrowUpRight, CheckSquare, Film, Shield } from 'lucide-react';
 import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const AviToMp4Hero: React.FC<{ data: any }> = ({ data }) => {

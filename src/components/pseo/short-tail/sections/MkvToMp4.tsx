@@ -1,5 +1,5 @@
 import React from 'react';
-import { Database, FileVideo, CheckCircle2, ChevronRight, PlaySquare, Workflow, Layers } from 'lucide-react';
+import { Database, FileVideo, CheckCircle2, ChevronRight, PlaySquare, Workflow, Layers, Subtitles, Shield } from 'lucide-react';
 import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const MkvToMp4Hero: React.FC<{ data: any }> = ({ data }) => {

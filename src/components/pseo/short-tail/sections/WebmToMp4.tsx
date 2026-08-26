@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Smartphone, ArrowRight, Video, Link2, DownloadCloud } from 'lucide-react';
+import { Globe, Smartphone, ArrowRight, Video, Link2, DownloadCloud, Zap, Lock } from 'lucide-react';
 import { useLanguage } from '../../../../hooks/useLanguage';
 
 export const WebmToMp4Hero: React.FC<{ data: any }> = ({ data }) => {
