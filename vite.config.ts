@@ -10,7 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,wasm}'],
-        maximumFileSizeToCacheInBytes: 50 * 1024 * 1024 // 50MB for FFmpeg WASM files
+        maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50MB for FFmpeg WASM files
+        skipWaiting: true,
+        clientsClaim: true,
       }
     })
   ],
