@@ -90,6 +90,7 @@ export const CreateGif: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       targetFormat="gif"
       />
 
+      {!pseoData && (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CreateGifHeroSection 
           section={{ 
@@ -121,6 +122,7 @@ export const CreateGif: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         />
         
       </div>
+      )}
     </>
   );
 };

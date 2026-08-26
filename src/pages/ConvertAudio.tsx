@@ -67,6 +67,7 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   
     
+      {!pseoData && (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <ConvertAudioHeroSection 
           section={{ 
@@ -98,6 +99,7 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         />
         
       </div>
+      )}
     </>
   );
 };

@@ -297,6 +297,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       </div>
       </div>
       
+      {!pseoData && (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <WatermarkVideoHeroSection 
           section={{ type: 'hero', title: t('wmHero') || "Add Custom Watermark Logo to Video", content: t('wmHeroDesc') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online." }} 
@@ -320,6 +321,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         />
         
       </div>
+      )}
     
     </div>
   );

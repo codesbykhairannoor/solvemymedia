@@ -169,6 +169,7 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       
     
     
+      {!pseoData && (
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
         <StudioRecorderHeroSection 
           section={{ type: 'hero', title: translate('recHeroTitle') || "Professional Browser Studio Recorder", content: translate('recHeroDesc') || "Record your screen, webcam, and microphone all at once without installing any software. Perfect for tutorials, presentations, and vlogs." }} 
@@ -192,6 +193,7 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         />
         
       </div>
+      )}
   
     </div>
   );
