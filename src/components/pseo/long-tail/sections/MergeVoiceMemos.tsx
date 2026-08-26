@@ -31,7 +31,7 @@ export const MergeVoiceMemosHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Combine Multiple Voice Memos into One'}</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['M4A & MP3 Support', 'Gapless Merge', 'Drag to Reorder'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['M4A & MP3 Support', 'Gapless Merge', 'Drag to Reorder']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'var(--bg-main)', borderRadius: 100, border: '1px solid var(--border-color)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>
               <CheckCircle2 size={12} color="#10b981" /> {b}
             </div>
@@ -76,10 +76,10 @@ export const MergeVoiceMemosBenefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>From Scattered Memos to One Clean Track</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Merge dozens of separate iPhone voice memos, dictated notes, and recorded interviews into a single seamless audio file — ready for editing or sharing.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'From Scattered Memos to One Clean Track'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Merge dozens of separate iPhone voice memos, dictated notes, and recorded interviews into a single seamless audio file.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['iPhone M4A voice memos', 'Android voice recorder files', 'Zoom or Meet audio recordings'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['iPhone M4A voice memos', 'Android voice recorder files', 'Zoom or Meet audio recordings']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -98,8 +98,8 @@ export const MergeVoiceMemosPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#10b981,#06b6d4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Your Private Recordings Stay Private</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>Medical dictations, legal notes, business meetings — audio recordings are highly sensitive. We merge your audio entirely in your browser with WebAssembly. Zero server transmission.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Your Private Recordings Stay Private'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'We merge your audio entirely in your browser with WebAssembly. Zero server transmission.'}</p>
       </div>
     </div>
   </section>
@@ -117,10 +117,10 @@ export const MergeVoiceMemosPerformance: React.FC<{ data: SD }> = ({ data }) => 
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Merge Dozens of Recordings Instantly</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>No upload limit. No timeout. Combine as many recordings as your device's RAM can hold. Our engine stitches them together gaplessly in seconds.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Merge Dozens of Recordings Instantly'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'No upload limit. No timeout. Combine as many recordings as your device can hold.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Gapless audio stitching', 'Cross-format: M4A, MP3, WAV', 'No file count limit'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Gapless audio stitching', 'Cross-format: M4A, MP3, WAV', 'No file count limit']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

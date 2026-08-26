@@ -35,7 +35,7 @@ export const MuteVideoHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Remove Sound from Video Completely'}</h2>
         <p style={{ fontSize: '1.1rem', opacity: 0.85, lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['Instant Processing', 'No Re-encoding', '100% Silent Output'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['Instant Processing', 'No Re-encoding', '100% Silent Output']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(255,255,255,0.08)', borderRadius: 100, border: '1px solid rgba(255,255,255,0.15)', fontSize: '0.82rem', fontWeight: 600 }}>
               <CheckCircle2 size={12} /> {b}
             </div>
@@ -80,10 +80,10 @@ export const MuteVideoBenefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Perfect Silent Clips for Social Media</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Auto-play videos on Instagram, TikTok, and Facebook are muted by default. Creating silent videos means your content always loads ready-to-play without startling anyone.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'Perfect Silent Clips for Social Media'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Auto-play videos on Instagram, TikTok, and Facebook are muted by default. Creating silent videos means your content always loads ready-to-play.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['Ideal for background B-roll', 'Instagram & TikTok ready', 'Add your own music track after'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['Ideal for background B-roll', 'Instagram & TikTok ready', 'Add your own music track after']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="var(--brand-primary, #8b5cf6)" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -102,8 +102,8 @@ export const MuteVideoPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#27272a,#3f3f46)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#e4e4e7" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Sensitive Conversations Stay Private</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>If you're muting a video before sharing it publicly, security matters. We strip the audio locally so no third party ever hears what was said in your original recording.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Sensitive Conversations Stay Private'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'We strip the audio locally so no third party ever hears what was said in your original recording.'}</p>
       </div>
     </div>
   </section>
@@ -121,10 +121,10 @@ export const MuteVideoPerformance: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Mute a 4K Video in a Fraction of a Second</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>Removing audio doesn't require re-encoding the video. We simply repackage the video stream and discard the audio track — making it one of the fastest operations possible.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Mute a 4K Video in a Fraction of a Second'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'Removing audio does not require re-encoding the video. We simply repackage the video stream and discard the audio track.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Near-instant processing', 'Video quality untouched', 'Any format — MP4, MOV, WebM'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Near-instant processing', 'Video quality untouched', 'Any format — MP4, MOV, WebM']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="var(--brand-primary, #8b5cf6)" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

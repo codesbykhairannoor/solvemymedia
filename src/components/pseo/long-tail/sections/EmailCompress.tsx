@@ -43,7 +43,7 @@ export const EmailCompressHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Reduce MP4 Video Size for Email'}</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['Under 25MB', 'No Upload Needed', 'Gmail & Outlook Ready'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['Under 25MB', 'No Upload Needed', 'Gmail & Outlook Ready']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'var(--bg-main)', borderRadius: 100, border: '1px solid var(--border-color)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>
               <CheckCircle2 size={12} color="#10b981" /> {b}
             </div>
@@ -81,10 +81,10 @@ export const EmailCompressBenefits: React.FC<{ data: SD }> = ({ data }) => (
   <section style={{ padding: '100px 24px', background: 'var(--bg-card)' }}>
     <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Stop Getting "File Too Large" Errors</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Every email provider imposes strict size limits. Compress your video privately in your browser before sending — no cloud storage required.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'Stop Getting "File Too Large" Errors'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Every email provider imposes strict size limits. Compress your video privately in your browser before sending — no cloud storage required.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['Gmail 25MB attachment limit', 'Outlook 20MB attachment limit', 'Yahoo Mail 25MB limit'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['Gmail 25MB attachment limit', 'Outlook 20MB attachment limit', 'Yahoo Mail 25MB limit']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#8b5cf6" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -111,8 +111,8 @@ export const EmailCompressPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#8b5cf6,#6366f1)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 24px rgba(139,92,246,0.3)' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Your Video Never Leaves Your Device</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>Unlike cloud-based compressors, we process everything inside your browser using WebAssembly. Your private family videos, business pitches, and recordings stay 100% on your computer.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Your Video Never Leaves Your Device'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'Unlike cloud-based compressors, we process everything inside your browser using WebAssembly.'}</p>
       </div>
     </div>
   </section>
@@ -133,10 +133,10 @@ export const EmailCompressPerformance: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 18px', background: 'linear-gradient(135deg,#8b5cf6,#6366f1)', color: '#fff', borderRadius: 9999, fontWeight: 700, fontSize: '0.8rem', marginBottom: 22, boxShadow: '0 6px 18px rgba(139,92,246,0.3)' }}>
           <Zap size={13} /> WebAssembly Powered
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Compress a 500MB Video in Under a Minute</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>Our engine uses native WebAssembly FFmpeg. No cloud round-trips. Hardware-level speed, right on your CPU.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Compress a 500MB Video in Under a Minute'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'Our engine uses native WebAssembly FFmpeg. No cloud round-trips. Hardware-level speed, right on your CPU.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Zero Upload Latency', 'GPU-Accelerated Encoding', 'No App Installation'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Zero Upload Latency', 'GPU-Accelerated Encoding', 'No App Installation']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#8b5cf6" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

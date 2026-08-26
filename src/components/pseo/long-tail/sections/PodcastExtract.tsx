@@ -33,7 +33,7 @@ export const PodcastExtractHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Extract Audio from Video for Podcasts'}</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['Lossless Extraction', 'Audacity-Ready', 'No Re-Encoding'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['Lossless Extraction', 'Audacity-Ready', 'No Re-Encoding']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'var(--bg-main)', borderRadius: 100, border: '1px solid var(--border-color)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>
               <CheckCircle2 size={12} color="#ec4899" /> {b}
             </div>
@@ -81,10 +81,10 @@ export const PodcastExtractBenefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>The Perfect Tool for Every Podcaster</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Whether you record interviews on Zoom, capture lectures on a camera, or conduct panel discussions — our tool pulls the exact audio track from any video source.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'The Perfect Tool for Every Podcaster'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Whether you record on Zoom, camera, or screen — our tool pulls the exact audio track from any video source.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['Zoom recordings support', 'Camera & DSLR footage', 'Screen recording rips'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['Zoom recordings support', 'Camera & DSLR footage', 'Screen recording rips']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#ec4899" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -103,8 +103,8 @@ export const PodcastExtractPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#ec4899,#8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Your Unreleased Episodes Are Safe</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>Podcast exclusives and pre-release interviews are incredibly sensitive. We process everything locally — your unreleased content never touches the internet until you decide to publish it.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Your Unreleased Episodes Are Safe'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'We process everything locally — your unreleased content never touches the internet until you decide to publish it.'}</p>
       </div>
     </div>
   </section>
@@ -122,10 +122,10 @@ export const PodcastExtractPerformance: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Extract a 2-Hour Zoom in Seconds</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>Our direct stream copy engine extracts audio without re-encoding. A 2-hour podcast interview takes the same time as a 2-minute video — almost instant.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Extract a 2-Hour Zoom in Seconds'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'Our direct stream copy engine extracts audio without re-encoding. A 2-hour podcast interview takes almost instant.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Direct stream copy (no re-encoding)', 'Handles 10GB+ recordings', 'No timeout for long files'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Direct stream copy (no re-encoding)', 'Handles 10GB+ recordings', 'No timeout for long files']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#ec4899" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

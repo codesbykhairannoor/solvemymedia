@@ -37,7 +37,7 @@ export const InstagramCropHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Crop Video for Instagram Story (9:16)'}</h2>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['9:16 Perfect Ratio', 'No Black Bars', 'Reels & Stories'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['9:16 Perfect Ratio', 'No Black Bars', 'Reels & Stories']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(255,255,255,0.1)', borderRadius: 100, border: '1px solid rgba(255,255,255,0.2)', fontSize: '0.82rem', fontWeight: 600, backdropFilter: 'blur(8px)' }}>
               <CheckCircle2 size={12} /> {b}
             </div>
@@ -82,10 +82,10 @@ export const InstagramCropBenefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Fill the Entire Mobile Screen</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Landscape videos on Instagram Stories leave ugly black bars that disengage viewers. A perfectly cropped 9:16 video fills the entire screen and maximizes your content's visual impact.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'Fill the Entire Mobile Screen'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Landscape videos on Instagram Stories leave ugly black bars that disengage viewers.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['No distracting black bars', 'Maximize Story real estate', 'Works for Reels & TikTok too'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['No distracting black bars', 'Maximize Story real estate', 'Works for Reels & TikTok too']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#833ab4" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -104,8 +104,8 @@ export const InstagramCropPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#833ab4,#fd1d1d)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Your Content, Completely Yours</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>Your brand content, personal vlogs, and creative projects are your intellectual property. We crop and process everything locally so your exclusive content never leaks before you're ready to post it.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Your Content, Completely Yours'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'Your brand content and creative projects are your intellectual property. We crop and process everything locally.'}</p>
       </div>
     </div>
   </section>
@@ -123,10 +123,10 @@ export const InstagramCropPerformance: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Preview Before You Crop</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>Use our visual crop interface to see exactly what will be included in the final 9:16 frame before committing. No surprises, no wasted exports.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Preview Before You Crop'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'Use our visual crop interface to see exactly what will be included in the final 9:16 frame before committing.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Visual preview before crop', 'Custom center point selection', 'Exports at original resolution'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Visual preview before crop', 'Custom center point selection', 'Exports at original resolution']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#833ab4" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

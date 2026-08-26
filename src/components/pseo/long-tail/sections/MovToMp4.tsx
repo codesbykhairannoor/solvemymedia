@@ -38,7 +38,7 @@ export const MovToMp4Hero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Convert iPhone MOV to MP4 for Android'}</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['Zero Quality Loss', 'Works on All Androids', 'No App Needed'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['Zero Quality Loss', 'Works on All Androids', 'No App Needed']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'var(--bg-main)', borderRadius: 100, border: '1px solid var(--border-color)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-main)' }}>
               <CheckCircle2 size={12} color="#10b981" /> {b}
             </div>
@@ -80,10 +80,10 @@ export const MovToMp4Benefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Share iPhone Videos Universally</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Stop the "can't play this file" messages. Convert once, play anywhere — Android phones, Windows PCs, smart TVs, and web browsers all support MP4 natively.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'Share iPhone Videos Universally'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Stop the "can\'t play this file" messages. Convert once, play anywhere on all devices.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['100% Android compatible', 'Plays on Windows & Smart TVs', 'Works in all web browsers'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['100% Android compatible', 'Plays on Windows & Smart TVs', 'Works in all web browsers']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#6366f1" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -102,8 +102,8 @@ export const MovToMp4Privacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Your Personal Videos Are 100% Private</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>We repackage the video container locally in your browser. Your iPhone videos — birthdays, vacations, personal moments — never touch our servers.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Your Personal Videos Are 100% Private'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'We repackage the video container locally in your browser. Your iPhone videos never touch our servers.'}</p>
       </div>
     </div>
   </section>
@@ -121,10 +121,10 @@ export const MovToMp4Performance: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Remux MOV to MP4 Without Re-Encoding</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>If your iPhone video uses H.264, we simply copy the streams into an MP4 container. Zero quality loss. Completed in seconds regardless of file size.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Remux MOV to MP4 Without Re-Encoding'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'If your iPhone video uses H.264, we simply copy the streams into an MP4 container. Zero quality loss. Completed in seconds.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Stream copy: zero re-encoding', 'Handles 10GB+ MOV files', 'No file size limit'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Stream copy: zero re-encoding', 'Handles 10GB+ MOV files', 'No file size limit']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#6366f1" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

@@ -38,7 +38,7 @@ export const TiktokSpeedHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Speed Up Video for TikTok Fast'}</h2>
         <p style={{ fontSize: '1.1rem', opacity: 0.85, lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['Pitch Correction', 'Up to 2x Speed', 'TikTok MP4 Output'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['Pitch Correction', 'Up to 2x Speed', 'TikTok MP4 Output']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(255,255,255,0.08)', borderRadius: 100, border: '1px solid rgba(255,255,255,0.15)', fontSize: '0.82rem', fontWeight: 600 }}>
               <CheckCircle2 size={12} /> {b}
             </div>
@@ -84,10 +84,10 @@ export const TiktokSpeedBenefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Faster Videos = Higher Watch Completion</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Studies show that slightly sped-up videos have significantly higher completion rates on TikTok. Speed up long tutorials or vlogs to keep the audience hooked to the very end.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'Faster Videos = Higher Watch Completion'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Studies show that slightly sped-up videos have significantly higher completion rates on TikTok.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['Increases audience retention', 'Fits more content into 60s', 'Pitch-corrected audio sounds natural'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['Increases audience retention', 'Fits more content into 60s', 'Pitch-corrected audio sounds natural']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#ff0050" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -106,8 +106,8 @@ export const TiktokSpeedPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#ff0050,#7928ca)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Your Pre-Release Content Stays Safe</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>Your future viral video is your exclusive asset. Process it locally before it ever touches the internet. We never receive your content — only you do.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Your Pre-Release Content Stays Safe'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'Process it locally before it ever touches the internet. We never receive your content.'}</p>
       </div>
     </div>
   </section>
@@ -125,10 +125,10 @@ export const TiktokSpeedPerformance: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Better Than TikTok's Built-In Editor</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>TikTok's in-app speed tools are limited to specific presets. Our FFmpeg engine lets you fine-tune speed from 0.5x to 4x, with pitch correction that keeps audio natural.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Better Than TikTok\'s Built-In Editor'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'Our FFmpeg engine lets you fine-tune speed from 0.5x to 4x, with pitch correction that keeps audio natural.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['Fine-tune 0.5x to 4x speed', 'Automatic pitch correction', 'Export as TikTok-compatible MP4'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['Fine-tune 0.5x to 4x speed', 'Automatic pitch correction', 'Export as TikTok-compatible MP4']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#ff0050" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>

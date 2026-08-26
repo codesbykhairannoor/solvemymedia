@@ -31,7 +31,7 @@ export const WhatsappCompressHero: React.FC<{ data: SD }> = ({ data }) => (
         <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{data.h1 || 'Compress Large Video for WhatsApp'}</h2>
         <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.8 }}>{data.description}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
-          {['Fits 16MB Limit', 'No Data Waste', 'Audio Stays Synced'].map((b, i) => (
+          {(data.bespokeData?.heroTags || ['Fits 16MB Limit', 'No Data Waste', 'Audio Stays Synced']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(255,255,255,0.1)', borderRadius: 100, border: '1px solid rgba(255,255,255,0.2)', fontSize: '0.82rem', fontWeight: 600, backdropFilter: 'blur(8px)' }}>
               <CheckCircle2 size={12} /> {b}
             </div>
@@ -76,10 +76,10 @@ export const WhatsappCompressBenefits: React.FC<{ data: SD }> = ({ data }) => (
         </div>
       </div>
       <div style={{ flex: '1 1 420px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Send Without Burning Your Data Plan</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>Uploading a 1GB video through WhatsApp wastes enormous mobile data. We compress locally so you send a tiny file that still looks great.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.benefitsTitle || 'Send Without Burning Your Data Plan'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>{data.bespokeData?.benefitsDesc || 'Uploading a 1GB video through WhatsApp wastes enormous mobile data. We compress locally so you send a tiny file that still looks great.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {['4K video compressed in seconds', 'Audio stays perfectly synced', 'Works on mobile browsers'].map((item, i) => (
+          {(data.bespokeData?.benefitsItems || ['4K video compressed in seconds', 'Audio stays perfectly synced', 'Works on mobile browsers']).map((item: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#25D366" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{item}</span>
@@ -98,8 +98,8 @@ export const WhatsappCompressPrivacy: React.FC<{ data: SD }> = ({ data }) => (
         <div style={{ width: 72, height: 72, margin: '0 auto 24px', borderRadius: 22, background: 'linear-gradient(135deg,#075E54,#25D366)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Shield size={36} color="#fff" />
         </div>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Safer Than a WhatsApp App</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>Many third-party apps ask for intrusive device permissions. Our web-based tool runs entirely in your secure browser sandbox. No permissions. No account. No video upload. Just results.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.privacyTitle || 'Safer Than a WhatsApp App'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 640, margin: '0 auto' }}>{data.bespokeData?.privacyDesc || 'Our web-based tool runs entirely in your secure browser sandbox. No permissions. No account. No video upload.'}</p>
       </div>
     </div>
   </section>
@@ -117,10 +117,10 @@ export const WhatsappCompressPerformance: React.FC<{ data: SD }> = ({ data }) =>
         </div>
       </div>
       <div style={{ flex: '1 1 440px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>Compress 4K to WhatsApp-Ready in Seconds</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>Our WebAssembly engine taps directly into your device's native CPU. Even on mobile, you get desktop-class compression speed without burning data.</p>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.2 }}>{data.bespokeData?.performanceTitle || 'Compress 4K to WhatsApp-Ready in Seconds'}</h2>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 28 }}>{data.bespokeData?.performanceDesc || 'Our WebAssembly engine taps directly into your device\'s native CPU. Even on mobile, you get desktop-class compression speed.'}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {['No data upload required', 'Works fully offline', 'Instant compression on-device'].map((b, i) => (
+          {(data.bespokeData?.performanceItems || ['No data upload required', 'Works fully offline', 'Instant compression on-device']).map((b: string, i: number) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px', background: 'var(--bg-main)', borderRadius: 14, border: '1px solid var(--border-color)' }}>
               <CheckCircle2 size={16} color="#25D366" style={{ flexShrink: 0 }} />
               <span style={{ fontWeight: 600, color: 'var(--text-main)', fontSize: '0.9rem' }}>{b}</span>
