@@ -1,4 +1,4 @@
-import { VideoToAudioHeroSection, VideoToAudioHowToSection, VideoToAudioPerformanceSection, VideoToAudioPrivacySection, VideoToAudioFAQSection } from '../components/content-sections/tools/VideoToAudioSections';
+import { VideoToAudioHeroSection, VideoToAudioHowToSection, VideoToAudioPerformanceSection, VideoToAudioPrivacySection } from '../components/content-sections/tools/VideoToAudioSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -103,9 +103,7 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         )}
         
         
-        {!pseoData && (
-          <VideoToAudioFAQSection faqs={pseoData?.faqs} />
-        )}
+        
       </div>
     </>
   );

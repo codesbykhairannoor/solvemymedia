@@ -1,4 +1,4 @@
-import { ConvertAudioHeroSection, ConvertAudioHowToSection, ConvertAudioSecuritySection, ConvertAudioPrivacySection, ConvertAudioFAQSection } from '../components/content-sections/tools/ConvertAudioSections';
+import { ConvertAudioHeroSection, ConvertAudioHowToSection, ConvertAudioSecuritySection, ConvertAudioPrivacySection } from '../components/content-sections/tools/ConvertAudioSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -96,9 +96,7 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <ConvertAudioPrivacySection 
           section={{ type: 'privacy', title: translate('cvaPrivTitle') || "Strict Privacy", content: translate('cvaPrivDesc') || "Your media is never uploaded. Period." }} 
         />
-        {!pseoData && (
-          <ConvertAudioFAQSection faqs={pseoData?.faqs} />
-        )}
+        
       </div>
     </>
   );

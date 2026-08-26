@@ -1,4 +1,4 @@
-import { CreateGifHeroSection, CreateGifHowToSection, CreateGifPerformanceSection, CreateGifPrivacySection, CreateGifFAQSection } from '../components/content-sections/tools/CreateGifSections';
+import { CreateGifHeroSection, CreateGifHowToSection, CreateGifPerformanceSection, CreateGifPrivacySection } from '../components/content-sections/tools/CreateGifSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -119,13 +119,7 @@ export const CreateGif: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <CreateGifPrivacySection 
           section={{ type: 'privacy', title: t('gifPriv') || "Your Files Stay Yours", content: t('gifPrivDesc') || "Because everything runs locally, your sensitive videos are completely safe. Disconnect from the internet and watch it still work." }} 
         />
-        <CreateGifFAQSection 
-          faqs={pseoData?.faqs || [
-            { q: t('gifFaq1Q') || "Is this really free?", a: t('gifFaq1A') || "Yes, completely free with no watermarks." },
-            { q: t('gifFaq2Q') || "Why does it happen instantly?", a: t('gifFaq2A') || "Everything is processed locally." },
-            { q: t('gifFaq3Q') || "Do you store my GIF?", a: t('gifFaq3A') || "No, we don't have access to it." }
-          ]}
-        />
+        
       </div>
     </>
   );

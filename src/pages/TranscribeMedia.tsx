@@ -1,4 +1,4 @@
-import { TranscribeMediaHeroSection, TranscribeMediaHowToSection, TranscribeMediaPerformanceSection, TranscribeMediaPrivacySection, TranscribeMediaFAQSection } from '../components/content-sections/tools/TranscribeMediaSections';
+import { TranscribeMediaHeroSection, TranscribeMediaHowToSection, TranscribeMediaPerformanceSection, TranscribeMediaPrivacySection } from '../components/content-sections/tools/TranscribeMediaSections';
 import React, { useState, useRef } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, FileText } from 'lucide-react';
 import { useWhisper } from '../hooks/useWhisper';
@@ -219,9 +219,7 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         
-        {!pseoData && (
-          <TranscribeMediaFAQSection faqs={pseoData?.faqs} />
-        )}
+        
       </div>
   
     </div>

@@ -1,4 +1,4 @@
-import { CropVideoHeroSection, CropVideoHowToSection, CropVideoPlatformSection, CropVideoPrivacySection, CropVideoFAQSection } from '../components/content-sections/tools/CropVideoSections';
+import { CropVideoHeroSection, CropVideoHowToSection, CropVideoPlatformSection, CropVideoPrivacySection } from '../components/content-sections/tools/CropVideoSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -132,13 +132,7 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         
-        <CropVideoFAQSection 
-          faqs={pseoData?.faqs || [
-            { q: t('cropFaq1Q') || "Does cropping reduce video quality?", a: t('cropFaq1A') || "Cropping technically re-encodes the video, but we use high-quality presets to ensure the cropped area retains its original sharpness." },
-            { q: t('cropFaq2Q') || "Can I do custom free-form cropping?", a: t('cropFaq2A') || "Currently we only support center-cropping to standard social media aspect ratios (1:1, 9:16, 16:9) to keep the process lightning fast and simple." },
-            { q: t('cropFaq3Q') || "Is it really private?", a: t('cropFaq3A') || "Absolutely. Everything happens directly inside your web browser. Try turning off your Wi-Fi before clicking 'Crop'!" }
-          ]}
-        />
+        
       </div>
     </>
   );

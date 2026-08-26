@@ -148,39 +148,7 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
 
         
 
-        {/* SECTION 5: FAQ */}
-        <section className="content-section faq-section" style={{ padding: '0 24px' }}>
-          <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {(pseoData?.faqs || [
-                {
-                  q: t('speedVFaq1Q') || "Does changing speed affect the audio pitch?",
-                  a: t('speedVFaq1A') || "No! Unlike basic speed changers that make audio sound squeaky when sped up, we use an advanced pitch-correction algorithm (atempo) to maintain natural voices."
-                },
-                {
-                  q: t('speedVFaq2Q') || "Can I go faster than 2.0x?",
-                  a: t('speedVFaq2A') || "Currently, the web-based FFmpeg engine supports stable pitch-corrected adjustments between 0.5x and 2.0x for the best possible quality."
-                },
-                {
-                  q: t('speedVFaq3Q') || "Is this tool completely free and offline?",
-                  a: t('speedVFaq3A') || "Yes, it is 100% free with no watermarks and runs entirely inside your browser, meaning it works even without an active internet connection."
-                }
-              ]).map((faq: any, idx: number) => (
-                <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                    <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}
-                  </h3>
-                  <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
-                    <strong style={{ color: 'var(--brand-secondary)' }}>A:</strong> {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-      </div>
+        </div>
     </>
   );
 };

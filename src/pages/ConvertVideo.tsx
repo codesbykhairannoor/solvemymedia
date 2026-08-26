@@ -131,39 +131,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         
         
 
-        {/* SECTION 5: FAQ */}
-        <section className="content-section faq-section" style={{ padding: '0 24px' }}>
-          <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('faqTitle') || 'Frequently Asked Questions'}</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {(pseoData?.faqs || [
-                {
-                  q: t('convVFaq1Q') || "Why convert MKV to MP4?",
-                  a: t('convVFaq1A') || "MKV is a great container, but many default media players (like QuickTime on Mac) and social networks do not support it natively. Converting it to MP4 guarantees it can be viewed by anyone, anywhere."
-                },
-                {
-                  q: t('convVFaq2Q') || "Is there a file size limit for conversion?",
-                  a: t('convVFaq2A') || "No! Because our tool runs locally on your browser using WebAssembly, there are no artificial limits. You can convert 10GB+ movies as long as you have enough disk space and memory."
-                },
-                {
-                  q: t('convVFaq3Q') || "Does this conversion reduce the video quality?",
-                  a: t('convVFaq3A') || "By default, we set the target quality to 100% to ensure a virtually lossless conversion. The output MP4 will look identical to your original source file."
-                }
-              ]).map((faq: any, i: number) => (
-                <div key={i} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                    <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}
-                  </h3>
-                  <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
-                    <strong style={{ color: 'var(--brand-secondary)' }}>A:</strong> {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-      </div>
+        </div>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { CompressAudioHeroSection, CompressAudioHowToSection, CompressAudioPerformanceSection, CompressAudioPrivacySection, CompressAudioFAQSection } from '../components/content-sections/tools/CompressAudioSections';
+import { CompressAudioHeroSection, CompressAudioHowToSection, CompressAudioPerformanceSection, CompressAudioPrivacySection } from '../components/content-sections/tools/CompressAudioSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
@@ -166,9 +166,7 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <CompressAudioPrivacySection 
           section={{ type: 'privacy', title: translate('caPrivTitle') || "100% Secure Local Execution", content: translate('caPrivDesc') || "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
         />
-        {!pseoData && (
-          <CompressAudioFAQSection faqs={pseoData?.faqs} />
-        )}
+        
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { MuteVideoHeroSection, MuteVideoHowToSection, MuteVideoSpeedSection, MuteVideoOfflineSection, MuteVideoFAQSection } from '../components/content-sections/tools/MuteVideoSections';
+import { MuteVideoHeroSection, MuteVideoHowToSection, MuteVideoSpeedSection, MuteVideoOfflineSection } from '../components/content-sections/tools/MuteVideoSections';
 import React, { useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
@@ -90,9 +90,7 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         
-        {!pseoData && (
-          <MuteVideoFAQSection faqs={pseoData?.faqs} />
-        )}
+        
       </div>
     </>
   );

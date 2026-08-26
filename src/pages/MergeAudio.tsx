@@ -1,6 +1,6 @@
 import { HeroFeaturesSection } from '../components/content-sections/FeatureGroup';
 import { SecurityPrivacySection } from '../components/content-sections/SecurityGroup';
-import { MergeAudioHeroSection, MergeAudioHowToSection, MergeAudioPerformanceSection, MergeAudioPrivacySection, MergeAudioFAQSection } from '../components/content-sections/tools/MergeAudioSections';
+import { MergeAudioHeroSection, MergeAudioHowToSection, MergeAudioPerformanceSection, MergeAudioPrivacySection } from '../components/content-sections/tools/MergeAudioSections';
 import React, { useState, useRef } from 'react';
 import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, UploadCloud } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
@@ -221,9 +221,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         )}
 
         
-        {!pseoData && (
-          <MergeAudioFAQSection faqs={pseoData?.faqs} />
-        )}
+        
       </div>
     </div>
   );

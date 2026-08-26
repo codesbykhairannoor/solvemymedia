@@ -304,40 +304,6 @@ export const Home: React.FC = () => {
 
 
 
-      {/* SECTION 5: FAQ */}
-      <section style={{ padding: '80px 24px', maxWidth: 800, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2, color: 'var(--text-main)', marginBottom: 48, textAlign: 'center' }}>
-          {t('homeFaqTitle') || 'Frequently Asked Questions'}
-        </h2>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {[
-            { q: t('homeFaq1Q') || 'Do I need to install any software?', a: t('homeFaq1A') || 'No! SolveMyMedia runs entirely inside your modern web browser without requiring any downloads or extensions.' },
-            { q: t('homeFaq2Q') || 'Are my files uploaded to your servers?', a: t('homeFaq2A') || 'Never. We use WebAssembly (WASM) and WebCodecs to process all audio and video files entirely locally on your device.' },
-            { q: t('homeFaq3Q') || 'Why is the compression so fast?', a: t('homeFaq3A') || 'Because you don\'t have to wait for massive gigabyte files to upload and download from a server. Processing happens instantly on your local hardware.' },
-            { q: t('homeFaq4Q') || 'Is there a limit on file size?', a: t('homeFaq4A') || 'Since processing happens locally, the only limit is the available RAM and storage on your specific device. There are no artificial limits from our end.' },
-            { q: t('homeFaq5Q') || 'Does it work on mobile phones?', a: t('homeFaq5A') || 'Yes! Modern smartphones have incredibly powerful processors that can handle WebCodecs natively for on-the-go media editing.' }
-          ].map((faq, i) => (
-            <div 
-              key={i} 
-              className="glass-panel"
-              style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border-color)', cursor: 'pointer' }}
-              onClick={() => setOpenFaq(openFaq === i ? null : i)}
-            >
-              <div style={{ padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: openFaq === i ? 'rgba(0,0,0,0.02)' : 'transparent' }}>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>{faq.q}</h3>
-                {openFaq === i ? <ChevronUp size={20} color="var(--brand-primary)" /> : <ChevronDown size={20} color="var(--text-muted)" />}
-              </div>
-              {openFaq === i && (
-                <div style={{ padding: '0 24px 24px', color: 'var(--text-muted)', lineHeight: 1.7, borderTop: '1px dashed var(--border-color)', paddingTop: 20 }}>
-                  {faq.a}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
       <style>{`
         @keyframes spin {
           from { transform: rotate(0deg); }
