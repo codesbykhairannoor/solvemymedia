@@ -2,6 +2,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
+import { getStandardSlug } from '../../i18n/slugs';
 import { PseoHowTo } from './core/PseoHowTo';
 import { PseoFeatureSplit } from './core/PseoFeatureSplit';
 import { PseoPrivacySplit } from './core/PseoPrivacySplit';
@@ -30,7 +31,7 @@ interface NativeLayoutRendererProps {
 }
 
 export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data }) => {
-  const { t } = useLanguage();
+  const { t, currentLang } = useLanguage();
   const location = useLocation();
 
   if (!data) return null;
@@ -38,8 +39,11 @@ export const NativeLayoutRenderer: React.FC<NativeLayoutRendererProps> = ({ data
   // ─── Check if this path is a registered long-tail page ───────────────────────
   const rawPath = location.pathname;
   // Normalize: strip locale prefix (e.g. /id/path → /path) and trailing slash
-  const normalizedPath = '/' + rawPath.replace(/^\/[a-z]{2}\//, '').replace(/^\/+/, '').replace(/\/$/, '');
-  const longTailEntry = LONG_TAIL_REGISTRY[normalizedPath];
+  const strippedPath = rawPath.replace(/^\/[a-z]{2}\//, '').replace(/^\/+/, '').replace(/\/$/, '');
+  
+  // Convert localized slug back to standard English slug for registry lookup
+  const standardSlug = '/' + getStandardSlug(strippedPath, currentLang);
+  const longTailEntry = LONG_TAIL_REGISTRY[standardSlug];
 
   // ─── Bespoke Long-Tail Renderer ───────────────────────────────────────────────
   if (longTailEntry) {
