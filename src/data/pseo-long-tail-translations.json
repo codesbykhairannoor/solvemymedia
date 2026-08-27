@@ -32415,5 +32415,1050 @@
         ]
       }
     }
+  ],
+  "sk": [
+    {
+      "path": "/reduce-mp4-video-size-for-email",
+      "tool": "compress-video",
+      "h1": "Znížte veľkosť videa MP4 pre e-mail",
+      "description": "Komprimujte veľké súbory MP4 tak, aby sa zmestili do limitu 25 MB e-mailových príloh. Bezplatné, okamžité a plne lokálne spracovanie.",
+      "faqs": [
+        {
+          "q": "Aká je maximálna veľkosť videa pre Gmail?",
+          "a": "Gmail obmedzuje prílohy na 25 MB. Ak je vaše video väčšie, musíte ho najprv skomprimovať pomocou nášho nástroja."
+        },
+        {
+          "q": "Bude video stále vyzerať dobre v e-maile?",
+          "a": "Áno, pri príležitostnom zdieľaní prostredníctvom e-mailu výrazné zníženie bitovej rýchlosti stále poskytuje vysoko prijateľný zážitok zo sledovania."
+        },
+        {
+          "q": "Funguje to na mobilných zariadeniach?",
+          "a": "Absolútne. Náš nástroj WebAssembly beží lokálne v prehliadačoch iOS aj Android, čo je ideálne pre mobilný e-mail."
+        }
+      ],
+      "translatedPath": "/reduce-mp4-video-size-for-e-mail",
+      "bentoSections": [
+        {
+          "type": "hrdina-rozkol",
+          "data": {
+            "title": "Zmenšite veľkosť videa MP4 pre e-mail",
+            "content": "Komprimujte veľké súbory MP4 tak, aby sa zmestili do limitu 25 MB e-mailových príloh. Bezplatné, okamžité a plne lokálne spracovanie.",
+            "buttonText": "Štart"
+          }
+        },
+        {
+          "type": "roi-kalkulačka",
+          "data": {
+            "title": "Ako komprimovať MP4 pre e-mail",
+            "description": "Presuňte myšou veľký súbor videa.",
+            "buttonText": "Vyberte Cieľovú veľkosť"
+          }
+        },
+        {
+          "type": "bezpečnosť-arch",
+          "data": {
+            "title": "Funguje to na mobilných zariadeniach?",
+            "description": "Absolútne. Náš nástroj WebAssembly beží lokálne v prehliadačoch iOS aj Android, čo je ideálne pre mobilný e-mail."
+          }
+        },
+        {
+          "type": "gamifikovaný-pokrok",
+          "data": {
+            "title": "Aká je maximálna veľkosť videa pre Gmail?",
+            "description": "Gmail obmedzuje prílohy na 25 MB. Ak je vaše video väčšie, musíte ho najprv skomprimovať pomocou nášho nástroja.",
+            "buttonText": "→"
+          }
+        }
+      ],
+      "meta_title": "Zmenšiť veľkosť videa MP4 pre e-mail | Bezplatný online nástroj",
+      "meta_description": "Jednoducho komprimujte veľké video súbory MP4, aby sa zmestili do limitu 25 MB e-mailových príloh. 100% zadarmo, súkromné ​​a funguje vo vašom prehliadači.",
+      "bespokeData": {
+        "heroTags": [
+          "Menej ako 25 MB",
+          "Nie je potrebné žiadne nahrávanie",
+          "Gmail a Outlook pripravený"
+        ],
+        "benefitsTitle": "Zastavte zobrazovanie chýb „Súbor je príliš veľký“.",
+        "benefitsDesc": "Každý poskytovateľ e-mailu ukladá prísne obmedzenia veľkosti. Pred odoslaním svoje video súkromne skomprimujte vo svojom prehliadači – nevyžaduje sa žiadne cloudové úložisko.",
+        "benefitsItems": [
+          "Limit prílohy Gmailu je 25 MB",
+          "Limit prílohy Outlooku 20 MB",
+          "Yahoo Mail limit 25 MB"
+        ],
+        "privacyTitle": "Vaše video nikdy neopustí vaše zariadenie",
+        "privacyDesc": "Na rozdiel od cloudových kompresorov spracovávame všetko vo vašom prehliadači pomocou WebAssembly. Vaše súkromné ​​rodinné videá, obchodné prezentácie a nahrávky zostanú 100 % vo vašom počítači.",
+        "performanceTitle": "Komprimujte 500 MB video za minútu",
+        "performanceDesc": "Náš engine používa natívny WebAssembly FFmpeg. Žiadne spiatočné cesty v oblakoch. Rýchlosť na úrovni hardvéru priamo na vašom procesore.",
+        "performanceItems": [
+          "Nulová latencia nahrávania",
+          "GPU-Accelerated Encoding",
+          "Žiadna inštalácia aplikácie"
+        ]
+      }
+    },
+    {
+      "path": "/compress-large-video-for-whatsapp",
+      "tool": "compress-video",
+      "h1": "Komprimovať veľké video pre WhatsApp",
+      "description": "Jednoducho zmenšite videá, aby ste obišli limity veľkosti WhatsApp. Posielajte videá v plnej dĺžke bez chybových hlásení.",
+      "dynamicSection": {
+        "type": "výhod",
+        "heading": "Prečo používať náš kompresor WhatsApp?",
+        "items": [
+          {
+            "title": "Obchádzkové limity",
+            "content": "WhatsApp často blokuje videá väčšie ako 16 MB alebo 64 MB v závislosti od verzie. Zmrštíme ho, aby hladko sedel."
+          },
+          {
+            "title": "Okamžité offline spracovanie",
+            "content": "Nie je potrebné plytvať dátami nahrávaním 1GB videa len na jeho kompresiu. Robíme to lokálne na vašom telefóne."
+          },
+          {
+            "title": "Zachovať synchronizáciu zvuku",
+            "content": "Na rozdiel od niektorých lacných aplikácií náš pokročilý kódovač zaručuje, že váš zvuk zostane dokonale synchronizovaný."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Prečo WhatsApp hovorí, že moje video je príliš veľké?",
+          "a": "WhatsApp má prísne obmedzenia veľkosti súborov (zvyčajne 16 MB pre štandardné videá), aby šetril šírku pásma na svojich serveroch."
+        },
+        {
+          "q": "Môžem komprimovať 4K video pre WhatsApp?",
+          "a": "Áno, náš nástroj automaticky zníži veľkosť a komprimuje súbory 4K do formátu a veľkosti, ktorý je vhodný pre WhatsApp."
+        },
+        {
+          "q": "Je to bezpečnejšie ako používanie aplikácie?",
+          "a": "áno. Aplikácie často žiadajú rušivé povolenia. Náš webový nástroj beží v zabezpečenom prostredí prehliadača bez nahrávania."
+        }
+      ],
+      "translatedPath": "/compress-large-video-for-whatsapp",
+      "bentoSections": [
+        {
+          "type": "veľký preklepový hrdina",
+          "data": {
+            "title": "Komprimovať veľké video pre WhatsApp",
+            "subtitle": "Jednoducho zmenšite videá, aby ste obišli limity veľkosti WhatsApp. Posielajte videá v plnej dĺžke bez chybových hlásení."
+          }
+        },
+        {
+          "type": "timeline-view",
+          "data": {
+            "title": "Prečo používať náš kompresor WhatsApp?",
+            "description": "",
+            "events": [
+              {
+                "date": "Krok",
+                "title": "Obchádzkové limity",
+                "description": "WhatsApp často blokuje videá väčšie ako 16 MB alebo 64 MB v závislosti od verzie. Zmrštíme ho, aby hladko sedel."
+              },
+              {
+                "date": "Krok",
+                "title": "Okamžité offline spracovanie",
+                "description": "Nie je potrebné plytvať dátami nahrávaním 1GB videa len na jeho kompresiu. Robíme to lokálne na vašom telefóne."
+              },
+              {
+                "date": "Krok",
+                "title": "Zachovať synchronizáciu zvuku",
+                "description": "Na rozdiel od niektorých lacných aplikácií náš pokročilý kódovač zaručuje, že váš zvuk zostane dokonale synchronizovaný."
+              }
+            ]
+          }
+        },
+        {
+          "type": "highlight-box",
+          "data": {
+            "title": "Môžem komprimovať 4K video pre WhatsApp?",
+            "description": "Áno, náš nástroj automaticky zníži veľkosť a komprimuje súbory 4K do formátu a veľkosti, ktorý je vhodný pre WhatsApp.",
+            "label": "✨"
+          }
+        },
+        {
+          "type": "dno-cta",
+          "data": {
+            "title": "Prečo WhatsApp hovorí, že moje video je príliš veľké?",
+            "description": "WhatsApp má prísne obmedzenia veľkosti súborov (zvyčajne 16 MB pre štandardné videá), aby šetril šírku pásma na svojich serveroch.",
+            "buttonText": "Štart"
+          }
+        }
+      ],
+      "meta_title": "Komprimovať veľké video pre WhatsApp | Bezplatný online nástroj",
+      "meta_description": "Komprimujte video súbory, aby ste obišli limit 16 MB WhatsApp. Okamžite odosielajte vysokokvalitné videá bez straty vizuálnej čistoty.",
+      "bespokeData": {
+        "heroTags": [
+          "Zodpovedá limitu 16 MB",
+          "Žiadne plytvanie dátami",
+          "Zvuk zostáva synchronizovaný"
+        ],
+        "benefitsTitle": "Posielajte bez spálenia dátového plánu",
+        "benefitsDesc": "Odovzdanie 1 GB videa cez WhatsApp plytvá obrovskými mobilnými dátami. Komprimujeme lokálne, takže odošlete malý súbor, ktorý stále vyzerá skvele.",
+        "benefitsItems": [
+          "4K video komprimované v priebehu niekoľkých sekúnd",
+          "Zvuk zostáva dokonale synchronizovaný",
+          "Funguje na mobilných prehliadačoch"
+        ],
+        "privacyTitle": "Bezpečnejšie ako aplikácia WhatsApp",
+        "privacyDesc": "Mnohé aplikácie tretích strán žiadajú o rušivé povolenia zariadenia. Náš webový nástroj beží výhradne vo vašom zabezpečenom karanténe prehliadača. Žiadne povolenia. Žiadny účet. Žiadne nahrávanie videa. Len výsledky.",
+        "performanceTitle": "Komprimujte 4K do WhatsApp-Ready za pár sekúnd",
+        "performanceDesc": "Náš modul WebAssembly sa pripája priamo k natívnemu procesoru vášho zariadenia. Dokonca aj na mobilných zariadeniach získate rýchlosť kompresie na úrovni stolných počítačov bez spaľovania dát.",
+        "performanceItems": [
+          "Nevyžaduje sa žiadne nahrávanie údajov",
+          "Funguje plne offline",
+          "Okamžitá kompresia na zariadení"
+        ]
+      }
+    },
+    {
+      "path": "/convert-mov-to-mp4-for-android",
+      "tool": "convert-video",
+      "h1": "Previesť iPhone MOV na MP4 pre Android",
+      "description": "Opravte problémy s prehrávaním konvertovaním Apple MOV videí do univerzálne podporovaného formátu MP4 pre používateľov Androidu.",
+      "dynamicSection": {
+        "type": "porovnanie",
+        "heading": "Kompatibilita MOV vs MP4",
+        "items": [
+          {
+            "title": "MOV (QuickTime)",
+            "content": "Navrhnuté spoločnosťou Apple. Prehráva sa bezchybne na zariadeniach iPhone a Mac, ale často zlyhá na zariadeniach so systémom Android, Windows a inteligentných televízoroch."
+          },
+          {
+            "title": "MP4 (H.264)",
+            "content": "Univerzálny webový štandard. Natívne podporované 100 % moderných zariadení, vďaka čomu môžu vaši priatelia vždy sledovať vaše klipy."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Prečo sa moje videá z iPhone neprehrávajú na mojom Androide?",
+          "a": "Telefóny iPhone často zaznamenávajú do kontajnera MOV pomocou kodekov HEVC, ktoré niektoré zariadenia so systémom Android natívne nepodporujú."
+        },
+        {
+          "q": "Zníži konverzia MOV na MP4 kvalitu?",
+          "a": "Nie, videostreamy môžeme prebaliť do kontajnera MP4 bez opätovného kódovania, pričom zachováme 100 % pôvodnej kvality."
+        },
+        {
+          "q": "Musím si do Androidu niečo nainštalovať?",
+          "a": "Nevyžaduje sa žiadna inštalácia. Stačí otvoriť túto stránku v prehliadači Chrome a okamžite previesť súbory."
+        }
+      ],
+      "translatedPath": "/konvertovať-iphone-mov-to-mp4-for-android",
+      "bentoSections": [
+        {
+          "type": "hrdina-rozkol",
+          "data": {
+            "title": "Previesť iPhone MOV na MP4 pre Android",
+            "content": "Opravte problémy s prehrávaním konvertovaním Apple MOV videí do univerzálne podporovaného formátu MP4 pre používateľov Androidu.",
+            "buttonText": "Štart"
+          }
+        },
+        {
+          "type": "bento-karty",
+          "data": {
+            "title": "Kompatibilita MOV vs MP4",
+            "description": "",
+            "cards": [
+              {
+                "title": "MOV (QuickTime)",
+                "content": "Navrhnuté spoločnosťou Apple. Prehráva sa bezchybne na zariadeniach iPhone a Mac, ale často zlyhá na zariadeniach so systémom Android, Windows a inteligentných televízoroch."
+              },
+              {
+                "title": "MP4 (H.264)",
+                "content": "Univerzálny webový štandard. Natívne podporované 100 % moderných zariadení, vďaka čomu môžu vaši priatelia vždy sledovať vaše klipy."
+              }
+            ]
+          }
+        },
+        {
+          "type": "upozorniť",
+          "data": {
+            "title": "Musím si do Androidu niečo nainštalovať?",
+            "description": "Nevyžaduje sa žiadna inštalácia. Stačí otvoriť túto stránku v prehliadači Chrome a okamžite previesť súbory."
+          }
+        },
+        {
+          "type": "plávajúce-cta",
+          "data": {
+            "title": "Prečo sa moje videá z iPhone neprehrávajú na mojom Androide?",
+            "buttonText": "→"
+          }
+        }
+      ],
+      "meta_title": "Previesť iPhone MOV na MP4 pre Android | Bezplatný online nástroj",
+      "meta_description": "Opravte problémy s prehrávaním konvertovaním videí Apple MOV do univerzálne kompatibilného formátu MP4 pre zariadenia so systémom Android a inteligentné televízory.",
+      "bespokeData": {
+        "heroTags": [
+          "Univerzálny MP4",
+          "Ideálne pre Android",
+          "Funguje offline"
+        ],
+        "benefitsTitle": "Zastavte opravu chýb „Video sa nedá prehrať“.",
+        "benefitsDesc": "Súbory MOV spoločnosti Apple sa často nedajú prehrať na zariadeniach so systémom Android alebo počítačoch so systémom Windows. Preveďte ich do univerzálne podporovaného formátu MP4 v priebehu niekoľkých sekúnd, aby ste ich mohli bez námahy zdieľať.",
+        "benefitsItems": [
+          "Prehráva sa na akomkoľvek zariadení so systémom Android",
+          "Kompatibilné s Windows PC",
+          "Univerzálny formát MP4"
+        ],
+        "privacyTitle": "Vaše videá zostanú vo vašom zariadení",
+        "privacyDesc": "Konverzia osobných videí online môže byť riskantná. Toto riziko úplne eliminujeme spracovaním vašich súborov MOV priamo v karanténe vášho prehliadača. Žiadne nahrávanie. Žiadne servery.",
+        "performanceTitle": "Okamžité remuxovanie formátu",
+        "performanceDesc": "Väčšina konverzií MOV do MP4 ani nepotrebuje opätovné kódovanie. Náš nástroj „remuxuje“ súbor, pričom kontajner okamžite vymení za bleskovo rýchlu konverziu bez straty kvality.",
+        "performanceItems": [
+          "Technológia okamžitého remuxovania",
+          "Nulová strata kvality",
+          "Súbory sa spracujú okamžite"
+        ]
+      }
+    },
+    {
+      "path": "/extract-audio-from-video-for-podcast",
+      "tool": "video-to-audio",
+      "h1": "Extrahujte zvuk z videa pre podcasty",
+      "description": "Ripujte čistý zvuk z video rozhovorov a nahrávok. Ideálne pre podaktorov, ktorí potrebujú vysokokvalitné MP3.",
+      "dynamicSection": {
+        "type": "kroky",
+        "heading": "3 kroky k dokonalému podcastovému zvuku",
+        "items": [
+          {
+            "title": "Importovať súbor videa",
+            "content": "Potiahnite zoom alebo záznam z kamery do konvertora. Podporujeme veľké súbory až do 10 GB."
+          },
+          {
+            "title": "Bezstratová extrakcia",
+            "content": "Náš nástroj analyzuje kontajner a extrahuje surovú zvukovú stopu AAC alebo MP3 bez toho, aby sa dotkol skutočnej zvukovej vlny."
+          },
+          {
+            "title": "Exportovať na úpravu",
+            "content": "Okamžite si stiahnite čistý zvukový súbor, pripravený na vloženie do Audacity alebo Adobe Audition."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Zhoršuje extrahovanie zvuku jeho kvalitu?",
+          "a": "Nie, náš nástroj vykonáva priamu kópiu streamu, čo znamená, že zvuk je úplne identický s pôvodným záznamom videa."
+        },
+        {
+          "q": "Môžem extrahovať zvuk z 2-hodinového Zoom záznamu?",
+          "a": "Áno, pretože spracovanie je lokálne, nevyskytujú sa žiadne chyby časového limitu. Extrahovať hodiny zvuku trvá len niekoľko sekúnd."
+        },
+        {
+          "q": "Je moja nevydaná epizóda podcastu bezpečná?",
+          "a": "Úplne. Vaše video a zvuk nikdy neopustia váš počítač. Pre tvorcov si ceníme absolútne súkromie."
+        }
+      ],
+      "translatedPath": "/extrahovať-audio-z-videa-pre-podcasty",
+      "bentoSections": [
+        {
+          "type": "citát-banner",
+          "data": {
+            "quote": "Extrahujte zvuk z videa pre podcasty",
+            "author": "SolveMyMedia",
+            "role": "Nástroj"
+          }
+        },
+        {
+          "type": "terminálne kroky",
+          "data": {
+            "title": "3 kroky k dokonalému podcastovému zvuku",
+            "description": "Ripujte čistý zvuk z video rozhovorov a nahrávok. Ideálne pre podaktorov, ktorí potrebujú vysokokvalitné MP3.",
+            "steps": [
+              "Importovať video súbor – Potiahnite zoom alebo záznam z kamery do konvertora. Podporujeme veľké súbory až do 10 GB.",
+              "Bezstratová extrakcia – Náš nástroj analyzuje nádobu a extrahuje surovú zvukovú stopu AAC alebo MP3 bez toho, aby sa dotkol skutočnej zvukovej vlny.",
+              "Exportovať na úpravy – Okamžite si stiahnite čistý zvukový súbor, pripravený na vloženie do Audacity alebo Adobe Audition."
+            ]
+          }
+        },
+        {
+          "type": "bezpečnosť-arch",
+          "data": {
+            "title": "Je moja nevydaná epizóda podcastu bezpečná?",
+            "description": "Úplne. Vaše video a zvuk nikdy neopustia váš počítač. Pre tvorcov si ceníme absolútne súkromie."
+          }
+        },
+        {
+          "type": "split-screen-cta",
+          "data": {
+            "title": "Zhoršuje extrahovanie zvuku jeho kvalitu?",
+            "description": "Nie, náš nástroj vykonáva priamu kópiu streamu, čo znamená, že zvuk je úplne identický s pôvodným záznamom videa.",
+            "buttonText": "Štart"
+          }
+        }
+      ],
+      "meta_title": "Extrahovať zvuk z videa pre podcasty | Bezplatný online nástroj",
+      "meta_description": "Odstráňte zvukovú stopu z akéhokoľvek video rozhovoru alebo nahrávky a uložte ju ako vysokokvalitný súbor MP3 alebo WAV pre svoj podcast.",
+      "bespokeData": {
+        "heroTags": [
+          "Bezstratová extrakcia",
+          "MP3 a WAV",
+          "Bez obmedzenia veľkosti"
+        ],
+        "benefitsTitle": "Premeňte videorozhovory na podcasty",
+        "benefitsDesc": "Nenechajte si ujsť skvelý rozhovor so Zoomom. Extrahujte vysokokvalitnú zvukovú stopu z ľubovoľného video súboru a použite ju pre svoj podcast, prepisy alebo zvukové poznámky.",
+        "benefitsItems": [
+          "Podpora zoom nahrávok",
+          "Zábery z fotoaparátu a DSLR",
+          "Roztrhnutie nahrávania obrazovky"
+        ],
+        "privacyTitle": "Vaše nevydané epizódy sú v bezpečí",
+        "privacyDesc": "Exkluzívne podcasty a rozhovory pred vydaním sú neuveriteľne citlivé. Všetko spracovávame lokálne – váš nezverejnený obsah sa nikdy nedotkne internetu, kým sa ho nerozhodnete zverejniť.",
+        "performanceTitle": "Extrahujte 2-hodinové priblíženie v sekundách",
+        "performanceDesc": "Náš modul na kopírovanie priameho prúdu extrahuje zvuk bez opätovného kódovania. 2-hodinový podcastový rozhovor trvá rovnaký čas ako 2-minútové video – takmer okamžite.",
+        "performanceItems": [
+          "Priama kópia streamu (bez opätovného kódovania)",
+          "Zvláda 10GB+ nahrávky",
+          "Žiadny časový limit pre dlhé súbory"
+        ]
+      }
+    },
+    {
+      "path": "/make-video-smaller-without-losing-quality",
+      "tool": "compress-video",
+      "h1": "Zmenšite video bez straty kvality",
+      "description": "Použite pokročilé vizuálne optimalizácie na drastické zníženie veľkosti video súborov pri zachovaní ostrej vizuálnej vernosti.",
+      "dynamicSection": {
+        "type": "prípady použitia",
+        "heading": "Kto potrebuje bezstratovú kompresiu?",
+        "items": [
+          {
+            "title": "Tvorcovia obsahu",
+            "content": "Ušetrite miesto na pevnom disku pri archivácii nespracovaných záberov bez poškodenia vizuálnych detailov."
+          },
+          {
+            "title": "Weboví vývojári",
+            "content": "Optimalizujte videá na pozadí pre webové stránky, aby ste zaistili rýchle načítanie a lepšie skóre SEO."
+          },
+          {
+            "title": "Hráči",
+            "content": "Komprimujte masívne záznamy z hry a zdieľajte ich na Discorde bez pixelovania."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Ako je možné komprimovať video bez straty kvality?",
+          "a": "Používame inteligentné kódovanie s variabilnou bitovou rýchlosťou (VBR). Údaje prideľuje len tam, kde je to vizuálne potrebné, pričom vynecháva neviditeľné detaily."
+        },
+        {
+          "q": "Aké je najlepšie nastavenie na archiváciu videí?",
+          "a": "Odporúčame nastaviť posúvač kvality na 75-80%. Poskytuje masívne zmenšenie veľkosti s takmer nepostrehnuteľnými zmenami."
+        },
+        {
+          "q": "Používate hardvérovú akceleráciu?",
+          "a": "Áno, na používanie GPU vašich zariadení využívame WebCodecs, vďaka čomu je vysokokvalitná kompresia extrémne rýchla."
+        }
+      ],
+      "translatedPath": "/make-video-smaller-without-strate-quality",
+      "bentoSections": [
+        {
+          "type": "hrdina-rozkol",
+          "data": {
+            "title": "Zmenšite video bez straty kvality",
+            "content": "Použite pokročilé vizuálne optimalizácie na drastické zníženie veľkosti video súborov pri zachovaní ostrej vizuálnej vernosti.",
+            "buttonText": "Štart"
+          }
+        },
+        {
+          "type": "funkcie akordeónu",
+          "data": {
+            "title": "Kto potrebuje bezstratovú kompresiu?",
+            "description": "",
+            "items": [
+              {
+                "title": "Tvorcovia obsahu",
+                "content": "Ušetrite miesto na pevnom disku pri archivácii nespracovaných záberov bez poškodenia vizuálnych detailov."
+              },
+              {
+                "title": "Weboví vývojári",
+                "content": "Optimalizujte videá na pozadí pre webové stránky, aby ste zaistili rýchle načítanie a lepšie skóre SEO."
+              },
+              {
+                "title": "Hráči",
+                "content": "Komprimujte masívne záznamy z hry a zdieľajte ich na Discorde bez pixelovania."
+              }
+            ]
+          }
+        },
+        {
+          "type": "stat-box",
+          "data": {
+            "title": "Používate hardvérovú akceleráciu?",
+            "description": "Áno, na používanie GPU vašich zariadení využívame WebCodecs, vďaka čomu je vysokokvalitná kompresia extrémne rýchla.",
+            "statValue": "100%",
+            "statLabel": "Súkromné"
+          }
+        },
+        {
+          "type": "dno-cta",
+          "data": {
+            "title": "Ako je možné komprimovať video bez straty kvality?",
+            "description": "Používame inteligentné kódovanie s variabilnou bitovou rýchlosťou (VBR). Údaje prideľuje len tam, kde je to vizuálne potrebné, pričom vynecháva neviditeľné detaily.",
+            "buttonText": "→"
+          }
+        }
+      ],
+      "meta_title": "Zmenšiť video bez straty kvality | Bezplatný online nástroj",
+      "meta_description": "Použite pokročilú kompresiu WebCodecs na zmenšenie veľkosti súboru videa až o 90 % pri zachovaní ostrej HD vizuálnej kvality.",
+      "bespokeData": {
+        "heroTags": [
+          "Pokročilý HEVC/H.265",
+          "Nulová vizuálna strata",
+          "Bezplatné a súkromné"
+        ],
+        "benefitsTitle": "Okamžite uvoľnite úložný priestor",
+        "benefitsDesc": "4K videá z vášho iPhone alebo fotoaparátu zaberajú gigabajty úložného priestoru. Komprimujte ich pomocou pokročilého kódovania H.265, aby ste ušetrili až 80 % miesta a zároveň vyzerali vizuálne identicky.",
+        "benefitsItems": [
+          "Šetrí gigabajty úložného priestoru",
+          "Vizuálne identická kvalita",
+          "Pokročilé kódovanie H.265"
+        ],
+        "privacyTitle": "Maximálne súkromie. Nulové servery.",
+        "privacyDesc": "Vaše rodinné spomienky a obchodné videá sú len a len na vás. Náš nástroj funguje úplne offline vo vašom prehliadači. Vaše súbory nikdy nevidíme, nedotýkame sa ich ani ich neukladáme.",
+        "performanceTitle": "Rýchlosť kompresie triedy Desktop",
+        "performanceDesc": "Prečo čakať na nahrávanie do cloudu? Vďaka natívnemu spusteniu na vašom hardvéri prostredníctvom WebAssembly zakódujeme vaše video výrazne rýchlejšie ako online nástroje.",
+        "performanceItems": [
+          "Viacvláknové kódovanie",
+          "Funguje úplne offline",
+          "Bez obmedzenia veľkosti súboru"
+        ]
+      }
+    },
+    {
+      "path": "/remove-sound-from-video-completely",
+      "tool": "mute-video",
+      "h1": "Úplne odstráňte zvuk z videa",
+      "description": "Okamžite odstráňte zvukovú stopu z akéhokoľvek video súboru. Vytvárajte dokonale tiché klipy pre sociálne médiá alebo prezentácie.",
+      "dynamicSection": {
+        "type": "prípady použitia",
+        "heading": "Prečo stlmiť videá?",
+        "items": [
+          {
+            "title": "Skladové zábery",
+            "content": "Pripravte si nedotknuté B-rollové zábery odstránením rušivých zvukov pozadia alebo zvukov vetra."
+          },
+          {
+            "title": "Pozadie sociálnych médií",
+            "content": "Vytvárajte opakujúce sa tiché videá pre Instagram alebo TikTok, kde plánujete prekryť trendovú hudobnú skladbu."
+          },
+          {
+            "title": "Ochrana súkromia",
+            "content": "Zabezpečte, aby pri uverejňovaní videa online neboli náhodne zdieľané žiadne citlivé konverzácie."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Dá sa zvuk po stlmení obnoviť?",
+          "a": "Nie, z exportovaného súboru bude natrvalo odstránená zvuková stopa, čo zaručí absolútne ticho."
+        },
+        {
+          "q": "Zmení stlmenie videa jeho rozlíšenie?",
+          "a": "Vôbec nie. Vizuálny prúd je nedotknutý. Jednoducho odstránime zvukovú stopu a súbor okamžite znova zabalíme."
+        },
+        {
+          "q": "Aký rýchly je tento proces?",
+          "a": "Keďže snímky videa znova nekódujeme, odstránenie zvuku trvá zlomok sekundy."
+        }
+      ],
+      "translatedPath": "/odstráni-zvuk-z-videa-úplne",
+      "bentoSections": [
+        {
+          "type": "veľký preklepový hrdina",
+          "data": {
+            "title": "Úplne odstráňte zvuk z videa",
+            "subtitle": "Okamžite odstráňte zvukovú stopu z akéhokoľvek video súboru. Vytvárajte dokonale tiché klipy pre sociálne médiá alebo prezentácie."
+          }
+        },
+        {
+          "type": "zoznam ikon",
+          "data": {
+            "title": "Prečo stlmiť videá?",
+            "description": "",
+            "items": [
+              {
+                "title": "Skladové zábery",
+                "content": "Pripravte si nedotknuté B-rollové zábery odstránením rušivých zvukov v pozadí alebo zvukov vetra."
+              },
+              {
+                "title": "Pozadie sociálnych médií",
+                "content": "Vytvárajte opakujúce sa tiché videá pre Instagram alebo TikTok, kde plánujete prekryť trendovú hudobnú skladbu."
+              },
+              {
+                "title": "Ochrana súkromia",
+                "content": "Zabezpečte, aby pri uverejňovaní videa online neboli náhodne zdieľané žiadne citlivé konverzácie."
+              }
+            ]
+          }
+        },
+        {
+          "type": "bezpečnosť-arch",
+          "data": {
+            "title": "Aký rýchly je tento proces?",
+            "description": "Keďže snímky videa znova nekódujeme, odstránenie zvuku trvá zlomok sekundy."
+          }
+        },
+        {
+          "type": "gamifikovaný-pokrok",
+          "data": {
+            "title": "Dá sa zvuk po stlmení obnoviť?",
+            "description": "Nie, z exportovaného súboru bude natrvalo odstránená zvuková stopa, čo zaručí absolútne ticho.",
+            "buttonText": "Štart"
+          }
+        }
+      ],
+      "meta_title": "Úplne odstrániť zvuk z videa | Bezplatný online nástroj",
+      "meta_description": "Stlmte svoje videá a úplne odstráňte zvukovú stopu. Ideálne na nahrávanie na sociálne médiá alebo vytváranie tichých slučiek na pozadí.",
+      "bespokeData": {
+        "heroTags": [
+          "Dokonalé ticho",
+          "Odstráni všetok zvuk",
+          "Nulová strata kvality"
+        ],
+        "benefitsTitle": "Odstráňte nežiaduci šum na pozadí",
+        "benefitsDesc": "Nahrali ste skvelé video, ale hluk vetra alebo chvenie v pozadí je hrozné? Pred odoslaním na sociálne médiá úplne odstráňte zvukovú stopu jedným kliknutím.",
+        "benefitsItems": [
+          "Úplne odstraňuje hluk vetra",
+          "Pripravuje video pre zvuky TikTok",
+          "Nulová strata kvality videa"
+        ],
+        "privacyTitle": "Vaše pôvodné video je v bezpečí",
+        "privacyDesc": "Neposielajte svoje súbory na náhodné servery, len aby ste ich stlmili. Náš modul WebAssembly odstraňuje zvukovú stopu priamo na vašom zariadení, čím zaisťuje úplné súkromie.",
+        "performanceTitle": "Stlmenie 4K videa za pár sekúnd",
+        "performanceDesc": "Odstránenie zvukovej stopy nevyžaduje opätovné kódovanie videa. Náš engine jednoducho vypne audio stream, čo znamená, že aj 5GB 4K súbor môže byť okamžite stlmený.",
+        "performanceItems": [
+          "Okamžité odstránenie zvuku",
+          "Žiadne prekódovanie videa",
+          "Ľahko si poradí so súbormi s veľkosťou 10 GB a viac"
+        ]
+      }
+    },
+    {
+      "path": "/speed-up-video-for-tiktok",
+      "tool": "video-speed",
+      "h1": "Zrýchlite video pre TikTok Fast",
+      "description": "Zrýchlite svoje videá, aby sa zmestili do časových limitov TikTok a zároveň aby ​​bola akcia plynulá a pútavá.",
+      "dynamicSection": {
+        "type": "kroky",
+        "heading": "Optimalizujte tempo pre sociálne médiá",
+        "items": [
+          {
+            "title": "Orezajte tuk",
+            "content": "Najprv sa uistite, že vaše video obsahuje iba potrebnú akciu, aby ste upútali publikum."
+          },
+          {
+            "title": "Aplikujte 1,5x alebo 2x rýchlosť",
+            "content": "Na zvýšenie rýchlosti použite náš posúvač. Je dokázané, že rýchlejšie videá zvyšujú mieru udržania publika na TikTok."
+          },
+          {
+            "title": "Exportujte okamžite",
+            "content": "Uložte zrýchlený MP4 lokálne a nahrajte ho priamo na svoje účty sociálnych médií."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Bude zvuk znieť ako chipmunk?",
+          "a": "Náš nástroj automaticky aplikuje korekciu výšky tónu, aby zvuk znel čo najprirodzenejšie, a to aj pri vysokých rýchlostiach."
+        },
+        {
+          "q": "Môžem zrýchliť video viac ako 2x?",
+          "a": "Áno, náš vlastný posuvník rýchlosti vám umožňuje agresívne zrýchliť videá pre dramatické časozberné efekty."
+        },
+        {
+          "q": "Je to lepšie ako používanie editora aplikácií TikTok?",
+          "a": "Používanie nášho nástroja vám umožňuje spracovávať videá vo vysokom rozlíšení offline bez toho, aby ste museli riešiť zlyhania aplikácie alebo oneskorenie."
+        }
+      ],
+      "translatedPath": "/speed-up-video-for-tictok-fast",
+      "bentoSections": [
+        {
+          "type": "hrdina-rozkol",
+          "data": {
+            "title": "Zrýchlite video pre TikTok Fast",
+            "content": "Zrýchlite svoje videá, aby sa zmestili do časových limitov TikTok a zároveň aby ​​bola akcia plynulá a pútavá.",
+            "buttonText": "Štart"
+          }
+        },
+        {
+          "type": "pokrok-štatistiky",
+          "data": {
+            "title": "Optimalizujte tempo pre sociálne médiá",
+            "description": "",
+            "stats": [
+              {
+                "label": "Orezajte tuk",
+                "value": 100,
+                "suffix": "%"
+              },
+              {
+                "label": "Aplikujte 1,5x alebo 2x rýchlosť",
+                "value": 100,
+                "suffix": "%"
+              },
+              {
+                "label": "Exportujte okamžite",
+                "value": 100,
+                "suffix": "%"
+              }
+            ]
+          }
+        },
+        {
+          "type": "highlight-box",
+          "data": {
+            "title": "Môžem zrýchliť video viac ako 2x?",
+            "description": "Áno, náš vlastný posuvník rýchlosti vám umožňuje agresívne zrýchliť videá pre dramatické časozberné efekty.",
+            "label": "✨"
+          }
+        },
+        {
+          "type": "dno-cta",
+          "data": {
+            "title": "Bude zvuk znieť ako chipmunk?",
+            "description": "Náš nástroj automaticky aplikuje korekciu výšky tónu, aby zvuk znel čo najprirodzenejšie, a to aj pri vysokých rýchlostiach.",
+            "buttonText": "Štart"
+          }
+        }
+      ],
+      "meta_title": "Zrýchlite video pre TikTok Fast | Bezplatný online nástroj",
+      "meta_description": "Zrýchlite rýchlosť prehrávania videa pre TikTok, Instagram Reels a YouTube Shorts. Okamžite vytvorte rýchle efekty.",
+      "bespokeData": {
+        "heroTags": [
+          "Korekcia výšky tónu",
+          "Až 4x rýchlosť",
+          "Výstup TikTok MP4"
+        ],
+        "benefitsTitle": "Rýchlejšie videá = vyššie dokončenie pozerania",
+        "benefitsDesc": "Štúdie ukazujú, že mierne zrýchlené videá majú výrazne vyššiu mieru dokončenia na TikTok. Zrýchlite dlhé tutoriály alebo vlogy, aby ste divákov udržali až do konca.",
+        "benefitsItems": [
+          "Zvyšuje udržanie publika",
+          "Do 60. rokov sa zmestí viac obsahu",
+          "Zvuk s korekciou výšky tónu znie prirodzene"
+        ],
+        "privacyTitle": "Váš obsah pred vydaním zostane v bezpečí",
+        "privacyDesc": "Vaše budúce virálne video je vaším exkluzívnym aktívom. Spracujte ho lokálne skôr, ako sa vôbec dotkne internetu. Nikdy nedostaneme váš obsah – iba vy.",
+        "performanceTitle": "Lepšie ako vstavaný editor TikTok",
+        "performanceDesc": "Nástroje rýchlosti v aplikácii TikTok sú obmedzené na konkrétne predvoľby. Náš engine FFmpeg vám umožňuje jemne doladiť rýchlosť od 0,5x do 4x s korekciou výšky tónu, ktorá zachováva prirodzený zvuk.",
+        "performanceItems": [
+          "Jemne dolaďte 0,5x až 4x rýchlosť",
+          "Automatická korekcia výšky tónu",
+          "Exportovať ako MP4 kompatibilný s TikTok"
+        ]
+      }
+    },
+    {
+      "path": "/crop-video-for-instagram-story",
+      "tool": "crop-video",
+      "h1": "Orezať video pre príbeh Instagramu (9:16)",
+      "description": "Okamžite naformátujte svoje videá na šírku alebo štvorcové videá do dokonalého vertikálneho pomeru strán 9:16 pre Instagram Stories.",
+      "dynamicSection": {
+        "type": "porovnanie",
+        "heading": "Pochopenie pomerov sociálnych médií",
+        "items": [
+          {
+            "title": "16:9 Krajina",
+            "content": "Štandardné pre YouTube a TV. Pri zverejnení na Instagram Stories vytvára masívne čierne pruhy v hornej a dolnej časti."
+          },
+          {
+            "title": "9:16 Vertikálne",
+            "content": "Ideálny formát pre príbehy, kotúče a TikTok. Vypĺňa celú obrazovku mobilného telefónu a maximalizuje zapojenie."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Odreže orezanie okraje môjho videa?",
+          "a": "Áno, konverziou z režimu na šírku na vertikálnu sa oreže ľavá a pravá strana. Môžete si vybrať presný stredový bod."
+        },
+        {
+          "q": "Pridáva tento nástroj vodoznak?",
+          "a": "Nie, do vašich orezaných videí nikdy nepridávame vodoznaky. Je 100% čistý."
+        },
+        {
+          "q": "Môžem zobraziť ukážku orezania pred uložením?",
+          "a": "Áno, naše vizuálne rozhranie vám umožní presne vidieť, ako bude video vyzerať predtým, než sa odhodláte k orezaniu."
+        }
+      ],
+      "translatedPath": "/crop-video-for-instagram-story-916",
+      "bentoSections": [
+        {
+          "type": "veľký preklepový hrdina",
+          "data": {
+            "title": "Orezať video pre príbeh Instagramu (9:16)",
+            "subtitle": "Okamžite naformátujte svoje videá na šírku alebo štvorcové videá do dokonalého vertikálneho pomeru strán 9:16 pre Instagram Stories."
+          }
+        },
+        {
+          "type": "ako na to",
+          "data": {
+            "title": "Pochopenie pomerov sociálnych médií",
+            "description": "",
+            "steps": [
+              {
+                "title": "16:9 Krajina",
+                "description": "Štandardné pre YouTube a TV. Pri zverejnení na Instagram Stories vytvára masívne čierne pruhy v hornej a dolnej časti."
+              },
+              {
+                "title": "9:16 Vertikálne",
+                "description": "Ideálny formát pre príbehy, kotúče a TikTok. Vypĺňa celú obrazovku mobilu a maximalizuje zapojenie."
+              }
+            ]
+          }
+        },
+        {
+          "type": "dôvera-odznak-banner",
+          "data": {
+            "title": "Môžem zobraziť ukážku orezania pred uložením?",
+            "description": "Áno, naše vizuálne rozhranie vám umožní presne vidieť, ako bude video vyzerať predtým, ako sa rozhodnete orezať."
+          }
+        },
+        {
+          "type": "split-screen-cta",
+          "data": {
+            "title": "Odreže orezanie okraje môjho videa?",
+            "description": "Áno, konverziou z režimu na šírku na vertikálnu sa oreže ľavá a pravá strana. Môžete si vybrať presný stredový bod.",
+            "buttonText": "→"
+          }
+        }
+      ],
+      "meta_title": "Crop Video for Instagram Story 9:16 | Bezplatný online nástroj",
+      "meta_description": "Zmeňte veľkosť a orežte akékoľvek video na šírku na perfektný vertikálny pomer 9:16 pre Instagram Stories, Reels a TikTok.",
+      "bespokeData": {
+        "heroTags": [
+          "Perfektný pomer 9:16",
+          "Bez vodoznaku",
+          "Vysoko kvalitný export"
+        ],
+        "benefitsTitle": "Prestaňte sa zaoberať čiernymi pruhmi",
+        "benefitsDesc": "Videá na šírku vyzerajú na Instagram Stories and Reels hrozne. Dokonale ich orežte na 9:16 v sekundách a udržujte dôležitú akciu v strede.",
+        "benefitsItems": [
+          "Vertikálne orezanie 9:16",
+          "Žiadne zvláštne čierne pruhy",
+          "Plné rozlíšenie zachované"
+        ],
+        "privacyTitle": "Vaše úpravy zostanú na vašom zariadení",
+        "privacyDesc": "Neposielajte svoje osobné zábery do útržkovitých cloudových služieb. Náš nástroj WebAssembly spracováva vaše video priamo vo vašom prehliadači. Úplné súkromie, nulové nahrávanie.",
+        "performanceTitle": "Hardvérovo akcelerované orezávanie",
+        "performanceDesc": "Okamžite orežte 4K video pomocou natívneho procesora vášho zariadenia. Žiadne čakanie na nahrávanie alebo fronty na serveri. Rýchlejšie ako otváranie náročnej aplikácie na úpravy.",
+        "performanceItems": [
+          "Okamžité prehrávanie ukážky",
+          "Nulová latencia nahrávania",
+          "Nikdy žiadne vodoznaky"
+        ]
+      }
+    },
+    {
+      "path": "/combine-multiple-voice-memos-into-one",
+      "tool": "merge-audio",
+      "h1": "Skombinujte viacero hlasových poznámok do jedného",
+      "description": "Zlúčte samostatné zvukové nahrávky, hlasové poznámky a súbory M4A do jedinej, bezproblémovej zvukovej stopy.",
+      "dynamicSection": {
+        "type": "výhod",
+        "heading": "Najjednoduchší spôsob zlúčenia zvuku",
+        "items": [
+          {
+            "title": "Zmena poradia presunutím myšou",
+            "content": "Jednoducho potiahnite súbory na časovú os a usporiadajte ich presne tak, ako chcete, aby sa prehrávali."
+          },
+          {
+            "title": "Zlučovanie medzi formátmi",
+            "content": "Skombinujte bez námahy hlasovú poznámku M4A, hudobnú skladbu vo formáte MP3 a záznam vo formáte WAV."
+          },
+          {
+            "title": "Prehrávanie bez medzier",
+            "content": "Náš zvukový modul dokonale spája súbory bez nepríjemných cvakaní, pukaní alebo tichých medzier."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Môžem zlúčiť nahrávky z iPhone?",
+          "a": "Áno, telefóny iPhone ukladajú hlasové poznámky ako súbory M4A, ktoré náš nástroj plne podporuje a dokáže sa okamžite zlúčiť."
+        },
+        {
+          "q": "Existuje obmedzenie počtu poznámok, ktoré môžem zlúčiť?",
+          "a": "Ste obmedzení iba pamäťou RAM vášho zariadenia. Môžete pohodlne zlúčiť desiatky dlhých zvukových súborov."
+        },
+        {
+          "q": "Sú moje súkromné ​​nahrávky zabezpečené?",
+          "a": "Absolútne. Zvuk spracovávame výhradne vo vašom prehliadači pomocou WebAssembly. Na naše servery sa nikdy neposiela žiadny zvuk."
+        }
+      ],
+      "translatedPath": "/kombinovať-viaceré-hlasové-poznámky-do-jedného",
+      "bentoSections": [
+        {
+          "type": "citát-banner",
+          "data": {
+            "quote": "Skombinujte viacero hlasových poznámok do jedného",
+            "author": "SolveMyMedia",
+            "role": "Nástroj"
+          }
+        },
+        {
+          "type": "timeline-view",
+          "data": {
+            "title": "Najjednoduchší spôsob zlúčenia zvuku",
+            "description": "",
+            "events": [
+              {
+                "date": "Krok",
+                "title": "Zmena poradia presunutím myšou",
+                "description": "Jednoducho potiahnite súbory na časovú os a usporiadajte ich presne tak, ako chcete, aby sa prehrávali."
+              },
+              {
+                "date": "Krok",
+                "title": "Zlučovanie medzi formátmi",
+                "description": "Skombinujte bez námahy hlasovú poznámku M4A, hudobnú skladbu vo formáte MP3 a záznam vo formáte WAV."
+              },
+              {
+                "date": "Krok",
+                "title": "Prehrávanie bez medzier",
+                "description": "Náš zvukový modul dokonale spája súbory bez nepríjemných cvakaní, pukaní alebo tichých medzier."
+              }
+            ]
+          }
+        },
+        {
+          "type": "bezpečnosť-arch",
+          "data": {
+            "title": "Sú moje súkromné ​​nahrávky zabezpečené?",
+            "description": "Absolútne. Zvuk spracovávame výhradne vo vašom prehliadači pomocou WebAssembly. Na naše servery sa nikdy neposiela žiadny zvuk."
+          }
+        },
+        {
+          "type": "plávajúce-cta",
+          "data": {
+            "title": "Môžem zlúčiť nahrávky z iPhone?",
+            "buttonText": "Štart"
+          }
+        }
+      ],
+      "meta_title": "Spojiť viacero hlasových poznámok do jedného | Bezplatný online nástroj",
+      "meta_description": "Zlúčte a spojte viaceré zvukové nahrávky alebo hlasové poznámky do jedného súvislého zvukového súboru.",
+      "bespokeData": {
+        "heroTags": [
+          "Zlúčenie bez medzier",
+          "M4A/MP3/WAV",
+          "100% súkromné"
+        ],
+        "benefitsTitle": "Od rozptýlených poznámok k jednej čistej stope",
+        "benefitsDesc": "Zlúčte desiatky samostatných hlasových poznámok, diktovaných poznámok a nahraných rozhovorov pre iPhone do jedného súvislého zvukového súboru – pripraveného na úpravu alebo zdieľanie.",
+        "benefitsItems": [
+          "Hlasové poznámky pre iPhone M4A",
+          "Súbory hlasového záznamníka pre Android",
+          "Zoom alebo audio nahrávky Meet"
+        ],
+        "privacyTitle": "Vaše súkromné ​​nahrávky zostanú súkromné",
+        "privacyDesc": "Lekárske diktáty, právne poznámky, obchodné stretnutia — zvukové záznamy sú veľmi citlivé. Váš zvuk zlúčime úplne vo vašom prehliadači s WebAssembly. Nulový prenos servera.",
+        "performanceTitle": "Okamžite zlúčte desiatky nahrávok",
+        "performanceDesc": "Žiadny limit nahrávania. Žiadny časový limit. Skombinujte toľko nahrávok, koľko sa do pamäte RAM vášho zariadenia zmestí. Náš motor ich spojí dohromady bez medzier v priebehu niekoľkých sekúnd.",
+        "performanceItems": [
+          "Prešívanie zvuku bez medzier",
+          "Krížový formát: M4A, MP3, WAV",
+          "Žiadny limit počtu súborov"
+        ]
+      }
+    },
+    {
+      "path": "/transcribe-zoom-meeting-recording-to-text",
+      "tool": "transcribe",
+      "h1": "Prepis zoom stretnutia na text",
+      "description": "Preveďte svoje video a audio nahrávky s dlhým zoomom na presné textové prepisy lokálne a súkromne.",
+      "dynamicSection": {
+        "type": "prípady použitia",
+        "heading": "Maximalizujte produktivitu stretnutí",
+        "items": [
+          {
+            "title": "Generovanie zápisníc zo stretnutí",
+            "content": "Prestaňte si robiť manuálne poznámky. Získajte úplný prepis toho, čo bolo povedané, a použite AI na jeho zhrnutie neskôr."
+          },
+          {
+            "title": "Prehľadateľné archívy",
+            "content": "Premeňte hodiny nevyhľadateľného videa na textový dokument, aby ste mohli ľahko nájsť presne to, o čom sa diskutovalo."
+          },
+          {
+            "title": "Súkromie spoločnosti",
+            "content": "Na rozdiel od cloudových prepisovacích služieb náš nástroj beží lokálne, čím zaisťuje, že nikdy neuniknú dôverné firemné údaje."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "q": "Dokáže prepísať video súbor alebo musím najskôr extrahovať zvuk?",
+          "a": "Video súbor môžete nahrať priamo! Náš nástroj sa postará o extrakciu a prepis zvuku automaticky."
+        },
+        {
+          "q": "Aký presný je prepis hovorov zoom?",
+          "a": "Používame pokročilé modely AI (ako Whisper), ktoré poskytujú takmer ľudskú presnosť, dokonca aj s miernym hlukom v pozadí."
+        },
+        {
+          "q": "Sú údaje o mojich firemných stretnutiach v bezpečí?",
+          "a": "áno. Model AI beží výhradne na vašom vlastnom CPU. Vaše video a výsledný text sa nikdy nedotknú internetu."
+        }
+      ],
+      "translatedPath": "/transscribe-zoom-meeting-to-text",
+      "bentoSections": [
+        {
+          "type": "hrdina-rozkol",
+          "data": {
+            "title": "Prepis zoom stretnutia na text",
+            "content": "Preveďte svoje video a audio nahrávky s dlhým zoomom na presné textové prepisy lokálne a súkromne.",
+            "buttonText": "Štart"
+          }
+        },
+        {
+          "type": "terminálne kroky",
+          "data": {
+            "title": "Maximalizujte produktivitu stretnutí",
+            "description": "Preveďte svoje video a audio nahrávky s dlhým zoomom na presné textové prepisy lokálne a súkromne.",
+            "steps": [
+              "Generovať zápisnice zo schôdze – prestaňte si robiť manuálne poznámky. Získajte úplný prepis toho, čo bolo povedané, a použite AI na jeho zhrnutie neskôr.",
+              "Prehľadateľné archívy – Premeňte hodiny nevyhľadateľného videa na textový dokument, aby ste mohli jednoducho nájsť presne to, o čom sa diskutovalo.",
+              "Firemné súkromie – Na rozdiel od cloudových prepisovacích služieb náš nástroj beží lokálne, čím zaisťuje, že nikdy neuniknú dôverné firemné údaje."
+            ]
+          }
+        },
+        {
+          "type": "upozorniť",
+          "data": {
+            "title": "Sú údaje o mojich firemných stretnutiach v bezpečí?",
+            "description": "áno. Model AI beží výhradne na vašom vlastnom CPU. Vaše video a výsledný text sa nikdy nedotknú internetu."
+          }
+        },
+        {
+          "type": "dno-cta",
+          "data": {
+            "title": "Dokáže prepísať video súbor alebo musím najskôr extrahovať zvuk?",
+            "description": "Video súbor môžete nahrať priamo! Náš nástroj sa postará o extrakciu a prepis zvuku automaticky.",
+            "buttonText": "→"
+          }
+        }
+      ],
+      "meta_title": "Prepísať Zoom stretnutie na text | Bezplatný online nástroj",
+      "meta_description": "Nahrajte záznam zo schôdze Zoom a použite miestnu AI na automatický prepis reči na text s vysokou presnosťou.",
+      "bespokeData": {
+        "heroTags": [
+          "Whisper poháňaný AI",
+          "Presnosť blízka ľudskej",
+          "100% lokálne spracovanie"
+        ],
+        "benefitsTitle": "Už si nikdy nerobte poznámky z manuálnych stretnutí",
+        "benefitsDesc": "Zastavte pozastavenie nahrávania, aby ste si veci zapísali. Automaticky získajte úplný prepis celej schôdze Zoom s možnosťou vyhľadávania a potom ho vložte do služby ChatGPT, kde získate okamžitý súhrn.",
+        "benefitsItems": [
+          "Okamžite generujte zápisnice zo stretnutí",
+          "Prehľadateľné textové archívy",
+          "Nahrajte súhrny do AI"
+        ],
+        "privacyTitle": "Dôverné stretnutia Zostaňte dôverné",
+        "privacyDesc": "Na rozdiel od cloudových prepisovacích služieb náš model Whisper AI beží výhradne na vašom CPU. Vaše rozhovory v zasadacej miestnosti, lekárske konzultácie a právne hovory sa nikdy neprenášajú na naše servery.",
+        "performanceTitle": "Nahrajte video priamo – bez predbežného spracovania",
+        "performanceDesc": "Preskočte krok extrakcie zvuku. Stačí pustiť nahrávku Zoom MP4 a náš nástroj automaticky extrahuje zvuk a spustí ho cez Whisper AI v jednom plynulom potrubí.",
+        "performanceItems": [
+          "Priamy prenos videa do textu",
+          "Takmer ľudská presnosť s Whisperom",
+          "Žiadny časový limit pre dlhé nahrávky"
+        ]
+      }
+    }
   ]
 }
