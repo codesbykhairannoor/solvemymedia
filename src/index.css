@@ -233,12 +233,10 @@ textarea {
 
 /* Gradient text */
 .gradient-text {
-  font-family: var(--font-display);
   background: var(--brand-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
-  font-weight: 800;
+  display: inline;
 }
 
 /* Interactive Buttons */
