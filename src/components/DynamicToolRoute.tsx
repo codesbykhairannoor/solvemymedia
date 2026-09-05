@@ -6,20 +6,19 @@ import { useLanguage } from '../hooks/useLanguage';
 import { NativeLayoutRenderer } from './pseo/NativeLayoutRenderer';
 import LongTailTranslations from '../data/pseo-long-tail-translations.json';
 
-// Import all tools lazily to enable massive code splitting
-const CompressVideo = lazy(() => import('../pages/CompressVideo').then(m => ({ default: m.CompressVideo })));
-const CompressAudio = lazy(() => import('../pages/CompressAudio').then(m => ({ default: m.CompressAudio })));
-const ConvertVideo = lazy(() => import('../pages/ConvertVideo').then(m => ({ default: m.ConvertVideo })));
-const ConvertAudio = lazy(() => import('../pages/ConvertAudio').then(m => ({ default: m.ConvertAudio })));
-const ConvertVideoToAudio = lazy(() => import('../pages/ConvertVideoToAudio').then(m => ({ default: m.ConvertVideoToAudio })));
-const TranscribeMedia = lazy(() => import('../pages/TranscribeMedia').then(m => ({ default: m.TranscribeMedia })));
-const StudioRecorder = lazy(() => import('../pages/StudioRecorder').then(m => ({ default: m.StudioRecorder })));
-const CreateGif = lazy(() => import('../pages/CreateGif').then(m => ({ default: m.CreateGif })));
-const ChangeVideoSpeed = lazy(() => import('../pages/ChangeVideoSpeed').then(m => ({ default: m.ChangeVideoSpeed })));
-const CropVideo = lazy(() => import('../pages/CropVideo').then(m => ({ default: m.CropVideo })));
-const MuteVideo = lazy(() => import('../pages/MuteVideo').then(m => ({ default: m.MuteVideo })));
-const WatermarkVideo = lazy(() => import('../pages/WatermarkVideo').then(m => ({ default: m.WatermarkVideo })));
-const MergeAudio = lazy(() => import('../pages/MergeAudio').then(m => ({ default: m.MergeAudio })));
+import { CompressVideo } from '../pages/CompressVideo';
+import { CompressAudio } from '../pages/CompressAudio';
+import { ConvertVideo } from '../pages/ConvertVideo';
+import { ConvertAudio } from '../pages/ConvertAudio';
+import { ConvertVideoToAudio } from '../pages/ConvertVideoToAudio';
+import { TranscribeMedia } from '../pages/TranscribeMedia';
+import { StudioRecorder } from '../pages/StudioRecorder';
+import { CreateGif } from '../pages/CreateGif';
+import { ChangeVideoSpeed } from '../pages/ChangeVideoSpeed';
+import { CropVideo } from '../pages/CropVideo';
+import { MuteVideo } from '../pages/MuteVideo';
+import { WatermarkVideo } from '../pages/WatermarkVideo';
+import { MergeAudio } from '../pages/MergeAudio';
 
 const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'compress-video': CompressVideo,

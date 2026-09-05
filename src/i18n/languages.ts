@@ -19,6 +19,7 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   { code: 'pt', name: 'Portuguese', nativeName: 'Português', flag: '🇧🇷', geoRegion: 'BR-SP', geoPlacename: 'São Paulo', localeCode: 'pt_BR' },
   { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: '🇷🇺', geoRegion: 'RU-MOW', geoPlacename: 'Moscow', localeCode: 'ru_RU' },
   { code: 'zh', name: 'Chinese', nativeName: '中文 (简体)', flag: '🇨🇳', geoRegion: 'CN-BJ', geoPlacename: 'Beijing', localeCode: 'zh_CN' },
+  { code: 'zh-TW', name: 'Traditional Chinese', nativeName: '繁體中文', flag: '🇹🇼', geoRegion: 'TW-TPE', geoPlacename: 'Taipei', localeCode: 'zh_TW' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦', geoRegion: 'SA-01', geoPlacename: 'Riyadh', localeCode: 'ar_SA', dir: 'rtl' },
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳', geoRegion: 'IN-DL', geoPlacename: 'New Delhi', localeCode: 'hi_IN' },
   { code: 'it', name: 'Italian', nativeName: 'Italiano', flag: '🇮🇹', geoRegion: 'IT-RM', geoPlacename: 'Rome', localeCode: 'it_IT' },
@@ -40,6 +41,7 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   { code: 'sk', name: 'Slovak', nativeName: 'Slovenčina', flag: '🇸🇰', geoRegion: 'SK-BL', geoPlacename: 'Bratislava', localeCode: 'sk_SK' },
   { code: 'uk', name: 'Ukrainian', nativeName: 'Українська', flag: '🇺🇦', geoRegion: 'UA-30', geoPlacename: 'Kyiv', localeCode: 'uk_UA' },
   { code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu', flag: '🇲🇾', geoRegion: 'MY-14', geoPlacename: 'Kuala Lumpur', localeCode: 'ms_MY' },
+  { code: 'tl', name: 'Tagalog', nativeName: 'Tagalog', flag: '🇵🇭', geoRegion: 'PH-MNL', geoPlacename: 'Manila', localeCode: 'tl_PH' },
 ];
 
 export const getLanguageByCode = (code: string): LanguageInfo => {

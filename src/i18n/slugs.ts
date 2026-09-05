@@ -46,14 +46,14 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "merge-mp3": "merge-mp3",
     "reduce-mp4-video-size-for-email": "reduce-mp4-video-size-for-email",
     "compress-large-video-for-whatsapp": "compress-large-video-for-whatsapp",
-    "convert-mov-to-mp4-for-android": "convert-iphone-mov-to-mp4-for-android",
-    "extract-audio-from-video-for-podcast": "extract-audio-from-video-for-podcasts",
+    "convert-mov-to-mp4-for-android": "convert-mov-to-mp4-for-android",
+    "extract-audio-from-video-for-podcast": "extract-audio-from-video-for-podcast",
     "make-video-smaller-without-losing-quality": "make-video-smaller-without-losing-quality",
     "remove-sound-from-video-completely": "remove-sound-from-video-completely",
-    "speed-up-video-for-tiktok": "speed-up-video-for-tiktok-fast",
-    "crop-video-for-instagram-story": "crop-video-for-instagram-story-916",
+    "speed-up-video-for-tiktok": "speed-up-video-for-tiktok",
+    "crop-video-for-instagram-story": "crop-video-for-instagram-story",
     "combine-multiple-voice-memos-into-one": "combine-multiple-voice-memos-into-one",
-    "transcribe-zoom-meeting-recording-to-text": "transcribe-zoom-meeting-to-text"
+    "transcribe-zoom-meeting-recording-to-text": "transcribe-zoom-meeting-recording-to-text"
   },
   "id": {
     "compress-video": "kompres-video",
@@ -1567,6 +1567,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "compress-video": "壓縮視頻",
     "compress-audio": "壓縮音訊",
     "convert-video": "轉換影片",
+    "convert-audio": "轉換音訊",
     "video-to-audio": "視訊轉音訊",
     "transcribe": "錄製",
     "recorder": "錄音機",

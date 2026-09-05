@@ -42,15 +42,15 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 - [Compress Audio](https://solvemymedia.com/vi/nen-am-thanh): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
 - [Convert Video](https://solvemymedia.com/vi/chuyen-doi-video): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
 - [Convert Audio](https://solvemymedia.com/vi/chuyen-doi-am-thanh): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
-- [Video to Audio](https://solvemymedia.com/vi/video-sang-am-thanh): Extract and save audio from any video file as MP3 or WAV.
-- [Transcribe Audio & Video](https://solvemymedia.com/vi/sao-chep-am-thanh): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
+- [Video to Audio](https://solvemymedia.com/vi/video-thanh-am-thanh): Extract and save audio from any video file as MP3 or WAV.
+- [Transcribe Audio & Video](https://solvemymedia.com/vi/chep-lai): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
 - [Screen & Audio Recorder](https://solvemymedia.com/vi/may-ghi-am): Record screen, webcam, and microphone simultaneously in the browser.
-- [Create GIF](https://solvemymedia.com/vi/tao-gif): Convert video clips to high-quality animated GIFs without uploading.
+- [Create GIF](https://solvemymedia.com/vi/tao-anh-gif): Convert video clips to high-quality animated GIFs without uploading.
 - [Change Video Speed](https://solvemymedia.com/vi/toc-do-video): Speed up or slow down any video at custom multipliers offline.
 - [Crop Video](https://solvemymedia.com/vi/cat-video): Crop and resize videos for any platform without watermarks.
 - [Mute Video](https://solvemymedia.com/vi/tat-tieng-video): Remove the audio track from any video file instantly.
-- [Watermark Video](https://solvemymedia.com/vi/them-chu-ky-video): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/vi/gop-am-thanh): Combine multiple audio files into one seamless track.
+- [Watermark Video](https://solvemymedia.com/vi/hinh-mo-video): Overlay text or image watermarks on video frames.
+- [Merge Audio](https://solvemymedia.com/vi/am-thanh-hoat-dong): Combine multiple audio files into one seamless track.
 
 ---
 
@@ -124,4 +124,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 630 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 992 URLs across 30 languages

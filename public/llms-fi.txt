@@ -39,18 +39,18 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 ## 3. Full Tool Catalog (Suomi)
 
 - [Compress Video](https://solvemymedia.com/fi/pakkaa-video): Reduce video file size without quality loss using local WebAssembly encoding.
-- [Compress Audio](https://solvemymedia.com/fi/pakkaa-audio): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
-- [Convert Video](https://solvemymedia.com/fi/muunna-video): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
-- [Convert Audio](https://solvemymedia.com/fi/muunna-audio): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
-- [Video to Audio](https://solvemymedia.com/fi/video-audioksi): Extract and save audio from any video file as MP3 or WAV.
-- [Transcribe Audio & Video](https://solvemymedia.com/fi/litteroi): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
-- [Screen & Audio Recorder](https://solvemymedia.com/fi/tallennus): Record screen, webcam, and microphone simultaneously in the browser.
+- [Compress Audio](https://solvemymedia.com/fi/pakkaa-aanta): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
+- [Convert Video](https://solvemymedia.com/fi/muuntaa-videon): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
+- [Convert Audio](https://solvemymedia.com/fi/muuntaa-aanta): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
+- [Video to Audio](https://solvemymedia.com/fi/videosta-aaneksi): Extract and save audio from any video file as MP3 or WAV.
+- [Transcribe Audio & Video](https://solvemymedia.com/fi/litteroida): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
+- [Screen & Audio Recorder](https://solvemymedia.com/fi/tallennin): Record screen, webcam, and microphone simultaneously in the browser.
 - [Create GIF](https://solvemymedia.com/fi/luo-gif): Convert video clips to high-quality animated GIFs without uploading.
-- [Change Video Speed](https://solvemymedia.com/fi/videonopeus): Speed up or slow down any video at custom multipliers offline.
+- [Change Video Speed](https://solvemymedia.com/fi/videon-nopeus): Speed up or slow down any video at custom multipliers offline.
 - [Crop Video](https://solvemymedia.com/fi/rajaa-video): Crop and resize videos for any platform without watermarks.
-- [Mute Video](https://solvemymedia.com/fi/mykista-video): Remove the audio track from any video file instantly.
+- [Mute Video](https://solvemymedia.com/fi/mykistaa-videon): Remove the audio track from any video file instantly.
 - [Watermark Video](https://solvemymedia.com/fi/vesileima-video): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/fi/yhdista-audio): Combine multiple audio files into one seamless track.
+- [Merge Audio](https://solvemymedia.com/fi/aani-toimii): Combine multiple audio files into one seamless track.
 
 ---
 
@@ -124,4 +124,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 630 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 992 URLs across 30 languages

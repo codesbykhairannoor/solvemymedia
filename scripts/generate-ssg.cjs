@@ -51,7 +51,8 @@ async function run() {
   const langCodes = [
     'en','id','es','fr','de','it','pt','nl','pl','ru',
     'ja','ko','zh','zh-TW','tr','vi','th','ar','hi','sv',
-    'no','da','fi','cs','hu','el','ro','uk','ms','tl'
+    'no','da','fi','cs','hu','el','ro','uk','ms','tl',
+    'he','sk'
   ];
 
   // Load pSEO Long Tail data
@@ -142,13 +143,16 @@ async function generatePage(urlPath, lang, translations, serverRender, baseHtml,
     
     let newHtml = baseHtml.replace('<!--ssr-outlet-->', appHtml);
     
+    // Clean any pre-existing title tag from baseHtml to prevent double title tags
+    newHtml = newHtml.replace(/<title>[\s\S]*?<\/title>/gi, '');
+
     // Inject @unhead/ssr tags
     if (headPayload && headPayload.headTags) {
       newHtml = newHtml.replace('</head>', `\n${headPayload.headTags}\n</head>`);
     }
 
     // Replace html lang attribute
-    newHtml = newHtml.replace(/<html lang="en">/, `<html lang="${lang}">`);
+    newHtml = newHtml.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
 
     // Write to dist
     const routePath = urlPath === '/' ? '' : urlPath;

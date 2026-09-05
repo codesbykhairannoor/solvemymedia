@@ -38,19 +38,19 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 
 ## 3. Full Tool Catalog (עברית)
 
-- [Compress Video](https://solvemymedia.com/he/dchisot-video): Reduce video file size without quality loss using local WebAssembly encoding.
-- [Compress Audio](https://solvemymedia.com/he/dchisot-audio): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
-- [Convert Video](https://solvemymedia.com/he/hmr-video): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
-- [Convert Audio](https://solvemymedia.com/he/hmr-audio): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
-- [Video to Audio](https://solvemymedia.com/he/video-leaudio): Extract and save audio from any video file as MP3 or WAV.
-- [Transcribe Audio & Video](https://solvemymedia.com/he/taktur): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
-- [Screen & Audio Recorder](https://solvemymedia.com/he/mekolet): Record screen, webcam, and microphone simultaneously in the browser.
-- [Create GIF](https://solvemymedia.com/he/tzor-gif): Convert video clips to high-quality animated GIFs without uploading.
-- [Change Video Speed](https://solvemymedia.com/he/meherut-video): Speed up or slow down any video at custom multipliers offline.
-- [Crop Video](https://solvemymedia.com/he/gzor-video): Crop and resize videos for any platform without watermarks.
-- [Mute Video](https://solvemymedia.com/he/hashket-video): Remove the audio track from any video file instantly.
-- [Watermark Video](https://solvemymedia.com/he/siman-mayim-video): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/he/mizog-audio): Combine multiple audio files into one seamless track.
+- [Compress Video](https://solvemymedia.com/he/ldkhvs-vydv): Reduce video file size without quality loss using local WebAssembly encoding.
+- [Compress Audio](https://solvemymedia.com/he/ldkhvs-vdyv): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
+- [Convert Video](https://solvemymedia.com/he/lhmyr-vydv): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
+- [Convert Audio](https://solvemymedia.com/he/lhmyr-vdyv): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
+- [Video to Audio](https://solvemymedia.com/he/vydv-lvdyv): Extract and save audio from any video file as MP3 or WAV.
+- [Transcribe Audio & Video](https://solvemymedia.com/he/ltaateq): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
+- [Screen & Audio Recorder](https://solvemymedia.com/he/maqliyt): Record screen, webcam, and microphone simultaneously in the browser.
+- [Create GIF](https://solvemymedia.com/he/lytsvr-gif): Convert video clips to high-quality animated GIFs without uploading.
+- [Change Video Speed](https://solvemymedia.com/he/mhyrvt-vydv): Speed up or slow down any video at custom multipliers offline.
+- [Crop Video](https://solvemymedia.com/he/khytvk-srtvn): Crop and resize videos for any platform without watermarks.
+- [Mute Video](https://solvemymedia.com/he/hshtqt-srtvn): Remove the audio track from any video file instantly.
+- [Watermark Video](https://solvemymedia.com/he/srtvn-symn-mym): Overlay text or image watermarks on video frames.
+- [Merge Audio](https://solvemymedia.com/he/vdyv-vbd): Combine multiple audio files into one seamless track.
 
 ---
 
@@ -124,4 +124,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 630 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 992 URLs across 30 languages

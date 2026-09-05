@@ -38,19 +38,19 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 
 ## 3. Full Tool Catalog (हिन्दी)
 
-- [Compress Video](https://solvemymedia.com/hi/video-compress-kare): Reduce video file size without quality loss using local WebAssembly encoding.
-- [Compress Audio](https://solvemymedia.com/hi/audio-compress-kare): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
-- [Convert Video](https://solvemymedia.com/hi/video-convert-kare): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
-- [Convert Audio](https://solvemymedia.com/hi/audio-convert-kare): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
-- [Video to Audio](https://solvemymedia.com/hi/video-se-audio): Extract and save audio from any video file as MP3 or WAV.
-- [Transcribe Audio & Video](https://solvemymedia.com/hi/transcript-kare): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
-- [Screen & Audio Recorder](https://solvemymedia.com/hi/recorder): Record screen, webcam, and microphone simultaneously in the browser.
-- [Create GIF](https://solvemymedia.com/hi/gif-banaye): Convert video clips to high-quality animated GIFs without uploading.
-- [Change Video Speed](https://solvemymedia.com/hi/video-speed): Speed up or slow down any video at custom multipliers offline.
-- [Crop Video](https://solvemymedia.com/hi/video-crop-kare): Crop and resize videos for any platform without watermarks.
-- [Mute Video](https://solvemymedia.com/hi/video-mute-kare): Remove the audio track from any video file instantly.
-- [Watermark Video](https://solvemymedia.com/hi/video-watermark): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/hi/audio-merge-kare): Combine multiple audio files into one seamless track.
+- [Compress Video](https://solvemymedia.com/hi/viiddiyo-snpiiddit-kren): Reduce video file size without quality loss using local WebAssembly encoding.
+- [Compress Audio](https://solvemymedia.com/hi/onddiyo-snpiiddit-kren): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
+- [Convert Video](https://solvemymedia.com/hi/viiddiyo-privrtit-kren): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
+- [Convert Audio](https://solvemymedia.com/hi/onddiyo-privrtit-kren): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
+- [Video to Audio](https://solvemymedia.com/hi/viiddiyo-se-onddiyo): Extract and save audio from any video file as MP3 or WAV.
+- [Transcribe Audio & Video](https://solvemymedia.com/hi/ttaaip-krnaa): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
+- [Screen & Audio Recorder](https://solvemymedia.com/hi/rikonrddr): Record screen, webcam, and microphone simultaneously in the browser.
+- [Create GIF](https://solvemymedia.com/hi/gif-bnaaen): Convert video clips to high-quality animated GIFs without uploading.
+- [Change Video Speed](https://solvemymedia.com/hi/viiddiyo-kii-gti): Speed up or slow down any video at custom multipliers offline.
+- [Crop Video](https://solvemymedia.com/hi/phsl-viiddiyo): Crop and resize videos for any platform without watermarks.
+- [Mute Video](https://solvemymedia.com/hi/viiddiyo-myuutt-kren): Remove the audio track from any video file instantly.
+- [Watermark Video](https://solvemymedia.com/hi/vonttrmaark-viiddiyo): Overlay text or image watermarks on video frames.
+- [Merge Audio](https://solvemymedia.com/hi/onddiyo-kaam-krtaa-hai): Combine multiple audio files into one seamless track.
 
 ---
 
@@ -124,4 +124,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 630 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 992 URLs across 30 languages

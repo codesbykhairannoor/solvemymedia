@@ -44,13 +44,13 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 - [Convert Audio](https://solvemymedia.com/sv/konvertera-ljud): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
 - [Video to Audio](https://solvemymedia.com/sv/video-till-ljud): Extract and save audio from any video file as MP3 or WAV.
 - [Transcribe Audio & Video](https://solvemymedia.com/sv/transkribera): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
-- [Screen & Audio Recorder](https://solvemymedia.com/sv/inspelning): Record screen, webcam, and microphone simultaneously in the browser.
+- [Screen & Audio Recorder](https://solvemymedia.com/sv/inspelare): Record screen, webcam, and microphone simultaneously in the browser.
 - [Create GIF](https://solvemymedia.com/sv/skapa-gif): Convert video clips to high-quality animated GIFs without uploading.
 - [Change Video Speed](https://solvemymedia.com/sv/videohastighet): Speed up or slow down any video at custom multipliers offline.
 - [Crop Video](https://solvemymedia.com/sv/beskara-video): Crop and resize videos for any platform without watermarks.
-- [Mute Video](https://solvemymedia.com/sv/tystad-video): Remove the audio track from any video file instantly.
+- [Mute Video](https://solvemymedia.com/sv/tyst-video): Remove the audio track from any video file instantly.
 - [Watermark Video](https://solvemymedia.com/sv/vattenstampel-video): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/sv/sla-ihop-ljud): Combine multiple audio files into one seamless track.
+- [Merge Audio](https://solvemymedia.com/sv/ljud-fungerar): Combine multiple audio files into one seamless track.
 
 ---
 
@@ -124,4 +124,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 630 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 992 URLs across 30 languages

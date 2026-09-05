@@ -38,19 +38,19 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 
 ## 3. Full Tool Catalog (Русский)
 
-- [Compress Video](https://solvemymedia.com/ru/szhat-video): Reduce video file size without quality loss using local WebAssembly encoding.
-- [Compress Audio](https://solvemymedia.com/ru/szhat-audio): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
+- [Compress Video](https://solvemymedia.com/ru/szhimat-video): Reduce video file size without quality loss using local WebAssembly encoding.
+- [Compress Audio](https://solvemymedia.com/ru/szhimat-audio): Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.
 - [Convert Video](https://solvemymedia.com/ru/konvertirovat-video): Convert between MP4, WebM, MKV, and MOV formats privately in your browser.
 - [Convert Audio](https://solvemymedia.com/ru/konvertirovat-audio): Convert between audio formats (MP3, WAV, AAC, OGG) offline.
 - [Video to Audio](https://solvemymedia.com/ru/video-v-audio): Extract and save audio from any video file as MP3 or WAV.
-- [Transcribe Audio & Video](https://solvemymedia.com/ru/transkribirovat): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
-- [Screen & Audio Recorder](https://solvemymedia.com/ru/zapis): Record screen, webcam, and microphone simultaneously in the browser.
-- [Create GIF](https://solvemymedia.com/ru/sozdat-gif): Convert video clips to high-quality animated GIFs without uploading.
+- [Transcribe Audio & Video](https://solvemymedia.com/ru/perepisyvat): AI-powered speech-to-text using local Whisper WASM — no API, no uploads.
+- [Screen & Audio Recorder](https://solvemymedia.com/ru/diktofon): Record screen, webcam, and microphone simultaneously in the browser.
+- [Create GIF](https://solvemymedia.com/ru/sozdat-gifku): Convert video clips to high-quality animated GIFs without uploading.
 - [Change Video Speed](https://solvemymedia.com/ru/skorost-video): Speed up or slow down any video at custom multipliers offline.
 - [Crop Video](https://solvemymedia.com/ru/obrezat-video): Crop and resize videos for any platform without watermarks.
-- [Mute Video](https://solvemymedia.com/ru/otkluchit-zvuk-video): Remove the audio track from any video file instantly.
-- [Watermark Video](https://solvemymedia.com/ru/vodnoy-znak-video): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/ru/obedinie-audio): Combine multiple audio files into one seamless track.
+- [Mute Video](https://solvemymedia.com/ru/otklyuchit-video): Remove the audio track from any video file instantly.
+- [Watermark Video](https://solvemymedia.com/ru/video-s-vodyanymi-znakami): Overlay text or image watermarks on video frames.
+- [Merge Audio](https://solvemymedia.com/ru/audio-rabotaet): Combine multiple audio files into one seamless track.
 
 ---
 
@@ -124,4 +124,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 630 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 992 URLs across 30 languages

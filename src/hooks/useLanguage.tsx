@@ -5,7 +5,7 @@ import { SUPPORTED_LANGUAGES, type LanguageInfo } from '../i18n/languages';
 
 interface LanguageContextType {
   currentLang: string;
-  t: (key: keyof UiDictionary) => string;
+  t: (key: string) => string;
   languages: LanguageInfo[];
 }
 
@@ -14,8 +14,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ currentLang: string; children: ReactNode }> = ({ currentLang, children }) => {
   const translations = getUiTranslations(currentLang);
 
-  const t = (key: keyof UiDictionary): string => {
-    return translations[key] || getUiTranslations('en')[key] || key;
+  const t = (key: string): string => {
+    return (translations[key] as string) || (getUiTranslations('en')[key] as string) || key;
   };
 
   return (

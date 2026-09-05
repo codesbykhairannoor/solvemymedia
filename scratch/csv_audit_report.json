@@ -1,0 +1,644 @@
+[
+  {
+    "index": 1,
+    "file": "solvemymedia_05-sep-2026_3xx-redirect_2026-09-05_13-55-43.csv",
+    "rawIssue": "3xx-redirect",
+    "rowCount": 30,
+    "uniqueUrlsCount": 30,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Redirect URL",
+      "Redirect URL code",
+      "Redirect URL patch",
+      "Redirect URL patch status",
+      "Redirect chain URLs",
+      "Redirect chain URLs codes",
+      "Is redirect loop",
+      "No. of all inlinks",
+      "No. of redirect inlinks",
+      "First found at"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/fi/",
+      "https://solvemymedia.com/uk/",
+      "https://solvemymedia.com/es/",
+      "https://solvemymedia.com/tr/",
+      "https://solvemymedia.com/de/"
+    ]
+  },
+  {
+    "index": 2,
+    "file": "solvemymedia_05-sep-2026_404-page_2026-09-05_13-55-03.csv",
+    "rawIssue": "404-page",
+    "rowCount": 1116,
+    "uniqueUrlsCount": 1116,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Is indexable page",
+      "No. of all inlinks",
+      "First found at"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/mp4-to-gif",
+      "https://solvemymedia.com/sk/zaznamnik",
+      "https://solvemymedia.com/resize-video-for-tiktok",
+      "https://solvemymedia.com/add-watermark-to-mp4",
+      "https://solvemymedia.com/m4a-to-mp3"
+    ]
+  },
+  {
+    "index": 3,
+    "file": "solvemymedia_05-sep-2026_4xx-page-in-sitemap_2026-09-05_13-58-19.csv",
+    "rawIssue": "4xx-page-in-sitemap",
+    "rowCount": 1097,
+    "uniqueUrlsCount": 1097,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is in sitemap",
+      "Referenced in sitemaps",
+      "No. of all inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/mp4-to-gif",
+      "https://solvemymedia.com/sk/zaznamnik",
+      "https://solvemymedia.com/resize-video-for-tiktok",
+      "https://solvemymedia.com/add-watermark-to-mp4",
+      "https://solvemymedia.com/m4a-to-mp3"
+    ]
+  },
+  {
+    "index": 4,
+    "file": "solvemymedia_05-sep-2026_4xx-page_2026-09-05_13-55-23.csv",
+    "rawIssue": "4xx-page",
+    "rowCount": 1116,
+    "uniqueUrlsCount": 1116,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Is indexable page",
+      "No. of all inlinks",
+      "First found at"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/mp4-to-gif",
+      "https://solvemymedia.com/sk/zaznamnik",
+      "https://solvemymedia.com/resize-video-for-tiktok",
+      "https://solvemymedia.com/add-watermark-to-mp4",
+      "https://solvemymedia.com/m4a-to-mp3"
+    ]
+  },
+  {
+    "index": 5,
+    "file": "solvemymedia_05-sep-2026_duplicate-pages-with_2026-09-05_13-57-44.csv",
+    "rawIssue": "duplicate-pages-with",
+    "rowCount": 9,
+    "uniqueUrlsCount": 9,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Is indexable page",
+      "Canonical URL",
+      "Canonical URL code",
+      "Canonical URL patch",
+      "Canonical URL patch status",
+      "No. of canonical inlinks",
+      "Content hash",
+      "No. of pages having the same content",
+      "Title patch",
+      "Title patch status",
+      "Meta description",
+      "Meta description patch",
+      "Meta description patch status",
+      "H1"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video",
+      "https://solvemymedia.com/transcribe",
+      "https://solvemymedia.com/compress-audio"
+    ]
+  },
+  {
+    "index": 6,
+    "file": "solvemymedia_05-sep-2026_h1-tag-missing-or-em_2026-09-05_13-57-11.csv",
+    "rawIssue": "h1-tag-missing-or-em",
+    "rowCount": 26,
+    "uniqueUrlsCount": 26,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "H1",
+      "H1 length",
+      "No. of H1",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/video-speed",
+      "https://solvemymedia.com/terms-of-service",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video"
+    ]
+  },
+  {
+    "index": 7,
+    "file": "solvemymedia_05-sep-2026_hreflang-to-redirect_2026-09-05_13-57-53.csv",
+    "rawIssue": "hreflang-to-redirect",
+    "rowCount": 588,
+    "uniqueUrlsCount": 588,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is indexable page",
+      "Hreflang links",
+      "Hreflang links codes",
+      "Hreflang issues",
+      "Hreflang group ID",
+      "No. of hreflang inlinks",
+      "No. of all inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/video-speed",
+      "https://solvemymedia.com/terms-of-service",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video"
+    ]
+  },
+  {
+    "index": 8,
+    "file": "solvemymedia_05-sep-2026_http-to-https-redire_2026-09-05_13-55-49.csv",
+    "rawIssue": "http-to-https-redire",
+    "rowCount": 2,
+    "uniqueUrlsCount": 2,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Redirect chain URLs",
+      "Redirect chain URLs codes",
+      "Is redirect loop",
+      "No. of all inlinks",
+      "No. of redirect inlinks",
+      "First found at"
+    ],
+    "sampleUrls": [
+      "http://solvemymedia.com/",
+      "http://www.solvemymedia.com/"
+    ]
+  },
+  {
+    "index": 9,
+    "file": "solvemymedia_05-sep-2026_indexable-page-not-i_2026-09-05_13-58-34.csv",
+    "rawIssue": "indexable-page-not-i",
+    "rowCount": 185,
+    "uniqueUrlsCount": 185,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is indexable page",
+      "No. of all inlinks",
+      "Is in sitemap",
+      "First found at"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/hu/hang-mukodik",
+      "https://solvemymedia.com/el/perikopi-vinteo",
+      "https://solvemymedia.com/zh/lu-yin-ji",
+      "https://solvemymedia.com/ar/msjl",
+      "https://solvemymedia.com/th/aeplngesiiyng"
+    ]
+  },
+  {
+    "index": 10,
+    "file": "solvemymedia_05-sep-2026_meta-description-tag_2026-09-05_13-57-18.csv",
+    "rawIssue": "meta-description-tag",
+    "rowCount": 9,
+    "uniqueUrlsCount": 9,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Meta description",
+      "Meta description patch",
+      "Meta description patch status",
+      "Meta description length",
+      "No. of meta descriptions",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video",
+      "https://solvemymedia.com/transcribe",
+      "https://solvemymedia.com/compress-audio"
+    ]
+  },
+  {
+    "index": 11,
+    "file": "solvemymedia_05-sep-2026_meta-description-too_2026-09-05_13-56-31.csv",
+    "rawIssue": "meta-description-too",
+    "rowCount": 242,
+    "uniqueUrlsCount": 242,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Meta description",
+      "Meta description patch",
+      "Meta description patch status",
+      "Meta description length",
+      "No. of meta descriptions",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/terms-of-service",
+      "https://solvemymedia.com/pricing",
+      "https://solvemymedia.com/watermark-video",
+      "https://solvemymedia.com/privacy-policy",
+      "https://solvemymedia.com/about-us"
+    ]
+  },
+  {
+    "index": 12,
+    "file": "solvemymedia_05-sep-2026_meta-description-too_2026-09-05_13-56-51.csv",
+    "rawIssue": "meta-description-too",
+    "rowCount": 38,
+    "uniqueUrlsCount": 38,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Meta description",
+      "Meta description patch",
+      "Meta description patch status",
+      "Meta description length",
+      "No. of meta descriptions",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/vi/nen-video",
+      "https://solvemymedia.com/cs/komprimovat-video",
+      "https://solvemymedia.com/ru",
+      "https://solvemymedia.com/de/videogeschwindigkeit",
+      "https://solvemymedia.com/el/sympiesi-vinteo"
+    ]
+  },
+  {
+    "index": 13,
+    "file": "solvemymedia_05-sep-2026_missing-reciprocal-h_2026-09-05_13-58-04.csv",
+    "rawIssue": "missing-reciprocal-h",
+    "rowCount": 224,
+    "uniqueUrlsCount": 224,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is indexable page",
+      "Hreflang links",
+      "Hreflang links codes",
+      "Hreflang issues",
+      "Hreflang group ID",
+      "No. of hreflang inlinks",
+      "No. of all inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video",
+      "https://solvemymedia.com/transcribe",
+      "https://solvemymedia.com/compress-audio"
+    ]
+  },
+  {
+    "index": 14,
+    "file": "solvemymedia_05-sep-2026_more-than-one-page-f_2026-09-05_13-58-12.csv",
+    "rawIssue": "more-than-one-page-f",
+    "rowCount": 171,
+    "uniqueUrlsCount": 171,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is indexable page",
+      "Hreflang links",
+      "Hreflang links codes",
+      "Hreflang issues",
+      "Hreflang group ID",
+      "No. of hreflang inlinks",
+      "No. of all inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/video-speed",
+      "https://solvemymedia.com/watermark-video",
+      "https://solvemymedia.com/mute-video",
+      "https://solvemymedia.com/merge-audio",
+      "https://solvemymedia.com/crop-video"
+    ]
+  },
+  {
+    "index": 15,
+    "file": "solvemymedia_05-sep-2026_multiple-title-tags_2026-09-05_13-56-22.csv",
+    "rawIssue": "multiple-title-tags",
+    "rowCount": 579,
+    "uniqueUrlsCount": 579,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Title patch",
+      "Title patch status",
+      "Title length",
+      "No. of titles",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/video-speed",
+      "https://solvemymedia.com/terms-of-service",
+      "https://solvemymedia.com/supported-languages",
+      "https://solvemymedia.com/pricing",
+      "https://solvemymedia.com/watermark-video"
+    ]
+  },
+  {
+    "index": 16,
+    "file": "solvemymedia_05-sep-2026_open-graph-tags-miss_2026-09-05_13-57-28.csv",
+    "rawIssue": "open-graph-tags-miss",
+    "rowCount": 9,
+    "uniqueUrlsCount": 9,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is valid Open Graph",
+      "Open Graph attributes",
+      "Open Graph values",
+      "Depth",
+      "Is indexable page",
+      "No. of all inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video",
+      "https://solvemymedia.com/transcribe",
+      "https://solvemymedia.com/compress-audio"
+    ]
+  },
+  {
+    "index": 17,
+    "file": "solvemymedia_05-sep-2026_page-has-links-to-re_2026-09-05_13-55-30.csv",
+    "rawIssue": "page-has-links-to-re",
+    "rowCount": 567,
+    "uniqueUrlsCount": 567,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Internal outlinks to 3xx",
+      "Internal outlinks codes (3xx)",
+      "No. of internal outlinks to 3xx",
+      "External outlinks to 3xx",
+      "External outlinks codes (3xx)",
+      "No. of external outlinks to 3xx"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/pl/security",
+      "https://solvemymedia.com/hu/pricing",
+      "https://solvemymedia.com/ru/supported-languages",
+      "https://solvemymedia.com/fr/oeuvres-audio",
+      "https://solvemymedia.com/ja/privacy-policy"
+    ]
+  },
+  {
+    "index": 18,
+    "file": "solvemymedia_05-sep-2026_redirect-chain_2026-09-05_13-56-06.csv",
+    "rawIssue": "redirect-chain",
+    "rowCount": 1,
+    "uniqueUrlsCount": 1,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Redirect chain URLs",
+      "Redirect chain URLs codes",
+      "No. of redirect chain URLs",
+      "Redirect URL",
+      "Redirect URL code",
+      "Redirect URL patch",
+      "Redirect URL patch status",
+      "No. of redirect inlinks",
+      "No. of all inlinks",
+      "First found at"
+    ],
+    "sampleUrls": [
+      "http://www.solvemymedia.com/"
+    ]
+  },
+  {
+    "index": 19,
+    "file": "solvemymedia_05-sep-2026_redirected-page-has_2026-09-05_13-55-38.csv",
+    "rawIssue": "redirected-page-has",
+    "rowCount": 27,
+    "uniqueUrlsCount": 27,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "No. of redirect inlinks",
+      "No. of href inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/ru",
+      "https://solvemymedia.com/ar",
+      "https://solvemymedia.com/sv",
+      "https://solvemymedia.com/zh",
+      "https://solvemymedia.com/tr"
+    ]
+  },
+  {
+    "index": 20,
+    "file": "solvemymedia_05-sep-2026_title-too-long_2026-09-05_13-56-39.csv",
+    "rawIssue": "title-too-long",
+    "rowCount": 117,
+    "uniqueUrlsCount": 117,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Title patch",
+      "Title patch status",
+      "Title length",
+      "No. of titles",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/es/grabadora",
+      "https://solvemymedia.com/it/registratore",
+      "https://solvemymedia.com/fr/video-muette",
+      "https://solvemymedia.com/ro/filigran-video",
+      "https://solvemymedia.com/de/wasserzeichen-video"
+    ]
+  },
+  {
+    "index": 21,
+    "file": "solvemymedia_05-sep-2026_title-too-short_2026-09-05_13-57-01.csv",
+    "rawIssue": "title-too-short",
+    "rowCount": 28,
+    "uniqueUrlsCount": 28,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Depth",
+      "Title patch",
+      "Title patch status",
+      "Title length",
+      "No. of titles",
+      "Is indexable page"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/terms-of-service",
+      "https://solvemymedia.com/pl/terms-of-service",
+      "https://solvemymedia.com/id/terms-of-service",
+      "https://solvemymedia.com/tr/terms-of-service",
+      "https://solvemymedia.com/sv/terms-of-service"
+    ]
+  },
+  {
+    "index": 22,
+    "file": "solvemymedia_05-sep-2026_x-(twitter)-card-mis_2026-09-05_13-57-36.csv",
+    "rawIssue": "x-(twitter)-card-mis",
+    "rowCount": 9,
+    "uniqueUrlsCount": 9,
+    "header": [
+      "PR",
+      "URL",
+      "Title",
+      "Content type",
+      "Is rendered page",
+      "HTTP status code",
+      "Organic traffic",
+      "Is valid X (Twitter) card",
+      "X (Twitter) card attributes",
+      "X (Twitter) card values",
+      "Depth",
+      "Is indexable page",
+      "No. of all inlinks"
+    ],
+    "sampleUrls": [
+      "https://solvemymedia.com/compress-video",
+      "https://solvemymedia.com/create-gif",
+      "https://solvemymedia.com/convert-video",
+      "https://solvemymedia.com/transcribe",
+      "https://solvemymedia.com/compress-audio"
+    ]
+  }
+]

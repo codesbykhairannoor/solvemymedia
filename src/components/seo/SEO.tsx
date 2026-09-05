@@ -135,12 +135,92 @@ const TOOL_SCHEMA: Record<string, { appName: string; category: string; steps: Ar
   },
 };
 
+const FALLBACK_LEGAL_SEOS: Record<string, { title: string; desc: string }> = {
+  seoAboutUsTitle: { title: 'About Us - SolveMyMedia', desc: 'Learn about SolveMyMedia, our mission, and how we empower creators with 100% private, client-side browser media processing tools.' },
+  seoPrivacyTitle: { title: 'Privacy Policy - SolveMyMedia', desc: 'SolveMyMedia privacy policy. All video and audio processing is done entirely within your browser with zero server uploads.' },
+  seoTermsTitle: { title: 'Terms of Service - SolveMyMedia', desc: 'Terms of Service and acceptable use policy for SolveMyMedia free browser-based media conversion and compression tools.' },
+  seoSecurityTitle: { title: 'Security & Trust - SolveMyMedia', desc: 'Learn about SolveMyMedia client-side security model, WebAssembly sandboxing, and zero-knowledge data protection architecture.' },
+  seoPricingTitle: { title: 'Pricing & Plans - SolveMyMedia', desc: 'SolveMyMedia is 100% free with no file size limits, no subscriptions, and no hidden fees for video and audio processing.' },
+  seoCompareTitle: { title: 'Compare SolveMyMedia vs Cloud Converters', desc: 'See how SolveMyMedia compares to traditional server-based media converters in speed, privacy, file limits, and cost.' },
+  seoSupportedLanguagesTitle: { title: 'Supported Languages - SolveMyMedia', desc: 'Explore SolveMyMedia in 30+ supported languages. Compress, convert, and edit media files in your native language.' },
+};
+
 export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defaultDesc, customTitle, customDesc, faqItems }) => {
   const { currentLang, t, languages } = useLanguage();
   const location = useLocation();
   
-  const title = customTitle || t(titleKey as any) || defaultTitle || 'SolveMyMedia';
-  const description = customDesc || t(descKey as any) || defaultDesc || 'Optimize your media files';
+  let title = customTitle;
+  if (!title) {
+    const translated = t(titleKey as any);
+    if (translated && translated !== titleKey) {
+      title = translated;
+    } else if (FALLBACK_LEGAL_SEOS[titleKey]) {
+      title = FALLBACK_LEGAL_SEOS[titleKey].title;
+    } else {
+      title = defaultTitle || 'SolveMyMedia | All Media Tools in One Place';
+    }
+  }
+
+  let description = customDesc;
+  if (!description) {
+    const translated = t(descKey as any);
+    if (translated && translated !== descKey) {
+      description = translated;
+    } else if (FALLBACK_LEGAL_SEOS[titleKey]) {
+      description = FALLBACK_LEGAL_SEOS[titleKey].desc;
+    } else {
+      description = defaultDesc || 'Optimize, compress, convert, and edit audio and video files securely in your browser. 100% offline processing for ultimate privacy.';
+    }
+  }
+
+  // Ensure minimum title length (>= 20 chars)
+  if (title.length < 20) {
+    if (!title.includes('SolveMyMedia')) {
+      title = `${title} | SolveMyMedia`;
+    } else {
+      title = `${title} | Free & Private Tools`;
+    }
+  }
+
+  // Ensure minimum description length (>= 50 chars)
+  if (description.length < 50) {
+    const isZh = currentLang === 'zh' || currentLang === 'zh-tw' || currentLang === 'zh-TW';
+    if (isZh) {
+      description = `${description} 100% 浏览器本地安全处理，无需上传文件，完全保护您的隐私。`;
+    } else {
+      description = `${description} 100% private, client-side offline processing powered by WebAssembly.`;
+    }
+  }
+
+  // Format and optimize title length (keep <= 52 chars raw to strictly guarantee <= 65 chars even with HTML entity encoding like &#x27; or &amp;)
+  if (title.length > 52) {
+    if (title.includes(' - SolveMyMedia')) {
+      const basePart = title.split(' - SolveMyMedia')[0];
+      if (basePart.length > 34) {
+        title = basePart.slice(0, 32).trim() + '... - SolveMyMedia';
+      } else {
+        title = `${basePart} - SolveMyMedia`;
+      }
+    } else if (title.includes(' | SolveMyMedia')) {
+      const basePart = title.split(' | SolveMyMedia')[0];
+      if (basePart.length > 34) {
+        title = `${basePart.slice(0, 32).trim()}... | SolveMyMedia`;
+      } else {
+        title = `${basePart} | SolveMyMedia`;
+      }
+    } else {
+      const trimmed = title.slice(0, 48);
+      const lastSpace = trimmed.lastIndexOf(' ');
+      title = (lastSpace > 30 ? trimmed.slice(0, lastSpace) : trimmed).trim() + '...';
+    }
+  }
+
+  // Format and optimize description length (keep <= 155 chars for optimal search snippets)
+  if (description.length > 155) {
+    const trimmed = description.slice(0, 152);
+    const lastSpace = trimmed.lastIndexOf(' ');
+    description = (lastSpace > 100 ? trimmed.slice(0, lastSpace) : trimmed).trim() + '...';
+  }
   
   const domain = 'https://solvemymedia.com';
   
@@ -175,22 +255,30 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
   const canonicalPath = currentLang === 'en' ? canonicalPathRaw : `/${currentLang}${canonicalPathRaw === '/' ? '' : canonicalPathRaw}`;
   const canonicalUrl = formatUrl(canonicalPath);
 
-  const alternateLinks = languages.map(lang => {
+  const linkMap = new Map<string, { rel: string; hreflang: string; href: string }>();
+
+  languages.forEach(lang => {
     const langLocalSlug = standardSlug ? getLocalizedSlug(standardSlug, lang.code) : '';
     const langPathRaw = langLocalSlug ? `/${langLocalSlug}` : cleanPath;
     const langPath = lang.code === 'en' ? langPathRaw : `/${lang.code}${langPathRaw === '/' ? '' : langPathRaw}`;
-    return {
-      rel: 'alternate',
-      hreflang: lang.code,
-      href: formatUrl(langPath)
-    };
+    const formatted = formatUrl(langPath);
+    if (!linkMap.has(lang.code)) {
+      linkMap.set(lang.code, {
+        rel: 'alternate',
+        hreflang: lang.code,
+        href: formatted
+      });
+    }
   });
   
-  alternateLinks.push({
+  const xDefaultUrl = formatUrl(standardSlug ? `/${standardSlug}` : cleanPath);
+  linkMap.set('x-default', {
     rel: 'alternate',
     hreflang: 'x-default',
-    href: formatUrl(standardSlug ? `/${standardSlug}` : cleanPath)
+    href: xDefaultUrl
   });
+
+  const alternateLinks = Array.from(linkMap.values());
 
   // Build JSON-LD schema
   const schemaGraph: object[] = [

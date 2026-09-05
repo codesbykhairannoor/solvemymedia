@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, justifyContent: 'space-between' }}>
         
         <div style={{ flex: '1 1 300px' }}>
-          <Link to={`${prefix}/`} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)', marginBottom: 24 }}>
+          <Link to={prefix || '/'} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)', marginBottom: 24 }}>
             <img src="/logoweb.png" alt="SolveMyMedia Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
             <span style={{ fontWeight: 900, fontSize: '1.4rem', letterSpacing: '-0.02em' }}>
               SolveMy<span style={{ background: 'var(--brand-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Media</span>

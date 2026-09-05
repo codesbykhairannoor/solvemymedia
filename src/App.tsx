@@ -6,15 +6,15 @@ import { LanguageProvider } from './hooks/useLanguage';
 import { SEO } from './components/seo/SEO';
 import { isValidLanguageCode, SUPPORTED_LANGUAGES } from './i18n/languages';
 
-const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
-const DynamicToolRoute = lazy(() => import('./components/DynamicToolRoute').then(m => ({ default: m.DynamicToolRoute })));
-const AboutUs = lazy(() => import('./pages/legal/AboutUs').then(m => ({ default: m.AboutUs })));
-const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
-const TermsOfService = lazy(() => import('./pages/legal/TermsOfService').then(m => ({ default: m.TermsOfService })));
-const SecurityTrust = lazy(() => import('./pages/legal/SecurityTrust').then(m => ({ default: m.SecurityTrust })));
-const Pricing = lazy(() => import('./pages/legal/Pricing').then(m => ({ default: m.Pricing })));
-const Compare = lazy(() => import('./pages/legal/Compare').then(m => ({ default: m.Compare })));
-const SupportedLanguages = lazy(() => import('./pages/legal/SupportedLanguages').then(m => ({ default: m.SupportedLanguages })));
+import { Home } from './pages/Home';
+import { DynamicToolRoute } from './components/DynamicToolRoute';
+import { AboutUs } from './pages/legal/AboutUs';
+import { PrivacyPolicy } from './pages/legal/PrivacyPolicy';
+import { TermsOfService } from './pages/legal/TermsOfService';
+import { SecurityTrust } from './pages/legal/SecurityTrust';
+import { Pricing } from './pages/legal/Pricing';
+import { Compare } from './pages/legal/Compare';
+import { SupportedLanguages } from './pages/legal/SupportedLanguages';
 
 function ScrollToTop() {
   const location = useLocation();

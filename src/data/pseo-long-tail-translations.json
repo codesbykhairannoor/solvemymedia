@@ -1600,7 +1600,7 @@
         {
           "type": "icon-list",
           "data": {
-            "title": "Mengapa Membisukan Video?",
+            "title": "Mengapa Membungkam Video?",
             "description": "",
             "items": [
               {
@@ -11030,7 +11030,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "品質を落とさずにビデオを小さくする",
+            "title": "品質を損なうことなくビデオを小さくする",
             "content": "高度なビジュアル最適化を使用して、鮮明なビジュアル忠実度を維持しながらビデオ ファイル サイズを大幅に削減します。",
             "buttonText": "始める"
           }
@@ -12727,16 +12727,16 @@
       },
       "faqs": [
         {
-          "q": "What is the maximum video size for Gmail?",
-          "a": "Gmail limits attachments to 25MB. If your video is larger, you must compress it using our tool first."
+          "q": "Gmail 的最大视频大小是多少？",
+          "a": "Gmail 将附件大小限制为 25MB。 如果您的视频较大，您必须先使用我们的工具对其进行压缩。"
         },
         {
-          "q": "Will the video still look good in an email?",
-          "a": "Yes, for casual sharing via email, reducing the bitrate significantly still provides a highly acceptable viewing experience."
+          "q": "视频在电子邮件中看起来仍然不错吗？",
+          "a": "是的，对于通过电子邮件进行的休闲共享，显着降低比特率仍然可以提供高度可接受的观看体验。"
         },
         {
-          "q": "Does this work on mobile devices?",
-          "a": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
+          "q": "这适用于移动设备吗？",
+          "a": "绝对地。 我们的 WebAssembly 引擎在 iOS 和 Android 浏览器上本地运行，非常适合移动电子邮件。"
         }
       ],
       "translatedPath": "/reduce-mp4-video-size-for-email",
@@ -12802,16 +12802,16 @@
       },
       "faqs": [
         {
-          "q": "Why is WhatsApp saying my video is too large?",
-          "a": "WhatsApp has strict file size limits (usually 16MB for standard videos) to save bandwidth on their servers."
+          "q": "为什么 WhatsApp 说我的视频太大？",
+          "a": "WhatsApp 有严格的文件大小限制（标准视频通常为 16MB），以节省服务器带宽。"
         },
         {
-          "q": "Can I compress a 4K video for WhatsApp?",
-          "a": "Yes, our tool will automatically downscale and compress 4K files to a WhatsApp-friendly format and size."
+          "q": "我可以为 WhatsApp 压缩 4K 视频吗？",
+          "a": "是的，我们的工具会自动将 4K 文件缩小并压缩为 WhatsApp 友好的格式和大小。"
         },
         {
-          "q": "Is this safer than using an app?",
-          "a": "Yes. Apps often ask for intrusive permissions. Our web tool runs in a secure browser sandbox with zero uploads."
+          "q": "这比使用应用程序更安全吗？",
+          "a": "是的。 应用程序经常要求侵入性权限。 我们的网络工具在安全的浏览器沙箱中运行，零上传。"
         }
       ],
       "translatedPath": "/compress-large-video-for-whatsapp",
@@ -12889,16 +12889,16 @@
       },
       "faqs": [
         {
-          "q": "Why do my iPhone videos not play on my Android?",
-          "a": "iPhones often record in the MOV container using HEVC codecs, which some Android devices do not natively support."
+          "q": "为什么我的 iPhone 视频无法在 Android 上播放？",
+          "a": "iPhone 通常使用 HEVC 编解码器在 MOV 容器中进行录制，而某些 Android 设备本身并不支持该编解码器。"
         },
         {
-          "q": "Will converting MOV to MP4 reduce the quality?",
-          "a": "No, we can repackage the video streams into an MP4 container without re-encoding, preserving 100% of the original quality."
+          "q": "将 MOV 转换为 MP4 会降低质量吗？",
+          "a": "不，我们可以将视频流重新打包到 MP4 容器中，而无需重新编码，从而保持 100% 的原始质量。"
         },
         {
-          "q": "Do I need to install anything on my Android?",
-          "a": "No installation required. Just open this page in Chrome and convert your files instantly."
+          "q": "我需要在 Android 上安装任何东西吗？",
+          "a": "无需安装。 只需在 Chrome 中打开此页面即可立即转换您的文件。"
         }
       ],
       "translatedPath": "/convert-iphone-mov-to-mp4-for-android",
@@ -12972,16 +12972,16 @@
       },
       "faqs": [
         {
-          "q": "Does extracting the audio degrade its quality?",
-          "a": "No, our tool performs a direct stream copy, meaning the audio is exactly identical to the original video recording."
+          "q": "提取音频会降低其质量吗？",
+          "a": "不，我们的工具执行直接流复制，这意味着音频与原始视频录制完全相同。"
         },
         {
-          "q": "Can I extract audio from a 2-hour Zoom recording?",
-          "a": "Yes, because processing is local, there are no timeout errors. It takes just seconds to extract hours of audio."
+          "q": "我可以从 2 小时的 Zoom 录音中提取音频吗？",
+          "a": "是的，因为处理是本地的，所以不存在超时错误。 只需几秒钟即可提取数小时的音频。"
         },
         {
-          "q": "Is my unreleased podcast episode safe?",
-          "a": "Completely. Your video and audio never leave your computer. We value absolute privacy for creators."
+          "q": "我未发布的播客剧集安全吗？",
+          "a": "完全地。 您的视频和音频永远不会离开您的计算机。 我们重视创作者的绝对隐私。"
         }
       ],
       "translatedPath": "/extract-audio-from-video-for-podcasts",
@@ -13051,16 +13051,16 @@
       },
       "faqs": [
         {
-          "q": "How is it possible to compress a video without losing quality?",
-          "a": "We use intelligent variable bitrate (VBR) encoding. It allocates data only where it is visually necessary, dropping invisible details."
+          "q": "如何在不损失质量的情况下压缩视频？",
+          "a": "我们使用智能可变比特率（VBR）编码。 它仅在视觉上必要的地方分配数据，从而丢弃不可见的细节。"
         },
         {
-          "q": "What is the best setting for archiving videos?",
-          "a": "We recommend setting the quality slider to 75-80%. It provides a massive reduction in size with nearly imperceptible changes."
+          "q": "存档视频的最佳设置是什么？",
+          "a": "我们建议将质量滑块设置为 75-80%。 它大大减小了尺寸，并且变化几乎难以察觉。"
         },
         {
-          "q": "Do you use hardware acceleration?",
-          "a": "Yes, we leverage WebCodecs to use your devices GPU, making the high-quality compression extremely fast."
+          "q": "你使用硬件加速吗？",
+          "a": "是的，我们利用 WebCodecs 来使用您设备的 GPU，从而使高质量压缩速度极快。"
         }
       ],
       "translatedPath": "/make-video-smaller-without-losing-quality",
@@ -13141,16 +13141,16 @@
       },
       "faqs": [
         {
-          "q": "Can the audio be recovered once muted?",
-          "a": "No, the exported file will permanently have its audio track removed, guaranteeing absolute silence."
+          "q": "静音后音频还能恢复吗？",
+          "a": "不会，导出的文件将永久删除其音轨，保证绝对安静。"
         },
         {
-          "q": "Will muting the video change its resolution?",
-          "a": "Not at all. The visual stream is untouched. We simply delete the audio track and repackage the file instantly."
+          "q": "将视频静音会改变其分辨率吗？",
+          "a": "一点也不。 视觉流未受影响。 我们只需删除音轨并立即重新打包文件即可。"
         },
         {
-          "q": "How fast is this process?",
-          "a": "Because we do not re-encode the video frames, removing the audio takes a fraction of a second."
+          "q": "这个过程有多快？",
+          "a": "由于我们不对视频帧进行重新编码，因此删除音频只需要几分之一秒的时间。"
         }
       ],
       "translatedPath": "/remove-sound-from-video-completely",
@@ -13228,16 +13228,16 @@
       },
       "faqs": [
         {
-          "q": "Will the audio sound like a chipmunk?",
-          "a": "Our tool automatically applies pitch correction to keep the audio sounding as natural as possible, even at high speeds."
+          "q": "音频听起来像花栗鼠吗？",
+          "a": "我们的工具会自动应用音高校正，以保持音频听起来尽可能自然，即使在高速下也是如此。"
         },
         {
-          "q": "Can I speed up a video beyond 2x?",
-          "a": "Yes, our custom speed slider allows you to aggressively speed up videos for dramatic time-lapse effects."
+          "q": "我可以将视频速度加快 2 倍以上吗？",
+          "a": "是的，我们的自定义速度滑块可让您大幅加快视频速度，以获得戏剧性的延时效果。"
         },
         {
-          "q": "Is this better than using the TikTok app editor?",
-          "a": "Using our tool allows you to process high-resolution videos offline without dealing with app crashes or lag."
+          "q": "这比使用 TikTok 应用编辑器更好吗？",
+          "a": "使用我们的工具，您可以离线处理高分辨率视频，而无需处理应用程序崩溃或延迟的问题。"
         }
       ],
       "translatedPath": "/speed-up-video-for-tiktok-fast",
@@ -13316,16 +13316,16 @@
       },
       "faqs": [
         {
-          "q": "Will cropping cut off the edges of my video?",
-          "a": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point."
+          "q": "裁剪会剪掉视频的边缘吗？",
+          "a": "是的，从横向转换为垂直会裁剪左侧和右侧。 您可以选择精确的中心点。"
         },
         {
-          "q": "Does this tool add a watermark?",
-          "a": "No, we never add watermarks to your cropped videos. It is 100% clean."
+          "q": "这个工具可以添加水印吗？",
+          "a": "不，我们绝不会在您裁剪的视频中添加水印。 它是 100% 干净的。"
         },
         {
-          "q": "Can I preview the crop before saving?",
-          "a": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+          "q": "我可以在保存之前预览裁剪吗？",
+          "a": "是的，我们的可视化界面可以让您在进行裁剪之前准确地看到视频的外观。"
         }
       ],
       "translatedPath": "/crop-video-for-instagram-story-916",
@@ -13399,16 +13399,16 @@
       },
       "faqs": [
         {
-          "q": "Can I merge recordings from an iPhone?",
-          "a": "Yes, iPhones save voice memos as M4A files, which our tool fully supports and can merge instantly."
+          "q": "我可以合并 iPhone 上的录音吗？",
+          "a": "是的，iPhone 将语音备忘录保存为 M4A 文件，我们的工具完全支持并可以立即合并。"
         },
         {
-          "q": "Is there a limit to how many memos I can merge?",
-          "a": "You are only limited by your devices RAM. You can comfortably merge dozens of long audio files."
+          "q": "我可以合并的备忘录数量有限制吗？",
+          "a": "您仅受设备 RAM 的限制。 您可以轻松地合并数十个长音频文件。"
         },
         {
-          "q": "Are my private recordings secure?",
-          "a": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+          "q": "我的私人录音安全吗？",
+          "a": "绝对地。 我们使用 WebAssembly 完全在您的浏览器中处理音频。 没有任何音频发送到我们的服务器。"
         }
       ],
       "translatedPath": "/combine-multiple-voice-memos-into-one",
@@ -13489,16 +13489,16 @@
       },
       "faqs": [
         {
-          "q": "Can it transcribe a video file, or do I need to extract audio first?",
-          "a": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically."
+          "q": "它可以转录视频文件吗？还是我需要先提取音频？",
+          "a": "您可以直接上传视频文件！ 我们的工具将自动处理音频提取和转录。"
         },
         {
-          "q": "How accurate is the transcription for Zoom calls?",
-          "a": "We use advanced AI models (like Whisper) that provide near-human accuracy, even with slight background noise."
+          "q": "Zoom 通话的转录准确度如何？",
+          "a": "我们使用先进的人工智能模型（如 Whisper），即使在轻微的背景噪音下也能提供接近人类的准确性。"
         },
         {
-          "q": "Is my corporate meeting data safe?",
-          "a": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+          "q": "我的公司会议数据安全吗？",
+          "a": "是的。 AI 模型完全在您自己的 CPU 上运行。 您的视频和生成的文本永远不会接触互联网。"
         }
       ],
       "translatedPath": "/transcribe-zoom-meeting-to-text",
@@ -13570,16 +13570,16 @@
       },
       "faqs": [
         {
-          "q": "What is the maximum video size for Gmail?",
-          "a": "Gmail limits attachments to 25MB. If your video is larger, you must compress it using our tool first."
+          "q": "Gmail 的最大影片大小是多少？",
+          "a": "Gmail 將附件大小限制為 25MB。 如果您的影片較大，您必須先使用我們的工具對其進行壓縮。"
         },
         {
-          "q": "Will the video still look good in an email?",
-          "a": "Yes, for casual sharing via email, reducing the bitrate significantly still provides a highly acceptable viewing experience."
+          "q": "影片在電子郵件中看起來仍然不錯嗎？",
+          "a": "是的，對於透過電子郵件進行的休閒分享，顯著降低位元率仍然可以提供高度可接受的觀看體驗。"
         },
         {
-          "q": "Does this work on mobile devices?",
-          "a": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
+          "q": "這適用於行動裝置嗎？",
+          "a": "絕對地。 我們的 WebAssembly 引擎在 iOS 和 Android 瀏覽器上本地運行，非常適合行動電子郵件。"
         }
       ],
       "translatedPath": "/reduce-mp4-video-size-for-email",
@@ -13667,16 +13667,16 @@
       },
       "faqs": [
         {
-          "q": "Why is WhatsApp saying my video is too large?",
-          "a": "WhatsApp has strict file size limits (usually 16MB for standard videos) to save bandwidth on their servers."
+          "q": "為什麼 WhatsApp 說我的影片太大？",
+          "a": "WhatsApp 有嚴格的檔案大小限制（標準影片通常為 16MB），以節省伺服器頻寬。"
         },
         {
-          "q": "Can I compress a 4K video for WhatsApp?",
-          "a": "Yes, our tool will automatically downscale and compress 4K files to a WhatsApp-friendly format and size."
+          "q": "我可以為 WhatsApp 壓縮 4K 影片嗎？",
+          "a": "是的，我們的工具會自動將 4K 檔案縮小並壓縮為 WhatsApp 友善的格式和大小。"
         },
         {
-          "q": "Is this safer than using an app?",
-          "a": "Yes. Apps often ask for intrusive permissions. Our web tool runs in a secure browser sandbox with zero uploads."
+          "q": "這比使用應用程式更安全嗎？",
+          "a": "是的。 應用程式經常要求侵入性權限。 我們的網路工具在安全的瀏覽器沙箱中運行，零上傳。"
         }
       ],
       "translatedPath": "/compress-large-video-for-whatsapp",
@@ -13776,16 +13776,16 @@
       },
       "faqs": [
         {
-          "q": "Why do my iPhone videos not play on my Android?",
-          "a": "iPhones often record in the MOV container using HEVC codecs, which some Android devices do not natively support."
+          "q": "為什麼我的 iPhone 影片無法在 Android 上播放？",
+          "a": "iPhone 通常使用 HEVC 編解碼器在 MOV 容器中錄製，而某些 Android 裝置本身並不支援該編解碼器。"
         },
         {
-          "q": "Will converting MOV to MP4 reduce the quality?",
-          "a": "No, we can repackage the video streams into an MP4 container without re-encoding, preserving 100% of the original quality."
+          "q": "將 MOV 轉換為 MP4 會降低品質嗎？",
+          "a": "不，我們可以將視訊串流重新打包到 MP4 容器中，而無需重新編碼，從而保持 100% 的原始品質。"
         },
         {
-          "q": "Do I need to install anything on my Android?",
-          "a": "No installation required. Just open this page in Chrome and convert your files instantly."
+          "q": "我需要在 Android 上安裝任何東西嗎？",
+          "a": "無需安裝。 只需在 Chrome 中開啟此頁面即可立即轉換您的檔案。"
         }
       ],
       "translatedPath": "/convert-iphone-mov-to-mp4-for-android",
@@ -13859,16 +13859,16 @@
       },
       "faqs": [
         {
-          "q": "Does extracting the audio degrade its quality?",
-          "a": "No, our tool performs a direct stream copy, meaning the audio is exactly identical to the original video recording."
+          "q": "提取音訊會降低其品質嗎？",
+          "a": "不，我們的工具執行直接串流複製，這意味著音訊與原始視訊錄製完全相同。"
         },
         {
-          "q": "Can I extract audio from a 2-hour Zoom recording?",
-          "a": "Yes, because processing is local, there are no timeout errors. It takes just seconds to extract hours of audio."
+          "q": "我可以從 2 小時的 Zoom 錄音中提取音訊嗎？",
+          "a": "是的，因為處理是本地的，所以不存在逾時錯誤。 只需幾秒鐘即可提取數小時的音訊。"
         },
         {
-          "q": "Is my unreleased podcast episode safe?",
-          "a": "Completely. Your video and audio never leave your computer. We value absolute privacy for creators."
+          "q": "我未發布的播客劇集安全嗎？",
+          "a": "完全地。 您的視訊和音訊永遠不會離開您的電腦。 我們重視創作者的絕對隱私。"
         }
       ],
       "translatedPath": "/extract-audio-from-video-for-podcasts",
@@ -13937,16 +13937,16 @@
       },
       "faqs": [
         {
-          "q": "How is it possible to compress a video without losing quality?",
-          "a": "We use intelligent variable bitrate (VBR) encoding. It allocates data only where it is visually necessary, dropping invisible details."
+          "q": "如何在不損失品質的情況下壓縮影片？",
+          "a": "我們使用智慧可變位元率（VBR）編碼。 它僅在視覺上必要的地方分配數據，從而丟棄不可見的細節。"
         },
         {
-          "q": "What is the best setting for archiving videos?",
-          "a": "We recommend setting the quality slider to 75-80%. It provides a massive reduction in size with nearly imperceptible changes."
+          "q": "存檔影片的最佳設定是什麼？",
+          "a": "我們建議將質量滑桿設定為 75-80%。 它大大減小了尺寸，而且變化幾乎難以察覺。"
         },
         {
-          "q": "Do you use hardware acceleration?",
-          "a": "Yes, we leverage WebCodecs to use your devices GPU, making the high-quality compression extremely fast."
+          "q": "你使用硬體加速嗎？",
+          "a": "是的，我們利用 WebCodecs 來使用您裝置的 GPU，從而使高品質壓縮速度極快。"
         }
       ],
       "translatedPath": "/make-video-smaller-without-losing-quality",
@@ -14027,16 +14027,16 @@
       },
       "faqs": [
         {
-          "q": "Can the audio be recovered once muted?",
-          "a": "No, the exported file will permanently have its audio track removed, guaranteeing absolute silence."
+          "q": "靜音後音訊還能恢復嗎？",
+          "a": "不會，匯出的檔案將永久刪除其音軌，保證絕對安靜。"
         },
         {
-          "q": "Will muting the video change its resolution?",
-          "a": "Not at all. The visual stream is untouched. We simply delete the audio track and repackage the file instantly."
+          "q": "將視訊靜音會改變其解析度嗎？",
+          "a": "一點也不。 視覺流未受影響。 我們只需刪除音軌並立即重新打包檔案即可。"
         },
         {
-          "q": "How fast is this process?",
-          "a": "Because we do not re-encode the video frames, removing the audio takes a fraction of a second."
+          "q": "這個過程有多快？",
+          "a": "由於我們不對視訊幀進行重新編碼，因此刪除音訊只需要幾分之一秒的時間。"
         }
       ],
       "translatedPath": "/remove-sound-from-video-completely",
@@ -14114,16 +14114,16 @@
       },
       "faqs": [
         {
-          "q": "Will the audio sound like a chipmunk?",
-          "a": "Our tool automatically applies pitch correction to keep the audio sounding as natural as possible, even at high speeds."
+          "q": "音頻聽起來像花栗鼠嗎？",
+          "a": "我們的工具會自動套用音高校正，以保持音訊聽起來盡可能自然，即使在高速下也是如此。"
         },
         {
-          "q": "Can I speed up a video beyond 2x?",
-          "a": "Yes, our custom speed slider allows you to aggressively speed up videos for dramatic time-lapse effects."
+          "q": "我可以將影片速度加快 2 倍以上嗎？",
+          "a": "是的，我們的自訂速度滑桿可讓您大幅加快影片速度，以獲得戲劇性的縮時效果。"
         },
         {
-          "q": "Is this better than using the TikTok app editor?",
-          "a": "Using our tool allows you to process high-resolution videos offline without dealing with app crashes or lag."
+          "q": "這比使用 TikTok 應用程式編輯器更好嗎？",
+          "a": "使用我們的工具，您可以離線處理高解析度視頻，而無需處理應用程式崩潰或延遲的問題。"
         }
       ],
       "translatedPath": "/speed-up-video-for-tiktok-fast",
@@ -14202,16 +14202,16 @@
       },
       "faqs": [
         {
-          "q": "Will cropping cut off the edges of my video?",
-          "a": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point."
+          "q": "裁切會剪掉影片的邊緣嗎？",
+          "a": "是的，從橫向轉換為垂直會裁切左側和右側。 您可以選擇精確的中心點。"
         },
         {
-          "q": "Does this tool add a watermark?",
-          "a": "No, we never add watermarks to your cropped videos. It is 100% clean."
+          "q": "這個工具可以添加浮水印嗎？",
+          "a": "不，我們絕不會在您裁剪的影片中添加浮水印。 它是 100% 乾淨的。"
         },
         {
-          "q": "Can I preview the crop before saving?",
-          "a": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+          "q": "我可以在儲存之前預覽裁剪嗎？",
+          "a": "是的，我們的視覺化介面可以讓您在進行裁剪之前準確地看到影片的外觀。"
         }
       ],
       "translatedPath": "/crop-video-for-instagram-story-916",
@@ -14285,16 +14285,16 @@
       },
       "faqs": [
         {
-          "q": "Can I merge recordings from an iPhone?",
-          "a": "Yes, iPhones save voice memos as M4A files, which our tool fully supports and can merge instantly."
+          "q": "我可以合併 iPhone 上的錄音嗎？",
+          "a": "是的，iPhone 將語音備忘錄保存為 M4A 文件，我們的工具完全支援並可以立即合併。"
         },
         {
-          "q": "Is there a limit to how many memos I can merge?",
-          "a": "You are only limited by your devices RAM. You can comfortably merge dozens of long audio files."
+          "q": "我可以合併的備忘錄數量有限制嗎？",
+          "a": "您僅受裝置 RAM 的限制。 您可以輕鬆合併數十個長音訊檔案。"
         },
         {
-          "q": "Are my private recordings secure?",
-          "a": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+          "q": "我的私人錄音安全嗎？",
+          "a": "絕對地。 我們使用 WebAssembly 完全在您的瀏覽器中處理音訊。 沒有任何音訊發送到我們的伺服器。"
         }
       ],
       "translatedPath": "/combine-multiple-voice-memos-into-one",
@@ -14375,16 +14375,16 @@
       },
       "faqs": [
         {
-          "q": "Can it transcribe a video file, or do I need to extract audio first?",
-          "a": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically."
+          "q": "它可以轉錄視訊檔案嗎？還是我需要先提取音訊？",
+          "a": "您可以直接上傳影片檔案！ 我們的工具將自動處理音訊擷取和轉錄。"
         },
         {
-          "q": "How accurate is the transcription for Zoom calls?",
-          "a": "We use advanced AI models (like Whisper) that provide near-human accuracy, even with slight background noise."
+          "q": "Zoom 通話的轉錄準確度如何？",
+          "a": "我們使用先進的人工智慧模型（如 Whisper），即使在輕微的背景噪音下也能提供接近人類的準確性。"
         },
         {
-          "q": "Is my corporate meeting data safe?",
-          "a": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+          "q": "我的公司會議資料安全嗎？",
+          "a": "是的。 AI 模型完全在您自己的 CPU 上運行。 您的影片和產生的文字永遠不會接觸網路。"
         }
       ],
       "translatedPath": "/transcribe-zoom-meeting-to-text",
@@ -14419,7 +14419,7 @@
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Can it transcribe a video file, or do I need to extract audio first?",
+            "title": "它可以轉錄視訊檔案嗎？還是我需要先提取音訊？",
             "description": "您可以直接上傳影片檔案！ 我們的工具將自動處理音訊擷取和轉錄。",
             "buttonText": "→"
           }
@@ -27972,14 +27972,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Crop Video for Instagram Story (9:16)",
+            "title": "Decupați videoclipul pentru povestea Instagram (9:16)",
             "subtitle": "Instantly format your landscape or square videos into the perfect 9:16 vertical aspect ratio for Instagram Stories."
           }
         },
         {
           "type": "how-to",
           "data": {
-            "title": "Understanding Social Media Ratios",
+            "title": "Înțelegerea raporturilor social media",
             "description": "",
             "steps": [
               {
@@ -27996,15 +27996,15 @@
         {
           "type": "trust-badge-banner",
           "data": {
-            "title": "Can I preview the crop before saving?",
-            "description": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+            "title": "Pot previzualiza decuparea înainte de a salva?",
+            "description": "Da, interfața noastră vizuală vă permite să vedeți exact cum va arăta videoclipul înainte de a vă implica decuparea."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Will cropping cut off the edges of my video?",
-            "description": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point.",
+            "title": "Decuparea va tăia marginile videoclipului meu?",
+            "description": "Da, trecerea de la peisaj la vertical va tăia părțile din stânga și din dreapta. Puteți alege exact punctul central.",
             "buttonText": "→"
           }
         }
@@ -28084,7 +28084,7 @@
         {
           "type": "timeline-view",
           "data": {
-            "title": "The Easiest Way to Merge Audio",
+            "title": "Cel mai simplu mod de a îmbina sunetul",
             "description": "",
             "events": [
               {
@@ -28108,14 +28108,14 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Are my private recordings secure?",
-            "description": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+            "title": "Înregistrările mele private sunt securizate?",
+            "description": "Absolut. Procesăm audio în întregime în browser-ul dvs. folosind WebAssembly. Niciun sunet nu este trimis vreodată la serverele noastre."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Can I merge recordings from an iPhone?",
+            "title": "Pot îmbina înregistrările de pe un iPhone?",
             "buttonText": "Start"
           }
         }
@@ -28186,7 +28186,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Transcribe Zoom Meeting to Text",
+            "title": "Transcrie întâlnirea Zoom în text",
             "content": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
             "buttonText": "Start"
           }
@@ -28194,8 +28194,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "Maximize Meeting Productivity",
-            "description": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
+            "title": "Maximizați productivitatea întâlnirilor",
+            "description": "Transformă-ți înregistrările video și audio lungi Zoom în transcrieri text precise, local și privat.",
             "steps": [
               "Generate Meeting Minutes - Stop taking manual notes. Get a full transcript of what was said and use AI to summarize it later.",
               "Searchable Archives - Turn hours of unsearchable video into a text document so you can easily find exactly what was discussed.",
@@ -28206,15 +28206,15 @@
         {
           "type": "alert",
           "data": {
-            "title": "Is my corporate meeting data safe?",
-            "description": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+            "title": "Datele întâlnirilor mele corporative sunt în siguranță?",
+            "description": "Da. Modelul AI rulează în întregime pe propriul procesor. Videoclipul dvs. și textul rezultat nu ating niciodată internetul."
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Can it transcribe a video file, or do I need to extract audio first?",
-            "description": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically.",
+            "title": "Poate transcrie un fișier video sau trebuie să extrag mai întâi audio?",
+            "description": "Puteți încărca fișierul video direct! Instrumentul nostru se va ocupa automat de extragerea și transcrierea audio.",
             "buttonText": "→"
           }
         }
@@ -28287,7 +28287,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Reduce MP4 Video Size for Email",
+            "title": "Зменшіть розмір відео MP4 для електронної пошти",
             "content": "Compress large MP4 files to fit within the 25MB email attachment limit. Free, instant, and fully local processing.",
             "buttonText": "Start"
           }
@@ -28295,23 +28295,23 @@
         {
           "type": "roi-calculator",
           "data": {
-            "title": "How to compress MP4 for Email",
-            "description": "Drag and drop your large video file.",
+            "title": "Як стиснути MP4 для електронної пошти",
+            "description": "Перетягніть великий відеофайл.",
             "buttonText": "Choose Target Size"
           }
         },
         {
           "type": "security-arch",
           "data": {
-            "title": "Does this work on mobile devices?",
-            "description": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
+            "title": "Це працює на мобільних пристроях?",
+            "description": "Абсолютно. Наш механізм WebAssembly працює локально в браузерах iOS і Android, ідеально підходить для мобільної електронної пошти."
           }
         },
         {
           "type": "gamified-progress",
           "data": {
-            "title": "What is the maximum video size for Gmail?",
-            "description": "Gmail limits attachments to 25MB. If your video is larger, you must compress it using our tool first.",
+            "title": "Який максимальний розмір відео для Gmail?",
+            "description": "Gmail обмежує вкладення до 25 Мб. Якщо ваше відео більше, спершу його потрібно стиснути за допомогою нашого інструменту.",
             "buttonText": "→"
           }
         }
@@ -28382,14 +28382,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Compress Large Video for WhatsApp",
+            "title": "Стисніть велике відео для WhatsApp",
             "subtitle": "Easily shrink videos to bypass WhatsApp size limits. Send full-length videos without error messages."
           }
         },
         {
           "type": "timeline-view",
           "data": {
-            "title": "Why Use Our WhatsApp Compressor?",
+            "title": "Навіщо використовувати наш компресор WhatsApp?",
             "description": "",
             "events": [
               {
@@ -28413,16 +28413,16 @@
         {
           "type": "highlight-box",
           "data": {
-            "title": "Can I compress a 4K video for WhatsApp?",
-            "description": "Yes, our tool will automatically downscale and compress 4K files to a WhatsApp-friendly format and size.",
+            "title": "Чи можу я стиснути відео 4K для WhatsApp?",
+            "description": "Так, наш інструмент автоматично зменшить масштаб і стисне файли 4K до формату та розміру, зручного для WhatsApp.",
             "label": "✨"
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Why is WhatsApp saying my video is too large?",
-            "description": "WhatsApp has strict file size limits (usually 16MB for standard videos) to save bandwidth on their servers.",
+            "title": "Чому WhatsApp каже, що моє відео завелике?",
+            "description": "WhatsApp має суворі обмеження на розмір файлу (зазвичай 16 МБ для стандартних відео), щоб заощадити пропускну здатність своїх серверів.",
             "buttonText": "Start"
           }
         }
@@ -28489,7 +28489,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Convert iPhone MOV to MP4 for Android",
+            "title": "Перетворення iPhone MOV у MP4 для Android",
             "content": "Fix playback issues by converting Apple MOV videos to universally supported MP4 format for Android users.",
             "buttonText": "Start"
           }
@@ -28497,7 +28497,7 @@
         {
           "type": "bento-cards",
           "data": {
-            "title": "MOV vs MP4 Compatibility",
+            "title": "Сумісність MOV проти MP4",
             "description": "",
             "cards": [
               {
@@ -28514,14 +28514,14 @@
         {
           "type": "alert",
           "data": {
-            "title": "Do I need to install anything on my Android?",
-            "description": "No installation required. Just open this page in Chrome and convert your files instantly."
+            "title": "Чи потрібно мені щось встановлювати на свій Android?",
+            "description": "Установка не потрібна. Просто відкрийте цю сторінку в Chrome і миттєво конвертуйте свої файли."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Why do my iPhone videos not play on my Android?",
+            "title": "Чому мої відео з iPhone не відтворюються на моєму Android?",
             "buttonText": "→"
           }
         }
@@ -28600,8 +28600,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "3 Steps to Pristine Podcast Audio",
-            "description": "Rip pristine audio from video interviews and recordings. Perfect for podcasters needing high-quality MP3s.",
+            "title": "3 кроки до незайманого звуку подкастів",
+            "description": "Копіюйте незайманий аудіо з відеоінтерв'ю та записів. Ідеально підходить для подкастерів, яким потрібні високоякісні MP3.",
             "steps": [
               "Import Video File - Drag your Zoom or camera recording into the converter. We support huge files up to 10GB.",
               "Lossless Extraction - Our tool analyzes the container and extracts the raw AAC or MP3 audio track without touching the actual sound wave.",
@@ -28612,15 +28612,15 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Is my unreleased podcast episode safe?",
-            "description": "Completely. Your video and audio never leave your computer. We value absolute privacy for creators."
+            "title": "Чи безпечний мій неопублікований епізод подкасту?",
+            "description": "Повністю. Ваше відео та аудіо ніколи не залишають ваш комп’ютер. Ми цінуємо абсолютну конфіденційність творців."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Does extracting the audio degrade its quality?",
-            "description": "No, our tool performs a direct stream copy, meaning the audio is exactly identical to the original video recording.",
+            "title": "Чи погіршує якість аудіо?",
+            "description": "Ні, наш інструмент виконує пряме потокове копіювання, тобто звук повністю ідентичний оригінальному відеозапису.",
             "buttonText": "Start"
           }
         }
@@ -28691,7 +28691,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Make Video Smaller Without Losing Quality",
+            "title": "Зменште відео без втрати якості",
             "content": "Use advanced visual optimizations to drastically reduce video file sizes while retaining crisp visual fidelity.",
             "buttonText": "Start"
           }
@@ -28699,7 +28699,7 @@
         {
           "type": "accordion-features",
           "data": {
-            "title": "Who Needs Lossless-Feeling Compression?",
+            "title": "Кому потрібне стиснення без втрат?",
             "description": "",
             "items": [
               {
@@ -28720,8 +28720,8 @@
         {
           "type": "stat-box",
           "data": {
-            "title": "Do you use hardware acceleration?",
-            "description": "Yes, we leverage WebCodecs to use your devices GPU, making the high-quality compression extremely fast.",
+            "title": "Ви використовуєте апаратне прискорення?",
+            "description": "Так, ми використовуємо WebCodecs для використання графічного процесора вашого пристрою, що робить високоякісне стиснення надзвичайно швидким.",
             "statValue": "100%",
             "statLabel": "Private"
           }
@@ -28729,8 +28729,8 @@
         {
           "type": "bottom-cta",
           "data": {
-            "title": "How is it possible to compress a video without losing quality?",
-            "description": "We use intelligent variable bitrate (VBR) encoding. It allocates data only where it is visually necessary, dropping invisible details.",
+            "title": "Як можна стиснути відео без втрати якості?",
+            "description": "Ми використовуємо інтелектуальне кодування зі змінним бітрейтом (VBR). Він розміщує дані лише там, де це візуально необхідно, пропускаючи невидимі деталі.",
             "buttonText": "→"
           }
         }
@@ -28801,14 +28801,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Remove Sound from Video Completely",
+            "title": "Повністю видалити звук із відео",
             "subtitle": "Strip the audio track from any video file instantly. Create perfectly silent clips for social media or presentations."
           }
         },
         {
           "type": "icon-list",
           "data": {
-            "title": "Why Mute Videos?",
+            "title": "Навіщо вимикати відео?",
             "description": "",
             "items": [
               {
@@ -28829,15 +28829,15 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "How fast is this process?",
-            "description": "Because we do not re-encode the video frames, removing the audio takes a fraction of a second."
+            "title": "Як швидко цей процес?",
+            "description": "Оскільки ми не перекодуємо відеокадри, видалення аудіо займає частку секунди."
           }
         },
         {
           "type": "gamified-progress",
           "data": {
-            "title": "Can the audio be recovered once muted?",
-            "description": "No, the exported file will permanently have its audio track removed, guaranteeing absolute silence.",
+            "title": "Чи можна відновити звук після вимкнення звуку?",
+            "description": "Ні, з експортованого файлу назавжди буде видалено звукову доріжку, що гарантує абсолютну тишу.",
             "buttonText": "Start"
           }
         }
@@ -28908,7 +28908,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Speed Up Video for TikTok Fast",
+            "title": "Швидко прискорити відео для TikTok",
             "content": "Accelerate your videos to fit within TikTok time limits while keeping the action smooth and engaging.",
             "buttonText": "Start"
           }
@@ -28916,7 +28916,7 @@
         {
           "type": "progress-stats",
           "data": {
-            "title": "Optimize Pacing for Social Media",
+            "title": "Оптимізуйте швидкість для соціальних мереж",
             "description": "",
             "stats": [
               {
@@ -28940,16 +28940,16 @@
         {
           "type": "highlight-box",
           "data": {
-            "title": "Can I speed up a video beyond 2x?",
-            "description": "Yes, our custom speed slider allows you to aggressively speed up videos for dramatic time-lapse effects.",
+            "title": "Чи можу я пришвидшити відео понад 2 рази?",
+            "description": "Так, наш спеціальний повзунок швидкості дозволяє агресивно пришвидшити відео для драматичних ефектів сповільненої зйомки.",
             "label": "✨"
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Will the audio sound like a chipmunk?",
-            "description": "Our tool automatically applies pitch correction to keep the audio sounding as natural as possible, even at high speeds.",
+            "title": "Аудіо буде звучати як бурундук?",
+            "description": "Наш інструмент автоматично застосовує корекцію висоти, щоб аудіо звучало якомога природніше навіть на високих швидкостях.",
             "buttonText": "Start"
           }
         }
@@ -29016,14 +29016,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Crop Video for Instagram Story (9:16)",
+            "title": "Обрізати відео для Instagram Story (9:16)",
             "subtitle": "Instantly format your landscape or square videos into the perfect 9:16 vertical aspect ratio for Instagram Stories."
           }
         },
         {
           "type": "how-to",
           "data": {
-            "title": "Understanding Social Media Ratios",
+            "title": "Розуміння коефіцієнтів соціальних мереж",
             "description": "",
             "steps": [
               {
@@ -29040,15 +29040,15 @@
         {
           "type": "trust-badge-banner",
           "data": {
-            "title": "Can I preview the crop before saving?",
-            "description": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+            "title": "Чи можу я переглянути кадрування перед збереженням?",
+            "description": "Так, наш візуальний інтерфейс дає змогу побачити, як саме виглядатиме відео, перш ніж приступити до обрізання."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Will cropping cut off the edges of my video?",
-            "description": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point.",
+            "title": "Чи буде кадрування обрізати краї мого відео?",
+            "description": "Так, перетворення з альбомної на вертикальну обрізає ліву та праву сторони. Ви можете вибрати точну центральну точку.",
             "buttonText": "→"
           }
         }
@@ -29127,7 +29127,7 @@
         {
           "type": "timeline-view",
           "data": {
-            "title": "The Easiest Way to Merge Audio",
+            "title": "Найпростіший спосіб об’єднати аудіо",
             "description": "",
             "events": [
               {
@@ -29151,14 +29151,14 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Are my private recordings secure?",
-            "description": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+            "title": "Чи захищені мої приватні записи?",
+            "description": "Абсолютно. Ми повністю обробляємо аудіо у вашому браузері за допомогою WebAssembly. Аудіо не надсилається на наші сервери."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Can I merge recordings from an iPhone?",
+            "title": "Чи можна об'єднати записи з iPhone?",
             "buttonText": "Start"
           }
         }
@@ -29229,7 +29229,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Transcribe Zoom Meeting to Text",
+            "title": "Транскрибувати Zoom Meeting у текст",
             "content": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
             "buttonText": "Start"
           }
@@ -29237,8 +29237,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "Maximize Meeting Productivity",
-            "description": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
+            "title": "Збільште продуктивність зустрічі",
+            "description": "Конвертуйте свої довгі відео та аудіозаписи Zoom на точні текстові стенограми локально та приватно.",
             "steps": [
               "Generate Meeting Minutes - Stop taking manual notes. Get a full transcript of what was said and use AI to summarize it later.",
               "Searchable Archives - Turn hours of unsearchable video into a text document so you can easily find exactly what was discussed.",
@@ -29249,15 +29249,15 @@
         {
           "type": "alert",
           "data": {
-            "title": "Is my corporate meeting data safe?",
-            "description": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+            "title": "Чи безпечні дані моїх корпоративних зустрічей?",
+            "description": "так Модель AI повністю працює на вашому власному процесорі. Ваше відео та отриманий текст ніколи не потраплять в Інтернет."
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Can it transcribe a video file, or do I need to extract audio first?",
-            "description": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically.",
+            "title": "Чи можна транскрибувати відеофайл чи мені потрібно спочатку витягнути аудіо?",
+            "description": "Ви можете завантажити відео файл безпосередньо! Наш інструмент автоматично видобуватиме та транскрибуватиме звук.",
             "buttonText": "→"
           }
         }
@@ -29330,7 +29330,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Reduce MP4 Video Size for Email",
+            "title": "Kurangkan Saiz Video MP4 untuk E-mel",
             "content": "Compress large MP4 files to fit within the 25MB email attachment limit. Free, instant, and fully local processing.",
             "buttonText": "Start"
           }
@@ -29338,23 +29338,23 @@
         {
           "type": "roi-calculator",
           "data": {
-            "title": "How to compress MP4 for Email",
-            "description": "Drag and drop your large video file.",
+            "title": "Bagaimana untuk memampatkan MP4 untuk E-mel",
+            "description": "Seret dan lepaskan fail video besar anda.",
             "buttonText": "Choose Target Size"
           }
         },
         {
           "type": "security-arch",
           "data": {
-            "title": "Does this work on mobile devices?",
-            "description": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
+            "title": "Adakah ini berfungsi pada peranti mudah alih?",
+            "description": "betul-betul. Enjin WebAssembly kami berjalan secara setempat pada kedua-dua pelayar iOS dan Android, sesuai untuk e-mel mudah alih."
           }
         },
         {
           "type": "gamified-progress",
           "data": {
-            "title": "What is the maximum video size for Gmail?",
-            "description": "Gmail limits attachments to 25MB. If your video is larger, you must compress it using our tool first.",
+            "title": "Apakah saiz video maksimum untuk Gmail?",
+            "description": "Gmail mengehadkan lampiran kepada 25MB. Jika video anda lebih besar, anda mesti memampatkannya menggunakan alat kami dahulu.",
             "buttonText": "→"
           }
         }
@@ -29425,14 +29425,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Compress Large Video for WhatsApp",
+            "title": "Mampatkan Video Besar untuk WhatsApp",
             "subtitle": "Easily shrink videos to bypass WhatsApp size limits. Send full-length videos without error messages."
           }
         },
         {
           "type": "timeline-view",
           "data": {
-            "title": "Why Use Our WhatsApp Compressor?",
+            "title": "Mengapa Gunakan Pemampat WhatsApp Kami?",
             "description": "",
             "events": [
               {
@@ -29456,16 +29456,16 @@
         {
           "type": "highlight-box",
           "data": {
-            "title": "Can I compress a 4K video for WhatsApp?",
-            "description": "Yes, our tool will automatically downscale and compress 4K files to a WhatsApp-friendly format and size.",
+            "title": "Bolehkah saya memampatkan video 4K untuk WhatsApp?",
+            "description": "Ya, alat kami akan menurunkan skala secara automatik dan memampatkan fail 4K kepada format dan saiz mesra WhatsApp.",
             "label": "✨"
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Why is WhatsApp saying my video is too large?",
-            "description": "WhatsApp has strict file size limits (usually 16MB for standard videos) to save bandwidth on their servers.",
+            "title": "Mengapa WhatsApp mengatakan video saya terlalu besar?",
+            "description": "WhatsApp mempunyai had saiz fail yang ketat (biasanya 16MB untuk video standard) untuk menjimatkan lebar jalur pada pelayan mereka.",
             "buttonText": "Start"
           }
         }
@@ -29532,7 +29532,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Convert iPhone MOV to MP4 for Android",
+            "title": "Tukar iPhone MOV kepada MP4 untuk Android",
             "content": "Fix playback issues by converting Apple MOV videos to universally supported MP4 format for Android users.",
             "buttonText": "Start"
           }
@@ -29540,7 +29540,7 @@
         {
           "type": "bento-cards",
           "data": {
-            "title": "MOV vs MP4 Compatibility",
+            "title": "Keserasian MOV vs MP4",
             "description": "",
             "cards": [
               {
@@ -29557,14 +29557,14 @@
         {
           "type": "alert",
           "data": {
-            "title": "Do I need to install anything on my Android?",
-            "description": "No installation required. Just open this page in Chrome and convert your files instantly."
+            "title": "Adakah saya perlu memasang apa-apa pada Android saya?",
+            "description": "Tiada pemasangan diperlukan. Hanya buka halaman ini dalam Chrome dan tukar fail anda serta-merta."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Why do my iPhone videos not play on my Android?",
+            "title": "Mengapa video iPhone saya tidak dimainkan pada Android saya?",
             "buttonText": "→"
           }
         }
@@ -29643,8 +29643,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "3 Steps to Pristine Podcast Audio",
-            "description": "Rip pristine audio from video interviews and recordings. Perfect for podcasters needing high-quality MP3s.",
+            "title": "3 Langkah untuk Audio Podcast Murni",
+            "description": "Koyakkan audio asli daripada temu bual video dan rakaman. Sesuai untuk podcaster yang memerlukan MP3 berkualiti tinggi.",
             "steps": [
               "Import Video File - Drag your Zoom or camera recording into the converter. We support huge files up to 10GB.",
               "Lossless Extraction - Our tool analyzes the container and extracts the raw AAC or MP3 audio track without touching the actual sound wave.",
@@ -29655,15 +29655,15 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Is my unreleased podcast episode safe?",
-            "description": "Completely. Your video and audio never leave your computer. We value absolute privacy for creators."
+            "title": "Adakah episod podcast saya yang belum dikeluarkan selamat?",
+            "description": "sepenuhnya. Video dan audio anda tidak pernah meninggalkan komputer anda. Kami menghargai privasi mutlak untuk pencipta."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Does extracting the audio degrade its quality?",
-            "description": "No, our tool performs a direct stream copy, meaning the audio is exactly identical to the original video recording.",
+            "title": "Adakah mengekstrak audio merendahkan kualitinya?",
+            "description": "Tidak, alat kami melakukan salinan strim langsung, bermakna audio adalah betul-betul sama dengan rakaman video asal.",
             "buttonText": "Start"
           }
         }
@@ -29734,7 +29734,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Make Video Smaller Without Losing Quality",
+            "title": "Jadikan Video Lebih Kecil Tanpa Kehilangan Kualiti",
             "content": "Use advanced visual optimizations to drastically reduce video file sizes while retaining crisp visual fidelity.",
             "buttonText": "Start"
           }
@@ -29742,7 +29742,7 @@
         {
           "type": "accordion-features",
           "data": {
-            "title": "Who Needs Lossless-Feeling Compression?",
+            "title": "Siapa yang Memerlukan Pemampatan Tanpa Perasaan?",
             "description": "",
             "items": [
               {
@@ -29763,8 +29763,8 @@
         {
           "type": "stat-box",
           "data": {
-            "title": "Do you use hardware acceleration?",
-            "description": "Yes, we leverage WebCodecs to use your devices GPU, making the high-quality compression extremely fast.",
+            "title": "Adakah anda menggunakan pecutan perkakasan?",
+            "description": "Ya, kami memanfaatkan WebCodecs untuk menggunakan GPU peranti anda, menjadikan pemampatan berkualiti tinggi sangat pantas.",
             "statValue": "100%",
             "statLabel": "Private"
           }
@@ -29772,8 +29772,8 @@
         {
           "type": "bottom-cta",
           "data": {
-            "title": "How is it possible to compress a video without losing quality?",
-            "description": "We use intelligent variable bitrate (VBR) encoding. It allocates data only where it is visually necessary, dropping invisible details.",
+            "title": "Bagaimanakah cara untuk memampatkan video tanpa kehilangan kualiti?",
+            "description": "Kami menggunakan pengekodan kadar bit pembolehubah pintar (VBR). Ia memperuntukkan data hanya di tempat yang diperlukan secara visual, menjatuhkan butiran yang tidak kelihatan.",
             "buttonText": "→"
           }
         }
@@ -29844,14 +29844,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Remove Sound from Video Completely",
+            "title": "Keluarkan Bunyi daripada Video Sepenuhnya",
             "subtitle": "Strip the audio track from any video file instantly. Create perfectly silent clips for social media or presentations."
           }
         },
         {
           "type": "icon-list",
           "data": {
-            "title": "Why Mute Videos?",
+            "title": "Mengapa Redamkan Video?",
             "description": "",
             "items": [
               {
@@ -29872,15 +29872,15 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "How fast is this process?",
-            "description": "Because we do not re-encode the video frames, removing the audio takes a fraction of a second."
+            "title": "Seberapa pantas proses ini?",
+            "description": "Oleh kerana kami tidak mengekod semula bingkai video, mengalih keluar audio mengambil masa sepersekian saat."
           }
         },
         {
           "type": "gamified-progress",
           "data": {
-            "title": "Can the audio be recovered once muted?",
-            "description": "No, the exported file will permanently have its audio track removed, guaranteeing absolute silence.",
+            "title": "Bolehkah audio dipulihkan setelah diredamkan?",
+            "description": "Tidak, fail yang dieksport akan dialih keluar trek audionya secara kekal, menjamin senyap mutlak.",
             "buttonText": "Start"
           }
         }
@@ -29951,7 +29951,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Speed Up Video for TikTok Fast",
+            "title": "Percepatkan Video untuk TikTok Pantas",
             "content": "Accelerate your videos to fit within TikTok time limits while keeping the action smooth and engaging.",
             "buttonText": "Start"
           }
@@ -29959,7 +29959,7 @@
         {
           "type": "progress-stats",
           "data": {
-            "title": "Optimize Pacing for Social Media",
+            "title": "Optimumkan Pacing untuk Media Sosial",
             "description": "",
             "stats": [
               {
@@ -29983,16 +29983,16 @@
         {
           "type": "highlight-box",
           "data": {
-            "title": "Can I speed up a video beyond 2x?",
-            "description": "Yes, our custom speed slider allows you to aggressively speed up videos for dramatic time-lapse effects.",
+            "title": "Bolehkah saya mempercepatkan video melebihi 2x?",
+            "description": "Ya, peluncur kelajuan tersuai kami membolehkan anda mempercepatkan video secara agresif untuk kesan selang masa yang dramatik.",
             "label": "✨"
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Will the audio sound like a chipmunk?",
-            "description": "Our tool automatically applies pitch correction to keep the audio sounding as natural as possible, even at high speeds.",
+            "title": "Adakah audio akan berbunyi seperti chipmunk?",
+            "description": "Alat kami secara automatik menggunakan pembetulan nada untuk memastikan audio berbunyi senatural mungkin, walaupun pada kelajuan tinggi.",
             "buttonText": "Start"
           }
         }
@@ -30059,14 +30059,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Crop Video for Instagram Story (9:16)",
+            "title": "Pangkas Video untuk Cerita Instagram (9:16)",
             "subtitle": "Instantly format your landscape or square videos into the perfect 9:16 vertical aspect ratio for Instagram Stories."
           }
         },
         {
           "type": "how-to",
           "data": {
-            "title": "Understanding Social Media Ratios",
+            "title": "Memahami Nisbah Media Sosial",
             "description": "",
             "steps": [
               {
@@ -30083,15 +30083,15 @@
         {
           "type": "trust-badge-banner",
           "data": {
-            "title": "Can I preview the crop before saving?",
-            "description": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+            "title": "Bolehkah saya pratonton tanaman sebelum menyimpan?",
+            "description": "Ya, antara muka visual kami membolehkan anda melihat dengan tepat rupa video itu sebelum anda komited pada pemangkasan."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Will cropping cut off the edges of my video?",
-            "description": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point.",
+            "title": "Adakah pemangkasan akan memotong tepi video saya?",
+            "description": "Ya, menukar daripada landskap kepada menegak akan memangkas bahagian kiri dan kanan. Anda boleh memilih titik tengah yang tepat.",
             "buttonText": "→"
           }
         }
@@ -30170,7 +30170,7 @@
         {
           "type": "timeline-view",
           "data": {
-            "title": "The Easiest Way to Merge Audio",
+            "title": "Cara Paling Mudah untuk Menggabungkan Audio",
             "description": "",
             "events": [
               {
@@ -30194,14 +30194,14 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Are my private recordings secure?",
-            "description": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+            "title": "Adakah rakaman peribadi saya selamat?",
+            "description": "betul-betul. Kami memproses audio sepenuhnya dalam penyemak imbas anda menggunakan WebAssembly. Tiada audio dihantar ke pelayan kami."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Can I merge recordings from an iPhone?",
+            "title": "Bolehkah saya menggabungkan rakaman daripada iPhone?",
             "buttonText": "Start"
           }
         }
@@ -30272,7 +30272,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Transcribe Zoom Meeting to Text",
+            "title": "Transkripsikan Mesyuarat Zum kepada Teks",
             "content": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
             "buttonText": "Start"
           }
@@ -30280,8 +30280,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "Maximize Meeting Productivity",
-            "description": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
+            "title": "Maksimumkan Produktiviti Mesyuarat",
+            "description": "Tukar rakaman video dan audio Zum panjang anda kepada transkrip teks yang tepat secara tempatan dan peribadi.",
             "steps": [
               "Generate Meeting Minutes - Stop taking manual notes. Get a full transcript of what was said and use AI to summarize it later.",
               "Searchable Archives - Turn hours of unsearchable video into a text document so you can easily find exactly what was discussed.",
@@ -30292,15 +30292,15 @@
         {
           "type": "alert",
           "data": {
-            "title": "Is my corporate meeting data safe?",
-            "description": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+            "title": "Adakah data mesyuarat korporat saya selamat?",
+            "description": "ya. Model AI berjalan sepenuhnya pada CPU anda sendiri. Video anda dan teks yang terhasil tidak pernah menyentuh internet."
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Can it transcribe a video file, or do I need to extract audio first?",
-            "description": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically.",
+            "title": "Bolehkah ia menyalin fail video, atau adakah saya perlu mengekstrak audio terlebih dahulu?",
+            "description": "Anda boleh memuat naik fail video secara langsung! Alat kami akan mengendalikan pengekstrakan audio dan transkripsi secara automatik.",
             "buttonText": "→"
           }
         }
@@ -30373,7 +30373,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Reduce MP4 Video Size for Email",
+            "title": "Bawasan ang Laki ng MP4 Video para sa Email",
             "content": "Compress large MP4 files to fit within the 25MB email attachment limit. Free, instant, and fully local processing.",
             "buttonText": "Start"
           }
@@ -30381,23 +30381,23 @@
         {
           "type": "roi-calculator",
           "data": {
-            "title": "How to compress MP4 for Email",
-            "description": "Drag and drop your large video file.",
+            "title": "Paano i-compress ang MP4 para sa Email",
+            "description": "I-drag at i-drop ang iyong malaking video file.",
             "buttonText": "Choose Target Size"
           }
         },
         {
           "type": "security-arch",
           "data": {
-            "title": "Does this work on mobile devices?",
-            "description": "Absolutely. Our WebAssembly engine runs locally on both iOS and Android browsers, perfect for mobile email."
+            "title": "Gumagana ba ito sa mga mobile device?",
+            "description": "Talagang. Ang aming WebAssembly engine ay tumatakbo nang lokal sa parehong iOS at Android browser, perpekto para sa mobile na email."
           }
         },
         {
           "type": "gamified-progress",
           "data": {
-            "title": "What is the maximum video size for Gmail?",
-            "description": "Gmail limits attachments to 25MB. If your video is larger, you must compress it using our tool first.",
+            "title": "Ano ang maximum na laki ng video para sa Gmail?",
+            "description": "Nililimitahan ng Gmail ang mga attachment sa 25MB. Kung mas malaki ang iyong video, dapat mo muna itong i-compress gamit ang aming tool.",
             "buttonText": "→"
           }
         }
@@ -30468,14 +30468,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Compress Large Video for WhatsApp",
+            "title": "I-compress ang Malaking Video para sa WhatsApp",
             "subtitle": "Easily shrink videos to bypass WhatsApp size limits. Send full-length videos without error messages."
           }
         },
         {
           "type": "timeline-view",
           "data": {
-            "title": "Why Use Our WhatsApp Compressor?",
+            "title": "Bakit Gamitin ang Aming WhatsApp Compressor?",
             "description": "",
             "events": [
               {
@@ -30499,16 +30499,16 @@
         {
           "type": "highlight-box",
           "data": {
-            "title": "Can I compress a 4K video for WhatsApp?",
-            "description": "Yes, our tool will automatically downscale and compress 4K files to a WhatsApp-friendly format and size.",
+            "title": "Maaari ba akong mag-compress ng 4K na video para sa WhatsApp?",
+            "description": "Oo, ang aming tool ay awtomatikong magpapababa at magko-compress ng mga 4K na file sa isang WhatsApp-friendly na format at laki.",
             "label": "✨"
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Why is WhatsApp saying my video is too large?",
-            "description": "WhatsApp has strict file size limits (usually 16MB for standard videos) to save bandwidth on their servers.",
+            "title": "Bakit sinasabi ng WhatsApp na ang aking video ay masyadong malaki?",
+            "description": "Ang WhatsApp ay may mahigpit na mga limitasyon sa laki ng file (karaniwan ay 16MB para sa mga karaniwang video) upang makatipid ng bandwidth sa kanilang mga server.",
             "buttonText": "Start"
           }
         }
@@ -30575,7 +30575,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Convert iPhone MOV to MP4 for Android",
+            "title": "I-convert ang iPhone MOV sa MP4 para sa Android",
             "content": "Fix playback issues by converting Apple MOV videos to universally supported MP4 format for Android users.",
             "buttonText": "Start"
           }
@@ -30600,14 +30600,14 @@
         {
           "type": "alert",
           "data": {
-            "title": "Do I need to install anything on my Android?",
-            "description": "No installation required. Just open this page in Chrome and convert your files instantly."
+            "title": "Kailangan ko bang mag-install ng kahit ano sa aking Android?",
+            "description": "Walang kinakailangang pag-install. Buksan lang ang page na ito sa Chrome at i-convert kaagad ang iyong mga file."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Why do my iPhone videos not play on my Android?",
+            "title": "Bakit hindi nagpe-play ang aking mga video sa iPhone sa aking Android?",
             "buttonText": "→"
           }
         }
@@ -30686,8 +30686,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "3 Steps to Pristine Podcast Audio",
-            "description": "Rip pristine audio from video interviews and recordings. Perfect for podcasters needing high-quality MP3s.",
+            "title": "3 Mga Hakbang sa Pristine Podcast Audio",
+            "description": "Putulin ang malinis na audio mula sa mga panayam sa video at pag-record. Perpekto para sa mga podcaster na nangangailangan ng mataas na kalidad na mga MP3.",
             "steps": [
               "Import Video File - Drag your Zoom or camera recording into the converter. We support huge files up to 10GB.",
               "Lossless Extraction - Our tool analyzes the container and extracts the raw AAC or MP3 audio track without touching the actual sound wave.",
@@ -30698,15 +30698,15 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Is my unreleased podcast episode safe?",
-            "description": "Completely. Your video and audio never leave your computer. We value absolute privacy for creators."
+            "title": "Ligtas ba ang aking hindi pa nailalabas na podcast episode?",
+            "description": "ganap. Ang iyong video at audio ay hindi kailanman umaalis sa iyong computer. Pinahahalagahan namin ang ganap na privacy para sa mga creator."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Does extracting the audio degrade its quality?",
-            "description": "No, our tool performs a direct stream copy, meaning the audio is exactly identical to the original video recording.",
+            "title": "Ang pag-extract ba ng audio ay nagpapababa sa kalidad nito?",
+            "description": "Hindi, ang aming tool ay gumaganap ng direktang kopya ng stream, ibig sabihin, ang audio ay eksaktong kapareho ng orihinal na pag-record ng video.",
             "buttonText": "Start"
           }
         }
@@ -30777,7 +30777,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Make Video Smaller Without Losing Quality",
+            "title": "Gawing Maliit ang Video Nang Hindi Nawawalan ng Kalidad",
             "content": "Use advanced visual optimizations to drastically reduce video file sizes while retaining crisp visual fidelity.",
             "buttonText": "Start"
           }
@@ -30785,7 +30785,7 @@
         {
           "type": "accordion-features",
           "data": {
-            "title": "Who Needs Lossless-Feeling Compression?",
+            "title": "Sino ang Nangangailangan ng Lossless-Feeling Compression?",
             "description": "",
             "items": [
               {
@@ -30806,8 +30806,8 @@
         {
           "type": "stat-box",
           "data": {
-            "title": "Do you use hardware acceleration?",
-            "description": "Yes, we leverage WebCodecs to use your devices GPU, making the high-quality compression extremely fast.",
+            "title": "Gumagamit ka ba ng hardware acceleration?",
+            "description": "Oo, ginagamit namin ang mga WebCodec upang gamitin ang GPU ng iyong mga device, na ginagawang napakabilis ng mataas na kalidad na compression.",
             "statValue": "100%",
             "statLabel": "Private"
           }
@@ -30815,8 +30815,8 @@
         {
           "type": "bottom-cta",
           "data": {
-            "title": "How is it possible to compress a video without losing quality?",
-            "description": "We use intelligent variable bitrate (VBR) encoding. It allocates data only where it is visually necessary, dropping invisible details.",
+            "title": "Paano posible na i-compress ang isang video nang hindi nawawala ang kalidad?",
+            "description": "Gumagamit kami ng intelligent variable bitrate (VBR) encoding. Naglalaan lamang ito ng data kung saan ito ay biswal na kinakailangan, na bumababa ng mga hindi nakikitang detalye.",
             "buttonText": "→"
           }
         }
@@ -30887,14 +30887,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Remove Sound from Video Completely",
+            "title": "Alisin ang Tunog sa Video nang Ganap",
             "subtitle": "Strip the audio track from any video file instantly. Create perfectly silent clips for social media or presentations."
           }
         },
         {
           "type": "icon-list",
           "data": {
-            "title": "Why Mute Videos?",
+            "title": "Bakit I-mute ang Mga Video?",
             "description": "",
             "items": [
               {
@@ -30915,15 +30915,15 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "How fast is this process?",
-            "description": "Because we do not re-encode the video frames, removing the audio takes a fraction of a second."
+            "title": "Gaano kabilis ang prosesong ito?",
+            "description": "Dahil hindi namin muling ine-encode ang mga video frame, ang pag-alis ng audio ay tumatagal ng isang bahagi ng isang segundo."
           }
         },
         {
           "type": "gamified-progress",
           "data": {
-            "title": "Can the audio be recovered once muted?",
-            "description": "No, the exported file will permanently have its audio track removed, guaranteeing absolute silence.",
+            "title": "Maaari bang mabawi ang audio kapag naka-mute?",
+            "description": "Hindi, permanenteng aalisin ng na-export na file ang audio track nito, na ginagarantiyahan ang ganap na katahimikan.",
             "buttonText": "Start"
           }
         }
@@ -30994,7 +30994,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Speed Up Video for TikTok Fast",
+            "title": "Pabilisin ang Video para sa TikTok Mabilis",
             "content": "Accelerate your videos to fit within TikTok time limits while keeping the action smooth and engaging.",
             "buttonText": "Start"
           }
@@ -31002,7 +31002,7 @@
         {
           "type": "progress-stats",
           "data": {
-            "title": "Optimize Pacing for Social Media",
+            "title": "I-optimize ang Pacing para sa Social Media",
             "description": "",
             "stats": [
               {
@@ -31026,16 +31026,16 @@
         {
           "type": "highlight-box",
           "data": {
-            "title": "Can I speed up a video beyond 2x?",
-            "description": "Yes, our custom speed slider allows you to aggressively speed up videos for dramatic time-lapse effects.",
+            "title": "Maaari ko bang pabilisin ang isang video nang higit sa 2x?",
+            "description": "Oo, binibigyang-daan ka ng aming custom na slider ng bilis na agresibong pabilisin ang mga video para sa mga dramatikong epekto ng time-lapse.",
             "label": "✨"
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Will the audio sound like a chipmunk?",
-            "description": "Our tool automatically applies pitch correction to keep the audio sounding as natural as possible, even at high speeds.",
+            "title": "Magiging chipmunk ba ang audio?",
+            "description": "Awtomatikong inilalapat ng aming tool ang pitch correction upang panatilihing natural ang tunog hangga't maaari, kahit na sa mataas na bilis.",
             "buttonText": "Start"
           }
         }
@@ -31102,14 +31102,14 @@
         {
           "type": "big-typo-hero",
           "data": {
-            "title": "Crop Video for Instagram Story (9:16)",
+            "title": "I-crop ang Video para sa Instagram Story (9:16)",
             "subtitle": "Instantly format your landscape or square videos into the perfect 9:16 vertical aspect ratio for Instagram Stories."
           }
         },
         {
           "type": "how-to",
           "data": {
-            "title": "Understanding Social Media Ratios",
+            "title": "Pag-unawa sa Social Media Ratio",
             "description": "",
             "steps": [
               {
@@ -31126,15 +31126,15 @@
         {
           "type": "trust-badge-banner",
           "data": {
-            "title": "Can I preview the crop before saving?",
-            "description": "Yes, our visual interface lets you see exactly how the video will look before you commit to the crop."
+            "title": "Maaari ko bang i-preview ang crop bago i-save?",
+            "description": "Oo, hinahayaan ka ng aming visual na interface na makita nang eksakto kung ano ang magiging hitsura ng video bago ka mag-commit sa pag-crop."
           }
         },
         {
           "type": "split-screen-cta",
           "data": {
-            "title": "Will cropping cut off the edges of my video?",
-            "description": "Yes, converting from landscape to vertical will crop the left and right sides. You can choose the exact center point.",
+            "title": "Puputulin ba ng pag-crop ang mga gilid ng aking video?",
+            "description": "Oo, ang pag-convert mula sa landscape patungo sa patayo ay i-crop ang kaliwa at kanang bahagi. Maaari mong piliin ang eksaktong sentrong punto.",
             "buttonText": "→"
           }
         }
@@ -31213,7 +31213,7 @@
         {
           "type": "timeline-view",
           "data": {
-            "title": "The Easiest Way to Merge Audio",
+            "title": "Ang Pinakamadaling Paraan para Pagsamahin ang Audio",
             "description": "",
             "events": [
               {
@@ -31237,14 +31237,14 @@
         {
           "type": "security-arch",
           "data": {
-            "title": "Are my private recordings secure?",
-            "description": "Absolutely. We process the audio entirely in your browser using WebAssembly. No audio is ever sent to our servers."
+            "title": "Secure ba ang aking mga pribadong recording?",
+            "description": "Talagang. Pinoproseso namin ang audio nang buo sa iyong browser gamit ang WebAssembly. Walang audio na ipinadala sa aming mga server."
           }
         },
         {
           "type": "floating-cta",
           "data": {
-            "title": "Can I merge recordings from an iPhone?",
+            "title": "Maaari ko bang pagsamahin ang mga pag-record mula sa isang iPhone?",
             "buttonText": "Start"
           }
         }
@@ -31315,7 +31315,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "Transcribe Zoom Meeting to Text",
+            "title": "I-transcribe ang Zoom Meeting sa Text",
             "content": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
             "buttonText": "Start"
           }
@@ -31323,8 +31323,8 @@
         {
           "type": "terminal-steps",
           "data": {
-            "title": "Maximize Meeting Productivity",
-            "description": "Convert your long Zoom video and audio recordings into accurate text transcripts locally and privately.",
+            "title": "I-maximize ang Productivity ng Meeting",
+            "description": "I-convert ang iyong mahabang Zoom video at audio recording sa mga tumpak na text transcript nang lokal at pribado.",
             "steps": [
               "Generate Meeting Minutes - Stop taking manual notes. Get a full transcript of what was said and use AI to summarize it later.",
               "Searchable Archives - Turn hours of unsearchable video into a text document so you can easily find exactly what was discussed.",
@@ -31335,15 +31335,15 @@
         {
           "type": "alert",
           "data": {
-            "title": "Is my corporate meeting data safe?",
-            "description": "Yes. The AI model runs entirely on your own CPU. Your video and the resulting text never touch the internet."
+            "title": "Ligtas ba ang data ng aking corporate meeting?",
+            "description": "Oo. Ang modelo ng AI ay ganap na tumatakbo sa iyong sariling CPU. Ang iyong video at ang nagreresultang teksto ay hindi kailanman hawakan sa internet."
           }
         },
         {
           "type": "bottom-cta",
           "data": {
-            "title": "Can it transcribe a video file, or do I need to extract audio first?",
-            "description": "You can upload the video file directly! Our tool will handle the audio extraction and transcription automatically.",
+            "title": "Maaari ba itong mag-transcribe ng isang video file, o kailangan ko bang mag-extract muna ng audio?",
+            "description": "Maaari mong direktang i-upload ang video file! Awtomatikong hahawakan ng aming tool ang audio extraction at transcription.",
             "buttonText": "→"
           }
         }
@@ -32358,7 +32358,7 @@
         {
           "type": "hero-split",
           "data": {
-            "title": "תמלול פגישת זום לטקסט",
+            "title": "תמלל פגישת זום לטקסט",
             "content": "המר את הקלטות הווידאו והשמע הארוכות של זום לתמלולי טקסט מדויקים באופן מקומי ופרטי.",
             "buttonText": "Start"
           }
@@ -32441,7 +32441,7 @@
         {
           "type": "hrdina-rozkol",
           "data": {
-            "title": "Zmenšite veľkosť videa MP4 pre e-mail",
+            "title": "Znížte veľkosť videa MP4 pre e-mail",
             "content": "Komprimujte veľké súbory MP4 tak, aby sa zmestili do limitu 25 MB e-mailových príloh. Bezplatné, okamžité a plne lokálne spracovanie.",
             "buttonText": "Štart"
           }
