@@ -47,9 +47,17 @@ export const Home: React.FC = () => {
     return matchesSearch && matchesCategory;
   });
 
+  const homeFaqs = [
+    { q: t('homeFaq1Q'), a: t('homeFaq1A') },
+    { q: t('homeFaq2Q'), a: t('homeFaq2A') },
+    { q: t('homeFaq3Q'), a: t('homeFaq3A') },
+    { q: t('homeFaq4Q'), a: t('homeFaq4A') },
+    { q: t('homeFaq5Q'), a: t('homeFaq5A') },
+  ].filter(item => item.q && item.a);
+
   return (
     <main style={{ width: '100%', position: 'relative', overflowX: 'hidden' }}>
-      <SEO titleKey="seoHomeTitle" descKey="seoHomeDesc" />
+      <SEO titleKey="seoHomeTitle" descKey="seoHomeDesc" faqItems={homeFaqs} />
       
       {/* SECTION 1: HERO & FINDER */}
       <section style={{ 
@@ -601,7 +609,90 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* SECTION 5: FREQUENTLY ASKED QUESTIONS */}
+      <section style={{ padding: '80px 24px 120px', maxWidth: 900, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, color: 'var(--text-main)', marginBottom: 16, fontFamily: 'Outfit, sans-serif' }}>
+            {t('homeFaqTitle') || 'Frequently Asked Questions'}
+          </h2>
+        </div>
 
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {homeFaqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            return (
+              <div
+                key={index}
+                className="glass-panel"
+                style={{
+                  borderRadius: 20,
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--bg-card)',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  boxShadow: isOpen ? '0 10px 30px rgba(0,0,0,0.06)' : 'none',
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? null : index)}
+                  style={{
+                    width: '100%',
+                    padding: '24px 28px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 16,
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    color: 'var(--text-main)',
+                    fontSize: '1.15rem',
+                    fontWeight: 700,
+                  }}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <span style={{ color: 'var(--brand-primary)', fontWeight: 800 }}>Q:</span>
+                    {faq.q}
+                  </span>
+                  <div style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 12,
+                    background: isOpen ? 'rgba(168, 85, 247, 0.15)' : 'rgba(0,0,0,0.04)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: isOpen ? 'var(--brand-primary)' : 'var(--text-muted)',
+                    flexShrink: 0,
+                    transition: 'transform 0.3s ease',
+                    transform: isOpen ? 'rotate(180deg)' : 'none',
+                  }}>
+                    <ChevronDown size={20} />
+                  </div>
+                </button>
+                {isOpen && (
+                  <div style={{
+                    padding: '0 28px 24px 28px',
+                    color: 'var(--text-muted)',
+                    fontSize: '1.05rem',
+                    lineHeight: 1.7,
+                    borderTop: '1px solid var(--border-color)',
+                    paddingTop: 18,
+                    margin: '0 28px',
+                    paddingLeft: 0,
+                    paddingRight: 0
+                  }}>
+                    <strong style={{ color: 'var(--brand-secondary)', marginRight: 6 }}>A:</strong>
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       <style>{`
         @keyframes spin {

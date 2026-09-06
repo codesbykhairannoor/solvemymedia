@@ -100,14 +100,14 @@ const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = 
     { qKey: 'speedVFaq3Q', aKey: 'speedVFaq3A' },
   ],
   'crop-video': [
-    { qKey: 'cropVFaq1Q', aKey: 'cropVFaq1A' },
-    { qKey: 'cropVFaq2Q', aKey: 'cropVFaq2A' },
-    { qKey: 'cropVFaq3Q', aKey: 'cropVFaq3A' },
+    { qKey: 'cropFaq1Q', aKey: 'cropFaq1A' },
+    { qKey: 'cropFaq2Q', aKey: 'cropFaq2A' },
+    { qKey: 'cropFaq3Q', aKey: 'cropFaq3A' },
   ],
   'mute-video': [
-    { qKey: 'muteVFaq1Q', aKey: 'muteVFaq1A' },
-    { qKey: 'muteVFaq2Q', aKey: 'muteVFaq2A' },
-    { qKey: 'muteVFaq3Q', aKey: 'muteVFaq3A' },
+    { qKey: 'mvFaq1Q', aKey: 'mvFaq1A' },
+    { qKey: 'mvFaq2Q', aKey: 'mvFaq2A' },
+    { qKey: 'mvFaq3Q', aKey: 'mvFaq3A' },
   ],
   'watermark-video': [
     { qKey: 'wmFaq1Q', aKey: 'wmFaq1A' },
