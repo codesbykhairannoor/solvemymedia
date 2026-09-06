@@ -1,8 +1,10 @@
 import React from 'react';
-import { GitCompare, Zap, CloudOff, ShieldAlert, ShieldCheck, Scale, FileWarning, Timer, DollarSign, Target } from 'lucide-react';
+import { GitCompare, Zap, CloudOff, ShieldAlert, ShieldCheck, Scale, FileWarning, Timer, DollarSign, Target, BookOpen } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const Compare: React.FC = () => {
+  const { t } = useLanguage();
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>
@@ -78,6 +80,122 @@ export const Compare: React.FC = () => {
                  </ul>
                </div>
              </div>
+          </div>
+        </section>
+
+        {/* SECTION: SCIENTIFIC & ARCHITECTURAL COMPARISON MATRIX */}
+        <section className="seo-section research-matrix" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '8px 20px',
+                borderRadius: 100,
+                background: 'rgba(59, 130, 246, 0.1)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                color: 'var(--brand-primary)',
+                fontSize: '0.85rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                marginBottom: 20
+              }}>
+                <Scale size={16} />
+                {t('researchComp_badge') || 'Algorithmic Comparison'}
+              </div>
+              <h2 style={{
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontWeight: 800,
+                marginBottom: 16,
+                color: 'var(--text-main)',
+                lineHeight: 1.2
+              }}>
+                {t('researchComp_title') || 'Scientific & Architectural Breakdown'}
+              </h2>
+              <p style={{
+                fontSize: '1.1rem',
+                color: 'var(--text-muted)',
+                lineHeight: 1.8,
+                maxWidth: 800,
+                margin: '0 auto'
+              }}>
+                {t('researchComp_subtitle') || 'Comparing client-side WebAssembly execution with conventional cloud media pipelines.'}
+              </p>
+            </div>
+
+            {/* Responsive Table / Card Matrix */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+              marginBottom: 32
+            }}>
+              {[
+                {
+                  metric: t('researchComp_r1_metric') || 'Execution Sandbox & Isolation',
+                  cloud: t('researchComp_r1_cloud') || 'Multi-tenant cloud container; data stored temporarily on shared server SSDs.',
+                  local: t('researchComp_r1_local') || 'Formally verified WebAssembly memory sandbox (Haas et al. 2017); zero disk retention.'
+                },
+                {
+                  metric: t('researchComp_r2_metric') || 'Perceptual Quality Index',
+                  cloud: t('researchComp_r2_cloud') || 'Opaque proprietary downsampling; unpredictable compression artifacts.',
+                  local: t('researchComp_r2_local') || 'Open SSIM index (Wang et al. 2004) & standardized rate control (libx264/libmp3lame).'
+                },
+                {
+                  metric: t('researchComp_r3_metric') || 'Speech Recognition Pipeline',
+                  cloud: t('researchComp_r3_cloud') || 'Raw audio stream transmitted to remote cloud API servers for inference.',
+                  local: t('researchComp_r3_local') || 'Local Whisper Transformer neural inference (Radford et al. 2023) running on client CPU/GPU.'
+                },
+                {
+                  metric: t('researchComp_r4_metric') || 'Network Egress Attack Surface',
+                  cloud: t('researchComp_r4_cloud') || 'Full media file transmitted over WAN; exposed to TLS MITM and server compromise.',
+                  local: t('researchComp_r4_local') || 'Mathematical zero-network transmission: 0 bytes uploaded to any remote server.'
+                }
+              ].map((row, idx) => (
+                <div key={idx} style={{
+                  padding: 24,
+                  background: 'var(--bg-app)',
+                  borderRadius: 20,
+                  border: '1px solid var(--border-color)',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                  gap: 20,
+                  alignItems: 'center'
+                }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 4 }}>
+                      {row.metric}
+                    </h3>
+                  </div>
+                  <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.06)', borderRadius: 12, border: '1px solid rgba(239, 68, 68, 0.15)' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--error-color)', textTransform: 'uppercase', marginBottom: 4 }}>Cloud Paradigm</div>
+                    <div style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>{row.cloud}</div>
+                  </div>
+                  <div style={{ padding: '12px 16px', background: 'rgba(16, 185, 129, 0.06)', borderRadius: 12, border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: 4 }}>SolveMyMedia Local</div>
+                    <div style={{ fontSize: '0.92rem', color: 'var(--text-main)', fontWeight: 600, lineHeight: 1.5 }}>{row.local}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Disclaimer */}
+            <div style={{
+              padding: '20px 24px',
+              borderRadius: 16,
+              background: 'var(--bg-app)',
+              border: '1px dashed var(--border-color)',
+              fontSize: '0.88rem',
+              lineHeight: 1.6,
+              color: 'var(--text-muted)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12
+            }}>
+              <BookOpen size={18} style={{ color: 'var(--brand-primary)', flexShrink: 0 }} />
+              <span>{t('researchComp_disclaimer') || 'Academic Citation: Architectural metrics based on published WebAssembly (PLDI 2017), Whisper AI (ICML 2023), and SSIM (IEEE TIP 2004) performance studies.'}</span>
+            </div>
           </div>
         </section>
 

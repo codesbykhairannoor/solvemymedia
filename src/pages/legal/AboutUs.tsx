@@ -1,8 +1,10 @@
 import React from 'react';
-import { ShieldCheck, Heart, Zap, CheckCircle2, Globe, Users, Code, Lock } from 'lucide-react';
+import { ShieldCheck, Heart, Zap, CheckCircle2, Globe, Users, Code, Lock, History, Sparkles, Cpu, Bot, BookOpen } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const AboutUs: React.FC = () => {
+  const { t } = useLanguage();
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>
@@ -60,6 +62,128 @@ export const AboutUs: React.FC = () => {
                   <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{val.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION: ACADEMIC RESEARCH TIMELINE */}
+        <section className="seo-section research-timeline" style={{ padding: '80px 24px', background: 'var(--bg-app)' }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '8px 20px',
+                borderRadius: 100,
+                background: 'rgba(168, 85, 247, 0.1)',
+                border: '1px solid rgba(168, 85, 247, 0.25)',
+                color: 'var(--brand-primary)',
+                fontSize: '0.85rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                marginBottom: 20
+              }}>
+                <History size={16} />
+                {t('researchAbout_badge') || 'Our Scientific Lineage'}
+              </div>
+              <h2 style={{
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontWeight: 800,
+                marginBottom: 16,
+                color: 'var(--text-main)',
+                lineHeight: 1.2
+              }}>
+                {t('researchAbout_title') || 'From Academic Research to Open Browser Tools'}
+              </h2>
+              <p style={{
+                fontSize: '1.1rem',
+                color: 'var(--text-muted)',
+                lineHeight: 1.8,
+                maxWidth: 800,
+                margin: '0 auto'
+              }}>
+                {t('researchAbout_subtitle') || 'How decades of signal processing breakthroughs culminated in zero-upload browser media editing.'}
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 32 }}>
+              {[
+                {
+                  era: t('researchAbout_s1_era') || '1999 – 2004',
+                  title: t('researchAbout_s1_title') || 'Foundations of Perceptual Signal Encoding',
+                  desc: t('researchAbout_s1_desc') || 'Brandenburg (AES 1999) perfected psychoacoustic masking for MP3 audio, while Wang et al. (IEEE 2004) introduced SSIM for image quality evaluation.',
+                  icon: Sparkles,
+                  color: '#eab308'
+                },
+                {
+                  era: t('researchAbout_s2_era') || '2017',
+                  title: t('researchAbout_s2_title') || 'The WebAssembly Sandbox Revolution',
+                  desc: t('researchAbout_s2_desc') || 'Haas et al. (PLDI 2017) proved that complex C/C++ audio and video processing engines could run safely inside web browsers at near-native CPU speeds.',
+                  icon: Cpu,
+                  color: '#8b5cf6'
+                },
+                {
+                  era: t('researchAbout_s3_era') || '2023 – Present',
+                  title: t('researchAbout_s3_title') || 'Client-Side Neural AI & WebCodecs',
+                  desc: t('researchAbout_s3_desc') || 'Radford et al. (ICML 2023) open-sourced Whisper AI, enabling SolveMyMedia to bring end-to-end neural speech transcription into the browser without servers.',
+                  icon: Bot,
+                  color: '#ec4899'
+                }
+              ].map((step, idx) => (
+                <div key={idx} style={{
+                  padding: 32,
+                  background: 'var(--bg-card)',
+                  borderRadius: 24,
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  gap: 24,
+                  alignItems: 'flex-start'
+                }}>
+                  <div style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 16,
+                    background: `${step.color}15`,
+                    border: `1px solid ${step.color}30`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: step.color,
+                    flexShrink: 0
+                  }}>
+                    <step.icon size={24} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.82rem', fontWeight: 800, color: step.color, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
+                      {step.era}
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8 }}>
+                      {step.title}
+                    </h3>
+                    <p style={{ fontSize: '1.02rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Disclaimer */}
+            <div style={{
+              padding: '20px 24px',
+              borderRadius: 16,
+              background: 'var(--bg-card)',
+              border: '1px dashed var(--border-color)',
+              fontSize: '0.88rem',
+              lineHeight: 1.6,
+              color: 'var(--text-muted)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12
+            }}>
+              <BookOpen size={18} style={{ color: 'var(--brand-primary)', flexShrink: 0 }} />
+              <span>{t('researchAbout_disclaimer') || 'Research Attribution: SolveMyMedia bridges open algorithms published in academic literature to modern web browsers. Published researchers have not directly evaluated this tool.'}</span>
             </div>
           </div>
         </section>

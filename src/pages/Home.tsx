@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   Video, Music, Scissors, RefreshCw, Bot, MonitorPlay, ImagePlay, Gauge, Crop, 
   VolumeX, Stamp, AudioLines, Search, X, ShieldCheck, Zap, ServerOff, Database, Quote,
-  ChevronDown, ChevronUp
+  ChevronDown, ChevronUp, Sparkles, BookOpen, Layers, Cpu
 } from 'lucide-react';
 import { SEO } from '../components/seo/SEO';
 import { useLanguage } from '../hooks/useLanguage';
@@ -270,6 +270,305 @@ export const Home: React.FC = () => {
                 <MonitorPlay size={80} color="var(--brand-primary)" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: PEER-REVIEWED MULTIMEDIA SCIENCE & OPEN STANDARDS */}
+      <section style={{ padding: '80px 24px', marginBottom: '80px', position: 'relative' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '8px 20px',
+              borderRadius: 9999,
+              background: 'rgba(168, 85, 247, 0.1)',
+              border: '1px solid rgba(168, 85, 247, 0.25)',
+              color: 'var(--brand-primary)',
+              fontSize: '0.85rem',
+              fontWeight: 800,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              marginBottom: 20
+            }}>
+              <Sparkles size={16} />
+              {t('researchHome_badge') || 'Peer-Reviewed Multimedia Science'}
+            </div>
+            <h2 style={{
+              fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+              fontWeight: 900,
+              letterSpacing: '-0.03em',
+              color: 'var(--text-main)',
+              marginBottom: 16,
+              fontFamily: 'Outfit, sans-serif'
+            }}>
+              {smartHighlight(t('researchHome_title') || 'Empowered by Open Standards & Academic Research')}
+            </h2>
+            <p style={{
+              fontSize: 'clamp(1.05rem, 1.8vw, 1.2rem)',
+              color: 'var(--text-muted)',
+              maxWidth: 820,
+              margin: '0 auto',
+              lineHeight: 1.7,
+              fontWeight: 500
+            }}>
+              {t('researchHome_subtitle') || 'Our client-side media algorithms are built upon foundational computer science and signal processing papers published in top-tier journals.'}
+            </p>
+          </div>
+
+          {/* Bento Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: 24,
+            marginBottom: 32
+          }}>
+            {/* Card 1: WebAssembly */}
+            <div className="glass-panel" style={{
+              padding: 36,
+              borderRadius: 32,
+              border: '1px solid var(--border-color)',
+              background: 'var(--bg-card)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                  <div style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 16,
+                    background: 'rgba(139, 92, 246, 0.12)',
+                    border: '1px solid rgba(139, 92, 246, 0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#8b5cf6'
+                  }}>
+                    <Cpu size={26} />
+                  </div>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    padding: '6px 14px',
+                    borderRadius: 9999,
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    color: '#8b5cf6',
+                    border: '1px solid rgba(139, 92, 246, 0.2)'
+                  }}>
+                    {t('researchHome_c1_tag') || 'Virtual Machine Execution'}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8, fontFamily: 'Outfit, sans-serif' }}>
+                  {t('researchHome_c1_title') || 'WebAssembly Memory Sandboxing'}
+                </h3>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--brand-primary)', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <BookOpen size={14} />
+                  <span>{t('researchHome_c1_paper') || 'Haas et al., ACM SIGPLAN PLDI 2017'}</span>
+                </div>
+                <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.65, fontWeight: 500 }}>
+                  {t('researchHome_c1_desc') || 'Enables near-native execution speed for audio/video codecs inside a deterministic, formally verified memory sandbox with zero host escape risks.'}
+                </p>
+              </div>
+              <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                <span style={{ color: 'var(--brand-secondary)' }}>DOI:</span> 10.1145/3062341.3062363
+              </div>
+            </div>
+
+            {/* Card 2: Whisper AI */}
+            <div className="glass-panel" style={{
+              padding: 36,
+              borderRadius: 32,
+              border: '1px solid var(--border-color)',
+              background: 'var(--bg-card)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                  <div style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 16,
+                    background: 'rgba(236, 72, 153, 0.12)',
+                    border: '1px solid rgba(236, 72, 153, 0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ec4899'
+                  }}>
+                    <Bot size={26} />
+                  </div>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    padding: '6px 14px',
+                    borderRadius: 9999,
+                    background: 'rgba(236, 72, 153, 0.1)',
+                    color: '#ec4899',
+                    border: '1px solid rgba(236, 72, 153, 0.2)'
+                  }}>
+                    {t('researchHome_c2_tag') || 'Speech Recognition'}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8, fontFamily: 'Outfit, sans-serif' }}>
+                  {t('researchHome_c2_title') || 'Robust Neural Audio Transcription'}
+                </h3>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ec4899', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <BookOpen size={14} />
+                  <span>{t('researchHome_c2_paper') || 'Radford et al., ICML 2023'}</span>
+                </div>
+                <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.65, fontWeight: 500 }}>
+                  {t('researchHome_c2_desc') || 'Processes sequence-to-sequence multilingual audio transcription entirely in client memory via Transformer neural networks without cloud APIs.'}
+                </p>
+              </div>
+              <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                <span style={{ color: '#ec4899' }}>arXiv:</span> 2212.04356 (OpenAI Whisper)
+              </div>
+            </div>
+
+            {/* Card 3: SSIM Perceptual Fidelity */}
+            <div className="glass-panel" style={{
+              padding: 36,
+              borderRadius: 32,
+              border: '1px solid var(--border-color)',
+              background: 'var(--bg-card)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                  <div style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 16,
+                    background: 'rgba(34, 197, 94, 0.12)',
+                    border: '1px solid rgba(34, 197, 94, 0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#22c55e'
+                  }}>
+                    <Gauge size={26} />
+                  </div>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    padding: '6px 14px',
+                    borderRadius: 9999,
+                    background: 'rgba(34, 197, 94, 0.1)',
+                    color: '#22c55e',
+                    border: '1px solid rgba(34, 197, 94, 0.2)'
+                  }}>
+                    {t('researchHome_c3_tag') || 'Perceptual Quality'}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8, fontFamily: 'Outfit, sans-serif' }}>
+                  {t('researchHome_c3_title') || 'Structural Similarity (SSIM) Metrics'}
+                </h3>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#22c55e', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <BookOpen size={14} />
+                  <span>{t('researchHome_c3_paper') || 'Wang et al., IEEE Transactions on Image Processing (2004)'}</span>
+                </div>
+                <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.65, fontWeight: 500 }}>
+                  {t('researchHome_c3_desc') || 'Maintains structural luminance and contrast fidelity during video compression, ensuring visually lossless results under human visual system models.'}
+                </p>
+              </div>
+              <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                <span style={{ color: '#22c55e' }}>DOI:</span> 10.1109/TIP.2003.819861
+              </div>
+            </div>
+
+            {/* Card 4: H.264 Video Coding */}
+            <div className="glass-panel" style={{
+              padding: 36,
+              borderRadius: 32,
+              border: '1px solid var(--border-color)',
+              background: 'var(--bg-card)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+                  <div style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 16,
+                    background: 'rgba(6, 182, 212, 0.12)',
+                    border: '1px solid rgba(6, 182, 212, 0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#06b6d4'
+                  }}>
+                    <Video size={26} />
+                  </div>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    padding: '6px 14px',
+                    borderRadius: 9999,
+                    background: 'rgba(6, 182, 212, 0.1)',
+                    color: '#06b6d4',
+                    border: '1px solid rgba(6, 182, 212, 0.2)'
+                  }}>
+                    {t('researchHome_c4_tag') || 'Video Compression'}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8, fontFamily: 'Outfit, sans-serif' }}>
+                  {t('researchHome_c4_title') || 'Discrete Cosine & Motion Estimation'}
+                </h3>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#06b6d4', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <BookOpen size={14} />
+                  <span>{t('researchHome_c4_paper') || 'Wiegand et al., IEEE CSVT 2003'}</span>
+                </div>
+                <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.65, fontWeight: 500 }}>
+                  {t('researchHome_c4_desc') || 'Optimizes spatial redundancy reduction and inter-frame motion vectors directly in browser memory without server-side computational queues.'}
+                </p>
+              </div>
+              <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                <span style={{ color: '#06b6d4' }}>DOI:</span> 10.1109/TCSVT.2003.815165
+              </div>
+            </div>
+          </div>
+
+          {/* Academic Attribution Disclaimer */}
+          <div style={{
+            padding: '20px 28px',
+            borderRadius: 20,
+            background: 'rgba(0,0,0,0.02)',
+            border: '1px dashed var(--border-color)',
+            fontSize: '0.88rem',
+            lineHeight: 1.6,
+            color: 'var(--text-muted)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16
+          }}>
+            <BookOpen size={20} style={{ color: 'var(--brand-primary)', flexShrink: 0 }} />
+            <span>{t('researchHome_disclaimer') || 'Academic & Open Standards Attribution: SolveMyMedia implements open algorithms and specifications derived from these peer-reviewed publications and W3C standards. Authors and institutions did not directly review, sponsor, or endorse this website.'}</span>
           </div>
         </div>
       </section>

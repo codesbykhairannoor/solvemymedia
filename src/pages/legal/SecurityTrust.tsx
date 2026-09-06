@@ -1,8 +1,10 @@
 import React from 'react';
-import { Shield, Fingerprint, Lock, Cpu, Globe, Search, Code, CheckCircle2 } from 'lucide-react';
+import { Shield, Fingerprint, Lock, Cpu, Globe, Search, Code, CheckCircle2, ShieldCheck, FileText, BookOpen } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const SecurityTrust: React.FC = () => {
+  const { t } = useLanguage();
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>
@@ -63,6 +65,122 @@ export const SecurityTrust: React.FC = () => {
                   <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>Once the initial scripts are downloaded, the application can operate entirely offline. Try it yourself by turning off your Wi-Fi.</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION: CRYPTOGRAPHIC & ARCHITECTURAL FOUNDATIONS */}
+        <section className="seo-section research-security" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
+          <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '8px 20px',
+                borderRadius: 100,
+                background: 'rgba(59, 130, 246, 0.1)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                color: 'var(--brand-primary)',
+                fontSize: '0.85rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                marginBottom: 20
+              }}>
+                <ShieldCheck size={16} />
+                {t('researchSec_badge') || 'Provable Privacy Architecture'}
+              </div>
+              <h2 style={{
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontWeight: 800,
+                marginBottom: 16,
+                color: 'var(--text-main)',
+                lineHeight: 1.2
+              }}>
+                {t('researchSec_title') || 'Cryptographic & Architectural Foundations'}
+              </h2>
+              <p style={{
+                fontSize: '1.1rem',
+                color: 'var(--text-muted)',
+                lineHeight: 1.8,
+                maxWidth: 800,
+                margin: '0 auto'
+              }}>
+                {t('researchSec_subtitle') || 'We replace corporate privacy promises with formal mathematical isolation and zero-knowledge data minimization principles.'}
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 32, marginBottom: 32 }}>
+              {/* Pillar 1 */}
+              <div style={{
+                padding: 40,
+                background: 'var(--bg-app)',
+                borderRadius: 24,
+                border: '1px solid var(--border-color)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
+                <div>
+                  <div style={{ width: 48, height: 48, borderRadius: 14, background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', marginBottom: 20 }}>
+                    <Lock size={24} />
+                  </div>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)' }}>
+                    {t('researchSec_c1_title') || 'Provable Data Minimization (GDPR Art. 5(1)(c))'}
+                  </h3>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#10b981', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <FileText size={14} />
+                    <span>{t('researchSec_c1_principle') || 'Principle of Least Privilege (Saltzer & Schroeder, IEEE 1975)'}</span>
+                  </div>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.75 }}>
+                    {t('researchSec_c1_desc') || 'By never transmitting media bytes across the network, the attack surface for interception (MITM) and third-party data leaks is reduced to absolute zero.'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Pillar 2 */}
+              <div style={{
+                padding: 40,
+                background: 'var(--bg-app)',
+                borderRadius: 24,
+                border: '1px solid var(--border-color)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
+                <div>
+                  <div style={{ width: 48, height: 48, borderRadius: 14, background: 'rgba(139, 92, 246, 0.12)', border: '1px solid rgba(139, 92, 246, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#8b5cf6', marginBottom: 20 }}>
+                    <Cpu size={24} />
+                  </div>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)' }}>
+                    {t('researchSec_c2_title') || 'W3C WebCodecs & TypedArray Isolation'}
+                  </h3>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#8b5cf6', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <FileText size={14} />
+                    <span>{t('researchSec_c2_principle') || 'W3C WebCodecs Standard (Adenot, Zemtsov, Aboba 2023)'}</span>
+                  </div>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.75 }}>
+                    {t('researchSec_c2_desc') || 'Video frames and audio chunks are decoded into hardware-isolated ArrayBuffer objects within browser tabs, physically incapable of remote network egress without browser authorization.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Disclaimer */}
+            <div style={{
+              padding: '20px 24px',
+              borderRadius: 16,
+              background: 'var(--bg-app)',
+              border: '1px dashed var(--border-color)',
+              fontSize: '0.88rem',
+              lineHeight: 1.6,
+              color: 'var(--text-muted)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12
+            }}>
+              <BookOpen size={18} style={{ color: 'var(--brand-primary)', flexShrink: 0 }} />
+              <span>{t('researchSec_disclaimer') || 'Standards Attribution: Built in accordance with published ISO/IEC and W3C open specifications. Standards bodies do not directly endorse individual commercial implementations.'}</span>
             </div>
           </div>
         </section>
