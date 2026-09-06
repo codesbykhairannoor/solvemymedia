@@ -558,17 +558,24 @@ ${urls.join('\n')}
 // ─── Write Files ────────────────────────────────────────────────────────────
 
 const publicDir = path.join(__dirname, '..', 'public');
+const distDir = path.join(__dirname, '..', 'dist');
 
 // Write sitemap
 const sitemap = generateSitemap();
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap);
-console.log(`✅ sitemap.xml generated (${Math.round(sitemap.length / 1024)} KB, ${LANGUAGES.length * (TOOLS.length + STATIC_PAGES.length)} URLs)`);
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap);
+}
+console.log(`✅ sitemap.xml generated (${Math.round(sitemap.length / 1024)} KB, ${LANGUAGES.length * (TOOLS.length + STATIC_PAGES.length + pseoRoutes.length)} URLs)`);
 
 // Write per-language llms files
 for (const lang of LANGUAGES) {
   const content = generateLlmFile(lang);
   const filename = `llms-${lang.code}.txt`;
   fs.writeFileSync(path.join(publicDir, filename), content);
+  if (fs.existsSync(distDir)) {
+    fs.writeFileSync(path.join(distDir, filename), content);
+  }
   console.log(`✅ ${filename}`);
 }
 
