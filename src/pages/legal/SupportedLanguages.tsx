@@ -1,8 +1,10 @@
 import React from 'react';
 import { Languages, Globe2, Captions, MessageSquare, MapPin, SearchCheck, CheckCircle2 } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const SupportedLanguages: React.FC = () => {
+  const { t, languages } = useLanguage();
 
   return (
     <div style={{ padding: '80px 0', background: 'var(--bg-main)' }}>
@@ -12,13 +14,13 @@ export const SupportedLanguages: React.FC = () => {
         <section className="seo-section hero" style={{ padding: '80px 24px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
             <div style={{ display: 'inline-flex', padding: '12px 24px', background: 'var(--brand-gradient)', borderRadius: 100, color: 'white', fontWeight: 800, fontSize: '0.9rem', marginBottom: 40, gap: 12, alignItems: 'center' }}>
-              <Languages size={18} /> Global Reach
+              <Languages size={18} /> {t('lang_heroBadge') || 'Global Reach'}
             </div>
             <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.04em', lineHeight: 1.1, fontFamily: 'Outfit, sans-serif' }}>
-              {smartHighlight('Built for a Global Audience')}
+              {smartHighlight(t('lang_heroTitle') || 'Built for a Global Audience')}
             </h1>
             <p style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: 800, margin: '0 auto' }}>
-              Whether you are transcribing a Spanish interview or navigating the app in Indonesian, SolveMyMedia is designed to break down language barriers locally.
+              {t('lang_heroDesc') || "Whether you are transcribing a Spanish interview or navigating the app in Indonesian, SolveMyMedia is designed to break down language barriers locally."}
             </p>
           </div>
         </section>
@@ -27,14 +29,14 @@ export const SupportedLanguages: React.FC = () => {
         <section className="seo-section localization" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: 64, alignItems: 'center' }}>
             <div style={{ flex: '1 1 400px' }}>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>App Interface Localization</h2>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('lang_uiTitle') || 'App Interface Localization'}</h2>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>
-                We are actively working to translate our entire user interface so you can compress and edit your videos in your native language. Currently, the app interface fully supports:
+                {t('lang_uiDesc') || 'We are actively working to translate our entire user interface so you can compress and edit your videos in your native language. Currently, the app interface fully supports 32 languages including:'}
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 16 }}>
-                 {['English (Default)', 'Indonesian', 'Spanish', 'French', 'German', 'Portuguese'].map((lang, idx) => (
+                 {(languages || []).slice(0, 12).map((lang, idx) => (
                     <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 20px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 12, fontWeight: 600, color: 'var(--text-main)' }}>
-                       <CheckCircle2 size={18} color="var(--brand-primary)" /> {lang}
+                       <CheckCircle2 size={18} color="var(--brand-primary)" /> {lang.nativeName}
                     </div>
                  ))}
               </div>
@@ -50,23 +52,23 @@ export const SupportedLanguages: React.FC = () => {
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 64 }}>
               <Captions size={48} color="var(--brand-primary)" style={{ margin: '0 auto 24px' }} />
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>AI Transcription Capabilities</h2>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('lang_whisperTitle') || 'AI Transcription Capabilities'}</h2>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 800, margin: '0 auto' }}>
-                Our Transcribe tool uses optimized Whisper models via WebAssembly. It can automatically detect and transcribe over 90 languages with near-human accuracy directly in your browser.
+                {t('lang_whisperDesc') || 'Our Transcribe tool uses optimized Whisper models via WebAssembly. It can automatically detect and transcribe over 90 languages with near-human accuracy directly in your browser.'}
               </p>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
                <div style={{ padding: 32, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>90+</div>
-                  <div style={{ color: 'var(--text-muted)' }}>Languages Detected Automatically</div>
+                  <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>{t('lang_stat1Num') || '90+'}</div>
+                  <div style={{ color: 'var(--text-muted)' }}>{t('lang_stat1Label') || 'Languages Detected Automatically'}</div>
                </div>
                <div style={{ padding: 32, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>100%</div>
-                  <div style={{ color: 'var(--text-muted)' }}>Offline Processing (No APIs)</div>
+                  <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>{t('lang_stat2Num') || '100%'}</div>
+                  <div style={{ color: 'var(--text-muted)' }}>{t('lang_stat2Label') || 'Offline Processing (No APIs)'}</div>
                </div>
                <div style={{ padding: 32, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>4</div>
-                  <div style={{ color: 'var(--text-muted)' }}>Export Formats (SRT, VTT, TXT, JSON)</div>
+                  <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>{t('lang_stat3Num') || '4'}</div>
+                  <div style={{ color: 'var(--text-muted)' }}>{t('lang_stat3Label') || 'Export Formats (SRT, VTT, TXT, JSON)'}</div>
                </div>
             </div>
           </div>
@@ -81,12 +83,12 @@ export const SupportedLanguages: React.FC = () => {
                  </div>
               </div>
               <div style={{ flex: '1 1 400px' }}>
-                 <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, lineHeight: 1.2 }}>A Note on Accuracy</h2>
+                 <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, lineHeight: 1.2 }}>{t('lang_accuracyTitle') || 'A Note on Accuracy'}</h2>
                  <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.8 }}>
-                   Because the AI models are running directly on your CPU/GPU inside a web browser, we use heavily quantized (compressed) versions of the Whisper model to prevent your computer from freezing.
+                   {t('lang_accuracyDesc1') || 'Because the AI models are running directly on your CPU/GPU inside a web browser, we use heavily quantized (compressed) versions of the Whisper model to prevent your computer from freezing.'}
                  </p>
                  <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.8, marginTop: 16 }}>
-                   While accuracy is incredibly high for major languages like English, Spanish, and French, some niche dialects may experience lower transcription accuracy compared to massive cloud models.
+                   {t('lang_accuracyDesc2') || 'While accuracy is incredibly high for major languages like English, Spanish, and French, some niche dialects may experience lower transcription accuracy compared to massive cloud models.'}
                  </p>
               </div>
            </div>
@@ -96,12 +98,12 @@ export const SupportedLanguages: React.FC = () => {
         <section className="seo-section suggest" style={{ padding: '80px 24px', background: 'var(--bg-card)' }}>
            <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
               <MessageSquare size={48} color="var(--brand-primary)" style={{ margin: '0 auto 32px' }} />
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>Help Us Translate</h2>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('lang_suggestTitle') || 'Help Us Translate'}</h2>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>
-                SolveMyMedia is built by the community, for the community. If you don't see your native language in our UI localization list and want to help translate the interface, we would love your help!
+                {t('lang_suggestDesc') || "SolveMyMedia is built by the community, for the community. If you don't see your native language in our UI localization list and want to help translate the interface, we would love your help!"}
               </p>
               <button style={{ padding: '16px 32px', background: 'var(--brand-primary)', color: 'white', border: 'none', borderRadius: 12, fontWeight: 700, fontSize: '1.1rem', cursor: 'pointer', transition: 'opacity 0.2s' }}>
-                 Contribute on GitHub
+                 {t('lang_githubBtn') || 'Contribute on GitHub'}
               </button>
            </div>
         </section>
@@ -110,9 +112,9 @@ export const SupportedLanguages: React.FC = () => {
         <section className="seo-section map" style={{ padding: '80px 24px' }}>
            <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <MapPin size={40} color="var(--brand-secondary)" style={{ marginBottom: 24 }} />
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>Global Delivery</h2>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('lang_mapTitle') || 'Global Delivery'}</h2>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, textAlign: 'center', maxWidth: 800, marginBottom: 48 }}>
-                No matter where you are in the world, the application files are delivered via an ultra-fast global CDN. Once downloaded (usually under 2 seconds), you have a full desktop-class media suite running entirely offline in your location.
+                {t('lang_mapDesc') || 'No matter where you are in the world, the application files are delivered via an ultra-fast global CDN. Once downloaded (usually under 2 seconds), you have a full desktop-class media suite running entirely offline in your location.'}
               </p>
            </div>
         </section>
@@ -120,12 +122,12 @@ export const SupportedLanguages: React.FC = () => {
         {/* FAQ Section */}
         <section className="seo-section faq" style={{ padding: '80px 24px' }}>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('lang_faqTitle') || 'Frequently Asked Questions'}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               {[
-                { q: "Can I translate from one language to another?", a: "Currently, the AI transcribe tool focuses on transcribing spoken audio into text in its native language. Translation features (e.g., spoken Spanish to English text) are on our roadmap." },
-                { q: "Why is the AI getting some words wrong in my language?", a: "To run inside a browser, we use a smaller 30MB AI model instead of a 3GB cloud model. It's incredibly fast and private, but it sacrifices a tiny bit of vocabulary depth for niche languages." },
-                { q: "How do I change the UI language?", a: "You can change the language using the language dropdown located in the Navbar. Your preference will be saved locally for your next visit." }
+                { q: t('lang_faq1Q') || "Can I translate from one language to another?", a: t('lang_faq1A') || "Currently, the AI transcribe tool focuses on transcribing spoken audio into text in its native language. Translation features (e.g., spoken Spanish to English text) are on our roadmap." },
+                { q: t('lang_faq2Q') || "Why is the AI getting some words wrong in my language?", a: t('lang_faq2A') || "To run inside a browser, we use a smaller 30MB AI model instead of a 3GB cloud model. It's incredibly fast and private, but it sacrifices a tiny bit of vocabulary depth for niche languages." },
+                { q: t('lang_faq3Q') || "How do I change the UI language?", a: t('lang_faq3A') || "You can change the language using the language dropdown located in the Navbar. Your preference will be saved locally for your next visit." }
               ].map((faq, idx) => (
                 <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
