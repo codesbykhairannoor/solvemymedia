@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build && npx vite build --outDir dist/server --ssr src/entry-server.tsx && node scripts/generate-ssg.cjs && node scripts/generate-seo-files.cjs && node scripts/ping-search-engines.cjs",
+    "build": "npx vite build && npx vite build --outDir dist/server --ssr src/entry-server.tsx && node scripts/generate-ssg.cjs && node scripts/generate-seo-files.cjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
