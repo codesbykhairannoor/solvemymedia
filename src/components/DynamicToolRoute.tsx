@@ -19,6 +19,7 @@ import { CropVideo } from '../pages/CropVideo';
 import { MuteVideo } from '../pages/MuteVideo';
 import { WatermarkVideo } from '../pages/WatermarkVideo';
 import { MergeAudio } from '../pages/MergeAudio';
+import { RelatedTools } from './RelatedTools';
 
 const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'compress-video': CompressVideo,
@@ -201,6 +202,9 @@ export const DynamicToolRoute: React.FC = () => {
           <NativeLayoutRenderer data={pseoData} />
         </div>
       )}
+
+      {/* Internal Linking: Related Tools Grid */}
+      <RelatedTools currentToolId={standardSlug} />
 
       {/* SEO Section FAQ for Standard Tools */}
       {!pseoData && faqItems.length > 0 && (

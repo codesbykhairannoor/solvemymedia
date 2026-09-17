@@ -354,6 +354,41 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     });
   }
 
+  // BreadcrumbList schema
+  if (cleanPath !== '/' && cleanPath !== '') {
+    const homeUrl = currentLang === 'en' ? domain : `${domain}/${currentLang}`;
+    const isAudio = cleanPath.includes('audio') || cleanPath.includes('transcribe') || cleanPath.includes('recorder') || cleanPath.includes('podcast') || cleanPath.includes('voice') || cleanPath.includes('sound');
+    const isLegal = cleanPath.includes('about') || cleanPath.includes('privacy') || cleanPath.includes('terms') || cleanPath.includes('security');
+    const isResource = cleanPath.includes('pricing') || cleanPath.includes('compare') || cleanPath.includes('languages');
+    
+    const categoryName = isAudio ? 'Audio Tools' : isLegal ? 'Legal & Safety' : isResource ? 'Resources' : 'Video Tools';
+
+    schemaGraph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: homeUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: categoryName,
+          item: homeUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: title.split(' - ')[0].split(' | ')[0],
+          item: canonicalUrl,
+        },
+      ],
+    });
+  }
+
   const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph });
 
   useHead({

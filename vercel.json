@@ -12,6 +12,126 @@
       ],
       "destination": "https://solvemymedia.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(transcribe-mp3|transcribe-mp4)",
+      "destination": "/:lang/transcribe",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(transcribe-mp3|transcribe-mp4)",
+      "destination": "/transcribe",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(compress-mov|compress-mp4|compress-webm)",
+      "destination": "/:lang/compress-video",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(compress-mov|compress-mp4|compress-webm)",
+      "destination": "/compress-video",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(compress-mp3|compress-wav)",
+      "destination": "/:lang/compress-audio",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(compress-mp3|compress-wav)",
+      "destination": "/compress-audio",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(ogg-to-mp3|wav-to-mp3|m4a-to-mp3|flac-to-mp3|mp4-to-mp3)",
+      "destination": "/:lang/video-to-audio",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(ogg-to-mp3|wav-to-mp3|m4a-to-mp3|flac-to-mp3|mp4-to-mp3)",
+      "destination": "/video-to-audio",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(mov-to-mp4|mkv-to-mp4|webm-to-mp4|avi-to-mp4)",
+      "destination": "/:lang/convert-video",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(mov-to-mp4|mkv-to-mp4|webm-to-mp4|avi-to-mp4)",
+      "destination": "/convert-video",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(remove-audio-from-video|mute-mp4)",
+      "destination": "/:lang/mute-video",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(remove-audio-from-video|mute-mp4)",
+      "destination": "/mute-video",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(crop-mp4|resize-video-for-tiktok)",
+      "destination": "/:lang/crop-video",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(crop-mp4|resize-video-for-tiktok)",
+      "destination": "/crop-video",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(slow-down-mp4|speed-up-mp4)",
+      "destination": "/:lang/video-speed",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(slow-down-mp4|speed-up-mp4)",
+      "destination": "/video-speed",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(mp4-to-gif|mov-to-gif)",
+      "destination": "/:lang/create-gif",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(mp4-to-gif|mov-to-gif)",
+      "destination": "/create-gif",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(join-audio-files|merge-mp3)",
+      "destination": "/:lang/merge-audio",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(join-audio-files|merge-mp3)",
+      "destination": "/merge-audio",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(add-watermark-to-mp4)",
+      "destination": "/:lang/watermark-video",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(add-watermark-to-mp4)",
+      "destination": "/watermark-video",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(screen-recorder|audio-recorder)",
+      "destination": "/:lang/recorder",
+      "permanent": true
+    },
+    {
+      "source": "/:tool(screen-recorder|audio-recorder)",
+      "destination": "/recorder",
+      "permanent": true
     }
   ],
   "headers": [
