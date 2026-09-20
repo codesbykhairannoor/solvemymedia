@@ -43,7 +43,11 @@ export const runWebCodecs = async (
         targetWidth = Math.max(16, Math.floor(targetWidth / 16) * 16);
         targetHeight = Math.max(16, Math.floor(targetHeight / 16) * 16);
 
-        const stream = (video as any).captureStream();
+        const stream = typeof (video as any).captureStream === 'function' 
+          ? (video as any).captureStream() 
+          : (typeof (video as any).mozCaptureStream === 'function' ? (video as any).mozCaptureStream() : null);
+        if (!stream) throw new Error("captureStream not supported in this browser");
+
         const videoTrack = stream.getVideoTracks()[0];
         const audioTrack = stream.getAudioTracks()[0];
         
@@ -190,7 +194,17 @@ export const runWebCodecs = async (
            processAudio();
         }
 
-        video.play();
+        const maxDuration = (duration && duration > 0) ? duration : 30;
+        const timeoutMs = Math.max(30000, (maxDuration + 10) * 1000);
+        const safetyTimer = setTimeout(() => {
+          try { video.remove(); } catch (_) {}
+          reject(new Error("WebCodecs encoding timed out"));
+        }, timeoutMs);
+
+        video.play().catch(e => {
+          clearTimeout(safetyTimer);
+          reject(e);
+        });
 
         const processFrames = async () => {
           try {
@@ -214,6 +228,7 @@ export const runWebCodecs = async (
         processFrames();
 
         video.onended = async () => {
+          clearTimeout(safetyTimer);
           try {
             if (videoEncoder && videoEncoder.state !== 'closed') await videoEncoder.flush();
             if (audioEncoder && audioEncoder.state !== 'closed') await audioEncoder.flush();

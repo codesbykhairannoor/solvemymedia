@@ -4,9 +4,10 @@ import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, F
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
+import { MediaLivePreview } from '../components/preview/MediaLivePreview';
 
 export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
-  const { ready, loadingProgress, processing, resultText, transcribe, initModel } = useWhisper();
+  const { ready, loadingProgress, processing, resultText, error, transcribe, initModel } = useWhisper();
   const { t: translate } = useLanguage();
   
   const t = {
@@ -33,6 +34,13 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     }
   }, [file]);
 
+  // Auto-initialize Whisper AI model as soon as a file is selected
+  useEffect(() => {
+    if (file && !ready && !processing) {
+      initModel();
+    }
+  }, [file, ready, processing, initModel]);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,8 +52,12 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   const handleProcess = async () => {
     if (!file) return;
+    if (!ready) {
+      await initModel();
+    }
     await transcribe(file, language);
   };
+
 
   const copyToClipboard = () => {
     if (resultText) {
@@ -111,35 +123,11 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-input)', borderRadius: 'var(--radius-md)', padding: 24, position: 'relative' }}>
-              <div style={{ textAlign: 'center' }}>
-                {isVideo ? <FileVideo size={64} color="var(--brand-primary)" /> : <FileAudio size={64} color="var(--brand-primary)" />}
-                <p style={{ marginTop: 16, fontWeight: 600, wordBreak: 'break-all' }}>{file.name}</p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{(file.size / (1024 * 1024)).toFixed(2)} MB</p>
-              </div>
-
-              {!processing && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16 }}>
-                  <button 
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="btn-secondary"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 14px', fontSize: '0.85rem', borderRadius: 'var(--radius-sm)', background: 'rgba(var(--brand-primary-rgb), 0.1)', color: 'var(--brand-primary)', border: '1px solid rgba(var(--brand-primary-rgb), 0.25)', cursor: 'pointer', fontWeight: 600 }}
-                  >
-                    <RefreshCw size={14} />
-                    {translate('replaceFile') || 'Replace File'}
-                  </button>
-                  <button 
-                    type="button"
-                    onClick={() => setFile(null)}
-                    style={{ background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error-color)', border: 'none', padding: '8px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.85rem', fontWeight: 600 }}
-                    title="Remove file"
-                  >
-                    <Trash2 size={15} />
-                  </button>
-                </div>
-              )}
-            </div>
+            <MediaLivePreview
+              file={file}
+              onReplace={() => fileInputRef.current?.click()}
+              onRemove={() => setFile(null)}
+            />
 
             {(!ready && file) && (
               <div style={{ marginTop: 24 }}>
@@ -245,15 +233,31 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               width: '100%'
             }}
           >
-            <option value="indonesian">Indonesian</option>
+            <option value="auto">🌐 {translate('autoDetect') || 'Auto Detect Language'}</option>
+            <option value="indonesian">Indonesian (Bahasa Indonesia)</option>
             <option value="english">English</option>
-            <option value="spanish">Spanish</option>
-            <option value="french">French</option>
-            <option value="german">German</option>
-            <option value="japanese">Japanese</option>
-            <option value="korean">Korean</option>
+            <option value="spanish">Spanish (Español)</option>
+            <option value="french">French (Français)</option>
+            <option value="german">German (Deutsch)</option>
+            <option value="japanese">Japanese (日本語)</option>
+            <option value="korean">Korean (한국어)</option>
+            <option value="chinese">Chinese (中文)</option>
+            <option value="arabic">Arabic (العربية)</option>
+            <option value="russian">Russian (Русский)</option>
+            <option value="portuguese">Portuguese (Português)</option>
+            <option value="italian">Italian (Italiano)</option>
+            <option value="dutch">Dutch (Nederlands)</option>
+            <option value="turkish">Turkish (Türkçe)</option>
+            <option value="vietnamese">Vietnamese (Tiếng Việt)</option>
+            <option value="thai">Thai (ไทย)</option>
           </select>
         </div>
+
+        {error && (
+          <div style={{ marginBottom: 16, padding: '10px 14px', borderRadius: 'var(--radius-sm)', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error-color)', color: 'var(--error-color)', fontSize: '0.85rem', lineHeight: 1.4 }}>
+            {error}
+          </div>
+        )}
         
         <div style={{ display: 'flex', gap: 10, flexDirection: resultText ? 'column' : 'row' }}>
           {resultText ? (
@@ -288,9 +292,14 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           ) : (
             <button
               onClick={handleProcess}
-              disabled={processing || !file || !ready}
+              disabled={processing || !file || (!ready && loadingProgress > 0 && loadingProgress < 100)}
               className="btn-primary"
-              style={{ flex: 1, background: 'var(--brand-primary)', opacity: (processing || !file || !ready) ? 0.5 : 1 }}
+              style={{ 
+                flex: 1, 
+                background: 'var(--brand-primary)', 
+                opacity: (processing || !file || (!ready && loadingProgress > 0 && loadingProgress < 100)) ? 0.5 : 1,
+                cursor: (processing || !file || (!ready && loadingProgress > 0 && loadingProgress < 100)) ? 'not-allowed' : 'pointer'
+              }}
             >
               {processing ? (
                 <div style={{ animation: 'spin 1s linear infinite', display: 'flex' }}><Loader2 size={18} /></div>

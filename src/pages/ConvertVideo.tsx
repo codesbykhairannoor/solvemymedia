@@ -20,11 +20,22 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [targetFormat, setTargetFormat] = useState<string>(initialFormat || 'mp4');
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleProcess = async () => {
     if (!file) return;
-    const url = await processMedia(file, 100, targetFormat);
-    if (url) setOutputUrl(url);
+    setErrorMsg(null);
+    try {
+      const url = await processMedia(file, 100, targetFormat);
+      if (url) {
+        setOutputUrl(url);
+      } else {
+        setErrorMsg(t('convVError') || "Conversion failed. Please verify the file format or try a different target format.");
+      }
+    } catch (e: any) {
+      console.error("Conversion failed:", e);
+      setErrorMsg(e?.message || (t('convVError') || "Conversion failed. Please verify the file format or try a different target format."));
+    }
   };
 
   const sidebarContent = (
@@ -42,12 +53,18 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               key={fmt}
               className={`tab-btn ${targetFormat === fmt ? 'active' : ''}`} 
               style={{ padding: '8px 16px', fontSize: '0.9rem' }} 
-              onClick={() => setTargetFormat(fmt)}
+              onClick={() => { setTargetFormat(fmt); setErrorMsg(null); }}
             >
               .{fmt}
             </button>
           ))}
         </div>
+
+        {errorMsg && (
+          <div style={{ marginTop: 16, padding: '10px 14px', borderRadius: 'var(--radius-sm)', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error-color)', color: 'var(--error-color)', fontSize: '0.85rem', lineHeight: 1.4 }}>
+            {errorMsg}
+          </div>
+        )}
       </div>
     </>
   );
@@ -59,7 +76,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         description={pseoData ? pseoData.description : (t('convVDesc') || "Change your video from MP4 to WebM, MKV to AVI, and more. Processing runs directly in your browser without waiting for server uploads.")}
         toolId="convert-video"
         file={file}
-        onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
+        onFileSelect={(f) => { setFile(f); setOutputUrl(null); setErrorMsg(null); }}
         outputUrl={outputUrl}
         processing={processing}
         progress={progress}

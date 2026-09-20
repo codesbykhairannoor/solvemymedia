@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { UploadCloud, FileVideo, FileAudio, Trash2, Download, Loader2, Zap, RefreshCw, FileEdit, RotateCcw } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 import { useLanguage } from '../../hooks/useLanguage';
+import { MediaLivePreview } from '../preview/MediaLivePreview';
 
 interface DualColumnWorkspaceProps {
   title: string;
@@ -119,53 +120,16 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
               <p>{ui.drag_drop} <span className="browse-text">{ui.browse_files}</span></p>
             </div>
           ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-input)', borderRadius: 'var(--radius-md)', padding: 24, position: 'relative' }}>
-                <div style={{ textAlign: 'center' }}>
-                  {isVideo ? <FileVideo size={64} color="var(--brand-primary)" /> : <FileAudio size={64} color="var(--brand-primary)" />}
-                  <p style={{ marginTop: 16, fontWeight: 600, wordBreak: 'break-all' }}>{file.name}</p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{(file.size / (1024 * 1024)).toFixed(2)} MB</p>
-                </div>
-
-                {!processing && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16 }}>
-                    <button 
-                      type="button"
-                      onClick={() => fileInputRef.current?.click()}
-                      className="btn-secondary"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 14px', fontSize: '0.85rem', borderRadius: 'var(--radius-sm)', background: 'rgba(var(--brand-primary-rgb), 0.1)', color: 'var(--brand-primary)', border: '1px solid rgba(var(--brand-primary-rgb), 0.25)', cursor: 'pointer', fontWeight: 600 }}
-                    >
-                      <RefreshCw size={14} />
-                      {t('replaceFile') || 'Replace File'}
-                    </button>
-                    {!outputUrl && (
-                      <button 
-                        type="button"
-                        onClick={() => setFile(null)}
-                        style={{ background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error-color)', border: 'none', padding: '8px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.85rem', fontWeight: 600 }}
-                        title="Remove file"
-                      >
-                        <Trash2 size={15} />
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {processing && (
-                <div style={{ marginTop: 24 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-                    <span style={{ fontWeight: 600 }}>Processing {progress}%</span>
-                    {engine === 'tier1' && <span style={{ color: 'var(--warning-color)', fontSize: '0.85rem' }}>⚡ GPU WebCodecs (MP4)</span>}
-                    {engine === 'tier2' && <span style={{ color: 'var(--warning-color)', fontSize: '0.85rem' }}>⚡ GPU WebCodecs (WebM)</span>}
-                    {engine === 'tier3' && <span style={{ color: 'var(--text-accent)', fontSize: '0.85rem' }}>🐌 CPU WASM FFmpeg</span>}
-                  </div>
-                  <div className="progress-container">
-                    <div className="progress-bar" style={{ width: `${progress}%` }}></div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <MediaLivePreview
+              file={file}
+              outputUrl={outputUrl}
+              targetFormat={targetFormat}
+              processing={processing}
+              progress={progress}
+              engine={engine}
+              onReplace={() => fileInputRef.current?.click()}
+              onRemove={() => setFile(null)}
+            />
           )}
         </div>
 
