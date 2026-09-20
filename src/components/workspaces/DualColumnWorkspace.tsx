@@ -10,6 +10,7 @@ interface DualColumnWorkspaceProps {
   file: File | null;
   setFile: (file: File | null) => void;
   outputUrl: string | null;
+  onResetResult?: () => void;
   processing: boolean;
   progress: number;
   engine: string | null;
@@ -27,6 +28,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
   file,
   setFile,
   outputUrl,
+  onResetResult,
   processing,
   progress,
   engine,
@@ -198,14 +200,30 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
                   <Download size={18} />
                   {ui.download_result}
                 </a>
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '10px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.9rem' }}
-                >
-                  <RefreshCw size={15} />
-                  {t('processAnother') || 'Process Another File'}
-                </button>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onResetResult) {
+                        onResetResult();
+                      } else {
+                        setFile(file);
+                      }
+                    }}
+                    style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'rgba(var(--brand-primary-rgb), 0.1)', border: '1px solid rgba(var(--brand-primary-rgb), 0.25)', color: 'var(--brand-primary)', fontWeight: 600, fontSize: '0.85rem' }}
+                  >
+                    <RotateCcw size={15} />
+                    {t('repeatProcess') || 'Repeat Process'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.85rem' }}
+                  >
+                    <RefreshCw size={15} />
+                    {t('processAnother') || 'Process Another File'}
+                  </button>
+                </div>
               </div>
             ) : (
               <button

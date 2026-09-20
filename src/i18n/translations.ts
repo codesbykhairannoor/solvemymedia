@@ -862,6 +862,7 @@ export interface UiDictionary {
   renameFileHint?: string;
   resetFileName?: string;
   processAnother?: string;
+  repeatProcess?: string;
   changeVideo?: string;
   changeAudio?: string;
   changeLogo?: string;
@@ -1730,6 +1731,7 @@ const baseDict: UiDictionary = {
   renameFileHint: "Rename output file before downloading",
   resetFileName: "Reset",
   processAnother: "Process Another File",
+  repeatProcess: "Repeat Process",
   changeVideo: "Change Video",
   changeAudio: "Change Audio",
   changeLogo: "Change Logo",

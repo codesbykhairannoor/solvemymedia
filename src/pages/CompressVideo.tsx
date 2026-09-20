@@ -139,6 +139,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         file={file}
         setFile={(f) => { setFile(f); setOutputUrl(null); }}
         outputUrl={outputUrl}
+        onResetResult={() => setOutputUrl(null)}
         processing={processing}
         progress={progress}
         engine={engine}
