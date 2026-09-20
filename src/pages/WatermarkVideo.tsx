@@ -1,9 +1,8 @@
 import { WatermarkVideoHeroSection, WatermarkVideoHowToSection, WatermarkVideoBrandSection, WatermarkVideoPrivacySection } from '../components/content-sections/tools/WatermarkVideoSections';
-import React, { useState, useRef } from 'react';
-import { Image, FileVideo, Trash2, Download, Loader2, Zap, Settings2 } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Image, FileVideo, Trash2, Download, Loader2, Zap, Settings2, RefreshCw, FileEdit, RotateCcw } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
-
 import { useLanguage } from '../hooks/useLanguage';
 
 export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -24,7 +23,8 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     action: t('wmAction') || "Add Watermark",
     addVideo: t('dragDrop') || "Select Video",
     addLogo: t('browseFiles') || "Select Logo",
-    applying: t('cwProcessing') || "Applying..."
+    applying: t('cwProcessing') || "Applying...",
+    downloadResult: t('cwDownload') || "Download Result"
   };
 
   const [videoFile, setVideoFile] = useState<File | null>(null);
@@ -34,6 +34,17 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [scale, setScale] = useState<number>(1.0);
   const [opacity, setOpacity] = useState<number>(1.0);
   const [videoRatio, setVideoRatio] = useState<number | null>(null);
+
+  const [customFileName, setCustomFileName] = useState<string>('');
+  const defaultBaseName = videoFile ? videoFile.name.replace(/\.[^/.]+$/, '') : '';
+
+  useEffect(() => {
+    if (videoFile) {
+      setCustomFileName(videoFile.name.replace(/\.[^/.]+$/, ''));
+    } else {
+      setCustomFileName('');
+    }
+  }, [videoFile]);
 
   const videoInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -64,21 +75,31 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     if (url) setOutputUrl(url);
   };
 
+  const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'watermarked')}.mp4`;
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: !videoFile ? '64px' : '0' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '40px' }}>
       
-      {!videoFile && (
-        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
-            {smartHighlight(pseoData ? pseoData.h1 : (t('wmTitle') || 'Add Custom Watermark Logo to Video'))}
-          </h1>
+      <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+        <h1 style={{ 
+          fontSize: videoFile ? 'clamp(1.75rem, 4vw, 2.4rem)' : 'clamp(2.5rem, 5vw, 4rem)', 
+          fontWeight: 900, 
+          marginBottom: videoFile ? 10 : 20, 
+          letterSpacing: '-0.03em', 
+          lineHeight: 1.15, 
+          fontFamily: 'Outfit, sans-serif',
+          transition: 'font-size 0.25s ease, margin 0.25s ease'
+        }}>
+          {smartHighlight(pseoData ? pseoData.h1 : (t('wmTitle') || 'Add Custom Watermark Logo to Video'))}
+        </h1>
+        {!videoFile && (
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
             {pseoData ? pseoData.description : (t('wmSub') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online.")}
           </p>
-        </div>
-      )}
+        )}
+      </div>
 
-      <div className="tool-workspace-container" style={{ margin: videoFile ? '24px auto' : '0 auto' }}>
+      <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
         <div className="tool-workspace-left glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         
         {/* Live Preview Area */}
@@ -143,25 +164,61 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         {/* Video Upload */}
         {!videoFile ? (
           <div className="dropzone" style={{ flex: 1 }} onClick={() => videoInputRef.current?.click()}>
-            <input type="file" ref={videoInputRef} onChange={(e) => { if(e.target.files) setVideoFile(e.target.files[0]); setOutputUrl(null); }} style={{ display: 'none' }} />
+            <input 
+              type="file" 
+              ref={videoInputRef} 
+              onChange={(e) => { 
+                if(e.target.files && e.target.files.length > 0) {
+                  setVideoFile(e.target.files[0]); 
+                  setOutputUrl(null); 
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }} 
+              accept="video/*"
+              style={{ display: 'none' }} 
+            />
             <FileVideo size={32} color="var(--brand-primary)" style={{ marginBottom: 8 }} />
             <p style={{ fontSize: '0.95rem' }}>{ui.addVideo}</p>
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-input)', padding: 16, borderRadius: 'var(--radius-md)' }}>
+            <input 
+              type="file" 
+              ref={videoInputRef} 
+              onChange={(e) => { 
+                if(e.target.files && e.target.files.length > 0) {
+                  setVideoFile(e.target.files[0]); 
+                  setOutputUrl(null); 
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }} 
+              accept="video/*"
+              style={{ display: 'none' }} 
+            />
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
               <div style={{ background: 'rgba(168, 85, 247, 0.1)', padding: 12, borderRadius: '50%' }}>
                 <FileVideo size={24} color="var(--brand-primary)" />
               </div>
               <div>
-                <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0 }}>{videoFile.name}</p>
+                <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0, wordBreak: 'break-all' }}>{videoFile.name}</p>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', margin: 0 }}>{(videoFile.size / (1024 * 1024)).toFixed(2)} MB</p>
               </div>
             </div>
-            {!processing && !outputUrl && (
-              <button onClick={() => setVideoFile(null)} style={{ background: 'transparent', border: 'none', color: 'var(--error-color)', cursor: 'pointer', padding: 8 }}>
-                <Trash2 size={20} />
-              </button>
+            {!processing && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <button 
+                  type="button" 
+                  onClick={() => videoInputRef.current?.click()} 
+                  style={{ background: 'rgba(var(--brand-primary-rgb), 0.1)', color: 'var(--brand-primary)', border: '1px solid rgba(var(--brand-primary-rgb), 0.2)', padding: '6px 10px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.8rem', fontWeight: 600 }}
+                >
+                  <RefreshCw size={13} /> {t('changeVideo') || 'Change Video'}
+                </button>
+                {!outputUrl && (
+                  <button onClick={() => setVideoFile(null)} style={{ background: 'rgba(239, 68, 68, 0.1)', border: 'none', color: 'var(--error-color)', cursor: 'pointer', padding: 8, borderRadius: 'var(--radius-sm)' }}>
+                    <Trash2 size={16} />
+                  </button>
+                )}
+              </div>
             )}
           </div>
         )}
@@ -169,25 +226,59 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         {/* Logo Upload */}
         {!imageFile ? (
           <div className="dropzone" style={{ flex: 1 }} onClick={() => imageInputRef.current?.click()}>
-            <input type="file" ref={imageInputRef} onChange={(e) => { if(e.target.files) setImageFile(e.target.files[0]); setOutputUrl(null); }} style={{ display: 'none' }} />
+            <input 
+              type="file" 
+              ref={imageInputRef} 
+              onChange={(e) => { 
+                if(e.target.files && e.target.files.length > 0) {
+                  setImageFile(e.target.files[0]); 
+                  setOutputUrl(null); 
+                }
+              }} 
+              accept="image/*"
+              style={{ display: 'none' }} 
+            />
             <Image size={32} color="var(--brand-secondary)" style={{ marginBottom: 8 }} />
             <p style={{ fontSize: '0.95rem' }}>{ui.addLogo}</p>
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-input)', padding: 16, borderRadius: 'var(--radius-md)' }}>
+            <input 
+              type="file" 
+              ref={imageInputRef} 
+              onChange={(e) => { 
+                if(e.target.files && e.target.files.length > 0) {
+                  setImageFile(e.target.files[0]); 
+                  setOutputUrl(null); 
+                }
+              }} 
+              accept="image/*"
+              style={{ display: 'none' }} 
+            />
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
               <div style={{ background: 'rgba(6, 182, 212, 0.1)', padding: 12, borderRadius: '50%' }}>
                 <Image size={24} color="var(--brand-secondary)" />
               </div>
               <div>
-                <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0 }}>{imageFile.name}</p>
+                <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0, wordBreak: 'break-all' }}>{imageFile.name}</p>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', margin: 0 }}>{(imageFile.size / (1024 * 1024)).toFixed(2)} MB</p>
               </div>
             </div>
-            {!processing && !outputUrl && (
-              <button onClick={() => setImageFile(null)} style={{ background: 'transparent', border: 'none', color: 'var(--error-color)', cursor: 'pointer', padding: 8 }}>
-                <Trash2 size={20} />
-              </button>
+            {!processing && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <button 
+                  type="button" 
+                  onClick={() => imageInputRef.current?.click()} 
+                  style={{ background: 'rgba(var(--brand-secondary-rgb), 0.1)', color: 'var(--brand-secondary)', border: '1px solid rgba(var(--brand-secondary-rgb), 0.2)', padding: '6px 10px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.8rem', fontWeight: 600 }}
+                >
+                  <RefreshCw size={13} /> {t('changeLogo') || 'Change Logo'}
+                </button>
+                {!outputUrl && (
+                  <button onClick={() => setImageFile(null)} style={{ background: 'rgba(239, 68, 68, 0.1)', border: 'none', color: 'var(--error-color)', cursor: 'pointer', padding: 8, borderRadius: 'var(--radius-sm)' }}>
+                    <Trash2 size={16} />
+                  </button>
+                )}
+              </div>
             )}
           </div>
         )}
@@ -251,7 +342,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           />
         </div>
 
-        <div style={{ marginBottom: 'auto' }}>
+        <div style={{ marginBottom: 20 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: '0.9rem', fontWeight: 600 }}>
             <span>{ui.opacity}</span>
             <span>{(opacity * 100).toFixed(0)}%</span>
@@ -268,16 +359,73 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           />
         </div>
 
-        <div style={{ marginTop: 'auto', paddingTop: 24 }}>
+        {/* File Rename Field */}
+        {videoFile && (
+          <div style={{ marginBottom: 16, background: 'var(--bg-input)', padding: 14, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8 }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <FileEdit size={14} style={{ color: 'var(--brand-primary)' }} />
+                {t('outputFileName') || 'Output File Name'}
+              </span>
+              {customFileName !== defaultBaseName && (
+                <button
+                  type="button"
+                  onClick={() => setCustomFileName(defaultBaseName)}
+                  style={{ background: 'transparent', border: 'none', color: 'var(--brand-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
+                  title={t('resetFileName') || 'Reset'}
+                >
+                  <RotateCcw size={12} /> {t('resetFileName') || 'Reset'}
+                </button>
+              )}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', overflow: 'hidden' }}>
+              <input
+                type="text"
+                value={customFileName}
+                onChange={(e) => setCustomFileName(e.target.value)}
+                placeholder={t('outputFileNamePlaceholder') || 'Enter file name...'}
+                disabled={processing}
+                style={{
+                  flex: 1,
+                  background: 'transparent',
+                  border: 'none',
+                  padding: '8px 12px',
+                  color: 'var(--text-main)',
+                  fontSize: '0.9rem',
+                  outline: 'none',
+                  width: '100%'
+                }}
+              />
+              <span style={{ padding: '0 10px', fontSize: '0.85rem', color: 'var(--brand-secondary)', fontWeight: 700, background: 'rgba(var(--brand-secondary-rgb), 0.1)', height: '100%', display: 'flex', alignItems: 'center', borderLeft: '1px solid var(--border-color)' }}>
+                .mp4
+              </span>
+            </div>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: '6px 0 0 0' }}>
+              {t('renameFileHint') || 'Rename output file before downloading'}
+            </p>
+          </div>
+        )}
+
+        <div style={{ marginTop: 'auto', paddingTop: 16 }}>
           {outputUrl ? (
-            <a 
-              href={outputUrl} 
-              download={`watermarked_${new Date().getTime()}.mp4`} 
-              className="btn-primary" 
-            >
-              <Download size={18} />
-              Download Result
-            </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <a 
+                href={outputUrl} 
+                download={downloadFileName} 
+                className="btn-primary" 
+              >
+                <Download size={18} />
+                {ui.downloadResult}
+              </a>
+              <button
+                type="button"
+                onClick={() => videoInputRef.current?.click()}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '10px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.9rem' }}
+              >
+                <RefreshCw size={15} />
+                {t('processAnother') || 'Process Another File'}
+              </button>
+            </div>
           ) : (
             <button
               onClick={handleProcess}
@@ -319,10 +467,8 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <WatermarkVideoPrivacySection 
           section={{ type: 'privacy', title: t('wmPriv') || "100% Secure & Private", content: t('wmPrivDesc') || "Your videos are never uploaded to any cloud server. The entire watermarking process runs securely inside your device." }} 
         />
-        
       </div>
       )}
-    
     </div>
   );
 };

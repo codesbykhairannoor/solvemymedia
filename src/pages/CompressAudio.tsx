@@ -5,6 +5,7 @@ import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspac
 import { useUniversalCompressor } from '../hooks/useUniversalCompressor';
 import type { Quality } from '../hooks/useUniversalCompressor';
 import { useLanguage } from '../hooks/useLanguage';
+
 export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, engine, processMedia } = useUniversalCompressor();
   
@@ -133,16 +134,16 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         title={pseoData ? pseoData.h1 : (translate('caTitle') || "Compress Audio Files without Losing Quality")}
         description={pseoData ? pseoData.description : (translate('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments.")}
         toolId="compress-audio"
-      file={file}
-      setFile={setFile}
-      outputUrl={outputUrl}
-      processing={processing}
-      progress={progress}
-      engine={engine}
-      onProcess={handleProcess}
-      processActionText={t.action}
-      sidebarContent={sidebarContent}
-      targetFormat="mp3"
+        file={file}
+        setFile={(f) => { setFile(f); setOutputUrl(null); }}
+        outputUrl={outputUrl}
+        processing={processing}
+        progress={progress}
+        engine={engine}
+        onProcess={handleProcess}
+        processActionText={t.action}
+        sidebarContent={sidebarContent}
+        targetFormat="mp3"
       />
 
       {!pseoData && (
@@ -167,7 +168,6 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <CompressAudioPrivacySection 
           section={{ type: 'privacy', title: translate('caPrivTitle') || "100% Secure Local Execution", content: translate('caPrivDesc') || "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
         />
-        
       </div>
       )}
     </>

@@ -1,11 +1,10 @@
-import { HeroFeaturesSection } from '../components/content-sections/FeatureGroup';
-import { SecurityPrivacySection } from '../components/content-sections/SecurityGroup';
 import { MergeAudioHeroSection, MergeAudioHowToSection, MergeAudioPerformanceSection, MergeAudioPrivacySection } from '../components/content-sections/tools/MergeAudioSections';
-import React, { useState, useRef } from 'react';
-import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, UploadCloud } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, UploadCloud, RefreshCw, FileEdit, RotateCcw } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
+
 export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
   
@@ -21,13 +20,26 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   const [files, setFiles] = useState<File[]>([]);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
+  const [customFileName, setCustomFileName] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (files.length > 0 && !customFileName) {
+      const base = files[0].name.replace(/\.[^/.]+$/, '') + '_merged';
+      setCustomFileName(base);
+    } else if (files.length === 0) {
+      setCustomFileName('');
+    }
+  }, [files]);
+
+  const defaultBaseName = files.length > 0 ? files[0].name.replace(/\.[^/.]+$/, '') + '_merged' : 'merged_audio';
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files).filter(f => f.type.startsWith('audio'));
       setFiles(prev => [...prev, ...newFiles]);
       setOutputUrl(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -57,21 +69,31 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     if (url) setOutputUrl(url);
   };
 
+  const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'merged_audio')}.mp3`;
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: files.length === 0 ? '64px' : '0' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '40px' }}>
       
-      {files.length === 0 && (
-        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
-            {smartHighlight(pseoData ? pseoData.h1 : (translate('maTitle') || 'Merge Audio Files Seamlessly'))}
-          </h1>
+      <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+        <h1 style={{ 
+          fontSize: files.length > 0 ? 'clamp(1.75rem, 4vw, 2.4rem)' : 'clamp(2.5rem, 5vw, 4rem)', 
+          fontWeight: 900, 
+          marginBottom: files.length > 0 ? 10 : 20, 
+          letterSpacing: '-0.03em', 
+          lineHeight: 1.15, 
+          fontFamily: 'Outfit, sans-serif',
+          transition: 'font-size 0.25s ease, margin 0.25s ease'
+        }}>
+          {smartHighlight(pseoData ? pseoData.h1 : (translate('maTitle') || 'Merge Audio Files Seamlessly'))}
+        </h1>
+        {files.length === 0 && (
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
             {pseoData ? pseoData.description : t.upload}
           </p>
-        </div>
-      )}
+        )}
+      </div>
 
-      <div className="tool-workspace-container" style={{ margin: files.length > 0 ? '24px auto' : '0 auto' }}>
+      <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
         <div className="tool-workspace-left glass-panel" style={{ display: 'flex', flexDirection: 'column' }}>
           {files.length === 0 ? (
             <div 
@@ -90,10 +112,32 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               <div className="dropzone-icon">
                 <UploadCloud size={40} />
               </div>
-              <p>Drag & drop audio or <span className="browse-text">Browse Files</span></p>
+              <p>Drag & drop audio or <span className="browse-text">{translate('browseFiles') || 'Browse Files'}</span></p>
             </div>
           ) : (
             <div style={{ flex: 1, overflowY: 'auto', paddingRight: 8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <input 
+                type="file" 
+                ref={fileInputRef}
+                onChange={handleFileSelect}
+                multiple
+                accept="audio/*"
+                style={{ display: 'none' }} 
+              />
+
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
+                <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                  {files.length} {files.length === 1 ? 'track' : 'tracks'} added
+                </span>
+                <button
+                  type="button"
+                  onClick={() => { setFiles([]); setOutputUrl(null); }}
+                  style={{ background: 'transparent', border: 'none', color: 'var(--error-color)', fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontWeight: 600 }}
+                >
+                  <Trash2 size={13} /> Clear All
+                </button>
+              </div>
+
               {files.map((file, index) => (
                 <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-input)', padding: 16, borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -102,7 +146,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                       <FileAudio size={24} color="var(--brand-primary)" />
                     </div>
                     <div>
-                      <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0 }}>{file.name}</p>
+                      <p style={{ fontWeight: 600, fontSize: '0.95rem', margin: 0, wordBreak: 'break-all' }}>{file.name}</p>
                       <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', margin: 0 }}>{(file.size / (1024 * 1024)).toFixed(2)} MB</p>
                     </div>
                   </div>
@@ -117,19 +161,11 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               {!processing && !outputUrl && (
                 <div 
                   className="dropzone" 
-                  style={{ minHeight: 120, flex: 'none', padding: 24, cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+                  style={{ minHeight: 100, flex: 'none', padding: 20, cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
                   onClick={() => fileInputRef.current?.click()}
                 >
-                  <input 
-                    type="file" 
-                    ref={fileInputRef}
-                    onChange={handleFileSelect}
-                    multiple
-                    accept="audio/*"
-                    style={{ display: 'none' }} 
-                  />
-                  <div className="dropzone-icon" style={{ width: 40, height: 40, margin: '0 auto 8px' }}>
-                    <Plus size={24} />
+                  <div className="dropzone-icon" style={{ width: 36, height: 36, margin: '0 auto 6px' }}>
+                    <Plus size={20} />
                   </div>
                   <p style={{ fontSize: '0.9rem' }}>{t.add}</p>
                 </div>
@@ -155,7 +191,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           {translate('maAction') || 'Merge Audio'}
         </h3>
         
-        <div style={{ marginBottom: 24 }}>
+        <div style={{ marginBottom: 20 }}>
           <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
             <Music size={18} className="text-brand-primary" />
             <span>{t.join}</span>
@@ -163,16 +199,73 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{t.desc}</p>
         </div>
 
-        <div style={{ marginTop: 'auto', paddingTop: 24 }}>
+        {/* File Rename Field */}
+        {files.length > 0 && (
+          <div style={{ marginBottom: 16, background: 'var(--bg-input)', padding: 14, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8 }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <FileEdit size={14} style={{ color: 'var(--brand-primary)' }} />
+                {translate('outputFileName') || 'Output File Name'}
+              </span>
+              {customFileName !== defaultBaseName && (
+                <button
+                  type="button"
+                  onClick={() => setCustomFileName(defaultBaseName)}
+                  style={{ background: 'transparent', border: 'none', color: 'var(--brand-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
+                  title={translate('resetFileName') || 'Reset'}
+                >
+                  <RotateCcw size={12} /> {translate('resetFileName') || 'Reset'}
+                </button>
+              )}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', overflow: 'hidden' }}>
+              <input
+                type="text"
+                value={customFileName}
+                onChange={(e) => setCustomFileName(e.target.value)}
+                placeholder={translate('outputFileNamePlaceholder') || 'Enter file name...'}
+                disabled={processing}
+                style={{
+                  flex: 1,
+                  background: 'transparent',
+                  border: 'none',
+                  padding: '8px 12px',
+                  color: 'var(--text-main)',
+                  fontSize: '0.9rem',
+                  outline: 'none',
+                  width: '100%'
+                }}
+              />
+              <span style={{ padding: '0 10px', fontSize: '0.85rem', color: 'var(--brand-secondary)', fontWeight: 700, background: 'rgba(var(--brand-secondary-rgb), 0.1)', height: '100%', display: 'flex', alignItems: 'center', borderLeft: '1px solid var(--border-color)' }}>
+                .mp3
+              </span>
+            </div>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: '6px 0 0 0' }}>
+              {translate('renameFileHint') || 'Rename output file before downloading'}
+            </p>
+          </div>
+        )}
+
+        <div style={{ marginTop: 'auto', paddingTop: files.length > 0 ? 8 : 24 }}>
           {outputUrl ? (
-            <a 
-              href={outputUrl} 
-              download={`merged_audio_${new Date().getTime()}.mp3`} 
-              className="btn-primary" 
-            >
-              <Download size={18} />
-              {translate('maDownload') || "Download Result"}
-            </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <a 
+                href={outputUrl} 
+                download={downloadFileName} 
+                className="btn-primary" 
+              >
+                <Download size={18} />
+                {translate('maDownload') || "Download Result"}
+              </a>
+              <button
+                type="button"
+                onClick={() => { setFiles([]); setOutputUrl(null); fileInputRef.current?.click(); }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '10px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.9rem' }}
+              >
+                <RefreshCw size={15} />
+                {translate('processAnother') || 'Process Another File'}
+              </button>
+            </div>
           ) : (
             <button
               onClick={handleProcess}
@@ -219,9 +312,6 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             />
           </>
         )}
-
-        
-        
       </div>
     </div>
   );

@@ -30,12 +30,12 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   const sidebarContent = (
     <>
-            <div>
-          <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Settings2 size={18} className="text-brand-primary" />
-            <span>{t.format}</span>
-          </h4>
-          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{t.desc}</p>
+      <div>
+        <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Settings2 size={18} className="text-brand-primary" />
+          <span>{t.format}</span>
+        </h4>
+        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{t.desc}</p>
         
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           <button className={`tab-btn ${targetFormat === 'mp3' ? 'active' : ''}`} style={{ padding: '8px 16px', fontSize: '0.9rem' }} onClick={() => setTargetFormat('mp3')}>.mp3</button>
@@ -50,23 +50,21 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <CenteredActionWorkspace
-      title={pseoData ? pseoData.h1 : (translate('cvaTitle') || "Convert Audio Formats Fast")}
-      description={pseoData ? pseoData.description : (translate('cvaSub') || "Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser.")}
-      toolId="convert-audio"
-      file={file}
-      onFileSelect={setFile}
-      outputUrl={outputUrl}
-      processing={processing}
-      progress={progress}
+        title={pseoData ? pseoData.h1 : (translate('cvaTitle') || "Convert Audio Formats Fast")}
+        description={pseoData ? pseoData.description : (translate('cvaSub') || "Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser.")}
+        toolId="convert-audio"
+        file={file}
+        onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
+        outputUrl={outputUrl}
+        processing={processing}
+        progress={progress}
         engine={engine}
         onProcess={handleProcess}
         processActionText={`${t.action} ${targetFormat.toUpperCase()}`}
         sidebarContent={sidebarContent}
-      targetFormat={targetFormat}
+        targetFormat={targetFormat}
       />
 
-  
-    
       {!pseoData && (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <ConvertAudioHeroSection 
@@ -97,7 +95,6 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <ConvertAudioPrivacySection 
           section={{ type: 'privacy', title: translate('cvaPrivTitle') || "Strict Privacy", content: translate('cvaPrivDesc') || "Your media is never uploaded. Period." }} 
         />
-        
       </div>
       )}
     </>

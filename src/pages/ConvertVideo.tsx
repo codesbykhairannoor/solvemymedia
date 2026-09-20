@@ -59,7 +59,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         description={pseoData ? pseoData.description : (t('convVDesc') || "Change your video from MP4 to WebM, MKV to AVI, and more. Processing runs directly in your browser without waiting for server uploads.")}
         toolId="convert-video"
         file={file}
-        onFileSelect={setFile}
+        onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
         outputUrl={outputUrl}
         processing={processing}
         progress={progress}

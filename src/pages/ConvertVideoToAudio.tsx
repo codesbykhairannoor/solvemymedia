@@ -51,23 +51,21 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
   return (
     <>
       <CenteredActionWorkspace
-      title={pseoData ? pseoData.h1 : (translate('vtaTitle') || "Extract Audio from Video")}
-      description={pseoData ? pseoData.description : (translate('vtaSub') || "Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy.")}
-      toolId="video-to-audio"
-      file={file}
-      onFileSelect={setFile}
-      outputUrl={outputUrl}
-      processing={processing}
-      progress={progress}
-      engine={engine}
-      onProcess={handleProcess}
-      processActionText={`${t.action} ${targetFormat.toUpperCase()}`}
-      sidebarContent={sidebarContent}
-      targetFormat={targetFormat}
+        title={pseoData ? pseoData.h1 : (translate('vtaTitle') || "Extract Audio from Video")}
+        description={pseoData ? pseoData.description : (translate('vtaSub') || "Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy.")}
+        toolId="video-to-audio"
+        file={file}
+        onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
+        outputUrl={outputUrl}
+        processing={processing}
+        progress={progress}
+        engine={engine}
+        onProcess={handleProcess}
+        processActionText={`${t.action} ${targetFormat.toUpperCase()}`}
+        sidebarContent={sidebarContent}
+        targetFormat={targetFormat}
       />
 
-  
-    
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         {!pseoData && (
           <>
@@ -101,9 +99,6 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             />
           </>
         )}
-        
-        
-        
       </div>
     </>
   );

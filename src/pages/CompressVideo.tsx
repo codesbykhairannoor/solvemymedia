@@ -137,7 +137,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         description={pseoData ? pseoData.description : (t('cvDesc') || "Shrink massive video files down to manageable sizes in seconds. Advanced local compression keeps visual quality high and file size low.")}
         toolId="compress-video"
         file={file}
-        setFile={setFile}
+        setFile={(f) => { setFile(f); setOutputUrl(null); }}
         outputUrl={outputUrl}
         processing={processing}
         progress={progress}
