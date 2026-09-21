@@ -7,6 +7,7 @@ export interface MediaLivePreviewProps {
   outputUrl?: string | null;
   targetFormat?: string;
   customFileName?: string;
+  toolId?: string;
   processing?: boolean;
   progress?: number;
   engine?: string | null;
@@ -25,6 +26,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   outputUrl,
   targetFormat,
   customFileName,
+  toolId,
   processing,
   progress = 0,
   engine,
@@ -75,7 +77,12 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
     setNativePlaybackFailed(false);
 
     return () => {
-      URL.revokeObjectURL(url);
+      // Delay revocation so in-flight video requests don't abort with MEDIA_ERR_SRC_NOT_SUPPORTED
+      setTimeout(() => {
+        try {
+          URL.revokeObjectURL(url);
+        } catch (_) {}
+      }, 5000);
     };
   }, [file]);
 
@@ -85,7 +92,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   const isInputVideo = file.type.startsWith('video') || ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv'].includes(rawExt);
   const isInputAudio = file.type.startsWith('audio') || ['mp3', 'wav', 'ogg', 'aac', 'flac', 'm4a', 'wma', 'opus'].includes(rawExt);
 
-  const effectiveTarget = (targetFormat || '').toLowerCase().replace(/^\./, '');
+  const effectiveTarget = (targetFormat || (isInputVideo ? 'mp4' : 'mp3')).toLowerCase().replace(/^\./, '');
   const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a'].includes(effectiveTarget);
   const isTargetVideo = ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv', 'gif'].includes(effectiveTarget);
 
@@ -102,7 +109,24 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
     : isInputVideo;
 
   const isGifResult = isCurrentResult && effectiveTarget === 'gif';
-  const isNonBrowserResult = isCurrentResult && isCurrentVideo && !isGifResult && (NON_BROWSER_VIDEO_CONTAINERS.includes(effectiveTarget) || nativePlaybackFailed);
+  
+  // Only convert-video targeting desktop-only containers triggers non-browser fallback card.
+  // Standard tools like crop, watermark, mute, speed, compress output browser-compatible MP4/WebM.
+  const isConvertTool = toolId === 'convert-video';
+  const isNonBrowserResult = isCurrentResult && isConvertTool && isCurrentVideo && !isGifResult && NON_BROWSER_VIDEO_CONTAINERS.includes(effectiveTarget);
+
+  const getToolSuccessTitle = () => {
+    if (toolId === 'crop-video') return t('cropSuccess') || 'Video Cropped Successfully! 🎉';
+    if (toolId === 'watermark-video') return t('wmSuccess') || 'Watermark Applied Successfully! 🎉';
+    if (toolId === 'mute-video') return t('mvSuccess') || 'Audio Removed Successfully! 🎉';
+    if (toolId === 'compress-video') return t('compVSuccess') || 'Video Compressed Successfully! 🎉';
+    if (toolId === 'compress-audio') return t('compASuccess') || 'Audio Compressed Successfully! 🎉';
+    if (toolId === 'change-video-speed') return t('speedSuccess') || 'Video Speed Adjusted! 🎉';
+    if (toolId === 'convert-audio') return t('convASuccess') || 'Audio Converted Successfully! 🎉';
+    if (toolId === 'video-to-audio') return t('v2aSuccess') || 'Audio Extracted Successfully! 🎉';
+    if (toolId === 'convert-video') return t('convVSuccess') || 'File Converted Successfully! 🎉';
+    return t('genericSuccess') || 'Processing Completed Successfully! 🎉';
+  };
 
   const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : 'processed';
   const downloadFileName = `${(customFileName?.trim() || defaultBaseName)}.${effectiveTarget || rawExt || 'mp4'}`;
@@ -256,7 +280,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
             </div>
 
             <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 6, letterSpacing: '-0.02em' }}>
-              File Converted Successfully! 🎉
+              {getToolSuccessTitle()}
             </h3>
 
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', borderRadius: 20, background: 'rgba(var(--brand-secondary-rgb), 0.15)', color: 'var(--brand-secondary)', fontWeight: 700, fontSize: '0.85rem', marginBottom: 14 }}>
@@ -296,7 +320,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
         )}
 
         {/* 3. NATIVE VIDEO PLAYER VIEW (For MP4, WebM, and playable containers) */}
-        {!isGifResult && !isNonBrowserResult && isCurrentVideo && currentUrl && !nativePlaybackFailed && (
+        {!isGifResult && !isNonBrowserResult && isCurrentVideo && currentUrl && (!nativePlaybackFailed || !NON_BROWSER_VIDEO_CONTAINERS.includes((activeTab === 'result' ? effectiveTarget : rawExt).toLowerCase())) && (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
             <div
               ref={playerContainerRef}
@@ -321,8 +345,13 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                 playsInline
                 preload="metadata"
                 onLoadedMetadata={handleVideoMetadata}
-                onError={() => {
-                  setNativePlaybackFailed(true);
+                onError={(e) => {
+                  const err = (e.currentTarget as HTMLVideoElement).error;
+                  console.warn("Video playback error:", err);
+                  const currentExt = (activeTab === 'result' ? effectiveTarget : rawExt).toLowerCase();
+                  if (NON_BROWSER_VIDEO_CONTAINERS.includes(currentExt)) {
+                    setNativePlaybackFailed(true);
+                  }
                 }}
                 style={{
                   maxWidth: '100%',
@@ -393,7 +422,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
         )}
 
         {/* 5. FALLBACK CARD (For obscure ORIGINAL source containers like MKV / AVI that native browser video cannot decode) */}
-        {!isCurrentResult && isCurrentVideo && nativePlaybackFailed && (
+        {!isCurrentResult && isCurrentVideo && nativePlaybackFailed && NON_BROWSER_VIDEO_CONTAINERS.includes(rawExt) && (
           <div style={{ textAlign: 'center', padding: 24, maxWidth: 420 }}>
             <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(var(--brand-primary-rgb), 0.15)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
               <FileVideo size={36} color="var(--brand-primary)" />

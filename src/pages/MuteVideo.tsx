@@ -23,7 +23,15 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   const handleProcess = async () => {
     if (!file) return;
-    const args = ['-i', file.name, '-c', 'copy', '-an', 'output.mp4'];
+    const args = [
+      '-i', file.name,
+      '-c:v', 'libx264',
+      '-pix_fmt', 'yuv420p',
+      '-preset', 'fast',
+      '-movflags', '+faststart',
+      '-an',
+      'output.mp4'
+    ];
     const url = await runCustomFFmpeg([file], args, 'output.mp4', 'video/mp4');
     if (url) setOutputUrl(url);
   };

@@ -131,6 +131,7 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <MediaLivePreview
               file={file}
+              toolId="transcribe-media"
               onReplace={() => fileInputRef.current?.click()}
               onRemove={() => setFile(null)}
             />

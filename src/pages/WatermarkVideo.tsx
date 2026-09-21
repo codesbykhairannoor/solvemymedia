@@ -150,7 +150,12 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       '-i', videoFile.name, 
       '-i', watermarkInputFile.name, 
       '-filter_complex', `${baseWmFilter};${overlayFilter}`, 
-      '-c:a', 'copy', 
+      '-c:v', 'libx264',
+      '-pix_fmt', 'yuv420p',
+      '-preset', 'fast',
+      '-movflags', '+faststart',
+      '-c:a', 'aac',
+      '-b:a', '192k',
       'output.mp4'
     ];
     
@@ -424,6 +429,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               outputUrl={outputUrl}
               targetFormat="mp4"
               customFileName={customFileName}
+              toolId="watermark-video"
               processing={processing}
               progress={progress}
               engine="tier3"

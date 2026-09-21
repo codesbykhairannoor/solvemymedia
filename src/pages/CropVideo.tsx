@@ -107,7 +107,17 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     const { cropW, cropH, cropX, cropY } = metrics;
     const cropFilter = `crop=${cropW}:${cropH}:${cropX}:${cropY}`;
 
-    const args = ['-i', file.name, '-vf', cropFilter, '-c:a', 'copy', 'output.mp4'];
+    const args = [
+      '-i', file.name,
+      '-vf', cropFilter,
+      '-c:v', 'libx264',
+      '-pix_fmt', 'yuv420p',
+      '-preset', 'fast',
+      '-movflags', '+faststart',
+      '-c:a', 'aac',
+      '-b:a', '192k',
+      'output.mp4'
+    ];
     const url = await runCustomFFmpeg([file], args, 'output.mp4', 'video/mp4');
     if (url) setOutputUrl(url);
   };

@@ -135,6 +135,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
               outputUrl={outputUrl}
               targetFormat={targetFormat}
               customFileName={customFileName}
+              toolId={toolId}
               processing={processing}
               progress={progress}
               engine={engine}

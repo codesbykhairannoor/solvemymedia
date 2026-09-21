@@ -30,6 +30,12 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
       '-filter_complex', `[0:v]setpts=${vpts}*PTS[v];[0:a]atempo=${speed}[a]`,
       '-map', '[v]',
       '-map', '[a]',
+      '-c:v', 'libx264',
+      '-pix_fmt', 'yuv420p',
+      '-preset', 'fast',
+      '-movflags', '+faststart',
+      '-c:a', 'aac',
+      '-b:a', '192k',
       'output.mp4'
     ];
     const url = await runCustomFFmpeg([file], args, 'output.mp4', 'video/mp4');
