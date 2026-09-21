@@ -12,6 +12,11 @@ export interface MediaLivePreviewProps {
   onReplace?: () => void;
   onRemove?: () => void;
   customBadge?: React.ReactNode;
+  videoOverlay?: (props: {
+    videoDimensions: { width: number; height: number } | null;
+    videoElement: HTMLVideoElement | null;
+    containerRef: React.RefObject<HTMLDivElement | null>;
+  }) => React.ReactNode;
 }
 
 export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
@@ -23,7 +28,8 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   engine,
   onReplace,
   onRemove,
-  customBadge
+  customBadge,
+  videoOverlay
 }) => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'original' | 'result'>('original');
@@ -34,6 +40,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const playerContainerRef = useRef<HTMLDivElement>(null);
 
   // Automatically switch to result preview when outputUrl becomes available
   useEffect(() => {
@@ -199,31 +206,62 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
         {/* VIDEO PLAYER VIEW */}
         {isCurrentVideo && currentUrl && !nativePlaybackFailed && (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-            <video
-              ref={videoRef}
-              key={currentUrl}
-              src={currentUrl}
-              controls
-              playsInline
-              preload="metadata"
-              onLoadedMetadata={handleVideoMetadata}
-              onError={() => {
-                // If native browser video tag fails (e.g. MKV/AVI in Chrome)
-                if (!isCurrentResult) {
-                  setNativePlaybackFailed(true);
-                }
-              }}
+            <div
+              ref={playerContainerRef}
               style={{
+                position: 'relative',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 maxWidth: '100%',
                 maxHeight: 380,
-                width: '100%',
                 borderRadius: 'var(--radius-md)',
+                overflow: 'hidden',
                 background: '#0a0d14',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)',
-                outline: 'none',
-                objectFit: 'contain'
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)'
               }}
-            />
+            >
+              <video
+                ref={videoRef}
+                key={currentUrl}
+                src={currentUrl}
+                controls
+                playsInline
+                preload="metadata"
+                onLoadedMetadata={handleVideoMetadata}
+                onError={() => {
+                  // If native browser video tag fails (e.g. MKV/AVI in Chrome)
+                  if (!isCurrentResult) {
+                    setNativePlaybackFailed(true);
+                  }
+                }}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: 380,
+                  width: 'auto',
+                  height: 'auto',
+                  display: 'block',
+                  outline: 'none'
+                }}
+              />
+              {activeTab === 'original' && videoOverlay && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    pointerEvents: 'none',
+                    zIndex: 6,
+                    overflow: 'hidden'
+                  }}
+                >
+                  {videoOverlay({
+                    videoDimensions,
+                    videoElement: videoRef.current,
+                    containerRef: playerContainerRef
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         )}
 

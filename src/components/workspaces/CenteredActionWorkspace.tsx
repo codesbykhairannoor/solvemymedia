@@ -19,6 +19,11 @@ interface CenteredActionWorkspaceProps {
   title?: string;
   toolId?: string;
   description?: string;
+  videoOverlay?: (props: {
+    videoDimensions: { width: number; height: number } | null;
+    videoElement: HTMLVideoElement | null;
+    containerRef: React.RefObject<HTMLDivElement | null>;
+  }) => React.ReactNode;
 }
 
 export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = ({
@@ -35,7 +40,8 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
   targetFormat,
   title,
   toolId,
-  description
+  description,
+  videoOverlay
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { t } = useLanguage();
@@ -129,6 +135,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
               engine={engine}
               onReplace={() => fileInputRef.current?.click()}
               onRemove={() => onFileSelect(null)}
+              videoOverlay={videoOverlay}
             />
           )}
         </div>

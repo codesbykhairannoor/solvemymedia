@@ -1,10 +1,17 @@
 import { CropVideoHeroSection, CropVideoHowToSection, CropVideoPlatformSection, CropVideoPrivacySection } from '../components/content-sections/tools/CropVideoSections';
-import React, { useState } from 'react';
-import { Settings2 } from 'lucide-react';
+import React, { useState, useRef, useCallback } from 'react';
+import { Settings2, Move, AlignCenter, AlignLeft, AlignRight, Smartphone, Square, Monitor, Film, Tablet } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
-
 import { useLanguage } from '../hooks/useLanguage';
+
+interface CropPreset {
+  id: string;
+  name: string;
+  sub: string;
+  ratio: number;
+  icon: React.ReactNode;
+}
 
 export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { processing, progress, runCustomFFmpeg } = useFFmpeg();
@@ -12,98 +19,362 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   
   const ui = {
     ratio: t('cropRatio') || "Crop Aspect Ratio",
-    desc: t('cropDesc') || "Center-crop your video to a specific social media aspect ratio.",
-    square: t('cropSquare') || "1:1 (Square)",
-    square_desc: t('cropSquareDesc') || "Perfect for Instagram Feed",
-    vert: t('cropVert') || "9:16 (Vertical)",
-    vert_desc: t('cropVertDesc') || "For TikTok, Reels, Shorts",
-    land: t('cropLand') || "16:9 (Landscape)",
-    land_desc: t('cropLandDesc') || "For YouTube or TV",
+    desc: t('cropDesc') || "Select an aspect ratio or drag the frame to compose your shot.",
+    square: t('cropSquare') || "1:1 Square",
+    square_desc: t('cropSquareDesc') || "Instagram Feed & Posts",
+    vert: t('cropVert') || "9:16 Vertical",
+    vert_desc: t('cropVertDesc') || "TikTok, Reels, Shorts",
+    land: t('cropLand') || "16:9 Landscape",
+    land_desc: t('cropLandDesc') || "YouTube & Widescreen",
     action: t('cropAction') || "Crop Video"
   };
 
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [aspectRatio, setAspectRatio] = useState<string>('9:16');
+  const [cropOffset, setCropOffset] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [currentDimensions, setCurrentDimensions] = useState<{ width: number; height: number } | null>(null);
+
+  const dragStartRef = useRef<{
+    startX: number;
+    startY: number;
+    initialOffset: { x: number; y: number };
+  } | null>(null);
+
+  const presets: CropPreset[] = [
+    { id: '9:16', name: ui.vert, sub: ui.vert_desc, ratio: 9 / 16, icon: <Smartphone size={16} /> },
+    { id: '1:1', name: ui.square, sub: ui.square_desc, ratio: 1 / 1, icon: <Square size={16} /> },
+    { id: '16:9', name: ui.land, sub: ui.land_desc, ratio: 16 / 9, icon: <Monitor size={16} /> },
+    { id: '4:5', name: '4:5 Portrait', sub: 'Instagram Feed Portrait', ratio: 4 / 5, icon: <Tablet size={16} /> },
+    { id: '4:3', name: '4:3 Standard', sub: 'Classic TV & Tablets', ratio: 4 / 3, icon: <Monitor size={16} /> },
+    { id: '21:9', name: '21:9 Ultrawide', sub: 'Cinematic CinemaScope', ratio: 21 / 9, icon: <Film size={16} /> }
+  ];
+
+  const activePreset = presets.find(p => p.id === aspectRatio) || presets[0];
+
+  // Calculate crop box geometry in percentages and target pixels
+  const getCropMetrics = useCallback(() => {
+    const nw = currentDimensions?.width || 1920;
+    const nh = currentDimensions?.height || 1080;
+    const nativeAspect = nw / nh;
+    const targetAspect = activePreset.ratio;
+
+    let cropWPct: number;
+    let cropHPct: number;
+
+    if (targetAspect > nativeAspect) {
+      cropWPct = 100;
+      cropHPct = (nativeAspect / targetAspect) * 100;
+    } else {
+      cropHPct = 100;
+      cropWPct = (targetAspect / nativeAspect) * 100;
+    }
+
+    const maxXPct = Math.max(0, 100 - cropWPct);
+    const maxYPct = Math.max(0, 100 - cropHPct);
+
+    const leftPct = maxXPct * cropOffset.x;
+    const topPct = maxYPct * cropOffset.y;
+
+    // Actual pixels for FFmpeg
+    const cropW = Math.max(2, Math.floor((nw * (cropWPct / 100)) / 2) * 2);
+    const cropH = Math.max(2, Math.floor((nh * (cropHPct / 100)) / 2) * 2);
+    const cropX = Math.max(0, Math.min(nw - cropW, Math.floor((nw * (leftPct / 100)) / 2) * 2));
+    const cropY = Math.max(0, Math.min(nh - cropH, Math.floor((nh * (topPct / 100)) / 2) * 2));
+
+    return {
+      cropWPct,
+      cropHPct,
+      maxXPct,
+      maxYPct,
+      leftPct,
+      topPct,
+      cropW,
+      cropH,
+      cropX,
+      cropY,
+      nw,
+      nh
+    };
+  }, [currentDimensions, activePreset, cropOffset]);
+
+  const metrics = getCropMetrics();
 
   const handleProcess = async () => {
     if (!file) return;
     
-    let cropFilter = '';
-    if (aspectRatio === '1:1') {
-      cropFilter = 'crop=min(iw\\,ih):min(iw\\,ih)';
-    } else if (aspectRatio === '9:16') {
-      cropFilter = 'crop=min(iw\\,ih*9/16):min(ih\\,iw*16/9)';
-    } else if (aspectRatio === '16:9') {
-      cropFilter = 'crop=min(iw\\,ih*16/9):min(ih\\,iw*9/16)';
-    }
+    const { cropW, cropH, cropX, cropY } = metrics;
+    const cropFilter = `crop=${cropW}:${cropH}:${cropX}:${cropY}`;
 
-    const args = ['-i', file.name, '-vf', cropFilter, 'output.mp4'];
+    const args = ['-i', file.name, '-vf', cropFilter, '-c:a', 'copy', 'output.mp4'];
     const url = await runCustomFFmpeg([file], args, 'output.mp4', 'video/mp4');
     if (url) setOutputUrl(url);
   };
 
+  const handlePointerDown = (e: React.PointerEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    setIsDragging(true);
+    dragStartRef.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      initialOffset: { ...cropOffset }
+    };
+  };
+
+  const handlePointerMove = (e: React.PointerEvent, containerRef: React.RefObject<HTMLDivElement | null>) => {
+    if (!isDragging || !dragStartRef.current || !containerRef.current) return;
+    e.stopPropagation();
+    e.preventDefault();
+
+    const rect = containerRef.current.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
+
+    const deltaX = e.clientX - dragStartRef.current.startX;
+    const deltaY = e.clientY - dragStartRef.current.startY;
+
+    const deltaXPct = (deltaX / rect.width) * 100;
+    const deltaYPct = (deltaY / rect.height) * 100;
+
+    const newOffsetX = metrics.maxXPct > 0 
+      ? Math.max(0, Math.min(1, dragStartRef.current.initialOffset.x + deltaXPct / metrics.maxXPct))
+      : 0.5;
+
+    const newOffsetY = metrics.maxYPct > 0 
+      ? Math.max(0, Math.min(1, dragStartRef.current.initialOffset.y + deltaYPct / metrics.maxYPct))
+      : 0.5;
+
+    setCropOffset({ x: newOffsetX, y: newOffsetY });
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (isDragging) {
+      setIsDragging(false);
+      dragStartRef.current = null;
+      try {
+        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+      } catch {}
+    }
+  };
+
+  const renderVideoOverlay = ({ videoDimensions, containerRef }: {
+    videoDimensions: { width: number; height: number } | null;
+    videoElement: HTMLVideoElement | null;
+    containerRef: React.RefObject<HTMLDivElement | null>;
+  }) => {
+    if (videoDimensions && (!currentDimensions || currentDimensions.width !== videoDimensions.width || currentDimensions.height !== videoDimensions.height)) {
+      setTimeout(() => setCurrentDimensions(videoDimensions), 0);
+    }
+
+    return (
+      <div 
+        style={{ 
+          position: 'absolute', 
+          inset: 0, 
+          pointerEvents: 'none',
+          overflow: 'hidden'
+        }}
+        onPointerMove={(e) => handlePointerMove(e, containerRef)}
+        onPointerUp={handlePointerUp}
+      >
+        {/* Dynamic Visual Crop Box */}
+        <div
+          onPointerDown={handlePointerDown}
+          onPointerMove={(e) => handlePointerMove(e, containerRef)}
+          onPointerUp={handlePointerUp}
+          style={{
+            position: 'absolute',
+            left: `${metrics.leftPct}%`,
+            top: `${metrics.topPct}%`,
+            width: `${metrics.cropWPct}%`,
+            height: `${metrics.cropHPct}%`,
+            boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.65)',
+            border: '2px solid var(--brand-primary)',
+            boxSizing: 'border-box',
+            cursor: isDragging ? 'grabbing' : 'grab',
+            pointerEvents: 'auto',
+            transition: isDragging ? 'none' : 'all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            zIndex: 10
+          }}
+        >
+          {/* Viewfinder Corner Accents */}
+          <div style={{ position: 'absolute', top: -2, left: -2, width: 14, height: 14, borderTop: '3px solid #fff', borderLeft: '3px solid #fff', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', top: -2, right: -2, width: 14, height: 14, borderTop: '3px solid #fff', borderRight: '3px solid #fff', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', bottom: -2, left: -2, width: 14, height: 14, borderBottom: '3px solid #fff', borderLeft: '3px solid #fff', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', bottom: -2, right: -2, width: 14, height: 14, borderBottom: '3px solid #fff', borderRight: '3px solid #fff', pointerEvents: 'none' }} />
+
+          {/* Rule of Thirds Grid Lines */}
+          <div style={{ position: 'absolute', left: '33.33%', top: 0, bottom: 0, width: 1, borderLeft: '1px dashed rgba(255, 255, 255, 0.25)', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', left: '66.66%', top: 0, bottom: 0, width: 1, borderLeft: '1px dashed rgba(255, 255, 255, 0.25)', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', top: '33.33%', left: 0, right: 0, height: 1, borderTop: '1px dashed rgba(255, 255, 255, 0.25)', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', top: '66.66%', left: 0, right: 0, height: 1, borderTop: '1px dashed rgba(255, 255, 255, 0.25)', pointerEvents: 'none' }} />
+
+          {/* Floating HUD Tag: Current Crop Dimensions */}
+          <div style={{
+            position: 'absolute',
+            top: 8,
+            left: 8,
+            background: 'rgba(0, 0, 0, 0.75)',
+            backdropFilter: 'blur(8px)',
+            color: '#fff',
+            fontSize: '0.72rem',
+            fontWeight: 700,
+            padding: '3px 8px',
+            borderRadius: 4,
+            border: '1px solid rgba(var(--brand-primary-rgb), 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            pointerEvents: 'none',
+            userSelect: 'none',
+            whiteSpace: 'nowrap'
+          }}>
+            <span style={{ color: 'var(--brand-primary)' }}>{activePreset.id}</span>
+            <span>•</span>
+            <span>{metrics.cropW} × {metrics.cropH}</span>
+          </div>
+
+          {/* Subtle Drag Indicator */}
+          <div style={{
+            position: 'absolute',
+            bottom: 8,
+            right: 8,
+            background: 'rgba(0, 0, 0, 0.65)',
+            color: 'var(--text-muted)',
+            padding: '2px 6px',
+            borderRadius: 4,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 4,
+            fontSize: '0.65rem',
+            pointerEvents: 'none'
+          }}>
+            <Move size={10} />
+            <span>Drag</span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const sidebarContent = (
-    <>
-      <div>
-        <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Settings2 size={18} className="text-brand-primary" />
-          <span>{ui.ratio}</span>
-        </h4>
-        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{ui.desc}</p>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <button 
-            className={`tool-card glass-panel ${aspectRatio === '1:1' ? 'active' : ''}`}
-            onClick={() => setAspectRatio('1:1')}
-            disabled={processing || !!outputUrl}
-            style={{ padding: 12, textAlign: 'left', border: aspectRatio === '1:1' ? '2px solid var(--brand-primary)' : '2px solid transparent', cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer', opacity: processing || !!outputUrl ? 0.6 : 1 }}
-          >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.square}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.square_desc}</div>
-          </button>
+    <div>
+      <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
+        <Settings2 size={18} className="text-brand-primary" />
+        <span>{ui.ratio}</span>
+      </h4>
+      <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{ui.desc}</p>
+      
+      {/* Aspect Ratio Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 20 }}>
+        {presets.map((preset) => {
+          const isSelected = aspectRatio === preset.id;
+          return (
+            <button 
+              key={preset.id}
+              className={`option-btn ${isSelected ? 'active' : ''}`}
+              onClick={() => {
+                setAspectRatio(preset.id);
+                setCropOffset({ x: 0.5, y: 0.5 });
+              }}
+              disabled={processing || !!outputUrl}
+              style={{
+                padding: '10px 12px',
+                textAlign: 'left',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 3,
+                cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer',
+                opacity: processing || !!outputUrl ? 0.6 : 1
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, fontSize: '0.85rem' }}>
+                <span style={{ color: isSelected ? 'var(--brand-primary)' : 'var(--text-muted)' }}>{preset.icon}</span>
+                <span>{preset.name}</span>
+              </div>
+              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {preset.sub}
+              </div>
+            </button>
+          );
+        })}
+      </div>
 
-          <button 
-            className={`tool-card glass-panel ${aspectRatio === '9:16' ? 'active' : ''}`}
-            onClick={() => setAspectRatio('9:16')}
+      {/* Quick Framing / Alignment Buttons */}
+      <div style={{ marginBottom: 20, background: 'var(--bg-input)', padding: 12, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+        <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span>Frame Alignment</span>
+          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Drag box on preview or snap</span>
+        </div>
+        <div style={{ display: 'flex', gap: 6 }}>
+          <button
+            type="button"
+            className="option-btn"
+            onClick={() => setCropOffset(prev => ({ ...prev, x: 0, y: 0 }))}
             disabled={processing || !!outputUrl}
-            style={{ padding: 12, textAlign: 'left', border: aspectRatio === '9:16' ? '2px solid var(--brand-primary)' : '2px solid transparent', cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer', opacity: processing || !!outputUrl ? 0.6 : 1 }}
+            style={{ flex: 1, padding: '6px 8px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.vert}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.vert_desc}</div>
+            <AlignLeft size={13} />
+            <span>{metrics.maxXPct > 0 ? 'Left' : 'Top'}</span>
           </button>
-
-          <button 
-            className={`tool-card glass-panel ${aspectRatio === '16:9' ? 'active' : ''}`}
-            onClick={() => setAspectRatio('16:9')}
+          <button
+            type="button"
+            className={`option-btn ${cropOffset.x === 0.5 && cropOffset.y === 0.5 ? 'active' : ''}`}
+            onClick={() => setCropOffset({ x: 0.5, y: 0.5 })}
             disabled={processing || !!outputUrl}
-            style={{ padding: 12, textAlign: 'left', border: aspectRatio === '16:9' ? '2px solid var(--brand-primary)' : '2px solid transparent', cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer', opacity: processing || !!outputUrl ? 0.6 : 1 }}
+            style={{ flex: 1, padding: '6px 8px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}
           >
-            <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{ui.land}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{ui.land_desc}</div>
+            <AlignCenter size={13} />
+            <span>Center</span>
+          </button>
+          <button
+            type="button"
+            className="option-btn"
+            onClick={() => setCropOffset(prev => ({ ...prev, x: 1, y: 1 }))}
+            disabled={processing || !!outputUrl}
+            style={{ flex: 1, padding: '6px 8px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}
+          >
+            <AlignRight size={13} />
+            <span>{metrics.maxXPct > 0 ? 'Right' : 'Bottom'}</span>
           </button>
         </div>
       </div>
-    </>
+
+      {/* Output Specs Box */}
+      <div style={{ background: 'var(--bg-input)', padding: 12, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.8rem' }}>
+        <span style={{ color: 'var(--text-muted)' }}>Target Resolution:</span>
+        <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>
+          {metrics.cropW} × {metrics.cropH} ({activePreset.id})
+        </span>
+      </div>
+    </div>
   );
 
   return (
     <>
       <CenteredActionWorkspace
-      title={pseoData ? pseoData.h1 : (t('cropTitle') || "Crop Video Dimensions to Any Aspect Ratio")}
-      description={pseoData ? pseoData.description : (t('cropSub') || "Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device.")}
-      toolId="crop-video"
-      file={file}
-      onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
-      outputUrl={outputUrl}
-      onResetResult={() => setOutputUrl(null)}
-      processing={processing}
-      progress={progress}
-      engine="tier3"
-      onProcess={handleProcess}
-      processActionText={ui.action}
-      sidebarContent={sidebarContent}
-      targetFormat="mp4"
+        title={pseoData ? pseoData.h1 : (t('cropTitle') || "Crop Video Dimensions to Any Aspect Ratio")}
+        description={pseoData ? pseoData.description : (t('cropSub') || "Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device.")}
+        toolId="crop-video"
+        file={file}
+        onFileSelect={(f) => { 
+          setFile(f); 
+          setOutputUrl(null); 
+          setCurrentDimensions(null);
+          setCropOffset({ x: 0.5, y: 0.5 });
+        }}
+        outputUrl={outputUrl}
+        onResetResult={() => setOutputUrl(null)}
+        processing={processing}
+        progress={progress}
+        engine="tier3"
+        onProcess={handleProcess}
+        processActionText={ui.action}
+        sidebarContent={sidebarContent}
+        targetFormat="mp4"
+        videoOverlay={renderVideoOverlay}
       />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
@@ -118,7 +389,7 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 title: t('cropHowTo') || "How to Crop Videos",
                 steps: [
                   { title: t('cropHowTo1') || "Select a Video", description: t('cropHowTo1Desc') || "Choose any video file from your local device." },
-                  { title: t('cropHowTo2') || "Pick Aspect Ratio", description: t('cropHowTo2Desc') || "Select the desired format like 9:16 vertical or 1:1 square." },
+                  { title: t('cropHowTo2') || "Pick Aspect Ratio", description: t('cropHowTo2Desc') || "Select the desired format like 9:16 vertical or 1:1 square, or drag the frame." },
                   { title: t('cropHowTo3') || "Crop & Export", description: t('cropHowTo3Desc') || "Hit crop and your video will be instantly ready for download." }
                 ]
               }} 
@@ -131,9 +402,6 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             />
           </>
         )}
-
-        
-        
       </div>
     </>
   );
