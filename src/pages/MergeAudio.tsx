@@ -257,14 +257,26 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 <Download size={18} />
                 {translate('maDownload') || "Download Result"}
               </a>
-              <button
-                type="button"
-                onClick={() => { setFiles([]); setOutputUrl(null); fileInputRef.current?.click(); }}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '10px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.9rem' }}
-              >
-                <RefreshCw size={15} />
-                {translate('processAnother') || 'Process Another File'}
-              </button>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  onClick={() => setOutputUrl(null)}
+                  title={translate('repeatProcess') || 'Re-adjust Settings'}
+                  style={{ flex: '1 1 140px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'rgba(var(--brand-primary-rgb), 0.1)', border: '1px solid rgba(var(--brand-primary-rgb), 0.25)', color: 'var(--brand-primary)', fontWeight: 600, fontSize: '0.85rem', transition: 'all 0.2s ease' }}
+                >
+                  <RotateCcw size={15} />
+                  <span>{translate('repeatProcess') || 'Re-adjust Settings'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setFiles([]); setOutputUrl(null); fileInputRef.current?.click(); }}
+                  title={translate('processAnother') || 'Choose Another File'}
+                  style={{ flex: '1 1 140px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.85rem', transition: 'all 0.2s ease' }}
+                >
+                  <RefreshCw size={15} />
+                  <span>{translate('processAnother') || 'Choose Another File'}</span>
+                </button>
+              </div>
             </div>
           ) : (
             <button
