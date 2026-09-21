@@ -21,12 +21,14 @@ export const useUniversalCompressor = () => {
     setEngine(null);
 
     const isVideo = file.type.startsWith('video');
+    const rawExt = (file.name.split('.').pop() || (isVideo ? 'mp4' : 'mp3')).toLowerCase();
+    const canNativeDecode = ['mp4', 'm4v', 'webm', 'mov'].includes(rawExt);
     const hasWebCodecs = typeof window !== 'undefined' && 'VideoEncoder' in window && 'MediaStreamTrackProcessor' in window;
     
     let resultUrl: string | null = null;
 
-    // Fast Path: WebCodecs for MP4/WebM (Hardware accelerated, runs without waiting for FFmpeg)
-    if (isVideo && hasWebCodecs && (targetFormat.toLowerCase() === 'mp4' || targetFormat.toLowerCase() === 'webm')) {
+    // Fast Path: WebCodecs for MP4/WebM only if input format can be natively decoded by browser
+    if (isVideo && hasWebCodecs && canNativeDecode && (targetFormat.toLowerCase() === 'mp4' || targetFormat.toLowerCase() === 'webm')) {
       try {
         setEngine(targetFormat.toLowerCase() === 'mp4' ? 'tier1' : 'tier2');
         resultUrl = await runWebCodecs(file, quality, targetFormat.toLowerCase() as any, (p) => setWebCodecsProgress(p));

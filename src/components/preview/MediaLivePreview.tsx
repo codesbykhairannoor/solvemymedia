@@ -67,12 +67,12 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   if (!file) return null;
 
   const rawExt = file.name.split('.').pop()?.toLowerCase() || '';
-  const isInputVideo = file.type.startsWith('video') || ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp'].includes(rawExt);
+  const isInputVideo = file.type.startsWith('video') || ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv'].includes(rawExt);
   const isInputAudio = file.type.startsWith('audio') || ['mp3', 'wav', 'ogg', 'aac', 'flac', 'm4a', 'wma', 'opus'].includes(rawExt);
 
   const effectiveTarget = (targetFormat || '').toLowerCase().replace(/^\./, '');
   const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a'].includes(effectiveTarget);
-  const isTargetVideo = ['mp4', 'webm', 'mkv', 'avi', 'mov'].includes(effectiveTarget);
+  const isTargetVideo = ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv', 'gif'].includes(effectiveTarget);
 
   // Determine current active preview properties
   const isCurrentResult = activeTab === 'result' && !!outputUrl;

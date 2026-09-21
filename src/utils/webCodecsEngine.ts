@@ -17,7 +17,19 @@ export const runWebCodecs = async (
     video.playsInline = true;
     video.crossOrigin = "anonymous";
 
+    const metadataTimeout = setTimeout(() => {
+      try { video.remove(); } catch (_) {}
+      reject(new Error("Video loading timed out"));
+    }, 8000);
+
+    video.onerror = () => {
+      clearTimeout(metadataTimeout);
+      try { video.remove(); } catch (_) {}
+      reject(new Error("Browser cannot natively decode this video format"));
+    };
+
     video.onloadedmetadata = async () => {
+      clearTimeout(metadataTimeout);
       let muxer: any = null;
       let videoEncoder: VideoEncoder | null = null;
       let audioEncoder: AudioEncoder | null = null;

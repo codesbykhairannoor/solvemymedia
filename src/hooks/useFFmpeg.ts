@@ -91,7 +91,7 @@ export const useFFmpeg = () => {
         const scaleMultiplier = quality >= 100 ? 1 : Number((0.3 + (0.7 * (quality / 100))).toFixed(2));
         const scaleFilter = scaleMultiplier < 1 ? `scale=trunc(iw*${scaleMultiplier}/2)*2:-2` : 'scale=trunc(iw/2)*2:-2';
 
-        if (targetFormat === 'mp4' || targetFormat === 'mkv') {
+        if (['mp4', 'mkv', 'mov', 'm4v', 'ts'].includes(targetFormat)) {
           const crf = Math.round(35 - ((quality / 100) * 17));
           let preset = 'medium';
           if (quality < 33) preset = 'veryfast';
@@ -110,14 +110,15 @@ export const useFFmpeg = () => {
         } else if (targetFormat === 'webm') {
           const crf = Math.round(40 - ((quality / 100) * 20));
           args.push(
-            '-c:v', 'libvpx-vp9',
-            '-b:v', '0',
+            '-c:v', 'libvpx',
+            '-b:v', '1.5M',
             '-crf', crf.toString(),
             '-deadline', 'realtime',
             '-cpu-used', '4',
             '-vf', scaleFilter,
             '-c:a', 'libopus',
-            '-b:a', '128k'
+            '-b:a', '128k',
+            '-ar', '48000'
           );
         } else if (targetFormat === 'avi') {
           const qv = Math.round(2 + ((100 - quality) / 100) * 10);
@@ -127,6 +128,41 @@ export const useFFmpeg = () => {
             '-vf', scaleFilter,
             '-c:a', 'libmp3lame',
             '-b:a', '192k'
+          );
+        } else if (targetFormat === 'wmv') {
+          args.push(
+            '-c:v', 'wmv2',
+            '-b:v', '2M',
+            '-vf', scaleFilter,
+            '-c:a', 'wmav2',
+            '-b:a', '128k'
+          );
+        } else if (targetFormat === 'flv') {
+          args.push(
+            '-c:v', 'flv',
+            '-vf', scaleFilter,
+            '-c:a', 'libmp3lame',
+            '-ar', '44100'
+          );
+        } else if (targetFormat === '3gp') {
+          args.push(
+            '-c:v', 'h263',
+            '-s', '352x288',
+            '-c:a', 'aac',
+            '-ar', '8000',
+            '-ac', '1'
+          );
+        } else if (targetFormat === 'ogv') {
+          args.push(
+            '-c:v', 'theora',
+            '-q:v', '6',
+            '-vf', scaleFilter,
+            '-c:a', 'libvorbis',
+            '-b:a', '128k'
+          );
+        } else if (targetFormat === 'gif') {
+          args.push(
+            '-vf', `${scaleFilter},fps=12,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`
           );
         } else {
           args.push('-vf', scaleFilter);
@@ -159,6 +195,14 @@ export const useFFmpeg = () => {
       let mimeType = !isTargetAudio ? `video/${targetFormat}` : `audio/${targetFormat}`;
       if (targetFormat === 'mkv') mimeType = 'video/x-matroska';
       if (targetFormat === 'avi') mimeType = 'video/x-msvideo';
+      if (targetFormat === 'mov') mimeType = 'video/quicktime';
+      if (targetFormat === 'wmv') mimeType = 'video/x-ms-wmv';
+      if (targetFormat === 'flv') mimeType = 'video/x-flv';
+      if (targetFormat === '3gp') mimeType = 'video/3gpp';
+      if (targetFormat === 'ts') mimeType = 'video/mp2t';
+      if (targetFormat === 'm4v') mimeType = 'video/x-m4v';
+      if (targetFormat === 'ogv') mimeType = 'video/ogg';
+      if (targetFormat === 'gif') mimeType = 'image/gif';
       if (targetFormat === 'mp3') mimeType = 'audio/mpeg';
       if (targetFormat === 'wav') mimeType = 'audio/wav';
       if (targetFormat === 'aac') mimeType = 'audio/aac';

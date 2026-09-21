@@ -22,6 +22,25 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [targetFormat, setTargetFormat] = useState<string>(initialFormat || 'mp4');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+  const AVAILABLE_FORMATS = [
+    { id: 'mp4', name: 'MP4' },
+    { id: 'webm', name: 'WebM' },
+    { id: 'mov', name: 'MOV' },
+    { id: 'mkv', name: 'MKV' },
+    { id: 'avi', name: 'AVI' },
+    { id: 'wmv', name: 'WMV' },
+    { id: 'flv', name: 'FLV' },
+    { id: '3gp', name: '3GP' },
+    { id: 'm4v', name: 'M4V' },
+    { id: 'ts', name: 'TS' },
+    { id: 'ogv', name: 'OGV' },
+    { id: 'gif', name: 'GIF' }
+  ];
+
+  const defaultErr = "Conversion failed. Please verify the file format or try a different target format.";
+  const translatedErr = t('convVError');
+  const safeErr = (translatedErr && translatedErr !== 'convVError') ? translatedErr : defaultErr;
+
   const handleProcess = async () => {
     if (!file) return;
     setErrorMsg(null);
@@ -30,11 +49,11 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       if (url) {
         setOutputUrl(url);
       } else {
-        setErrorMsg(t('convVError') || "Conversion failed. Please verify the file format or try a different target format.");
+        setErrorMsg(safeErr);
       }
     } catch (e: any) {
       console.error("Conversion failed:", e);
-      setErrorMsg(e?.message || (t('convVError') || "Conversion failed. Please verify the file format or try a different target format."));
+      setErrorMsg(e?.message && !e.message.includes('convVError') ? e.message : safeErr);
     }
   };
 
@@ -47,15 +66,23 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         </h4>
         <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{ui.select_format}</p>
         
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {['mp4', 'webm', 'mkv', 'avi'].map((fmt) => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(75px, 1fr))', gap: 8 }}>
+          {AVAILABLE_FORMATS.map((fmt) => (
             <button 
-              key={fmt}
-              className={`tab-btn ${targetFormat === fmt ? 'active' : ''}`} 
-              style={{ padding: '8px 16px', fontSize: '0.9rem' }} 
-              onClick={() => { setTargetFormat(fmt); setErrorMsg(null); }}
+              key={fmt.id}
+              type="button"
+              className={`tab-btn ${targetFormat === fmt.id ? 'active' : ''}`} 
+              style={{ 
+                padding: '8px 10px', 
+                fontSize: '0.85rem', 
+                fontWeight: targetFormat === fmt.id ? 700 : 500,
+                textAlign: 'center',
+                borderRadius: 'var(--radius-sm)',
+                cursor: 'pointer'
+              }} 
+              onClick={() => { setTargetFormat(fmt.id); setErrorMsg(null); }}
             >
-              .{fmt}
+              .{fmt.id}
             </button>
           ))}
         </div>
