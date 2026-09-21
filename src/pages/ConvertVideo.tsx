@@ -87,6 +87,12 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           ))}
         </div>
 
+        {['3gp', 'mkv', 'avi', 'wmv', 'flv', 'ts', 'ogv'].includes(targetFormat) && (
+          <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 'var(--radius-sm)', background: 'rgba(var(--brand-secondary-rgb), 0.08)', border: '1px solid rgba(var(--brand-secondary-rgb), 0.2)', fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.45 }}>
+            💡 <strong>.{targetFormat.toUpperCase()}</strong> is optimized for desktop media players (VLC, Windows Media Player, TV, phones). For instant in-browser playback, select <strong>.mp4</strong> or <strong>.webm</strong>.
+          </div>
+        )}
+
         {errorMsg && (
           <div style={{ marginTop: 16, padding: '10px 14px', borderRadius: 'var(--radius-sm)', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error-color)', color: 'var(--error-color)', fontSize: '0.85rem', lineHeight: 1.4 }}>
             {errorMsg}

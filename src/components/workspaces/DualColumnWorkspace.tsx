@@ -132,6 +132,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
               file={file}
               outputUrl={outputUrl}
               targetFormat={targetFormat}
+              customFileName={customFileName}
               processing={processing}
               progress={progress}
               engine={engine}

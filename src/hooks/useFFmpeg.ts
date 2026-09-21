@@ -127,7 +127,9 @@ export const useFFmpeg = () => {
             '-q:v', qv.toString(),
             '-vf', scaleFilter,
             '-c:a', 'libmp3lame',
-            '-b:a', '192k'
+            '-b:a', '192k',
+            '-ac', '2',
+            '-ar', '44100'
           );
         } else if (targetFormat === 'wmv') {
           args.push(
@@ -135,22 +137,27 @@ export const useFFmpeg = () => {
             '-b:v', '2M',
             '-vf', scaleFilter,
             '-c:a', 'wmav2',
-            '-b:a', '128k'
+            '-b:a', '128k',
+            '-ac', '2',
+            '-ar', '44100'
           );
         } else if (targetFormat === 'flv') {
           args.push(
             '-c:v', 'flv',
             '-vf', scaleFilter,
             '-c:a', 'libmp3lame',
+            '-ac', '2',
             '-ar', '44100'
           );
         } else if (targetFormat === '3gp') {
           args.push(
-            '-c:v', 'h263',
-            '-s', '352x288',
+            '-c:v', 'libx264',
+            '-pix_fmt', 'yuv420p',
+            '-preset', 'fast',
+            '-vf', scaleFilter,
             '-c:a', 'aac',
-            '-ar', '8000',
-            '-ac', '1'
+            '-ac', '2',
+            '-ar', '32000'
           );
         } else if (targetFormat === 'ogv') {
           args.push(
@@ -158,10 +165,12 @@ export const useFFmpeg = () => {
             '-q:v', '6',
             '-vf', scaleFilter,
             '-c:a', 'libvorbis',
-            '-b:a', '128k'
+            '-b:a', '128k',
+            '-ac', '2'
           );
         } else if (targetFormat === 'gif') {
           args.push(
+            '-an',
             '-vf', `${scaleFilter},fps=12,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`
           );
         } else {

@@ -423,6 +423,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               file={videoFile}
               outputUrl={outputUrl}
               targetFormat="mp4"
+              customFileName={customFileName}
               processing={processing}
               progress={progress}
               engine="tier3"

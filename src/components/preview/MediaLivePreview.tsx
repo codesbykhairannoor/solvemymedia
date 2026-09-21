@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FileVideo, FileAudio, Play, Pause, RefreshCw, Trash2, Volume2, Sparkles, Film, Music, CheckCircle2, AlertCircle } from 'lucide-react';
+import { FileVideo, FileAudio, Play, Pause, RefreshCw, Trash2, Volume2, Sparkles, Film, Music, CheckCircle2, AlertCircle, Download } from 'lucide-react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 export interface MediaLivePreviewProps {
   file: File | null;
   outputUrl?: string | null;
   targetFormat?: string;
+  customFileName?: string;
   processing?: boolean;
   progress?: number;
   engine?: string | null;
@@ -23,6 +24,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   file,
   outputUrl,
   targetFormat,
+  customFileName,
   processing,
   progress = 0,
   engine,
@@ -37,18 +39,24 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   const [videoDimensions, setVideoDimensions] = useState<{ width: number; height: number } | null>(null);
   const [mediaDuration, setMediaDuration] = useState<number | null>(null);
   const [nativePlaybackFailed, setNativePlaybackFailed] = useState(false);
+  const [resultSizeBytes, setResultSizeBytes] = useState<number | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
 
-  // Automatically switch to result preview when outputUrl becomes available
+  // Automatically switch to result preview when outputUrl becomes available and track its file size
   useEffect(() => {
     if (outputUrl) {
       setActiveTab('result');
       setNativePlaybackFailed(false);
+      fetch(outputUrl)
+        .then(res => res.blob())
+        .then(b => setResultSizeBytes(b.size))
+        .catch(() => setResultSizeBytes(null));
     } else {
       setActiveTab('original');
+      setResultSizeBytes(null);
     }
   }, [outputUrl]);
 
@@ -81,6 +89,9 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a'].includes(effectiveTarget);
   const isTargetVideo = ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv', 'gif'].includes(effectiveTarget);
 
+  // Non-browser-playable containers (browsers cannot play these inside standard HTML5 <video>)
+  const NON_BROWSER_VIDEO_CONTAINERS = ['3gp', 'mkv', 'avi', 'wmv', 'flv', 'ts', 'ogv'];
+
   // Determine current active preview properties
   const isCurrentResult = activeTab === 'result' && !!outputUrl;
   const currentUrl = isCurrentResult ? outputUrl! : originalUrl;
@@ -89,6 +100,12 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   const isCurrentVideo = isCurrentResult 
     ? (isTargetAudio ? false : (isTargetVideo ? true : isInputVideo))
     : isInputVideo;
+
+  const isGifResult = isCurrentResult && effectiveTarget === 'gif';
+  const isNonBrowserResult = isCurrentResult && isCurrentVideo && !isGifResult && (NON_BROWSER_VIDEO_CONTAINERS.includes(effectiveTarget) || nativePlaybackFailed);
+
+  const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : 'processed';
+  const downloadFileName = `${(customFileName?.trim() || defaultBaseName)}.${effectiveTarget || rawExt || 'mp4'}`;
 
   const formatDuration = (seconds: number | null) => {
     if (!seconds || isNaN(seconds) || seconds === Infinity) return '--:--';
@@ -203,8 +220,83 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
           minHeight: 260
         }}
       >
-        {/* VIDEO PLAYER VIEW */}
-        {isCurrentVideo && currentUrl && !nativePlaybackFailed && (
+        {/* 1. ANIMATED GIF RESULT VIEW */}
+        {isGifResult && currentUrl && (
+          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img
+              src={currentUrl}
+              alt="Animated GIF Result"
+              style={{
+                maxWidth: '100%',
+                maxHeight: 380,
+                borderRadius: 'var(--radius-md)',
+                objectFit: 'contain',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)'
+              }}
+            />
+          </div>
+        )}
+
+        {/* 2. SUCCESS CARD FOR NON-BROWSER CONTAINER RESULTS (.3gp, .mkv, .avi, .wmv, .flv, .ts, etc. OR onError fallback) */}
+        {!isGifResult && isNonBrowserResult && (
+          <div style={{ textAlign: 'center', padding: '32px 24px', maxWidth: 480, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{
+              width: 72,
+              height: 72,
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2))',
+              border: '2px solid var(--success-color)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: 16,
+              boxShadow: '0 8px 25px rgba(16, 185, 129, 0.25)'
+            }}>
+              <CheckCircle2 size={38} color="var(--success-color)" />
+            </div>
+
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 6, letterSpacing: '-0.02em' }}>
+              File Converted Successfully! 🎉
+            </h3>
+
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', borderRadius: 20, background: 'rgba(var(--brand-secondary-rgb), 0.15)', color: 'var(--brand-secondary)', fontWeight: 700, fontSize: '0.85rem', marginBottom: 14 }}>
+              <span>.{effectiveTarget.toUpperCase()} Container Ready</span>
+              {resultSizeBytes && <span>• {(resultSizeBytes / (1024 * 1024)).toFixed(2)} MB</span>}
+            </div>
+
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.6, marginBottom: 20 }}>
+              Web browsers only support inline playback for <strong>MP4</strong> and <strong>WebM</strong>. 
+              Your <strong>.{effectiveTarget.toUpperCase()}</strong> file is 100% encoded and ready to play in <strong>VLC, Windows Media Player, QuickTime, TVs, or your target device</strong>!
+            </p>
+
+            <a
+              href={outputUrl!}
+              download={downloadFileName}
+              className="btn-primary"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '12px 28px',
+                fontSize: '0.95rem',
+                fontWeight: 700,
+                borderRadius: 'var(--radius-md)',
+                textDecoration: 'none',
+                boxShadow: '0 6px 20px rgba(var(--brand-primary-rgb), 0.3)'
+              }}
+            >
+              <Download size={18} />
+              <span>Download .{effectiveTarget.toUpperCase()} Result</span>
+            </a>
+
+            <p style={{ marginTop: 16, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+              💡 Tip: To preview and play directly inside web browsers or websites, choose <strong>.mp4</strong> or <strong>.webm</strong>.
+            </p>
+          </div>
+        )}
+
+        {/* 3. NATIVE VIDEO PLAYER VIEW (For MP4, WebM, and playable containers) */}
+        {!isGifResult && !isNonBrowserResult && isCurrentVideo && currentUrl && !nativePlaybackFailed && (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
             <div
               ref={playerContainerRef}
@@ -230,10 +322,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                 preload="metadata"
                 onLoadedMetadata={handleVideoMetadata}
                 onError={() => {
-                  // If native browser video tag fails (e.g. MKV/AVI in Chrome)
-                  if (!isCurrentResult) {
-                    setNativePlaybackFailed(true);
-                  }
+                  setNativePlaybackFailed(true);
                 }}
                 style={{
                   maxWidth: '100%',
@@ -265,7 +354,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
           </div>
         )}
 
-        {/* AUDIO PLAYER VIEW */}
+        {/* 4. AUDIO PLAYER VIEW */}
         {!isCurrentVideo && currentUrl && (
           <div style={{ width: '100%', maxWidth: 460, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px 16px', textAlign: 'center' }}>
             <div 
@@ -285,7 +374,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
             </div>
             
             <p style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: 4, wordBreak: 'break-all', maxWidth: '100%' }}>
-              {isCurrentResult ? `Processed_${file.name.replace(/\.[^/.]+$/, '')}.${effectiveTarget || 'mp3'}` : file.name}
+              {isCurrentResult ? downloadFileName : file.name}
             </p>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: 16 }}>
               {isCurrentResult ? 'High Quality Audio Result' : `${(file.size / (1024 * 1024)).toFixed(2)} MB • ${rawExt.toUpperCase()}`}
@@ -303,8 +392,8 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
           </div>
         )}
 
-        {/* FALLBACK CARD (For obscure containers like MKV / AVI that native browser video cannot decode) */}
-        {isCurrentVideo && nativePlaybackFailed && (
+        {/* 5. FALLBACK CARD (For obscure ORIGINAL source containers like MKV / AVI that native browser video cannot decode) */}
+        {!isCurrentResult && isCurrentVideo && nativePlaybackFailed && (
           <div style={{ textAlign: 'center', padding: 24, maxWidth: 420 }}>
             <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(var(--brand-primary-rgb), 0.15)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
               <FileVideo size={36} color="var(--brand-primary)" />
@@ -327,7 +416,11 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                 {isCurrentResult ? '✨ Result File' : file.name}
               </span>
               <span>•</span>
-              <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
+              <span>
+                {isCurrentResult && resultSizeBytes 
+                  ? `${(resultSizeBytes / (1024 * 1024)).toFixed(2)} MB` 
+                  : `${(file.size / (1024 * 1024)).toFixed(2)} MB`}
+              </span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
