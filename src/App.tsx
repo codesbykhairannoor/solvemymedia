@@ -15,6 +15,7 @@ import { SecurityTrust } from './pages/legal/SecurityTrust';
 import { Pricing } from './pages/legal/Pricing';
 import { Compare } from './pages/legal/Compare';
 import { SupportedLanguages } from './pages/legal/SupportedLanguages';
+import { WorkspaceProvider, useWorkspace } from './contexts/WorkspaceContext';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -46,6 +47,24 @@ const RouteFallback = () => (
   </div>
 );
 
+function LanguageLayoutContent({ theme, toggleTheme }: { theme: 'light' | 'dark', toggleTheme: () => void }) {
+  const { hasActiveFile } = useWorkspace();
+
+  return (
+    <div className={`app-container ${hasActiveFile ? 'workspace-focused' : ''}`} style={{ paddingTop: 60 }}>
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Suspense fallback={<RouteFallback />}>
+          <Outlet />
+        </Suspense>
+      </div>
+      
+      {!hasActiveFile && <Footer />}
+    </div>
+  );
+}
+
 function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggleTheme: () => void }) {
   const location = useLocation();
   const firstPathSegment = location.pathname.split('/')[1];
@@ -57,17 +76,9 @@ function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggl
   return (
     <LanguageProvider currentLang={currentLang}>
       {seoKeys && <SEO titleKey={seoKeys.title} descKey={seoKeys.desc} />}
-      <div className="app-container" style={{ paddingTop: 60 }}>
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
-        
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <Suspense fallback={<RouteFallback />}>
-            <Outlet />
-          </Suspense>
-        </div>
-        
-        <Footer />
-      </div>
+      <WorkspaceProvider>
+        <LanguageLayoutContent theme={theme} toggleTheme={toggleTheme} />
+      </WorkspaceProvider>
     </LanguageProvider>
   );
 }

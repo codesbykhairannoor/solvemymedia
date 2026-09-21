@@ -3,6 +3,7 @@ import { UploadCloud, FileVideo, FileAudio, Trash2, Download, Loader2, Zap, Refr
 import { smartHighlight } from '../../utils/textFormatting';
 import { useLanguage } from '../../hooks/useLanguage';
 import { MediaLivePreview } from '../preview/MediaLivePreview';
+import { useWorkspace } from '../../contexts/WorkspaceContext';
 
 interface CenteredActionWorkspaceProps {
   file: File | null;
@@ -45,10 +46,16 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { t } = useLanguage();
+  const { setHasActiveFile } = useWorkspace();
 
   const [customFileName, setCustomFileName] = useState<string>('');
 
   const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : '';
+
+  useEffect(() => {
+    setHasActiveFile(!!file);
+    return () => setHasActiveFile(false);
+  }, [file, setHasActiveFile]);
 
   useEffect(() => {
     if (file) {
@@ -81,26 +88,23 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
   const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'processed')}.${finalExt}`;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: file ? '20px' : '40px' }}>
       
-      {finalTitle && (
+      {!file && finalTitle && (
         <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
           <h1 style={{ 
-            fontSize: file ? 'clamp(1.75rem, 4vw, 2.4rem)' : 'clamp(2.5rem, 5vw, 4rem)', 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
             fontWeight: 900, 
-            marginBottom: file ? 10 : 20, 
+            marginBottom: 20, 
             letterSpacing: '-0.03em', 
             lineHeight: 1.15, 
-            fontFamily: 'Outfit, sans-serif',
-            transition: 'font-size 0.25s ease, margin 0.25s ease'
+            fontFamily: 'Outfit, sans-serif'
           }}>
             {smartHighlight(finalTitle)}
           </h1>
-          {!file && (
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-              {description || `${ui.drag_drop} ${ui.browse_files}`}
-            </p>
-          )}
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+            {description || `${ui.drag_drop} ${ui.browse_files}`}
+          </p>
         </div>
       )}
 

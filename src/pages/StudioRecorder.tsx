@@ -5,9 +5,11 @@ import { smartHighlight } from '../utils/textFormatting';
 import { useStudioRecorder } from '../hooks/useStudioRecorder';
 import { VideoTrimmer } from '../components/VideoTrimmer';
 import { useLanguage } from '../hooks/useLanguage';
+import { useWorkspace } from '../contexts/WorkspaceContext';
 
 export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { isRecording, recordingTime, recordedBlobUrl, startRecording, stopRecording, resetRecording } = useStudioRecorder();
+  const { setHasActiveFile } = useWorkspace();
   
   const [screen, setScreen] = useState(true);
   const [webcam, setWebcam] = useState(true);
@@ -41,6 +43,12 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [isRecording]);
 
+  React.useEffect(() => {
+    const hasActive = isRecording || !!recordedBlobUrl;
+    setHasActiveFile(hasActive);
+    return () => setHasActiveFile(false);
+  }, [isRecording, recordedBlobUrl, setHasActiveFile]);
+
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
@@ -69,14 +77,16 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '64px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: isRecording ? '20px' : '64px' }}>
       
-      <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
-        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
-          {smartHighlight(pseoData ? pseoData.h1 : (translate('recTitle') || 'Professional Browser Studio Recorder'))}
-        </h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>{pseoData ? pseoData.description : t.desc}</p>
-      </div>
+      {!isRecording && (
+        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 40px auto', width: '100%' }}>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15, fontFamily: 'Outfit, sans-serif' }}>
+            {smartHighlight(pseoData ? pseoData.h1 : (translate('recTitle') || 'Professional Browser Studio Recorder'))}
+          </h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>{pseoData ? pseoData.description : t.desc}</p>
+        </div>
+      )}
 
       <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
         
@@ -169,7 +179,7 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       
     
     
-      {!pseoData && (
+      {!isRecording && !recordedBlobUrl && !pseoData && (
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
         <StudioRecorderHeroSection 
           section={{ type: 'hero', title: translate('recHeroTitle') || "Professional Browser Studio Recorder", content: translate('recHeroDesc') || "Record your screen, webcam, and microphone all at once without installing any software. Perfect for tutorials, presentations, and vlogs." }} 
@@ -191,7 +201,6 @@ export const StudioRecorder: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         <StudioRecorderPrivacySection 
           section={{ type: 'privacy', title: translate('recPrivTitle') || "Secure & Offline", content: translate('recPrivDesc') || "Your camera feed and screen recordings are processed and stored locally. They are never transmitted over the internet." }} 
         />
-        
       </div>
       )}
   

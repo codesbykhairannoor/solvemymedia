@@ -598,3 +598,19 @@ textarea {
   font-size: 1.4rem;
   font-weight: 700 !important;
 }
+
+/* Studio Focused Workspace Mode (Active when media file is uploaded) */
+body.has-active-media-file footer,
+body[data-has-active-file="true"] footer,
+.app-container.workspace-focused footer {
+  display: none !important;
+}
+
+body.has-active-media-file .seo-sections-wrapper,
+body[data-has-active-file="true"] .seo-sections-wrapper,
+body.has-active-media-file .dynamic-route-seo-sections,
+body[data-has-active-file="true"] .dynamic-route-seo-sections,
+.app-container.workspace-focused .seo-sections-wrapper,
+.app-container.workspace-focused .dynamic-route-seo-sections {
+  display: none !important;
+}

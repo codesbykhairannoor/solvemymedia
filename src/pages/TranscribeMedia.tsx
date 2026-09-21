@@ -5,10 +5,12 @@ import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
 import { MediaLivePreview } from '../components/preview/MediaLivePreview';
+import { useWorkspace } from '../contexts/WorkspaceContext';
 
 export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, loadingProgress, processing, resultText, error, transcribe, initModel } = useWhisper();
   const { t: translate } = useLanguage();
+  const { setHasActiveFile } = useWorkspace();
   
   const t = {
     upload: translate('transDesc') || "Upload your audio or video file below to transcribe it to text securely in your browser using AI.",
@@ -25,6 +27,11 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [customFileName, setCustomFileName] = useState<string>('');
 
   const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : '';
+
+  useEffect(() => {
+    setHasActiveFile(!!file);
+    return () => setHasActiveFile(false);
+  }, [file, setHasActiveFile]);
 
   useEffect(() => {
     if (file) {
@@ -81,26 +88,25 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const isVideo = file?.type.startsWith('video');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: file ? '20px' : '40px' }}>
       
-      <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
-        <h1 style={{ 
-          fontSize: file ? 'clamp(1.75rem, 4vw, 2.4rem)' : 'clamp(2.5rem, 5vw, 4rem)', 
-          fontWeight: 900, 
-          marginBottom: file ? 10 : 20, 
-          letterSpacing: '-0.03em', 
-          lineHeight: 1.15, 
-          fontFamily: 'Outfit, sans-serif',
-          transition: 'font-size 0.25s ease, margin 0.25s ease'
-        }}>
-          {smartHighlight(finalTitle)}
-        </h1>
-        {!file && (
+      {!file && finalTitle && (
+        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+          <h1 style={{ 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            fontWeight: 900, 
+            marginBottom: 20, 
+            letterSpacing: '-0.03em', 
+            lineHeight: 1.15, 
+            fontFamily: 'Outfit, sans-serif'
+          }}>
+            {smartHighlight(finalTitle)}
+          </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
             {finalDesc}
           </p>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
         <input 
@@ -326,32 +332,30 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         </div>
       </div>
       
-      <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
-        {!pseoData && (
-          <>
-            <TranscribeMediaHeroSection 
-              section={{ type: 'hero', title: translate('transHeroTitle') || "Transcribe Audio & Video Offline", content: translate('transHeroDesc') || "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
-            />
-            <TranscribeMediaHowToSection 
-              section={{
-                type: 'howto',
-                title: translate('transHowTo') || "How to Transcribe",
-                steps: [
-                  { title: translate('transHowTo1') || "Select Media", description: translate('transHowTo1Desc') || "Upload any audio or video file from your computer." },
-                  { title: translate('transHowTo2') || "AI Analysis", description: translate('transHowTo2Desc') || "The local AI engine listens and detects the spoken language." },
-                  { title: translate('transHowTo3') || "Get Text", description: translate('transHowTo3Desc') || "Instantly copy the transcription text to your clipboard." }
-                ]
-              }} 
-            />
-            <TranscribeMediaPerformanceSection 
-              section={{ type: 'performance', title: translate('transPerfTitle') || "Hardware Acceleration", content: translate('transPerfDesc') || "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
-            />
-            <TranscribeMediaPrivacySection 
-              section={{ type: 'privacy', title: translate('transPrivTitle') || "Total Privacy", content: translate('transPrivDesc') || "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
-            />
-          </>
-        )}
-      </div>
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', padding: '80px 0', background: 'var(--bg-main)' }}>
+          <TranscribeMediaHeroSection 
+            section={{ type: 'hero', title: translate('transHeroTitle') || "Transcribe Audio & Video Offline", content: translate('transHeroDesc') || "Upload your media files and have our local AI whisper model instantly convert speech to text without ever sending your data to the cloud." }} 
+          />
+          <TranscribeMediaHowToSection 
+            section={{
+              type: 'howto',
+              title: translate('transHowTo') || "How to Transcribe",
+              steps: [
+                { title: translate('transHowTo1') || "Select Media", description: translate('transHowTo1Desc') || "Upload any audio or video file from your computer." },
+                { title: translate('transHowTo2') || "AI Analysis", description: translate('transHowTo2Desc') || "The local AI engine listens and detects the spoken language." },
+                { title: translate('transHowTo3') || "Get Text", description: translate('transHowTo3Desc') || "Instantly copy the transcription text to your clipboard." }
+              ]
+            }} 
+          />
+          <TranscribeMediaPerformanceSection 
+            section={{ type: 'performance', title: translate('transPerfTitle') || "Hardware Acceleration", content: translate('transPerfDesc') || "We harness the power of your device's native hardware to run the complex AI neural network directly in the browser." }} 
+          />
+          <TranscribeMediaPrivacySection 
+            section={{ type: 'privacy', title: translate('transPrivTitle') || "Total Privacy", content: translate('transPrivDesc') || "We guarantee that your sensitive audio recordings, meetings, and personal videos are completely safe. Nothing is uploaded. Period." }} 
+          />
+        </div>
+      )}
     </div>
   );
 };

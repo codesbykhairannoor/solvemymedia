@@ -147,8 +147,8 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         targetFormat="mp3"
       />
 
-      {!pseoData && (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+      {!file && !pseoData && (
+      <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CompressAudioHeroSection 
           section={{ type: 'hero', title: translate('caHeroTitle') || "Shrink Audio Size Instantly", content: translate('caHeroDesc') || "Compress your MP3, WAV, and AAC files securely offline. Save gigabytes of space for podcasts, voice notes, and music sharing." }} 
         />

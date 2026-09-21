@@ -115,68 +115,63 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         targetFormat={targetFormat}
       />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-        {!pseoData && (
-          <>
-            <ConvertVideoHeroSection 
-              flipLayout={false}
-              section={{
-                type: 'hero',
-                title: pseoData ? pseoData.h1 : (t('convVHeroTitle2') || 'Convert Any Video Format Instantly'),
-                content: pseoData ? pseoData.description : (t('convVHeroDesc2') || "Say goodbye to 'unsupported codec' errors. Convert your heavy MKV, AVI, MOV, and WebM files into universally playable MP4 videos directly within your browser.")
-              }}
-            />
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <ConvertVideoHeroSection 
+            flipLayout={false}
+            section={{
+              type: 'hero',
+              title: pseoData ? pseoData.h1 : (t('convVHeroTitle2') || 'Convert Any Video Format Instantly'),
+              content: pseoData ? pseoData.description : (t('convVHeroDesc2') || "Say goodbye to 'unsupported codec' errors. Convert your heavy MKV, AVI, MOV, and WebM files into universally playable MP4 videos directly within your browser.")
+            }}
+          />
 
-            <ConvertVideoPerformanceSection 
-              flipLayout={true}
-              badges={[
-                t('convVFeat1') || "No FFmpeg installation", 
-                t('convVFeat2') || "Preserves original quality", 
-                t('convVFeat3') || "Supports 4K and 60FPS"
-              ]}
-              section={{
-                type: 'performance',
-                title: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].title : (t('convVWasmTitle') || 'WebAssembly Transcoding Engine'),
-                content: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].desc : (t('convVWasmDesc') || "We've ported industry-standard media frameworks directly into the browser. Unlike basic converters, SolveMyMedia utilizes SharedArrayBuffer and Web Workers to transcode gigabytes of video data blazingly fast without crashing your tab.")
-              }}
-            />
+          <ConvertVideoPerformanceSection 
+            flipLayout={true}
+            badges={[
+              t('convVFeat1') || "No FFmpeg installation", 
+              t('convVFeat2') || "Preserves original quality", 
+              t('convVFeat3') || "Supports 4K and 60FPS"
+            ]}
+            section={{
+              type: 'performance',
+              title: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].title : (t('convVWasmTitle') || 'WebAssembly Transcoding Engine'),
+              content: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].desc : (t('convVWasmDesc') || "We've ported industry-standard media frameworks directly into the browser. Unlike basic converters, SolveMyMedia utilizes SharedArrayBuffer and Web Workers to transcode gigabytes of video data blazingly fast without crashing your tab.")
+            }}
+          />
 
-            <ConvertVideoPrivacySection
-              flipLayout={false}
-              section={{
-                type: 'privacy',
-                title: t('convVPrivTitle') || 'Play Anywhere, On Any Device',
-                content: t('convVPrivDesc') || 'By converting your videos to MP4 (H.264/AAC), you ensure they will play flawlessly on iPhones, Androids, Smart TVs, and social media platforms.'
-              }}
-            />
+          <ConvertVideoPrivacySection
+            flipLayout={false}
+            section={{
+              type: 'privacy',
+              title: t('convVPrivTitle') || 'Play Anywhere, On Any Device',
+              content: t('convVPrivDesc') || 'By converting your videos to MP4 (H.264/AAC), you ensure they will play flawlessly on iPhones, Androids, Smart TVs, and social media platforms.'
+            }}
+          />
 
-            <ConvertVideoHowToSection 
-              flipLayout={false}
-              section={{
-                type: 'how-to',
-                title: t('convVHowTo') || 'How to Convert Videos Offline',
-                steps: [
-                  { title: t('convVHowTo1') || 'Drop your Video', description: t('convVHowTo1Desc') || 'Select any obscure video format from your local drive.' },
-                  { title: t('convVHowTo2') || 'Choose Target', description: t('convVHowTo2Desc') || 'Select MP4 for universal playback or WebM for web optimization.' },
-                  { title: t('convVHowTo3') || 'Save File', description: t('convVHowTo3Desc') || 'The conversion happens locally. Click download when done.' }
-                ]
-              }}
-            />
+          <ConvertVideoHowToSection 
+            flipLayout={false}
+            section={{
+              type: 'how-to',
+              title: t('convVHowTo') || 'How to Convert Videos Offline',
+              steps: [
+                { title: t('convVHowTo1') || 'Drop your Video', description: t('convVHowTo1Desc') || 'Select any obscure video format from your local drive.' },
+                { title: t('convVHowTo2') || 'Choose Target', description: t('convVHowTo2Desc') || 'Select MP4 for universal playback or WebM for web optimization.' },
+                { title: t('convVHowTo3') || 'Save File', description: t('convVHowTo3Desc') || 'The conversion happens locally. Click download when done.' }
+              ]
+            }}
+          />
 
-            <ConvertVideoGeoSection 
-              flipLayout={false}
-              section={{
-                type: 'geo',
-                title: t('convVGeoTitle') || '100% Local Execution',
-                content: t('convVGeoDesc') || 'No accounts, no software installation, and no upload limits. Just drag, drop, and convert.'
-              }}
-            />
-          </>
-        )}
-        
-        
-
+          <ConvertVideoGeoSection 
+            flipLayout={false}
+            section={{
+              type: 'geo',
+              title: t('convVGeoTitle') || '100% Local Execution',
+              content: t('convVGeoDesc') || 'No accounts, no software installation, and no upload limits. Just drag, drop, and convert.'
+            }}
+          />
         </div>
+      )}
     </>
   );
 };

@@ -91,8 +91,8 @@ export const CreateGif: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       targetFormat="gif"
       />
 
-      {!pseoData && (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+      {!file && !pseoData && (
+      <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CreateGifHeroSection 
           section={{ 
             type: 'hero', 

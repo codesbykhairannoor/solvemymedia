@@ -5,10 +5,12 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
 import { MediaLivePreview } from '../components/preview/MediaLivePreview';
+import { useWorkspace } from '../contexts/WorkspaceContext';
 
 export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
+  const { setHasActiveFile } = useWorkspace();
   
   const ui = {
     pos: t('wmPos') || "Position",
@@ -46,6 +48,11 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   const [customFileName, setCustomFileName] = useState<string>('');
   const defaultBaseName = videoFile ? videoFile.name.replace(/\.[^/.]+$/, '') : '';
+
+  useEffect(() => {
+    setHasActiveFile(!!videoFile);
+    return () => setHasActiveFile(false);
+  }, [videoFile, setHasActiveFile]);
 
   useEffect(() => {
     if (videoFile) {
@@ -348,7 +355,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const isReadyToProcess = !!videoFile && (watermarkType === 'image' ? !!imageFile : !!textWatermark.trim());
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: videoFile ? '20px' : '40px' }}>
       
       {/* Hidden File Inputs */}
       <input 
@@ -379,24 +386,23 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       />
 
       {/* Header */}
-      <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
-        <h1 style={{ 
-          fontSize: videoFile ? 'clamp(1.75rem, 4vw, 2.4rem)' : 'clamp(2.5rem, 5vw, 4rem)', 
-          fontWeight: 900, 
-          marginBottom: videoFile ? 10 : 20, 
-          letterSpacing: '-0.03em', 
-          lineHeight: 1.15, 
-          fontFamily: 'Outfit, sans-serif',
-          transition: 'font-size 0.25s ease, margin 0.25s ease'
-        }}>
-          {smartHighlight(pseoData ? pseoData.h1 : (t('wmTitle') || 'Add Custom Watermark Logo to Video'))}
-        </h1>
-        {!videoFile && (
+      {!videoFile && (
+        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+          <h1 style={{ 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            fontWeight: 900, 
+            marginBottom: 20, 
+            letterSpacing: '-0.03em', 
+            lineHeight: 1.15, 
+            fontFamily: 'Outfit, sans-serif'
+          }}>
+            {smartHighlight(pseoData ? pseoData.h1 : (t('wmTitle') || 'Add Custom Watermark Logo to Video'))}
+          </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
             {pseoData ? pseoData.description : (t('wmSub') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online.")}
           </p>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
         
@@ -782,8 +788,8 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
       </div>
       
-      {!pseoData && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+      {!videoFile && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
           <WatermarkVideoHeroSection 
             section={{ type: 'hero', title: t('wmHero') || "Add Custom Watermark Logo to Video", content: t('wmHeroDesc') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online." }} 
           />

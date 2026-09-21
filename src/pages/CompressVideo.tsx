@@ -149,9 +149,8 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         targetFormat="mp4"
       />
 
-      <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px', background: 'var(--bg-main)' }}>
-        {!pseoData && (
-          <>
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px', background: 'var(--bg-main)' }}>
             {/* SECTION 2: FAST, PRIVATE, SECURE */}
             <section className="content-section feature-cards" style={{ padding: '0 24px' }}>
               <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'center' }}>
@@ -300,13 +299,8 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 </div>
               </div>
             </section>
-          </>
-        )}
-
-        
-
-        
-      </div>
+        </div>
+      )}
     </>
   );
 };

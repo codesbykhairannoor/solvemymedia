@@ -64,35 +64,30 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       targetFormat="mp4"
       />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-        {!pseoData && (
-          <>
-            <MuteVideoHeroSection 
-              section={{ type: 'hero', title: t('muteVHeroTitle') || "Instantly Remove Audio", content: t('muteVHeroDesc') || "Strip out the sound track from any video file without re-encoding, preserving 100% of the original video quality." }} 
-            />
-            <MuteVideoHowToSection 
-              section={{
-                type: 'howto',
-                title: t('muteVHowToTitle') || "How to Mute Videos",
-                steps: [
-                  { title: t('muteVHowTo1') || "Select a Video", description: t('muteVHowTo1Desc') || "Choose the video file that you want to mute from your device." },
-                  { title: t('muteVHowTo2') || "Instant Mute", description: t('muteVHowTo2Desc') || "The audio track is stripped instantly. You don't have to wait for any processing." },
-                  { title: t('muteVHowTo3') || "Save Silently", description: t('muteVHowTo3Desc') || "Download the muted video back to your local storage securely." }
-                ]
-              }} 
-            />
-            <MuteVideoSpeedSection 
-              section={{ type: 'speed', title: t('muteVSpeedTitle') || "Zero Wait Time", content: t('muteVSpeedDesc') || "By skipping the re-encoding step and just removing the audio stream directly, this process finishes almost instantly regardless of video length." }} 
-            />
-            <MuteVideoOfflineSection 
-              section={{ type: 'privacy', title: t('muteVPrivTitle') || "Absolute Offline Privacy", content: t('muteVPrivDesc') || "Your video files are strictly kept on your local machine. They are never uploaded or stored anywhere else." }} 
-            />
-          </>
-        )}
-
-        
-        
-      </div>
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <MuteVideoHeroSection 
+            section={{ type: 'hero', title: t('muteVHeroTitle') || "Instantly Remove Audio", content: t('muteVHeroDesc') || "Strip out the sound track from any video file without re-encoding, preserving 100% of the original video quality." }} 
+          />
+          <MuteVideoHowToSection 
+            section={{
+              type: 'howto',
+              title: t('muteVHowToTitle') || "How to Mute Videos",
+              steps: [
+                { title: t('muteVHowTo1') || "Select a Video", description: t('muteVHowTo1Desc') || "Choose the video file that you want to mute from your device." },
+                { title: t('muteVHowTo2') || "Instant Mute", description: t('muteVHowTo2Desc') || "The audio track is stripped instantly. You don't have to wait for any processing." },
+                { title: t('muteVHowTo3') || "Save Silently", description: t('muteVHowTo3Desc') || "Download the muted video back to your local storage securely." }
+              ]
+            }} 
+          />
+          <MuteVideoSpeedSection 
+            section={{ type: 'speed', title: t('muteVSpeedTitle') || "Zero Wait Time", content: t('muteVSpeedDesc') || "By skipping the re-encoding step and just removing the audio stream directly, this process finishes almost instantly regardless of video length." }} 
+          />
+          <MuteVideoOfflineSection 
+            section={{ type: 'privacy', title: t('muteVPrivTitle') || "Absolute Offline Privacy", content: t('muteVPrivDesc') || "Your video files are strictly kept on your local machine. They are never uploaded or stored anywhere else." }} 
+          />
+        </div>
+      )}
     </>
   );
 };

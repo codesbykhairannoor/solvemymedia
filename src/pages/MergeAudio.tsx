@@ -4,9 +4,11 @@ import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, U
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
+import { useWorkspace } from '../contexts/WorkspaceContext';
 
 export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
+  const { setHasActiveFile } = useWorkspace();
   
   const { t: translate } = useLanguage();
   
@@ -22,6 +24,11 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [customFileName, setCustomFileName] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setHasActiveFile(files.length > 0);
+    return () => setHasActiveFile(false);
+  }, [files.length, setHasActiveFile]);
 
   useEffect(() => {
     if (files.length > 0 && !customFileName) {
@@ -72,26 +79,25 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'merged_audio')}.mp3`;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: files.length > 0 ? '20px' : '40px' }}>
       
-      <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
-        <h1 style={{ 
-          fontSize: files.length > 0 ? 'clamp(1.75rem, 4vw, 2.4rem)' : 'clamp(2.5rem, 5vw, 4rem)', 
-          fontWeight: 900, 
-          marginBottom: files.length > 0 ? 10 : 20, 
-          letterSpacing: '-0.03em', 
-          lineHeight: 1.15, 
-          fontFamily: 'Outfit, sans-serif',
-          transition: 'font-size 0.25s ease, margin 0.25s ease'
-        }}>
-          {smartHighlight(pseoData ? pseoData.h1 : (translate('maTitle') || 'Merge Audio Files Seamlessly'))}
-        </h1>
-        {files.length === 0 && (
+      {files.length === 0 && (
+        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+          <h1 style={{ 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            fontWeight: 900, 
+            marginBottom: 20, 
+            letterSpacing: '-0.03em', 
+            lineHeight: 1.15, 
+            fontFamily: 'Outfit, sans-serif'
+          }}>
+            {smartHighlight(pseoData ? pseoData.h1 : (translate('maTitle') || 'Merge Audio Files Seamlessly'))}
+          </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
             {pseoData ? pseoData.description : t.upload}
           </p>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
         <div className="tool-workspace-left glass-panel" style={{ display: 'flex', flexDirection: 'column' }}>
@@ -299,32 +305,30 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         </div>
       </div>
       
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-        {!pseoData && (
-          <>
-            <MergeAudioHeroSection 
-              section={{ type: 'hero', title: translate('maHeroTitle') || "Combine Audio Tracks Seamlessly", content: translate('maHeroDesc') || "Merge multiple MP3, WAV, or OGG files into a single continuous track. Perfect for podcasts, mixtapes, and audiobooks." }} 
-            />
-            <MergeAudioHowToSection 
-              section={{
-                type: 'howto',
-                title: translate('maHowTo') || "How to Merge Audio",
-                steps: [
-                  { title: translate('maHowTo1') || "Add Audio Files", description: translate('maHowTo1Desc') || "Upload two or more audio tracks you want to combine." },
-                  { title: translate('maHowTo2') || "Rearrange Order", description: translate('maHowTo2Desc') || "Drag and drop the files to get the perfect sequence." },
-                  { title: translate('maHowTo3') || "Merge & Save", description: translate('maHowTo3Desc') || "Click merge and download your single combined audio file." }
-                ]
-              }} 
-            />
-            <MergeAudioPerformanceSection 
-              section={{ type: 'performance', title: translate('maPerfTitle') || "Zero Latency Processing", content: translate('maPerfDesc') || "No queue times or upload delays. Everything is merged instantaneously in your browser using local resources." }} 
-            />
-            <MergeAudioPrivacySection 
-              section={{ type: 'privacy', title: translate('maPrivTitle') || "100% Offline & Private", content: translate('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
-            />
-          </>
-        )}
-      </div>
+      {!files.length && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <MergeAudioHeroSection 
+            section={{ type: 'hero', title: translate('maHeroTitle') || "Combine Audio Tracks Seamlessly", content: translate('maHeroDesc') || "Merge multiple MP3, WAV, or OGG files into a single continuous track. Perfect for podcasts, mixtapes, and audiobooks." }} 
+          />
+          <MergeAudioHowToSection 
+            section={{
+              type: 'howto',
+              title: translate('maHowTo') || "How to Merge Audio",
+              steps: [
+                { title: translate('maHowTo1') || "Add Audio Files", description: translate('maHowTo1Desc') || "Upload two or more audio tracks you want to combine." },
+                { title: translate('maHowTo2') || "Rearrange Order", description: translate('maHowTo2Desc') || "Drag and drop the files to get the perfect sequence." },
+                { title: translate('maHowTo3') || "Merge & Save", description: translate('maHowTo3Desc') || "Click merge and download your single combined audio file." }
+              ]
+            }} 
+          />
+          <MergeAudioPerformanceSection 
+            section={{ type: 'performance', title: translate('maPerfTitle') || "Zero Latency Processing", content: translate('maPerfDesc') || "No queue times or upload delays. Everything is merged instantaneously in your browser using local resources." }} 
+          />
+          <MergeAudioPrivacySection 
+            section={{ type: 'privacy', title: translate('maPrivTitle') || "100% Offline & Private", content: translate('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
+          />
+        </div>
+      )}
     </div>
   );
 };

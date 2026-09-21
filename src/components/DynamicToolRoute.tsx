@@ -20,6 +20,7 @@ import { MuteVideo } from '../pages/MuteVideo';
 import { WatermarkVideo } from '../pages/WatermarkVideo';
 import { MergeAudio } from '../pages/MergeAudio';
 import { RelatedTools } from './RelatedTools';
+import { useWorkspace } from '../contexts/WorkspaceContext';
 
 const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'compress-video': CompressVideo,
@@ -133,6 +134,7 @@ const ToolFallback = () => (
 export const DynamicToolRoute: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { currentLang, t } = useLanguage();
+  const { hasActiveFile } = useWorkspace();
 
   if (!slug) {
     return <Navigate to="/" replace />;
@@ -196,37 +198,42 @@ export const DynamicToolRoute: React.FC = () => {
         <Component pseoData={pseoData} />
       </Suspense>
 
-      {/* RENDER PSEO DATA EXTERNALLY SO SSG CAN READ IT WITHOUT WAITING FOR LAZY TOOL TO LOAD */}
-      {pseoData && (
-        <div style={{ marginTop: '40px' }}>
-          <NativeLayoutRenderer data={pseoData} />
-        </div>
-      )}
-
-      {/* Internal Linking: Related Tools Grid */}
-      <RelatedTools currentToolId={standardSlug} />
-
-      {/* SEO Section FAQ for Standard Tools */}
-      {!pseoData && faqItems.length > 0 && (
-        <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
-          <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>
-              {t('faqTitle') || 'Frequently Asked Questions'}
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {faqItems.map((faq: any, idx: number) => (
-                <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                    <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}
-                  </h3>
-                  <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
-                    <strong style={{ color: 'var(--brand-secondary)' }}>A:</strong> {faq.a}
-                  </p>
-                </div>
-              ))}
+      {/* Bottom sections conditionally rendered only when NO active file is uploaded */}
+      {!hasActiveFile && (
+        <div className="seo-sections-wrapper dynamic-route-seo-sections">
+          {/* RENDER PSEO DATA EXTERNALLY SO SSG CAN READ IT WITHOUT WAITING FOR LAZY TOOL TO LOAD */}
+          {pseoData && (
+            <div style={{ marginTop: '40px' }}>
+              <NativeLayoutRenderer data={pseoData} />
             </div>
-          </div>
-        </section>
+          )}
+
+          {/* Internal Linking: Related Tools Grid */}
+          <RelatedTools currentToolId={standardSlug} />
+
+          {/* SEO Section FAQ for Standard Tools */}
+          {!pseoData && faqItems.length > 0 && (
+            <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
+              <div style={{ maxWidth: 800, margin: '0 auto' }}>
+                <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>
+                  {t('faqTitle') || 'Frequently Asked Questions'}
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+                  {faqItems.map((faq: any, idx: number) => (
+                    <div key={idx} style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 20, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                      <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 12, color: 'var(--text-main)', display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                        <span style={{ color: 'var(--brand-primary)' }}>Q:</span> {faq.q}
+                      </h3>
+                      <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
+                        <strong style={{ color: 'var(--brand-secondary)' }}>A:</strong> {faq.a}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
       )}
     </>
   );

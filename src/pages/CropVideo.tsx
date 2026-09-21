@@ -377,32 +377,30 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         videoOverlay={renderVideoOverlay}
       />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-        {!pseoData && (
-          <>
-            <CropVideoHeroSection 
-              section={{ type: 'hero', title: t('cropHero') || "Crop Video Perfectly", content: t('cropHeroDesc') || "Trim out the edges of your video for TikTok, Reels, and YouTube Shorts instantly without watermarks." }} 
-            />
-            <CropVideoHowToSection 
-              section={{
-                type: 'howto',
-                title: t('cropHowTo') || "How to Crop Videos",
-                steps: [
-                  { title: t('cropHowTo1') || "Select a Video", description: t('cropHowTo1Desc') || "Choose any video file from your local device." },
-                  { title: t('cropHowTo2') || "Pick Aspect Ratio", description: t('cropHowTo2Desc') || "Select the desired format like 9:16 vertical or 1:1 square, or drag the frame." },
-                  { title: t('cropHowTo3') || "Crop & Export", description: t('cropHowTo3Desc') || "Hit crop and your video will be instantly ready for download." }
-                ]
-              }} 
-            />
-            <CropVideoPlatformSection 
-              section={{ type: 'platform', title: t('cropPlat') || "Social Media Ready", content: t('cropPlatDesc') || "Perfectly align your video dimensions for any social platform and ensure it looks professional." }} 
-            />
-            <CropVideoPrivacySection 
-              section={{ type: 'privacy', title: t('cropPriv') || "Secure Local Processing", content: t('cropPrivDesc') || "Your video files are strictly kept on your local machine and never uploaded or stored anywhere else." }} 
-            />
-          </>
-        )}
-      </div>
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <CropVideoHeroSection 
+            section={{ type: 'hero', title: t('cropHero') || "Crop Video Perfectly", content: t('cropHeroDesc') || "Trim out the edges of your video for TikTok, Reels, and YouTube Shorts instantly without watermarks." }} 
+          />
+          <CropVideoHowToSection 
+            section={{
+              type: 'howto',
+              title: t('cropHowTo') || "How to Crop Videos",
+              steps: [
+                { title: t('cropHowTo1') || "Select a Video", description: t('cropHowTo1Desc') || "Choose any video file from your local device." },
+                { title: t('cropHowTo2') || "Pick Aspect Ratio", description: t('cropHowTo2Desc') || "Select the desired format like 9:16 vertical or 1:1 square, or drag the frame." },
+                { title: t('cropHowTo3') || "Crop & Export", description: t('cropHowTo3Desc') || "Hit crop and your video will be instantly ready for download." }
+              ]
+            }} 
+          />
+          <CropVideoPlatformSection 
+            section={{ type: 'platform', title: t('cropPlat') || "Social Media Ready", content: t('cropPlatDesc') || "Perfectly align your video dimensions for any social platform and ensure it looks professional." }} 
+          />
+          <CropVideoPrivacySection 
+            section={{ type: 'privacy', title: t('cropPriv') || "Secure Local Processing", content: t('cropPrivDesc') || "Your video files are strictly kept on your local machine and never uploaded or stored anywhere else." }} 
+          />
+        </div>
+      )}
     </>
   );
 };

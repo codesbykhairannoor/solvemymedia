@@ -67,40 +67,38 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         targetFormat={targetFormat}
       />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-        {!pseoData && (
-          <>
-            <VideoToAudioHeroSection 
-              section={{ 
-                type: 'hero', 
-                title: pseoData ? pseoData.h1 : (translate('vtaHeroTitle') || "Extract Audio from Video"), 
-                content: pseoData ? pseoData.description : (translate('vtaHeroDesc') || "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality.") 
-              }} 
-            />
-            <VideoToAudioHowToSection 
-              section={{
-                type: 'howto',
-                title: translate('vtaHowTo') || "How to Extract Audio",
-                steps: [
-                  { title: translate('vtaHowTo1') || "Upload Video", description: translate('vtaHowTo1Desc') || "Select the video file you want to extract audio from." },
-                  { title: translate('vtaHowTo2') || "Choose Format", description: translate('vtaHowTo2Desc') || "Select MP3, WAV, or AAC depending on your needs." },
-                  { title: translate('vtaHowTo3') || "Extract", description: translate('vtaHowTo3Desc') || "We separate the audio track instantly right in your browser." }
-                ]
-              }} 
-            />
-            <VideoToAudioPerformanceSection 
-              section={{ 
-                type: 'performance', 
-                title: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].title : (translate('vtaPerfTitle') || "Lightning Fast Extraction"), 
-                content: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].desc : (translate('vtaPerfDesc') || "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds.") 
-              }} 
-            />
-            <VideoToAudioPrivacySection 
-              section={{ type: 'privacy', title: translate('vtaPrivTitle') || "Offline Extraction", content: translate('vtaPrivDesc') || "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 
-            />
-          </>
-        )}
-      </div>
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <VideoToAudioHeroSection 
+            section={{ 
+              type: 'hero', 
+              title: pseoData ? pseoData.h1 : (translate('vtaHeroTitle') || "Extract Audio from Video"), 
+              content: pseoData ? pseoData.description : (translate('vtaHeroDesc') || "Pull the exact audio track (MP3 or WAV) from your favorite music videos, lectures, and movies without losing an ounce of quality.") 
+            }} 
+          />
+          <VideoToAudioHowToSection 
+            section={{
+              type: 'howto',
+              title: translate('vtaHowTo') || "How to Extract Audio",
+              steps: [
+                { title: translate('vtaHowTo1') || "Upload Video", description: translate('vtaHowTo1Desc') || "Select the video file you want to extract audio from." },
+                { title: translate('vtaHowTo2') || "Choose Format", description: translate('vtaHowTo2Desc') || "Select MP3, WAV, or AAC depending on your needs." },
+                { title: translate('vtaHowTo3') || "Extract", description: translate('vtaHowTo3Desc') || "We separate the audio track instantly right in your browser." }
+              ]
+            }} 
+          />
+          <VideoToAudioPerformanceSection 
+            section={{ 
+              type: 'performance', 
+              title: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].title : (translate('vtaPerfTitle') || "Lightning Fast Extraction"), 
+              content: pseoData && pseoData.features && pseoData.features[0] ? pseoData.features[0].desc : (translate('vtaPerfDesc') || "By avoiding uploading massive video files, our WebAssembly engine extracts audio streams natively in milliseconds.") 
+            }} 
+          />
+          <VideoToAudioPrivacySection 
+            section={{ type: 'privacy', title: translate('vtaPrivTitle') || "Offline Extraction", content: translate('vtaPrivDesc') || "No server needed. We split the audio and video streams right on your device motherboard using advanced Web Codecs." }} 
+          />
+        </div>
+      )}
     </>
   );
 };
