@@ -139,6 +139,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
     if (toolId === 'convert-audio') return t('convASuccess') || 'Audio Converted Successfully! 🎉';
     if (toolId === 'video-to-audio') return t('v2aSuccess') || 'Audio Extracted Successfully! 🎉';
     if (toolId === 'convert-video') return t('convVSuccess') || 'File Converted Successfully! 🎉';
+    if (toolId === 'merge-audio') return t('maSuccess') || 'Audio Merged Successfully! 🎉';
     return t('genericSuccess') || 'Processing Completed Successfully! 🎉';
   };
 
@@ -194,7 +195,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               }}
             >
               {isInputVideo ? <Film size={14} /> : <Music size={14} />}
-              <span>{isInputVideo ? (t('previewOriginalVideo') || 'Original Video') : (t('previewOriginalAudio') || 'Original Audio')}</span>
+              <span>{isInputVideo ? (t('previewOriginalVideo') || 'Original Video') : (toolId === 'merge-audio' ? (t('previewFirstTrack') || 'First Track') : (t('previewOriginalAudio') || 'Original Audio'))}</span>
             </button>
             <button
               type="button"
@@ -215,7 +216,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               }}
             >
               <Sparkles size={14} />
-              <span>{isInputVideo ? (t('previewResultVideo') || 'Result Video') : (t('previewResultAudio') || 'Result Audio')}</span>
+              <span>{isInputVideo ? (t('previewResultVideo') || 'Result Video') : (toolId === 'merge-audio' ? (t('previewMergedAudio') || 'Merged Audio') : (t('previewResultAudio') || 'Result Audio'))}</span>
             </button>
           </div>
         ) : (
@@ -470,7 +471,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               {isCurrentResult ? downloadFileName : file.name}
             </p>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: 16 }}>
-              {isCurrentResult ? (t('highQualityAudioResult') || 'High Quality Audio Result') : `${(file.size / (1024 * 1024)).toFixed(2)} MB • ${rawExt.toUpperCase()}`}
+              {isCurrentResult ? (toolId === 'merge-audio' ? (t('mergedAudioResult') || 'Merged Audio Result') : (t('highQualityAudioResult') || 'High Quality Audio Result')) : `${(file.size / (1024 * 1024)).toFixed(2)} MB • ${rawExt.toUpperCase()}`}
             </p>
 
             <audio

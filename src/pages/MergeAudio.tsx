@@ -1,23 +1,24 @@
 import { MergeAudioHeroSection, MergeAudioHowToSection, MergeAudioPerformanceSection, MergeAudioPrivacySection } from '../components/content-sections/tools/MergeAudioSections';
 import React, { useState, useRef, useEffect } from 'react';
-import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, UploadCloud, RefreshCw, FileEdit, RotateCcw } from 'lucide-react';
+import { Music, FileAudio, Trash2, Download, Loader2, Zap, Plus, GripVertical, UploadCloud, RefreshCw, FileEdit, RotateCcw, CheckCircle2 } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
 import { useWorkspace } from '../contexts/WorkspaceContext';
+import { MediaLivePreview } from '../components/preview/MediaLivePreview';
 
 export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { ready, processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { setHasActiveFile } = useWorkspace();
   
-  const { t: translate } = useLanguage();
+  const { t } = useLanguage();
   
-  const t = {
-    upload: translate('maUpload') || "Combine multiple audio tracks into a single seamless file. Rearrange, edit, and merge completely offline.",
-    add: translate('maAdd') || "Add Audio File",
-    join: translate('maJoin') || "Join Audio Files",
-    desc: translate('maDesc') || "Combine multiple audio tracks sequentially into a single file.",
-    action: translate('maAction') || "Merge Audio"
+  const uiStrings = {
+    upload: t('maUpload') || "Combine multiple audio tracks into a single seamless file. Rearrange, edit, and merge completely offline.",
+    add: t('maAdd') || "Add Audio File",
+    join: t('maJoin') || "Join Audio Files",
+    desc: t('maDesc') || "Combine multiple audio tracks sequentially into a single file.",
+    action: t('maAction') || "Merge Audio"
   };
 
   const [files, setFiles] = useState<File[]>([]);
@@ -91,10 +92,10 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             lineHeight: 1.15, 
             fontFamily: 'Outfit, sans-serif'
           }}>
-            {smartHighlight(pseoData ? pseoData.h1 : (translate('maTitle') || 'Merge Audio Files Seamlessly'))}
+            {smartHighlight(pseoData ? pseoData.h1 : (t('maTitle') || 'Merge Audio Files Seamlessly'))}
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
-            {pseoData ? pseoData.description : t.upload}
+            {pseoData ? pseoData.description : uiStrings.upload}
           </p>
         </div>
       )}
@@ -118,8 +119,21 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               <div className="dropzone-icon">
                 <UploadCloud size={40} />
               </div>
-              <p>Drag & drop audio or <span className="browse-text">{translate('browseFiles') || 'Browse Files'}</span></p>
+              <p>Drag & drop audio or <span className="browse-text">{t('browseFiles') || 'Browse Files'}</span></p>
             </div>
+          ) : outputUrl ? (
+            <MediaLivePreview
+              file={files[0]}
+              outputUrl={outputUrl}
+              targetFormat="mp3"
+              customFileName={customFileName.trim() || defaultBaseName}
+              toolId="merge-audio"
+              processing={processing}
+              progress={progress}
+              engine={t('maCpuWasm') || "🐌 CPU WASM FFmpeg"}
+              onReplace={() => setOutputUrl(null)}
+              onRemove={() => { setFiles([]); setOutputUrl(null); }}
+            />
           ) : (
             <div style={{ flex: 1, overflowY: 'auto', paddingRight: 8, display: 'flex', flexDirection: 'column', gap: 16 }}>
               <input 
@@ -173,15 +187,15 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                   <div className="dropzone-icon" style={{ width: 36, height: 36, margin: '0 auto 6px' }}>
                     <Plus size={20} />
                   </div>
-                  <p style={{ fontSize: '0.9rem' }}>{t.add}</p>
+                  <p style={{ fontSize: '0.9rem' }}>{uiStrings.add}</p>
                 </div>
               )}
 
               {processing && (
                 <div style={{ marginTop: 24, padding: 24, background: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-                    <span style={{ fontWeight: 600 }}>{translate('maMerging') || "Merging"} {progress}%</span>
-                    <span style={{ color: 'var(--text-accent)', fontSize: '0.85rem' }}>{translate('maCpuWasm') || "🐌 CPU WASM FFmpeg"}</span>
+                    <span style={{ fontWeight: 600 }}>{t('maMerging') || "Merging"} {progress}%</span>
+                    <span style={{ color: 'var(--text-accent)', fontSize: '0.85rem' }}>{t('maCpuWasm') || "🐌 CPU WASM FFmpeg"}</span>
                   </div>
                   <div className="progress-container">
                     <div className="progress-bar" style={{ width: `${progress}%` }}></div>
@@ -194,16 +208,45 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
       <div className="tool-workspace-right glass-panel">
         <h3 style={{ marginBottom: 24, paddingBottom: 16, borderBottom: '1px solid var(--border-color)', fontWeight: 800 }}>
-          {translate('maAction') || 'Merge Audio'}
+          {t('maAction') || 'Merge Audio'}
         </h3>
         
         <div style={{ marginBottom: 20 }}>
           <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
             <Music size={18} className="text-brand-primary" />
-            <span>{t.join}</span>
+            <span>{uiStrings.join}</span>
           </h4>
-          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{t.desc}</p>
+          <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{uiStrings.desc}</p>
         </div>
+
+        {/* Merged Tracks Summary List when result is ready */}
+        {outputUrl && files.length > 0 && (
+          <div style={{ marginBottom: 16, background: 'var(--bg-input)', padding: 14, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8 }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <CheckCircle2 size={15} color="var(--success-color)" />
+                {files.length} {t('tracksMerged') || 'Tracks Merged'}
+              </span>
+              <button
+                type="button"
+                onClick={() => setOutputUrl(null)}
+                style={{ background: 'transparent', border: 'none', color: 'var(--brand-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontWeight: 600 }}
+              >
+                <RotateCcw size={12} /> {t('reorderTracks') || 'Edit Tracks'}
+              </button>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 150, overflowY: 'auto' }}>
+              {files.map((file, idx) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem', color: 'var(--text-muted)', background: 'var(--bg-card)', padding: '6px 10px', borderRadius: 'var(--radius-sm)' }}>
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '75%', fontWeight: 500 }}>
+                    {idx + 1}. {file.name}
+                  </span>
+                  <span style={{ fontSize: '0.72rem', opacity: 0.8 }}>{(file.size / (1024 * 1024)).toFixed(1)} MB</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* File Rename Field */}
         {files.length > 0 && (
@@ -211,16 +254,16 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8 }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <FileEdit size={14} style={{ color: 'var(--brand-primary)' }} />
-                {translate('outputFileName') || 'Output File Name'}
+                {t('outputFileName') || 'Output File Name'}
               </span>
               {customFileName !== defaultBaseName && (
                 <button
                   type="button"
                   onClick={() => setCustomFileName(defaultBaseName)}
                   style={{ background: 'transparent', border: 'none', color: 'var(--brand-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4 }}
-                  title={translate('resetFileName') || 'Reset'}
+                  title={t('resetFileName') || 'Reset'}
                 >
-                  <RotateCcw size={12} /> {translate('resetFileName') || 'Reset'}
+                  <RotateCcw size={12} /> {t('resetFileName') || 'Reset'}
                 </button>
               )}
             </div>
@@ -229,7 +272,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 type="text"
                 value={customFileName}
                 onChange={(e) => setCustomFileName(e.target.value)}
-                placeholder={translate('outputFileNamePlaceholder') || 'Enter file name...'}
+                placeholder={t('outputFileNamePlaceholder') || 'Enter file name...'}
                 disabled={processing}
                 style={{
                   flex: 1,
@@ -247,7 +290,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               </span>
             </div>
             <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: '6px 0 0 0' }}>
-              {translate('renameFileHint') || 'Rename output file before downloading'}
+              {t('renameFileHint') || 'Rename output file before downloading'}
             </p>
           </div>
         )}
@@ -261,26 +304,26 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 className="btn-primary" 
               >
                 <Download size={18} />
-                {translate('maDownload') || "Download Result"}
+                {t('maDownload') || "Download Result"}
               </a>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 <button
                   type="button"
                   onClick={() => setOutputUrl(null)}
-                  title={translate('repeatProcess') || 'Re-adjust Settings'}
+                  title={t('repeatProcess') || 'Re-adjust Settings'}
                   style={{ flex: '1 1 140px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'rgba(var(--brand-primary-rgb), 0.1)', border: '1px solid rgba(var(--brand-primary-rgb), 0.25)', color: 'var(--brand-primary)', fontWeight: 600, fontSize: '0.85rem', transition: 'all 0.2s ease' }}
                 >
                   <RotateCcw size={15} />
-                  <span>{translate('repeatProcess') || 'Re-adjust Settings'}</span>
+                  <span>{t('repeatProcess') || 'Re-adjust Settings'}</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => { setFiles([]); setOutputUrl(null); fileInputRef.current?.click(); }}
-                  title={translate('processAnother') || 'Choose Another File'}
+                  title={t('processAnother') || 'Choose Another File'}
                   style={{ flex: '1 1 140px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.85rem', transition: 'all 0.2s ease' }}
                 >
                   <RefreshCw size={15} />
-                  <span>{translate('processAnother') || 'Choose Another File'}</span>
+                  <span>{t('processAnother') || 'Choose Another File'}</span>
                 </button>
               </div>
             </div>
@@ -295,7 +338,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               ) : (
                 <Zap size={18} />
               )}
-              <span>{processing ? ('Processing...') : t.action}</span>
+              <span>{processing ? ('Processing...') : uiStrings.action}</span>
             </button>
           )}
           {files.length > 0 && files.length < 2 && !outputUrl && (
@@ -308,24 +351,24 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       {!files.length && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
           <MergeAudioHeroSection 
-            section={{ type: 'hero', title: translate('maHeroTitle') || "Combine Audio Tracks Seamlessly", content: translate('maHeroDesc') || "Merge multiple MP3, WAV, or OGG files into a single continuous track. Perfect for podcasts, mixtapes, and audiobooks." }} 
+            section={{ type: 'hero', title: t('maHeroTitle') || "Combine Audio Tracks Seamlessly", content: t('maHeroDesc') || "Merge multiple MP3, WAV, or OGG files into a single continuous track. Perfect for podcasts, mixtapes, and audiobooks." }} 
           />
           <MergeAudioHowToSection 
             section={{
               type: 'howto',
-              title: translate('maHowTo') || "How to Merge Audio",
+              title: t('maHowTo') || "How to Merge Audio",
               steps: [
-                { title: translate('maHowTo1') || "Add Audio Files", description: translate('maHowTo1Desc') || "Upload two or more audio tracks you want to combine." },
-                { title: translate('maHowTo2') || "Rearrange Order", description: translate('maHowTo2Desc') || "Drag and drop the files to get the perfect sequence." },
-                { title: translate('maHowTo3') || "Merge & Save", description: translate('maHowTo3Desc') || "Click merge and download your single combined audio file." }
+                { title: t('maHowTo1') || "Add Audio Files", description: t('maHowTo1Desc') || "Upload two or more audio tracks you want to combine." },
+                { title: t('maHowTo2') || "Rearrange Order", description: t('maHowTo2Desc') || "Drag and drop the files to get the perfect sequence." },
+                { title: t('maHowTo3') || "Merge & Save", description: t('maHowTo3Desc') || "Click merge and download your single combined audio file." }
               ]
             }} 
           />
           <MergeAudioPerformanceSection 
-            section={{ type: 'performance', title: translate('maPerfTitle') || "Zero Latency Processing", content: translate('maPerfDesc') || "No queue times or upload delays. Everything is merged instantaneously in your browser using local resources." }} 
+            section={{ type: 'performance', title: t('maPerfTitle') || "Zero Latency Processing", content: t('maPerfDesc') || "No queue times or upload delays. Everything is merged instantaneously in your browser using local resources." }} 
           />
           <MergeAudioPrivacySection 
-            section={{ type: 'privacy', title: translate('maPrivTitle') || "100% Offline & Private", content: translate('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
+            section={{ type: 'privacy', title: t('maPrivTitle') || "100% Offline & Private", content: t('maPrivDesc') || "Your voice notes and music are processed on your device only, offering bank-grade security for your files." }} 
           />
         </div>
       )}
