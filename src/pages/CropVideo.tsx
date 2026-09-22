@@ -8,7 +8,6 @@ import { useLanguage } from '../hooks/useLanguage';
 interface CropPreset {
   id: string;
   name: string;
-  sub: string;
   ratio: number;
   icon: React.ReactNode;
 }
@@ -20,12 +19,6 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const ui = {
     ratio: t('cropRatio') || "Crop Aspect Ratio",
     desc: t('cropDesc') || "Select an aspect ratio or drag the frame to compose your shot.",
-    square: t('cropSquare') || "1:1 Square",
-    square_desc: t('cropSquareDesc') || "Instagram Feed & Posts",
-    vert: t('cropVert') || "9:16 Vertical",
-    vert_desc: t('cropVertDesc') || "TikTok, Reels, Shorts",
-    land: t('cropLand') || "16:9 Landscape",
-    land_desc: t('cropLandDesc') || "YouTube & Widescreen",
     action: t('cropAction') || "Crop Video"
   };
 
@@ -43,12 +36,12 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   } | null>(null);
 
   const presets: CropPreset[] = [
-    { id: '9:16', name: ui.vert, sub: ui.vert_desc, ratio: 9 / 16, icon: <Smartphone size={16} /> },
-    { id: '1:1', name: ui.square, sub: ui.square_desc, ratio: 1 / 1, icon: <Square size={16} /> },
-    { id: '16:9', name: ui.land, sub: ui.land_desc, ratio: 16 / 9, icon: <Monitor size={16} /> },
-    { id: '4:5', name: '4:5 Portrait', sub: 'Instagram Feed Portrait', ratio: 4 / 5, icon: <Tablet size={16} /> },
-    { id: '4:3', name: '4:3 Standard', sub: 'Classic TV & Tablets', ratio: 4 / 3, icon: <Monitor size={16} /> },
-    { id: '21:9', name: '21:9 Ultrawide', sub: 'Cinematic CinemaScope', ratio: 21 / 9, icon: <Film size={16} /> }
+    { id: '9:16', name: '9:16', ratio: 9 / 16, icon: <Smartphone size={16} /> },
+    { id: '1:1', name: '1:1', ratio: 1 / 1, icon: <Square size={16} /> },
+    { id: '16:9', name: '16:9', ratio: 16 / 9, icon: <Monitor size={16} /> },
+    { id: '4:5', name: '4:5', ratio: 4 / 5, icon: <Tablet size={16} /> },
+    { id: '4:3', name: '4:3', ratio: 4 / 3, icon: <Monitor size={16} /> },
+    { id: '21:9', name: '21:9', ratio: 21 / 9, icon: <Film size={16} /> }
   ];
 
   const activePreset = presets.find(p => p.id === aspectRatio) || presets[0];
@@ -291,22 +284,20 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               }}
               disabled={processing || !!outputUrl}
               style={{
-                padding: '10px 12px',
-                textAlign: 'left',
+                padding: '11px 12px',
                 display: 'flex',
-                flexDirection: 'column',
-                gap: 3,
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                borderRadius: 'var(--radius-sm)',
+                fontWeight: 700,
+                fontSize: '0.92rem',
                 cursor: processing || !!outputUrl ? 'not-allowed' : 'pointer',
                 opacity: processing || !!outputUrl ? 0.6 : 1
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700, fontSize: '0.85rem' }}>
-                <span style={{ color: isSelected ? 'var(--brand-primary)' : 'var(--text-muted)' }}>{preset.icon}</span>
-                <span>{preset.name}</span>
-              </div>
-              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                {preset.sub}
-              </div>
+              <span style={{ color: isSelected ? 'var(--brand-primary)' : 'var(--text-muted)' }}>{preset.icon}</span>
+              <span>{preset.name}</span>
             </button>
           );
         })}
@@ -315,8 +306,8 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       {/* Quick Framing / Alignment Buttons */}
       <div style={{ marginBottom: 20, background: 'var(--bg-input)', padding: 12, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
         <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span>Frame Alignment</span>
-          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Drag box on preview or snap</span>
+          <span>{t('frameAlignment') || 'Frame Alignment'}</span>
+          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{t('frameAlignmentHint') || 'Drag box on preview or snap'}</span>
         </div>
         <div style={{ display: 'flex', gap: 6 }}>
           <button
@@ -327,7 +318,7 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             style={{ flex: 1, padding: '6px 8px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}
           >
             <AlignLeft size={13} />
-            <span>{metrics.maxXPct > 0 ? 'Left' : 'Top'}</span>
+            <span>{metrics.maxXPct > 0 ? (t('alignLeft') || 'Left') : (t('alignTop') || 'Top')}</span>
           </button>
           <button
             type="button"
@@ -337,7 +328,7 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             style={{ flex: 1, padding: '6px 8px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}
           >
             <AlignCenter size={13} />
-            <span>Center</span>
+            <span>{t('alignCenter') || 'Center'}</span>
           </button>
           <button
             type="button"
@@ -347,14 +338,14 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             style={{ flex: 1, padding: '6px 8px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}
           >
             <AlignRight size={13} />
-            <span>{metrics.maxXPct > 0 ? 'Right' : 'Bottom'}</span>
+            <span>{metrics.maxXPct > 0 ? (t('alignRight') || 'Right') : (t('alignBottom') || 'Bottom')}</span>
           </button>
         </div>
       </div>
 
       {/* Output Specs Box */}
       <div style={{ background: 'var(--bg-input)', padding: 12, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.8rem' }}>
-        <span style={{ color: 'var(--text-muted)' }}>Target Resolution:</span>
+        <span style={{ color: 'var(--text-muted)' }}>{t('targetResolution') || 'Target Resolution:'}</span>
         <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>
           {metrics.cropW} × {metrics.cropH} ({activePreset.id})
         </span>

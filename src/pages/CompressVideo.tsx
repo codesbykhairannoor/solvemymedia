@@ -73,23 +73,25 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       {est && (
         <div style={{ background: 'var(--bg-input)', padding: 16, borderRadius: 'var(--radius-md)', marginBottom: 24, border: '1px solid var(--brand-glow)' }}>
           <h4 style={{ fontSize: '0.9rem', color: est.isReal ? 'var(--brand-primary)' : 'var(--text-muted)', marginBottom: 12, fontWeight: est.isReal ? 700 : 500 }}>
-            {est.isReal ? '🎉 Actual Result' : 'Estimated Result'}
+            {est.isReal ? `🎉 ${t('actualResult') || 'Actual Result'}` : (t('estimatedResult') || 'Estimated Result')}
           </h4>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 8 }}>
             <div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Original Size</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t('originalSize') || 'Original Size'}</div>
               <div style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text-main)', textDecoration: 'line-through' }}>{est.orig.toFixed(1)} MB</div>
             </div>
             <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--brand-secondary)' }}>👉</div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{est.isReal ? 'Actual Size' : 'Target Size'}</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{est.isReal ? (t('actualSize') || 'Actual Size') : (t('targetSize') || 'Target Size')}</div>
               <div style={{ fontSize: '1.5rem', fontWeight: 800, color: est.saved > 0 ? 'var(--success-color)' : 'var(--warning-color)' }}>
                 {est.isReal ? '' : '~'}{est.est.toFixed(1)} MB
               </div>
             </div>
           </div>
           <div style={{ fontSize: '0.8rem', color: est.saved > 0 ? 'var(--success-color)' : 'var(--warning-color)', textAlign: 'center', background: est.saved > 0 ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)', padding: '4px 8px', borderRadius: 4, fontWeight: 600 }}>
-            {est.saved > 0 ? `Saved ${est.saved}% storage!` : `Increased by ${Math.abs(est.saved)}%`}
+            {est.saved > 0 
+              ? (t('savedStorage') || 'Saved {percent}% storage!').replace('{percent}', String(est.saved))
+              : (t('increasedStorage') || 'Increased by {percent}%').replace('{percent}', String(Math.abs(est.saved)))}
           </div>
         </div>
       )}

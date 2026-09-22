@@ -125,7 +125,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
               <div className="dropzone-icon">
                 <UploadCloud size={40} />
               </div>
-              <p>{ui.drag_drop} <span className="browse-text">{ui.browse_files}</span></p>
+              <p>{ui.drag_drop}{' '}<span className="browse-text">{ui.browse_files}</span></p>
             </div>
           ) : (
             <MediaLivePreview

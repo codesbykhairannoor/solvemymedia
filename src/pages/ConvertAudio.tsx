@@ -29,16 +29,16 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   };
 
   const AUDIO_FORMATS = [
-    { id: 'mp3', name: 'MP3', desc: 'Universal' },
-    { id: 'wav', name: 'WAV', desc: 'Lossless PCM' },
-    { id: 'm4a', name: 'M4A', desc: 'Apple AAC' },
-    { id: 'aac', name: 'AAC', desc: 'High Quality' },
-    { id: 'flac', name: 'FLAC', desc: 'Lossless HD' },
-    { id: 'ogg', name: 'OGG', desc: 'Vorbis Web' },
-    { id: 'opus', name: 'OPUS', desc: 'Efficient' },
-    { id: 'wma', name: 'WMA', desc: 'Windows' },
-    { id: 'aiff', name: 'AIFF', desc: 'Studio Audio' },
-    { id: 'ac3', name: 'AC3', desc: 'Dolby Surround' }
+    { id: 'mp3', name: 'MP3', desc: t('audFmtUniversal') || 'Universal' },
+    { id: 'wav', name: 'WAV', desc: t('audFmtLosslessPCM') || 'Lossless PCM' },
+    { id: 'm4a', name: 'M4A', desc: t('audFmtAppleAAC') || 'Apple AAC' },
+    { id: 'aac', name: 'AAC', desc: t('audFmtHighQuality') || 'High Quality' },
+    { id: 'flac', name: 'FLAC', desc: t('audFmtLosslessHD') || 'Lossless HD' },
+    { id: 'ogg', name: 'OGG', desc: t('audFmtVorbisWeb') || 'Vorbis Web' },
+    { id: 'opus', name: 'OPUS', desc: t('audFmtEfficient') || 'Efficient' },
+    { id: 'wma', name: 'WMA', desc: t('audFmtWindows') || 'Windows' },
+    { id: 'aiff', name: 'AIFF', desc: t('audFmtStudioAudio') || 'Studio Audio' },
+    { id: 'ac3', name: 'AC3', desc: t('audFmtDolbySurround') || 'Dolby Surround' }
   ];
 
   const sidebarContent = (

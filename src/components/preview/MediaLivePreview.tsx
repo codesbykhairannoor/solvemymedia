@@ -194,7 +194,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               }}
             >
               {isInputVideo ? <Film size={14} /> : <Music size={14} />}
-              <span>{t('previewOriginal') && t('previewOriginal') !== 'previewOriginal' ? t('previewOriginal') : (isInputVideo ? 'Original Video' : 'Original Audio')}</span>
+              <span>{isInputVideo ? (t('previewOriginalVideo') || 'Original Video') : (t('previewOriginalAudio') || 'Original Audio')}</span>
             </button>
             <button
               type="button"
@@ -215,13 +215,13 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               }}
             >
               <Sparkles size={14} />
-              <span>{t('previewResult') && t('previewResult') !== 'previewResult' ? t('previewResult') : (isInputVideo ? 'Result Video' : 'Result Audio')}</span>
+              <span>{isInputVideo ? (t('previewResultVideo') || 'Result Video') : (t('previewResultAudio') || 'Result Audio')}</span>
             </button>
           </div>
         ) : (
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', fontWeight: 700, color: 'var(--brand-primary)', background: 'rgba(var(--brand-primary-rgb), 0.1)', padding: '4px 10px', borderRadius: 'var(--radius-sm)' }}>
             {isInputVideo ? <Film size={14} /> : <Music size={14} />}
-            <span>{isInputVideo ? 'Live Video Preview' : 'Live Audio Preview'}</span>
+            <span>{isInputVideo ? (t('liveVideoPreview') || 'Live Video Preview') : (t('liveAudioPreview') || 'Live Audio Preview')}</span>
           </div>
         )}
 
@@ -298,13 +298,12 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
             </h3>
 
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', borderRadius: 20, background: 'rgba(var(--brand-secondary-rgb), 0.15)', color: 'var(--brand-secondary)', fontWeight: 700, fontSize: '0.85rem', marginBottom: 14 }}>
-              <span>.{effectiveTarget.toUpperCase()} Container Ready</span>
+              <span>{(t('desktopContainerTitle') || '.{ext} Container Ready').replace('{ext}', effectiveTarget.toUpperCase())}</span>
               {resultSizeBytes && <span>• {(resultSizeBytes / (1024 * 1024)).toFixed(2)} MB</span>}
             </div>
 
             <p style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.6, marginBottom: 20 }}>
-              Web browsers only support inline playback for <strong>MP4</strong> and <strong>WebM</strong>. 
-              Your <strong>.{effectiveTarget.toUpperCase()}</strong> file is 100% encoded and ready to play in <strong>VLC, Windows Media Player, QuickTime, TVs, or your target device</strong>!
+              {(t('desktopContainerDesc') || 'Web browsers only support inline playback for MP4 and WebM. Your .{ext} file is 100% encoded and ready to play in VLC, Windows Media Player, QuickTime, TVs, or your target device!').replace('{ext}', effectiveTarget.toUpperCase())}
             </p>
 
             <a
@@ -324,11 +323,11 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               }}
             >
               <Download size={18} />
-              <span>Download .{effectiveTarget.toUpperCase()} Result</span>
+              <span>{(t('downloadExtResult') || 'Download .{ext} Result').replace('{ext}', effectiveTarget.toUpperCase())}</span>
             </a>
 
             <p style={{ marginTop: 16, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-              💡 Tip: To preview and play directly inside web browsers or websites, choose <strong>.mp4</strong> or <strong>.webm</strong>.
+              {t('desktopContainerTip') || '💡 Tip: To preview and play directly inside web browsers or websites, choose .mp4 or .webm.'}
             </p>
           </div>
         )}
@@ -389,14 +388,14 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', borderRadius: 20, background: 'rgba(var(--brand-secondary-rgb), 0.12)', color: 'var(--brand-secondary)', fontWeight: 700, fontSize: '0.8rem', marginBottom: 14 }}>
                     <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
                     <span>•</span>
-                    <span>{rawExt.toUpperCase()} (Advanced Codec)</span>
+                    <span>{rawExt.toUpperCase()} ({t('advancedCodec') || 'Advanced Codec'})</span>
                   </div>
                   <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', maxWidth: 460, lineHeight: 1.6, margin: '0 auto 18px auto' }}>
-                    Browser engines cannot preview this file's codec (such as HEVC/H.265 or 10-bit color) natively in the live player. Don't worry, SolveMyMedia's engine fully supports it and will {getToolActionVerb()} it into a universal web-compatible format!
+                    {t('advancedCodecDesc') || "Browser engines cannot preview this file's codec (such as HEVC/H.265 or 10-bit color) natively in the live player. Don't worry, SolveMyMedia's engine fully supports it and will process it into a universal web-compatible format!"}
                   </p>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 18px', borderRadius: 'var(--radius-full)', background: 'rgba(var(--brand-secondary-rgb), 0.15)', color: 'var(--brand-secondary)', fontSize: '0.85rem', fontWeight: 700, border: '1px solid rgba(var(--brand-secondary-rgb), 0.3)' }}>
                     <Sparkles size={16} />
-                    <span>Ready to {getToolActionVerb()} — Click "{toolId === 'compress-video' ? 'Compress Video' : 'Process'}" to Start</span>
+                    <span>{t('readyToProcessPrompt') || 'Ready to process — Click to start'}</span>
                   </div>
                 </div>
               ) : (
@@ -415,7 +414,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                     if (NON_BROWSER_VIDEO_CONTAINERS.includes(currentExt)) {
                       setNativePlaybackFailed(true);
                     } else if (activeTab === 'original') {
-                      setCodecNotice(`Native player preview is unavailable for this file's codec (e.g. HEVC/H.265). It will be ${getToolActionVerb()} properly upon processing!`);
+                      setCodecNotice(t('nativePlayerCodecUnavailable') || "Native player preview is unavailable for this file's codec (e.g. HEVC/H.265). It will be processed properly upon processing!");
                     }
                   }}
                   style={{
@@ -471,7 +470,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
               {isCurrentResult ? downloadFileName : file.name}
             </p>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: 16 }}>
-              {isCurrentResult ? 'High Quality Audio Result' : `${(file.size / (1024 * 1024)).toFixed(2)} MB • ${rawExt.toUpperCase()}`}
+              {isCurrentResult ? (t('highQualityAudioResult') || 'High Quality Audio Result') : `${(file.size / (1024 * 1024)).toFixed(2)} MB • ${rawExt.toUpperCase()}`}
             </p>
 
             <audio
@@ -494,10 +493,10 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
             </div>
             <p style={{ fontWeight: 700, fontSize: '1rem', marginBottom: 6, wordBreak: 'break-all' }}>{file.name}</p>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.5, marginBottom: 16 }}>
-              Browser engines do not natively decode <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>.{rawExt.toUpperCase()}</span> containers in the player, but it will be {getToolActionVerb()} and playable once processed!
+              {(t('obscureContainerDesc') || 'Browser engines do not natively decode .{ext} containers in the player, but it will be processed and playable once processed!').replace('{ext}', rawExt.toUpperCase())}
             </p>
             <span style={{ fontSize: '0.8rem', color: 'var(--brand-secondary)', fontWeight: 600, background: 'rgba(var(--brand-secondary-rgb), 0.1)', padding: '4px 10px', borderRadius: 'var(--radius-sm)' }}>
-              Ready to process
+              {t('readyToProcess') || 'Ready to process'}
             </span>
           </div>
         )}
@@ -507,7 +506,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 12, paddingTop: 10, borderTop: '1px solid var(--border-color)', flexWrap: 'wrap', gap: 8 }}>
             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>
-                {isCurrentResult ? '✨ Result File' : file.name}
+                {isCurrentResult ? `✨ ${t('resultFile') || 'Result File'}` : file.name}
               </span>
               <span>•</span>
               <span>
@@ -549,7 +548,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
       {processing && (
         <div style={{ marginTop: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: '0.85rem' }}>
-            <span style={{ fontWeight: 700, color: 'var(--text-main)' }}>Processing {progress}%</span>
+            <span style={{ fontWeight: 700, color: 'var(--text-main)' }}>{t('processingPercent') || 'Processing'} {progress}%</span>
             {engine === 'tier1' && <span style={{ color: 'var(--warning-color)', fontWeight: 600 }}>⚡ GPU WebCodecs (MP4)</span>}
             {engine === 'tier2' && <span style={{ color: 'var(--warning-color)', fontWeight: 600 }}>⚡ GPU WebCodecs (WebM)</span>}
             {engine === 'tier3' && <span style={{ color: 'var(--brand-secondary)', fontWeight: 600 }}>⚙️ CPU WASM FFmpeg</span>}

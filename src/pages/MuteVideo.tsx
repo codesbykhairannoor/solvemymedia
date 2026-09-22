@@ -11,11 +11,11 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const { t } = useLanguage();
   
   const ui = {
-    remove: "Remove Audio",
-    desc: "This tool instantly strips all audio tracks from your video. The video quality is completely preserved.",
-    fast: "Lightning Fast! ⚡",
-    fast_desc: "This process does not re-encode your video, so it will finish in less than a second.",
-    action: "Mute Video"
+    remove: t('mvRemove') || "Remove Audio",
+    desc: t('mvDesc') || "This tool instantly strips all audio tracks from your video. The video quality is completely preserved.",
+    fast: t('mvFast') || "Lightning Fast! ⚡",
+    fast_desc: t('mvFastDesc') || "This process does not re-encode your video, so it will finish in less than a second.",
+    action: t('mvAction') || "Mute Video"
   };
 
   const [file, setFile] = useState<File | null>(null);
