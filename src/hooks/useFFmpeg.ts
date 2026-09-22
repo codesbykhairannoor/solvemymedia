@@ -85,7 +85,7 @@ export const useFFmpeg = () => {
       
       let args: string[] = ['-i', inputName];
       
-      const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg'].includes(targetFormat.toLowerCase());
+      const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a', 'opus', 'wma', 'aiff', 'ac3'].includes(targetFormat.toLowerCase());
 
       if (!isTargetAudio) {
         const scaleMultiplier = quality >= 100 ? 1 : Number((0.3 + (0.7 * (quality / 100))).toFixed(2));
@@ -187,10 +187,20 @@ export const useFFmpeg = () => {
           args.push('-c:a', 'libmp3lame', '-b:a', `${audioKbps}k`);
         } else if (targetFormat === 'ogg') {
           args.push('-c:a', 'libvorbis', '-b:a', `${audioKbps}k`);
-        } else if (targetFormat === 'aac') {
+        } else if (targetFormat === 'aac' || targetFormat === 'm4a') {
           args.push('-c:a', 'aac', '-b:a', `${audioKbps}k`);
         } else if (targetFormat === 'wav') {
           args.push('-c:a', 'pcm_s16le');
+        } else if (targetFormat === 'flac') {
+          args.push('-c:a', 'flac');
+        } else if (targetFormat === 'opus') {
+          args.push('-c:a', 'libopus', '-b:a', `${Math.min(audioKbps, 160)}k`, '-ar', '48000');
+        } else if (targetFormat === 'wma') {
+          args.push('-c:a', 'wmav2', '-b:a', `${audioKbps}k`);
+        } else if (targetFormat === 'aiff') {
+          args.push('-c:a', 'pcm_s16be');
+        } else if (targetFormat === 'ac3') {
+          args.push('-c:a', 'ac3', '-b:a', `${audioKbps}k`);
         } else {
           args.push('-b:a', `${audioKbps}k`);
         }
@@ -215,7 +225,13 @@ export const useFFmpeg = () => {
       if (targetFormat === 'mp3') mimeType = 'audio/mpeg';
       if (targetFormat === 'wav') mimeType = 'audio/wav';
       if (targetFormat === 'aac') mimeType = 'audio/aac';
+      if (targetFormat === 'm4a') mimeType = 'audio/mp4';
+      if (targetFormat === 'flac') mimeType = 'audio/flac';
+      if (targetFormat === 'opus') mimeType = 'audio/opus';
       if (targetFormat === 'ogg') mimeType = isVideo ? 'video/ogg' : 'audio/ogg';
+      if (targetFormat === 'wma') mimeType = 'audio/x-ms-wma';
+      if (targetFormat === 'aiff') mimeType = 'audio/aiff';
+      if (targetFormat === 'ac3') mimeType = 'audio/ac3';
 
       const blob = new Blob([data as any], { type: mimeType });
       setProcessing(false);

@@ -29,6 +29,19 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
     if (url) setOutputUrl(url);
   };
 
+  const AUDIO_FORMATS = [
+    { id: 'mp3', name: 'MP3', desc: 'Universal' },
+    { id: 'wav', name: 'WAV', desc: 'Lossless PCM' },
+    { id: 'm4a', name: 'M4A', desc: 'Apple AAC' },
+    { id: 'aac', name: 'AAC', desc: 'High Quality' },
+    { id: 'flac', name: 'FLAC', desc: 'Lossless HD' },
+    { id: 'ogg', name: 'OGG', desc: 'Vorbis Web' },
+    { id: 'opus', name: 'OPUS', desc: 'Efficient' },
+    { id: 'wma', name: 'WMA', desc: 'Windows' },
+    { id: 'aiff', name: 'AIFF', desc: 'Studio Audio' },
+    { id: 'ac3', name: 'AC3', desc: 'Dolby Surround' }
+  ];
+
   const sidebarContent = (
     <>
       <div>
@@ -38,11 +51,36 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         </h4>
         <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>{t.desc}</p>
         
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          <button className={`tab-btn ${targetFormat === 'mp3' ? 'active' : ''}`} style={{ padding: '8px 16px', fontSize: '0.9rem' }} onClick={() => setTargetFormat('mp3')}>.mp3</button>
-          <button className={`tab-btn ${targetFormat === 'wav' ? 'active' : ''}`} style={{ padding: '8px 16px', fontSize: '0.9rem' }} onClick={() => setTargetFormat('wav')}>.wav</button>
-          <button className={`tab-btn ${targetFormat === 'aac' ? 'active' : ''}`} style={{ padding: '8px 16px', fontSize: '0.9rem' }} onClick={() => setTargetFormat('aac')}>.aac</button>
-          <button className={`tab-btn ${targetFormat === 'ogg' ? 'active' : ''}`} style={{ padding: '8px 16px', fontSize: '0.9rem' }} onClick={() => setTargetFormat('ogg')}>.ogg</button>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+          {AUDIO_FORMATS.map((fmt) => {
+            const isSelected = targetFormat === fmt.id;
+            return (
+              <button
+                key={fmt.id}
+                type="button"
+                className={`option-btn ${isSelected ? 'active' : ''}`}
+                style={{
+                  padding: '10px 12px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  gap: 3,
+                  borderRadius: 'var(--radius-sm)',
+                  cursor: processing ? 'not-allowed' : 'pointer'
+                }}
+                onClick={() => setTargetFormat(fmt.id)}
+                disabled={processing}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                  <span style={{ fontWeight: 800, fontSize: '0.88rem' }}>.{fmt.id}</span>
+                  {isSelected && <span style={{ fontSize: '0.7rem', opacity: 0.9 }}>✓</span>}
+                </div>
+                <span style={{ fontSize: '0.72rem', opacity: isSelected ? 0.9 : 0.65, fontWeight: 500 }}>
+                  {fmt.desc}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </>

@@ -292,15 +292,16 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         </div>
         
         <button 
-          className="desktop-only"
           onClick={toggleTheme}
           style={{
             background: isLightMode ? '#fef3c7' : '#1e1b4b', color: isLightMode ? '#d97706' : '#a855f7',
             border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`, cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            width: 36, height: 36, borderRadius: '50%', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', transition: 'all 0.2s'
+            width: 36, height: 36, borderRadius: '50%', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', transition: 'all 0.2s',
+            flexShrink: 0
           }}
           title={isLightMode ? 'Dark Mode' : 'Light Mode'}
+          aria-label={isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
         >
           {isLightMode ? <Moon size={16} /> : <Sun size={16} />}
         </button>
@@ -393,6 +394,35 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               ))}
             </div>
           )}
+
+          {/* Mobile Theme Toggle Row */}
+          <div style={{ marginTop: 20, paddingTop: 14, borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 8 }}>
+              {isLightMode ? <Sun size={16} color="#d97706" /> : <Moon size={16} color="#a855f7" />}
+              <span>{isLightMode ? 'Light Theme' : 'Dark Theme'}</span>
+            </span>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              style={{
+                background: isLightMode ? '#fef3c7' : '#1e1b4b',
+                color: isLightMode ? '#d97706' : '#a855f7',
+                border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6,
+                padding: '6px 14px',
+                borderRadius: 20,
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                transition: 'all 0.2s ease'
+              }}
+            >
+              {isLightMode ? <Moon size={13} /> : <Sun size={13} />}
+              <span>{isLightMode ? 'Dark Mode' : 'Light Mode'}</span>
+            </button>
+          </div>
         </div>
       )}
 

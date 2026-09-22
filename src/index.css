@@ -358,23 +358,27 @@ textarea {
   border-radius: var(--radius-md);
   cursor: pointer;
   text-align: left;
+  color: var(--text-main);
+  font-family: var(--font-main);
   transition: all 0.2s ease;
 }
 
 .option-btn.active {
   background: var(--brand-gradient);
-  border: none;
+  border: 1px solid transparent;
   color: #fff;
 }
 
 .option-btn:not(.active):hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: var(--text-main);
 }
 
 .option-title {
   font-size: 0.95rem;
   font-weight: 700;
+  color: var(--text-main);
 }
 
 .option-subtitle {
@@ -383,11 +387,42 @@ textarea {
 }
 
 .option-btn.active .option-subtitle {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .option-btn.active .option-title {
   color: #fff;
+}
+
+/* Watermark animations & contrast styles */
+@keyframes watermarkBounce {
+  0% {
+    top: 8%;
+    left: 8%;
+  }
+  25% {
+    top: 75%;
+    left: 45%;
+  }
+  50% {
+    top: 18%;
+    left: 78%;
+  }
+  75% {
+    top: 78%;
+    left: 18%;
+  }
+  100% {
+    top: 8%;
+    left: 8%;
+  }
+}
+
+.watermark-moving-animated {
+  animation: watermarkBounce 12s ease-in-out infinite;
+  position: absolute !important;
+  pointer-events: none;
+  will-change: top, left;
 }
 
 /* Custom Scrollbar for a sleek premium look */

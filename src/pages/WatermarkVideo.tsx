@@ -20,7 +20,8 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     bl: t('wmBL') || "Bottom Left",
     br: t('wmBR') || "Bottom Right",
     c: t('wmC') || "Center",
-    tiled: t('wmTiled') || "Tiled (5x)",
+    tiled: t('wmTiled') || "Tiled Grid (3×3)",
+    moving: t('wmMoving') || "Moving / Bouncing",
     scale: t('wmScale') || "Scale Size",
     opacity: t('wmOpac') || "Opacity",
     action: t('wmAction') || "Add Watermark",
@@ -94,19 +95,31 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     canvas.width = Math.ceil(metrics.width + padX * 2);
     canvas.height = Math.ceil(baseFontSize + padY * 2);
 
+    const isDarkText = textColor.toLowerCase() === '#0f172a' || textColor.toLowerCase() === '#000000';
+
     if (textBadge) {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
+      ctx.fillStyle = isDarkText ? 'rgba(255, 255, 255, 0.92)' : 'rgba(15, 23, 42, 0.85)';
       if (typeof ctx.roundRect === 'function') {
         ctx.roundRect(0, 0, canvas.width, canvas.height, 12);
       } else {
         ctx.rect(0, 0, canvas.width, canvas.height);
       }
       ctx.fill();
+      ctx.strokeStyle = isDarkText ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
     }
 
     ctx.font = `bold ${baseFontSize}px sans-serif`;
-    ctx.fillStyle = textColor;
     ctx.textBaseline = 'middle';
+
+    // Stroke outline for maximum legibility on any video background
+    ctx.strokeStyle = isDarkText ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.95)';
+    ctx.lineWidth = Math.max(2, Math.round(2.5 * scale));
+    ctx.strokeText(textWatermark, padX, canvas.height / 2);
+
+    // Text fill
+    ctx.fillStyle = textColor;
     ctx.fillText(textWatermark, padX, canvas.height / 2);
 
     const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'));
@@ -131,8 +144,26 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     let overlayFilter = '';
 
     if (position === 'tiled') {
-       baseWmFilter = `[1:v]format=rgba,colorchannelmixer=aa=${opacity},scale=iw*${scale}:-1,split=5[wm1][wm2][wm3][wm4][wm5]`;
-       overlayFilter = `[0:v][wm1]overlay=${m}:${m}[v1];[v1][wm2]overlay=W-w-${m}:${m}[v2];[v2][wm3]overlay=${m}:H-h-${m}[v3];[v3][wm4]overlay=W-w-${m}:H-h-${m}[v4];[v4][wm5]overlay=(W-w)/2:(H-h)/2`;
+       baseWmFilter = `[1:v]format=rgba,colorchannelmixer=aa=${opacity},scale=iw*${scale}:-1,split=9[wm1][wm2][wm3][wm4][wm5][wm6][wm7][wm8][wm9]`;
+       const xPcts = ['(W-w)*0.15', '(W-w)*0.5', '(W-w)*0.85'];
+       const yPcts = ['(H-h)*0.15', '(H-h)*0.5', '(H-h)*0.85'];
+       const steps: string[] = [];
+       let stepIdx = 0;
+       for (let r = 0; r < 3; r++) {
+         for (let c = 0; c < 3; c++) {
+           const wmIdx = stepIdx + 1;
+           const inStream = stepIdx === 0 ? '[0:v]' : `[v${stepIdx}]`;
+           const outStream = stepIdx === 8 ? '' : `[v${stepIdx + 1}]`;
+           steps.push(`${inStream}[wm${wmIdx}]overlay=${xPcts[c]}:${yPcts[r]}${outStream}`);
+           stepIdx++;
+         }
+       }
+       overlayFilter = steps.join(';');
+    } else if (position === 'moving') {
+       // Dynamic screensaver bounce across X and Y based on timestamp 't'
+       const posX = `abs(mod(t*140,2*max(1,W-w))-max(1,W-w))`;
+       const posY = `abs(mod(t*85,2*max(1,H-h))-max(1,H-h))`;
+       overlayFilter = `[0:v][wm]overlay=x='${posX}':y='${posY}'`;
     } else {
       let overlayPos = '';
       if (position === 'bottom-right') overlayPos = `W-w-${m}:H-h-${m}`;
@@ -241,17 +272,19 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     }
 
     const renderWatermarkElement = (posStyle: React.CSSProperties, key: string) => {
+      const isInteractive = position !== 'tiled' && position !== 'moving';
+
       if (watermarkType === 'image' && imagePreviewUrl) {
         return (
           <div
             key={key}
-            onPointerDown={handlePointerDown}
-            onPointerMove={(e) => handlePointerMove(e, containerRef)}
-            onPointerUp={handlePointerUp}
+            onPointerDown={isInteractive ? handlePointerDown : undefined}
+            onPointerMove={isInteractive ? (e) => handlePointerMove(e, containerRef) : undefined}
+            onPointerUp={isInteractive ? handlePointerUp : undefined}
             style={{
               position: 'absolute',
-              cursor: isDragging ? 'grabbing' : 'grab',
-              pointerEvents: 'auto',
+              cursor: isInteractive ? (isDragging ? 'grabbing' : 'grab') : 'default',
+              pointerEvents: isInteractive ? 'auto' : 'none',
               maxWidth: `${Math.round(25 * scale)}%`,
               maxHeight: `${Math.round(25 * scale)}%`,
               display: 'inline-flex',
@@ -282,25 +315,36 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       }
 
       if (watermarkType === 'text' && textWatermark.trim()) {
+        const isDarkText = textColor.toLowerCase() === '#0f172a' || textColor.toLowerCase() === '#000000';
         return (
           <div
             key={key}
-            onPointerDown={handlePointerDown}
-            onPointerMove={(e) => handlePointerMove(e, containerRef)}
-            onPointerUp={handlePointerUp}
+            onPointerDown={isInteractive ? handlePointerDown : undefined}
+            onPointerMove={isInteractive ? (e) => handlePointerMove(e, containerRef) : undefined}
+            onPointerUp={isInteractive ? handlePointerUp : undefined}
             style={{
               position: 'absolute',
-              cursor: isDragging ? 'grabbing' : 'grab',
-              pointerEvents: 'auto',
+              cursor: isInteractive ? (isDragging ? 'grabbing' : 'grab') : 'default',
+              pointerEvents: isInteractive ? 'auto' : 'none',
               fontSize: `clamp(11px, ${1.2 * scale}vw, ${22 * scale}px)`,
               fontWeight: 800,
               color: textColor,
-              background: textBadge ? 'rgba(0, 0, 0, 0.65)' : 'transparent',
-              backdropFilter: textBadge ? 'blur(4px)' : 'none',
+              background: textBadge 
+                ? (isDarkText ? 'rgba(255, 255, 255, 0.92)' : 'rgba(15, 23, 42, 0.85)') 
+                : 'transparent',
+              backdropFilter: textBadge ? 'blur(6px)' : 'none',
               padding: textBadge ? '4px 12px' : '0 4px',
               borderRadius: textBadge ? 6 : 0,
-              border: isDragging ? '1px dashed var(--brand-primary)' : '1px dashed transparent',
-              textShadow: textBadge ? 'none' : '0 2px 4px rgba(0,0,0,0.85)',
+              border: isDragging 
+                ? '1px dashed var(--brand-primary)' 
+                : (textBadge 
+                    ? (isDarkText ? '1px solid rgba(0, 0, 0, 0.25)' : '1px solid rgba(255, 255, 255, 0.25)') 
+                    : 'none'),
+              textShadow: textBadge 
+                ? 'none' 
+                : (isDarkText 
+                    ? '0 0 4px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(255, 255, 255, 0.9)' 
+                    : '0 0 4px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0,0,0,0.85)'),
               opacity: opacity,
               userSelect: 'none',
               whiteSpace: 'nowrap',
@@ -317,14 +361,29 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     };
 
     if (position === 'tiled') {
-      const m = `${margin}px`;
+      const xPcts = [15, 50, 85];
+      const yPcts = [15, 50, 85];
       return (
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-          {renderWatermarkElement({ top: m, left: m }, 'tl')}
-          {renderWatermarkElement({ top: m, right: m }, 'tr')}
-          {renderWatermarkElement({ bottom: m, left: m }, 'bl')}
-          {renderWatermarkElement({ bottom: m, right: m }, 'br')}
-          {renderWatermarkElement({ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }, 'c')}
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
+          {yPcts.map((yp, r) =>
+            xPcts.map((xp, c) =>
+              renderWatermarkElement({
+                top: `${yp}%`,
+                left: `${xp}%`,
+                transform: 'translate(-50%, -50%)'
+              }, `tiled-${r}-${c}`)
+            )
+          )}
+        </div>
+      );
+    }
+
+    if (position === 'moving') {
+      return (
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
+          <div className="watermark-moving-animated">
+            {renderWatermarkElement({ position: 'relative' }, 'moving')}
+          </div>
         </div>
       );
     }
@@ -464,7 +523,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                       border: 'none',
                       cursor: 'pointer',
                       background: watermarkType === 'image' ? 'var(--brand-primary)' : 'transparent',
-                      color: watermarkType === 'image' ? '#fff' : 'var(--text-muted)',
+                      color: watermarkType === 'image' ? '#fff' : 'var(--text-main)',
                       transition: 'all 0.2s ease'
                     }}
                   >
@@ -485,7 +544,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                       border: 'none',
                       cursor: 'pointer',
                       background: watermarkType === 'text' ? 'var(--brand-primary)' : 'transparent',
-                      color: watermarkType === 'text' ? '#fff' : 'var(--text-muted)',
+                      color: watermarkType === 'text' ? '#fff' : 'var(--text-main)',
                       transition: 'all 0.2s ease'
                     }}
                   >
@@ -562,7 +621,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
                     {/* Color Chips */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Color:</span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-main)', fontWeight: 600 }}>Color:</span>
                       {[
                         { color: '#ffffff', label: 'White' },
                         { color: '#facc15', label: 'Gold' },
@@ -575,14 +634,17 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                           type="button"
                           onClick={() => setTextColor(c.color)}
                           style={{
-                            width: 20,
-                            height: 20,
+                            width: 22,
+                            height: 22,
                             borderRadius: '50%',
                             background: c.color,
-                            border: textColor === c.color ? '2px solid var(--brand-primary)' : '1px solid rgba(255,255,255,0.2)',
+                            border: textColor === c.color 
+                              ? '2px solid var(--brand-primary)' 
+                              : (c.color === '#0f172a' ? '2px solid rgba(255, 255, 255, 0.6)' : '1px solid rgba(255,255,255,0.3)'),
                             cursor: 'pointer',
                             outline: textColor === c.color ? '2px solid var(--brand-primary)' : 'none',
-                            outlineOffset: 1
+                            outlineOffset: 1,
+                            boxShadow: '0 2px 4px rgba(0,0,0,0.3)'
                           }}
                           title={c.label}
                         />
@@ -590,7 +652,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                     </div>
 
                     {/* Dark frosted badge checkbox */}
-                    <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.75rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: 'var(--text-main)', fontWeight: 600, cursor: 'pointer' }}>
                       <input 
                         type="checkbox" 
                         checked={textBadge} 
@@ -624,14 +686,24 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 { id: 'bottom-left', label: ui.bl },
                 { id: 'bottom-right', label: ui.br },
                 { id: 'center', label: ui.c },
-                { id: 'tiled', label: ui.tiled }
+                { id: 'tiled', label: ui.tiled },
+                { id: 'moving', label: '🎬 ' + ui.moving }
               ].map(pos => (
                 <button 
                   key={pos.id} 
+                  type="button"
                   className={`option-btn ${position === pos.id ? 'active' : ''}`} 
                   onClick={() => setPosition(pos.id)} 
                   disabled={processing || !!outputUrl} 
-                  style={{ padding: '10px 12px', fontSize: '0.85rem' }}
+                  style={{ 
+                    padding: '10px 12px', 
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    color: position === pos.id ? '#ffffff' : 'var(--text-main)',
+                    gridColumn: pos.id === 'moving' ? 'span 2' : undefined
+                  }}
                 >
                   {pos.label}
                 </button>
@@ -640,7 +712,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
             {/* Scale Slider */}
             <div style={{ marginBottom: 16 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>
                 <span>{ui.scale}</span>
                 <span style={{ color: 'var(--brand-primary)' }}>{(scale * 100).toFixed(0)}%</span>
               </div>
@@ -658,7 +730,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
             {/* Opacity Slider */}
             <div style={{ marginBottom: 16 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>
                 <span>{ui.opacity}</span>
                 <span style={{ color: 'var(--brand-secondary)' }}>{(opacity * 100).toFixed(0)}%</span>
               </div>
@@ -675,9 +747,9 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             </div>
 
             {/* Edge Margin / Inset Slider */}
-            {position !== 'center' && position !== 'custom' && (
+            {position !== 'center' && position !== 'custom' && position !== 'tiled' && position !== 'moving' && (
               <div style={{ marginBottom: 20 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>
                   <span>Edge Inset</span>
                   <span style={{ color: 'var(--text-muted)' }}>{margin}px</span>
                 </div>

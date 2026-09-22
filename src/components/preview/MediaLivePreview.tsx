@@ -93,7 +93,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   const isInputAudio = file.type.startsWith('audio') || ['mp3', 'wav', 'ogg', 'aac', 'flac', 'm4a', 'wma', 'opus'].includes(rawExt);
 
   const effectiveTarget = (targetFormat || (isInputVideo ? 'mp4' : 'mp3')).toLowerCase().replace(/^\./, '');
-  const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a'].includes(effectiveTarget);
+  const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a', 'opus', 'wma', 'aiff', 'ac3'].includes(effectiveTarget);
   const isTargetVideo = ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv', 'gif'].includes(effectiveTarget);
 
   // Non-browser-playable containers (browsers cannot play these inside standard HTML5 <video>)
