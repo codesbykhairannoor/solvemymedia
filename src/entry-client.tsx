@@ -26,3 +26,43 @@ if (rootElement.innerHTML === '<!--ssr-outlet-->') {
   // Hydrate SSG
   hydrateRoot(rootElement, app)
 }
+
+// Service worker update & cache management
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+  // Auto-reload once when a new service worker version activates
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
+  });
+
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.getRegistration().then((reg) => {
+      if (reg) {
+        reg.update().catch(() => {});
+      }
+    });
+
+    // Clean up oversized legacy wasm caches from browser CacheStorage
+    if ('caches' in window) {
+      caches.keys().then((names) => {
+        for (const name of names) {
+          // If cache name indicates previous bloated version, prune it
+          if (name.includes('workbox-precache') && !name.includes('-v2')) {
+            caches.open(name).then((cache) => {
+              cache.keys().then((requests) => {
+                for (const req of requests) {
+                  if (req.url.endsWith('.wasm')) {
+                    cache.delete(req);
+                  }
+                }
+              });
+            });
+          }
+        }
+      }).catch(() => {});
+    }
+  });
+}

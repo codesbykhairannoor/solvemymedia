@@ -75,6 +75,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
     const url = URL.createObjectURL(file);
     setOriginalUrl(url);
     setNativePlaybackFailed(false);
+    setCodecNotice(null);
 
     return () => {
       // Delay revocation so in-flight video requests don't abort with MEDIA_ERR_SRC_NOT_SUPPORTED
@@ -114,6 +115,18 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
   // Standard tools like crop, watermark, mute, speed, compress output browser-compatible MP4/WebM.
   const isConvertTool = toolId === 'convert-video';
   const isNonBrowserResult = isCurrentResult && isConvertTool && isCurrentVideo && !isGifResult && NON_BROWSER_VIDEO_CONTAINERS.includes(effectiveTarget);
+
+  const [codecNotice, setCodecNotice] = useState<string | null>(null);
+
+  const getToolActionVerb = () => {
+    if (toolId === 'compress-video') return 'compressed';
+    if (toolId === 'crop-video') return 'cropped';
+    if (toolId === 'watermark-video') return 'watermarked';
+    if (toolId === 'mute-video') return 'processed without audio';
+    if (toolId === 'change-video-speed') return 'speed-adjusted';
+    if (toolId === 'convert-video') return 'converted';
+    return 'processed';
+  };
 
   const getToolSuccessTitle = () => {
     if (toolId === 'crop-video') return t('cropSuccess') || 'Video Cropped Successfully! 🎉';
@@ -351,6 +364,8 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                   const currentExt = (activeTab === 'result' ? effectiveTarget : rawExt).toLowerCase();
                   if (NON_BROWSER_VIDEO_CONTAINERS.includes(currentExt)) {
                     setNativePlaybackFailed(true);
+                  } else {
+                    setCodecNotice(`Native player preview is unavailable for this file's codec (e.g. HEVC/H.265). It will be ${getToolActionVerb()} properly upon processing!`);
                   }
                 }}
                 style={{
@@ -362,6 +377,28 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                   outline: 'none'
                 }}
               />
+              {codecNotice && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: 12,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: 'rgba(15, 23, 42, 0.92)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(var(--brand-primary-rgb), 0.4)',
+                  color: '#fff',
+                  padding: '8px 14px',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '0.78rem',
+                  maxWidth: '90%',
+                  textAlign: 'center',
+                  zIndex: 10,
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
+                  pointerEvents: 'none'
+                }}>
+                  ℹ️ {codecNotice}
+                </div>
+              )}
               {activeTab === 'original' && videoOverlay && (
                 <div
                   style={{
@@ -429,7 +466,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
             </div>
             <p style={{ fontWeight: 700, fontSize: '1rem', marginBottom: 6, wordBreak: 'break-all' }}>{file.name}</p>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.5, marginBottom: 16 }}>
-              Browser engines do not natively decode <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>.{rawExt.toUpperCase()}</span> containers in the player, but it will be processed and playable once converted to MP4/WebM!
+              Browser engines do not natively decode <span style={{ fontWeight: 700, color: 'var(--brand-primary)' }}>.{rawExt.toUpperCase()}</span> containers in the player, but it will be {getToolActionVerb()} and playable once processed!
             </p>
             <span style={{ fontSize: '0.8rem', color: 'var(--brand-secondary)', fontWeight: 600, background: 'rgba(var(--brand-secondary-rgb), 0.1)', padding: '4px 10px', borderRadius: 'var(--radius-sm)' }}>
               Ready to process
