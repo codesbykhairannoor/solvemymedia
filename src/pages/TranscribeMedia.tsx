@@ -1,6 +1,6 @@
 import { TranscribeMediaHeroSection, TranscribeMediaHowToSection, TranscribeMediaPerformanceSection, TranscribeMediaPrivacySection } from '../components/content-sections/tools/TranscribeMediaSections';
 import React, { useState, useRef, useEffect } from 'react';
-import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, FileText, RefreshCw, Download, FileEdit, RotateCcw } from 'lucide-react';
+import { UploadCloud, FileVideo, FileAudio, Trash2, Copy, Loader2, PlayCircle, FileText, RefreshCw, Download, FileEdit, RotateCcw, Search, X } from 'lucide-react';
 import { useWhisper } from '../hooks/useWhisper';
 import { smartHighlight } from '../utils/textFormatting';
 import { useLanguage } from '../hooks/useLanguage';
@@ -23,8 +23,10 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const finalDesc = pseoData ? pseoData.description : t.upload;
 
   const [file, setFile] = useState<File | null>(null);
+  const [selectedModel, setSelectedModel] = useState<string>('onnx-community/whisper-base');
   const [language, setLanguage] = useState<string>('indonesian');
   const [customFileName, setCustomFileName] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : '';
 
@@ -41,12 +43,19 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     }
   }, [file]);
 
-  // Auto-initialize Whisper AI model as soon as a file is selected
+  // Auto-initialize Whisper AI model as soon as a file is selected or model changed
   useEffect(() => {
     if (file && !ready && !processing) {
-      initModel();
+      initModel(selectedModel);
     }
-  }, [file, ready, processing, initModel]);
+  }, [file, ready, processing, initModel, selectedModel]);
+
+  const handleModelChange = (model: string) => {
+    setSelectedModel(model);
+    if (file && !processing) {
+      initModel(model);
+    }
+  };
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -60,10 +69,47 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const handleProcess = async () => {
     if (!file) return;
     if (!ready) {
-      await initModel();
+      await initModel(selectedModel);
     }
-    await transcribe(file, language);
+    await transcribe(file, language, selectedModel);
   };
+
+  const renderHighlightedText = (text: string, query: string) => {
+    const trimmed = query.trim();
+    if (!trimmed) {
+      return <p style={{ whiteSpace: 'pre-wrap', lineHeight: 1.6, margin: 0, color: 'var(--text-main)' }}>{text}</p>;
+    }
+    const escaped = trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
+    const parts = text.split(regex);
+    return (
+      <p style={{ whiteSpace: 'pre-wrap', lineHeight: 1.6, margin: 0, color: 'var(--text-main)' }}>
+        {parts.map((part, i) =>
+          regex.test(part) ? (
+            <mark
+              key={i}
+              style={{
+                backgroundColor: 'rgba(245, 158, 11, 0.45)',
+                color: 'var(--text-main)',
+                borderBottom: '2px solid #f59e0b',
+                borderRadius: '2px',
+                padding: '1px 3px',
+                fontWeight: 700
+              }}
+            >
+              {part}
+            </mark>
+          ) : (
+            <span key={i}>{part}</span>
+          )
+        )}
+      </p>
+    );
+  };
+
+  const matchCount = searchQuery.trim() && resultText
+    ? (resultText.match(new RegExp(searchQuery.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi')) || []).length
+    : 0;
 
 
   const copyToClipboard = () => {
@@ -166,17 +212,83 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           {translate('transTitle') || 'Transcribe Media'}
         </h3>
         
-        <div style={{ marginBottom: 20, flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <FileText size={18} className="text-brand-primary" />
-            <span>{t.result}</span>
-          </h4>
+        <div style={{ marginBottom: 16, display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+            <h4 style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <FileText size={18} className="text-brand-primary" />
+              <span>{t.result}</span>
+            </h4>
+            {resultText && (
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 12, border: '1px solid var(--border-color)', fontWeight: 600 }}>
+                {resultText.trim().split(/\s+/).filter(Boolean).length} {translate('words') || 'words'}
+              </span>
+            )}
+          </div>
           
-          <div style={{ marginTop: 12, flex: 1, minHeight: 180, background: 'var(--bg-input)', borderRadius: 'var(--radius-md)', padding: 16, border: '1px solid var(--border-color)', overflowY: 'auto' }}>
+          {/* Search bar inside transcript when text exists */}
+          {resultText && (
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              background: 'var(--bg-card)',
+              borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--border-color)',
+              padding: '6px 10px',
+              marginBottom: 8
+            }}>
+              <Search size={15} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={translate('searchTranscript') || "Search in transcript..."}
+                style={{
+                  flex: 1,
+                  background: 'transparent',
+                  border: 'none',
+                  outline: 'none',
+                  color: 'var(--text-main)',
+                  fontSize: '0.85rem'
+                }}
+              />
+              {searchQuery && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ fontSize: '0.75rem', color: matchCount > 0 ? 'var(--brand-primary)' : 'var(--text-muted)', fontWeight: 600, whiteSpace: 'nowrap' }}>
+                    {matchCount} {matchCount === 1 ? 'match' : 'matches'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', display: 'flex', padding: 2 }}
+                    title="Clear search"
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Independent scroll container so sidebar never stretches out of control */}
+          <div 
+            style={{ 
+              height: 240, 
+              maxHeight: 250, 
+              background: 'var(--bg-input)', 
+              borderRadius: 'var(--radius-md)', 
+              padding: 14, 
+              border: '1px solid var(--border-color)', 
+              overflowY: 'auto',
+              scrollBehavior: 'smooth'
+            }}
+          >
             {resultText ? (
-              <p style={{ whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>{resultText}</p>
+              renderHighlightedText(resultText, searchQuery)
             ) : (
-              <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center', marginTop: '10%' }}>{processing ? ('Processing...') : t.placeholder}</p>
+              <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center', marginTop: '18%' }}>
+                {processing ? ('AI is transcribing your media...') : t.placeholder}
+              </p>
             )}
           </div>
         </div>
@@ -225,40 +337,72 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           </div>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
-          <select 
-            value={language} 
-            onChange={(e) => setLanguage(e.target.value)}
-            disabled={processing}
-            style={{ 
-              background: 'var(--bg-input)', 
-              color: 'var(--text-main)', 
-              border: '1px solid var(--border-color)', 
-              borderRadius: 'var(--radius-sm)',
-              padding: '6px 12px',
-              fontSize: '0.9rem',
-              outline: 'none',
-              width: '100%'
-            }}
-          >
-            <option value="auto">🌐 {translate('autoDetect') || 'Auto Detect Language'}</option>
-            <option value="indonesian">Indonesian (Bahasa Indonesia)</option>
-            <option value="english">English</option>
-            <option value="spanish">Spanish (Español)</option>
-            <option value="french">French (Français)</option>
-            <option value="german">German (Deutsch)</option>
-            <option value="japanese">Japanese (日本語)</option>
-            <option value="korean">Korean (한국어)</option>
-            <option value="chinese">Chinese (中文)</option>
-            <option value="arabic">Arabic (العربية)</option>
-            <option value="russian">Russian (Русский)</option>
-            <option value="portuguese">Portuguese (Português)</option>
-            <option value="italian">Italian (Italiano)</option>
-            <option value="dutch">Dutch (Nederlands)</option>
-            <option value="turkish">Turkish (Türkçe)</option>
-            <option value="vietnamese">Vietnamese (Tiếng Việt)</option>
-            <option value="thai">Thai (ไทย)</option>
-          </select>
+        {/* Model & Language Controls */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 16 }}>
+          <div>
+            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 6 }}>
+              {translate('transModel') || 'AI Model'}
+            </label>
+            <select
+              value={selectedModel}
+              onChange={(e) => handleModelChange(e.target.value)}
+              disabled={processing}
+              style={{
+                background: 'var(--bg-input)',
+                color: 'var(--text-main)',
+                border: '1px solid var(--border-color)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '7px 10px',
+                fontSize: '0.82rem',
+                outline: 'none',
+                width: '100%',
+                fontWeight: 500
+              }}
+            >
+              <option value="onnx-community/whisper-base">🎯 Base (High Detail ~73MB)</option>
+              <option value="onnx-community/whisper-tiny">⚡ Tiny (Fast ~39MB)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 6 }}>
+              {translate('transLang') || 'Audio Language'}
+            </label>
+            <select 
+              value={language} 
+              onChange={(e) => setLanguage(e.target.value)}
+              disabled={processing}
+              style={{ 
+                background: 'var(--bg-input)', 
+                color: 'var(--text-main)', 
+                border: '1px solid var(--border-color)', 
+                borderRadius: 'var(--radius-sm)',
+                padding: '7px 10px',
+                fontSize: '0.82rem',
+                outline: 'none',
+                width: '100%',
+                fontWeight: 500
+              }}
+            >
+              <option value="auto">🌐 {translate('autoDetect') || 'Auto Detect'}</option>
+              <option value="indonesian">🇮🇩 Indonesian</option>
+              <option value="english">🇺🇸 English</option>
+              <option value="spanish">🇪🇸 Spanish</option>
+              <option value="french">🇫🇷 French</option>
+              <option value="german">🇩🇪 German</option>
+              <option value="japanese">🇯🇵 Japanese</option>
+              <option value="korean">🇰🇷 Korean</option>
+              <option value="chinese">🇨🇳 Chinese</option>
+              <option value="arabic">🇸🇦 Arabic</option>
+              <option value="russian">🇷🇺 Russian</option>
+              <option value="portuguese">🇵🇹 Portuguese</option>
+              <option value="italian">🇮🇹 Italian</option>
+              <option value="dutch">🇳🇱 Dutch</option>
+              <option value="turkish">🇹🇷 Turkish</option>
+              <option value="vietnamese">🇻🇳 Vietnamese</option>
+              <option value="thai">🇹🇭 Thai</option>
+            </select>
+          </div>
         </div>
 
         {error && (

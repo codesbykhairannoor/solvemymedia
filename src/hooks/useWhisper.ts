@@ -93,13 +93,16 @@ export const useWhisper = () => {
   const [error, setError] = useState<string | null>(null);
   
   const transcriberRef = useRef<any>(null);
+  const currentModelRef = useRef<string>('');
   const initializingRef = useRef<Promise<boolean> | null>(null);
 
-  const initModel = useCallback(async (): Promise<boolean> => {
-    if (transcriberRef.current) return true;
-    if (initializingRef.current) return initializingRef.current;
+  const initModel = useCallback(async (modelId: string = 'onnx-community/whisper-base'): Promise<boolean> => {
+    if (transcriberRef.current && currentModelRef.current === modelId) return true;
+    if (initializingRef.current && currentModelRef.current === modelId) return initializingRef.current;
     
     setError(null);
+    setReady(false);
+    setLoadingProgress(0);
 
     // Track per-file progress to prevent glitching progress bar
     const progressMap: Record<string, number> = {};
@@ -128,12 +131,12 @@ export const useWhisper = () => {
           }
         }
 
-        console.log(`Initializing Whisper using device: ${deviceToUse}`);
+        console.log(`Initializing Whisper model [${modelId}] using device: ${deviceToUse}`);
         
         try {
           transcriberRef.current = await pipeline(
             'automatic-speech-recognition', 
-            'onnx-community/whisper-tiny', 
+            modelId, 
             { 
               device: deviceToUse as any,
               dtype: 'fp32',
@@ -145,7 +148,7 @@ export const useWhisper = () => {
             console.warn("WebGPU initialization failed, falling back to WASM:", gpuErr);
             transcriberRef.current = await pipeline(
               'automatic-speech-recognition', 
-              'onnx-community/whisper-tiny', 
+              modelId, 
               { 
                 device: 'wasm',
                 dtype: 'fp32',
@@ -157,6 +160,7 @@ export const useWhisper = () => {
           }
         }
 
+        currentModelRef.current = modelId;
         setReady(true);
         setLoadingProgress(100);
         return true;
@@ -219,9 +223,13 @@ export const useWhisper = () => {
     }
   };
 
-  const transcribe = async (file: File, language: string = 'indonesian') => {
-    if (!transcriberRef.current) {
-      const loaded = await initModel();
+  const transcribe = async (
+    file: File, 
+    language: string = 'indonesian', 
+    modelId: string = 'onnx-community/whisper-base'
+  ) => {
+    if (!transcriberRef.current || currentModelRef.current !== modelId) {
+      const loaded = await initModel(modelId);
       if (!loaded || !transcriberRef.current) return null;
     }
 
@@ -233,17 +241,15 @@ export const useWhisper = () => {
       // 1. Extract 16kHz mono audio data (native or FFmpeg fallback)
       const audioData = await extractAudio(file);
 
-      // 2. Run inference with anti-repetition generation constraints
+      // 2. Run inference with natural speech decoding options (mild repetition penalty, no ngram blocking)
       const options: any = {
         chunk_length_s: 30,
         stride_length_s: 5,
         task: 'transcribe',
         return_timestamps: false,
-        repetition_penalty: 1.2,
-        no_repeat_ngram_size: 4,
+        repetition_penalty: 1.1,
         generate_kwargs: {
-          repetition_penalty: 1.2,
-          no_repeat_ngram_size: 4,
+          repetition_penalty: 1.1,
         }
       };
 
