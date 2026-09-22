@@ -4,6 +4,87 @@ import { pipeline, env } from '@huggingface/transformers';
 // Configure transformers.js to use WebGPU if available, fallback to WASM
 env.allowLocalModels = false;
 
+/**
+ * Intelligent multi-pass cleaner to eliminate Whisper autoregressive hallucination loops
+ * (e.g. repeated phrases during pauses/silence like "di sini saya akan mencari..." 20 times)
+ * while safely preserving natural language features like Indonesian kata ulang ("jalan-jalan", "hati-hati").
+ */
+export function cleanWhisperRepetitions(text: string): string {
+  if (!text || typeof text !== 'string') return '';
+  
+  let current = text.replace(/\s+/g, ' ').trim();
+  if (!current) return '';
+  
+  // Normalize common Indonesian prefixes that Whisper alternates (e.g. "disini" vs "di sini")
+  current = current.replace(/\bdisini\b/gi, 'di sini');
+
+  // Pass 1: Regex-based consecutive phrase deduplication (handles phrases separated by space, commas, periods)
+  for (let len = 15; len >= 2; len--) {
+    const pattern = new RegExp(`((?:\\b[\\w'-]+\\b[\\s,.]*){${len}})(?:\\s*\\1){1,}`, 'gi');
+    current = current.replace(pattern, '$1');
+  }
+
+  // Pass 2: Word-level sequence deduplication with punctuation normalization
+  const words = current.split(' ');
+  const result: string[] = [];
+  let i = 0;
+
+  const normalizeWord = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/gi, '');
+
+  while (i < words.length) {
+    let bestMatchLen = 0;
+    let bestCount = 0;
+
+    const maxCheck = Math.min(15, Math.floor((words.length - i) / 2));
+    for (let len = maxCheck; len >= 1; len--) {
+      const segA = words.slice(i, i + len).map(normalizeWord).join(' ');
+      if (!segA || segA.length < 2) continue;
+
+      let next = i + len;
+      let count = 1;
+
+      while (next + len <= words.length) {
+        const segB = words.slice(next, next + len).map(normalizeWord).join(' ');
+        if (segA === segB) {
+          count++;
+          next += len;
+        } else {
+          break;
+        }
+      }
+
+      // If phrase (len >= 2) repeats 2 or more times, collapse it.
+      // If single word (len === 1), only collapse if repeated 3 or more times (to preserve Indonesian kata ulang like "hati-hati" / "sama sama")
+      if ((len >= 2 && count >= 2) || (len === 1 && count >= 3)) {
+        bestMatchLen = len;
+        bestCount = count;
+        break;
+      }
+    }
+
+    if (bestMatchLen > 0) {
+      for (let k = 0; k < bestMatchLen; k++) {
+        result.push(words[i + k]);
+      }
+      i += bestMatchLen * bestCount;
+    } else {
+      result.push(words[i]);
+      i++;
+    }
+  }
+
+  // Pass 3: Catch any remaining single word stutter spam like "halo halo halo halo" or "dan dan dan"
+  let finalStr = result.join(' ');
+  finalStr = finalStr.replace(/\b(\w+)(?:[\s,.]+\1\b){2,}/gi, '$1');
+
+  // Clean trailing duplicate punctuation and normalize whitespace
+  return finalStr
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([.,!?;:])/g, '$1')
+    .replace(/([.,!?;:])\1+/g, '$1')
+    .trim();
+}
+
 export const useWhisper = () => {
   const [ready, setReady] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -152,11 +233,18 @@ export const useWhisper = () => {
       // 1. Extract 16kHz mono audio data (native or FFmpeg fallback)
       const audioData = await extractAudio(file);
 
-      // 2. Run inference
+      // 2. Run inference with anti-repetition generation constraints
       const options: any = {
         chunk_length_s: 30,
         stride_length_s: 5,
-        task: 'transcribe'
+        task: 'transcribe',
+        return_timestamps: false,
+        repetition_penalty: 1.2,
+        no_repeat_ngram_size: 4,
+        generate_kwargs: {
+          repetition_penalty: 1.2,
+          no_repeat_ngram_size: 4,
+        }
       };
 
       // Only pass language if specified and not 'auto'
@@ -166,10 +254,12 @@ export const useWhisper = () => {
 
       const output = await transcriberRef.current(audioData, options);
 
-      const text = typeof output === 'string' ? output : (output?.text || '');
-      setResultText(text.trim());
+      const rawText = typeof output === 'string' ? output : (output?.text || '');
+      const cleanedText = cleanWhisperRepetitions(rawText);
+      
+      setResultText(cleanedText);
       setProcessing(false);
-      return text.trim();
+      return cleanedText;
     } catch (err: any) {
       console.error("Transcription error:", err);
       setError(err?.message || "Transcription failed. Please ensure the file contains clear speech.");
