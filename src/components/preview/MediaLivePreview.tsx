@@ -52,6 +52,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
     if (outputUrl) {
       setActiveTab('result');
       setNativePlaybackFailed(false);
+      setCodecNotice(null);
       fetch(outputUrl)
         .then(res => res.blob())
         .then(b => setResultSizeBytes(b.size))
@@ -181,19 +182,19 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '6px 12px',
-                fontSize: '0.8rem',
+                padding: '6px 14px',
+                fontSize: '0.82rem',
                 fontWeight: 700,
                 borderRadius: 'calc(var(--radius-sm) - 2px)',
                 border: 'none',
                 cursor: 'pointer',
                 background: activeTab === 'original' ? 'var(--brand-primary)' : 'transparent',
-                color: activeTab === 'original' ? '#fff' : 'var(--text-muted)',
+                color: activeTab === 'original' ? '#fff' : 'var(--text-main)',
                 transition: 'all 0.2s ease'
               }}
             >
-              {isInputVideo ? <Film size={13} /> : <Music size={13} />}
-              <span>{t('previewOriginal') || 'Original'}</span>
+              {isInputVideo ? <Film size={14} /> : <Music size={14} />}
+              <span>{t('previewOriginal') && t('previewOriginal') !== 'previewOriginal' ? t('previewOriginal') : (isInputVideo ? 'Original Video' : 'Original Audio')}</span>
             </button>
             <button
               type="button"
@@ -202,19 +203,19 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '6px 12px',
-                fontSize: '0.8rem',
+                padding: '6px 14px',
+                fontSize: '0.82rem',
                 fontWeight: 700,
                 borderRadius: 'calc(var(--radius-sm) - 2px)',
                 border: 'none',
                 cursor: 'pointer',
                 background: activeTab === 'result' ? 'var(--brand-secondary)' : 'transparent',
-                color: activeTab === 'result' ? '#fff' : 'var(--text-muted)',
+                color: activeTab === 'result' ? '#fff' : 'var(--text-main)',
                 transition: 'all 0.2s ease'
               }}
             >
-              <Sparkles size={13} />
-              <span>{t('previewResult') || 'Processed Result'}</span>
+              <Sparkles size={14} />
+              <span>{t('previewResult') && t('previewResult') !== 'previewResult' ? t('previewResult') : (isInputVideo ? 'Result Video' : 'Result Audio')}</span>
             </button>
           </div>
         ) : (
@@ -250,11 +251,11 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
           justifyContent: 'center', 
           background: 'var(--bg-input)', 
           borderRadius: 'var(--radius-md)', 
-          padding: 16, 
+          padding: 14, 
           position: 'relative',
           border: '1px solid var(--border-color)',
           overflow: 'hidden',
-          minHeight: 260
+          minHeight: 'clamp(360px, 50vh, 560px)'
         }}
       >
         {/* 1. ANIMATED GIF RESULT VIEW */}
@@ -334,70 +335,97 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
 
         {/* 3. NATIVE VIDEO PLAYER VIEW (For MP4, WebM, and playable containers) */}
         {!isGifResult && !isNonBrowserResult && isCurrentVideo && currentUrl && (!nativePlaybackFailed || !NON_BROWSER_VIDEO_CONTAINERS.includes((activeTab === 'result' ? effectiveTarget : rawExt).toLowerCase())) && (
-          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+          <div style={{ width: '100%', height: '100%', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
             <div
               ref={playerContainerRef}
               style={{
                 position: 'relative',
-                display: 'inline-flex',
+                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                width: videoDimensions ? (videoDimensions.width >= videoDimensions.height ? '100%' : 'auto') : '100%',
+                height: videoDimensions ? (videoDimensions.height > videoDimensions.width ? '100%' : 'auto') : 'auto',
                 maxWidth: '100%',
-                maxHeight: 380,
+                maxHeight: 'min(540px, 68vh)',
+                minHeight: 340,
+                aspectRatio: videoDimensions ? `${videoDimensions.width} / ${videoDimensions.height}` : '16 / 9',
                 borderRadius: 'var(--radius-md)',
                 overflow: 'hidden',
                 background: '#0a0d14',
                 boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)'
               }}
             >
-              <video
-                ref={videoRef}
-                key={currentUrl}
-                src={currentUrl}
-                controls
-                playsInline
-                preload="metadata"
-                onLoadedMetadata={handleVideoMetadata}
-                onError={(e) => {
-                  const err = (e.currentTarget as HTMLVideoElement).error;
-                  console.warn("Video playback error:", err);
-                  const currentExt = (activeTab === 'result' ? effectiveTarget : rawExt).toLowerCase();
-                  if (NON_BROWSER_VIDEO_CONTAINERS.includes(currentExt)) {
-                    setNativePlaybackFailed(true);
-                  } else {
-                    setCodecNotice(`Native player preview is unavailable for this file's codec (e.g. HEVC/H.265). It will be ${getToolActionVerb()} properly upon processing!`);
-                  }
-                }}
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: 380,
-                  width: 'auto',
-                  height: 'auto',
-                  display: 'block',
-                  outline: 'none'
-                }}
-              />
-              {codecNotice && (
+              {activeTab === 'original' && codecNotice ? (
                 <div style={{
-                  position: 'absolute',
-                  bottom: 12,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  background: 'rgba(15, 23, 42, 0.92)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(var(--brand-primary-rgb), 0.4)',
-                  color: '#fff',
-                  padding: '8px 14px',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.78rem',
-                  maxWidth: '90%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   textAlign: 'center',
-                  zIndex: 10,
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
-                  pointerEvents: 'none'
+                  padding: '36px 20px',
+                  width: '100%',
+                  height: '100%',
+                  minHeight: 340,
+                  background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(10, 13, 20, 0.95) 100%)',
+                  position: 'relative'
                 }}>
-                  ℹ️ {codecNotice}
+                  <div style={{
+                    width: 68,
+                    height: 68,
+                    borderRadius: '50%',
+                    background: 'rgba(var(--brand-primary-rgb), 0.15)',
+                    border: '1px solid rgba(var(--brand-primary-rgb), 0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 14,
+                    boxShadow: '0 0 25px rgba(var(--brand-primary-rgb), 0.25)'
+                  }}>
+                    <FileVideo size={34} color="var(--brand-primary)" />
+                  </div>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 6, wordBreak: 'break-all', maxWidth: '90%' }}>
+                    {file.name}
+                  </h4>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', borderRadius: 20, background: 'rgba(var(--brand-secondary-rgb), 0.12)', color: 'var(--brand-secondary)', fontWeight: 700, fontSize: '0.8rem', marginBottom: 14 }}>
+                    <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
+                    <span>•</span>
+                    <span>{rawExt.toUpperCase()} (Advanced Codec)</span>
+                  </div>
+                  <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', maxWidth: 460, lineHeight: 1.6, margin: '0 auto 18px auto' }}>
+                    Browser engines cannot preview this file's codec (such as HEVC/H.265 or 10-bit color) natively in the live player. Don't worry, SolveMyMedia's engine fully supports it and will {getToolActionVerb()} it into a universal web-compatible format!
+                  </p>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 18px', borderRadius: 'var(--radius-full)', background: 'rgba(var(--brand-secondary-rgb), 0.15)', color: 'var(--brand-secondary)', fontSize: '0.85rem', fontWeight: 700, border: '1px solid rgba(var(--brand-secondary-rgb), 0.3)' }}>
+                    <Sparkles size={16} />
+                    <span>Ready to {getToolActionVerb()} — Click "{toolId === 'compress-video' ? 'Compress Video' : 'Process'}" to Start</span>
+                  </div>
                 </div>
+              ) : (
+                <video
+                  ref={videoRef}
+                  key={currentUrl}
+                  src={currentUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  onLoadedMetadata={handleVideoMetadata}
+                  onError={(e) => {
+                    const err = (e.currentTarget as HTMLVideoElement).error;
+                    console.warn("Video playback error:", err);
+                    const currentExt = (activeTab === 'result' ? effectiveTarget : rawExt).toLowerCase();
+                    if (NON_BROWSER_VIDEO_CONTAINERS.includes(currentExt)) {
+                      setNativePlaybackFailed(true);
+                    } else if (activeTab === 'original') {
+                      setCodecNotice(`Native player preview is unavailable for this file's codec (e.g. HEVC/H.265). It will be ${getToolActionVerb()} properly upon processing!`);
+                    }
+                  }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'block',
+                    objectFit: 'contain',
+                    outline: 'none'
+                  }}
+                />
               )}
               {activeTab === 'original' && videoOverlay && (
                 <div
