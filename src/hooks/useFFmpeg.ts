@@ -75,9 +75,10 @@ export const useFFmpeg = () => {
     
     const rawExt = (file.name.split('.').pop() || '').toLowerCase();
     const cleanExt = rawExt.replace(/[^a-z0-9]/g, '');
+    const cleanTarget = targetFormat.toLowerCase().replace(/^\./, '').trim();
     const isVideo = file.type.startsWith('video') || ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv'].includes(cleanExt);
     const inputName = `input_${Date.now()}.${cleanExt || (isVideo ? 'mp4' : 'mp3')}`;
-    const outputName = `output_${Date.now()}.${targetFormat.toLowerCase().trim()}`;
+    const outputName = `output_${Date.now()}.${cleanTarget}`;
     
     try {
       // Write the file to memory 
@@ -85,13 +86,13 @@ export const useFFmpeg = () => {
       
       let args: string[] = ['-i', inputName];
       
-      const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a', 'opus', 'wma', 'aiff', 'ac3'].includes(targetFormat.toLowerCase());
+      const isTargetAudio = ['mp3', 'wav', 'aac', 'ogg', 'flac', 'm4a', 'opus', 'wma', 'aiff', 'ac3'].includes(cleanTarget);
 
       if (!isTargetAudio) {
         const scaleMultiplier = quality >= 100 ? 1 : Number((0.3 + (0.7 * (quality / 100))).toFixed(2));
         const scaleFilter = scaleMultiplier < 1 ? `scale=trunc(iw*${scaleMultiplier}/2)*2:-2` : 'scale=trunc(iw/2)*2:-2';
 
-        if (['mp4', 'mkv', 'mov', 'm4v', 'ts'].includes(targetFormat)) {
+        if (['mp4', 'mkv', 'mov', 'm4v', 'ts'].includes(cleanTarget)) {
           const crf = Math.round(35 - ((quality / 100) * 17));
           let preset = 'medium';
           if (quality < 33) preset = 'veryfast';
@@ -107,7 +108,7 @@ export const useFFmpeg = () => {
             '-c:a', 'aac',
             '-b:a', '192k'
           );
-        } else if (targetFormat === 'webm') {
+        } else if (cleanTarget === 'webm') {
           const crf = Math.round(40 - ((quality / 100) * 20));
           args.push(
             '-c:v', 'libvpx',
@@ -120,7 +121,7 @@ export const useFFmpeg = () => {
             '-b:a', '128k',
             '-ar', '48000'
           );
-        } else if (targetFormat === 'avi') {
+        } else if (cleanTarget === 'avi') {
           const qv = Math.round(2 + ((100 - quality) / 100) * 10);
           args.push(
             '-c:v', 'mpeg4',
@@ -131,7 +132,7 @@ export const useFFmpeg = () => {
             '-ac', '2',
             '-ar', '44100'
           );
-        } else if (targetFormat === 'wmv') {
+        } else if (cleanTarget === 'wmv') {
           args.push(
             '-c:v', 'wmv2',
             '-b:v', '2M',
@@ -141,7 +142,7 @@ export const useFFmpeg = () => {
             '-ac', '2',
             '-ar', '44100'
           );
-        } else if (targetFormat === 'flv') {
+        } else if (cleanTarget === 'flv') {
           args.push(
             '-c:v', 'flv',
             '-vf', scaleFilter,
@@ -149,7 +150,7 @@ export const useFFmpeg = () => {
             '-ac', '2',
             '-ar', '44100'
           );
-        } else if (targetFormat === '3gp') {
+        } else if (cleanTarget === '3gp') {
           args.push(
             '-c:v', 'libx264',
             '-pix_fmt', 'yuv420p',
@@ -159,7 +160,7 @@ export const useFFmpeg = () => {
             '-ac', '2',
             '-ar', '32000'
           );
-        } else if (targetFormat === 'ogv') {
+        } else if (cleanTarget === 'ogv') {
           args.push(
             '-c:v', 'theora',
             '-q:v', '6',
@@ -168,7 +169,7 @@ export const useFFmpeg = () => {
             '-b:a', '128k',
             '-ac', '2'
           );
-        } else if (targetFormat === 'gif') {
+        } else if (cleanTarget === 'gif') {
           args.push(
             '-an',
             '-vf', `${scaleFilter},fps=12,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`
@@ -178,63 +179,67 @@ export const useFFmpeg = () => {
         }
       } else {
         // Audio conversion or extraction from video
-        // Strip video stream, subtitle stream, data stream, and select first audio stream cleanly
-        args.push('-vn', '-sn', '-dn', '-map', '0:a:0?');
+        // Strip any video stream (including embedded album cover art) cleanly
+        args.push('-vn');
         
         const audioKbps = Math.round(32 + ((quality / 100) * 160));
-        if (targetFormat === 'mp3') {
+        if (cleanTarget === 'mp3') {
           args.push('-c:a', 'libmp3lame', '-b:a', `${audioKbps}k`, '-ac', '2', '-ar', '44100');
-        } else if (targetFormat === 'ogg') {
+        } else if (cleanTarget === 'ogg') {
           args.push('-c:a', 'libvorbis', '-b:a', `${audioKbps}k`, '-ac', '2');
-        } else if (targetFormat === 'aac' || targetFormat === 'm4a') {
+        } else if (cleanTarget === 'aac' || cleanTarget === 'm4a') {
           args.push('-c:a', 'aac', '-b:a', `${audioKbps}k`, '-ac', '2');
-        } else if (targetFormat === 'wav') {
-          args.push('-c:a', 'pcm_s16le', '-ac', '2');
-        } else if (targetFormat === 'flac') {
-          args.push('-c:a', 'flac', '-ac', '2');
-        } else if (targetFormat === 'opus') {
+        } else if (cleanTarget === 'wav') {
+          args.push('-c:a', 'pcm_s16le');
+        } else if (cleanTarget === 'flac') {
+          args.push('-c:a', 'flac');
+        } else if (cleanTarget === 'opus') {
           args.push('-c:a', 'libopus', '-b:a', `${Math.min(audioKbps, 160)}k`, '-ac', '2', '-ar', '48000');
-        } else if (targetFormat === 'wma') {
+        } else if (cleanTarget === 'wma') {
           args.push('-c:a', 'wmav2', '-b:a', `${audioKbps}k`, '-ac', '2', '-ar', '44100');
-        } else if (targetFormat === 'aiff') {
-          args.push('-c:a', 'pcm_s16be', '-ac', '2');
-        } else if (targetFormat === 'ac3') {
+        } else if (cleanTarget === 'aiff') {
+          args.push('-c:a', 'pcm_s16be');
+        } else if (cleanTarget === 'ac3') {
           args.push('-c:a', 'ac3', '-b:a', `${audioKbps}k`, '-ac', '2');
         } else {
-          args.push('-b:a', `${audioKbps}k`, '-ac', '2');
+          args.push('-b:a', `${audioKbps}k`);
         }
       }
 
       args.push(outputName);
 
-      const exitCode = await ffmpeg.exec(args);
-      if (exitCode !== 0) {
-        console.error("FFmpeg exec failed with exitCode:", exitCode);
-        throw new Error(`FFmpeg execution failed with exit code ${exitCode}`);
+      try {
+        await ffmpeg.exec(args);
+      } catch (execErr) {
+        console.warn("FFmpeg exec warning/non-zero return:", execErr);
       }
+
       const data = await ffmpeg.readFile(outputName);
+      if (!data || (data as Uint8Array).byteLength === 0) {
+        throw new Error(`FFmpeg did not produce output for format: ${cleanTarget}`);
+      }
       
-      let mimeType = !isTargetAudio ? `video/${targetFormat}` : `audio/${targetFormat}`;
-      if (targetFormat === 'mkv') mimeType = 'video/x-matroska';
-      if (targetFormat === 'avi') mimeType = 'video/x-msvideo';
-      if (targetFormat === 'mov') mimeType = 'video/quicktime';
-      if (targetFormat === 'wmv') mimeType = 'video/x-ms-wmv';
-      if (targetFormat === 'flv') mimeType = 'video/x-flv';
-      if (targetFormat === '3gp') mimeType = 'video/3gpp';
-      if (targetFormat === 'ts') mimeType = 'video/mp2t';
-      if (targetFormat === 'm4v') mimeType = 'video/x-m4v';
-      if (targetFormat === 'ogv') mimeType = 'video/ogg';
-      if (targetFormat === 'gif') mimeType = 'image/gif';
-      if (targetFormat === 'mp3') mimeType = 'audio/mpeg';
-      if (targetFormat === 'wav') mimeType = 'audio/wav';
-      if (targetFormat === 'aac') mimeType = 'audio/aac';
-      if (targetFormat === 'm4a') mimeType = 'audio/mp4';
-      if (targetFormat === 'flac') mimeType = 'audio/flac';
-      if (targetFormat === 'opus') mimeType = 'audio/opus';
-      if (targetFormat === 'ogg') mimeType = isTargetAudio ? 'audio/ogg' : 'video/ogg';
-      if (targetFormat === 'wma') mimeType = 'audio/x-ms-wma';
-      if (targetFormat === 'aiff') mimeType = 'audio/aiff';
-      if (targetFormat === 'ac3') mimeType = 'audio/ac3';
+      let mimeType = !isTargetAudio ? `video/${cleanTarget}` : `audio/${cleanTarget}`;
+      if (cleanTarget === 'mkv') mimeType = 'video/x-matroska';
+      if (cleanTarget === 'avi') mimeType = 'video/x-msvideo';
+      if (cleanTarget === 'mov') mimeType = 'video/quicktime';
+      if (cleanTarget === 'wmv') mimeType = 'video/x-ms-wmv';
+      if (cleanTarget === 'flv') mimeType = 'video/x-flv';
+      if (cleanTarget === '3gp') mimeType = 'video/3gpp';
+      if (cleanTarget === 'ts') mimeType = 'video/mp2t';
+      if (cleanTarget === 'm4v') mimeType = 'video/x-m4v';
+      if (cleanTarget === 'ogv') mimeType = 'video/ogg';
+      if (cleanTarget === 'gif') mimeType = 'image/gif';
+      if (cleanTarget === 'mp3') mimeType = 'audio/mpeg';
+      if (cleanTarget === 'wav') mimeType = 'audio/wav';
+      if (cleanTarget === 'aac') mimeType = 'audio/aac';
+      if (cleanTarget === 'm4a') mimeType = 'audio/mp4';
+      if (cleanTarget === 'flac') mimeType = 'audio/flac';
+      if (cleanTarget === 'opus') mimeType = 'audio/opus';
+      if (cleanTarget === 'ogg') mimeType = isTargetAudio ? 'audio/ogg' : 'video/ogg';
+      if (cleanTarget === 'wma') mimeType = 'audio/x-ms-wma';
+      if (cleanTarget === 'aiff') mimeType = 'audio/aiff';
+      if (cleanTarget === 'ac3') mimeType = 'audio/ac3';
 
       const blob = new Blob([data as any], { type: mimeType });
       setProcessing(false);
@@ -246,6 +251,8 @@ export const useFFmpeg = () => {
     } finally {
       try {
         await ffmpeg.deleteFile(inputName);
+      } catch (_) {}
+      try {
         await ffmpeg.deleteFile(outputName);
       } catch (_) {}
     }
