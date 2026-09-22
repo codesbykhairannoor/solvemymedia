@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
         {/* Brand & Mission */}
         <div style={{ gridColumn: 'span 1' }}>
           <Link to={prefix || '/'} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)', marginBottom: 20 }}>
-            <img src="/logoweb.png" alt="SolveMyMedia Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
+            <img src="/logoweb.png" alt="SolveMyMedia Logo" width={32} height={32} loading="lazy" style={{ width: 32, height: 32, objectFit: 'contain' }} />
             <span style={{ fontWeight: 900, fontSize: '1.35rem', letterSpacing: '-0.02em' }}>
               SolveMy<span style={{ background: 'var(--brand-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Media</span>
             </span>

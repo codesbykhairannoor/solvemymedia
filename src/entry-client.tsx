@@ -23,8 +23,14 @@ if (rootElement.innerHTML === '<!--ssr-outlet-->') {
   // Fallback to CSR if not pre-rendered
   createRoot(rootElement).render(app)
 } else {
-  // Hydrate SSG
-  hydrateRoot(rootElement, app)
+  // Hydrate SSG with graceful recoverable error handling to avoid full root teardown
+  hydrateRoot(rootElement, app, {
+    onRecoverableError(error) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.warn('Recoverable hydration note:', error);
+      }
+    }
+  })
 }
 
 // Service worker update & cache management

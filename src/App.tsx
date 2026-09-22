@@ -84,19 +84,30 @@ function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggl
 }
 
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  });
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    try {
+      const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved);
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        setTheme('light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (_) {}
+  }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme(prev => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      try {
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      } catch (_) {}
+      return next;
+    });
   };
 
   const langCodes = SUPPORTED_LANGUAGES.map(l => l.code).filter(c => c !== 'en');

@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: 0 }}>
         <Link to={prefix || '/'} style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
-          <img src="/logoweb.png" alt="SolveMyMedia Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
+          <img src="/logoweb.png" alt="SolveMyMedia Logo" width={32} height={32} fetchPriority="high" style={{ width: 32, height: 32, objectFit: 'contain' }} />
           <span style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
             SolveMy<span style={{ background: 'var(--brand-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Media</span>
           </span>

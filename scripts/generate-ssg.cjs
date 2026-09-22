@@ -141,14 +141,28 @@ async function generatePage(urlPath, lang, translations, serverRender, baseHtml,
     // Call SSR Render
     const { appHtml, headPayload } = await serverRender(urlPath, lang, translations);
     
-    let newHtml = baseHtml.replace('<!--ssr-outlet-->', appHtml);
+    // Separate any hoisted tags (<link>, <meta>, <style>, <title>) emitted by React 19 at start of appHtml
+    // These belong in <head> and MUST NOT remain inside <div id="root"> (which causes React Error #418 hydration mismatch)
+    let hoistedTags = '';
+    let cleanAppHtml = appHtml ? appHtml.trim() : '';
+    
+    const tagRegex = /^<(?:link|meta)\b[^>]*\/?>|^<(?:style|title)\b[^>]*>[\s\S]*?<\/(?:style|title)>/i;
+    while (true) {
+      const match = cleanAppHtml.match(tagRegex);
+      if (!match) break;
+      hoistedTags += match[0] + '\n';
+      cleanAppHtml = cleanAppHtml.slice(match[0].length).trim();
+    }
+
+    let newHtml = baseHtml.replace('<!--ssr-outlet-->', cleanAppHtml);
     
     // Clean any pre-existing title tag from baseHtml to prevent double title tags
     newHtml = newHtml.replace(/<title>[\s\S]*?<\/title>/gi, '');
 
-    // Inject @unhead/ssr tags
-    if (headPayload && headPayload.headTags) {
-      newHtml = newHtml.replace('</head>', `\n${headPayload.headTags}\n</head>`);
+    // Inject any hoisted tags and @unhead/ssr tags into <head>
+    const extraHead = [hoistedTags.trim(), headPayload && headPayload.headTags ? headPayload.headTags.trim() : ''].filter(Boolean).join('\n');
+    if (extraHead) {
+      newHtml = newHtml.replace('</head>', `\n${extraHead}\n</head>`);
     }
 
     // Replace html lang attribute
