@@ -14,13 +14,13 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [quality, setQuality] = useState<Quality>(60);
   const [realSizeMB, setRealSizeMB] = useState<number | null>(null);
   
-  const { t: translate } = useLanguage();
+  const { t } = useLanguage();
   
-  const t = {
-    desc: translate('caDesc') || "Choose compression target for audio.",
-    small: translate('caSmall') || "Small (64k)",
-    hq: translate('caHq') || "HQ (192k)",
-    action: translate('caAction') || "Compress Audio"
+  const uiStrings = {
+    desc: t('caDesc') || "Choose compression target for audio.",
+    small: t('caSmall') || "Small (64k)",
+    hq: t('caHq') || "HQ (192k)",
+    action: t('caAction') || "Compress Audio"
   };
 
   React.useEffect(() => {
@@ -96,9 +96,9 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       <div>
         <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
           <Settings2 size={18} className="text-brand-primary" />
-          <span>{translate('caSettings') || "Compression Settings"}</span>
+          <span>{t('caSettings') || "Compression Settings"}</span>
         </h4>
-        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 12 }}>{t.desc}</p>
+        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 12 }}>{uiStrings.desc}</p>
       </div>
 
       <div style={{ marginTop: 16 }}>
@@ -121,9 +121,9 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           }}
         />
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-          <span>{t.small}</span>
-          <span>{translate('caBalanced') || "Balanced"}</span>
-          <span>{t.hq}</span>
+          <span>{uiStrings.small}</span>
+          <span>{t('caBalanced') || "Balanced"}</span>
+          <span>{uiStrings.hq}</span>
         </div>
       </div>
     </>
@@ -133,8 +133,8 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     <>
       <DualColumnWorkspace
         accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3"
-        title={pseoData ? pseoData.h1 : (translate('caTitle') || "Compress Audio Files without Losing Quality")}
-        description={pseoData ? pseoData.description : (translate('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments.")}
+        title={pseoData ? pseoData.h1 : (t('caTitle') || "Compress Audio Files without Losing Quality")}
+        description={pseoData ? pseoData.description : (t('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments.")}
         toolId="compress-audio"
         file={file}
         setFile={(f) => { setFile(f); setOutputUrl(null); }}
@@ -144,7 +144,7 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         progress={progress}
         engine={engine}
         onProcess={handleProcess}
-        processActionText={t.action}
+        processActionText={uiStrings.action}
         sidebarContent={sidebarContent}
         targetFormat="mp3"
       />
@@ -152,24 +152,24 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       {!file && !pseoData && (
       <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
         <CompressAudioHeroSection 
-          section={{ type: 'hero', title: translate('caHeroTitle') || "Shrink Audio Size Instantly", content: translate('caHeroDesc') || "Compress your MP3, WAV, and AAC files securely offline. Save gigabytes of space for podcasts, voice notes, and music sharing." }} 
+          section={{ type: 'hero', title: t('caHeroTitle') || "Shrink Audio Size Instantly", content: t('caHeroDesc') || "Compress your MP3, WAV, and AAC files securely offline. Save gigabytes of space for podcasts, voice notes, and music sharing." }} 
         />
         <CompressAudioHowToSection 
           section={{
             type: 'howto',
-            title: translate('caHowTo') || "How to Compress Audio",
+            title: t('caHowTo') || "How to Compress Audio",
             steps: [
-              { title: translate('caHowTo1') || "Upload Audio", description: translate('caHowTo1Desc') || "Select the audio file you want to compress from your device." },
-              { title: translate('caHowTo2') || "Adjust Quality", description: translate('caHowTo2Desc') || "Use the slider to choose the right balance between file size and audio clarity." },
-              { title: translate('caHowTo3') || "Compress & Save", description: translate('caHowTo3Desc') || "Hit compress and the file will be optimized and downloaded instantly." }
+              { title: t('caHowTo1') || "Upload Audio", description: t('caHowTo1Desc') || "Select the audio file you want to compress from your device." },
+              { title: t('caHowTo2') || "Adjust Quality", description: t('caHowTo2Desc') || "Use the slider to choose the right balance between file size and audio clarity." },
+              { title: t('caHowTo3') || "Compress & Save", description: t('caHowTo3Desc') || "Hit compress and the file will be optimized and downloaded instantly." }
             ]
           }} 
         />
         <CompressAudioPerformanceSection 
-          section={{ type: 'performance', title: translate('caPerfTitle') || "Powered by WebAssembly", content: translate('caPerfDesc') || "Experience native-grade FFmpeg compression speed entirely in your browser without the need for desktop applications." }} 
+          section={{ type: 'performance', title: t('caPerfTitle') || "Powered by WebAssembly", content: t('caPerfDesc') || "Experience native-grade FFmpeg compression speed entirely in your browser without the need for desktop applications." }} 
         />
         <CompressAudioPrivacySection 
-          section={{ type: 'privacy', title: translate('caPrivTitle') || "100% Secure Local Execution", content: translate('caPrivDesc') || "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
+          section={{ type: 'privacy', title: t('caPrivTitle') || "100% Secure Local Execution", content: t('caPrivDesc') || "Your audio files never leave your computer. We process everything locally so your private recordings remain strictly confidential." }} 
         />
       </div>
       )}
