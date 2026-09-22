@@ -31,9 +31,10 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : '';
 
   useEffect(() => {
-    setHasActiveFile(!!file);
+    const isActive = Boolean(file || resultText);
+    setHasActiveFile(isActive);
     return () => setHasActiveFile(false);
-  }, [file, setHasActiveFile]);
+  }, [file, resultText, setHasActiveFile]);
 
   useEffect(() => {
     if (file) {

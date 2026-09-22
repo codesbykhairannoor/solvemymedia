@@ -51,9 +51,10 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const defaultBaseName = videoFile ? videoFile.name.replace(/\.[^/.]+$/, '') : '';
 
   useEffect(() => {
-    setHasActiveFile(!!videoFile);
+    const isActive = Boolean(videoFile || outputUrl);
+    setHasActiveFile(isActive);
     return () => setHasActiveFile(false);
-  }, [videoFile, setHasActiveFile]);
+  }, [videoFile, outputUrl, setHasActiveFile]);
 
   useEffect(() => {
     if (videoFile) {

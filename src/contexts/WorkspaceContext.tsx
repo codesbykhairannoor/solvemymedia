@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { isValidLanguageCode } from '../i18n/languages';
+import { getStandardSlug } from '../i18n/slugs';
 
 interface WorkspaceContextType {
   hasActiveFile: boolean;
@@ -11,13 +13,33 @@ const WorkspaceContext = createContext<WorkspaceContextType>({
   setHasActiveFile: () => {}
 });
 
+function getToolIdFromPathname(pathname: string): string | null {
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length === 0) return null;
+  let candidate = segments[0];
+  let lang = 'en';
+  if (isValidLanguageCode(candidate)) {
+    lang = candidate;
+    candidate = segments[1] || '';
+  }
+  if (!candidate) return null;
+  const nonToolRoutes = ['about-us', 'privacy-policy', 'terms-of-service', 'security', 'pricing', 'compare', 'supported-languages'];
+  if (nonToolRoutes.includes(candidate)) return null;
+  return getStandardSlug(candidate, lang);
+}
+
 export const WorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [hasActiveFile, setHasActiveFile] = useState(false);
   const location = useLocation();
+  const previousToolRef = useRef<string | null>(getToolIdFromPathname(location.pathname));
 
-  // Reset active file state whenever user navigates to another page
+  // Only reset active file state if user navigates to a different tool or away to home/legal pages
   useEffect(() => {
-    setHasActiveFile(false);
+    const currentTool = getToolIdFromPathname(location.pathname);
+    if (previousToolRef.current !== currentTool) {
+      previousToolRef.current = currentTool;
+      setHasActiveFile(false);
+    }
   }, [location.pathname]);
 
   // Synchronize with document.body class and data attribute for global CSS styling
@@ -41,3 +63,4 @@ export const WorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 };
 
 export const useWorkspace = () => useContext(WorkspaceContext);
+

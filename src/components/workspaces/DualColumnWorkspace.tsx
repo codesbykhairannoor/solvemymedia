@@ -49,9 +49,10 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
   const defaultBaseName = file ? file.name.replace(/\.[^/.]+$/, '') : '';
 
   useEffect(() => {
-    setHasActiveFile(!!file);
+    const isActive = Boolean(file || outputUrl);
+    setHasActiveFile(isActive);
     return () => setHasActiveFile(false);
-  }, [file, setHasActiveFile]);
+  }, [file, outputUrl, setHasActiveFile]);
 
   useEffect(() => {
     if (file) {

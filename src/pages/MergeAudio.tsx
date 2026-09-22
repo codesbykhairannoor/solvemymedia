@@ -27,9 +27,10 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setHasActiveFile(files.length > 0);
+    const isActive = files.length > 0 || Boolean(outputUrl);
+    setHasActiveFile(isActive);
     return () => setHasActiveFile(false);
-  }, [files.length, setHasActiveFile]);
+  }, [files.length, outputUrl, setHasActiveFile]);
 
   useEffect(() => {
     if (files.length > 0 && !customFileName) {

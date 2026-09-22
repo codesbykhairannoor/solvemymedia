@@ -76,9 +76,7 @@ function LanguageLayout({ theme, toggleTheme }: { theme: 'light' | 'dark', toggl
   return (
     <LanguageProvider currentLang={currentLang}>
       {seoKeys && <SEO titleKey={seoKeys.title} descKey={seoKeys.desc} />}
-      <WorkspaceProvider>
-        <LanguageLayoutContent theme={theme} toggleTheme={toggleTheme} />
-      </WorkspaceProvider>
+      <LanguageLayoutContent theme={theme} toggleTheme={toggleTheme} />
     </LanguageProvider>
   );
 }
@@ -113,7 +111,7 @@ function App() {
   const langCodes = SUPPORTED_LANGUAGES.map(l => l.code).filter(c => c !== 'en');
 
   return (
-    <>
+    <WorkspaceProvider>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LanguageLayout theme={theme} toggleTheme={toggleTheme} />}>
@@ -144,7 +142,7 @@ function App() {
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </>
+    </WorkspaceProvider>
   );
 }
 
