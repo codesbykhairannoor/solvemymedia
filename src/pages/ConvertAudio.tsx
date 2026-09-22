@@ -20,12 +20,25 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [targetFormat, setTargetFormat] = useState<string>(initialFormat);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const defaultErr = "Audio conversion failed. Please verify the audio format or try another target format.";
+  const safeErr = defaultErr;
 
   const handleProcess = async () => {
     if (!file) return;
-    // For conversion, use 'high' quality to avoid losing quality
-    const url = await processMedia(file, 100, targetFormat);
-    if (url) setOutputUrl(url);
+    setErrorMsg(null);
+    try {
+      const url = await processMedia(file, 100, targetFormat);
+      if (url) {
+        setOutputUrl(url);
+      } else {
+        setErrorMsg(safeErr);
+      }
+    } catch (e: any) {
+      console.error("Audio conversion failed:", e);
+      setErrorMsg(safeErr);
+    }
   };
 
   const AUDIO_FORMATS = [
@@ -67,7 +80,7 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                   borderRadius: 'var(--radius-sm)',
                   cursor: processing ? 'not-allowed' : 'pointer'
                 }}
-                onClick={() => setTargetFormat(fmt.id)}
+                onClick={() => { setTargetFormat(fmt.id); setErrorMsg(null); }}
                 disabled={processing}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
@@ -81,6 +94,12 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             );
           })}
         </div>
+
+        {errorMsg && (
+          <div style={{ marginTop: 16, padding: '10px 14px', borderRadius: 'var(--radius-sm)', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error-color)', color: 'var(--error-color)', fontSize: '0.85rem', lineHeight: 1.4 }}>
+            {errorMsg}
+          </div>
+        )}
       </div>
     </>
   );
@@ -88,11 +107,12 @@ export const ConvertAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <CenteredActionWorkspace
+        accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3"
         title={pseoData ? pseoData.h1 : (translate('cvaTitle') || "Convert Audio Formats Fast")}
         description={pseoData ? pseoData.description : (translate('cvaSub') || "Easily convert your audio files between MP3, WAV, AAC, and OGG formats locally without quality loss. Your files never leave your browser.")}
         toolId="convert-audio"
         file={file}
-        onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
+        onFileSelect={(f) => { setFile(f); setOutputUrl(null); setErrorMsg(null); }}
         outputUrl={outputUrl}
         onResetResult={() => setOutputUrl(null)}
         processing={processing}

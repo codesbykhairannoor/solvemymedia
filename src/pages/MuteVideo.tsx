@@ -56,9 +56,10 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <CenteredActionWorkspace
-      title={pseoData ? pseoData.h1 : (t('mvTitle') || "Remove Audio from Video Completely")}
-      description={pseoData ? pseoData.description : (t('mvSub') || "Quickly remove the audio track from any video file. Perfect for creating silent clips or preparing footage for social media.")}
-      toolId="mute-video"
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
+        title={pseoData ? pseoData.h1 : (t('mvTitle') || "Remove Audio from Video Completely")}
+        description={pseoData ? pseoData.description : (t('mvSub') || "Quickly remove the audio track from any video file. Perfect for creating silent clips or preparing footage for social media.")}
+        toolId="mute-video"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
       outputUrl={outputUrl}

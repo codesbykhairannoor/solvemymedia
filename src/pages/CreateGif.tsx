@@ -75,9 +75,10 @@ export const CreateGif: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <CenteredActionWorkspace
-      title={pseoData ? pseoData.h1 : (t('gifTitle') || "Create GIF from Video")}
-      description={pseoData ? pseoData.description : (t('gifSub') || "Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud.")}
-      toolId="create-gif"
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
+        title={pseoData ? pseoData.h1 : (t('gifTitle') || "Create GIF from Video")}
+        description={pseoData ? pseoData.description : (t('gifSub') || "Convert any video into an optimized animated GIF in seconds. Customize frame rate and size without uploading your files to the cloud.")}
+        toolId="create-gif"
       file={file}
       onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
       outputUrl={outputUrl}

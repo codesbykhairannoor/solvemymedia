@@ -105,6 +105,7 @@ export const ConvertVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <CenteredActionWorkspace
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
         title={pseoData ? pseoData.h1 : (t('convVTitle') || "Convert Video Formats Instantly")}
         description={pseoData ? pseoData.description : (t('convVDesc') || "Change your video from MP4 to WebM, MKV to AVI, and more. Processing runs directly in your browser without waiting for server uploads.")}
         toolId="convert-video"

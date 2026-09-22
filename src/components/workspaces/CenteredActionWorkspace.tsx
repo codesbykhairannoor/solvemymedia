@@ -20,6 +20,7 @@ interface CenteredActionWorkspaceProps {
   title?: string;
   toolId?: string;
   description?: string;
+  accept?: string;
   videoOverlay?: (props: {
     videoDimensions: { width: number; height: number } | null;
     videoElement: HTMLVideoElement | null;
@@ -42,6 +43,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
   title,
   toolId,
   description,
+  accept,
   videoOverlay
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -80,8 +82,13 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
     }
   };
 
-  const isVideo = file?.type.includes('video') || (file ? !file.type.includes('audio') : true);
-  const accept = 'video/*,audio/*';
+  const VIDEO_ACCEPT = 'video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv';
+  const AUDIO_ACCEPT = 'audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3';
+  const isAudioInputTool = toolId === 'convert-audio' || toolId === 'compress-audio' || toolId === 'merge-audio';
+  const defaultAccept = isAudioInputTool ? AUDIO_ACCEPT : VIDEO_ACCEPT;
+  const effectiveAccept = accept || defaultAccept;
+
+  const isVideo = file?.type.includes('video') || (file ? !file.type.includes('audio') : !isAudioInputTool);
   const finalTitle = title;
   const rawExt = targetFormat || file?.name.split('.').pop() || (isVideo ? 'mp4' : 'mp3');
   const finalExt = rawExt.replace(/^\./, '');
@@ -114,7 +121,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
           type="file" 
           ref={fileInputRef}
           onChange={handleFileSelect}
-          accept={accept}
+          accept={effectiveAccept}
           style={{ display: 'none' }} 
         />
 

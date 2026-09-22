@@ -958,6 +958,7 @@ export interface UiDictionary {
   toolConvertAudioDesc?: string;
   toolTranscribeDesc?: string;
   toolRecorderDesc?: string;
+  vtaError?: string;
 }
 
 const baseDict: UiDictionary = {
@@ -1919,6 +1920,7 @@ const baseDict: UiDictionary = {
   toolConvertAudioDesc: 'Convert audio between MP3, WAV, AAC, and FLAC instantly.',
   toolTranscribeDesc: 'Transcribe spoken words into text using client-side AI.',
   toolRecorderDesc: 'Record screen, webcam, and microphone with zero server upload.',
+  vtaError: 'Audio extraction failed. Please ensure the video contains an audio track, or try another format.',
 };
 
 export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
@@ -2875,6 +2877,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Konversi audio antara MP3, WAV, AAC, dan FLAC secara instan.',
     toolTranscribeDesc: 'Transkripsikan kata-kata yang diucapkan menjadi teks menggunakan AI sisi klien.',
     toolRecorderDesc: 'Rekam layar, webcam, dan mikrofon tanpa unggahan server.',
+    vtaError: 'Ekstraksi audio gagal. Harap pastikan video berisi trek audio, atau coba format lain.',
   },
   'es': {
     ratingScore: 'Calificación 4.9/5',
@@ -3828,6 +3831,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Convierta audio entre MP3, WAV, AAC y FLAC al instante.',
     toolTranscribeDesc: 'Transcribe palabras habladas a texto utilizando la IA del lado del cliente.',
     toolRecorderDesc: 'Grabe la pantalla, la cámara web y el micrófono sin carga del servidor.',
+    vtaError: 'Error en la extracción de audio. Asegúrese de que el vídeo contenga una pista de audio o pruebe con otro formato.',
   },
   'fr': {
     ratingScore: 'Note 4,9/5',
@@ -4781,6 +4785,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Convertissez instantanément l\'audio entre MP3, WAV, AAC et FLAC.',
     toolTranscribeDesc: 'Transcrivez des mots prononcés en texte à l\'aide de l\'IA côté client.',
     toolRecorderDesc: 'Enregistrez l\'écran, la webcam et le microphone sans aucun téléchargement sur le serveur.',
+    vtaError: 'L\'extraction audio a échoué. Veuillez vous assurer que la vidéo contient une piste audio ou essayez un autre format.',
   },
   'de': {
     ratingScore: '4,9/5 Bewertung',
@@ -5734,6 +5739,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Konvertieren Sie Audio sofort zwischen MP3, WAV, AAC und FLAC.',
     toolTranscribeDesc: 'Transkribieren Sie gesprochene Wörter mithilfe clientseitiger KI in Text.',
     toolRecorderDesc: 'Nehmen Sie Bildschirm, Webcam und Mikrofon ohne Server-Upload auf.',
+    vtaError: 'Die Audioextraktion ist fehlgeschlagen. Bitte stellen Sie sicher, dass das Video eine Audiospur enthält, oder versuchen Sie es mit einem anderen Format.',
   },
   'ja': {
     ratingScore: '4.9/5 評価',
@@ -6687,6 +6693,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'MP3、WAV、AAC、FLAC の間でオーディオを瞬時に変換します。',
     toolTranscribeDesc: 'クライアント側 AI を使用して、話された言葉をテキストに転写します。',
     toolRecorderDesc: 'サーバーアップロードなしで画面、Webカメラ、マイクを録画します。',
+    vtaError: '音声抽出に失敗しました。 ビデオにオーディオ トラックが含まれていることを確認するか、別の形式を試してください。',
   },
   'pt': {
     ratingScore: 'Classificação 4,9/5',
@@ -7640,6 +7647,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Converta áudio entre MP3, WAV, AAC e FLAC instantaneamente.',
     toolTranscribeDesc: 'Transcreva palavras faladas em texto usando IA do lado do cliente.',
     toolRecorderDesc: 'Grave tela, webcam e microfone sem upload do servidor.',
+    vtaError: 'Falha na extração de áudio. Certifique-se de que o vídeo contenha uma faixa de áudio ou tente outro formato.',
   },
   'ru': {
     ratingScore: 'Рейтинг 4,9/5',
@@ -8593,6 +8601,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Мгновенно конвертируйте аудио между MP3, WAV, AAC и FLAC.',
     toolTranscribeDesc: 'Транскрибируйте произнесенные слова в текст с помощью искусственного интеллекта на стороне клиента.',
     toolRecorderDesc: 'Запись экрана, веб-камеры и микрофона без загрузки на сервер.',
+    vtaError: 'Извлечение аудио не удалось. Убедитесь, что видео содержит звуковую дорожку, или попробуйте другой формат.',
   },
   'zh': {
     ratingScore: '4.9/5 评分',
@@ -9546,6 +9555,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: '立即在 MP3、WAV、AAC 和 FLAC 之间转换音频。',
     toolTranscribeDesc: '使用客户端 AI 将口语转录为文本。',
     toolRecorderDesc: '录制屏幕、网络摄像头和麦克风，服务器上传为零。',
+    vtaError: '音频提取失败。 请确保视频包含音轨，或尝试其他格式。',
   },
   'zh-TW': {
     ratingScore: '4.9/5 評分',
@@ -10499,6 +10509,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: '立即在 MP3、WAV、AAC 和 FLAC 之間轉換音訊。',
     toolTranscribeDesc: '使用客戶端 AI 將口語轉錄為文字。',
     toolRecorderDesc: '錄音螢幕、網路攝影機和麥克風，伺服器上傳為零。',
+    vtaError: '音頻提取失敗。 請確保影片包含音軌，或嘗試其他格式。',
   },
   'ar': {
     ratingScore: 'تقييم 4.9/5',
@@ -11452,6 +11463,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'تحويل الصوت بين MP3، WAV، AAC، وFLAC على الفور.',
     toolTranscribeDesc: 'قم بنسخ الكلمات المنطوقة إلى نص باستخدام الذكاء الاصطناعي من جانب العميل.',
     toolRecorderDesc: 'قم بتسجيل الشاشة وكاميرا الويب والميكروفون دون تحميل أي خادم.',
+    vtaError: 'فشل استخراج الصوت. يرجى التأكد من أن الفيديو يحتوي على مسار صوتي، أو تجربة تنسيق آخر.',
   },
   'hi': {
     ratingScore: '4.9/5 रेटिंग',
@@ -12405,6 +12417,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'MP3, WAV, AAC और FLAC के बीच तुरंत ऑडियो कनवर्ट करें।',
     toolTranscribeDesc: 'क्लाइंट-साइड AI का उपयोग करके बोले गए शब्दों को टेक्स्ट में ट्रांसक्राइब करें।',
     toolRecorderDesc: 'शून्य सर्वर अपलोड के साथ रिकॉर्ड स्क्रीन, वेबकैम और माइक्रोफ़ोन।',
+    vtaError: 'ऑडियो निष्कर्षण विफल रहा. कृपया सुनिश्चित करें कि वीडियो में एक ऑडियो ट्रैक है, या कोई अन्य प्रारूप आज़माएँ।',
   },
   'it': {
     ratingScore: 'Voto 4,9/5',
@@ -13358,6 +13371,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Converti istantaneamente l\'audio tra MP3, WAV, AAC e FLAC.',
     toolTranscribeDesc: 'Trascrivi le parole pronunciate in testo utilizzando l\'intelligenza artificiale lato client.',
     toolRecorderDesc: 'Registra schermo, webcam e microfono senza caricamento sul server.',
+    vtaError: 'Estrazione audio non riuscita. Assicurati che il video contenga una traccia audio o prova un altro formato.',
   },
   'ko': {
     ratingScore: '4.9/5 평가',
@@ -14311,6 +14325,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'MP3, WAV, AAC 및 FLAC 간에 오디오를 즉시 변환합니다.',
     toolTranscribeDesc: '클라이언트 측 AI를 사용하여 음성을 텍스트로 녹음합니다.',
     toolRecorderDesc: '서버 업로드 없이 화면, 웹캠, 마이크를 녹화하세요.',
+    vtaError: '오디오 추출에 실패했습니다. 동영상에 오디오 트랙이 포함되어 있는지 확인하거나 다른 형식을 사용해 보세요.',
   },
   'nl': {
     ratingScore: '4,9/5 Beoordeling',
@@ -15264,6 +15279,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Converteer audio direct tussen MP3, WAV, AAC en FLAC.',
     toolTranscribeDesc: 'Transcribeer gesproken woorden naar tekst met behulp van AI aan de clientzijde.',
     toolRecorderDesc: 'Neem scherm, webcam en microfoon op zonder serverupload.',
+    vtaError: 'Audio-extractie mislukt. Zorg ervoor dat de video een audiotrack bevat, of probeer een ander formaat.',
   },
   'tr': {
     ratingScore: '4,9/5 Değerlendirme',
@@ -16217,6 +16233,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Sesi anında MP3, WAV, AAC ve FLAC arasında dönüştürün.',
     toolTranscribeDesc: 'İstemci tarafı yapay zekayı kullanarak konuşulan kelimeleri metne dönüştürün.',
     toolRecorderDesc: 'Sıfır sunucu yüklemesiyle ekranı, web kamerasını ve mikrofonu kaydedin.',
+    vtaError: 'Ses çıkarma işlemi başarısız oldu. Lütfen videonun bir ses parçası içerdiğinden emin olun veya başka bir format deneyin.',
   },
   'pl': {
     ratingScore: 'Ocena 4,9/5',
@@ -17170,6 +17187,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Natychmiastowa konwersja dźwięku pomiędzy MP3, WAV, AAC i FLAC.',
     toolTranscribeDesc: 'Transkrypuj wypowiadane słowa na tekst za pomocą sztucznej inteligencji po stronie klienta.',
     toolRecorderDesc: 'Nagrywaj ekran, kamerę internetową i mikrofon bez przesyłania na serwer.',
+    vtaError: 'Wyodrębnianie dźwięku nie powiodło się. Upewnij się, że film zawiera ścieżkę dźwiękową, lub wypróbuj inny format.',
   },
   'vi': {
     ratingScore: 'Xếp hạng 4,9/5',
@@ -18123,6 +18141,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Chuyển đổi âm thanh giữa MP3, WAV, AAC và FLAC ngay lập tức.',
     toolTranscribeDesc: 'Chuyển lời nói thành văn bản bằng AI phía máy khách.',
     toolRecorderDesc: 'Ghi lại màn hình, webcam và micrô mà không cần tải lên máy chủ.',
+    vtaError: 'Trích xuất âm thanh không thành công. Hãy đảm bảo video có chứa bản âm thanh hoặc thử định dạng khác.',
   },
   'th': {
     ratingScore: 'คะแนน 4.9/5',
@@ -19076,6 +19095,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'แปลงเสียงระหว่าง MP3, WAV, AAC และ FLAC ได้ทันที',
     toolTranscribeDesc: 'ถอดเสียงคำพูดเป็นข้อความโดยใช้ AI ฝั่งไคลเอ็นต์',
     toolRecorderDesc: 'บันทึกหน้าจอ เว็บแคม และไมโครโฟน โดยไม่มีการอัปโหลดเซิร์ฟเวอร์',
+    vtaError: 'การแยกเสียงล้มเหลว โปรดตรวจสอบให้แน่ใจว่าวิดีโอมีแทร็กเสียง หรือลองใช้รูปแบบอื่น',
   },
   'sv': {
     ratingScore: '4,9/5 Betyg',
@@ -20029,6 +20049,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Konvertera ljud mellan MP3, WAV, AAC och FLAC direkt.',
     toolTranscribeDesc: 'Transkribera talade ord till text med hjälp av AI på klientsidan.',
     toolRecorderDesc: 'Spela in skärm, webbkamera och mikrofon utan serveruppladdning.',
+    vtaError: 'Ljudextraktion misslyckades. Se till att videon innehåller ett ljudspår eller försök med ett annat format.',
   },
   'cs': {
     ratingScore: 'Hodnocení 4,9/5',
@@ -20982,6 +21003,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Okamžitě převádějte zvuk mezi MP3, WAV, AAC a FLAC.',
     toolTranscribeDesc: 'Přepis mluvených slov do textu pomocí AI na straně klienta.',
     toolRecorderDesc: 'Nahrávejte obrazovku, webovou kameru a mikrofon s nulovým nahráváním na server.',
+    vtaError: 'Extrakce zvuku se nezdařila. Ujistěte se, že video obsahuje zvukovou stopu, nebo zkuste jiný formát.',
   },
   'da': {
     ratingScore: '4,9/5 vurdering',
@@ -21935,6 +21957,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Konverter lyd mellem MP3, WAV, AAC og FLAC øjeblikkeligt.',
     toolTranscribeDesc: 'Transskriber talte ord til tekst ved hjælp af AI på klientsiden.',
     toolRecorderDesc: 'Optag skærm, webcam og mikrofon uden serverupload.',
+    vtaError: 'Lydudtrækning mislykkedes. Sørg for, at videoen indeholder et lydspor, eller prøv et andet format.',
   },
   'el': {
     ratingScore: 'Βαθμολογία 4,9/5',
@@ -22888,6 +22911,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Μετατρέψτε τον ήχο μεταξύ MP3, WAV, AAC και FLAC αμέσως.',
     toolTranscribeDesc: 'Μεταγράψτε τις προφορικές λέξεις σε κείμενο χρησιμοποιώντας AI από την πλευρά του πελάτη.',
     toolRecorderDesc: 'Εγγραφή οθόνης, κάμερας web και μικροφώνου με μηδενική μεταφόρτωση διακομιστή.',
+    vtaError: 'Η εξαγωγή ήχου απέτυχε. Βεβαιωθείτε ότι το βίντεο περιέχει ένα κομμάτι ήχου ή δοκιμάστε άλλη μορφή.',
   },
   'fi': {
     ratingScore: 'Arvosana 4,9/5',
@@ -23841,6 +23865,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Muunna ääni MP3-, WAV-, AAC- ja FLAC-muotojen välillä välittömästi.',
     toolTranscribeDesc: 'Literoi puhutut sanat tekstiksi asiakaspuolen tekoälyn avulla.',
     toolRecorderDesc: 'Nauhoita näyttöä, web-kameraa ja mikrofonia ilman palvelimen latausta.',
+    vtaError: 'Äänen purkaminen epäonnistui. Varmista, että video sisältää ääniraidan, tai kokeile toista muotoa.',
   },
   'he': {
     ratingScore: 'דירוג 4.9/5',
@@ -24794,6 +24819,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'המר אודיו בין MP3, WAV, AAC ו-FLAC באופן מיידי.',
     toolTranscribeDesc: 'תמלול מילים מדוברות לטקסט באמצעות AI בצד הלקוח.',
     toolRecorderDesc: 'הקלט מסך, מצלמת אינטרנט ומיקרופון עם אפס העלאת שרת.',
+    vtaError: 'חילוץ האודיו נכשל. אנא ודא שהסרטון מכיל רצועת אודיו, או נסה פורמט אחר.',
   },
   'hu': {
     ratingScore: '4,9/5 Értékelés',
@@ -25747,6 +25773,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Azonnal konvertálhat hangot MP3, WAV, AAC és FLAC között.',
     toolTranscribeDesc: 'A kimondott szavak átírása szöveggé ügyféloldali mesterséges intelligencia segítségével.',
     toolRecorderDesc: 'Képernyő, webkamera és mikrofon rögzítése nulla szerverfeltöltéssel.',
+    vtaError: 'A hang kibontása nem sikerült. Kérjük, győződjön meg róla, hogy a videó tartalmaz hangsávot, vagy próbálkozzon másik formátummal.',
   },
   'no': {
     ratingScore: '4,9/5 vurdering',
@@ -26700,6 +26727,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Konverter lyd mellom MP3, WAV, AAC og FLAC umiddelbart.',
     toolTranscribeDesc: 'Transkriber talte ord til tekst ved hjelp av AI på klientsiden.',
     toolRecorderDesc: 'Ta opp skjerm, webkamera og mikrofon uten serveropplasting.',
+    vtaError: 'Lydutvinning mislyktes. Sørg for at videoen inneholder et lydspor, eller prøv et annet format.',
   },
   'ro': {
     ratingScore: 'Evaluare 4.9/5',
@@ -27653,6 +27681,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Convertiți instantaneu sunetul între MP3, WAV, AAC și FLAC.',
     toolTranscribeDesc: 'Transcrie cuvintele rostite în text utilizând AI la nivel de client.',
     toolRecorderDesc: 'Înregistrați ecranul, camera web și microfonul fără încărcare pe server.',
+    vtaError: 'Extragerea audio a eșuat. Asigurați-vă că videoclipul conține o pistă audio sau încercați alt format.',
   },
   'sk': {
     ratingScore: 'Hodnotenie 4,9/5',
@@ -28606,6 +28635,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Okamžite konvertujte zvuk medzi MP3, WAV, AAC a FLAC.',
     toolTranscribeDesc: 'Prepisujte hovorené slová do textu pomocou AI na strane klienta.',
     toolRecorderDesc: 'Nahrávajte obrazovku, webovú kameru a mikrofón bez nahrávania na server.',
+    vtaError: 'Extrakcia zvuku zlyhala. Uistite sa, že video obsahuje zvukovú stopu, alebo skúste iný formát.',
   },
   'uk': {
     ratingScore: 'Оцінка 4,9/5',
@@ -29559,6 +29589,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Миттєво конвертуйте аудіо між MP3, WAV, AAC і FLAC.',
     toolTranscribeDesc: 'Транскрибуйте вимовлені слова в текст за допомогою ШІ на стороні клієнта.',
     toolRecorderDesc: 'Запис екрану, веб-камера та мікрофон без завантаження на сервер.',
+    vtaError: 'Помилка вилучення аудіо. Переконайтеся, що відео містить звукову доріжку, або спробуйте інший формат.',
   },
   'ms': {
     ratingScore: 'Penilaian 4.9/5',
@@ -30512,6 +30543,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'Tukar audio antara MP3, WAV, AAC dan FLAC serta-merta.',
     toolTranscribeDesc: 'Transkripsikan perkataan yang dituturkan ke dalam teks menggunakan AI sisi klien.',
     toolRecorderDesc: 'Rakam skrin, kamera web dan mikrofon dengan muat naik pelayan sifar.',
+    vtaError: 'Pengekstrakan audio gagal. Sila pastikan video mengandungi runut audio atau cuba format lain.',
   },
   'tl': {
     ratingScore: '4.9/5 Rating',
@@ -31465,6 +31497,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
     toolConvertAudioDesc: 'I-convert ang audio sa pagitan ng MP3, WAV, AAC, at FLAC kaagad.',
     toolTranscribeDesc: 'I-transcribe ang mga binibigkas na salita sa text gamit ang client-side AI.',
     toolRecorderDesc: 'I-record ang screen, webcam, at mikropono na walang pag-upload ng server.',
+    vtaError: 'Nabigo ang pagkuha ng audio. Pakitiyak na naglalaman ang video ng audio track, o sumubok ng ibang format.',
   },
 };
 

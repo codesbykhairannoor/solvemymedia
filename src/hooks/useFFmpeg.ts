@@ -73,11 +73,11 @@ export const useFFmpeg = () => {
     setProgress(0);
     setLogs([]);
     
-    const isVideo = file.type.startsWith('video');
-    const rawExt = file.name.split('.').pop() || (isVideo ? 'mp4' : 'mp3');
-    const inputExt = rawExt.toLowerCase();
-    const inputName = `input_${Date.now()}.${inputExt}`;
-    const outputName = `output_${Date.now()}.${targetFormat.toLowerCase()}`;
+    const rawExt = (file.name.split('.').pop() || '').toLowerCase();
+    const cleanExt = rawExt.replace(/[^a-z0-9]/g, '');
+    const isVideo = file.type.startsWith('video') || ['mp4', 'webm', 'mkv', 'avi', 'mov', 'flv', 'wmv', 'm4v', '3gp', 'ts', 'ogv'].includes(cleanExt);
+    const inputName = `input_${Date.now()}.${cleanExt || (isVideo ? 'mp4' : 'mp3')}`;
+    const outputName = `output_${Date.now()}.${targetFormat.toLowerCase().trim()}`;
     
     try {
       // Write the file to memory 
@@ -177,38 +177,41 @@ export const useFFmpeg = () => {
           args.push('-vf', scaleFilter);
         }
       } else {
-        // Audio conversion (from Audio OR Video)
-        if (isVideo) {
-          args.push('-vn'); // Strip video stream if extracting audio from video
-        }
+        // Audio conversion or extraction from video
+        // Strip video stream, subtitle stream, data stream, and select first audio stream cleanly
+        args.push('-vn', '-sn', '-dn', '-map', '0:a:0?');
         
         const audioKbps = Math.round(32 + ((quality / 100) * 160));
         if (targetFormat === 'mp3') {
-          args.push('-c:a', 'libmp3lame', '-b:a', `${audioKbps}k`);
+          args.push('-c:a', 'libmp3lame', '-b:a', `${audioKbps}k`, '-ac', '2', '-ar', '44100');
         } else if (targetFormat === 'ogg') {
-          args.push('-c:a', 'libvorbis', '-b:a', `${audioKbps}k`);
+          args.push('-c:a', 'libvorbis', '-b:a', `${audioKbps}k`, '-ac', '2');
         } else if (targetFormat === 'aac' || targetFormat === 'm4a') {
-          args.push('-c:a', 'aac', '-b:a', `${audioKbps}k`);
+          args.push('-c:a', 'aac', '-b:a', `${audioKbps}k`, '-ac', '2');
         } else if (targetFormat === 'wav') {
-          args.push('-c:a', 'pcm_s16le');
+          args.push('-c:a', 'pcm_s16le', '-ac', '2');
         } else if (targetFormat === 'flac') {
-          args.push('-c:a', 'flac');
+          args.push('-c:a', 'flac', '-ac', '2');
         } else if (targetFormat === 'opus') {
-          args.push('-c:a', 'libopus', '-b:a', `${Math.min(audioKbps, 160)}k`, '-ar', '48000');
+          args.push('-c:a', 'libopus', '-b:a', `${Math.min(audioKbps, 160)}k`, '-ac', '2', '-ar', '48000');
         } else if (targetFormat === 'wma') {
-          args.push('-c:a', 'wmav2', '-b:a', `${audioKbps}k`);
+          args.push('-c:a', 'wmav2', '-b:a', `${audioKbps}k`, '-ac', '2', '-ar', '44100');
         } else if (targetFormat === 'aiff') {
-          args.push('-c:a', 'pcm_s16be');
+          args.push('-c:a', 'pcm_s16be', '-ac', '2');
         } else if (targetFormat === 'ac3') {
-          args.push('-c:a', 'ac3', '-b:a', `${audioKbps}k`);
+          args.push('-c:a', 'ac3', '-b:a', `${audioKbps}k`, '-ac', '2');
         } else {
-          args.push('-b:a', `${audioKbps}k`);
+          args.push('-b:a', `${audioKbps}k`, '-ac', '2');
         }
       }
 
       args.push(outputName);
 
-      await ffmpeg.exec(args);
+      const exitCode = await ffmpeg.exec(args);
+      if (exitCode !== 0) {
+        console.error("FFmpeg exec failed with exitCode:", exitCode);
+        throw new Error(`FFmpeg execution failed with exit code ${exitCode}`);
+      }
       const data = await ffmpeg.readFile(outputName);
       
       let mimeType = !isTargetAudio ? `video/${targetFormat}` : `audio/${targetFormat}`;
@@ -228,7 +231,7 @@ export const useFFmpeg = () => {
       if (targetFormat === 'm4a') mimeType = 'audio/mp4';
       if (targetFormat === 'flac') mimeType = 'audio/flac';
       if (targetFormat === 'opus') mimeType = 'audio/opus';
-      if (targetFormat === 'ogg') mimeType = isVideo ? 'video/ogg' : 'audio/ogg';
+      if (targetFormat === 'ogg') mimeType = isTargetAudio ? 'audio/ogg' : 'video/ogg';
       if (targetFormat === 'wma') mimeType = 'audio/x-ms-wma';
       if (targetFormat === 'aiff') mimeType = 'audio/aiff';
       if (targetFormat === 'ac3') mimeType = 'audio/ac3';

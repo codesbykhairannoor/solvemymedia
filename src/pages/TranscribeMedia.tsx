@@ -113,6 +113,7 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
           type="file" 
           ref={fileInputRef}
           onChange={handleFileSelect}
+          accept="video/*,audio/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3"
           style={{ display: 'none' }} 
         />
 

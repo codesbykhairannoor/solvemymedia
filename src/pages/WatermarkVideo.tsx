@@ -432,7 +432,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }} 
-        accept="video/*"
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
         style={{ display: 'none' }} 
       />
 

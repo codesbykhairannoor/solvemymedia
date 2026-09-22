@@ -132,7 +132,7 @@ export const CompressAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <DualColumnWorkspace
-        accept="audio/*"
+        accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3"
         title={pseoData ? pseoData.h1 : (translate('caTitle') || "Compress Audio Files without Losing Quality")}
         description={pseoData ? pseoData.description : (translate('caSub') || "Reduce the file size of your audio tracks while preserving excellent sound quality. Perfect for podcast hosting or email attachments.")}
         toolId="compress-audio"

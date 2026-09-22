@@ -21,25 +21,39 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [targetFormat, setTargetFormat] = useState<string>(initialFormat || 'mp3');
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const defaultErr = "Audio extraction failed. Please ensure the video contains an audio track, or try another format.";
+  const translatedErr = translate('vtaError');
+  const safeErr = (translatedErr && translatedErr !== 'vtaError') ? translatedErr : defaultErr;
 
   const handleProcess = async () => {
     if (!file) return;
-    // Extracting audio, use 'high' quality default
-    const url = await processMedia(file, 100, targetFormat);
-    if (url) setOutputUrl(url);
+    setErrorMsg(null);
+    try {
+      const url = await processMedia(file, 100, targetFormat);
+      if (url) {
+        setOutputUrl(url);
+      } else {
+        setErrorMsg(safeErr);
+      }
+    } catch (e: any) {
+      console.error("Audio extraction failed:", e);
+      setErrorMsg(safeErr);
+    }
   };
 
   const AUDIO_FORMATS = [
-    { id: 'mp3', name: 'MP3', desc: 'Universal' },
-    { id: 'wav', name: 'WAV', desc: 'Lossless PCM' },
-    { id: 'm4a', name: 'M4A', desc: 'Apple AAC' },
-    { id: 'aac', name: 'AAC', desc: 'High Quality' },
-    { id: 'flac', name: 'FLAC', desc: 'Lossless HD' },
-    { id: 'ogg', name: 'OGG', desc: 'Vorbis Web' },
-    { id: 'opus', name: 'OPUS', desc: 'Efficient' },
-    { id: 'wma', name: 'WMA', desc: 'Windows' },
-    { id: 'aiff', name: 'AIFF', desc: 'Studio Audio' },
-    { id: 'ac3', name: 'AC3', desc: 'Dolby Surround' }
+    { id: 'mp3', name: 'MP3', desc: translate('audFmtUniversal') || 'Universal' },
+    { id: 'wav', name: 'WAV', desc: translate('audFmtLosslessPCM') || 'Lossless PCM' },
+    { id: 'm4a', name: 'M4A', desc: translate('audFmtAppleAAC') || 'Apple AAC' },
+    { id: 'aac', name: 'AAC', desc: translate('audFmtHighQuality') || 'High Quality' },
+    { id: 'flac', name: 'FLAC', desc: translate('audFmtLosslessHD') || 'Lossless HD' },
+    { id: 'ogg', name: 'OGG', desc: translate('audFmtVorbisWeb') || 'Vorbis Web' },
+    { id: 'opus', name: 'OPUS', desc: translate('audFmtEfficient') || 'Efficient' },
+    { id: 'wma', name: 'WMA', desc: translate('audFmtWindows') || 'Windows' },
+    { id: 'aiff', name: 'AIFF', desc: translate('audFmtStudioAudio') || 'Studio Audio' },
+    { id: 'ac3', name: 'AC3', desc: translate('audFmtDolbySurround') || 'Dolby Surround' }
   ];
 
   const sidebarContent = (
@@ -68,7 +82,7 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                   borderRadius: 'var(--radius-sm)',
                   cursor: processing ? 'not-allowed' : 'pointer'
                 }}
-                onClick={() => setTargetFormat(fmt.id)}
+                onClick={() => { setTargetFormat(fmt.id); setErrorMsg(null); }}
                 disabled={processing}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
@@ -82,6 +96,12 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             );
           })}
         </div>
+
+        {errorMsg && (
+          <div style={{ marginTop: 16, padding: '10px 14px', borderRadius: 'var(--radius-sm)', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--error-color)', color: 'var(--error-color)', fontSize: '0.85rem', lineHeight: 1.4 }}>
+            {errorMsg}
+          </div>
+        )}
       </div>
     </>
   );
@@ -89,11 +109,12 @@ export const ConvertVideoToAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) 
   return (
     <>
       <CenteredActionWorkspace
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
         title={pseoData ? pseoData.h1 : (translate('vtaTitle') || "Extract Audio from Video")}
         description={pseoData ? pseoData.description : (translate('vtaSub') || "Extract high-quality audio tracks from your video files instantly. Runs 100% locally in your browser for ultimate privacy.")}
         toolId="video-to-audio"
         file={file}
-        onFileSelect={(f) => { setFile(f); setOutputUrl(null); }}
+        onFileSelect={(f) => { setFile(f); setOutputUrl(null); setErrorMsg(null); }}
         outputUrl={outputUrl}
         onResetResult={() => setOutputUrl(null)}
         processing={processing}

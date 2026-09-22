@@ -79,7 +79,14 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
     }
   };
 
-  const isVideo = accept.includes('video') || (file?.type.includes('video') ?? true);
+  const VIDEO_ACCEPT = 'video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv';
+  const AUDIO_ACCEPT = 'audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3';
+  const isAudioTool = toolId === 'convert-audio' || toolId === 'compress-audio' || toolId === 'merge-audio' || (accept && accept.includes('audio') && !accept.includes('video'));
+  const effectiveAccept = accept 
+    ? (accept === 'video/*' || (accept.includes('video') && !accept.includes('.')) ? VIDEO_ACCEPT : (accept === 'audio/*' || (accept.includes('audio') && !accept.includes('.')) ? AUDIO_ACCEPT : accept))
+    : (isAudioTool ? AUDIO_ACCEPT : VIDEO_ACCEPT);
+
+  const isVideo = !isAudioTool;
   const rawExt = targetFormat || file?.name.split('.').pop() || (isVideo ? 'mp4' : 'mp3');
   const finalExt = rawExt.replace(/^\./, '');
   const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'processed')}.${finalExt}`;
@@ -112,7 +119,7 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
           type="file" 
           ref={fileInputRef}
           onChange={handleFileSelect}
-          accept={accept}
+          accept={effectiveAccept}
           style={{ display: 'none' }} 
         />
 

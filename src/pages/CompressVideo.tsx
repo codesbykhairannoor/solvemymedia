@@ -134,7 +134,7 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <DualColumnWorkspace
-        accept="video/*"
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
         title={pseoData ? pseoData.h1 : (t('cvTitle') || "Compress Video Files without Losing Quality")}
         description={pseoData ? pseoData.description : (t('cvDesc') || "Shrink massive video files down to manageable sizes in seconds. Advanced local compression keeps visual quality high and file size low.")}
         toolId="compress-video"

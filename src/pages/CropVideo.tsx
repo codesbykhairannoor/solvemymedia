@@ -356,6 +356,7 @@ export const CropVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   return (
     <>
       <CenteredActionWorkspace
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
         title={pseoData ? pseoData.h1 : (t('cropTitle') || "Crop Video Dimensions to Any Aspect Ratio")}
         description={pseoData ? pseoData.description : (t('cropSub') || "Crop and resize your videos easily with our visual cropper. All processing happens securely on your own device.")}
         toolId="crop-video"

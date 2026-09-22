@@ -112,7 +112,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 ref={fileInputRef}
                 onChange={handleFileSelect}
                 multiple
-                accept="audio/*"
+                accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3"
                 style={{ display: 'none' }} 
               />
               <div className="dropzone-icon">
@@ -127,7 +127,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 ref={fileInputRef}
                 onChange={handleFileSelect}
                 multiple
-                accept="audio/*"
+                accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3"
                 style={{ display: 'none' }} 
               />
 

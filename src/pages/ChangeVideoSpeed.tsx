@@ -83,7 +83,7 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
   return (
     <>
       <DualColumnWorkspace
-        accept="video/*"
+        accept="video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv"
         title={pseoData ? pseoData.h1 : (t('speedVTitle') || "Change Video Playback Speed")}
         description={pseoData ? pseoData.description : (t('speedVDesc') || "Easily speed up or slow down your videos. Create slow-motion effects or fast-forward timelapses without leaving your browser.")}
         toolId="change-video-speed"
