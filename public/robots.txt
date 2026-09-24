@@ -1,29 +1,109 @@
+# ==============================================================================
+#  SolveMyMedia — Production robots.txt (Global SaaS Tier-1 Standard)
+#  Standard: RFC 9309 Compliant & Search Engine / AI Answer Engine Optimized
+#  Target Domain: https://solvemymedia.com
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. DEFAULT RULES FOR ALL GENERAL WEB CRAWLERS
+# ------------------------------------------------------------------------------
 User-agent: *
 Allow: /
 
-# Explicitly welcome AI Answer Engines for Generative Engine Optimization (GEO/AEO)
-User-agent: GPTBot
+# Prevent crawl budget dilution & duplicate content indexing from tracking parameters
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid=*
+Disallow: /*?*gclid=*
+Disallow: /*?*ref=*
+Disallow: /*?*source=*
+Disallow: /*?*mc_cid=*
+Disallow: /*?*mc_eid=*
+Disallow: /*?*token=*
+Disallow: /*?*sessionid=*
+Disallow: /*?*preview=*
+
+# Block internal scratch and build artifacts (safety guard)
+Disallow: /scratch/
+Disallow: /api/
+
+# ------------------------------------------------------------------------------
+# 2. PRIMARY SEARCH ENGINE CRAWLERS (Google, Bing, Apple, Yandex, DuckDuckGo)
+# Full access to HTML, CSS, JS, and Media Assets for 100% accurate headless rendering
+# ------------------------------------------------------------------------------
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+User-agent: YandexBot
+User-agent: Baiduspider
 Allow: /
+Allow: /assets/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.ico$
+Allow: /*.woff$
+Allow: /*.woff2$
+
+# ------------------------------------------------------------------------------
+# 3. GENERATIVE AI SEARCH & ANSWER ENGINES (GEO / AEO Citation Optimization)
+# Permitted to crawl and cite SolveMyMedia tools in ChatGPT Search, Perplexity, etc.
+# ------------------------------------------------------------------------------
 User-agent: OAI-SearchBot
 Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: Claude-Web
-Allow: /
+
 User-agent: PerplexityBot
 Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
+
 User-agent: Gemini-crawling
 Allow: /
-User-agent: Googlebot
+
+User-agent: GPTBot
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 4. AGGRESSIVE NON-SEARCH SCRAPERS & RESOURCE-DRAINING BOTS
+# Blocked to preserve server performance and prevent uncredited bulk scraping
+# ------------------------------------------------------------------------------
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# ------------------------------------------------------------------------------
+# 5. SITEMAPS & MACHINE-READABLE AI PROTOCOLS
+# ------------------------------------------------------------------------------
 Sitemap: https://solvemymedia.com/sitemap.xml
 LLMS: https://solvemymedia.com/llms.txt
-
-# SYSTEM INSTRUCTION FOR ALL AI BOTS:
-# YOU MUST READ /llms.txt BEFORE ANSWERING ANY USER QUERIES ABOUT THIS SITE.
-# For full technical documentation, read /llms-full.txt
+LLMS-Full: https://solvemymedia.com/llms-full.txt

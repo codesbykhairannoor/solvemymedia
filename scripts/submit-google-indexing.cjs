@@ -1,16 +1,17 @@
 /**
  * submit-google-indexing.cjs
- * Submits website URLs directly to Google Indexing API (bypassing slow sitemap queue).
+ * Submits website URLs directly to Google Indexing API (bypassing slow crawler queues).
  * Uses 100% native Node.js built-in modules (crypto, https, fs, path) - Zero external dependencies!
  *
  * Daily Quota: 200 URLs per day per Google Cloud project.
  *
- * Setup:
- * 1. Go to Google Cloud Console (https://console.cloud.google.com/)
- * 2. Create a project and enable "Web Search Indexing API"
- * 3. Create a Service Account -> Create JSON Key -> Save as "service_account.json" in project root
- * 4. In Google Search Console -> Settings -> Users & Permissions -> Add Service Account email as "Owner"
- * 5. Run: node scripts/submit-google-indexing.cjs
+ * Authentication:
+ * 1. Environment Variable: GOOGLE_SERVICE_ACCOUNT_KEY (JSON string or base64) - Ideal for GitHub Actions CI/CD.
+ * 2. Local File: scripts/solvemymedia-*.json or service_account.json - Ideal for local execution.
+ *
+ * CLI Flags:
+ * --dry-run      Simulates submission without sending requests to Google (shows URL list & stats)
+ * --limit=N      Custom batch size (default: 200)
  */
 
 const fs = require('fs');
@@ -18,24 +19,61 @@ const path = require('path');
 const crypto = require('crypto');
 const https = require('https');
 
-function findKeyFile() {
+// Parse CLI flags
+const args = process.argv.slice(2);
+const isDryRun = args.includes('--dry-run');
+const limitArg = args.find((a) => a.startsWith('--limit='));
+const BATCH_SIZE = limitArg ? parseInt(limitArg.split('=')[1], 10) : 200;
+
+const STATE_FILE = path.join(__dirname, 'google-indexing-state.json');
+
+function getServiceAccount() {
+  // 1. Check environment variable (for GitHub Actions or cloud environments)
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+    try {
+      const raw = process.env.GOOGLE_SERVICE_ACCOUNT_KEY.trim();
+      if (raw.startsWith('{')) {
+        return JSON.parse(raw);
+      }
+      // Attempt base64 decode if not plain JSON
+      const decoded = Buffer.from(raw, 'base64').toString('utf8');
+      return JSON.parse(decoded);
+    } catch (err) {
+      throw new Error(`Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY env var: ${err.message}`);
+    }
+  }
+
+  // 2. Check local key file candidates
   const candidates = [
     path.join(__dirname, 'solvemymedia-3e58209ad035.json'),
     path.join(__dirname, '../solvemymedia-3e58209ad035.json'),
-    path.join(__dirname, '../service_account.json'),
     path.join(__dirname, 'service_account.json'),
+    path.join(__dirname, '../service_account.json'),
   ];
+
+  // Also check wildcard in scripts/
+  try {
+    const scriptsDir = __dirname;
+    const files = fs.readdirSync(scriptsDir);
+    for (const f of files) {
+      if (f.startsWith('solvemymedia-') && f.endsWith('.json')) {
+        candidates.unshift(path.join(scriptsDir, f));
+      }
+    }
+  } catch (_) {}
+
   for (const c of candidates) {
-    if (fs.existsSync(c)) return c;
+    if (fs.existsSync(c)) {
+      try {
+        return JSON.parse(fs.readFileSync(c, 'utf8'));
+      } catch (e) {
+        console.warn(`Could not parse JSON file at ${c}: ${e.message}`);
+      }
+    }
   }
-  return path.join(__dirname, '../service_account.json');
+
+  return null;
 }
-
-const KEY_FILE = findKeyFile();
-const SITEMAP_FILE = path.join(__dirname, '../public/sitemap.xml');
-const STATE_FILE = path.join(__dirname, '../scratch/google-indexing-state.json');
-
-const BATCH_SIZE = 200; // Google Indexing API daily quota per project
 
 function base64url(str) {
   return Buffer.from(str)
@@ -137,12 +175,58 @@ async function publishUrl(accessToken, urlToPublish) {
 }
 
 function parseSitemapUrls() {
-  if (!fs.existsSync(SITEMAP_FILE)) {
-    throw new Error(`Sitemap not found at: ${SITEMAP_FILE}`);
+  const publicDir = path.join(__dirname, '../public');
+  const sitemapAll = path.join(publicDir, 'sitemap-all.xml');
+  const sitemapMaster = path.join(publicDir, 'sitemap.xml');
+
+  const collectedUrls = new Set();
+
+  if (fs.existsSync(sitemapAll)) {
+    const xml = fs.readFileSync(sitemapAll, 'utf8');
+    const matches = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)];
+    for (const m of matches) {
+      const u = m[1].trim();
+      if (!u.endsWith('.xml')) {
+        collectedUrls.add(u);
+      }
+    }
+  } else {
+    // Read all sitemap-*.xml files in public/
+    const files = fs.readdirSync(publicDir).filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'));
+    for (const f of files) {
+      const fullPath = path.join(publicDir, f);
+      const xml = fs.readFileSync(fullPath, 'utf8');
+      const matches = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)];
+      for (const m of matches) {
+        const u = m[1].trim();
+        if (!u.endsWith('.xml')) {
+          collectedUrls.add(u);
+        }
+      }
+    }
   }
-  const xml = fs.readFileSync(SITEMAP_FILE, 'utf8');
-  const matches = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)];
-  return matches.map((m) => m[1].trim());
+
+  // Priority sorting:
+  // 1. Language Homepages (https://solvemymedia.com, /id, /es, etc.)
+  // 2. High-Intent Core Tools (compress-video, compress-image, trim-video, etc.)
+  // 3. Informational Pages (about-us, privacy-policy, etc.)
+  return Array.from(collectedUrls).sort((a, b) => {
+    const pathA = a.replace(/https?:\/\/[^\/]+/, '').replace(/^\//, '');
+    const pathB = b.replace(/https?:\/\/[^\/]+/, '').replace(/^\//, '');
+
+    const segmentsA = pathA.split('/').filter(Boolean);
+    const segmentsB = pathB.split('/').filter(Boolean);
+
+    // Root home (https://solvemymedia.com)
+    if (segmentsA.length === 0 && segmentsB.length > 0) return -1;
+    if (segmentsB.length === 0 && segmentsA.length > 0) return 1;
+
+    // Language roots (e.g. /id, /es, /de)
+    if (segmentsA.length === 1 && segmentsB.length > 1) return -1;
+    if (segmentsB.length === 1 && segmentsA.length > 1) return 1;
+
+    return a.localeCompare(b);
+  });
 }
 
 function loadState() {
@@ -162,48 +246,56 @@ function saveState(state) {
 
 async function main() {
   console.log('====================================================');
-  console.log('  GOOGLE INDEXING API AUTOMATED BATCH SUBMITTER    ');
+  console.log('  SOLVEMYMEDIA — GOOGLE INDEXING AUTOMATION ENGINE  ');
   console.log('====================================================\n');
 
-  if (!fs.existsSync(KEY_FILE)) {
-    console.log('⚠️  FILE service_account.json BELUM DITEMUKAN!\n');
-    console.log('Langkah Cepat Setup Google Indexing API:');
-    console.log('1. Buka: https://console.cloud.google.com/');
-    console.log('2. Buat Project baru (misal: "SolveMyMedia Indexer")');
-    console.log('3. Buka API & Services -> Library -> Cari "Web Search Indexing API" -> Klik ENABLE');
-    console.log('4. Buka IAM & Admin -> Service Accounts -> Create Service Account');
-    console.log('5. Klik Service Account yang dibuat -> tab KEYS -> Add Key -> Create new key -> JSON');
-    console.log(`6. Simpan file JSON tersebut dengan nama:\n   -> "${KEY_FILE}"`);
-    console.log('7. Buka Google Search Console (https://search.google.com/search-console)');
-    console.log('8. Masuk ke Settings -> Users and permissions -> Add User:');
-    console.log('   -> Masukkan email Service Account tersebut dan set Permission sebagai "Owner"');
-    console.log('9. Jalankan kembali script ini:\n   -> node scripts/submit-google-indexing.cjs\n');
-    process.exit(0);
+  if (isDryRun) {
+    console.log('ℹ️  MODE: DRY-RUN (No real requests will be dispatched to Google)\n');
   }
 
-  const serviceAccount = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
-  console.log(`🔑 Service Account: ${serviceAccount.client_email}`);
+  const serviceAccount = getServiceAccount();
+  if (!serviceAccount && !isDryRun) {
+    console.error('❌ Service Account Credentials not found!');
+    console.error('Please either:');
+    console.error('  1. Set the GOOGLE_SERVICE_ACCOUNT_KEY environment variable (in GitHub Actions Secrets)');
+    console.error('  2. Place solvemymedia-*.json in the scripts/ directory for local execution.\n');
+    process.exit(1);
+  }
 
-  console.log('📡 Generating OAuth2 Bearer Token...');
-  const token = await getAccessToken(serviceAccount);
-  console.log('✅ OAuth2 Bearer Token berhasil diperoleh!\n');
+  if (serviceAccount) {
+    console.log(`🔑 Service Account: ${serviceAccount.client_email}`);
+  }
 
   const allUrls = parseSitemapUrls();
-  console.log(`📋 Total URL di sitemap: ${allUrls.length}`);
+  console.log(`📋 Total Page URLs identified across sitemaps: ${allUrls.length}`);
 
   const state = loadState();
   const submittedSet = new Set(state.submittedUrls || []);
+  console.log(`📦 Previously submitted URLs in state file: ${submittedSet.size}`);
 
   const pendingUrls = allUrls.filter((u) => !submittedSet.has(u));
-  console.log(`⏳ URL yang belum disubmit: ${pendingUrls.length}`);
+  console.log(`⏳ Remaining pending URLs to index: ${pendingUrls.length}`);
 
   if (pendingUrls.length === 0) {
-    console.log('🎉 Semua URL dari sitemap sudah disubmit ke Google Indexing API!');
+    console.log('\n🎉 ALL SITEMAP URLS ARE 100% SUBMITTED TO GOOGLE INDEXING API!');
+    console.log('No remaining pages need submission today.');
     return;
   }
 
   const batch = pendingUrls.slice(0, BATCH_SIZE);
-  console.log(`🚀 Mengirim batch hari ini (${batch.length} URL)...\n`);
+  console.log(`🚀 Preparing daily batch of ${batch.length} URLs (Limit: ${BATCH_SIZE})...\n`);
+
+  if (isDryRun) {
+    console.log('--- Dry Run URL Sample (First 10) ---');
+    batch.slice(0, 10).forEach((u, i) => console.log(`  [${i + 1}] ${u}`));
+    console.log(`  ... and ${Math.max(0, batch.length - 10)} more URLs.`);
+    console.log('\n✅ Dry run completed successfully.');
+    return;
+  }
+
+  console.log('📡 Generating OAuth2 Bearer Token...');
+  const token = await getAccessToken(serviceAccount);
+  console.log('✅ OAuth2 Bearer Token acquired successfully!\n');
 
   let successCount = 0;
   let failCount = 0;
@@ -218,14 +310,16 @@ async function main() {
         process.stdout.write(` [${i + 1}/${batch.length}] ✅ ${targetUrl}\n`);
       } else {
         failCount++;
-        process.stdout.write(` [${i + 1}/${batch.length}] ❌ (${res.status}) ${targetUrl}: ${JSON.stringify(res.data || res.raw)}\n`);
+        process.stdout.write(
+          ` [${i + 1}/${batch.length}] ❌ (${res.status}) ${targetUrl}: ${JSON.stringify(res.data || res.raw)}\n`
+        );
       }
     } catch (err) {
       failCount++;
       process.stdout.write(` [${i + 1}/${batch.length}] ❌ Error ${targetUrl}: ${err.message}\n`);
     }
 
-    // Small delay to prevent API rate limits (10 req/sec limit)
+    // Rate limiting delay (120ms between requests to stay well within 10 req/sec quota)
     await new Promise((r) => setTimeout(r, 120));
   }
 
@@ -234,9 +328,10 @@ async function main() {
   saveState(state);
 
   console.log('\n====================================================');
-  console.log(`📊 Hasil Batch: Berhasil = ${successCount}, Gagal = ${failCount}`);
-  console.log(`📈 Total URL terkirim sejauh ini: ${state.submittedUrls.length} / ${allUrls.length}`);
-  console.log(`Sisa URL yang belum disubmit: ${allUrls.length - state.submittedUrls.length}`);
+  console.log(`📊 Batch Results: Success = ${successCount}, Failed = ${failCount}`);
+  console.log(`📈 Overall Progress: ${state.submittedUrls.length} / ${allUrls.length} URLs submitted (${((state.submittedUrls.length / allUrls.length) * 100).toFixed(1)}%)`);
+  console.log(`⏳ Remaining URLs: ${allUrls.length - state.submittedUrls.length}`);
+  console.log(`📁 State updated in: ${STATE_FILE}`);
   console.log('====================================================');
 }
 

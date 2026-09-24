@@ -1,0 +1,44 @@
+name: Daily Google Indexing Automation
+
+on:
+  schedule:
+    # Runs daily at 01:00 UTC (08:00 WIB), 1 hour after Google's daily quota reset (00:00 UTC)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    # Allows manual trigger at any time from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  google-indexing:
+    name: Submit Daily 200 URLs to Google Indexing API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Google Indexing Batch Submitter
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+        run: |
+          node scripts/submit-google-indexing.cjs
+
+      - name: Commit and Push Updated Indexing State
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/google-indexing-state.json
+          if git diff --staged --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "chore(seo): update daily google indexing progress [skip ci]"
+            git push origin main
+          fi

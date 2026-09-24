@@ -28,4 +28,5 @@ scratch/
 service_account.json
 scripts/solvemymedia-*.json
 scripts/*-*.json
+!scripts/google-indexing-state.json
 *.key.json
