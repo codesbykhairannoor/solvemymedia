@@ -313,6 +313,11 @@ async function main() {
         process.stdout.write(
           ` [${i + 1}/${batch.length}] ❌ (${res.status}) ${targetUrl}: ${JSON.stringify(res.data || res.raw)}\n`
         );
+        if (res.status === 429) {
+          console.log('\n🛑 Google Indexing Daily Quota (200 URLs) reached for today.');
+          console.log('Batch automatically paused. Will resume cleanly on the next run after 00:00 UTC quota reset.\n');
+          break;
+        }
       }
     } catch (err) {
       failCount++;
