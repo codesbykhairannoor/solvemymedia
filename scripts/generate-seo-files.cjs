@@ -655,13 +655,15 @@ for (const lang of LANGUAGES) {
 }
 console.log(`✅ Generated ${LANGUAGES.length} language-specific sitemaps (sitemap-{lang}.xml)`);
 
-// 2. Write Master Sitemap Index (sitemap.xml)
+// 2. Write Master Sitemap Index (sitemap.xml & sitemap_index.xml)
 const sitemapIndex = generateSitemapIndex();
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapIndex);
+fs.writeFileSync(path.join(publicDir, 'sitemap_index.xml'), sitemapIndex);
 if (fs.existsSync(distDir)) {
   fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapIndex);
+  fs.writeFileSync(path.join(distDir, 'sitemap_index.xml'), sitemapIndex);
 }
-console.log(`✅ sitemap.xml generated as Master Sitemap Index (pointing to all ${LANGUAGES.length} language sitemaps)`);
+console.log(`✅ sitemap.xml & sitemap_index.xml generated as Master Sitemap Index (pointing to all ${LANGUAGES.length} language sitemaps)`);
 
 // 3. Write Unified Flat Backup Sitemap (sitemap-all.xml)
 const unifiedSitemap = generateUnifiedSitemap();

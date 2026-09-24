@@ -1,76 +1,98 @@
-# ==============================================================================
-#  SolveMyMedia — Production robots.txt (Global SaaS Tier-1 Standard)
-#  Standard: RFC 9309 Compliant & Search Engine / AI Answer Engine Optimized
-#  Target Domain: https://solvemymedia.com
-# ==============================================================================
+#   ____        _           __  __       __  __          _ _       
+#  / ___|  ___ | |_   _____|  \/  |_   _|  \/  | ___  __| (_) __ _ 
+#  \___ \ / _ \| \ \ / / _ \ |\/| | | | | |\/| |/ _ \/ _` | |/ _` |
+#   ___) | (_) | |\ V /  __/ |  | | |_| | |  | |  __/ (_| | | (_| |
+#  |____/ \___/|_| \_/ \___|_|  |_|\__, |_|  |_|\___|\__,_|_|\__,_|
+#                                  |___/                           
+#
+# SolveMyMedia - 100% Client-Side Private Audio, Video & Image Processing Suite
+# RFC 9309 Compliant | Cloudflare Edge Ready | Content Signals Enabled
+# Security & Contact: security@solvemymedia.com | https://solvemymedia.com/about-us
 
-# ------------------------------------------------------------------------------
-# 1. DEFAULT RULES FOR ALL GENERAL WEB CRAWLERS
-# ------------------------------------------------------------------------------
+# ==============================================================================
+# SECTION 1: GLOBAL DIRECTIVES (RFC 9309 FOR ALL COMPLIANT SEARCH ENGINES)
+# ==============================================================================
 User-agent: *
 Allow: /
 
-# Prevent crawl budget dilution & duplicate content indexing from tracking parameters
-Disallow: /*?*utm_*
-Disallow: /*?*fbclid=*
-Disallow: /*?*gclid=*
-Disallow: /*?*ref=*
-Disallow: /*?*source=*
-Disallow: /*?*mc_cid=*
-Disallow: /*?*mc_eid=*
-Disallow: /*?*token=*
-Disallow: /*?*sessionid=*
-Disallow: /*?*preview=*
+# Critical Rendering Assets Whitelist (Ensures 100/100 Core Web Vitals & Headless Rendering)
+Allow: /assets/*.js
+Allow: /assets/*.css
+Allow: /assets/*.png
+Allow: /assets/*.webp
+Allow: /assets/*.svg
+Allow: /assets/*.wasm
+Allow: /favicon.ico
+Allow: /manifest.webmanifest
+Allow: /registerSW.js
+Allow: /sw.js
 
-# Block internal scratch and build artifacts (safety guard)
+# LLMs.txt Specification for AI Search & Agent Discovery
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /llms-*.txt
+Allow: /.well-known/
+
+# Disallow Internal Build Artifacts, Source Maps & Private Files
+Disallow: /dist/
+Disallow: /server/
 Disallow: /scratch/
 Disallow: /api/
+Disallow: /*.map$
+Disallow: /*.config.js$
+Disallow: /*.json$
+Allow: /manifest.webmanifest
 
-# ------------------------------------------------------------------------------
-# 2. PRIMARY SEARCH ENGINE CRAWLERS (Google, Bing, Apple, Yandex, DuckDuckGo)
-# Full access to HTML, CSS, JS, and Media Assets for 100% accurate headless rendering
-# ------------------------------------------------------------------------------
-User-agent: Googlebot
-User-agent: Googlebot-Image
-User-agent: Googlebot-Video
-User-agent: Bingbot
-User-agent: Applebot
-User-agent: DuckDuckBot
-User-agent: YandexBot
-User-agent: Baiduspider
-Allow: /
-Allow: /assets/
-Allow: /*.js$
-Allow: /*.css$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.webp$
-Allow: /*.svg$
-Allow: /*.ico$
-Allow: /*.woff$
-Allow: /*.woff2$
+# Disallow Query Parameter Crawl Traps (The Canva & Shopify Anti-Duplicate Standard)
+Disallow: /*?*utm_*=
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+Disallow: /*?*session=
+Disallow: /*?*ref=
+Disallow: /*?*source=
+Disallow: /*?*preview=
+Disallow: /*?*sort=
 
-# ------------------------------------------------------------------------------
-# 3. GENERATIVE AI SEARCH & ANSWER ENGINES (GEO / AEO Citation Optimization)
-# Permitted to crawl and cite SolveMyMedia tools in ChatGPT Search, Perplexity, etc.
-# ------------------------------------------------------------------------------
+# ==============================================================================
+# SECTION 2: AI SEARCH ENGINES & REAL-TIME CITATION AGENTS (HIGH-INTENT REFERRALS)
+# ==============================================================================
+# OpenAI Search (ChatGPT Search & Citations)
 User-agent: OAI-SearchBot
 Allow: /
 
+# ChatGPT User-Initiated Web Browsing
 User-agent: ChatGPT-User
 Allow: /
 
+# Perplexity AI Search Engine
 User-agent: PerplexityBot
+Allow: /
+
+# Anthropic Claude Web Search & Citations
+User-agent: Claude-Web
 Allow: /
 
 User-agent: Claude-SearchBot
 Allow: /
 
-User-agent: Claude-Web
+# Apple Intelligence & Siri Web Search
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
+Allow: /
+
+# You.com AI Search
+User-agent: YouBot
+Allow: /
+
+# ==============================================================================
+# SECTION 3: LLM TRAINING CRAWLERS & AI FOUNDATION MODELS (BRAND VISIBILITY)
+# ==============================================================================
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: Google-Extended
@@ -79,31 +101,84 @@ Allow: /
 User-agent: Gemini-crawling
 Allow: /
 
-User-agent: GPTBot
+User-agent: Meta-ExternalAgent
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
-# ------------------------------------------------------------------------------
-# 4. AGGRESSIVE NON-SEARCH SCRAPERS & RESOURCE-DRAINING BOTS
-# Blocked to preserve server performance and prevent uncredited bulk scraping
-# ------------------------------------------------------------------------------
 User-agent: Bytespider
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: Cohere-ai
+Allow: /
 
-User-agent: Scrapy
-Disallow: /
+User-agent: Timpibot
+Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+# ==============================================================================
+# SECTION 4: AGGRESSIVE SCRAPERS & BANDWIDTH DRAIN CONTROL
+# ==============================================================================
+# Block aggressive crawlers that do not provide organic search traffic
 User-agent: PetalBot
 Disallow: /
 
-# ------------------------------------------------------------------------------
-# 5. SITEMAPS & MACHINE-READABLE AI PROTOCOLS
-# ------------------------------------------------------------------------------
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# ==============================================================================
+# SECTION 5: CONTENT SIGNALS (IETF STANDARD FOR AI CONTENT RIGHTS)
+# ==============================================================================
+# See https://contentsignals.org & https://datatracker.ietf.org/doc/draft-romm-aipref-contentsignals/
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
+# ==============================================================================
+# SECTION 6: SITEMAP INDEX & REGIONAL HIERARCHY (32 LANGUAGES)
+# ==============================================================================
+# Master Sitemap Index (Auto-discovers all 32 language sub-sitemaps)
+Sitemap: https://solvemymedia.com/sitemap_index.xml
 Sitemap: https://solvemymedia.com/sitemap.xml
-LLMS: https://solvemymedia.com/llms.txt
-LLMS-Full: https://solvemymedia.com/llms-full.txt
+Sitemap: https://solvemymedia.com/sitemap-all.xml
+
+# Individual Language Sitemaps for Granular Regional Monitoring
+Sitemap: https://solvemymedia.com/sitemap-en.xml
+Sitemap: https://solvemymedia.com/sitemap-id.xml
+Sitemap: https://solvemymedia.com/sitemap-es.xml
+Sitemap: https://solvemymedia.com/sitemap-fr.xml
+Sitemap: https://solvemymedia.com/sitemap-de.xml
+Sitemap: https://solvemymedia.com/sitemap-ja.xml
+Sitemap: https://solvemymedia.com/sitemap-pt.xml
+Sitemap: https://solvemymedia.com/sitemap-ru.xml
+Sitemap: https://solvemymedia.com/sitemap-zh.xml
+Sitemap: https://solvemymedia.com/sitemap-zh-TW.xml
+Sitemap: https://solvemymedia.com/sitemap-ar.xml
+Sitemap: https://solvemymedia.com/sitemap-hi.xml
+Sitemap: https://solvemymedia.com/sitemap-it.xml
+Sitemap: https://solvemymedia.com/sitemap-ko.xml
+Sitemap: https://solvemymedia.com/sitemap-nl.xml
+Sitemap: https://solvemymedia.com/sitemap-tr.xml
+Sitemap: https://solvemymedia.com/sitemap-pl.xml
+Sitemap: https://solvemymedia.com/sitemap-vi.xml
+Sitemap: https://solvemymedia.com/sitemap-th.xml
+Sitemap: https://solvemymedia.com/sitemap-sv.xml
+Sitemap: https://solvemymedia.com/sitemap-cs.xml
+Sitemap: https://solvemymedia.com/sitemap-da.xml
+Sitemap: https://solvemymedia.com/sitemap-el.xml
+Sitemap: https://solvemymedia.com/sitemap-fi.xml
+Sitemap: https://solvemymedia.com/sitemap-he.xml
+Sitemap: https://solvemymedia.com/sitemap-hu.xml
+Sitemap: https://solvemymedia.com/sitemap-no.xml
+Sitemap: https://solvemymedia.com/sitemap-ro.xml
+Sitemap: https://solvemymedia.com/sitemap-sk.xml
+Sitemap: https://solvemymedia.com/sitemap-uk.xml
+Sitemap: https://solvemymedia.com/sitemap-ms.xml
+Sitemap: https://solvemymedia.com/sitemap-tl.xml
