@@ -177,6 +177,52 @@ export const Footer: React.FC = () => {
 
       </div>
       
+      {/* Crawlable Language Quick Links for Search Engine Bots & Users */}
+      <div style={{
+        maxWidth: 1240,
+        margin: '0 auto 24px',
+        paddingTop: 24,
+        borderTop: '1px solid var(--border-color)',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: '8px 14px',
+        fontSize: '0.82rem',
+        color: 'var(--text-muted)'
+      }}>
+        <span style={{ fontWeight: 700, color: 'var(--text-main)', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <Globe size={14} /> Languages:
+        </span>
+        {[
+          { code: 'en', name: 'English' },
+          { code: 'id', name: 'Bahasa Indonesia' },
+          { code: 'es', name: 'Español' },
+          { code: 'fr', name: 'Français' },
+          { code: 'de', name: 'Deutsch' },
+          { code: 'pt', name: 'Português' },
+          { code: 'ja', name: '日本語' },
+          { code: 'ru', name: 'Русский' },
+          { code: 'ar', name: 'العربية' },
+          { code: 'hi', name: 'हिन्दी' },
+          { code: 'zh', name: '中文' },
+          { code: 'ko', name: '한국어' },
+        ].map(item => (
+          <Link 
+            key={item.code} 
+            to={item.code === 'en' ? '/' : `/${item.code}`} 
+            className="footer-lang-link"
+          >
+            {item.name}
+          </Link>
+        ))}
+        <Link 
+          to={`${prefix}/supported-languages`} 
+          style={{ color: 'var(--brand-primary)', fontWeight: 600, textDecoration: 'none', marginLeft: 'auto' }}
+        >
+          All 32 Languages →
+        </Link>
+      </div>
+
       {/* Bottom Bar: Copyright & Language Selector */}
       <div style={{ 
         maxWidth: 1240, 
@@ -232,6 +278,15 @@ export const Footer: React.FC = () => {
         .footer-link:hover {
           color: var(--brand-primary);
           transform: translateX(2px);
+        }
+        .footer-lang-link {
+          color: var(--text-muted);
+          text-decoration: none;
+          transition: color 0.15s;
+        }
+        .footer-lang-link:hover {
+          color: var(--brand-primary);
+          text-decoration: underline;
         }
       `}</style>
     </footer>

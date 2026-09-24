@@ -477,10 +477,82 @@ try {
   console.warn("Could not load pseo routes", e.message);
 }
 
-const generateSitemap = () => {
+const generateUrlsForLang = (targetLang) => {
   let urls = [];
 
-  // 1. Static pages for all languages (Home + 7 legal/info pages)
+  // 1. Static pages for this language
+  for (const page of STATIC_PAGES) {
+    const prefix = targetLang.code === 'en' ? '' : `/${targetLang.code}`;
+    const url = page.path === '' ? (targetLang.code === 'en' ? `${DOMAIN}` : `${DOMAIN}${prefix}`) : `${DOMAIN}${prefix}${page.path}`;
+
+    const xhtmlLinks = LANGUAGES.map(l => {
+      const lPrefix = l.code === 'en' ? '' : `/${l.code}`;
+      const lUrl = page.path === '' ? (l.code === 'en' ? `${DOMAIN}` : `${DOMAIN}${lPrefix}`) : `${DOMAIN}${lPrefix}${page.path}`;
+      return `      <xhtml:link rel="alternate" hreflang="${l.code}" href="${lUrl}"/>`;
+    }).join('\n') + `\n      <xhtml:link rel="alternate" hreflang="x-default" href="${page.path === '' ? DOMAIN : `${DOMAIN}${page.path}`}"/>`;
+
+    urls.push(`  <url>
+    <loc>${url}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${targetLang.code === 'en' ? page.priority : (parseFloat(page.priority) * 0.9).toFixed(2)}</priority>
+${xhtmlLinks}
+  </url>`);
+  }
+
+  // 2. Tool pages for this language
+  for (const tool of TOOLS) {
+    const localSlug = getLocalizedSlug(tool.slug, targetLang.code);
+    const prefix = targetLang.code === 'en' ? '' : `/${targetLang.code}`;
+    const toolUrl = `${DOMAIN}${prefix}/${localSlug}`;
+
+    const xhtmlLinks = LANGUAGES.map(l => {
+      const lSlug = getLocalizedSlug(tool.slug, l.code);
+      const lPrefix = l.code === 'en' ? '' : `/${l.code}`;
+      return `      <xhtml:link rel="alternate" hreflang="${l.code}" href="${DOMAIN}${lPrefix}/${lSlug}"/>`;
+    }).join('\n') + `\n      <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}/${tool.slug}"/>`;
+
+    urls.push(`  <url>
+    <loc>${toolUrl}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${targetLang.code === 'en' ? tool.priority : (parseFloat(tool.priority) * 0.9).toFixed(2)}</priority>
+${xhtmlLinks}
+  </url>`);
+  }
+
+  // 3. pSEO Long Tail pages for this language
+  for (const pseoSlug of pseoRoutes) {
+    const localSlug = getLocalizedSlug(pseoSlug, targetLang.code);
+    const prefix = targetLang.code === 'en' ? '' : `/${targetLang.code}`;
+    const url = `${DOMAIN}${prefix}/${localSlug}`;
+
+    const xhtmlLinks = LANGUAGES.map(l => {
+      const lSlug = getLocalizedSlug(pseoSlug, l.code);
+      const lPrefix = l.code === 'en' ? '' : `/${l.code}`;
+      return `      <xhtml:link rel="alternate" hreflang="${l.code}" href="${DOMAIN}${lPrefix}/${lSlug}"/>`;
+    }).join('\n') + `\n      <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}/${pseoSlug}"/>`;
+
+    urls.push(`  <url>
+    <loc>${url}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${targetLang.code === 'en' ? '0.85' : '0.75'}</priority>
+${xhtmlLinks}
+  </url>`);
+  }
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.join('\n')}
+</urlset>`;
+};
+
+const generateUnifiedSitemap = () => {
+  let urls = [];
+
+  // Static pages
   for (const page of STATIC_PAGES) {
     for (const lang of LANGUAGES) {
       const prefix = lang.code === 'en' ? '' : `/${lang.code}`;
@@ -502,7 +574,7 @@ ${xhtmlLinks}
     }
   }
 
-  // 2. Tool pages for all languages (13 core tools)
+  // Core Tools
   for (const tool of TOOLS) {
     for (const lang of LANGUAGES) {
       const localSlug = getLocalizedSlug(tool.slug, lang.code);
@@ -525,7 +597,7 @@ ${xhtmlLinks}
     }
   }
 
-  // 3. pSEO Long Tail pages for all languages (10 long-tail routes)
+  // pSEO Long Tail
   for (const pseoSlug of pseoRoutes) {
     for (const lang of LANGUAGES) {
       const localSlug = getLocalizedSlug(pseoSlug, lang.code);
@@ -555,18 +627,49 @@ ${urls.join('\n')}
 </urlset>`;
 };
 
+const generateSitemapIndex = () => {
+  const sitemaps = LANGUAGES.map(lang => `  <sitemap>
+    <loc>${DOMAIN}/sitemap-${lang.code}.xml</loc>
+    <lastmod>${TODAY}</lastmod>
+  </sitemap>`).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemaps}
+</sitemapindex>`;
+};
+
 // ─── Write Files ────────────────────────────────────────────────────────────
 
 const publicDir = path.join(__dirname, '..', 'public');
 const distDir = path.join(__dirname, '..', 'dist');
 
-// Write sitemap
-const sitemap = generateSitemap();
-fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap);
-if (fs.existsSync(distDir)) {
-  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap);
+// 1. Write per-language sitemaps (32 sitemaps)
+for (const lang of LANGUAGES) {
+  const langSitemap = generateUrlsForLang(lang);
+  const sitemapFilename = `sitemap-${lang.code}.xml`;
+  fs.writeFileSync(path.join(publicDir, sitemapFilename), langSitemap);
+  if (fs.existsSync(distDir)) {
+    fs.writeFileSync(path.join(distDir, sitemapFilename), langSitemap);
+  }
 }
-console.log(`✅ sitemap.xml generated (${Math.round(sitemap.length / 1024)} KB, ${LANGUAGES.length * (TOOLS.length + STATIC_PAGES.length + pseoRoutes.length)} URLs)`);
+console.log(`✅ Generated ${LANGUAGES.length} language-specific sitemaps (sitemap-{lang}.xml)`);
+
+// 2. Write Master Sitemap Index (sitemap.xml)
+const sitemapIndex = generateSitemapIndex();
+fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapIndex);
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapIndex);
+}
+console.log(`✅ sitemap.xml generated as Master Sitemap Index (pointing to all ${LANGUAGES.length} language sitemaps)`);
+
+// 3. Write Unified Flat Backup Sitemap (sitemap-all.xml)
+const unifiedSitemap = generateUnifiedSitemap();
+fs.writeFileSync(path.join(publicDir, 'sitemap-all.xml'), unifiedSitemap);
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.join(distDir, 'sitemap-all.xml'), unifiedSitemap);
+}
+console.log(`✅ sitemap-all.xml generated as Unified Backup Sitemap (${Math.round(unifiedSitemap.length / 1024)} KB, ${LANGUAGES.length * (TOOLS.length + STATIC_PAGES.length + pseoRoutes.length)} URLs)`);
 
 // Write per-language llms files
 for (const lang of LANGUAGES) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Languages, Globe2, Captions, MessageSquare, MapPin, SearchCheck, CheckCircle2 } from 'lucide-react';
 import { smartHighlight } from '../../utils/textFormatting';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -33,15 +34,47 @@ export const SupportedLanguages: React.FC = () => {
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 32 }}>
                 {t('lang_uiDesc') || 'We are actively working to translate our entire user interface so you can compress and edit your videos in your native language. Currently, the app interface fully supports 32 languages including:'}
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 16 }}>
-                 {(languages || []).slice(0, 12).map((lang, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 20px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 12, fontWeight: 600, color: 'var(--text-main)' }}>
-                       <CheckCircle2 size={18} color="var(--brand-primary)" /> {lang.nativeName}
-                    </div>
-                 ))}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+                 {(languages || []).map((lang) => {
+                    const langPath = lang.code === 'en' ? '/' : `/${lang.code}`;
+                    return (
+                      <Link 
+                        key={lang.code} 
+                        to={langPath}
+                        style={{ 
+                          display: 'flex', 
+                          flexDirection: 'column', 
+                          gap: 6, 
+                          padding: '16px 20px', 
+                          background: 'var(--bg-app)', 
+                          border: '1px solid var(--border-color)', 
+                          borderRadius: 14, 
+                          textDecoration: 'none',
+                          color: 'var(--text-main)',
+                          transition: 'all 0.2s ease',
+                        }}
+                        className="lang-hub-card"
+                      >
+                         <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontWeight: 700, fontSize: '1rem' }}>
+                            <span style={{ fontSize: '1.3rem' }}>{lang.flag}</span>
+                            <span>{lang.nativeName}</span>
+                         </div>
+                         <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                            {lang.name} • <span style={{ color: 'var(--brand-primary)', fontWeight: 600 }}>Explore Tools →</span>
+                         </div>
+                      </Link>
+                    );
+                 })}
               </div>
+              <style>{`
+                .lang-hub-card:hover {
+                  border-color: var(--brand-primary) !important;
+                  transform: translateY(-2px);
+                  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                }
+              `}</style>
             </div>
-            <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center' }}>
                <Globe2 size={120} color="var(--brand-secondary)" style={{ opacity: 0.8 }} />
             </div>
           </div>

@@ -169,7 +169,7 @@
       ]
     },
     {
-      "source": "/:file(favicon\\.svg|logoweb\\.png|robots\\.txt|llms\\.txt|llms-full\\.txt|sitemap\\.xml)",
+      "source": "/:file(favicon\\.svg|logoweb\\.png|robots\\.txt|llms\\.txt|llms-full\\.txt|sitemap.*\\.xml)",
       "headers": [
         {
           "key": "Cache-Control",

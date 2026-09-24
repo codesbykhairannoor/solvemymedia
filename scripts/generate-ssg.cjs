@@ -115,6 +115,9 @@ async function run() {
       generatedCount++;
     }
 
+    if (generatedCount % 100 === 0 || lang === 'en' || lang === 'id') {
+      console.log(`... Generated ${generatedCount} pages (processed lang: ${lang})`);
+    }
   }
 
   // Generate legal pages (English only for now, or multi if needed)
@@ -130,7 +133,49 @@ async function run() {
     }
   }
 
-  console.log(`✅ SSG Complete! Generated ${generatedCount} static HTML files in seconds.`);
+  // Generate legacy slug redirects to eliminate 404 errors permanently
+  const LEGACY_REDIRECTS = {
+    'mp4-to-gif': 'create-gif',
+    'mov-to-gif': 'create-gif',
+    'm4a-to-mp3': 'video-to-audio',
+    'ogg-to-mp3': 'video-to-audio',
+    'wav-to-mp3': 'video-to-audio',
+    'flac-to-mp3': 'video-to-audio',
+    'mp4-to-mp3': 'video-to-audio',
+    'crop-mp4': 'crop-video',
+    'resize-video-for-tiktok': 'crop-video',
+    'remove-audio-from-video': 'mute-video',
+    'mute-mp4': 'mute-video',
+    'slow-down-mp4': 'video-speed',
+    'speed-up-mp4': 'video-speed',
+    'add-watermark-to-mp4': 'watermark-video',
+    'join-audio-files': 'merge-audio',
+    'merge-mp3': 'merge-audio',
+    'screen-recorder': 'recorder',
+    'audio-recorder': 'recorder',
+    'transcribe-mp3': 'transcribe',
+    'transcribe-mp4': 'transcribe',
+    'compress-mov': 'compress-video',
+    'compress-mp4': 'compress-video',
+    'compress-webm': 'compress-video',
+    'compress-mp3': 'compress-audio',
+    'compress-wav': 'compress-audio',
+    'mov-to-mp4': 'convert-video',
+    'mkv-to-mp4': 'convert-video',
+    'webm-to-mp4': 'convert-video',
+    'avi-to-mp4': 'convert-video',
+  };
+
+  for (const [legacy, target] of Object.entries(LEGACY_REDIRECTS)) {
+    const redirectHtml = `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/${target}"><link rel="canonical" href="https://solvemymedia.com/${target}"><script>window.location.replace('/${target}');</script></head><body><p>Redirecting to <a href="/${target}">/${target}</a>...</p></body></html>`;
+    const targetDir = path.join(distDir, legacy);
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(targetDir, 'index.html'), redirectHtml);
+  }
+
+  console.log(`✅ SSG Complete! Generated ${generatedCount} static HTML files and ${Object.keys(LEGACY_REDIRECTS).length} legacy redirect aliases.`);
 }
 
 async function generatePage(urlPath, lang, translations, serverRender, baseHtml, distDir) {
@@ -182,4 +227,9 @@ async function generatePage(urlPath, lang, translations, serverRender, baseHtml,
   }
 }
 
-run();
+run().then(() => {
+  process.exit(0);
+}).catch((err) => {
+  console.error("SSG Error:", err);
+  process.exit(1);
+});

@@ -54,6 +54,38 @@ const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
   'merge-audio': { title: 'seoMergeAudioTitle', desc: 'seoMergeAudioDesc' }
 };
 
+const LEGACY_SLUG_MAP: Record<string, string> = {
+  'mp4-to-gif': 'create-gif',
+  'mov-to-gif': 'create-gif',
+  'm4a-to-mp3': 'video-to-audio',
+  'ogg-to-mp3': 'video-to-audio',
+  'wav-to-mp3': 'video-to-audio',
+  'flac-to-mp3': 'video-to-audio',
+  'mp4-to-mp3': 'video-to-audio',
+  'crop-mp4': 'crop-video',
+  'resize-video-for-tiktok': 'crop-video',
+  'remove-audio-from-video': 'mute-video',
+  'mute-mp4': 'mute-video',
+  'slow-down-mp4': 'video-speed',
+  'speed-up-mp4': 'video-speed',
+  'add-watermark-to-mp4': 'watermark-video',
+  'join-audio-files': 'merge-audio',
+  'merge-mp3': 'merge-audio',
+  'screen-recorder': 'recorder',
+  'audio-recorder': 'recorder',
+  'transcribe-mp3': 'transcribe',
+  'transcribe-mp4': 'transcribe',
+  'compress-mov': 'compress-video',
+  'compress-mp4': 'compress-video',
+  'compress-webm': 'compress-video',
+  'compress-mp3': 'compress-audio',
+  'compress-wav': 'compress-audio',
+  'mov-to-mp4': 'convert-video',
+  'mkv-to-mp4': 'convert-video',
+  'webm-to-mp4': 'convert-video',
+  'avi-to-mp4': 'convert-video',
+};
+
 // FAQ translation key pairs for each tool
 const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = {
   'compress-video': [
@@ -141,6 +173,13 @@ export const DynamicToolRoute: React.FC = () => {
   }
 
   let standardSlug = getStandardSlug(slug, currentLang);
+  
+  // Legacy slug 301/client redirect
+  if (LEGACY_SLUG_MAP[standardSlug] || LEGACY_SLUG_MAP[slug]) {
+    const targetTool = LEGACY_SLUG_MAP[standardSlug] || LEGACY_SLUG_MAP[slug];
+    const prefix = currentLang === 'en' ? '' : `/${currentLang}`;
+    return <Navigate to={`${prefix}/${targetTool}`} replace />;
+  }
   
   // Try to find a pSEO route match using the standard (English) slug
   let pseoData: any = null;
