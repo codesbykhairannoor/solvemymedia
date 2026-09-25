@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SolveMyMedia — Latest Tools and Updates</title>
+    <link>https://solvemymedia.com</link>
+    <description>100% Client-Side Private Audio, Video, and Image Processing Suite. Zero uploads, unlimited file size.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Sep 2026 09:29:35 GMT</lastBuildDate>
+    <atom:link href="https://solvemymedia.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Compress Video</title>
+      <link>https://solvemymedia.com/compress-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/compress-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>Compress Audio</title>
+      <link>https://solvemymedia.com/compress-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/compress-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>Convert Video</title>
+      <link>https://solvemymedia.com/convert-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/convert-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>Convert Audio</title>
+      <link>https://solvemymedia.com/convert-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/convert-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>Video to Audio</title>
+      <link>https://solvemymedia.com/video-to-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/video-to-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Extract and save audio from any video file as MP3 or WAV.</description>
+    </item>
+    <item>
+      <title>Transcribe Audio &amp; Video</title>
+      <link>https://solvemymedia.com/transcribe</link>
+      <guid isPermaLink="true">https://solvemymedia.com/transcribe</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>AI-powered speech-to-text using local Whisper WASM — no API, no uploads.</description>
+    </item>
+    <item>
+      <title>Screen &amp; Audio Recorder</title>
+      <link>https://solvemymedia.com/recorder</link>
+      <guid isPermaLink="true">https://solvemymedia.com/recorder</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Record screen, webcam, and microphone simultaneously in the browser.</description>
+    </item>
+    <item>
+      <title>Create GIF</title>
+      <link>https://solvemymedia.com/create-gif</link>
+      <guid isPermaLink="true">https://solvemymedia.com/create-gif</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert video clips to high-quality animated GIFs without uploading.</description>
+    </item>
+    <item>
+      <title>Change Video Speed</title>
+      <link>https://solvemymedia.com/video-speed</link>
+      <guid isPermaLink="true">https://solvemymedia.com/video-speed</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Speed up or slow down any video at custom multipliers offline.</description>
+    </item>
+    <item>
+      <title>Crop Video</title>
+      <link>https://solvemymedia.com/crop-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/crop-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Crop and resize videos for any platform without watermarks.</description>
+    </item>
+    <item>
+      <title>Mute Video</title>
+      <link>https://solvemymedia.com/mute-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/mute-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Remove the audio track from any video file instantly.</description>
+    </item>
+    <item>
+      <title>Watermark Video</title>
+      <link>https://solvemymedia.com/watermark-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/watermark-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Overlay text or image watermarks on video frames.</description>
+    </item>
+    <item>
+      <title>Merge Audio</title>
+      <link>https://solvemymedia.com/merge-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/merge-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Combine multiple audio files into one seamless track.</description>
+    </item>
+    <item>
+      <title>[ID] Compress Video</title>
+      <link>https://solvemymedia.com/id/kompres-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/id/kompres-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[ID] Compress Audio</title>
+      <link>https://solvemymedia.com/id/kompres-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/id/kompres-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[ID] Convert Video</title>
+      <link>https://solvemymedia.com/id/mengkonversi-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/id/mengkonversi-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[ID] Convert Audio</title>
+      <link>https://solvemymedia.com/id/mengkonversi-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/id/mengkonversi-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[ES] Compress Video</title>
+      <link>https://solvemymedia.com/es/comprimir-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/es/comprimir-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[ES] Compress Audio</title>
+      <link>https://solvemymedia.com/es/comprimir-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/es/comprimir-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[ES] Convert Video</title>
+      <link>https://solvemymedia.com/es/convertir-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/es/convertir-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[ES] Convert Audio</title>
+      <link>https://solvemymedia.com/es/convertir-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/es/convertir-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[FR] Compress Video</title>
+      <link>https://solvemymedia.com/fr/compresser-la-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/fr/compresser-la-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[FR] Compress Audio</title>
+      <link>https://solvemymedia.com/fr/compresser-laudio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/fr/compresser-laudio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[FR] Convert Video</title>
+      <link>https://solvemymedia.com/fr/convertir-une-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/fr/convertir-une-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[FR] Convert Audio</title>
+      <link>https://solvemymedia.com/fr/convertir-laudio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/fr/convertir-laudio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[DE] Compress Video</title>
+      <link>https://solvemymedia.com/de/video-komprimieren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/de/video-komprimieren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[DE] Compress Audio</title>
+      <link>https://solvemymedia.com/de/audio-komprimieren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/de/audio-komprimieren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[DE] Convert Video</title>
+      <link>https://solvemymedia.com/de/video-konvertieren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/de/video-konvertieren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[DE] Convert Audio</title>
+      <link>https://solvemymedia.com/de/audio-konvertieren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/de/audio-konvertieren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[JA] Compress Video</title>
+      <link>https://solvemymedia.com/ja/bideowoya-suo-suru</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ja/bideowoya-suo-suru</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[JA] Compress Audio</title>
+      <link>https://solvemymedia.com/ja/odeiowoya-suo-suru</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ja/odeiowoya-suo-suru</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[JA] Convert Video</title>
+      <link>https://solvemymedia.com/ja/bideowobian-huan-suru</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ja/bideowobian-huan-suru</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[JA] Convert Audio</title>
+      <link>https://solvemymedia.com/ja/odeiowobian-huan-suru</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ja/odeiowobian-huan-suru</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[PT] Compress Video</title>
+      <link>https://solvemymedia.com/pt/compactar-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/pt/compactar-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[PT] Compress Audio</title>
+      <link>https://solvemymedia.com/pt/comprimir-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/pt/comprimir-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[PT] Convert Video</title>
+      <link>https://solvemymedia.com/pt/converter-video</link>
+      <guid isPermaLink="true">https://solvemymedia.com/pt/converter-video</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[PT] Convert Audio</title>
+      <link>https://solvemymedia.com/pt/converter-audio</link>
+      <guid isPermaLink="true">https://solvemymedia.com/pt/converter-audio</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[ZH] Compress Video</title>
+      <link>https://solvemymedia.com/zh/ya-suo-shi-pin</link>
+      <guid isPermaLink="true">https://solvemymedia.com/zh/ya-suo-shi-pin</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[ZH] Compress Audio</title>
+      <link>https://solvemymedia.com/zh/ya-suo-yin-pin</link>
+      <guid isPermaLink="true">https://solvemymedia.com/zh/ya-suo-yin-pin</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[ZH] Convert Video</title>
+      <link>https://solvemymedia.com/zh/zhuan-huan-shi-pin</link>
+      <guid isPermaLink="true">https://solvemymedia.com/zh/zhuan-huan-shi-pin</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[ZH] Convert Audio</title>
+      <link>https://solvemymedia.com/zh/zhuan-huan-yin-pin</link>
+      <guid isPermaLink="true">https://solvemymedia.com/zh/zhuan-huan-yin-pin</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[AR] Compress Video</title>
+      <link>https://solvemymedia.com/ar/dgt-lfydyw</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ar/dgt-lfydyw</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[AR] Compress Audio</title>
+      <link>https://solvemymedia.com/ar/dgt-lswt</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ar/dgt-lswt</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[AR] Convert Video</title>
+      <link>https://solvemymedia.com/ar/thwyl-lfydyw</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ar/thwyl-lfydyw</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[AR] Convert Audio</title>
+      <link>https://solvemymedia.com/ar/thwyl-lswt</link>
+      <guid isPermaLink="true">https://solvemymedia.com/ar/thwyl-lswt</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+    <item>
+      <title>[HI] Compress Video</title>
+      <link>https://solvemymedia.com/hi/viiddiyo-snpiiddit-kren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/hi/viiddiyo-snpiiddit-kren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce video file size without quality loss using local WebAssembly encoding.</description>
+    </item>
+    <item>
+      <title>[HI] Compress Audio</title>
+      <link>https://solvemymedia.com/hi/onddiyo-snpiiddit-kren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/hi/onddiyo-snpiiddit-kren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.</description>
+    </item>
+    <item>
+      <title>[HI] Convert Video</title>
+      <link>https://solvemymedia.com/hi/viiddiyo-privrtit-kren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/hi/viiddiyo-privrtit-kren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between MP4, WebM, MKV, and MOV formats privately in your browser.</description>
+    </item>
+    <item>
+      <title>[HI] Convert Audio</title>
+      <link>https://solvemymedia.com/hi/onddiyo-privrtit-kren</link>
+      <guid isPermaLink="true">https://solvemymedia.com/hi/onddiyo-privrtit-kren</guid>
+      <pubDate>Fri, 25 Sep 2026 09:29:35 GMT</pubDate>
+      <description>Convert between audio formats (MP3, WAV, AAC, OGG) offline.</description>
+    </item>
+  </channel>
+</rss>

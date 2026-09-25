@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://solvemymedia.com/zh</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/about-us</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/about-us"/>
@@ -81,7 +81,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/privacy-policy</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.36</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/privacy-policy"/>
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/terms-of-service</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.36</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/terms-of-service"/>
@@ -159,7 +159,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/security</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/security"/>
@@ -198,7 +198,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/pricing</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.54</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/pricing"/>
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/compare</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.63</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compare"/>
@@ -276,7 +276,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/supported-languages</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/supported-languages"/>
@@ -315,7 +315,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/ya-suo-shi-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-video"/>
@@ -354,7 +354,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/ya-suo-yin-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-audio"/>
@@ -393,7 +393,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/zhuan-huan-shi-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-video"/>
@@ -432,7 +432,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/zhuan-huan-yin-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-audio"/>
@@ -471,7 +471,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/shi-pin-zhuan-yin-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/video-to-audio"/>
@@ -510,7 +510,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/lu-zhi</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe"/>
@@ -549,7 +549,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/lu-yin-ji</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/recorder"/>
@@ -588,7 +588,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/chuang-jian-gif</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/create-gif"/>
@@ -627,7 +627,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/shi-pin-su-du</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/video-speed"/>
@@ -666,7 +666,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/cai-jian-shi-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/crop-video"/>
@@ -705,7 +705,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/jing-yin-shi-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/mute-video"/>
@@ -744,7 +744,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/shui-yin-shi-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/watermark-video"/>
@@ -783,7 +783,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/yin-pin-zuo-pin</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/merge-audio"/>
@@ -822,7 +822,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/减小电子邮件的-mp4-视频大小</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/reduce-mp4-video-size-for-email"/>
@@ -861,7 +861,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/压缩-whatsapp-的大视频</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-large-video-for-whatsapp"/>
@@ -900,7 +900,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/convert-iphone-mov-to-mp4-for-android</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-mov-to-mp4-for-android"/>
@@ -939,7 +939,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/extract-audio-from-video-for-podcasts</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/extract-audio-from-video-for-podcast"/>
@@ -978,7 +978,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/在不损失质量的情况下缩小视频</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/make-video-smaller-without-losing-quality"/>
@@ -1017,7 +1017,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/完全去除视频中的声音</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/remove-sound-from-video-completely"/>
@@ -1056,7 +1056,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/speed-up-video-for-tiktok-fast</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/speed-up-video-for-tiktok"/>
@@ -1095,7 +1095,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/crop-video-for-instagram-story-916</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/crop-video-for-instagram-story"/>
@@ -1134,7 +1134,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/将多个语音备忘录合并为一个</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/combine-multiple-voice-memos-into-one"/>
@@ -1173,7 +1173,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh/transcribe-zoom-meeting-to-text</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe-zoom-meeting-recording-to-text"/>

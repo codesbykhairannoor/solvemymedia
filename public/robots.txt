@@ -148,6 +148,7 @@ Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Sitemap: https://solvemymedia.com/sitemap_index.xml
 Sitemap: https://solvemymedia.com/sitemap.xml
 Sitemap: https://solvemymedia.com/sitemap-all.xml
+Sitemap: https://solvemymedia.com/feed.xml
 
 # Individual Language Sitemaps for Granular Regional Monitoring
 Sitemap: https://solvemymedia.com/sitemap-en.xml

@@ -684,4 +684,63 @@ for (const lang of LANGUAGES) {
   console.log(`✅ ${filename}`);
 }
 
+// 4. Write Freshness RSS 2.0 Feed (feed.xml) for Googlebot Freshness Crawling
+function xmlEscape(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function generateRssFeed() {
+  const now = new Date().toUTCString();
+  let rss = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  rss += `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n`;
+  rss += `  <channel>\n`;
+  rss += `    <title>SolveMyMedia — Latest Tools and Updates</title>\n`;
+  rss += `    <link>https://solvemymedia.com</link>\n`;
+  rss += `    <description>100% Client-Side Private Audio, Video, and Image Processing Suite. Zero uploads, unlimited file size.</description>\n`;
+  rss += `    <language>en</language>\n`;
+  rss += `    <lastBuildDate>${now}</lastBuildDate>\n`;
+  rss += `    <atom:link href="https://solvemymedia.com/feed.xml" rel="self" type="application/rss+xml"/>\n`;
+
+  for (const tool of TOOLS) {
+    rss += `    <item>\n`;
+    rss += `      <title>${xmlEscape(tool.name)}</title>\n`;
+    rss += `      <link>https://solvemymedia.com/${tool.slug}</link>\n`;
+    rss += `      <guid isPermaLink="true">https://solvemymedia.com/${tool.slug}</guid>\n`;
+    rss += `      <pubDate>${now}</pubDate>\n`;
+    rss += `      <description>${xmlEscape(tool.desc)}</description>\n`;
+    rss += `    </item>\n`;
+  }
+
+  for (const lang of ['id', 'es', 'fr', 'de', 'ja', 'pt', 'zh', 'ar', 'hi']) {
+    for (const tool of TOOLS.slice(0, 4)) {
+      const locSlug = getLocalizedSlug(tool.slug, lang);
+      const url = `https://solvemymedia.com/${lang}/${locSlug}`;
+      rss += `    <item>\n`;
+      rss += `      <title>[${lang.toUpperCase()}] ${xmlEscape(tool.name)}</title>\n`;
+      rss += `      <link>${url}</link>\n`;
+      rss += `      <guid isPermaLink="true">${url}</guid>\n`;
+      rss += `      <pubDate>${now}</pubDate>\n`;
+      rss += `      <description>${xmlEscape(tool.desc)}</description>\n`;
+      rss += `    </item>\n`;
+    }
+  }
+
+  rss += `  </channel>\n`;
+  rss += `</rss>\n`;
+  return rss;
+}
+
+const rssFeed = generateRssFeed();
+fs.writeFileSync(path.join(publicDir, 'feed.xml'), rssFeed);
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.join(distDir, 'feed.xml'), rssFeed);
+}
+console.log(`✅ feed.xml generated as RSS 2.0 Freshness Feed for Googlebot`);
+
 console.log('\n🎉 All SEO files generated successfully!');
