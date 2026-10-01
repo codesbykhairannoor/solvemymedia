@@ -90,6 +90,12 @@ const LEGACY_SLUG_MAP: Record<string, string> = {
   'mkv-to-mp4': 'convert-video',
   'webm-to-mp4': 'convert-video',
   'avi-to-mp4': 'convert-video',
+  'audio-berfungsi': 'merge-audio',
+  'menuliskan': 'transcribe',
+  'mengkonversi-video': 'convert-video',
+  'mengkonversi-audio': 'convert-audio',
+  'video-tanda-air': 'watermark-video',
+  'video-tera-air': 'watermark-video',
 };
 
 // FAQ translation key pairs for each tool

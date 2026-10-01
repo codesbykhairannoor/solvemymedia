@@ -3,7 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Sun, Moon, ChevronDown, ChevronUp, Search, Menu, X,
   Video, Music, Scissors, Minimize2, Image,
-  Mic, FileAudio, RotateCw, Crop, VolumeX, Stamp, FastForward
+  Mic, FileAudio, RotateCw, Crop, VolumeX, Stamp, FastForward,
+  ShieldCheck, Zap, Sparkles
 } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getLocalizedSlug, getStandardSlug } from '../i18n/slugs';
@@ -13,19 +14,110 @@ interface NavbarProps {
   toggleTheme: () => void;
 }
 
+const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
+  id: {
+    'compress-video': 'Kompres Video',
+    'cut-video': 'Potong Video',
+    'convert-video': 'Konversi Video',
+    'video-speed': 'Kecepatan Video',
+    'crop-video': 'Pangkas Video',
+    'create-gif': 'Buat GIF',
+    'mute-video': 'Bisukan Video',
+    'watermark-video': 'Watermark Video',
+    'compress-audio': 'Kompres Audio',
+    'convert-audio': 'Konversi Audio',
+    'video-to-audio': 'Video ke Audio',
+    'merge-audio': 'Gabung Audio',
+    'transcribe': 'Transkripsi AI',
+    'recorder': 'Perekam Layar',
+  },
+  ms: {
+    'compress-video': 'Mampatkan Video',
+    'cut-video': 'Potong Video',
+    'convert-video': 'Tukar Video',
+    'video-speed': 'Kelajuan Video',
+    'crop-video': 'Pangkas Video',
+    'create-gif': 'Buat GIF',
+    'mute-video': 'Bisukan Video',
+    'watermark-video': 'Watermark Video',
+    'compress-audio': 'Mampatkan Audio',
+    'convert-audio': 'Tukar Audio',
+    'video-to-audio': 'Video ke Audio',
+    'merge-audio': 'Gabung Audio',
+    'transcribe': 'Transkripsi AI',
+    'recorder': 'Perakam Skrin',
+  },
+  en: {
+    'compress-video': 'Compress Video',
+    'cut-video': 'Cut Video',
+    'convert-video': 'Convert Video',
+    'video-speed': 'Video Speed',
+    'crop-video': 'Crop Video',
+    'create-gif': 'Create GIF',
+    'mute-video': 'Mute Video',
+    'watermark-video': 'Watermark Video',
+    'compress-audio': 'Compress Audio',
+    'convert-audio': 'Convert Audio',
+    'video-to-audio': 'Video to Audio',
+    'merge-audio': 'Merge Audio',
+    'transcribe': 'AI Transcribe',
+    'recorder': 'Screen Recorder',
+  }
+};
+
 const MI: React.FC<{
   icon: React.ElementType;
   label: string;
   onClick: () => void;
   highlight?: boolean;
-}> = ({ icon: Icon, label, onClick, highlight }) => (
+  badge?: string;
+}> = ({ icon: Icon, label, onClick, highlight, badge }) => (
   <div
     onClick={onClick}
     className="mega-menu-item"
-    style={highlight ? { background: 'rgba(225,29,72,0.04)', borderColor: 'rgba(225,29,72,0.15)' } : {}}
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '7px 10px',
+      borderRadius: 9,
+      cursor: 'pointer',
+      transition: 'all 0.18s ease',
+      border: '1px solid transparent',
+      ...(highlight ? { background: 'rgba(168,85,247,0.06)', borderColor: 'rgba(168,85,247,0.22)' } : {})
+    }}
   >
-    <Icon size={15} color="var(--brand-primary)" style={{ flexShrink: 0 }} />
-    <span className="item-title" style={{ textTransform: 'uppercase', ...(highlight ? { color: 'var(--brand-primary)' } : {}) }}>{label}</span>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0, flex: 1 }}>
+      <Icon size={15} color="var(--brand-primary)" style={{ flexShrink: 0 }} />
+      <span className="item-title" style={{
+        fontSize: '0.82rem',
+        fontWeight: 700,
+        textTransform: 'uppercase',
+        letterSpacing: '0.01em',
+        color: highlight ? 'var(--brand-primary)' : 'var(--text-main)',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }}>
+        {label}
+      </span>
+    </div>
+    {badge && (
+      <span style={{
+        fontSize: '0.62rem',
+        fontWeight: 800,
+        padding: '2px 5px',
+        borderRadius: 5,
+        background: highlight ? 'var(--brand-gradient)' : 'rgba(var(--brand-secondary-rgb), 0.15)',
+        color: highlight ? '#ffffff' : 'var(--brand-secondary)',
+        letterSpacing: '0.04em',
+        textTransform: 'uppercase',
+        flexShrink: 0,
+        marginLeft: 6
+      }}>
+        {badge}
+      </span>
+    )}
   </div>
 );
 
@@ -71,6 +163,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
 
   const getToolName = (toolId: string) => {
+    if (TOOL_DISPLAY_NAMES[currentLang]?.[toolId]) {
+      return TOOL_DISPLAY_NAMES[currentLang][toolId];
+    }
     const localized = getLocalizedSlug(toolId, currentLang);
     return localized.replace(/-/g, " ");
   };
@@ -169,35 +264,67 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               padding: '32px', display: 'flex', justifyContent: 'center',
               animation: 'fadeInDown 0.2s ease forwards'
             }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, width: '100%', maxWidth: 1000 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, width: '100%', maxWidth: 1080 }}>
+                {/* Column 1: Video Essentials (4 items) */}
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">{t('navCatVideoOpt') || 'VIDEO OPTIMIZATION'}</div>
+                  <div className="mega-menu-title">{t('navCatVideoOpt') || 'OPTIMASI VIDEO'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-video')} onClick={() => handleToolClick('compress-video')} />
                   <MI icon={RotateCw} label={getToolName('convert-video')} onClick={() => handleToolClick('convert-video')} />
                   <MI icon={FastForward} label={getToolName('video-speed')} onClick={() => handleToolClick('video-speed')} />
+                  <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
                 </div>
                 
+                {/* Column 2: Video Editing (4 items) */}
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">{t('navCatVideoEdit') || 'VIDEO EDITING'}</div>
-                  <MI icon={Scissors} label={getToolName('cut-video')} onClick={() => handleToolClick('cut-video')} highlight />
-                  <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
+                  <div className="mega-menu-title">{t('navCatVideoEdit') || 'PENGEDITAN VIDEO'}</div>
+                  <MI icon={Scissors} label={getToolName('cut-video')} onClick={() => handleToolClick('cut-video')} highlight badge={currentLang === 'id' ? 'Populer' : 'Popular'} />
                   <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
-                  <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
+                  <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
                   <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
                 </div>
 
+                {/* Column 3: Audio Tools (4 items) */}
                 <div className="mega-menu-col">
-                  <div className="mega-menu-title">{t('navCatAudio') || 'AUDIO TOOLS'}</div>
+                  <div className="mega-menu-title">{t('navCatAudio') || 'ALAT AUDIO'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-audio')} onClick={() => handleToolClick('compress-audio')} />
                   <MI icon={Music} label={getToolName('convert-audio')} onClick={() => handleToolClick('convert-audio')} />
                   <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
                   <MI icon={Scissors} label={getToolName('merge-audio')} onClick={() => handleToolClick('merge-audio')} />
                 </div>
 
+                {/* Column 4: AI & Studio (2 items + Feature Showcase Card) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatAiStudio') || 'AI & STUDIO'}</div>
-                  <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} />
-                  <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} />
+                  <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} badge="AI" />
+                  <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} badge="Studio" />
+                  
+                  {/* Feature Showcase Box - Matches exact height of 2 items */}
+                  <div 
+                    onClick={() => { setIsMegaOpen(false); navigate(prefix ? `${prefix}/security` : '/security'); }}
+                    className="mega-menu-feature-box"
+                    style={{
+                      marginTop: 6,
+                      padding: '12px 14px',
+                      borderRadius: 10,
+                      background: 'linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(6,182,212,0.08) 100%)',
+                      border: '1px solid var(--border-color)',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 6,
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <ShieldCheck size={16} color="var(--brand-primary)" />
+                      <span style={{ fontSize: '0.76rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+                        {currentLang === 'id' ? '100% Privasi Klien' : '100% Client-Side'}
+                      </span>
+                    </div>
+                    <p style={{ fontSize: '0.73rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.4 }}>
+                      {currentLang === 'id' ? 'Tanpa upload cloud. Pemrosesan lokal aman di memori perangkat.' : 'Zero cloud uploads. Fast offline execution in your browser.'}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -353,19 +480,19 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           {isMobileAllOpen && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
-                { section: t('navCatVideoOpt') || 'VIDEO OPTIMIZATION', tools: [
+                { section: t('navCatVideoOpt') || 'OPTIMASI VIDEO', tools: [
                   { id: 'compress-video', Icon: Minimize2 },
                   { id: 'convert-video', Icon: RotateCw },
                   { id: 'video-speed', Icon: FastForward },
-                ]},
-                { section: t('navCatVideoEdit') || 'VIDEO EDITING', tools: [
-                  { id: 'cut-video', Icon: Scissors },
-                  { id: 'create-gif', Icon: Image },
-                  { id: 'crop-video', Icon: Crop },
                   { id: 'mute-video', Icon: VolumeX },
+                ]},
+                { section: t('navCatVideoEdit') || 'PENGEDITAN VIDEO', tools: [
+                  { id: 'cut-video', Icon: Scissors },
+                  { id: 'crop-video', Icon: Crop },
+                  { id: 'create-gif', Icon: Image },
                   { id: 'watermark-video', Icon: Stamp },
                 ]},
-                { section: t('navCatAudio') || 'AUDIO TOOLS', tools: [
+                { section: t('navCatAudio') || 'ALAT AUDIO', tools: [
                   { id: 'compress-audio', Icon: Minimize2 },
                   { id: 'convert-audio', Icon: Music },
                   { id: 'video-to-audio', Icon: FileAudio },
@@ -471,6 +598,11 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         }
         .mega-menu-item:hover .item-title {
           color: var(--text-accent);
+        }
+        .mega-menu-feature-box:hover {
+          border-color: var(--brand-primary) !important;
+          box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15);
+          transform: translateY(-2px);
         }
         @media (max-width: 768px) {
           .desktop-only { display: none !important; }

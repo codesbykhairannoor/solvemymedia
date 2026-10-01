@@ -50,8 +50,8 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 - [Change Video Speed](https://solvemymedia.com/ms/kelajuan-video): Speed up or slow down any video at custom multipliers offline.
 - [Crop Video](https://solvemymedia.com/ms/pangkas-video): Crop and resize videos for any platform without watermarks.
 - [Mute Video](https://solvemymedia.com/ms/bisu-video): Remove the audio track from any video file instantly.
-- [Watermark Video](https://solvemymedia.com/ms/video-tera-air): Overlay text or image watermarks on video frames.
-- [Merge Audio](https://solvemymedia.com/ms/audio-berfungsi): Combine multiple audio files into one seamless track.
+- [Watermark Video](https://solvemymedia.com/ms/watermark-video): Overlay text or image watermarks on video frames.
+- [Merge Audio](https://solvemymedia.com/ms/gabung-audio): Combine multiple audio files into one seamless track.
 
 ---
 

@@ -20,6 +20,25 @@ export const Home: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const getToolName = (toolId: string) => {
+    if (currentLang === 'id') {
+      const idNames: Record<string, string> = {
+        'compress-video': 'Kompres Video',
+        'cut-video': 'Potong Video',
+        'convert-video': 'Konversi Video',
+        'video-speed': 'Kecepatan Video',
+        'crop-video': 'Pangkas Video',
+        'create-gif': 'Buat GIF',
+        'mute-video': 'Bisukan Video',
+        'watermark-video': 'Watermark Video',
+        'compress-audio': 'Kompres Audio',
+        'convert-audio': 'Konversi Audio',
+        'video-to-audio': 'Video ke Audio',
+        'merge-audio': 'Gabung Audio',
+        'transcribe': 'Transkripsi AI',
+        'recorder': 'Perekam Layar',
+      };
+      if (idNames[toolId]) return idNames[toolId];
+    }
     const localized = getLocalizedSlug(toolId, currentLang);
     return localized.replace(/-/g, " ");
   };

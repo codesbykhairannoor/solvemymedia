@@ -436,7 +436,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-video"/>
-      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/mengkonversi-video"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/konversi-video"/>
       <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/convertir-video"/>
       <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/convertir-une-video"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/video-konvertieren"/>
@@ -475,7 +475,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-audio"/>
-      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/mengkonversi-audio"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/konversi-audio"/>
       <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/convertir-audio"/>
       <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/convertir-laudio"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/audio-konvertieren"/>
@@ -553,7 +553,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe"/>
-      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/menuliskan"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/transkripsi"/>
       <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/transcribir"/>
       <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/transcrire"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/transkribieren"/>
@@ -782,12 +782,12 @@
       <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/mute-video"/>
   </url>
   <url>
-    <loc>https://solvemymedia.com/ms/video-tera-air</loc>
+    <loc>https://solvemymedia.com/ms/watermark-video</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/watermark-video"/>
-      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/video-tanda-air"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/watermark-video"/>
       <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/video-de-marca-de-agua"/>
       <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/video-en-filigrane"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/wasserzeichen-video"/>
@@ -816,17 +816,17 @@
       <xhtml:link rel="alternate" hreflang="ro" href="https://solvemymedia.com/ro/filigran-video"/>
       <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/video-s-vodoznakom"/>
       <xhtml:link rel="alternate" hreflang="uk" href="https://solvemymedia.com/uk/video-z-vodyanim-znakom"/>
-      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/video-tera-air"/>
+      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/watermark-video"/>
       <xhtml:link rel="alternate" hreflang="tl" href="https://solvemymedia.com/tl/watermark-na-video"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/watermark-video"/>
   </url>
   <url>
-    <loc>https://solvemymedia.com/ms/audio-berfungsi</loc>
+    <loc>https://solvemymedia.com/ms/gabung-audio</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/merge-audio"/>
-      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/audio-berfungsi"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/gabung-audio"/>
       <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/obras-de-audio"/>
       <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/oeuvres-audio"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/audio-funktioniert"/>
@@ -855,7 +855,7 @@
       <xhtml:link rel="alternate" hreflang="ro" href="https://solvemymedia.com/ro/merge-audio"/>
       <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/audio-funguje"/>
       <xhtml:link rel="alternate" hreflang="uk" href="https://solvemymedia.com/uk/audio-roboti"/>
-      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/audio-berfungsi"/>
+      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/gabung-audio"/>
       <xhtml:link rel="alternate" hreflang="tl" href="https://solvemymedia.com/tl/gumagana-ang-audio"/>
       <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/merge-audio"/>
   </url>
