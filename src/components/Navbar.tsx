@@ -277,54 +277,26 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 {/* Column 2: Video Editing (4 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatVideoEdit') || 'PENGEDITAN VIDEO'}</div>
-                  <MI icon={Scissors} label={getToolName('cut-video')} onClick={() => handleToolClick('cut-video')} highlight badge={currentLang === 'id' ? 'Populer' : 'Popular'} />
+                  <MI icon={Scissors} label={getToolName('cut-video')} onClick={() => handleToolClick('cut-video')} />
                   <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
                   <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
                   <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
                 </div>
 
-                {/* Column 3: Audio Tools (4 items) */}
+                {/* Column 3: Audio Tools (3 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatAudio') || 'ALAT AUDIO'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-audio')} onClick={() => handleToolClick('compress-audio')} />
                   <MI icon={Music} label={getToolName('convert-audio')} onClick={() => handleToolClick('convert-audio')} />
-                  <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
                   <MI icon={Scissors} label={getToolName('merge-audio')} onClick={() => handleToolClick('merge-audio')} />
                 </div>
 
-                {/* Column 4: AI & Studio (2 items + Feature Showcase Card) */}
+                {/* Column 4: AI & Studio (3 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatAiStudio') || 'AI & STUDIO'}</div>
+                  <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
                   <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} badge="AI" />
                   <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} badge="Studio" />
-                  
-                  {/* Feature Showcase Box - Matches exact height of 2 items */}
-                  <div 
-                    onClick={() => { setIsMegaOpen(false); navigate(prefix ? `${prefix}/security` : '/security'); }}
-                    className="mega-menu-feature-box"
-                    style={{
-                      marginTop: 6,
-                      padding: '12px 14px',
-                      borderRadius: 10,
-                      background: 'linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(6,182,212,0.08) 100%)',
-                      border: '1px solid var(--border-color)',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 6,
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <ShieldCheck size={16} color="var(--brand-primary)" />
-                      <span style={{ fontSize: '0.76rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-                        {currentLang === 'id' ? '100% Privasi Klien' : '100% Client-Side'}
-                      </span>
-                    </div>
-                    <p style={{ fontSize: '0.73rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.4 }}>
-                      {currentLang === 'id' ? 'Tanpa upload cloud. Pemrosesan lokal aman di memori perangkat.' : 'Zero cloud uploads. Fast offline execution in your browser.'}
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

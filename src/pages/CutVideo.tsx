@@ -18,7 +18,8 @@ import {
   Clock,
   Sliders,
   ChevronRight,
-  Maximize2
+  Maximize2,
+  Settings2
 } from 'lucide-react';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
@@ -403,96 +404,82 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         style={{ display: 'none' }}
       />
 
-      {/* 1. HERO & DROPZONE (Shown when no file is uploaded) */}
+      {/* 1. HERO (Shown when no file is uploaded) */}
       {!file && (
-        <div style={{ maxWidth: 1040, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ marginBottom: 32 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', borderRadius: 20, background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.25)', color: 'var(--brand-primary)', fontSize: '0.85rem', fontWeight: 800, marginBottom: 16 }}>
-              <Scissors size={15} />
-              <span>{currentLang === 'id' ? 'Pemotong Video WebAssembly Instan' : 'WebAssembly Lossless Trimmer'}</span>
+        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+          <h1 style={{ 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            fontWeight: 900, 
+            marginBottom: 20, 
+            letterSpacing: '-0.03em', 
+            lineHeight: 1.15, 
+            fontFamily: 'Outfit, sans-serif'
+          }}>
+            {smartHighlight(pseoData ? pseoData.h1 : (t('toolCutVideoTitle') || t('toolCutVideo') || 'Cut Video Online Fast & Lossless'))}
+          </h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+            {pseoData ? pseoData.description : (t('cutVideoDesc') || t('cwUploadDesc') || 'Trim and slice video clips directly in your browser with instant WebAssembly stream demuxing. 100% private, free, and zero server uploads.')}
+          </p>
+        </div>
+      )}
+
+      {/* 2. STANDARD WORKSPACE CONTAINER (Shown when no file is uploaded) */}
+      {!file && (
+        <div className="tool-workspace-container" style={{ margin: '0 auto' }}>
+          <div className="tool-workspace-left glass-panel">
+            <div 
+              className="dropzone"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              <div className="dropzone-icon">
+                <UploadCloud size={40} />
+              </div>
+              <p>{t('dragDrop') || 'Drag & drop file or'}{' '}<span className="browse-text">{t('browseFiles') || 'Browse Files'}</span></p>
             </div>
-
-            <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15, color: 'var(--text-main)', marginBottom: 16 }}>
-              {smartHighlight(pseoData ? pseoData.h1 : (currentLang === 'id' ? 'Potong Video Online Cepat & Tanpa Rugi' : 'Cut Video Online Fast & Lossless'))}
-            </h1>
-
-            <p style={{ fontSize: 'clamp(1rem, 2vw, 1.18rem)', color: 'var(--text-muted)', maxWidth: 760, margin: '0 auto', lineHeight: 1.6 }}>
-              {pseoData ? pseoData.description : (currentLang === 'id' ? 'Pangkas dan potong durasi klip video langsung di browser Anda dalam 0,4 detik dengan kecepatan WebAssembly stream demuxing. 100% aman, gratis, dan tanpa upload ke cloud.' : 'Trim and slice video clips directly in your browser with instant WebAssembly stream demuxing. 100% private, free, and zero server uploads.')}
-            </p>
           </div>
 
-          {/* Interactive Dropzone */}
-          <div
-            onClick={() => fileInputRef.current?.click()}
-            className="cut-dropzone-hero"
-            style={{
-              maxWidth: 840,
-              margin: '0 auto 48px auto',
-              background: 'var(--bg-card)',
-              border: '2px dashed var(--border-color)',
-              borderRadius: 24,
-              padding: '60px 24px',
-              cursor: 'pointer',
-              transition: 'all 0.25s ease',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              boxShadow: '0 12px 40px rgba(0,0,0,0.06)'
-            }}
-          >
-            <div style={{
-              width: 84,
-              height: 84,
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(6,182,212,0.15) 100%)',
-              border: '1.5px solid var(--border-color)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: 20,
-              boxShadow: '0 8px 30px rgba(168,85,247,0.2)'
-            }}>
-              <UploadCloud size={40} color="var(--brand-primary)" />
-            </div>
+          <div className="tool-workspace-right glass-panel">
+            <div>
+              <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-main)', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Settings2 size={18} className="text-brand-primary" />
+                <span>{t('cutSettings') || 'Trimming Settings'}</span>
+              </h4>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: 16 }}>
+                {t('cutSettingsDesc') || 'Set in and out cut points with frame precision or lossless stream copy.'}
+              </p>
 
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8 }}>
-              {currentLang === 'id' ? 'Pilih Video yang Ingin Dipotong' : 'Select Video to Cut & Trim'}
-            </h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: 20 }}>
-              {currentLang === 'id' ? 'Tarik & lepas file video ke sini, atau klik tombol di bawah' : 'Drag & drop your video file here, or click to browse'}
-            </p>
+              {/* Mode Options */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
+                <div style={{ padding: 12, borderRadius: 10, background: 'var(--bg-app)', border: '1px solid var(--border-color)' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--brand-primary)', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Zap size={14} />
+                    <span>{t('cutModeLossless') || 'Lossless Stream Cut'}</span>
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+                    {t('cutModeLosslessDesc') || 'Cuts in 0.5s without re-encoding. 100% original quality preserved.'}
+                  </div>
+                </div>
+
+                <div style={{ padding: 12, borderRadius: 10, background: 'var(--bg-app)', border: '1px solid var(--border-color)' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--text-main)', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Scissors size={14} />
+                    <span>{t('cutModeAccurate') || 'Frame-Accurate Cut'}</span>
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+                    {t('cutModeAccurateDesc') || 'Re-encodes cleanly at the exact millisecond frame.'}
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <button
               type="button"
               className="btn-primary"
-              style={{
-                padding: '12px 32px',
-                borderRadius: 12,
-                fontSize: '0.95rem',
-                fontWeight: 700,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                boxShadow: '0 8px 24px rgba(168,85,247,0.35)'
-              }}
+              disabled
+              style={{ marginTop: 'auto' }}
             >
-              <Scissors size={18} />
-              <span>{currentLang === 'id' ? 'Buka File Video' : 'Browse Video File'}</span>
+              {t('cutAction') || t('toolCutVideo') || 'Cut Video Now'}
             </button>
-
-            {/* Format Pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginTop: 28, maxWidth: 600 }}>
-              {['MP4', 'WebM', 'MOV', 'MKV', 'AVI', 'WMV', 'FLV', '3GP'].map(ext => (
-                <span key={ext} style={{ padding: '4px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                  {ext}
-                </span>
-              ))}
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 20, fontSize: '0.8rem', color: 'var(--success-color)', fontWeight: 600 }}>
-              <CheckCircle2 size={15} />
-              <span>{currentLang === 'id' ? '100% Pemrosesan Lokal • Tidak Ada Upload ke Server • Privasi Mutlak' : '100% Client-Side • Zero Cloud Uploads • Instant Processing'}</span>
-            </div>
           </div>
         </div>
       )}
@@ -524,12 +511,10 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             </div>
 
             <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 8, letterSpacing: '-0.02em' }}>
-              {currentLang === 'id' ? 'Video Berhasil Dipotong!' : 'Video Trimmed Successfully!'}
+              {t('cutSuccessTitle') || 'Video Trimmed Successfully!'}
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: 24 }}>
-              {currentLang === 'id' 
-                ? `Hasil potongan berdurasi ${formatTimecode(selectedDuration)} siap Anda unduh.`
-                : `Your trimmed clip (${formatTimecode(selectedDuration)}) is ready to download.`}
+              {(t('cutSuccessDesc') || 'Your trimmed clip is ready to download.')} ({formatTimecode(selectedDuration)})
             </p>
 
             {/* Result Video Player */}
@@ -555,19 +540,19 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             {/* Stats row */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', justifyContent: 'center', padding: '10px 20px', borderRadius: 12, background: 'var(--bg-app)', border: '1px solid var(--border-color)', marginBottom: 28 }}>
               <div style={{ fontSize: '0.85rem' }}>
-                <span style={{ color: 'var(--text-muted)' }}>{currentLang === 'id' ? 'Durasi Asli' : 'Original'}: </span>
+                <span style={{ color: 'var(--text-muted)' }}>{t('cutOriginalDuration') || 'Original'}: </span>
                 <strong style={{ color: 'var(--text-main)' }}>{formatTimecode(duration)}</strong>
               </div>
               <span style={{ color: 'var(--border-color)' }}>•</span>
               <div style={{ fontSize: '0.85rem' }}>
-                <span style={{ color: 'var(--text-muted)' }}>{currentLang === 'id' ? 'Durasi Potongan' : 'Cut Duration'}: </span>
+                <span style={{ color: 'var(--text-muted)' }}>{t('cutDuration') || 'Cut Duration'}: </span>
                 <strong style={{ color: 'var(--brand-primary)' }}>{formatTimecode(selectedDuration)}</strong>
               </div>
               {outputSizeBytes && (
                 <>
                   <span style={{ color: 'var(--border-color)' }}>•</span>
                   <div style={{ fontSize: '0.85rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>{currentLang === 'id' ? 'Ukuran File' : 'Size'}: </span>
+                    <span style={{ color: 'var(--text-muted)' }}>{t('actualSize') || 'Size'}: </span>
                     <strong style={{ color: 'var(--brand-secondary)' }}>{(outputSizeBytes / (1024 * 1024)).toFixed(2)} MB</strong>
                   </div>
                 </>
@@ -593,7 +578,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 }}
               >
                 <Download size={20} />
-                <span>{currentLang === 'id' ? `Unduh ${downloadFileName}` : `Download ${downloadFileName}`}</span>
+                <span>{(t('cwDownload') || 'Download')} {downloadFileName}</span>
               </a>
 
               <button
@@ -614,7 +599,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 }}
               >
                 <Scissors size={18} />
-                <span>{currentLang === 'id' ? 'Potong Bagian Lain' : 'Trim Another Part'}</span>
+                <span>{t('cutTrimAnother') || 'Trim Another Part'}</span>
               </button>
 
               <button
@@ -638,7 +623,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 }}
               >
                 <RotateCcw size={17} />
-                <span>{currentLang === 'id' ? 'Pilih Video Baru' : 'Pick New Video'}</span>
+                <span>{t('cutPickNew') || 'Pick New Video'}</span>
               </button>
             </div>
           </div>
@@ -708,7 +693,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 }}
               >
                 <RefreshCw size={13} />
-                <span>{currentLang === 'id' ? 'Ganti Video' : 'Replace Video'}</span>
+                <span>{t('cutReplaceVideo') || 'Replace Video'}</span>
               </button>
 
               <button
@@ -886,17 +871,17 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.25)', borderRadius: 8, fontSize: '0.85rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>{currentLang === 'id' ? 'Mulai' : 'Start'}:</span>
+                  <span style={{ color: 'var(--text-muted)' }}>{t('cutStartTime') || 'Start'}:</span>
                   <strong style={{ color: 'var(--brand-primary)', fontFamily: 'monospace' }}>{formatTimecode(startTime)}</strong>
                 </div>
 
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 14px', background: 'var(--brand-gradient)', color: '#ffffff', borderRadius: 20, fontSize: '0.88rem', fontWeight: 800, boxShadow: '0 4px 15px rgba(168,85,247,0.25)' }}>
                   <Scissors size={14} />
-                  <span>{currentLang === 'id' ? 'Durasi Potongan' : 'Cut Duration'}: {formatTimecode(selectedDuration)}</span>
+                  <span>{t('cutDuration') || 'Cut Duration'}: {formatTimecode(selectedDuration)}</span>
                 </div>
 
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.25)', borderRadius: 8, fontSize: '0.85rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>{currentLang === 'id' ? 'Selesai' : 'End'}:</span>
+                  <span style={{ color: 'var(--text-muted)' }}>{t('cutEndTime') || 'End'}:</span>
                   <strong style={{ color: 'var(--brand-secondary)', fontFamily: 'monospace' }}>{formatTimecode(endTime)}</strong>
                 </div>
               </div>
@@ -904,12 +889,12 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               {/* Quick Preset Buttons */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700 }}>
-                  {currentLang === 'id' ? 'Preset' : 'Presets'}:
+                  Preset:
                 </span>
                 <button type="button" onClick={() => applyPreset('15s')} style={{ padding: '4px 10px', fontSize: '0.76rem', borderRadius: 6, background: 'var(--bg-app)', border: '1px solid var(--border-color)', color: 'var(--text-main)', cursor: 'pointer', fontWeight: 600 }}>15s</button>
                 <button type="button" onClick={() => applyPreset('30s')} style={{ padding: '4px 10px', fontSize: '0.76rem', borderRadius: 6, background: 'var(--bg-app)', border: '1px solid var(--border-color)', color: 'var(--text-main)', cursor: 'pointer', fontWeight: 600 }}>30s</button>
                 <button type="button" onClick={() => applyPreset('60s')} style={{ padding: '4px 10px', fontSize: '0.76rem', borderRadius: 6, background: 'var(--bg-app)', border: '1px solid var(--border-color)', color: 'var(--text-main)', cursor: 'pointer', fontWeight: 600 }}>60s</button>
-                <button type="button" onClick={() => applyPreset('reset')} style={{ padding: '4px 10px', fontSize: '0.76rem', borderRadius: 6, background: 'var(--bg-app)', border: '1px solid var(--border-color)', color: 'var(--text-muted)', cursor: 'pointer' }}>{currentLang === 'id' ? 'Reset' : 'Full'}</button>
+                <button type="button" onClick={() => applyPreset('reset')} style={{ padding: '4px 10px', fontSize: '0.76rem', borderRadius: 6, background: 'var(--bg-app)', border: '1px solid var(--border-color)', color: 'var(--text-muted)', cursor: 'pointer' }}>{t('cutReset') || 'Full'}</button>
               </div>
             </div>
 
@@ -1217,12 +1202,10 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 <div>
                   <div style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
                     <Zap size={15} color="var(--brand-primary)" />
-                    <span>{currentLang === 'id' ? 'Pemotongan Aliran Instan (0,4 Detik)' : 'Lossless Stream Copy (0.4s)'}</span>
+                    <span>{t('cutModeLossless') || 'Lossless Stream Copy'}</span>
                   </div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                    {currentLang === 'id' 
-                      ? 'Memotong tanpa encode ulang. Kualitas 100% asli dan selesai sekejap mata.' 
-                      : 'Cuts in 0.4s without re-encoding. 100% original quality preserved.'}
+                    {t('cutModeLosslessDesc') || 'Cuts in 0.4s without re-encoding. 100% original quality preserved.'}
                   </div>
                 </div>
               </label>
@@ -1251,12 +1234,10 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 <div>
                   <div style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
                     <Sliders size={15} color="var(--brand-secondary)" />
-                    <span>{currentLang === 'id' ? 'Pemotongan Akurat Milidetik' : 'Frame-Accurate Cut'}</span>
+                    <span>{t('cutModeAccurate') || 'Frame-Accurate Cut'}</span>
                   </div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                    {currentLang === 'id' 
-                      ? 'Mengkodekan ulang frame dengan presisi tinggi pada milidetik yang ditentukan.' 
-                      : 'Re-encodes video precisely at the exact millisecond frame specified.'}
+                    {t('cutModeAccurateDesc') || 'Re-encodes video precisely at the exact millisecond frame specified.'}
                   </div>
                 </div>
               </label>
@@ -1298,7 +1279,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                   />
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     {muteAudio ? <VolumeX size={15} color="#ef4444" /> : <Volume2 size={15} color="var(--brand-primary)" />}
-                    {currentLang === 'id' ? 'Bisukan audio di video' : 'Mute audio in clipped video'}
+                    {t('cutMuteAudio') || 'Mute audio in clipped video'}
                   </span>
                 </label>
               </div>
@@ -1325,8 +1306,8 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
                 <Scissors size={20} />
                 <span>
                   {processing 
-                    ? (currentLang === 'id' ? 'Memotong Video...' : 'Cutting Video...') 
-                    : (currentLang === 'id' ? 'Potong Video Sekarang' : 'Cut Video Now')}
+                    ? (t('cutCutting') || 'Cutting Video...') 
+                    : (t('cutAction') || 'Cut Video Now')}
                 </span>
               </button>
             </div>
@@ -1336,7 +1317,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
               <div style={{ marginTop: 8 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: '0.85rem' }}>
                   <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
-                    {currentLang === 'id' ? 'Memproses dengan FFmpeg WASM...' : 'Processing with FFmpeg WASM...'} {progress}%
+                    {t('cutProcessingWasm') || 'Processing with FFmpeg WASM...'} {progress}%
                   </span>
                   <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>
                     {cutMode === 'lossless' ? '⚡ Stream Demux Copy' : '🎯 Frame Re-encode'}

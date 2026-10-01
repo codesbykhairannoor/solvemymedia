@@ -267,25 +267,25 @@ export const CutVideoFilmstripBenchmarkSection: React.FC<SectionProps> = ({ sect
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <XCircle size={22} color="#ef4444" />
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f87171', margin: 0 }}>
-                Traditional Cloud Cutters
+                {t('cutSec1CloudTitle') || 'Traditional Cloud Cutters'}
               </h3>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#94a3b8', fontSize: '0.95rem' }}>
-                <span style={{ color: '#ef4444' }}>✕</span> Upload 1GB video over Wi-Fi: <strong>~15-20 mins</strong>
+                <span style={{ color: '#ef4444' }}>✕</span> {t('cutSec1CloudPoint1') || 'Upload 1GB video over Wi-Fi: ~15-20 mins'}
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#94a3b8', fontSize: '0.95rem' }}>
-                <span style={{ color: '#ef4444' }}>✕</span> Remote queue waiting time: <strong>3-5 mins</strong>
+                <span style={{ color: '#ef4444' }}>✕</span> {t('cutSec1CloudPoint2') || 'Remote queue waiting time: 3-5 mins'}
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#94a3b8', fontSize: '0.95rem' }}>
-                <span style={{ color: '#ef4444' }}>✕</span> Re-encoding degrades pixels & adds generation loss
+                <span style={{ color: '#ef4444' }}>✕</span> {t('cutSec1CloudPoint3') || 'Re-encoding degrades pixels & adds generation loss'}
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#94a3b8', fontSize: '0.95rem' }}>
-                <span style={{ color: '#ef4444' }}>✕</span> Video stored on unknown third-party cloud servers
+                <span style={{ color: '#ef4444' }}>✕</span> {t('cutSec1CloudPoint4') || 'Video stored on unknown third-party cloud servers'}
               </li>
             </ul>
             <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: 12, color: '#fca5a5', fontSize: '0.88rem', fontWeight: 700 }}>
-              ⏱️ Total Time: 20+ Minutes Wait
+              ⏱️ {t('cutSec1CloudTotal') || 'Total Time: 20+ Minutes Wait'}
             </div>
           </div>
 
@@ -302,25 +302,25 @@ export const CutVideoFilmstripBenchmarkSection: React.FC<SectionProps> = ({ sect
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <CheckCircle2 size={22} color="#10b981" />
               <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#34d399', margin: 0 }}>
-                SolveMyMedia Stream Copy
+                {t('cutSec1LocalTitle') || 'SolveMyMedia Stream Copy'}
               </h3>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#e2e8f0', fontSize: '0.95rem' }}>
-                <span style={{ color: '#10b981' }}>✓</span> Server Upload: <strong>0.00 seconds (Local RAM)</strong>
+                <span style={{ color: '#10b981' }}>✓</span> {t('cutSec1LocalPoint1') || 'Server Upload: 0.00 seconds (Local RAM)'}
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#e2e8f0', fontSize: '0.95rem' }}>
-                <span style={{ color: '#10b981' }}>✓</span> Stream Demuxing Execution: <strong>0.4 seconds flat</strong>
+                <span style={{ color: '#10b981' }}>✓</span> {t('cutSec1LocalPoint2') || 'Stream Demuxing Execution: 0.4 seconds flat'}
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#e2e8f0', fontSize: '0.95rem' }}>
-                <span style={{ color: '#10b981' }}>✓</span> Bit-Identical Quality: Zero re-encoding artifacts
+                <span style={{ color: '#10b981' }}>✓</span> {t('cutSec1LocalPoint3') || 'Bit-Identical Quality: Zero re-encoding artifacts'}
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#e2e8f0', fontSize: '0.95rem' }}>
-                <span style={{ color: '#10b981' }}>✓</span> 100% Air-gapped privacy (Never touches the internet)
+                <span style={{ color: '#10b981' }}>✓</span> {t('cutSec1LocalPoint4') || '100% Air-gapped privacy (Never touches the internet)'}
               </li>
             </ul>
             <div style={{ padding: '12px 16px', background: 'rgba(16, 185, 129, 0.2)', borderRadius: 12, color: '#a7f3d0', fontSize: '0.88rem', fontWeight: 800 }}>
-              ⚡ Total Time: 0.4s (Instant Download)
+              ⚡ {t('cutSec1LocalTotal') || 'Total Time: 0.4s (Instant Download)'}
             </div>
           </div>
         </div>
@@ -613,7 +613,7 @@ export const CutVideoAsymmetricBentoSection: React.FC<SectionProps> = ({ section
                 }}
               >
                 <Cpu size={14} />
-                <span>Zero Generation Loss</span>
+                <span>{t('cutZeroGenLoss') || 'Zero Generation Loss'}</span>
               </div>
 
               <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 14 }}>
@@ -697,7 +697,7 @@ export const CutVideoAsymmetricBentoSection: React.FC<SectionProps> = ({ section
                 }}
               >
                 <Share2 size={14} />
-                <span>1-Click Presets</span>
+                <span>{t('cutOneClickPresets') || '1-Click Presets'}</span>
               </div>
 
               <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 12 }}>
@@ -757,7 +757,7 @@ export const CutVideoAsymmetricBentoSection: React.FC<SectionProps> = ({ section
                 }}
               >
                 <ShieldCheck size={14} />
-                <span>Zero Network Egress</span>
+                <span>{t('cutZeroNetworkEgress') || 'Zero Network Egress'}</span>
               </div>
 
               <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 12 }}>
@@ -771,7 +771,7 @@ export const CutVideoAsymmetricBentoSection: React.FC<SectionProps> = ({ section
 
             <div style={{ marginTop: 24, padding: '14px 18px', background: 'var(--bg-app)', borderRadius: 14, border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: 12 }}>
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981' }} />
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}>Browser Memory Sandbox Active</span>
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}>{t('cutSandboxActive') || 'Browser Memory Sandbox Active'}</span>
             </div>
           </div>
 
@@ -806,7 +806,7 @@ export const CutVideoAsymmetricBentoSection: React.FC<SectionProps> = ({ section
                 }}
               >
                 <Sliders size={14} />
-                <span>Micro-Nudge Controls</span>
+                <span>{t('cutMicroNudge') || 'Micro-Nudge Controls'}</span>
               </div>
 
               <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 14 }}>
@@ -827,7 +827,7 @@ export const CutVideoAsymmetricBentoSection: React.FC<SectionProps> = ({ section
                 ◀ -0.1s
               </div>
               <div style={{ padding: '8px 20px', background: 'linear-gradient(90deg, var(--brand-primary), var(--brand-secondary))', borderRadius: 10, color: '#ffffff', fontSize: '0.85rem', fontWeight: 800 }}>
-                Exact Frame Lock
+                {t('cutExactFrameLock') || 'Exact Frame Lock'}
               </div>
               <div style={{ padding: '8px 16px', background: 'var(--bg-app)', borderRadius: 10, border: '1px solid var(--border-color)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--brand-primary)' }}>
                 +0.1s ▶
@@ -895,7 +895,7 @@ export const CutVideoTechnicalSpecsSection: React.FC<SectionProps> = ({ section 
             {t('cutSec4Title') || 'Technical Specifications & Supported Standards'}
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', margin: 0 }}>
-            Deep engine architecture benchmarks and container compatibility
+            {t('cutSec4Desc') || 'Deep engine architecture benchmarks and container compatibility'}
           </p>
         </div>
 
@@ -990,7 +990,7 @@ export const CutVideoFaqSection: React.FC<SectionProps> = ({ section }) => {
             {t('cutFaqTitle') || 'Frequently Asked Questions About Video Cutting'}
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', margin: 0 }}>
-            Everything you need to know about lossless browser-side video trimming
+            {t('cutFaqDesc') || 'Everything you need to know about lossless browser-side video trimming'}
           </p>
         </div>
 
