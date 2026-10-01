@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://solvemymedia.com/th</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/about-us</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/about-us"/>
@@ -81,7 +81,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/privacy-policy</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.36</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/privacy-policy"/>
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/terms-of-service</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.36</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/terms-of-service"/>
@@ -159,7 +159,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/security</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/security"/>
@@ -198,7 +198,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/pricing</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.54</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/pricing"/>
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/compare</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.63</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compare"/>
@@ -276,7 +276,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/supported-languages</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/supported-languages"/>
@@ -315,7 +315,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/biibadwidiio</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-video"/>
@@ -353,8 +353,47 @@
       <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/compress-video"/>
   </url>
   <url>
+    <loc>https://solvemymedia.com/th/tat-video</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/cut-video"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/potong-video"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/cortar-video"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/couper-video"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/video-schneiden"/>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://solvemymedia.com/ja/video-cut"/>
+      <xhtml:link rel="alternate" hreflang="pt" href="https://solvemymedia.com/pt/cortar-video"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://solvemymedia.com/ru/obrezat-video"/>
+      <xhtml:link rel="alternate" hreflang="zh" href="https://solvemymedia.com/zh/cut-video"/>
+      <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solvemymedia.com/zh-TW/cut-video"/>
+      <xhtml:link rel="alternate" hreflang="ar" href="https://solvemymedia.com/ar/qas-al-fidyu"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://solvemymedia.com/hi/video-katein"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://solvemymedia.com/it/tagliare-video"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://solvemymedia.com/ko/video-cut"/>
+      <xhtml:link rel="alternate" hreflang="nl" href="https://solvemymedia.com/nl/video-knippen"/>
+      <xhtml:link rel="alternate" hreflang="tr" href="https://solvemymedia.com/tr/video-kes"/>
+      <xhtml:link rel="alternate" hreflang="pl" href="https://solvemymedia.com/pl/przytnij-wideo"/>
+      <xhtml:link rel="alternate" hreflang="vi" href="https://solvemymedia.com/vi/cat-video"/>
+      <xhtml:link rel="alternate" hreflang="th" href="https://solvemymedia.com/th/tat-video"/>
+      <xhtml:link rel="alternate" hreflang="sv" href="https://solvemymedia.com/sv/klipp-video"/>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://solvemymedia.com/cs/oriznout-video"/>
+      <xhtml:link rel="alternate" hreflang="da" href="https://solvemymedia.com/da/klip-video"/>
+      <xhtml:link rel="alternate" hreflang="el" href="https://solvemymedia.com/el/kopste-to-vinteo"/>
+      <xhtml:link rel="alternate" hreflang="fi" href="https://solvemymedia.com/fi/leikkaa-video"/>
+      <xhtml:link rel="alternate" hreflang="he" href="https://solvemymedia.com/he/htoch-video"/>
+      <xhtml:link rel="alternate" hreflang="hu" href="https://solvemymedia.com/hu/video-vagas"/>
+      <xhtml:link rel="alternate" hreflang="no" href="https://solvemymedia.com/no/klipp-video"/>
+      <xhtml:link rel="alternate" hreflang="ro" href="https://solvemymedia.com/ro/taie-video"/>
+      <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/orezat-video"/>
+      <xhtml:link rel="alternate" hreflang="uk" href="https://solvemymedia.com/uk/obrizaty-video"/>
+      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/potong-video"/>
+      <xhtml:link rel="alternate" hreflang="tl" href="https://solvemymedia.com/tl/gupitin-ang-video"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/cut-video"/>
+  </url>
+  <url>
     <loc>https://solvemymedia.com/th/biibadesiiyng</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-audio"/>
@@ -393,7 +432,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/aeplngwidiio</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-video"/>
@@ -432,7 +471,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/aeplngesiiyng</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-audio"/>
@@ -471,7 +510,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/widiioepnesiiyng</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/video-to-audio"/>
@@ -510,7 +549,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/thdesiiyng</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe"/>
@@ -549,7 +588,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/ekhruuengbanthuek</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/recorder"/>
@@ -588,7 +627,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/sraangkif</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/create-gif"/>
@@ -627,7 +666,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/khwaamerwwidiio</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/video-speed"/>
@@ -666,17 +705,17 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/khrbtadwidiio</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/crop-video"/>
-      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/potong-video"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/pangkas-video"/>
       <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/recortar-video"/>
       <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/video-de-recadrage"/>
       <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/video-zuschneiden"/>
       <xhtml:link rel="alternate" hreflang="ja" href="https://solvemymedia.com/ja/bideowokurotupusuru"/>
-      <xhtml:link rel="alternate" hreflang="pt" href="https://solvemymedia.com/pt/cortar-video"/>
-      <xhtml:link rel="alternate" hreflang="ru" href="https://solvemymedia.com/ru/obrezat-video"/>
+      <xhtml:link rel="alternate" hreflang="pt" href="https://solvemymedia.com/pt/recortar-video"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://solvemymedia.com/ru/kadrirovat-video"/>
       <xhtml:link rel="alternate" hreflang="zh" href="https://solvemymedia.com/zh/cai-jian-shi-pin"/>
       <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solvemymedia.com/zh-TW/裁切影片"/>
       <xhtml:link rel="alternate" hreflang="ar" href="https://solvemymedia.com/ar/fydyw-lmhsyl"/>
@@ -685,11 +724,11 @@
       <xhtml:link rel="alternate" hreflang="ko" href="https://solvemymedia.com/ko/bidio-jareugi"/>
       <xhtml:link rel="alternate" hreflang="nl" href="https://solvemymedia.com/nl/video-bijsnijden"/>
       <xhtml:link rel="alternate" hreflang="tr" href="https://solvemymedia.com/tr/videoyu-kirp"/>
-      <xhtml:link rel="alternate" hreflang="pl" href="https://solvemymedia.com/pl/przytnij-wideo"/>
-      <xhtml:link rel="alternate" hreflang="vi" href="https://solvemymedia.com/vi/cat-video"/>
+      <xhtml:link rel="alternate" hreflang="pl" href="https://solvemymedia.com/pl/kadruj-wideo"/>
+      <xhtml:link rel="alternate" hreflang="vi" href="https://solvemymedia.com/vi/xen-video"/>
       <xhtml:link rel="alternate" hreflang="th" href="https://solvemymedia.com/th/khrbtadwidiio"/>
       <xhtml:link rel="alternate" hreflang="sv" href="https://solvemymedia.com/sv/beskara-video"/>
-      <xhtml:link rel="alternate" hreflang="cs" href="https://solvemymedia.com/cs/oriznout-video"/>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://solvemymedia.com/cs/vyriznout-video"/>
       <xhtml:link rel="alternate" hreflang="da" href="https://solvemymedia.com/da/beskaer-video"/>
       <xhtml:link rel="alternate" hreflang="el" href="https://solvemymedia.com/el/perikopi-vinteo"/>
       <xhtml:link rel="alternate" hreflang="fi" href="https://solvemymedia.com/fi/rajaa-video"/>
@@ -697,7 +736,7 @@
       <xhtml:link rel="alternate" hreflang="hu" href="https://solvemymedia.com/hu/vagja-le-a-videot"/>
       <xhtml:link rel="alternate" hreflang="no" href="https://solvemymedia.com/no/beskjaere-video"/>
       <xhtml:link rel="alternate" hreflang="ro" href="https://solvemymedia.com/ro/decupati-videoclipul"/>
-      <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/orezat-video"/>
+      <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/vyrezat-video"/>
       <xhtml:link rel="alternate" hreflang="uk" href="https://solvemymedia.com/uk/kadruvannya-video"/>
       <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/pangkas-video"/>
       <xhtml:link rel="alternate" hreflang="tl" href="https://solvemymedia.com/tl/i-crop-ang-video"/>
@@ -705,7 +744,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/pidesiiyngwidiio</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/mute-video"/>
@@ -744,7 +783,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/widiiolaaynam</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/watermark-video"/>
@@ -783,7 +822,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/esiiyngaichngaanaid</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/merge-audio"/>
@@ -822,7 +861,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/ldkhnaadwidiio-mp4-samhrabiieml</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/reduce-mp4-video-size-for-email"/>
@@ -861,7 +900,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/biibadwidiiokhnaadaihysamhrab-whatsapp</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-large-video-for-whatsapp"/>
@@ -900,7 +939,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/aeplng-iphone-mov-epn-mp4-samhrab-android</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-mov-to-mp4-for-android"/>
@@ -939,7 +978,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/aeykesiiyngcchaakwidiiosamhrabphdaekhst</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/extract-audio-from-video-for-podcast"/>
@@ -978,7 +1017,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/thamaihwidiioelklngodyaimsuuyesiiykhunphaaph</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/make-video-smaller-without-losing-quality"/>
@@ -1017,7 +1056,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/lbesiiyngkcchaakwidiioodysineching</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/remove-sound-from-video-completely"/>
@@ -1056,7 +1095,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/erngkhwaamerwwidiiosamhrab-tiktok-yaangrwderw</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/speed-up-video-for-tiktok"/>
@@ -1095,7 +1134,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/khrbtadwidiiosamhraberuuengraaw-instagram-916</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/crop-video-for-instagram-story"/>
@@ -1134,7 +1173,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/rwmbanthuekesiiynghlaayraaykaaraiwainthiiediiyw</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/combine-multiple-voice-memos-into-one"/>
@@ -1173,7 +1212,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/th/thdesiiyngkaarprachum-zoom-epnkhkhwaam</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe-zoom-meeting-recording-to-text"/>

@@ -26,6 +26,7 @@ export const Home: React.FC = () => {
 
   const ALL_TOOLS = [
     { id: 'compress-video', icon: Video, color: '#a855f7', category: 'optimization', name: getToolName('compress-video'), desc: t('seoCompressVideoDesc') },
+    { id: 'cut-video', icon: Scissors, color: '#818cf8', category: 'editing', name: getToolName('cut-video'), desc: t('seoCutVideoDesc'), badge: 'Lossless' },
     { id: 'convert-video', icon: RefreshCw, color: '#a855f7', category: 'optimization', name: getToolName('convert-video'), desc: t('seoConvertVideoDesc') },
     { id: 'video-speed', icon: Gauge, color: '#eab308', category: 'optimization', name: getToolName('video-speed'), desc: t('seoVideoSpeedDesc') },
     { id: 'create-gif', icon: ImagePlay, color: '#ec4899', category: 'editing', name: getToolName('create-gif'), desc: t('seoCreateGifDesc') },

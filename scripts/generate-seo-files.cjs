@@ -56,6 +56,12 @@ const TOOLS = [
     priority: '1.0',
   },
   {
+    slug: 'cut-video',
+    name: 'Cut Video',
+    desc: 'Trim and cut video clips online without quality loss using local WebAssembly stream demuxing.',
+    priority: '0.95',
+  },
+  {
     slug: 'compress-audio',
     name: 'Compress Audio',
     desc: 'Reduce MP3, WAV, and AAC audio file sizes while maintaining quality.',

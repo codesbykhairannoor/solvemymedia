@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CORE_TOOLS = [
-  '/', '/compress-video', '/compress-audio', '/convert-video', 
+  '/', '/compress-video', '/cut-video', '/compress-audio', '/convert-video', 
   '/convert-audio', '/video-to-audio', '/transcribe', '/recorder', 
   '/create-gif', '/video-speed', '/crop-video', '/mute-video', 
   '/watermark-video', '/merge-audio'

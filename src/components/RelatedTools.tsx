@@ -34,6 +34,16 @@ const ALL_CORE_TOOLS: ToolItem[] = [
     fallbackDesc: 'Shrink video file size locally with zero quality loss.'
   },
   {
+    id: 'cut-video',
+    icon: Scissors,
+    color: '#818cf8',
+    category: 'video',
+    nameKey: 'toolCutVideo',
+    descKey: 'cutVideoDesc',
+    fallbackName: 'Cut Video',
+    fallbackDesc: 'Trim and cut video clips with lossless stream demuxing in seconds.'
+  },
+  {
     id: 'convert-video',
     icon: RefreshCw,
     color: '#a855f7',

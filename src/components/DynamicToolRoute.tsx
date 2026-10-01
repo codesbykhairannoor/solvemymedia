@@ -19,6 +19,7 @@ import { CropVideo } from '../pages/CropVideo';
 import { MuteVideo } from '../pages/MuteVideo';
 import { WatermarkVideo } from '../pages/WatermarkVideo';
 import { MergeAudio } from '../pages/MergeAudio';
+import { CutVideo } from '../pages/CutVideo';
 import { RelatedTools } from './RelatedTools';
 import { useWorkspace } from '../contexts/WorkspaceContext';
 
@@ -35,7 +36,8 @@ const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'crop-video': CropVideo,
   'mute-video': MuteVideo,
   'watermark-video': WatermarkVideo,
-  'merge-audio': MergeAudio
+  'merge-audio': MergeAudio,
+  'cut-video': CutVideo
 };
 
 const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
@@ -51,10 +53,14 @@ const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
   'crop-video': { title: 'seoCropVideoTitle', desc: 'seoCropVideoDesc' },
   'mute-video': { title: 'seoMuteVideoTitle', desc: 'seoMuteVideoDesc' },
   'watermark-video': { title: 'seoWatermarkVideoTitle', desc: 'seoWatermarkVideoDesc' },
-  'merge-audio': { title: 'seoMergeAudioTitle', desc: 'seoMergeAudioDesc' }
+  'merge-audio': { title: 'seoMergeAudioTitle', desc: 'seoMergeAudioDesc' },
+  'cut-video': { title: 'seoCutVideoTitle', desc: 'seoCutVideoDesc' }
 };
 
 const LEGACY_SLUG_MAP: Record<string, string> = {
+  'trim-video': 'cut-video',
+  'trim-mp4': 'cut-video',
+  'cut-mp4': 'cut-video',
   'mp4-to-gif': 'create-gif',
   'mov-to-gif': 'create-gif',
   'm4a-to-mp3': 'video-to-audio',
@@ -152,6 +158,12 @@ const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = 
     { qKey: 'maFaq1Q', aKey: 'maFaq1A' },
     { qKey: 'maFaq2Q', aKey: 'maFaq2A' },
     { qKey: 'maFaq3Q', aKey: 'maFaq3A' },
+  ],
+  'cut-video': [
+    { qKey: 'cutFaq1Q', aKey: 'cutFaq1A' },
+    { qKey: 'cutFaq2Q', aKey: 'cutFaq2A' },
+    { qKey: 'cutFaq3Q', aKey: 'cutFaq3A' },
+    { qKey: 'cutFaq4Q', aKey: 'cutFaq4A' },
   ],
 };
 

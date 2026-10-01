@@ -179,6 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatVideoEdit') || 'VIDEO EDITING'}</div>
+                  <MI icon={Scissors} label={getToolName('cut-video')} onClick={() => handleToolClick('cut-video')} highlight />
                   <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
                   <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
                   <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
@@ -358,6 +359,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                   { id: 'video-speed', Icon: FastForward },
                 ]},
                 { section: t('navCatVideoEdit') || 'VIDEO EDITING', tools: [
+                  { id: 'cut-video', Icon: Scissors },
                   { id: 'create-gif', Icon: Image },
                   { id: 'crop-video', Icon: Crop },
                   { id: 'mute-video', Icon: VolumeX },

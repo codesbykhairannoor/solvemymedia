@@ -1,3 +1,5 @@
+import cutVideoTranslations from '../data/cut-video-translations.json';
+
 export interface UiDictionary {
   [key: string]: string | undefined;
   about_heroBadge?: string;
@@ -31502,5 +31504,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
 };
 
 export const getUiTranslations = (langCode: string): UiDictionary => {
-  return UI_TRANSLATIONS[langCode] || UI_TRANSLATIONS['en'];
+  const base = UI_TRANSLATIONS[langCode] || UI_TRANSLATIONS['en'];
+  const extra = (cutVideoTranslations as Record<string, UiDictionary>)[langCode] || (cutVideoTranslations as Record<string, UiDictionary>)['en'] || {};
+  return { ...base, ...extra };
 };

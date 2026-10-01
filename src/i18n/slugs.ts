@@ -53,8 +53,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "speed-up-video-for-tiktok",
     "crop-video-for-instagram-story": "crop-video-for-instagram-story",
     "combine-multiple-voice-memos-into-one": "combine-multiple-voice-memos-into-one",
-    "transcribe-zoom-meeting-recording-to-text": "transcribe-zoom-meeting-recording-to-text"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transcribe-zoom-meeting-recording-to-text",
+    "cut-video": "cut-video",
+    },
   "id": {
     "compress-video": "kompres-video",
     "compress-audio": "kompres-audio",
@@ -65,7 +66,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "perekam",
     "create-gif": "membuat-gif",
     "video-speed": "kecepatan-video",
-    "crop-video": "potong-video",
+    "crop-video": "pangkas-video",
     "mute-video": "bisukan-video",
     "watermark-video": "video-tanda-air",
     "merge-audio": "audio-berfungsi",
@@ -107,8 +108,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "crop-video-for-instagram-story": "pangkas-video-untuk-kisah-instagram-916",
     "combine-multiple-voice-memos-into-one": "gabungkan-beberapa-memo-suara-menjadi-satu",
     "transcribe-zoom-meeting-recording-to-text": "transkripsikan-zoom-meeting-ke-teks",
-    "crop-mp4": "potong-mp4"
-  },
+    "crop-mp4": "potong-mp4",
+    "cut-video": "potong-video",
+    },
   "es": {
     "compress-video": "comprimir-video",
     "compress-audio": "comprimir-audio",
@@ -161,8 +163,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "acelerar-video-para-tiktok-rapidamente",
     "crop-video-for-instagram-story": "recortar-video-para-la-historia-de-instagram-916",
     "combine-multiple-voice-memos-into-one": "combine-varias-notas-de-voz-en-una",
-    "transcribe-zoom-meeting-recording-to-text": "transcribir-reunion-de-zoom-a-texto"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transcribir-reunion-de-zoom-a-texto",
+    "cut-video": "cortar-video",
+    },
   "fr": {
     "compress-video": "compresser-la-video",
     "compress-audio": "compresser-laudio",
@@ -215,8 +218,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "accelerez-la-video-pour-tiktok-rapidement",
     "crop-video-for-instagram-story": "recadrer-la-video-pour-lhistoire-instagram-916",
     "combine-multiple-voice-memos-into-one": "combinez-plusieurs-memos-vocaux-en-un-seul",
-    "transcribe-zoom-meeting-recording-to-text": "transcrire-la-reunion-zoom-en-texte"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transcrire-la-reunion-zoom-en-texte",
+    "cut-video": "couper-video",
+    },
   "de": {
     "compress-video": "video-komprimieren",
     "compress-audio": "audio-komprimieren",
@@ -269,8 +273,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "beschleunigen-sie-videos-fur-tiktok-schnell",
     "crop-video-for-instagram-story": "video-fur-instagram-story-zuschneiden-916",
     "combine-multiple-voice-memos-into-one": "kombinieren-sie-mehrere-sprachnotizen-zu-einer",
-    "transcribe-zoom-meeting-recording-to-text": "transkribieren-sie-zoom-meeting-in-text"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transkribieren-sie-zoom-meeting-in-text",
+    "cut-video": "video-schneiden",
+    },
   "ja": {
     "compress-video": "bideowoya-suo-suru",
     "compress-audio": "odeiowoya-suo-suru",
@@ -323,8 +328,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "ビデオから音声を削除する",
     "add-watermark-to-mp4": "mp4に透かしを追加する",
     "join-audio-files": "オーディオファイルを結合する",
-    "merge-mp3": "mp3を結合"
-  },
+    "merge-mp3": "mp3を結合",
+    "cut-video": "video-cut",
+    },
   "zh": {
     "compress-video": "ya-suo-shi-pin",
     "compress-audio": "ya-suo-yin-pin",
@@ -377,8 +383,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "从视频中删除音频",
     "add-watermark-to-mp4": "给mp4添加水印",
     "join-audio-files": "加入音频文件",
-    "merge-mp3": "合并mp3"
-  },
+    "merge-mp3": "合并mp3",
+    "cut-video": "cut-video",
+    },
   "pt": {
     "compress-video": "compactar-video",
     "compress-audio": "comprimir-audio",
@@ -389,7 +396,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "gravadora",
     "create-gif": "criar-gif",
     "video-speed": "velocidade-do-video",
-    "crop-video": "cortar-video",
+    "crop-video": "recortar-video",
     "mute-video": "silenciar-video",
     "watermark-video": "video-de-marca-dagua",
     "merge-audio": "audio-funciona",
@@ -431,8 +438,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "acelere-o-video-para-tiktok-rapidamente",
     "crop-video-for-instagram-story": "cortar-video-para-historia-do-instagram-916",
     "combine-multiple-voice-memos-into-one": "combine-varios-memorandos-de-voz-em-um",
-    "transcribe-zoom-meeting-recording-to-text": "transcrever-reuniao-zoom-para-texto"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transcrever-reuniao-zoom-para-texto",
+    "cut-video": "cortar-video",
+    },
   "ru": {
     "compress-video": "szhimat-video",
     "compress-audio": "szhimat-audio",
@@ -443,7 +451,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "diktofon",
     "create-gif": "sozdat-gifku",
     "video-speed": "skorost-video",
-    "crop-video": "obrezat-video",
+    "crop-video": "kadrirovat-video",
     "mute-video": "otklyuchit-video",
     "watermark-video": "video-s-vodyanymi-znakami",
     "merge-audio": "audio-rabotaet",
@@ -485,8 +493,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "удалить-звук-из-видео",
     "add-watermark-to-mp4": "добавить-водяной-знак-в-mp4",
     "join-audio-files": "объединить-аудиофайлы",
-    "merge-mp3": "объединить-mp3"
-  },
+    "merge-mp3": "объединить-mp3",
+    "cut-video": "obrezat-video",
+    },
   "ar": {
     "compress-video": "dgt-lfydyw",
     "compress-audio": "dgt-lswt",
@@ -539,8 +548,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "tsryaa-lfydyw-l-tiktok-bsraa",
     "crop-video-for-instagram-story": "qs-lfydyw-lqs-instagram-916",
     "combine-multiple-voice-memos-into-one": "ljmaa-byn-lmdhkrt-lswty-lmtaadd-fy-whd",
-    "transcribe-zoom-meeting-recording-to-text": "nskh-jtmaa-zoom-l-ns"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "nskh-jtmaa-zoom-l-ns",
+    "cut-video": "qas-al-fidyu",
+    },
   "hi": {
     "compress-video": "viiddiyo-snpiiddit-kren",
     "compress-audio": "onddiyo-snpiiddit-kren",
@@ -593,8 +603,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "ttikttonk-ke-lie-viiddiyo-ko-tejii-se-gti-den",
     "crop-video-for-instagram-story": "insttaagraam-sttorii-ke-lie-viiddiyo-kronp-kren-916",
     "combine-multiple-voice-memos-into-one": "ekaadhik-vonys-memo-ko-ek-men-milaaen",
-    "transcribe-zoom-meeting-recording-to-text": "juum-miitting-ko-ttekstt-men-ttraanskraaib-kren"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "juum-miitting-ko-ttekstt-men-ttraanskraaib-kren",
+    "cut-video": "video-katein",
+    },
   "it": {
     "compress-video": "comprimere-il-video",
     "compress-audio": "comprimere-laudio",
@@ -647,8 +658,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "velocizza-velocemente-i-video-per-tiktok",
     "crop-video-for-instagram-story": "ritaglia-video-per-una-storia-di-instagram-916",
     "combine-multiple-voice-memos-into-one": "combina-piu-memo-vocali-in-uno-solo",
-    "transcribe-zoom-meeting-recording-to-text": "trascrivi-la-riunione-zoom-in-testo"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "trascrivi-la-riunione-zoom-in-testo",
+    "cut-video": "tagliare-video",
+    },
   "ko": {
     "compress-video": "bidio-abcug",
     "compress-audio": "odio-abcug",
@@ -701,8 +713,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "tiktok-fastyi-bidio-sogdo-hyangsang",
     "crop-video-for-instagram-story": "instagram-seutoriyong-bidio-jareugi916",
     "combine-multiple-voice-memos-into-one": "yeoreo-eumseong-memoreul-hanaro-gyeolhab",
-    "transcribe-zoom-meeting-recording-to-text": "hwagdaecugso-hoeyireul-tegseuteuro-nogeum"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "hwagdaecugso-hoeyireul-tegseuteuro-nogeum",
+    "cut-video": "video-cut",
+    },
   "nl": {
     "compress-video": "video-comprimeren",
     "compress-audio": "audio-comprimeren",
@@ -755,8 +768,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "versnel-video-voor-tiktok-snel",
     "crop-video-for-instagram-story": "video-bijsnijden-voor-instagram-verhaal-916",
     "combine-multiple-voice-memos-into-one": "combineer-meerdere-spraakmemos-in-een",
-    "transcribe-zoom-meeting-recording-to-text": "zoomvergadering-omzetten-naar-tekst"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "zoomvergadering-omzetten-naar-tekst",
+    "cut-video": "video-knippen",
+    },
   "tr": {
     "compress-video": "videoyu-sikistir",
     "compress-audio": "sesi-sikistir",
@@ -809,8 +823,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "tiktok-icin-videoyu-hizli-hizlandirin",
     "crop-video-for-instagram-story": "instagram-hikayesi-icin-videoyu-kirp-916",
     "combine-multiple-voice-memos-into-one": "birden-fazla-sesli-notu-bir-arada-birlestirin",
-    "transcribe-zoom-meeting-recording-to-text": "yakinlastirma-toplantisini-metne-donustur"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "yakinlastirma-toplantisini-metne-donustur",
+    "cut-video": "video-kes",
+    },
   "pl": {
     "compress-video": "kompresowac-wideo",
     "compress-audio": "kompresowac-dzwiek",
@@ -821,7 +836,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "rejestrator",
     "create-gif": "utworz-gifa",
     "video-speed": "predkosc-wideo",
-    "crop-video": "przytnij-wideo",
+    "crop-video": "kadruj-wideo",
     "mute-video": "wyciszenie-wideo",
     "watermark-video": "wideo-ze-znakiem-wodnym",
     "merge-audio": "dziala-dzwiek",
@@ -863,8 +878,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "przyspiesz-wideo-w-tiktok-fast",
     "crop-video-for-instagram-story": "przytnij-wideo-do-historii-na-instagramie-916",
     "combine-multiple-voice-memos-into-one": "polacz-wiele-notatek-glosowych-w-jedna",
-    "transcribe-zoom-meeting-recording-to-text": "transkrypcja-spotkania-zoom-na-tekst"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transkrypcja-spotkania-zoom-na-tekst",
+    "cut-video": "przytnij-wideo",
+    },
   "vi": {
     "compress-video": "nen-video",
     "compress-audio": "nen-am-thanh",
@@ -875,7 +891,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "may-ghi-am",
     "create-gif": "tao-anh-gif",
     "video-speed": "toc-do-video",
-    "crop-video": "cat-video",
+    "crop-video": "xen-video",
     "mute-video": "tat-tieng-video",
     "watermark-video": "hinh-mo-video",
     "merge-audio": "am-thanh-hoat-dong",
@@ -917,8 +933,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "crop-video-for-instagram-story": "cat-video-cho-cau-chuyen-tren-instagram-916",
     "combine-multiple-voice-memos-into-one": "ket-hop-nhieu-ban-ghi-nho-giong-noi-thanh-mot",
     "transcribe-zoom-meeting-recording-to-text": "phien-am-cuoc-hop-zoom-thanh-van-ban",
-    "crop-mp4": "cắt-mp4"
-  },
+    "crop-mp4": "cắt-mp4",
+    "cut-video": "cat-video",
+    },
   "th": {
     "compress-video": "biibadwidiio",
     "compress-audio": "biibadesiiyng",
@@ -971,8 +988,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "erngkhwaamerwwidiiosamhrab-tiktok-yaangrwderw",
     "crop-video-for-instagram-story": "khrbtadwidiiosamhraberuuengraaw-instagram-916",
     "combine-multiple-voice-memos-into-one": "rwmbanthuekesiiynghlaayraaykaaraiwainthiiediiyw",
-    "transcribe-zoom-meeting-recording-to-text": "thdesiiyngkaarprachum-zoom-epnkhkhwaam"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "thdesiiyngkaarprachum-zoom-epnkhkhwaam",
+    "cut-video": "tat-video",
+    },
   "sv": {
     "compress-video": "komprimera-video",
     "compress-audio": "komprimera-ljud",
@@ -1025,8 +1043,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "ta-bort-ljud-från-video",
     "add-watermark-to-mp4": "lägg-till-vattenstämpel-till-mp4",
     "join-audio-files": "gå-med-i-ljudfiler",
-    "merge-mp3": "slå-samman-mp3"
-  },
+    "merge-mp3": "slå-samman-mp3",
+    "cut-video": "klipp-video",
+    },
   "cs": {
     "compress-video": "komprimovat-video",
     "compress-audio": "komprimovat-zvuk",
@@ -1037,7 +1056,7 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "zaznamnik",
     "create-gif": "vytvorit-gif",
     "video-speed": "rychlost-videa",
-    "crop-video": "oriznout-video",
+    "crop-video": "vyriznout-video",
     "mute-video": "ztlumit-video",
     "watermark-video": "video-s-vodoznakem",
     "merge-audio": "audio-funguje",
@@ -1079,8 +1098,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "odstranit-zvuk-z-videa",
     "add-watermark-to-mp4": "přidat-vodoznak-do-mp4",
     "join-audio-files": "připojit-zvukové-soubory",
-    "merge-mp3": "sloučit-mp3"
-  },
+    "merge-mp3": "sloučit-mp3",
+    "cut-video": "oriznout-video",
+    },
   "da": {
     "compress-video": "komprimere-video",
     "compress-audio": "komprimere-lyd",
@@ -1133,8 +1153,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "fjerne-lyd-fra-video",
     "add-watermark-to-mp4": "tilføje-vandmærke-til-mp4",
     "join-audio-files": "tilslutte-lydfiler",
-    "merge-mp3": "flette-mp3"
-  },
+    "merge-mp3": "flette-mp3",
+    "cut-video": "klip-video",
+    },
   "el": {
     "compress-video": "sympiesi-vinteo",
     "compress-audio": "sympiesi-ihoy",
@@ -1187,8 +1208,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "αφαιρέστε-τον-ήχο-από-το-βίντεο",
     "add-watermark-to-mp4": "προσθέστε-υδατογράφημα-σε-mp4",
     "join-audio-files": "συνδέστε-αρχεία-ήχου",
-    "merge-mp3": "συγχώνευση-mp3"
-  },
+    "merge-mp3": "συγχώνευση-mp3",
+    "cut-video": "kopste-to-vinteo",
+    },
   "fi": {
     "compress-video": "pakkaa-video",
     "compress-audio": "pakkaa-aanta",
@@ -1241,8 +1263,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "poista-ääni-videosta",
     "add-watermark-to-mp4": "lisää-vesileima-mp4ään",
     "join-audio-files": "liitä-äänitiedostoja",
-    "merge-mp3": "yhdistä-mp3"
-  },
+    "merge-mp3": "yhdistä-mp3",
+    "cut-video": "leikkaa-video",
+    },
   "he": {
     "compress-video": "ldkhvs-vydv",
     "compress-audio": "ldkhvs-vdyv",
@@ -1266,8 +1289,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "hts-t-hsrtvn-bvr-tiktok-mhyr",
     "crop-video-for-instagram-story": "khytvk-srtvn-lstvry-bynstgrm-916",
     "combine-multiple-voice-memos-into-one": "shlb-mspr-tzkyrym-qvlyym-lkhd",
-    "transcribe-zoom-meeting-recording-to-text": "tmlvl-pgysht-zvm-ltqst"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "tmlvl-pgysht-zvm-ltqst",
+    "cut-video": "htoch-video",
+    },
   "hu": {
     "compress-video": "video-tomoritese",
     "compress-audio": "tomoriti-a-hangot",
@@ -1320,8 +1344,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "távolítsa-el-a-hangot-a-videóból",
     "add-watermark-to-mp4": "vízjel-hozzáadása-az-mp4-hez",
     "join-audio-files": "csatlakozzon-audio-fájlokhoz",
-    "merge-mp3": "mp3-egyesítése"
-  },
+    "merge-mp3": "mp3-egyesítése",
+    "cut-video": "video-vagas",
+    },
   "no": {
     "compress-video": "komprimere-video",
     "compress-audio": "komprimere-lyd",
@@ -1374,8 +1399,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "fjerne-lyd-fra-video",
     "add-watermark-to-mp4": "legg-til-vannmerke-til-mp4",
     "join-audio-files": "bli-med-i-lydfiler",
-    "merge-mp3": "slå-sammen-mp3"
-  },
+    "merge-mp3": "slå-sammen-mp3",
+    "cut-video": "klipp-video",
+    },
   "ro": {
     "compress-video": "comprima-video",
     "compress-audio": "comprima-audio",
@@ -1428,8 +1454,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "eliminați-sunetul-din-video",
     "add-watermark-to-mp4": "adăugați-filigran-la-mp4",
     "join-audio-files": "alăturați-fișierelor-audio",
-    "merge-mp3": "îmbinare-mp3"
-  },
+    "merge-mp3": "îmbinare-mp3",
+    "cut-video": "taie-video",
+    },
   "sk": {
     "compress-video": "komprimovat-video",
     "compress-audio": "komprimovat-zvuk",
@@ -1440,11 +1467,12 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "recorder": "zaznamnik",
     "create-gif": "vytvorit-gif",
     "video-speed": "rychlost-videa",
-    "crop-video": "orezat-video",
+    "crop-video": "vyrezat-video",
     "mute-video": "stlmit-video",
     "watermark-video": "video-s-vodoznakom",
-    "merge-audio": "audio-funguje"
-  },
+    "merge-audio": "audio-funguje",
+    "cut-video": "orezat-video",
+    },
   "uk": {
     "compress-video": "stiskati-video",
     "compress-audio": "stiskati-audio",
@@ -1497,8 +1525,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "speed-up-video-for-tiktok": "shvidko-priskoriti-video-dlya-tiktok",
     "crop-video-for-instagram-story": "obrizati-video-dlya-instagram-story-916",
     "combine-multiple-voice-memos-into-one": "obiednayte-kilka-golosovih-nagaduvan-v-odne",
-    "transcribe-zoom-meeting-recording-to-text": "transkribuvati-zoom-meeting-u-tekst"
-  },
+    "transcribe-zoom-meeting-recording-to-text": "transkribuvati-zoom-meeting-u-tekst",
+    "cut-video": "obrizaty-video",
+    },
   "ms": {
     "compress-video": "memampatkan-video",
     "compress-audio": "memampatkan-audio",
@@ -1551,8 +1580,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "keluarkan-audio-daripada-video",
     "add-watermark-to-mp4": "tambah-tera-air-pada-mp4",
     "join-audio-files": "menyertai-fail-audio",
-    "merge-mp3": "cantumkan-mp3"
-  },
+    "merge-mp3": "cantumkan-mp3",
+    "cut-video": "potong-video",
+    },
   "zh-TW": {
     "reduce-mp4-video-size-for-email": "減小電子郵件的-mp4-影片大小",
     "compress-large-video-for-whatsapp": "壓縮-whatsapp-的大視頻",
@@ -1605,8 +1635,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "從視頻中刪除音頻",
     "add-watermark-to-mp4": "為mp4添加浮水印",
     "join-audio-files": "加入音訊檔案",
-    "merge-mp3": "合併mp3"
-  },
+    "merge-mp3": "合併mp3",
+    "cut-video": "cut-video",
+    },
   "tl": {
     "reduce-mp4-video-size-for-email": "bawasan-ang-laki-ng-mp4-video-para-sa-email",
     "compress-large-video-for-whatsapp": "i-compress-ang-malaking-video-para-sa-whatsapp",
@@ -1659,8 +1690,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "remove-audio-from-video": "alisin-ang-audio-mula-sa-video",
     "add-watermark-to-mp4": "magdagdag-ng-watermark-sa-mp4",
     "join-audio-files": "sumali-sa-mga-audio-file",
-    "merge-mp3": "pagsamahin-ang-mp3"
-  }
+    "merge-mp3": "pagsamahin-ang-mp3",
+    "cut-video": "gupitin-ang-video",
+    }
 };
 
 

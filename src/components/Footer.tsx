@@ -33,6 +33,7 @@ export const Footer: React.FC = () => {
 
   const videoTools = [
     { slug: 'compress-video', labelKey: 'navbarCompressVideo', fallback: 'Compress Video' },
+    { slug: 'cut-video', labelKey: 'toolCutVideo', fallback: 'Cut Video' },
     { slug: 'convert-video', labelKey: 'toolConvertVideoName', fallback: 'Convert Video' },
     { slug: 'video-to-audio', labelKey: 'navbarVideoToAudio', fallback: 'Video to Audio' },
     { slug: 'crop-video', labelKey: 'navbarCropVideo', fallback: 'Crop Video' },
