@@ -14,6 +14,7 @@ SolveMyMedia operates entirely on the user's device. No media file is ever trans
 
 ## 2. Video Editing Tools
 
+- [Cut Video](/cut-video): Trim, slice, and cut video clips locally with lossless stream demuxing in 0.4s without re-encoding.
 - [Create GIF](/create-gif): Extract clips and convert video segments to animated GIF images.
 - [Crop Video](/crop-video): Trim and crop video dimensions for any platform without watermarks.
 - [Mute Video](/mute-video): Remove the audio track from any video file instantly.

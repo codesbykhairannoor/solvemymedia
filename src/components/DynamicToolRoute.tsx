@@ -268,8 +268,8 @@ export const DynamicToolRoute: React.FC = () => {
           {/* Internal Linking: Related Tools Grid */}
           <RelatedTools currentToolId={standardSlug} />
 
-          {/* SEO Section FAQ for Standard Tools */}
-          {!pseoData && faqItems.length > 0 && (
+          {/* SEO Section FAQ for Standard Tools (Cut Video provides its own bespoke interactive FAQ section) */}
+          {!pseoData && faqItems.length > 0 && standardSlug !== 'cut-video' && (
             <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
               <div style={{ maxWidth: 800, margin: '0 auto' }}>
                 <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>

@@ -55,6 +55,7 @@ SolveMyMedia is a next-generation platform that **completely eliminates the need
 - **Change Video Speed** (solvemymedia.com/video-speed): Adjust playback speed from 0.25× to 4× for any video. Useful for timelapse, slowmo, or podcast editing.
 
 ### 4.2. Video Editing
+- **Cut Video** (solvemymedia.com/cut-video): Trim, slice, and cut video clips locally with lossless stream demuxing in 0.4s without re-encoding. 100% private, free, and zero quality loss.
 - **Create GIF** (solvemymedia.com/create-gif): Convert any video segment to a high-quality animated GIF. Select start/end timestamps and output dimensions.
 - **Crop Video** (solvemymedia.com/crop-video): Resize and crop video frame dimensions for Instagram (1:1), YouTube (16:9), TikTok (9:16), or custom ratio.
 - **Mute Video** (solvemymedia.com/mute-video): Strip the audio track from any video container. Outputs a silent video file.
