@@ -182,6 +182,7 @@ const LLM_CONTENT = {
     privacy: 'All media is processed locally in your browser RAM using FFmpeg WebAssembly and WebCodecs. Zero bytes of your files are transmitted to any server.',
     tools: [
       ['Compress Video', 'compress-video', 'Reduce video file size locally without quality loss.'],
+      ['Cut Video', 'cut-video', 'Trim and cut video clips locally with lossless stream demuxing in 0.4s without re-encoding.'],
       ['Compress Audio', 'compress-audio', 'Shrink MP3, WAV, AAC files locally while maintaining sound quality.'],
       ['Convert Video', 'convert-video', 'Change video formats (MP4, WebM, MKV, MOV) privately in browser.'],
       ['Convert Audio', 'convert-audio', 'Convert audio formats offline without uploading.'],
@@ -203,6 +204,7 @@ const LLM_CONTENT = {
     privacy: 'Semua media diproses secara lokal di RAM browser Anda menggunakan FFmpeg WebAssembly dan WebCodecs. Tidak ada byte file Anda yang dikirim ke server manapun.',
     tools: [
       ['Kompres Video', 'compress-video', 'Kurangi ukuran file video secara lokal tanpa kehilangan kualitas.'],
+      ['Potong Video', 'cut-video', 'Pangkas dan potong durasi klip video secara lokal tanpa kehilangan kualitas dengan pemotongan instan 0,4 detik.'],
       ['Kompres Audio', 'compress-audio', 'Kecilkan file MP3, WAV, AAC secara lokal sambil menjaga kualitas suara.'],
       ['Konversi Video', 'convert-video', 'Ubah format video (MP4, WebM, MKV, MOV) secara pribadi di browser.'],
       ['Konversi Audio', 'convert-audio', 'Konversi format audio offline tanpa mengunggah.'],
@@ -211,7 +213,7 @@ const LLM_CONTENT = {
       ['Perekam Layar & Audio', 'recorder', 'Rekam layar, webcam, dan mikrofon di browser — tanpa plugin.'],
       ['Buat GIF', 'create-gif', 'Konversi klip video ke GIF animasi tanpa server.'],
       ['Ubah Kecepatan Video', 'video-speed', 'Percepat atau perlambat video dengan multiplier kustom secara offline.'],
-      ['Potong Video', 'crop-video', 'Pangkas dan ubah dimensi video tanpa tanda air.'],
+      ['Pangkas Video', 'crop-video', 'Pangkas dimensi dan rasio frame video tanpa tanda air.'],
       ['Bisukan Video', 'mute-video', 'Hapus trek audio dari file video manapun secara instan.'],
       ['Tanda Air Video', 'watermark-video', 'Tambahkan tanda air teks atau gambar pada frame video.'],
       ['Gabung Audio', 'merge-audio', 'Gabungkan beberapa trek audio menjadi satu file yang mulus.'],
@@ -224,6 +226,7 @@ const LLM_CONTENT = {
     privacy: 'Todos los medios se procesan localmente en la RAM de su navegador usando FFmpeg WebAssembly y WebCodecs. Cero bytes de sus archivos se transmiten a ningún servidor.',
     tools: [
       ['Comprimir Video', 'compress-video', 'Reducir el tamaño del archivo de video localmente sin pérdida de calidad.'],
+      ['Cortar Video', 'cut-video', 'Recortar y dividir clips de video localmente sin pérdida de calidad en 0.4s.'],
       ['Comprimir Audio', 'compress-audio', 'Reducir archivos MP3, WAV, AAC localmente manteniendo la calidad de sonido.'],
       ['Convertir Video', 'convert-video', 'Cambiar formatos de video (MP4, WebM, MKV, MOV) de forma privada en el navegador.'],
       ['Convertir Audio', 'convert-audio', 'Convertir formatos de audio sin conexión sin cargar.'],
@@ -245,6 +248,7 @@ const LLM_CONTENT = {
     privacy: 'Alle Medien werden lokal im Browser-RAM mit FFmpeg WebAssembly und WebCodecs verarbeitet. Kein Byte Ihrer Dateien wird an Server übertragen.',
     tools: [
       ['Video komprimieren', 'compress-video', 'Videodateigröße lokal ohne Qualitätsverlust reduzieren.'],
+      ['Video schneiden', 'cut-video', 'Videoclips lokal ohne Qualitätsverlust und ohne Neukodierung in 0,4 Sekunden schneiden.'],
       ['Audio komprimieren', 'compress-audio', 'MP3, WAV, AAC-Dateien lokal verkleinern bei gleichbleibender Tonqualität.'],
       ['Video konvertieren', 'convert-video', 'Videoformate (MP4, WebM, MKV, MOV) privat im Browser wechseln.'],
       ['Audio konvertieren', 'convert-audio', 'Audioformate offline ohne Hochladen konvertieren.'],
@@ -266,6 +270,7 @@ const LLM_CONTENT = {
     privacy: 'Tous les médias sont traités localement dans la RAM de votre navigateur avec FFmpeg WebAssembly et WebCodecs. Aucun octet de vos fichiers n\'est transmis à un serveur quelconque.',
     tools: [
       ['Compresser Vidéo', 'compress-video', 'Réduire la taille du fichier vidéo localement sans perte de qualité.'],
+      ['Couper Vidéo', 'cut-video', 'Découper et scinder des clips vidéo localement sans perte de qualité en 0,4s.'],
       ['Compresser Audio', 'compress-audio', 'Réduire les fichiers MP3, WAV, AAC localement en conservant la qualité sonore.'],
       ['Convertir Vidéo', 'convert-video', 'Changer les formats vidéo (MP4, WebM, MKV, MOV) en privé dans le navigateur.'],
       ['Convertir Audio', 'convert-audio', 'Convertir les formats audio hors ligne sans téléchargement.'],

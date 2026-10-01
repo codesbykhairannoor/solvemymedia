@@ -29,6 +29,7 @@ Cloud tools force you to UPLOAD your private videos to external servers — even
 ## 3. Full Tool Catalog (Deutsch)
 
 - [Video komprimieren](https://solvemymedia.com/de/video-komprimieren): Videodateigröße lokal ohne Qualitätsverlust reduzieren.
+- [Video schneiden](https://solvemymedia.com/de/video-schneiden): Videoclips lokal ohne Qualitätsverlust und ohne Neukodierung in 0,4 Sekunden schneiden.
 - [Audio komprimieren](https://solvemymedia.com/de/audio-komprimieren): MP3, WAV, AAC-Dateien lokal verkleinern bei gleichbleibender Tonqualität.
 - [Video konvertieren](https://solvemymedia.com/de/video-konvertieren): Videoformate (MP4, WebM, MKV, MOV) privat im Browser wechseln.
 - [Audio konvertieren](https://solvemymedia.com/de/audio-konvertieren): Audioformate offline ohne Hochladen konvertieren.

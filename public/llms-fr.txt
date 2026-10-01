@@ -29,6 +29,7 @@ Cloud tools force you to UPLOAD your private videos to external servers — even
 ## 3. Full Tool Catalog (Français)
 
 - [Compresser Vidéo](https://solvemymedia.com/fr/compresser-la-video): Réduire la taille du fichier vidéo localement sans perte de qualité.
+- [Couper Vidéo](https://solvemymedia.com/fr/couper-video): Découper et scinder des clips vidéo localement sans perte de qualité en 0,4s.
 - [Compresser Audio](https://solvemymedia.com/fr/compresser-laudio): Réduire les fichiers MP3, WAV, AAC localement en conservant la qualité sonore.
 - [Convertir Vidéo](https://solvemymedia.com/fr/convertir-une-video): Changer les formats vidéo (MP4, WebM, MKV, MOV) en privé dans le navigateur.
 - [Convertir Audio](https://solvemymedia.com/fr/convertir-laudio): Convertir les formats audio hors ligne sans téléchargement.
