@@ -6,10 +6,11 @@ const HOST = 'solvemymedia.com';
 const KEY = '8ec34957474f43cca685b8c711c72539';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
-// Read sitemap
-const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+// Read sitemap (use sitemap-all.xml for complete page list)
+const sitemapAllPath = path.join(__dirname, '../public/sitemap-all.xml');
+const sitemapPath = fs.existsSync(sitemapAllPath) ? sitemapAllPath : path.join(__dirname, '../public/sitemap.xml');
 if (!fs.existsSync(sitemapPath)) {
-  console.error('sitemap.xml not found at', sitemapPath);
+  console.error('sitemap file not found at', sitemapPath);
   process.exit(1);
 }
 
@@ -20,7 +21,10 @@ const locRegex = /<loc>(.*?)<\/loc>/g;
 const urlList = [];
 let match;
 while ((match = locRegex.exec(sitemapContent)) !== null) {
-  urlList.push(match[1]);
+  const u = match[1].trim();
+  if (!u.endsWith('.xml')) {
+    urlList.push(u);
+  }
 }
 
 if (urlList.length === 0) {

@@ -160,10 +160,19 @@ async function run() {
     'compress-webm': 'compress-video',
     'compress-mp3': 'compress-audio',
     'compress-wav': 'compress-audio',
+    'trim-video': 'cut-video',
+    'trim-mp4': 'cut-video',
+    'cut-mp4': 'cut-video',
     'mov-to-mp4': 'convert-video',
     'mkv-to-mp4': 'convert-video',
     'webm-to-mp4': 'convert-video',
     'avi-to-mp4': 'convert-video',
+    'audio-berfungsi': 'merge-audio',
+    'menuliskan': 'transcribe',
+    'mengkonversi-video': 'convert-video',
+    'mengkonversi-audio': 'convert-audio',
+    'video-tanda-air': 'watermark-video',
+    'video-tera-air': 'watermark-video',
   };
 
   for (const [legacy, target] of Object.entries(LEGACY_REDIRECTS)) {
