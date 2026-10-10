@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolveMyMedia — Open Source Client-Side WebAssembly Media Processing Suite</title>
+  <meta name="description" content="Official documentation and open-source portal for SolveMyMedia. 100% in-browser video compression, lossless cutting, conversion, and transcription powered by WebAssembly.">
+  <link rel="canonical" href="https://codesbykhairannoor.github.io/solvemymedia/">
+  <link rel="icon" href="https://solvemymedia.com/logoweb.png" type="image/png">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="SolveMyMedia — Open Source WebAssembly Media Engine">
+  <meta property="og:description" content="100% private in-browser video editing, compression, and transcription with zero cloud uploads.">
+  <meta property="og:url" content="https://codesbykhairannoor.github.io/solvemymedia/">
+  <meta property="og:type" content="website">
+  
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #a855f7;
+      --secondary: #06b6d4;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --gradient: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      backdrop-filter: blur(16px);
+      background: rgba(11, 15, 25, 0.8);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .logo span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-launch {
+      background: var(--gradient);
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-launch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.45);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 80px auto 60px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .tool-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .tool-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .tool-card .link-text {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .arch-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+
+    .arch-box h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    pre {
+      background: #060911;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="https://solvemymedia.com" class="logo">
+        <img src="https://solvemymedia.com/logoweb.png" alt="SolveMyMedia Logo">
+        SolveMy<span>Media</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://github.com/codesbykhairannoor/solvemymedia">GitHub Repo</a>
+        <a href="https://solvemymedia.com/security">Privacy</a>
+        <a href="https://solvemymedia.com" class="btn-launch">Launch App ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge">⚡ Powered by WebAssembly & WebCodecs</div>
+      <h1>100% Client-Side WebAssembly Media Suite</h1>
+      <p>
+        SolveMyMedia runs entire media processing pipelines—video cutting, compression, format transcoding, and Whisper speech recognition—directly in browser RAM. Zero server uploads, zero wait times, and 100% private.
+      </p>
+      <div>
+        <a href="https://solvemymedia.com" class="btn-launch" style="font-size: 1.1rem; padding: 14px 32px;">Open Web Application ↗</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Production Web Tools Catalog</h2>
+      
+      <div class="tools-grid">
+        <a href="https://solvemymedia.com/cut-video" class="tool-card">
+          <div>
+            <h3>✂️ Cut Video</h3>
+            <p>Lossless stream demuxing in 0.4s without re-encoding pixels or quality loss.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/compress-video" class="tool-card">
+          <div>
+            <h3>🗜️ Compress Video</h3>
+            <p>Shrink MP4, WebM, MOV, and MKV file sizes by 40–80% locally using FFmpeg WASM.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/convert-video" class="tool-card">
+          <div>
+            <h3>🔄 Convert Video</h3>
+            <p>Convert between MP4, WebM, MKV, MOV, and AVI containers instantly in browser memory.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/transcribe" class="tool-card">
+          <div>
+            <h3>🎙️ Transcribe Media</h3>
+            <p>AI speech-to-text using local Whisper WASM model. Zero cloud API calls or costs.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/compress-audio" class="tool-card">
+          <div>
+            <h3>🎵 Compress Audio</h3>
+            <p>Reduce MP3, WAV, AAC, and OGG audio sizes while maintaining crystal-clear acoustics.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/convert-audio" class="tool-card">
+          <div>
+            <h3>🎧 Convert Audio</h3>
+            <p>Convert audio files offline between MP3, WAV, AAC, OGG, and FLAC containers.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/video-to-audio" class="tool-card">
+          <div>
+            <h3>🔊 Video to Audio</h3>
+            <p>Extract soundtrack audio streams from video files as MP3 or WAV in 0.5s flat.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/recorder" class="tool-card">
+          <div>
+            <h3>📹 Studio Recorder</h3>
+            <p>Record desktop screen, webcam, and microphone simultaneously in full HD.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/create-gif" class="tool-card">
+          <div>
+            <h3>🖼️ Video to GIF</h3>
+            <p>Convert video segments to animated GIFs with configurable FPS and dimensions.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/video-speed" class="tool-card">
+          <div>
+            <h3>⏩ Change Speed</h3>
+            <p>Speed up (up to 4×) or slow down (0.25×) video frames offline with audio pitch sync.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/crop-video" class="tool-card">
+          <div>
+            <h3>📐 Crop Video</h3>
+            <p>Resize framing dimensions (16:9, 9:16, 1:1) without watermarks or encoding lag.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+
+        <a href="https://solvemymedia.com/mute-video" class="tool-card">
+          <div>
+            <h3>🔇 Mute Video</h3>
+            <p>Strip audio tracks from video containers in 0.3s without touching video stream.</p>
+          </div>
+          <span class="link-text">Launch Tool →</span>
+        </a>
+      </div>
+
+      <div class="arch-box">
+        <h2>Architecture Breakdown: Why Client-Side WASM?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          Traditional cloud converters require uploading entire gigabytes of private data to remote AWS EC2 servers, costing bandwidth and risking data exposure. SolveMyMedia moves the compute to the client device using WebAssembly.
+        </p>
+        <pre>
+[User File (e.g. 2GB MP4)]
+       │
+       ▼ (Drag & Drop into Browser RAM)
+[Browser Tab Memory Sandbox]
+       ├── WebAssembly Stream Demuxer (FFmpeg.wasm v0.12)
+       ├── WebCodecs Hardware Acceleration (Zero CPU Bottleneck)
+       └── SharedArrayBuffer Multithreaded Pipeline
+       │
+       ▼ (0.4s Execution)
+[Instant Download to Local Disk]
+* 0 Bytes Uploaded to External Servers
+* 100% Air-Gapped Privacy & Offline Functionality
+        </pre>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      © 2026 <a href="https://solvemymedia.com">SolveMyMedia</a>. Official Open Source Portal hosted on GitHub Pages.
+      <br>
+      Explore the live suite at <a href="https://solvemymedia.com">solvemymedia.com</a>.
+    </p>
+  </footer>
+
+</body>
+</html>
