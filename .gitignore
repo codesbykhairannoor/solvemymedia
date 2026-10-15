@@ -30,3 +30,9 @@ scripts/solvemymedia-*.json
 scripts/*-*.json
 !scripts/google-indexing-state.json
 *.key.json
+
+# Media & Test Files
+*.mp4
+*.mov
+*.mkv
+*.webm

@@ -3,7 +3,7 @@ import { Tag, Sparkles, Film, User, Calendar, Music, FileText, Shield, AlertCirc
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
-import { scanVideoElement, buildDetectedMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
+import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
 import {
   EditVideoMetadataHeroSection,
   EditVideoMetadataHowToSection,
@@ -12,7 +12,7 @@ import {
 } from '../components/content-sections/tools/EditVideoMetadataSections';
 
 export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
-  const { processing, progress, runCustomFFmpeg, probeMedia } = useFFmpeg();
+  const { processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
 
   const [file, setFile] = useState<File | null>(null);
@@ -62,13 +62,9 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
     const scan = async () => {
       try {
-        const nativeInfo = await scanVideoElement(file);
+        const meta = await scanFileMetadata(file);
         if (!isMounted) return;
 
-        const { logs, metaText } = await probeMedia(file);
-        if (!isMounted) return;
-
-        const meta = buildDetectedMetadata(metaText, logs, nativeInfo);
         setDetectedMeta(meta);
 
         // Pre-fill existing metadata tags into the form
@@ -197,6 +193,19 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
               <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{(file.name.split('.').pop() || 'MP4').toUpperCase()}</div>
             </div>
           </div>
+
+          {/* Detected AI / Encoder Pill */}
+          {(detectedMeta?.hasC2pa || detectedMeta?.encoder) && (
+            <div style={{ marginTop: 10, padding: '8px 10px', background: 'rgba(168,85,247,0.1)', borderRadius: 8, border: '1px solid rgba(168,85,247,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem' }}>
+              <span style={{ color: '#c084fc', display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700 }}>
+                <Sparkles size={13} color="#e879f9" />
+                <span>{detectedMeta.hasC2pa ? 'Manifest AI (C2PA)' : 'Software / Pengkode'}</span>
+              </span>
+              <span style={{ color: 'var(--text-main)', fontWeight: 600, maxWidth: '60%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={detectedMeta.c2paIssuer || detectedMeta.encoder}>
+                {detectedMeta.c2paIssuer || detectedMeta.encoder}
+              </span>
+            </div>
+          )}
         </div>
       )}
 
@@ -217,8 +226,10 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
                 <div style={{ fontWeight: 800, color: '#f0abfc', marginBottom: 2 }}>
                   ✨ {autoFilledCount} Tag Bawaan Terdeteksi & Terisi Otomatis
                 </div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
-                  Metadata yang ada telah dimuat ke kolom formulir di bawah. Anda dapat langsung mengedit nilai yang ada atau menambahkan tag baru.
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.4 }}>
+                  {title && <span>Judul: <strong style={{ color: 'var(--text-main)' }}>"{title}"</strong> • </span>}
+                  {artist && <span>Pembuat: <strong style={{ color: 'var(--text-main)' }}>"{artist}"</strong> • </span>}
+                  {year && <span>Tahun: <strong style={{ color: 'var(--text-main)' }}>{year}</strong></span>}
                 </div>
               </div>
               <button

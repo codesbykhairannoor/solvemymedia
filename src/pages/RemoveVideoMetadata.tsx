@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, ShieldAlert, MapPin, Smartphone, UserX, Clock, Check, AlertCircle, FileVideo, Zap, Lock, Loader2 } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, MapPin, Smartphone, UserX, Clock, Check, AlertCircle, FileVideo, Zap, Lock, Loader2, Sparkles, Tag } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
-import { scanVideoElement, buildDetectedMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
+import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
 import {
   RemoveVideoMetadataHeroSection,
   RemoveVideoMetadataHowToSection,
@@ -12,7 +12,7 @@ import {
 } from '../components/content-sections/tools/RemoveVideoMetadataSections';
 
 export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
-  const { processing, progress, runCustomFFmpeg, probeMedia } = useFFmpeg();
+  const { processing, progress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
 
   const [file, setFile] = useState<File | null>(null);
@@ -49,17 +49,11 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
 
     const scan = async () => {
       try {
-        const nativeInfo = await scanVideoElement(file);
+        const meta = await scanFileMetadata(file);
         if (!isMounted) return;
-
-        // Container atom & tag probe via FFmpeg WASM
-        const { logs, metaText } = await probeMedia(file);
-        if (!isMounted) return;
-
-        const meta = buildDetectedMetadata(metaText, logs, nativeInfo);
         setDetectedMeta(meta);
       } catch (err) {
-        console.warn('Video metadata inspection warning:', err);
+        console.warn('Video metadata inspection notice:', err);
       } finally {
         if (isMounted) {
           setIsScanning(false);
@@ -114,9 +108,9 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
   const sidebarContent = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
       {/* Privacy Status & Container Inspector Card */}
-      <div style={{ background: detectedMeta?.hasGps ? 'rgba(239,68,68,0.09)' : 'rgba(225,29,72,0.06)', padding: 16, borderRadius: 16, border: detectedMeta?.hasGps ? '1px solid rgba(239,68,68,0.3)' : '1px solid rgba(225,29,72,0.18)' }}>
-        <h4 style={{ fontWeight: 800, fontSize: '0.96rem', color: detectedMeta?.hasGps ? '#ef4444' : '#f43f5e', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
-          {detectedMeta?.hasGps ? <ShieldAlert size={18} /> : <ShieldCheck size={18} />}
+      <div style={{ background: (detectedMeta?.hasGps || detectedMeta?.hasC2pa) ? 'rgba(239,68,68,0.09)' : 'rgba(225,29,72,0.06)', padding: 16, borderRadius: 16, border: (detectedMeta?.hasGps || detectedMeta?.hasC2pa) ? '1px solid rgba(239,68,68,0.3)' : '1px solid rgba(225,29,72,0.18)' }}>
+        <h4 style={{ fontWeight: 800, fontSize: '0.96rem', color: (detectedMeta?.hasGps || detectedMeta?.hasC2pa) ? '#ef4444' : '#f43f5e', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
+          {(detectedMeta?.hasGps || detectedMeta?.hasC2pa) ? <ShieldAlert size={18} /> : <ShieldCheck size={18} />}
           <span>{t('rmvFileInspector') || 'Video Metadata Scanner'}</span>
         </h4>
         <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
@@ -163,6 +157,22 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
 
           {detectedMeta && (
             <>
+              {/* AI Watermark / C2PA Manifest Alert */}
+              {(detectedMeta.hasC2pa || detectedMeta.aiGenerated) && (
+                <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.15), rgba(244,63,94,0.15))', border: '1px solid rgba(168,85,247,0.4)', borderRadius: 12, padding: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#e879f9', fontWeight: 800, fontSize: '0.84rem', marginBottom: 4 }}>
+                    <Sparkles size={16} />
+                    <span>WATERMARK AI / MANIFEST C2PA TERDETEKSI!</span>
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-main)', fontWeight: 700 }}>
+                    {detectedMeta.c2paIssuer || 'Google C2PA AI Provenance Manifest'}
+                  </div>
+                  <div style={{ fontSize: '0.74rem', color: '#fca5a5', marginTop: 5, lineHeight: 1.4 }}>
+                    File ini menyematkan tanda air / manifest digital AI. Pembersihan akan membuang box manifest C2PA ini secara permanen dari wadah video.
+                  </div>
+                </div>
+              )}
+
               {/* GPS Alert */}
               {detectedMeta.hasGps && (
                 <div style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.4)', borderRadius: 12, padding: 12 }}>
@@ -212,18 +222,36 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
               {detectedMeta.encoder && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 10px', background: 'var(--bg-app)', borderRadius: 8, border: '1px solid var(--border-color)', fontSize: '0.8rem' }}>
                   <FileVideo size={14} color="#94a3b8" />
-                  <span style={{ color: 'var(--text-muted)' }}>Encoder:</span>
-                  <span style={{ color: 'var(--text-main)', fontSize: '0.78rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Software / Encoder:</span>
+                  <strong style={{ color: 'var(--text-main)', fontSize: '0.8rem' }}>
                     {detectedMeta.encoder}
-                  </span>
+                  </strong>
+                </div>
+              )}
+
+              {/* Raw Tags Inspector List */}
+              {Object.keys(detectedMeta.rawTags).length > 0 && (
+                <div style={{ background: 'var(--bg-app)', padding: '10px 12px', borderRadius: 10, border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  <div style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <Tag size={12} color="#38bdf8" />
+                    <span>Tag Wadah Yang Ditemukan ({Object.keys(detectedMeta.rawTags).length}):</span>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    {Object.entries(detectedMeta.rawTags).map(([key, val]) => (
+                      <div key={key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.76rem', background: 'var(--bg-card)', padding: '4px 8px', borderRadius: 6, border: '1px solid var(--border-color)' }}>
+                        <span style={{ fontFamily: 'monospace', color: '#38bdf8', fontWeight: 700 }}>{key}</span>
+                        <span style={{ color: 'var(--text-main)', maxWidth: '65%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={val}>{val}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
 
               {/* Clean Container Reassurance */}
-              {!detectedMeta.hasGps && !detectedMeta.hasDeviceInfo && !detectedMeta.hasAuthorInfo && (
+              {!detectedMeta.hasGps && !detectedMeta.hasDeviceInfo && !detectedMeta.hasAuthorInfo && !detectedMeta.hasC2pa && !detectedMeta.encoder && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: 'rgba(34,197,94,0.08)', borderRadius: 10, border: '1px solid rgba(34,197,94,0.2)', color: '#22c55e', fontSize: '0.8rem' }}>
                   <ShieldCheck size={16} />
-                  <span>Wadah bersih: Tidak ditemukan koordinat GPS atau identitas hardware sensitif.</span>
+                  <span>Wadah bersih: Tidak ditemukan koordinat GPS, manifest AI, atau identitas hardware sensitif.</span>
                 </div>
               )}
             </>
