@@ -394,6 +394,59 @@ export const useFFmpeg = () => {
     }
   };
 
-  return { ready, processing, progress, logs, load, compressMedia, trimMedia, fixWebmMetadata, runCustomFFmpeg };
+  const probeMedia = async (file: File): Promise<{ logs: string[]; metaText?: string }> => {
+    const ffmpeg = ffmpegRef.current;
+    if (!ffmpeg) return { logs: [] };
+
+    if (!ready && !ffmpeg.loaded) {
+      const ok = await load();
+      if (!ok) return { logs: [] };
+    }
+
+    const capturedLogs: string[] = [];
+    const logHandler = ({ message }: { message: string }) => {
+      capturedLogs.push(message);
+    };
+
+    const rawExt = (file.name.split('.').pop() || '').toLowerCase().replace(/[^a-z0-9]/g, '') || 'mp4';
+    const inputName = `probe_${Date.now()}.${rawExt}`;
+    const metaOutput = `meta_${Date.now()}.txt`;
+
+    try {
+      ffmpeg.on('log', logHandler);
+      await ffmpeg.writeFile(inputName, await fetchFile(file));
+
+      try {
+        await ffmpeg.exec(['-i', inputName, '-f', 'ffmetadata', metaOutput]);
+      } catch (execErr) {
+        // exec can throw if ffmpeg exits non-zero, but logs and/or metaOutput may still exist
+      }
+
+      let metaText: string | undefined;
+      try {
+        const data = await ffmpeg.readFile(metaOutput);
+        if (data) {
+          metaText = new TextDecoder('utf-8').decode(data as Uint8Array);
+        }
+      } catch (_) {}
+
+      return { logs: capturedLogs, metaText };
+    } catch (e) {
+      console.warn("probeMedia error:", e);
+      return { logs: capturedLogs };
+    } finally {
+      try {
+        ffmpeg.off('log', logHandler);
+      } catch (_) {}
+      try {
+        await ffmpeg.deleteFile(inputName);
+      } catch (_) {}
+      try {
+        await ffmpeg.deleteFile(metaOutput);
+      } catch (_) {}
+    }
+  };
+
+  return { ready, processing, progress, logs, load, compressMedia, trimMedia, fixWebmMetadata, runCustomFFmpeg, probeMedia };
 };
 

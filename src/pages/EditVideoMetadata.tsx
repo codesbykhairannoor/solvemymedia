@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Tag, Sparkles, Film, User, Calendar, Music, FileText, Shield, AlertCircle, Zap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Tag, Sparkles, Film, User, Calendar, Music, FileText, Shield, AlertCircle, Zap, Loader2, RotateCcw } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
+import { scanVideoElement, buildDetectedMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
 import {
   EditVideoMetadataHeroSection,
   EditVideoMetadataHowToSection,
@@ -11,12 +12,17 @@ import {
 } from '../components/content-sections/tools/EditVideoMetadataSections';
 
 export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
-  const { processing, progress, runCustomFFmpeg } = useFFmpeg();
+  const { processing, progress, runCustomFFmpeg, probeMedia } = useFFmpeg();
   const { t } = useLanguage();
 
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  // Detected Metadata State
+  const [detectedMeta, setDetectedMeta] = useState<DetectedVideoMetadata | null>(null);
+  const [isScanning, setIsScanning] = useState(false);
+  const [autoFilledCount, setAutoFilledCount] = useState<number>(0);
 
   // Metadata form fields
   const [title, setTitle] = useState('');
@@ -26,6 +32,71 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
   const [genre, setGenre] = useState('');
   const [comment, setComment] = useState('');
   const [copyright, setCopyright] = useState('');
+
+  const formatFileSize = (bytes: number): string => {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  };
+
+  useEffect(() => {
+    if (!file) {
+      setDetectedMeta(null);
+      setIsScanning(false);
+      setAutoFilledCount(0);
+      setTitle('');
+      setArtist('');
+      setAlbum('');
+      setYear('');
+      setGenre('');
+      setComment('');
+      setCopyright('');
+      return;
+    }
+
+    let isMounted = true;
+    setIsScanning(true);
+    setAutoFilledCount(0);
+
+    const scan = async () => {
+      try {
+        const nativeInfo = await scanVideoElement(file);
+        if (!isMounted) return;
+
+        const { logs, metaText } = await probeMedia(file);
+        if (!isMounted) return;
+
+        const meta = buildDetectedMetadata(metaText, logs, nativeInfo);
+        setDetectedMeta(meta);
+
+        // Pre-fill existing metadata tags into the form
+        let filled = 0;
+        if (meta.title) { setTitle(meta.title); filled++; }
+        if (meta.artist) { setArtist(meta.artist); filled++; }
+        if (meta.album) { setAlbum(meta.album); filled++; }
+        if (meta.year) { setYear(meta.year); filled++; }
+        if (meta.genre) { setGenre(meta.genre); filled++; }
+        if (meta.comment) { setComment(meta.comment); filled++; }
+        if (meta.copyright) { setCopyright(meta.copyright); filled++; }
+
+        setAutoFilledCount(filled);
+      } catch (err) {
+        console.warn('Video metadata read error:', err);
+      } finally {
+        if (isMounted) {
+          setIsScanning(false);
+        }
+      }
+    };
+
+    scan();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [file]);
 
   const handleProcess = async () => {
     if (!file) return;
@@ -65,6 +136,17 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     }
   };
 
+  const handleClearAll = () => {
+    setTitle('');
+    setArtist('');
+    setAlbum('');
+    setYear('');
+    setGenre('');
+    setComment('');
+    setCopyright('');
+    setAutoFilledCount(0);
+  };
+
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '10px 14px',
@@ -90,6 +172,76 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
   const sidebarContent = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      {/* File & Container Specs Card */}
+      {file && (
+        <div style={{ background: 'rgba(56,189,248,0.06)', padding: 14, borderRadius: 14, border: '1px solid rgba(56,189,248,0.2)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Film size={15} color="#38bdf8" />
+              <span>{file.name}</span>
+            </span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{formatFileSize(file.size)}</span>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6, marginTop: 8 }}>
+            <div style={{ background: 'var(--bg-app)', padding: '6px 8px', borderRadius: 8, border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>{t('rmvInspectRes') || 'Resolution'}</div>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{detectedMeta?.resolution || '—'}</div>
+            </div>
+            <div style={{ background: 'var(--bg-app)', padding: '6px 8px', borderRadius: 8, border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>{t('rmvInspectDur') || 'Duration'}</div>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{detectedMeta?.durationFormatted || '—'}</div>
+            </div>
+            <div style={{ background: 'var(--bg-app)', padding: '6px 8px', borderRadius: 8, border: '1px solid var(--border-color)', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>{t('rmvInspectFormat') || 'Format'}</div>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{(file.name.split('.').pop() || 'MP4').toUpperCase()}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Auto-fill Status Banner */}
+      {file && (
+        <>
+          {isScanning && (
+            <div style={{ background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.25)', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 8, color: '#38bdf8', fontSize: '0.82rem' }}>
+              <Loader2 size={16} className="animate-spin" />
+              <span>Memindai & membaca tag metadata bawaan dari wadah video...</span>
+            </div>
+          )}
+
+          {!isScanning && autoFilledCount > 0 && (
+            <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.12), rgba(59,130,246,0.12))', border: '1px solid rgba(168,85,247,0.35)', borderRadius: 12, padding: '12px 14px', display: 'flex', alignItems: 'flex-start', gap: 10, color: '#c084fc', fontSize: '0.82rem', lineHeight: 1.5 }}>
+              <Sparkles size={16} style={{ flexShrink: 0, marginTop: 2, color: '#e879f9' }} />
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 800, color: '#f0abfc', marginBottom: 2 }}>
+                  ✨ {autoFilledCount} Tag Bawaan Terdeteksi & Terisi Otomatis
+                </div>
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                  Metadata yang ada telah dimuat ke kolom formulir di bawah. Anda dapat langsung mengedit nilai yang ada atau menambahkan tag baru.
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={handleClearAll}
+                title="Kosongkan semua bidang"
+                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: 'var(--text-main)', padding: '4px 8px', borderRadius: 6, fontSize: '0.72rem', cursor: 'pointer', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 4 }}
+              >
+                <RotateCcw size={11} />
+                <span>Reset</span>
+              </button>
+            </div>
+          )}
+
+          {!isScanning && autoFilledCount === 0 && detectedMeta && (
+            <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+              <Tag size={15} color="#38bdf8" />
+              <span>Wadah video ini belum memiliki tag judul/artis bawaan. Isi kolom di bawah untuk menambahkan tag baru.</span>
+            </div>
+          )}
+        </>
+      )}
+
       {/* Title Field */}
       <div>
         <label style={labelStyle}>
