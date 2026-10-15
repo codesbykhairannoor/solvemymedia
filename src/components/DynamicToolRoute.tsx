@@ -22,6 +22,8 @@ import { MergeAudio } from '../pages/MergeAudio';
 import { CutVideo } from '../pages/CutVideo';
 import { RemoveVideoMetadata } from '../pages/RemoveVideoMetadata';
 import { EditVideoMetadata } from '../pages/EditVideoMetadata';
+import { RemoveAudioMetadata } from '../pages/RemoveAudioMetadata';
+import { EditAudioMetadata } from '../pages/EditAudioMetadata';
 import { RelatedTools } from './RelatedTools';
 import { useWorkspace } from '../contexts/WorkspaceContext';
 
@@ -41,7 +43,9 @@ const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'merge-audio': MergeAudio,
   'cut-video': CutVideo,
   'remove-video-metadata': RemoveVideoMetadata,
-  'edit-video-metadata': EditVideoMetadata
+  'edit-video-metadata': EditVideoMetadata,
+  'remove-audio-metadata': RemoveAudioMetadata,
+  'edit-audio-metadata': EditAudioMetadata
 };
 
 const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
@@ -60,10 +64,19 @@ const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
   'merge-audio': { title: 'seoMergeAudioTitle', desc: 'seoMergeAudioDesc' },
   'cut-video': { title: 'seoCutVideoTitle', desc: 'seoCutVideoDesc' },
   'remove-video-metadata': { title: 'seoRemoveVideoMetadataTitle', desc: 'seoRemoveVideoMetadataDesc' },
-  'edit-video-metadata': { title: 'seoEditVideoMetadataTitle', desc: 'seoEditVideoMetadataDesc' }
+  'edit-video-metadata': { title: 'seoEditVideoMetadataTitle', desc: 'seoEditVideoMetadataDesc' },
+  'remove-audio-metadata': { title: 'seoRemoveAudioMetadataTitle', desc: 'seoRemoveAudioMetadataDesc' },
+  'edit-audio-metadata': { title: 'seoEditAudioMetadataTitle', desc: 'seoEditAudioMetadataDesc' }
 };
 
 const LEGACY_SLUG_MAP: Record<string, string> = {
+  'strip-audio-metadata': 'remove-audio-metadata',
+  'strip-mp3-metadata': 'remove-audio-metadata',
+  'remove-mp3-tags': 'remove-audio-metadata',
+  'clean-audio-metadata': 'remove-audio-metadata',
+  'id3-tag-editor': 'edit-audio-metadata',
+  'edit-mp3-tags': 'edit-audio-metadata',
+  'audio-tag-editor': 'edit-audio-metadata',
   'trim-video': 'cut-video',
   'trim-mp4': 'cut-video',
   'cut-mp4': 'cut-video',
@@ -188,6 +201,18 @@ const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = 
     { qKey: 'edtFaq2Q', aKey: 'edtFaq2A' },
     { qKey: 'edtFaq3Q', aKey: 'edtFaq3A' },
     { qKey: 'edtFaq4Q', aKey: 'edtFaq4A' },
+  ],
+  'remove-audio-metadata': [
+    { qKey: 'rmaFaq1Q', aKey: 'rmaFaq1A' },
+    { qKey: 'rmaFaq2Q', aKey: 'rmaFaq2A' },
+    { qKey: 'rmaFaq3Q', aKey: 'rmaFaq3A' },
+    { qKey: 'rmaFaq4Q', aKey: 'rmaFaq4A' },
+  ],
+  'edit-audio-metadata': [
+    { qKey: 'edaFaq1Q', aKey: 'edaFaq1A' },
+    { qKey: 'edaFaq2Q', aKey: 'edaFaq2A' },
+    { qKey: 'edaFaq3Q', aKey: 'edaFaq3A' },
+    { qKey: 'edaFaq4Q', aKey: 'edaFaq4A' },
   ],
 };
 

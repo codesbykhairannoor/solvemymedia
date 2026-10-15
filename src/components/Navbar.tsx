@@ -21,6 +21,8 @@ const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
     'convert-video': 'Konversi Video',
     'remove-video-metadata': 'Hapus Metadata Video',
     'edit-video-metadata': 'Edit Metadata Video',
+    'remove-audio-metadata': 'Hapus Metadata Audio',
+    'edit-audio-metadata': 'Edit Metadata Audio',
     'video-speed': 'Kecepatan Video',
     'crop-video': 'Pangkas Video',
     'create-gif': 'Buat GIF',
@@ -39,6 +41,8 @@ const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
     'convert-video': 'Tukar Video',
     'remove-video-metadata': 'Buang Metadata Video',
     'edit-video-metadata': 'Edit Metadata Video',
+    'remove-audio-metadata': 'Buang Metadata Audio',
+    'edit-audio-metadata': 'Edit Metadata Audio',
     'video-speed': 'Kelajuan Video',
     'crop-video': 'Pangkas Video',
     'create-gif': 'Buat GIF',
@@ -57,6 +61,8 @@ const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
     'convert-video': 'Convert Video',
     'remove-video-metadata': 'Remove Video Metadata',
     'edit-video-metadata': 'Edit Video Metadata',
+    'remove-audio-metadata': 'Remove Audio Metadata',
+    'edit-audio-metadata': 'Edit Audio Metadata',
     'video-speed': 'Video Speed',
     'crop-video': 'Crop Video',
     'create-gif': 'Create GIF',
@@ -291,11 +297,13 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                   <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
                 </div>
 
-                {/* Column 3: Audio Tools (3 items) */}
+                {/* Column 3: Audio Tools (5 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatAudio') || 'ALAT AUDIO'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-audio')} onClick={() => handleToolClick('compress-audio')} />
                   <MI icon={Music} label={getToolName('convert-audio')} onClick={() => handleToolClick('convert-audio')} />
+                  <MI icon={ShieldCheck} label={getToolName('remove-audio-metadata')} onClick={() => handleToolClick('remove-audio-metadata')} />
+                  <MI icon={Tag} label={getToolName('edit-audio-metadata')} onClick={() => handleToolClick('edit-audio-metadata')} />
                   <MI icon={Scissors} label={getToolName('merge-audio')} onClick={() => handleToolClick('merge-audio')} />
                 </div>
 
@@ -477,6 +485,8 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 { section: t('navCatAudio') || 'ALAT AUDIO', tools: [
                   { id: 'compress-audio', Icon: Minimize2 },
                   { id: 'convert-audio', Icon: Music },
+                  { id: 'remove-audio-metadata', Icon: ShieldCheck },
+                  { id: 'edit-audio-metadata', Icon: Tag },
                   { id: 'video-to-audio', Icon: FileAudio },
                   { id: 'merge-audio', Icon: Scissors },
                 ]},

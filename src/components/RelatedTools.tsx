@@ -183,6 +183,26 @@ const ALL_CORE_TOOLS: ToolItem[] = [
     fallbackName: 'Edit Video Metadata',
     fallbackDesc: 'Edit title, artist, album, genre, release year, and copyright tags on video containers online.'
   },
+  {
+    id: 'remove-audio-metadata',
+    icon: ShieldCheck,
+    color: '#ef4444',
+    category: 'audio',
+    nameKey: 'toolRemoveAudioMetadata',
+    descKey: 'removeAudioMetadataDesc',
+    fallbackName: 'Remove Audio Metadata',
+    fallbackDesc: 'Strip ID3 tags, C2PA AI manifests, SynthID watermarks, DAW signatures, and album artwork from audio files.'
+  },
+  {
+    id: 'edit-audio-metadata',
+    icon: Tag,
+    color: '#a855f7',
+    category: 'audio',
+    nameKey: 'toolEditAudioMetadata',
+    descKey: 'editAudioMetadataDesc',
+    fallbackName: 'Edit Audio Metadata',
+    fallbackDesc: 'Edit ID3 tags, song title, artist, album, year, genre, and cover details online losslessly.'
+  },
 ];
 
 export const RelatedTools: React.FC<RelatedToolsProps> = ({ currentToolId }) => {
