@@ -28,7 +28,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
   const [title, setTitle] = useState('');
   const [artist, setArtist] = useState('');
   const [album, setAlbum] = useState('');
-  const [year, setYear] = useState('');
+  const [dateTime, setDateTime] = useState('');
   const [genre, setGenre] = useState('');
   const [comment, setComment] = useState('');
   const [copyright, setCopyright] = useState('');
@@ -49,7 +49,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       setTitle('');
       setArtist('');
       setAlbum('');
-      setYear('');
+      setDateTime('');
       setGenre('');
       setComment('');
       setCopyright('');
@@ -67,15 +67,23 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
         setDetectedMeta(meta);
 
-        // Pre-fill existing metadata tags into the form
+        // Pre-fill existing metadata tags into the form with smart defaults
+        const initialTitle = meta.title || meta.cleanTitleSuggestion || '';
+        const initialArtist = meta.artist || (meta.hasC2pa ? 'Google AI' : meta.encoder || '');
+        const initialDate = meta.creationTime || (meta.year ? `${meta.year}-01-01 12:00:00` : '');
+        const initialAlbum = meta.album || '';
+        const initialGenre = meta.genre || '';
+        const initialComment = meta.comment || (meta.hasC2pa ? 'Google AI C2PA Provenance' : '');
+        const initialCopyright = meta.copyright || '';
+
         let filled = 0;
-        if (meta.title) { setTitle(meta.title); filled++; }
-        if (meta.artist) { setArtist(meta.artist); filled++; }
-        if (meta.album) { setAlbum(meta.album); filled++; }
-        if (meta.year) { setYear(meta.year); filled++; }
-        if (meta.genre) { setGenre(meta.genre); filled++; }
-        if (meta.comment) { setComment(meta.comment); filled++; }
-        if (meta.copyright) { setCopyright(meta.copyright); filled++; }
+        if (initialTitle) { setTitle(initialTitle); filled++; }
+        if (initialArtist) { setArtist(initialArtist); filled++; }
+        if (initialDate) { setDateTime(initialDate); filled++; }
+        if (initialAlbum) { setAlbum(initialAlbum); filled++; }
+        if (initialGenre) { setGenre(initialGenre); filled++; }
+        if (initialComment) { setComment(initialComment); filled++; }
+        if (initialCopyright) { setCopyright(initialCopyright); filled++; }
 
         setAutoFilledCount(filled);
       } catch (err) {
@@ -109,7 +117,10 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     if (title.trim()) args.push('-metadata', `title=${title.trim()}`);
     if (artist.trim()) args.push('-metadata', `artist=${artist.trim()}`);
     if (album.trim()) args.push('-metadata', `album=${album.trim()}`);
-    if (year.trim()) args.push('-metadata', `date=${year.trim()}`);
+    if (dateTime.trim()) {
+      args.push('-metadata', `date=${dateTime.trim()}`);
+      args.push('-metadata', `creation_time=${dateTime.trim()}`);
+    }
     if (genre.trim()) args.push('-metadata', `genre=${genre.trim()}`);
     if (comment.trim()) args.push('-metadata', `comment=${comment.trim()}`);
     if (copyright.trim()) args.push('-metadata', `copyright=${copyright.trim()}`);
@@ -136,7 +147,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     setTitle('');
     setArtist('');
     setAlbum('');
-    setYear('');
+    setDateTime('');
     setGenre('');
     setComment('');
     setCopyright('');
@@ -166,7 +177,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     marginBottom: 4
   };
 
-  const hasAnyValue = Boolean(title || artist || album || year || genre || comment || copyright);
+  const hasAnyValue = Boolean(title || artist || album || dateTime || genre || comment || copyright);
 
   const sidebarContent = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -200,7 +211,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       {file && detectedMeta && (
         <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: '8px 10px', fontSize: '0.78rem' }}>
           <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>
-            {t('edtCurrentMetadata') || 'Metadata Bawaan Terdeteksi'}
+            {t('edtCurrentMetadata') !== 'edtCurrentMetadata' ? t('edtCurrentMetadata') : 'Metadata Bawaan Terdeteksi'}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
             {(detectedMeta.creationTime || detectedMeta.year) && (
@@ -242,8 +253,8 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         />
       </div>
 
-      {/* Row for Artist & Year */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 10 }}>
+      {/* Row for Artist & DateTime */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         <div>
           <label style={labelStyle}>
             <User size={13} color="#a855f7" />
@@ -253,20 +264,20 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             type="text"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
-            placeholder={t('edtFieldArtistPlaceholder') || 'e.g. John Doe'}
+            placeholder={t('edtFieldArtistPlaceholder') || 'e.g. John Doe / Studio'}
             style={inputStyle}
           />
         </div>
         <div>
           <label style={labelStyle}>
             <Calendar size={13} color="#eab308" />
-            <span>{t('edtFieldYear') || 'Year'}</span>
+            <span>{t('edtFieldDateTime') || 'Tanggal & Jam (Tahun/Bulan/Hari)'}</span>
           </label>
           <input
             type="text"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            placeholder={t('edtFieldYearPlaceholder') || '2026'}
+            value={dateTime}
+            onChange={(e) => setDateTime(e.target.value)}
+            placeholder="YYYY-MM-DD HH:mm:ss"
             style={inputStyle}
           />
         </div>

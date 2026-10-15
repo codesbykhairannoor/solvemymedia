@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, ShieldAlert, MapPin, Smartphone, UserX, Clock, Check, AlertCircle, FileVideo, Zap, Lock, Loader2, Sparkles, Tag } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, MapPin, Smartphone, UserX, Clock, Check, AlertCircle, FileVideo, Zap, Lock, Loader2, Sparkles, Tag, Eye, RotateCcw } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
@@ -105,155 +105,250 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
     }
   };
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
   const sidebarContent = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-      {/* Tool Header */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 6, borderBottom: '1px solid var(--border-color)' }}>
-        <div>
-          <h4 style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <ShieldAlert size={18} color="#ef4444" />
-            <span>{t('rmvFileInspector') || 'Video Metadata Scrubber'}</span>
-          </h4>
-          <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
-            {t('rmvSubtitle') || 'Select metadata tags to strip losslessly.'}
-          </p>
-        </div>
-        {detectedMeta?.hasC2pa && (
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 8px', borderRadius: 6, background: 'rgba(168,85,247,0.15)', color: '#c084fc', border: '1px solid rgba(168,85,247,0.3)' }}>
-            AI Manifest (C2PA)
-          </span>
-        )}
-      </div>
+      {!isFlipped ? (
+        <>
+          {/* Tool Header (Front Side) */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 6, borderBottom: '1px solid var(--border-color)' }}>
+            <div>
+              <h4 style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <ShieldAlert size={18} color="#ef4444" />
+                <span>{t('rmvFileInspector') || 'Video Metadata Scrubber'}</span>
+              </h4>
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
+                {t('rmvSubtitle') || 'Pilih tag pelacak yang ingin dihapus.'}
+              </p>
+            </div>
+            {file && (
+              <button
+                type="button"
+                onClick={() => setIsFlipped(true)}
+                style={{
+                  background: 'rgba(56,189,248,0.1)',
+                  color: '#38bdf8',
+                  border: '1px solid rgba(56,189,248,0.25)',
+                  borderRadius: 8,
+                  padding: '5px 10px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 6
+                }}
+                title="Lihat lembar metadata detail di sisi belakang (bolak-balik)"
+              >
+                <Eye size={13} />
+                <span>Cek Detail (Balik) 🔄</span>
+              </button>
+            )}
+          </div>
 
-      {/* Hidden Metadata in Container Inspector */}
-      {file && (
-        <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, padding: 12 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, paddingBottom: 6, borderBottom: '1px solid var(--border-color)' }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Tag size={14} color="var(--brand-primary)" />
-              <span>{t('rmvDetectedMetadataTitle') || 'Hidden Metadata in Container'}</span>
-            </span>
-            {isScanning && (
-              <span style={{ fontSize: '0.72rem', color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', gap: 4 }}>
-                <Loader2 size={12} className="animate-spin" /> {t('scanning') || 'Scanning...'}
+          {/* Quick Summary Strip (Front Side) */}
+          {file && (
+            <div 
+              onClick={() => setIsFlipped(true)}
+              style={{ 
+                background: 'var(--bg-app)', 
+                border: '1px solid var(--border-color)', 
+                borderRadius: 8, 
+                padding: '8px 12px', 
+                fontSize: '0.78rem', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between', 
+                cursor: 'pointer' 
+              }}
+              title="Klik untuk membalik dan melihat lembar metadata lengkap"
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                <span style={{ fontWeight: 700, color: 'var(--text-muted)', fontSize: '0.72rem', textTransform: 'uppercase' }}>
+                  Terdeteksi:
+                </span>
+                {(detectedMeta?.creationTime || detectedMeta?.year) && (
+                  <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>
+                    🕒 {detectedMeta.creationTime || detectedMeta.year}
+                  </span>
+                )}
+                {(detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) && (
+                  <span style={{ color: '#c084fc', fontWeight: 700 }}>
+                    ✨ {detectedMeta.c2paIssuer || 'AI (C2PA)'}
+                  </span>
+                )}
+                {detectedMeta?.encoder && (
+                  <span style={{ color: 'var(--text-muted)' }}>
+                    🎬 {detectedMeta.encoder}
+                  </span>
+                )}
+                {!detectedMeta?.hasC2pa && !detectedMeta?.creationTime && !detectedMeta?.year && !detectedMeta?.encoder && (
+                  <span style={{ color: '#22c55e', fontWeight: 600 }}>
+                    🛡️ Wadah bersih dari tag pelacak
+                  </span>
+                )}
+              </div>
+              <span style={{ color: 'var(--brand-primary)', fontSize: '0.72rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 4, whiteSpace: 'nowrap' }}>
+                Detail Sheet ➔
               </span>
-            )}
+            </div>
+          )}
+
+          {/* Toggles in 2-Column Compact Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
+              <input
+                type="checkbox"
+                checked={stripGps}
+                onChange={(e) => setStripGps(e.target.checked)}
+                style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
+              />
+              <MapPin size={14} color="#ef4444" style={{ flexShrink: 0 }} />
+              <span>{t('rmvOptGps') || 'Strip GPS Coordinates'}</span>
+            </label>
+
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
+              <input
+                type="checkbox"
+                checked={stripDevice}
+                onChange={(e) => setStripDevice(e.target.checked)}
+                style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
+              />
+              <Smartphone size={14} color="#38bdf8" style={{ flexShrink: 0 }} />
+              <span>{t('rmvOptDevice') || 'Remove Camera Info'}</span>
+            </label>
+
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
+              <input
+                type="checkbox"
+                checked={stripAuthor}
+                onChange={(e) => setStripAuthor(e.target.checked)}
+                style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
+              />
+              <UserX size={14} color="#fbbf24" style={{ flexShrink: 0 }} />
+              <span>{t('rmvOptAuthor') || 'Clear Creator Tags'}</span>
+            </label>
+
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
+              <input
+                type="checkbox"
+                checked={stripChapters}
+                onChange={(e) => setStripChapters(e.target.checked)}
+                style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
+              />
+              <Clock size={14} color="#a855f7" style={{ flexShrink: 0 }} />
+              <span>{t('rmvOptChapters') || 'Remove Timestamps'}</span>
+            </label>
+          </div>
+        </>
+      ) : (
+        /* Sisi Belakang: Lembar Detail Metadata */
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {/* Header Sisi Belakang */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 6, borderBottom: '1px solid var(--border-color)' }}>
+            <div>
+              <h4 style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <Eye size={16} color="var(--brand-primary)" />
+                <span>Lembar Detail Metadata (Sisi Belakang)</span>
+              </h4>
+              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', margin: '2px 0 0 0' }}>
+                Forensik lengkap isi container & atom video
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsFlipped(false)}
+              style={{
+                background: 'rgba(255,255,255,0.08)',
+                color: 'var(--text-main)',
+                border: '1px solid var(--border-color)',
+                borderRadius: 8,
+                padding: '4px 10px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6
+              }}
+            >
+              <RotateCcw size={12} />
+              <span>Balik ke Pembersih</span>
+            </button>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.78rem' }}>
-            {/* AI Watermark / C2PA Manifest Alert */}
-            {(detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 8px', background: 'rgba(168,85,247,0.1)', borderRadius: 6, color: '#c084fc', fontWeight: 600 }}>
-                <Sparkles size={14} style={{ flexShrink: 0, color: '#e879f9' }} />
-                <span><strong>Watermark AI (C2PA):</strong> {detectedMeta.c2paIssuer || 'Google SynthID Provenance'}</span>
-              </div>
-            )}
+          {/* Table / List Detail Metadata */}
+          <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: 10, display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.78rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--text-muted)' }}>🕒 Waktu & Jam:</span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.creationTime || detectedMeta?.year || 'Tidak ditemukan'}</strong>
+            </div>
 
-            {/* Creation Date / Time */}
-            {(detectedMeta?.creationTime || detectedMeta?.year) && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
-                <Clock size={13} style={{ flexShrink: 0, color: '#38bdf8' }} />
-                <span><strong style={{ color: 'var(--text-muted)' }}>Waktu Pembuatan:</strong> {detectedMeta.creationTime || detectedMeta.year}</span>
-              </div>
-            )}
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--text-muted)' }}>🤖 Watermark AI (C2PA):</span>
+              <strong style={{ color: (detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) ? '#c084fc' : 'var(--text-main)', maxWidth: '65%', textAlign: 'right' }}>
+                {detectedMeta?.c2paIssuer || (detectedMeta?.hasC2pa ? 'C2PA AI Provenance' : 'Bersih / Tidak ada')}
+              </strong>
+            </div>
 
-            {/* Software / Encoder */}
-            {detectedMeta?.encoder && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
-                <FileVideo size={13} style={{ flexShrink: 0, color: '#a855f7' }} />
-                <span><strong style={{ color: 'var(--text-muted)' }}>Software / Encoder:</strong> {detectedMeta.encoder}</span>
-              </div>
-            )}
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--text-muted)' }}>🎬 Software / Encoder:</span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.encoder || 'Tidak tersemat'}</strong>
+            </div>
 
-            {/* GPS Geotag */}
-            {detectedMeta?.location && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#f87171' }}>
-                <MapPin size={13} style={{ flexShrink: 0 }} />
-                <span><strong>Koordinat GPS:</strong> <code style={{ color: '#fca5a5' }}>{detectedMeta.location}</code></span>
-              </div>
-            )}
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--text-muted)' }}>📍 Koordinat Geotag GPS:</span>
+              <strong style={{ color: detectedMeta?.location ? '#f87171' : 'var(--text-main)' }}>
+                {detectedMeta?.location || 'Bersih (Tidak ada GPS)'}
+              </strong>
+            </div>
 
-            {/* Camera Hardware */}
-            {detectedMeta?.hasDeviceInfo && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
-                <Smartphone size={13} style={{ flexShrink: 0, color: '#38bdf8' }} />
-                <span><strong style={{ color: 'var(--text-muted)' }}>Perangkat:</strong> {[detectedMeta.deviceMake, detectedMeta.deviceModel].filter(Boolean).join(' ')}</span>
-              </div>
-            )}
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--text-muted)' }}>📷 Kamera & Perangkat:</span>
+              <strong style={{ color: 'var(--text-main)' }}>
+                {[detectedMeta?.deviceMake, detectedMeta?.deviceModel].filter(Boolean).join(' ') || 'Bersih'}
+              </strong>
+            </div>
 
-            {/* Author / Artist */}
-            {detectedMeta?.artist && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
-                <UserX size={13} style={{ flexShrink: 0, color: '#fbbf24' }} />
-                <span><strong style={{ color: 'var(--text-muted)' }}>Penulis / Artist:</strong> {detectedMeta.artist}</span>
-              </div>
-            )}
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
+              <span style={{ color: 'var(--text-muted)' }}>👤 Penulis / Artist:</span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.artist || 'Tidak ada'}</strong>
+            </div>
 
-            {/* Title */}
-            {detectedMeta?.title && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
-                <Tag size={13} style={{ flexShrink: 0, color: '#38bdf8' }} />
-                <span><strong style={{ color: 'var(--text-muted)' }}>Judul:</strong> "{detectedMeta.title}"</span>
-              </div>
-            )}
-
-            {/* Clean Reassurance if no metadata tags */}
-            {!isScanning && !detectedMeta?.hasC2pa && !detectedMeta?.creationTime && !detectedMeta?.year && !detectedMeta?.encoder && !detectedMeta?.location && !detectedMeta?.hasDeviceInfo && !detectedMeta?.artist && !detectedMeta?.title && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#22c55e', padding: '2px 0' }}>
-                <ShieldCheck size={14} style={{ flexShrink: 0 }} />
-                <span>Wadah bersih: Tidak ditemukan koordinat GPS atau watermark AI.</span>
-              </div>
-            )}
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <span style={{ color: 'var(--text-muted)' }}>🏷️ Judul Asli Container:</span>
+              <strong style={{ color: 'var(--text-main)', maxWidth: '60%', textAlign: 'right', wordBreak: 'break-word' }}>
+                {detectedMeta?.title || detectedMeta?.cleanTitleSuggestion || 'Tidak ada'}
+              </strong>
+            </div>
           </div>
+
+          {/* Balik Button */}
+          <button
+            type="button"
+            onClick={() => setIsFlipped(false)}
+            style={{
+              width: '100%',
+              padding: '8px 12px',
+              borderRadius: 8,
+              cursor: 'pointer',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              background: 'rgba(var(--brand-primary-rgb), 0.12)',
+              color: 'var(--brand-primary)',
+              border: '1px solid rgba(var(--brand-primary-rgb), 0.25)'
+            }}
+          >
+            <RotateCcw size={13} />
+            <span>Selesai Cek — Balik ke Opsi Bersihkan</span>
+          </button>
         </div>
       )}
-
-      {/* Toggles in 2-Column Compact Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
-          <input
-            type="checkbox"
-            checked={stripGps}
-            onChange={(e) => setStripGps(e.target.checked)}
-            style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
-          />
-          <MapPin size={14} color="#ef4444" style={{ flexShrink: 0 }} />
-          <span>{t('rmvOptGps') || 'Strip GPS Coordinates'}</span>
-        </label>
-
-        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
-          <input
-            type="checkbox"
-            checked={stripDevice}
-            onChange={(e) => setStripDevice(e.target.checked)}
-            style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
-          />
-          <Smartphone size={14} color="#38bdf8" style={{ flexShrink: 0 }} />
-          <span>{t('rmvOptDevice') || 'Remove Camera Info'}</span>
-        </label>
-
-        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
-          <input
-            type="checkbox"
-            checked={stripAuthor}
-            onChange={(e) => setStripAuthor(e.target.checked)}
-            style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
-          />
-          <UserX size={14} color="#fbbf24" style={{ flexShrink: 0 }} />
-          <span>{t('rmvOptAuthor') || 'Clear Creator Tags'}</span>
-        </label>
-
-        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '9px 11px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: 'var(--text-main)', userSelect: 'none' }}>
-          <input
-            type="checkbox"
-            checked={stripChapters}
-            onChange={(e) => setStripChapters(e.target.checked)}
-            style={{ width: 16, height: 16, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
-          />
-          <Clock size={14} color="#a855f7" style={{ flexShrink: 0 }} />
-          <span>{t('rmvOptChapters') || 'Remove Timestamps'}</span>
-        </label>
-      </div>
 
       {errorMsg && (
         <div style={{ background: 'rgba(239,68,68,0.1)', padding: 10, borderRadius: 8, border: '1px solid #ef4444', color: '#f87171', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: 8 }}>

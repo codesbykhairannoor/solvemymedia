@@ -68,29 +68,57 @@ export const scanVideoElement = (file: File): Promise<{ width: number; height: n
 /**
  * Clean up a raw filename into a human-readable title suggestion
  */
-export const cleanFilenameToTitle = (filename: string): { title: string; year?: string } => {
+export const cleanFilenameToTitle = (filename: string): { title: string; year?: string; dateTime?: string } => {
   const base = filename.replace(/\.[^/.]+$/, ''); // strip extension
-  // Look for date pattern like 20260908 or 2026-09-08
   let year: string | undefined;
-  const yearMatch = base.match(/\b(20\d{2}|19\d{2})\b/);
-  if (yearMatch) {
-    year = yearMatch[1];
+  let dateTime: string | undefined;
+
+  // Pattern 1: 2026-10-13 20-01-33 or 2026-10-13_20-01-33
+  const dtMatch1 = base.match(/(20\d{2})[-_](\d{2})[-_](\d{2})[ _-]([012]\d)[-_:]([0-5]\d)[-_:]([0-5]\d)/);
+  if (dtMatch1) {
+    year = dtMatch1[1];
+    dateTime = `${dtMatch1[1]}-${dtMatch1[2]}-${dtMatch1[3]} ${dtMatch1[4]}:${dtMatch1[5]}:${dtMatch1[6]}`;
+  } else {
+    // Pattern 2: 202609081456 (YYYYMMDDHHmm)
+    const dtMatch2 = base.match(/\b(20\d{2})(\d{2})(\d{2})([012]\d)([0-5]\d)\b/);
+    if (dtMatch2) {
+      year = dtMatch2[1];
+      dateTime = `${dtMatch2[1]}-${dtMatch2[2]}-${dtMatch2[3]} ${dtMatch2[4]}:${dtMatch2[5]}:00`;
+    } else {
+      // Pattern 3: 2026-09-08 (YYYY-MM-DD)
+      const dtMatch3 = base.match(/\b(20\d{2})[-_](\d{2})[-_](\d{2})\b/);
+      if (dtMatch3) {
+        year = dtMatch3[1];
+        dateTime = `${dtMatch3[1]}-${dtMatch3[2]}-${dtMatch3[3]} 12:00:00`;
+      } else {
+        const yearMatch = base.match(/\b(20\d{2}|19\d{2})\b/);
+        if (yearMatch) {
+          year = yearMatch[1];
+          dateTime = `${yearMatch[1]}-01-01 12:00:00`;
+        }
+      }
+    }
   }
 
   // Remove resolution markers like _1080p, _720p, _4k, 202609081456, etc.
   let cleaned = base
     .replace(/[._-](1080p|720p|480p|4k|2160p|uhd|fhd|hd)\b/gi, '')
-    .replace(/[._-]\d{8,14}\b/g, '') // remove timestamps like 202609081456
+    .replace(/\b20\d{2}[-_]?\d{2}[-_]?\d{2}[-_ ]?[012]\d[-_:]?[0-5]\d[-_:]?[0-5]?\d?\b/g, '')
+    .replace(/\b20\d{2}\d{6,10}\b/g, '')
     .replace(/[._-]+/g, ' ')
     .replace(/[…]+/g, '')
     .trim();
 
   // Capitalize words
   if (cleaned.length > 0) {
-    cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+    cleaned = cleaned
+      .split(' ')
+      .filter(Boolean)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
   }
 
-  return { title: cleaned, year };
+  return { title: cleaned, year, dateTime };
 };
 
 /**
@@ -321,7 +349,7 @@ const parseEbmlChunk = (u8: Uint8Array, result: DetectedVideoMetadata) => {
  * Primary Fast Scanner: Reads file directly from RAM via File.slice() in <10ms
  */
 export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadata> => {
-  const { title: cleanTitle, year: filenameYear } = cleanFilenameToTitle(file.name);
+  const { title: cleanTitle, year: filenameYear, dateTime: filenameDateTime } = cleanFilenameToTitle(file.name);
 
   const result: DetectedVideoMetadata = {
     hasGps: false,
@@ -330,6 +358,7 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
     hasCreationDate: false,
     hasC2pa: false,
     aiGenerated: false,
+    cleanTitleSuggestion: cleanTitle,
     rawTags: {}
   };
 
@@ -378,12 +407,27 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
     console.warn('scanFileMetadata binary parser notice:', err);
   }
 
-  // Date info
+  // Date & Time info (Tanggal, Jam, Tahun)
+  if (!result.creationTime && filenameDateTime) {
+    result.creationTime = filenameDateTime;
+  }
   if (!result.year && filenameYear) {
     result.year = filenameYear;
   }
   if (!result.creationTime && result.year) {
-    result.creationTime = result.year;
+    result.creationTime = `${result.year}-01-01 12:00:00`;
+  }
+
+  // Smart suggestions for Title & Artist if missing in container
+  if (!result.title && cleanTitle) {
+    result.cleanTitleSuggestion = cleanTitle;
+  }
+  if (!result.artist) {
+    if (result.hasC2pa && result.c2paIssuer?.includes('Google')) {
+      result.artist = 'Google AI';
+    } else if (result.encoder) {
+      result.artist = result.encoder;
+    }
   }
 
   // Flags
