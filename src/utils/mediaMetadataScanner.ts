@@ -324,8 +324,6 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
   const { title: cleanTitle, year: filenameYear } = cleanFilenameToTitle(file.name);
 
   const result: DetectedVideoMetadata = {
-    cleanTitleSuggestion: cleanTitle,
-    year: filenameYear,
     hasGps: false,
     hasDeviceInfo: false,
     hasAuthorInfo: false,
@@ -380,16 +378,7 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
     console.warn('scanFileMetadata binary parser notice:', err);
   }
 
-  // Auto-populate clean suggestions if missing
-  if (!result.title && cleanTitle) {
-    result.title = cleanTitle;
-  }
-  if (!result.artist && result.encoder) {
-    result.artist = result.encoder;
-  } else if (!result.artist && result.hasC2pa) {
-    result.artist = 'Google AI';
-  }
-
+  // Only genuine metadata found in container atoms should be populated
   result.hasGps = Boolean(result.location);
   result.hasDeviceInfo = Boolean(result.deviceMake || result.deviceModel);
   result.hasAuthorInfo = Boolean(result.title || result.artist || result.copyright);

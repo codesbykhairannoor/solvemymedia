@@ -504,7 +504,7 @@ export const MediaLivePreview: React.FC<MediaLivePreviewProps> = ({
 
         {/* File Details & Quick Actions Bar */}
         {!processing && (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 12, paddingTop: 10, borderTop: '1px solid var(--border-color)', flexWrap: 'wrap', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 'auto', paddingTop: 12, borderTop: '1px solid var(--border-color)', flexWrap: 'wrap', gap: 8 }}>
             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ fontWeight: 600, color: 'var(--text-main)' }}>
                 {isCurrentResult ? `✨ ${t('resultFile') || 'Result File'}` : file.name}

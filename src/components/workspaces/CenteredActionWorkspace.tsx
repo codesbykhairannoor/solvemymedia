@@ -159,7 +159,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
           
           {/* File Rename Field */}
           {file && (
-            <div style={{ marginTop: 24, marginBottom: 16, background: 'var(--bg-input)', padding: 14, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ marginTop: 14, marginBottom: 12, background: 'var(--bg-input)', padding: 12, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: 8 }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <FileEdit size={14} style={{ color: 'var(--brand-primary)' }} />

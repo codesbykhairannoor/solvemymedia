@@ -171,10 +171,10 @@ textarea {
   max-width: 1240px;
   margin: 0 auto;
   height: auto;
-  min-height: 400px;
+  min-height: 450px;
   gap: 24px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   padding: 0 24px 24px 24px;
 }
 
@@ -185,8 +185,6 @@ textarea {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  position: sticky;
-  top: 80px;
 }
 
 .tool-workspace-right {
@@ -195,7 +193,6 @@ textarea {
   min-width: 360px;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
 }
 
 @media (max-width: 1024px) {

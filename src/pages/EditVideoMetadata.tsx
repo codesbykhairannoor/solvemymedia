@@ -145,12 +145,12 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    padding: '10px 14px',
+    padding: '8px 12px',
     background: 'var(--bg-app)',
     border: '1px solid var(--border-color)',
-    borderRadius: 10,
+    borderRadius: 8,
     color: 'var(--text-main)',
-    fontSize: '0.88rem',
+    fontSize: '0.84rem',
     outline: 'none',
     transition: 'border-color 0.2s',
     boxSizing: 'border-box'
@@ -160,150 +160,89 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     display: 'flex',
     alignItems: 'center',
     gap: 6,
-    fontSize: '0.8rem',
+    fontSize: '0.78rem',
     fontWeight: 700,
     color: 'var(--text-main)',
-    marginBottom: 6
+    marginBottom: 4
   };
 
+  const hasAnyValue = Boolean(title || artist || album || year || genre || comment || copyright);
+
   const sidebarContent = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      {/* File & Container Specs Card */}
-      {file && (
-        <div style={{ background: 'rgba(56,189,248,0.06)', padding: 14, borderRadius: 14, border: '1px solid rgba(56,189,248,0.2)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Film size={15} color="#38bdf8" />
-              <span>{file.name}</span>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 6, borderBottom: '1px solid var(--border-color)' }}>
+        <h4 style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Film size={18} color="var(--brand-primary)" />
+          <span>{t('toolEditVideoMetadata') || 'Video Metadata'}</span>
+        </h4>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          {isScanning && (
+            <span style={{ fontSize: '0.75rem', color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <Loader2 size={12} className="animate-spin" /> {t('scanning') || 'Scanning...'}
             </span>
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{formatFileSize(file.size)}</span>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6, marginTop: 8 }}>
-            <div style={{ background: 'var(--bg-app)', padding: '6px 8px', borderRadius: 8, border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>{t('rmvInspectRes') || 'Resolution'}</div>
-              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{detectedMeta?.resolution || '—'}</div>
-            </div>
-            <div style={{ background: 'var(--bg-app)', padding: '6px 8px', borderRadius: 8, border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>{t('rmvInspectDur') || 'Duration'}</div>
-              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{detectedMeta?.durationFormatted || '—'}</div>
-            </div>
-            <div style={{ background: 'var(--bg-app)', padding: '6px 8px', borderRadius: 8, border: '1px solid var(--border-color)', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>{t('rmvInspectFormat') || 'Format'}</div>
-              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-main)', marginTop: 2 }}>{(file.name.split('.').pop() || 'MP4').toUpperCase()}</div>
-            </div>
-          </div>
-
-          {/* Detected AI / Encoder Pill */}
-          {(detectedMeta?.hasC2pa || detectedMeta?.encoder) && (
-            <div style={{ marginTop: 10, padding: '8px 10px', background: 'rgba(168,85,247,0.1)', borderRadius: 8, border: '1px solid rgba(168,85,247,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem' }}>
-              <span style={{ color: '#c084fc', display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700 }}>
-                <Sparkles size={13} color="#e879f9" />
-                <span>{detectedMeta.hasC2pa ? 'Manifest AI (C2PA)' : 'Software / Pengkode'}</span>
-              </span>
-              <span style={{ color: 'var(--text-main)', fontWeight: 600, maxWidth: '60%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={detectedMeta.c2paIssuer || detectedMeta.encoder}>
-                {detectedMeta.c2paIssuer || detectedMeta.encoder}
-              </span>
-            </div>
+          )}
+          {hasAnyValue && !isScanning && (
+            <button
+              type="button"
+              onClick={handleClearAll}
+              style={{ background: 'transparent', border: 'none', color: 'var(--brand-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontWeight: 600 }}
+              title="Reset fields"
+            >
+              <RotateCcw size={12} />
+              <span>{t('resetFields') || 'Reset'}</span>
+            </button>
           )}
         </div>
-      )}
+      </div>
 
-      {/* Auto-fill Status Banner */}
-      {file && (
-        <>
-          {isScanning && (
-            <div style={{ background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.25)', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 8, color: '#38bdf8', fontSize: '0.82rem' }}>
-              <Loader2 size={16} className="animate-spin" />
-              <span>Memindai & membaca tag metadata bawaan dari wadah video...</span>
-            </div>
-          )}
-
-          {!isScanning && autoFilledCount > 0 && (
-            <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.12), rgba(59,130,246,0.12))', border: '1px solid rgba(168,85,247,0.35)', borderRadius: 12, padding: '12px 14px', display: 'flex', alignItems: 'flex-start', gap: 10, color: '#c084fc', fontSize: '0.82rem', lineHeight: 1.5 }}>
-              <Sparkles size={16} style={{ flexShrink: 0, marginTop: 2, color: '#e879f9' }} />
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 800, color: '#f0abfc', marginBottom: 2 }}>
-                  ✨ {autoFilledCount} Tag Bawaan Terdeteksi & Terisi Otomatis
-                </div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.4 }}>
-                  {title && <span>Judul: <strong style={{ color: 'var(--text-main)' }}>"{title}"</strong> • </span>}
-                  {artist && <span>Pembuat: <strong style={{ color: 'var(--text-main)' }}>"{artist}"</strong> • </span>}
-                  {year && <span>Tahun: <strong style={{ color: 'var(--text-main)' }}>{year}</strong></span>}
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={handleClearAll}
-                title="Kosongkan semua bidang"
-                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: 'var(--text-main)', padding: '4px 8px', borderRadius: 6, fontSize: '0.72rem', cursor: 'pointer', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 4 }}
-              >
-                <RotateCcw size={11} />
-                <span>Reset</span>
-              </button>
-            </div>
-          )}
-
-          {!isScanning && autoFilledCount === 0 && detectedMeta && (
-            <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 12, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-              <Tag size={15} color="#38bdf8" />
-              <span>Wadah video ini belum memiliki tag judul/artis bawaan. Isi kolom di bawah untuk menambahkan tag baru.</span>
-            </div>
-          )}
-        </>
+      {/* AI Manifest Badge if genuine C2PA detected */}
+      {detectedMeta?.hasC2pa && (
+        <div style={{ padding: '6px 10px', background: 'rgba(168,85,247,0.1)', borderRadius: 8, border: '1px solid rgba(168,85,247,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem' }}>
+          <span style={{ color: '#c084fc', display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700 }}>
+            <Sparkles size={13} color="#e879f9" />
+            <span>AI Manifest (C2PA)</span>
+          </span>
+          <span style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '0.75rem' }}>
+            {detectedMeta.c2paIssuer || 'SynthID'}
+          </span>
+        </div>
       )}
 
       {/* Title Field */}
       <div>
         <label style={labelStyle}>
-          <Film size={14} color="#38bdf8" />
+          <Film size={13} color="#38bdf8" />
           <span>{t('edtFieldTitle') || 'Title'}</span>
         </label>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder={t('edtFieldTitlePlaceholder') || 'e.g. Vacation in Bali 2026'}
+          placeholder={t('edtFieldTitlePlaceholder') || 'e.g. Vacation in Bali'}
           style={inputStyle}
         />
       </div>
 
-      {/* Row for Artist & Album */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      {/* Row for Artist & Year */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 10 }}>
         <div>
           <label style={labelStyle}>
-            <User size={14} color="#a855f7" />
-            <span>{t('edtFieldArtist') || 'Artist / Director'}</span>
+            <User size={13} color="#a855f7" />
+            <span>{t('edtFieldArtist') || 'Artist / Creator'}</span>
           </label>
           <input
             type="text"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
-            placeholder={t('edtFieldArtistPlaceholder') || 'e.g. John Doe / Studio'}
+            placeholder={t('edtFieldArtistPlaceholder') || 'e.g. John Doe'}
             style={inputStyle}
           />
         </div>
         <div>
           <label style={labelStyle}>
-            <Music size={14} color="#ec4899" />
-            <span>{t('edtFieldAlbum') || 'Album / Series'}</span>
-          </label>
-          <input
-            type="text"
-            value={album}
-            onChange={(e) => setAlbum(e.target.value)}
-            placeholder={t('edtFieldAlbumPlaceholder') || 'e.g. Travel Vlog Season 1'}
-            style={inputStyle}
-          />
-        </div>
-      </div>
-
-      {/* Row for Year & Genre */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-        <div>
-          <label style={labelStyle}>
-            <Calendar size={14} color="#eab308" />
-            <span>{t('edtFieldYear') || 'Release Year'}</span>
+            <Calendar size={13} color="#eab308" />
+            <span>{t('edtFieldYear') || 'Year'}</span>
           </label>
           <input
             type="text"
@@ -313,9 +252,26 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             style={inputStyle}
           />
         </div>
+      </div>
+
+      {/* Row for Album & Genre */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         <div>
           <label style={labelStyle}>
-            <Tag size={14} color="#22c55e" />
+            <Music size={13} color="#ec4899" />
+            <span>{t('edtFieldAlbum') || 'Album / Series'}</span>
+          </label>
+          <input
+            type="text"
+            value={album}
+            onChange={(e) => setAlbum(e.target.value)}
+            placeholder={t('edtFieldAlbumPlaceholder') || 'e.g. Vlog Season 1'}
+            style={inputStyle}
+          />
+        </div>
+        <div>
+          <label style={labelStyle}>
+            <Tag size={13} color="#22c55e" />
             <span>{t('edtFieldGenre') || 'Genre'}</span>
           </label>
           <input
@@ -329,44 +285,38 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       </div>
 
       {/* Row for Copyright & Comment */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         <div>
           <label style={labelStyle}>
-            <Shield size={14} color="#f97316" />
-            <span>{t('edtFieldCopyright') || 'Copyright / License'}</span>
+            <Shield size={13} color="#f97316" />
+            <span>{t('edtFieldCopyright') || 'Copyright'}</span>
           </label>
           <input
             type="text"
             value={copyright}
             onChange={(e) => setCopyright(e.target.value)}
-            placeholder={t('edtFieldCopyrightPlaceholder') || 'e.g. (C) 2026 All Rights Reserved'}
+            placeholder={t('edtFieldCopyrightPlaceholder') || 'e.g. (C) 2026 Studio'}
             style={inputStyle}
           />
         </div>
         <div>
           <label style={labelStyle}>
-            <FileText size={14} color="#64748b" />
-            <span>{t('edtFieldComment') || 'Description / Comment'}</span>
+            <FileText size={13} color="#64748b" />
+            <span>{t('edtFieldComment') || 'Comment'}</span>
           </label>
           <input
             type="text"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder={t('edtFieldCommentPlaceholder') || 'e.g. Captured in 4K 60fps'}
+            placeholder={t('edtFieldCommentPlaceholder') || 'e.g. 4K 60fps'}
             style={inputStyle}
           />
         </div>
       </div>
 
-      {/* Fast Stream Note */}
-      <div style={{ background: 'rgba(56,189,248,0.08)', padding: 12, borderRadius: 12, border: '1px solid rgba(56,189,248,0.2)', color: '#38bdf8', fontSize: '0.8rem', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-        <Zap size={16} style={{ flexShrink: 0, marginTop: 2 }} />
-        <span>{t('edtFastCopyNote') || 'Instant Container Rewrite: Tags are updated in 1 second without re-rendering or transcoding video frames.'}</span>
-      </div>
-
       {errorMsg && (
-        <div style={{ background: 'rgba(239,68,68,0.1)', padding: 12, borderRadius: 12, border: '1px solid #ef4444', color: '#f87171', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <AlertCircle size={16} />
+        <div style={{ background: 'rgba(239,68,68,0.1)', padding: 10, borderRadius: 8, border: '1px solid #ef4444', color: '#f87171', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <AlertCircle size={15} />
           <span>{errorMsg}</span>
         </div>
       )}
