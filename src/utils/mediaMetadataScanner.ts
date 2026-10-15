@@ -378,7 +378,15 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
     console.warn('scanFileMetadata binary parser notice:', err);
   }
 
-  // Only genuine metadata found in container atoms should be populated
+  // Date info
+  if (!result.year && filenameYear) {
+    result.year = filenameYear;
+  }
+  if (!result.creationTime && result.year) {
+    result.creationTime = result.year;
+  }
+
+  // Flags
   result.hasGps = Boolean(result.location);
   result.hasDeviceInfo = Boolean(result.deviceMake || result.deviceModel);
   result.hasAuthorInfo = Boolean(result.title || result.artist || result.copyright);

@@ -196,16 +196,34 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         </div>
       </div>
 
-      {/* AI Manifest Badge if genuine C2PA detected */}
-      {detectedMeta?.hasC2pa && (
-        <div style={{ padding: '6px 10px', background: 'rgba(168,85,247,0.1)', borderRadius: 8, border: '1px solid rgba(168,85,247,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem' }}>
-          <span style={{ color: '#c084fc', display: 'flex', alignItems: 'center', gap: 6, fontWeight: 700 }}>
-            <Sparkles size={13} color="#e879f9" />
-            <span>AI Manifest (C2PA)</span>
-          </span>
-          <span style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '0.75rem' }}>
-            {detectedMeta.c2paIssuer || 'SynthID'}
-          </span>
+      {/* Detected Metadata Summary */}
+      {file && detectedMeta && (
+        <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: '8px 10px', fontSize: '0.78rem' }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>
+            {t('edtCurrentMetadata') || 'Metadata Bawaan Terdeteksi'}
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {(detectedMeta.creationTime || detectedMeta.year) && (
+              <span style={{ background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 4, border: '1px solid var(--border-color)', color: 'var(--text-main)' }}>
+                🕒 {detectedMeta.creationTime || detectedMeta.year}
+              </span>
+            )}
+            {detectedMeta.encoder && (
+              <span style={{ background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 4, border: '1px solid var(--border-color)', color: 'var(--text-main)' }}>
+                🎬 {detectedMeta.encoder}
+              </span>
+            )}
+            {(detectedMeta.hasC2pa || detectedMeta.aiGenerated) && (
+              <span style={{ background: 'rgba(168,85,247,0.12)', color: '#c084fc', padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(168,85,247,0.3)', fontWeight: 600 }}>
+                ✨ {detectedMeta.c2paIssuer || 'AI (C2PA / SynthID)'}
+              </span>
+            )}
+            {!detectedMeta.hasC2pa && !detectedMeta.creationTime && !detectedMeta.year && !detectedMeta.encoder && !detectedMeta.title && !detectedMeta.artist && (
+              <span style={{ color: 'var(--text-muted)' }}>
+                Wadah belum memiliki tag bawaan.
+              </span>
+            )}
+          </div>
         </div>
       )}
 

@@ -125,37 +125,86 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         )}
       </div>
 
-      {/* Detected Metadata Alerts (Only if detected) */}
-      {file && detectedMeta && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {/* AI Watermark / C2PA Manifest Alert */}
-          {(detectedMeta.hasC2pa || detectedMeta.aiGenerated) && (
-            <div style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: 8, padding: '8px 10px', display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.78rem', color: '#c084fc' }}>
-              <Sparkles size={15} style={{ flexShrink: 0, color: '#e879f9' }} />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <strong>Watermark AI / C2PA:</strong> {detectedMeta.c2paIssuer || 'AI Signature'}
-              </div>
-            </div>
-          )}
+      {/* Hidden Metadata in Container Inspector */}
+      {file && (
+        <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, padding: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, paddingBottom: 6, borderBottom: '1px solid var(--border-color)' }}>
+            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Tag size={14} color="var(--brand-primary)" />
+              <span>{t('rmvDetectedMetadataTitle') || 'Hidden Metadata in Container'}</span>
+            </span>
+            {isScanning && (
+              <span style={{ fontSize: '0.72rem', color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                <Loader2 size={12} className="animate-spin" /> {t('scanning') || 'Scanning...'}
+              </span>
+            )}
+          </div>
 
-          {/* GPS Alert */}
-          {detectedMeta.hasGps && (
-            <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 8, padding: '8px 10px', display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.78rem', color: '#f87171' }}>
-              <MapPin size={15} style={{ flexShrink: 0 }} />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <strong>GPS Coordinates:</strong> <code style={{ color: '#fca5a5' }}>{detectedMeta.location}</code>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.78rem' }}>
+            {/* AI Watermark / C2PA Manifest Alert */}
+            {(detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 8px', background: 'rgba(168,85,247,0.1)', borderRadius: 6, color: '#c084fc', fontWeight: 600 }}>
+                <Sparkles size={14} style={{ flexShrink: 0, color: '#e879f9' }} />
+                <span><strong>Watermark AI (C2PA):</strong> {detectedMeta.c2paIssuer || 'Google SynthID Provenance'}</span>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Hardware Device */}
-          {detectedMeta.hasDeviceInfo && (
-            <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: '8px 10px', display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.78rem', color: 'var(--text-main)' }}>
-              <Smartphone size={14} color="#38bdf8" />
-              <span style={{ color: 'var(--text-muted)' }}>Device:</span>
-              <strong>{[detectedMeta.deviceMake, detectedMeta.deviceModel].filter(Boolean).join(' ')}</strong>
-            </div>
-          )}
+            {/* Creation Date / Time */}
+            {(detectedMeta?.creationTime || detectedMeta?.year) && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
+                <Clock size={13} style={{ flexShrink: 0, color: '#38bdf8' }} />
+                <span><strong style={{ color: 'var(--text-muted)' }}>Waktu Pembuatan:</strong> {detectedMeta.creationTime || detectedMeta.year}</span>
+              </div>
+            )}
+
+            {/* Software / Encoder */}
+            {detectedMeta?.encoder && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
+                <FileVideo size={13} style={{ flexShrink: 0, color: '#a855f7' }} />
+                <span><strong style={{ color: 'var(--text-muted)' }}>Software / Encoder:</strong> {detectedMeta.encoder}</span>
+              </div>
+            )}
+
+            {/* GPS Geotag */}
+            {detectedMeta?.location && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#f87171' }}>
+                <MapPin size={13} style={{ flexShrink: 0 }} />
+                <span><strong>Koordinat GPS:</strong> <code style={{ color: '#fca5a5' }}>{detectedMeta.location}</code></span>
+              </div>
+            )}
+
+            {/* Camera Hardware */}
+            {detectedMeta?.hasDeviceInfo && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
+                <Smartphone size={13} style={{ flexShrink: 0, color: '#38bdf8' }} />
+                <span><strong style={{ color: 'var(--text-muted)' }}>Perangkat:</strong> {[detectedMeta.deviceMake, detectedMeta.deviceModel].filter(Boolean).join(' ')}</span>
+              </div>
+            )}
+
+            {/* Author / Artist */}
+            {detectedMeta?.artist && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
+                <UserX size={13} style={{ flexShrink: 0, color: '#fbbf24' }} />
+                <span><strong style={{ color: 'var(--text-muted)' }}>Penulis / Artist:</strong> {detectedMeta.artist}</span>
+              </div>
+            )}
+
+            {/* Title */}
+            {detectedMeta?.title && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
+                <Tag size={13} style={{ flexShrink: 0, color: '#38bdf8' }} />
+                <span><strong style={{ color: 'var(--text-muted)' }}>Judul:</strong> "{detectedMeta.title}"</span>
+              </div>
+            )}
+
+            {/* Clean Reassurance if no metadata tags */}
+            {!isScanning && !detectedMeta?.hasC2pa && !detectedMeta?.creationTime && !detectedMeta?.year && !detectedMeta?.encoder && !detectedMeta?.location && !detectedMeta?.hasDeviceInfo && !detectedMeta?.artist && !detectedMeta?.title && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#22c55e', padding: '2px 0' }}>
+                <ShieldCheck size={14} style={{ flexShrink: 0 }} />
+                <span>Wadah bersih: Tidak ditemukan koordinat GPS atau watermark AI.</span>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
