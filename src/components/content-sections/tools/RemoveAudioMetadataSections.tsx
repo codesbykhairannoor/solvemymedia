@@ -28,7 +28,7 @@ export const RemoveAudioSpectrumThreatSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'raw' | 'clean'>('raw');
 
   return (
-    <section className="seo-section audio-threat-visualizer" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section audio-threat-visualizer" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 24px' }}>
       <div style={{ textAlign: 'center', marginBottom: 36 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(225,29,72,0.1)', border: '1px solid rgba(225,29,72,0.3)', borderRadius: 100, color: '#e11d48', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <ShieldAlert size={15} />

@@ -25,7 +25,7 @@ export const EditAudioTurntableShowcaseSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section turntable-showcase" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section turntable-showcase" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 24px' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Disc size={15} />

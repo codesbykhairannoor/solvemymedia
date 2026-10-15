@@ -336,71 +336,6 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
           <span>{errorMsg}</span>
         </div>
       )}
-
-      {/* Action Button */}
-      <button
-        onClick={handleProcess}
-        disabled={processing || isScanning || !file}
-        style={{
-          width: '100%',
-          padding: '12px',
-          background: 'linear-gradient(135deg, #e11d48, #be123c)',
-          color: 'white',
-          border: 'none',
-          borderRadius: 10,
-          fontWeight: 800,
-          fontSize: '0.9rem',
-          cursor: processing || isScanning || !file ? 'not-allowed' : 'pointer',
-          opacity: processing || isScanning || !file ? 0.6 : 1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 8,
-          boxShadow: '0 4px 14px rgba(225, 29, 72, 0.35)',
-          transition: 'all 0.2s ease'
-        }}
-      >
-        {processing ? (
-          <>
-            <Loader2 size={16} className="animate-spin" />
-            <span>{t('rmaProcessing') || 'Stripping Audio Metadata...'}</span>
-          </>
-        ) : (
-          <>
-            <ShieldCheck size={16} />
-            <span>{t('rmaActionBtn') || 'Remove Audio Metadata'}</span>
-          </>
-        )}
-      </button>
-
-      {/* Process Success & Download Output */}
-      {outputUrl && (
-        <div style={{ padding: 12, background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#22c55e', fontSize: '0.82rem', fontWeight: 700 }}>
-            <Check size={16} />
-            <span>{t('rmaSuccess') || 'Audio Sanitized Successfully!'}</span>
-          </div>
-          <a
-            href={outputUrl}
-            download={`sanitized_${file?.name || 'audio.mp3'}`}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 6,
-              background: '#22c55e',
-              color: 'white',
-              padding: '9px',
-              borderRadius: 8,
-              fontWeight: 700,
-              fontSize: '0.84rem',
-              textDecoration: 'none'
-            }}
-          >
-            {t('rmaDownload') || 'Download Clean Audio'}
-          </a>
-        </div>
-      )}
     </div>
   );
 
@@ -429,7 +364,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
       />
 
       {!file && !pseoData && (
-        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>
           <RemoveAudioSpectrumThreatSection />
           <RemoveAudioPatchbayWorkflowSection />
           <RemoveAudioRackmountCardsSection />

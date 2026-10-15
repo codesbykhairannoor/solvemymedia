@@ -377,7 +377,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       />
 
       {!file && !pseoData && (
-        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>
           <EditVideoClapperboardSection />
           <EditVideoFilmstripStepperSection />
           <EditVideoMediaServerCompatibilitySection />

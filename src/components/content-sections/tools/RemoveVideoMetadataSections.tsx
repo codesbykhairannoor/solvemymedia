@@ -42,7 +42,7 @@ export const RemoveVideoRadarHudSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section video-radar-hud" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section video-radar-hud" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 24px' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 100, color: '#ef4444', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Radar size={15} />
