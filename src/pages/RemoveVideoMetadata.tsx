@@ -8,8 +8,7 @@ import {
   RemoveVideoRadarHudSection,
   RemoveVideoThreatVectorsSection,
   RemoveVideoPerformanceMetricsSection,
-  RemoveVideoComparisonTableSection,
-  RemoveVideoFaqSection
+  RemoveVideoComparisonTableSection
 } from '../components/content-sections/tools/RemoveVideoMetadataSections';
 
 export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -390,7 +389,6 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
           <RemoveVideoThreatVectorsSection />
           <RemoveVideoPerformanceMetricsSection />
           <RemoveVideoComparisonTableSection />
-          <RemoveVideoFaqSection />
         </div>
       )}
     </>

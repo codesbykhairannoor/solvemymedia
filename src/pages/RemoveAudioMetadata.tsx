@@ -8,8 +8,7 @@ import {
   RemoveAudioSpectrumThreatSection,
   RemoveAudioPatchbayWorkflowSection,
   RemoveAudioRackmountCardsSection,
-  RemoveAudioForensicDiffSection,
-  RemoveAudioFaqSection
+  RemoveAudioForensicDiffSection
 } from '../components/content-sections/tools/RemoveAudioMetadataSections';
 
 export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -435,7 +434,6 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
           <RemoveAudioPatchbayWorkflowSection />
           <RemoveAudioRackmountCardsSection />
           <RemoveAudioForensicDiffSection />
-          <RemoveAudioFaqSection />
         </div>
       )}
     </>

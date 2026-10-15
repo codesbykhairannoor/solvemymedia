@@ -8,8 +8,7 @@ import {
   EditAudioTurntableShowcaseSection,
   EditAudioProducerPipelineSection,
   EditAudioPlatformCompatibilitySection,
-  EditAudioTagFormatSpecsSection,
-  EditAudioFaqSection
+  EditAudioTagFormatSpecsSection
 } from '../components/content-sections/tools/EditAudioMetadataSections';
 
 export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -424,7 +423,6 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
           <EditAudioProducerPipelineSection />
           <EditAudioPlatformCompatibilitySection />
           <EditAudioTagFormatSpecsSection />
-          <EditAudioFaqSection />
         </div>
       )}
     </>

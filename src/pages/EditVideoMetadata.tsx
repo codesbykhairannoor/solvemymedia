@@ -8,8 +8,7 @@ import {
   EditVideoClapperboardSection,
   EditVideoFilmstripStepperSection,
   EditVideoMediaServerCompatibilitySection,
-  EditVideoFormatSpecsSection,
-  EditVideoFaqSection
+  EditVideoFormatSpecsSection
 } from '../components/content-sections/tools/EditVideoMetadataSections';
 
 export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -383,7 +382,6 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
           <EditVideoFilmstripStepperSection />
           <EditVideoMediaServerCompatibilitySection />
           <EditVideoFormatSpecsSection />
-          <EditVideoFaqSection />
         </div>
       )}
     </>

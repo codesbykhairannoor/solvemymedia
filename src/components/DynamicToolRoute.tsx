@@ -311,8 +311,8 @@ export const DynamicToolRoute: React.FC = () => {
           {/* Internal Linking: Related Tools Grid */}
           <RelatedTools currentToolId={standardSlug} />
 
-          {/* SEO Section FAQ for Standard Tools (Tools with bespoke interactive sections provide their own) */}
-          {!pseoData && faqItems.length > 0 && !['cut-video', 'remove-video-metadata', 'edit-video-metadata', 'remove-audio-metadata', 'edit-audio-metadata'].includes(standardSlug) && (
+          {/* SEO Section FAQ for Standard Tools (renders at the very bottom of the page) */}
+          {!pseoData && faqItems.length > 0 && !['cut-video'].includes(standardSlug) && (
             <section className="seo-section faq" style={{ padding: '120px 24px', background: 'var(--bg-card)' }}>
               <div style={{ maxWidth: 800, margin: '0 auto' }}>
                 <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>
