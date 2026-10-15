@@ -137,7 +137,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                   alignItems: 'center',
                   gap: 6
                 }}
-                title="Lihat lembar metadata audio detail di sisi belakang (bolak-balik)"
+                title={t('rmaFlipDetailTitle') || 'Lihat lembar metadata audio detail di sisi belakang (bolak-balik)'}
               >
                 <Eye size={13} />
                 <span>{t('rmaFlipDetail') || 'Cek Detail (Balik) 🔄'}</span>
@@ -160,7 +160,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 justifyContent: 'space-between', 
                 cursor: 'pointer' 
               }}
-              title="Klik untuk membalik dan melihat lembar metadata audio lengkap"
+              title={t('rmaFlipClickTitle') || 'Klik untuk membalik dan melihat lembar metadata audio lengkap'}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                 <span style={{ fontWeight: 700, color: 'var(--text-muted)', fontSize: '0.72rem', textTransform: 'uppercase' }}>
@@ -188,7 +188,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 )}
               </div>
               <span style={{ color: 'var(--brand-primary)', fontSize: '0.72rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 4, whiteSpace: 'nowrap' }}>
-                Detail Sheet ➔
+                {t('rmaDetailSheetBtn') || 'Detail Sheet ➔'}
               </span>
             </div>
           )}
@@ -270,7 +270,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 alignItems: 'center',
                 gap: 6
               }}
-              title="Kembali ke pengaturan sanitasi audio"
+              title={t('rmaFlipBackTitle') || 'Kembali ke pengaturan sanitasi audio'}
             >
               <span>{t('rmaFlipBack') || 'Kembali ke Pengaturan ➔'}</span>
             </button>
@@ -281,10 +281,10 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             <div style={{ background: 'rgba(168,85,247,0.08)', border: '1px solid rgba(168,85,247,0.25)', borderRadius: 8, padding: '10px 12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#c084fc', fontWeight: 800, fontSize: '0.8rem', marginBottom: 4 }}>
                 <Sparkles size={14} />
-                <span>AI Provenance / SynthID Watermark Detected</span>
+                <span>{t('rmaAiDetected') || 'AI Provenance / SynthID Watermark Detected'}</span>
               </div>
               <p style={{ margin: 0, fontSize: '0.74rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                {detectedMeta.aiDetails || detectedMeta.c2paIssuer || 'Contains AI watermark manifest.'}
+                {detectedMeta.aiDetails || detectedMeta.c2paIssuer || (t('rmaAiDetailsFallback') || 'Contains Google C2PA manifest & imperceptible SynthID watermark (trainedAlgorithmicMedia).')}
               </p>
             </div>
           )}
@@ -292,15 +292,15 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
           {/* Quick Audio Technical Specs */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6, background: 'var(--bg-app)', padding: 8, borderRadius: 8, border: '1px solid var(--border-color)', fontSize: '0.72rem' }}>
             <div>
-              <span style={{ color: 'var(--text-muted)' }}>Duration: </span>
+              <span style={{ color: 'var(--text-muted)' }}>{t('rmaDuration') || 'Duration'}: </span>
               <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.durationFormatted || '00:00'}</strong>
             </div>
             <div>
-              <span style={{ color: 'var(--text-muted)' }}>Format: </span>
+              <span style={{ color: 'var(--text-muted)' }}>{t('rmaFormat') || 'Format'}: </span>
               <strong style={{ color: 'var(--text-main)' }}>{(file?.name.split('.').pop() || 'MP3').toUpperCase()}</strong>
             </div>
             <div>
-              <span style={{ color: 'var(--text-muted)' }}>Size: </span>
+              <span style={{ color: 'var(--text-muted)' }}>{t('rmaSize') || 'Size'}: </span>
               <strong style={{ color: 'var(--text-main)' }}>{file ? formatFileSize(file.size) : '0 B'}</strong>
             </div>
           </div>
@@ -319,7 +319,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 ) : (
                   <tr>
                     <td colSpan={2} style={{ padding: '12px 8px', textAlign: 'center', color: 'var(--text-muted)' }}>
-                      Tidak ditemukan tag teks metadata tersembunyi.
+                      {t('rmaNoTagsFound') || 'No hidden metadata text tags found.'}
                     </td>
                   </tr>
                 )}

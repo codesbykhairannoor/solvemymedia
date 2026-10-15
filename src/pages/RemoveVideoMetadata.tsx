@@ -142,7 +142,7 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 title="Lihat lembar metadata detail di sisi belakang (bolak-balik)"
               >
                 <Eye size={13} />
-                <span>Cek Detail (Balik) 🔄</span>
+                <span>{t('rmvFlipDetail') || 'Forensic Details (Flip) 🔄'}</span>
               </button>
             )}
           </div>
@@ -162,11 +162,11 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 justifyContent: 'space-between', 
                 cursor: 'pointer' 
               }}
-              title="Klik untuk membalik dan melihat lembar metadata lengkap"
+              title="Flip to view detailed metadata sheet"
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                 <span style={{ fontWeight: 700, color: 'var(--text-muted)', fontSize: '0.72rem', textTransform: 'uppercase' }}>
-                  Terdeteksi:
+                  {t('rmaDetected') || 'Detected:'}
                 </span>
                 {(detectedMeta?.creationTime || detectedMeta?.year) && (
                   <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>
@@ -185,12 +185,12 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 )}
                 {!detectedMeta?.hasC2pa && !detectedMeta?.creationTime && !detectedMeta?.year && !detectedMeta?.encoder && (
                   <span style={{ color: '#22c55e', fontWeight: 600 }}>
-                    🛡️ Wadah bersih dari tag pelacak
+                    🛡️ {t('rmvCleanStatus') || 'Ready to sanitize video container'}
                   </span>
                 )}
               </div>
               <span style={{ color: 'var(--brand-primary)', fontSize: '0.72rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 4, whiteSpace: 'nowrap' }}>
-                Detail Sheet ➔
+                {t('rmvFlipDetail') || 'Details ➔'}
               </span>
             </div>
           )}
@@ -250,10 +250,10 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             <div>
               <h4 style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
                 <Eye size={16} color="var(--brand-primary)" />
-                <span>Lembar Detail Metadata (Sisi Belakang)</span>
+                <span>{t('rmvDetailTitle') || 'Video Forensic Sheet (Reverse Side)'}</span>
               </h4>
               <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', margin: '2px 0 0 0' }}>
-                Forensik lengkap isi container & atom video
+                {t('rmvDetailSubtitle') || 'Complete forensics of video container atoms and metadata'}
               </p>
             </div>
             <button
@@ -274,52 +274,52 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
               }}
             >
               <RotateCcw size={12} />
-              <span>Balik ke Pembersih</span>
+              <span>{t('rmvFlipBack') || 'Return to Cleaner ➔'}</span>
             </button>
           </div>
 
           {/* Table / List Detail Metadata */}
           <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: 10, display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.78rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--text-muted)' }}>🕒 Waktu & Jam:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.creationTime || detectedMeta?.year || 'Tidak ditemukan'}</strong>
+              <span style={{ color: 'var(--text-muted)' }}>🕒 {t('rmvTimeLabel') || 'Time & Date:'}</span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.creationTime || detectedMeta?.year || (t('rmvNotFound') || 'Not found')}</strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--text-muted)' }}>🤖 Watermark AI (C2PA):</span>
+              <span style={{ color: 'var(--text-muted)' }}>🤖 {t('rmvAiLabel') || 'AI Watermark (C2PA):'}</span>
               <strong style={{ color: (detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) ? '#c084fc' : 'var(--text-main)', maxWidth: '65%', textAlign: 'right' }}>
-                {detectedMeta?.c2paIssuer || (detectedMeta?.hasC2pa ? 'C2PA AI Provenance' : 'Bersih / Tidak ada')}
+                {detectedMeta?.c2paIssuer || (detectedMeta?.hasC2pa ? 'C2PA AI Provenance' : (t('rmvCleanNone') || 'Clean / None'))}
               </strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--text-muted)' }}>🎬 Software / Encoder:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.encoder || 'Tidak tersemat'}</strong>
+              <span style={{ color: 'var(--text-muted)' }}>🎬 {t('rmvEncoderLabel') || 'Software / Encoder:'}</span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.encoder || (t('rmvNotEmbedded') || 'Not embedded')}</strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--text-muted)' }}>📍 Koordinat Geotag GPS:</span>
+              <span style={{ color: 'var(--text-muted)' }}>📍 {t('rmvOptGps') || 'GPS Geotag Coordinates:'}</span>
               <strong style={{ color: detectedMeta?.location ? '#f87171' : 'var(--text-main)' }}>
-                {detectedMeta?.location || 'Bersih (Tidak ada GPS)'}
+                {detectedMeta?.location || (t('rmvCleanNone') || 'Clean (No GPS)')}
               </strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--text-muted)' }}>📷 Kamera & Perangkat:</span>
+              <span style={{ color: 'var(--text-muted)' }}>📷 {t('rmvOptDevice') || 'Camera Hardware & Device:'}</span>
               <strong style={{ color: 'var(--text-main)' }}>
-                {[detectedMeta?.deviceMake, detectedMeta?.deviceModel].filter(Boolean).join(' ') || 'Bersih'}
+                {[detectedMeta?.deviceMake, detectedMeta?.deviceModel].filter(Boolean).join(' ') || (t('rmvCleanNone') || 'Clean')}
               </strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 4, borderBottom: '1px solid var(--border-color)' }}>
-              <span style={{ color: 'var(--text-muted)' }}>👤 Penulis / Artist:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.artist || 'Tidak ada'}</strong>
+              <span style={{ color: 'var(--text-muted)' }}>👤 {t('edtTagArtist') || 'Author / Artist:'}</span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.artist || (t('rmvCleanNone') || 'None')}</strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-muted)' }}>🏷️ Judul Asli Container:</span>
+              <span style={{ color: 'var(--text-muted)' }}>🏷️ {t('edtTagTitle') || 'Container Title:'}</span>
               <strong style={{ color: 'var(--text-main)', maxWidth: '60%', textAlign: 'right', wordBreak: 'break-word' }}>
-                {detectedMeta?.title || detectedMeta?.cleanTitleSuggestion || 'Tidak ada'}
+                {detectedMeta?.title || detectedMeta?.cleanTitleSuggestion || (t('rmvCleanNone') || 'None')}
               </strong>
             </div>
           </div>

@@ -185,10 +185,10 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
               alignItems: 'center',
               gap: 4
             }}
-            title="Reset field ke deteksi awal"
+            title={t('edaResetTitle') || 'Reset fields to initial detected tags'}
           >
             <RotateCcw size={12} />
-            <span>Reset</span>
+            <span>{t('edaResetBtn') || 'Reset'}</span>
           </button>
         )}
       </div>

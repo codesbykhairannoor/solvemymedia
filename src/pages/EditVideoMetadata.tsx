@@ -198,10 +198,10 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
               type="button"
               onClick={handleClearAll}
               style={{ background: 'transparent', border: 'none', color: 'var(--brand-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontWeight: 600 }}
-              title="Reset fields"
+              title={t('edtResetTitle') || 'Reset fields to original detected tags'}
             >
               <RotateCcw size={12} />
-              <span>{t('resetFields') || 'Reset'}</span>
+              <span>{t('edtResetBtn') || 'Reset'}</span>
             </button>
           )}
         </div>
@@ -211,7 +211,7 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       {file && detectedMeta && (
         <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: '8px 10px', fontSize: '0.78rem' }}>
           <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>
-            {t('edtCurrentMetadata') !== 'edtCurrentMetadata' ? t('edtCurrentMetadata') : 'Metadata Bawaan Terdeteksi'}
+            {t('edtInspectorTitle') || 'Embedded Container Metadata'}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
             {(detectedMeta.creationTime || detectedMeta.year) && (
