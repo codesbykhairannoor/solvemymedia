@@ -5,10 +5,11 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanAudioMetadata, type DetectedAudioMetadata } from '../utils/mediaMetadataScanner';
 import {
-  RemoveAudioMetadataHeroSection,
-  RemoveAudioMetadataHowToSection,
-  RemoveAudioMetadataBentoSection,
-  RemoveAudioMetadataComparisonSection
+  RemoveAudioSpectrumThreatSection,
+  RemoveAudioPatchbayWorkflowSection,
+  RemoveAudioRackmountCardsSection,
+  RemoveAudioForensicDiffSection,
+  RemoveAudioFaqSection
 } from '../components/content-sections/tools/RemoveAudioMetadataSections';
 
 export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -407,22 +408,36 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
   return (
     <>
       <CenteredActionWorkspace
-        title={t('toolRemoveAudioMetadata') || 'Remove Audio Metadata'}
-        subtitle={t('removeAudioMetadataDesc') || 'Strip ID3 tags, C2PA AI manifests, SynthID watermarks, DAW signatures, and album artwork from MP3, WAV, and FLAC files. 100% private in-browser cleaner.'}
+        accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus"
+        title={pseoData ? pseoData.h1 : (t('toolRemoveAudioMetadata') || 'Remove Audio Metadata')}
+        description={pseoData ? pseoData.description : (t('removeAudioMetadataDesc') || 'Strip ID3 tags, C2PA AI manifests, SynthID watermarks, DAW signatures, and album artwork from MP3, WAV, and FLAC files. 100% private in-browser cleaner.')}
+        toolId="remove-audio-metadata"
         file={file}
-        setFile={setFile}
-        accept={{ 'audio/*': ['.mp3', '.wav', '.flac', '.aac', '.m4a', '.ogg', '.opus', '.wma'] }}
+        onFileSelect={(f) => {
+          setFile(f);
+          setOutputUrl(null);
+          setErrorMsg(null);
+        }}
+        outputUrl={outputUrl}
+        onResetResult={() => setOutputUrl(null)}
         processing={processing}
         progress={progress}
-        outputUrl={outputUrl}
+        engine="tier3"
+        onProcess={handleProcess}
+        processActionText={t('rmaActionBtn') || 'Remove Audio Metadata'}
         sidebarContent={sidebarContent}
-        isAudio={true}
+        targetFormat={file ? (file.name.split('.').pop() || 'mp3') : 'mp3'}
       />
 
-      <RemoveAudioMetadataHeroSection />
-      <RemoveAudioMetadataHowToSection />
-      <RemoveAudioMetadataBentoSection />
-      <RemoveAudioMetadataComparisonSection />
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <RemoveAudioSpectrumThreatSection />
+          <RemoveAudioPatchbayWorkflowSection />
+          <RemoveAudioRackmountCardsSection />
+          <RemoveAudioForensicDiffSection />
+          <RemoveAudioFaqSection />
+        </div>
+      )}
     </>
   );
 };

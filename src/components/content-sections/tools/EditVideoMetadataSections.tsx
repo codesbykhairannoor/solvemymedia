@@ -1,115 +1,160 @@
 // @ts-nocheck
-import React from 'react';
-import { Tag, Sparkles, Film, CheckCircle2, Zap, Clock, Tv, Layers, ShieldCheck, FileText } from 'lucide-react';
+import React, { useState } from 'react';
+import { Tag, Sparkles, Film, CheckCircle2, Zap, Clock, Tv, Layers, ShieldCheck, FileText, Clapperboard, ChevronDown, Video, Camera, Award, HardDrive } from 'lucide-react';
 import { useLanguage } from '../../../hooks/useLanguage';
 
-export const EditVideoMetadataHeroSection: React.FC = () => {
+/**
+ * SECTION 1: Digital Director's Clapperboard & Archival Slate Visualizer
+ * (Hollywood cinema production theme)
+ */
+export const EditVideoClapperboardSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section hero" style={{ padding: '90px 24px', marginBottom: '60px', background: '#0a192f', borderRadius: 36, position: 'relative', overflow: 'hidden', border: '1px solid rgba(56,189,248,0.2)' }}>
-      {/* Background Grid Pattern */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'linear-gradient(rgba(56,189,248,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.04) 1px, transparent 1px)', backgroundSize: '24px 24px', zIndex: 0 }} />
+    <section className="seo-section clapperboard-showcase" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ background: '#080c14', border: '1px solid rgba(234,179,8,0.3)', borderRadius: 28, padding: '36px 32px', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.6)' }}>
+        {/* Golden Cinema Ambient Glow */}
+        <div style={{ position: 'absolute', top: '-15%', right: '-10%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(234,179,8,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 56, alignItems: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
-        <div style={{ flex: '1 1 500px' }}>
-          <div style={{ display: 'inline-flex', padding: '10px 20px', background: 'rgba(56,189,248,0.15)', borderRadius: 100, color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem', marginBottom: 24, gap: 10, alignItems: 'center', border: '1px solid rgba(56,189,248,0.3)' }}>
-            <Tag size={18} /> {t('edtHeroPill') || 'Lossless Container Tag Editor'}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'center', position: 'relative', zIndex: 1 }}>
+          {/* Left: Authentic Hollywood Clapperboard Mockup */}
+          <div style={{ flex: '1 1 380px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '100%', maxWidth: 380, background: '#111827', borderRadius: 18, border: '2px solid #374151', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.7)' }}>
+              {/* Clapper Top Striped Bar */}
+              <div style={{ height: 42, background: 'repeating-linear-gradient(45deg, #1f2937, #1f2937 20px, #facc15 20px, #facc15 40px)', borderBottom: '3px solid #000' }} />
+
+              {/* Slate Body */}
+              <div style={{ padding: '20px 22px', color: '#f3f4f6', fontFamily: 'monospace' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, borderBottom: '1px solid #374151', paddingBottom: 12, marginBottom: 12, textAlign: 'center' }}>
+                  <div>
+                    <span style={{ fontSize: '0.62rem', color: '#9ca3af', display: 'block' }}>SCENE</span>
+                    <strong style={{ fontSize: '1.1rem', color: '#facc15' }}>04B</strong>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '0.62rem', color: '#9ca3af', display: 'block' }}>TAKE</span>
+                    <strong style={{ fontSize: '1.1rem', color: '#facc15' }}>02</strong>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '0.62rem', color: '#9ca3af', display: 'block' }}>ROLL</span>
+                    <strong style={{ fontSize: '1.1rem', color: '#facc15' }}>A01</strong>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.78rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #374151', paddingBottom: 6 }}>
+                    <span style={{ color: '#9ca3af' }}>TITLE:</span>
+                    <strong style={{ color: '#67e8f9' }}>"Cinematic Journey 4K"</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #374151', paddingBottom: 6 }}>
+                    <span style={{ color: '#9ca3af' }}>DIRECTOR:</span>
+                    <strong style={{ color: '#f3f4f6' }}>Studio Creator / Filmmaker</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #374151', paddingBottom: 6 }}>
+                    <span style={{ color: '#9ca3af' }}>YEAR / DATE:</span>
+                    <strong style={{ color: '#facc15' }}>2026-10-15</strong>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ color: '#9ca3af' }}>CONTAINER ATOM:</span>
+                    <strong style={{ color: '#4ade80' }}>MP4 ilst ©nam / QuickTime udta</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.12 }}>
-            {t('edtHeroTitle') || 'Tag, Organize, and Personalize Video Files in Seconds'}
-          </h2>
-          <p style={{ fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)', color: '#94a3b8', lineHeight: 1.8, marginBottom: 32 }}>
-            {t('edtHeroDesc') || 'Update video titles, director credits, copyright notices, and genre tags cleanly across MP4, MOV, and MKV containers without spending hours rendering in heavyweight video editors.'}
-          </p>
 
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#38bdf8', fontSize: '0.9rem', fontWeight: 700 }}>
-              <Zap size={18} /> Instant Stream Copy (-c copy)
+          {/* Right: Studio & Festival Cataloging Description */}
+          <div style={{ flex: '1 1 500px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(234,179,8,0.15)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: 100, fontSize: '0.78rem', fontWeight: 800, color: '#facc15', marginBottom: 14 }}>
+              <Film size={14} />
+              <span>DIRECTOR'S ARCHIVAL CATALOGING</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#4ade80', fontSize: '0.9rem', fontWeight: 700 }}>
-              <Tv size={18} /> Apple & VLC Compatible
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#fbbf24', fontSize: '0.9rem', fontWeight: 700 }}>
-              <Layers size={18} /> Zero Re-rendering
+            <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 900, color: '#f8fafc', margin: '0 0 12px 0', letterSpacing: '-0.02em' }}>
+              Standardize Video Titles, Credits, and Licensing
+            </h3>
+            <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.6, margin: '0 0 20px 0' }}>
+              Tag your master videos with authoritative title headers, director credits, copyright notices, and release years. Streamline library indexing for Plex, Jellyfin, Apple TV, and film festival submissions without re-rendering in heavy NLE suites.
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
+              <div style={{ background: '#0e1422', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '12px 16px' }}>
+                <div style={{ color: '#facc15', fontWeight: 800, fontSize: '0.82rem', marginBottom: 2 }}>Plex & Jellyfin Ready</div>
+                <div style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Auto-scrapes embedded title & year cleanly.</div>
+              </div>
+              <div style={{ background: '#0e1422', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: '12px 16px' }}>
+                <div style={{ color: '#4ade80', fontWeight: 800, fontSize: '0.82rem', marginBottom: 2 }}>0% Quality Re-compression</div>
+                <div style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Injects metadata directly into container atoms.</div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+};
 
-        {/* Interactive Studio Tag Inspector Mockup */}
-        <div style={{ flex: '1 1 480px', display: 'flex', justifyContent: 'center' }}>
-          <div style={{ width: '100%', maxWidth: 480, background: '#0f172a', borderRadius: 20, border: '1px solid #334155', boxShadow: '0 25px 60px rgba(0,0,0,0.6)', overflow: 'hidden' }}>
-            <div style={{ background: '#1e293b', padding: '12px 18px', display: 'flex', alignItems: 'center', gap: 8, borderBottom: '1px solid #334155' }}>
-              <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#ef4444' }} />
-              <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#eab308' }} />
-              <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#22c55e' }} />
-              <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontFamily: 'monospace', marginLeft: 8 }}>
-                {t('edtTerminalTitle') || 'tag_inspector.json'}
+/**
+ * SECTION 2: Continuous 35mm Filmstrip Stepper
+ * (Styled as an actual 35mm filmstrip with sprockets)
+ */
+export const EditVideoFilmstripStepperSection: React.FC = () => {
+  const frames = [
+    {
+      frame: 'FRAME 01',
+      title: 'Import Master Footage',
+      desc: 'Select any MP4, MOV, MKV, or WebM video file. The container header is parsed directly in browser RAM in milliseconds.'
+    },
+    {
+      frame: 'FRAME 02',
+      title: 'Define Director & Title Tags',
+      desc: 'Smart auto-fill decrypts clean titles from raw filenames. Customize song/video title, director credits, and release year.'
+    },
+    {
+      frame: 'FRAME 03',
+      title: 'Lossless Sub-Second Export',
+      desc: 'FFmpeg WebAssembly writes new header atoms with stream copy (-c copy). Download your tagged master immediately.'
+    }
+  ];
+
+  return (
+    <section className="seo-section filmstrip-stepper" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 36 }}>
+        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 900, color: 'var(--text-main)', marginBottom: 10 }}>
+          35mm Filmstrip Tagging Workflow
+        </h3>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+          Streamlined video cataloging without waiting hours for heavy video editor renders.
+        </p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+        {frames.map((fr, i) => (
+          <div key={i} style={{ background: '#0b1120', border: '1.5px solid #1e293b', borderRadius: 16, overflow: 'hidden', position: 'relative' }}>
+            {/* Top Sprocket Perforations */}
+            <div style={{ height: 18, background: '#070b14', display: 'flex', alignItems: 'center', justifyContent: 'space-around', borderBottom: '1px solid #1e293b' }}>
+              {[1, 2, 3, 4, 5, 6].map(n => (
+                <div key={n} style={{ width: 10, height: 8, background: '#1e293b', borderRadius: 2 }} />
+              ))}
+            </div>
+
+            {/* Frame Body */}
+            <div style={{ padding: '22px 24px' }}>
+              <span style={{ fontSize: '0.72rem', fontWeight: 900, color: '#facc15', fontFamily: 'monospace', display: 'block', marginBottom: 8 }}>
+                {fr.frame}
               </span>
+              <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#f8fafc', marginBottom: 8 }}>
+                {fr.title}
+              </h4>
+              <p style={{ fontSize: '0.84rem', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>
+                {fr.desc}
+              </p>
             </div>
 
-            <div style={{ padding: '24px', fontFamily: 'monospace', fontSize: '0.88rem', lineHeight: 1.8 }}>
-              <div style={{ color: '#64748b', marginBottom: 12 }}>// {t('edtInspectorTitle') || 'CONTAINER HEADER TAGS'}</div>
-              <div style={{ color: '#38bdf8' }}>
-                <span style={{ color: '#94a3b8' }}>{t('edtTagTitle') || 'title: '}</span>"Cinematic Journey 4K"
-              </div>
-              <div style={{ color: '#38bdf8' }}>
-                <span style={{ color: '#94a3b8' }}>{t('edtTagArtist') || 'artist: '}</span>"Studio Creator / Director"
-              </div>
-              <div style={{ color: '#38bdf8' }}>
-                <span style={{ color: '#94a3b8' }}>genre: </span>"Travel Documentary"
-              </div>
-              <div style={{ color: '#38bdf8' }}>
-                <span style={{ color: '#94a3b8' }}>{t('edtTagDate') || 'date: '}</span>"2026"
-              </div>
-              <div style={{ color: '#38bdf8' }}>
-                <span style={{ color: '#94a3b8' }}>copyright: </span>"(C) 2026 All Rights Reserved"
-              </div>
-              
-              <div style={{ marginTop: 16, padding: '8px 12px', background: 'rgba(34,197,94,0.1)', borderRadius: 8, border: '1px solid rgba(34,197,94,0.3)', color: '#4ade80', fontSize: '0.8rem', fontWeight: 700 }}>
-                {t('edtTagStatus') || 'Status: Ready for Lossless Remux'}
-              </div>
+            {/* Bottom Sprocket Perforations */}
+            <div style={{ height: 18, background: '#070b14', display: 'flex', alignItems: 'center', justifyContent: 'space-around', borderTop: '1px solid #1e293b' }}>
+              {[1, 2, 3, 4, 5, 6].map(n => (
+                <div key={n} style={{ width: 10, height: 8, background: '#1e293b', borderRadius: 2 }} />
+              ))}
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export const EditVideoMetadataHowToSection: React.FC = () => {
-  const { t } = useLanguage();
-
-  const steps = [
-    {
-      num: '01',
-      title: t('edtHowToStep1Title') || 'Upload Video File',
-      desc: t('edtHowToStep1Desc') || 'Select your MP4, MOV, WebM, or MKV file. No waiting for cloud uploads.'
-    },
-    {
-      num: '02',
-      title: t('edtHowToStep2Title') || 'Update Tag Information',
-      desc: t('edtHowToStep2Desc') || 'Type in your title, artist/director name, album/series, genre, release year, and copyright license.'
-    },
-    {
-      num: '03',
-      title: t('edtHowToStep3Title') || 'Export Clean Container',
-      desc: t('edtHowToStep3Desc') || 'Click Save and download your newly tagged video immediately with untouched crystal-clear resolution.'
-    }
-  ];
-
-  return (
-    <section className="seo-section how-to" style={{ padding: '80px 24px', maxWidth: 1200, margin: '0 auto 60px auto' }}>
-      <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, textAlign: 'center', marginBottom: 54, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
-        {t('edtHowToTitle') || 'How to Edit Video Metadata in 3 Simple Steps'}
-      </h2>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 28 }}>
-        {steps.map((st, i) => (
-          <div key={i} style={{ background: 'var(--bg-card)', padding: '36px 28px', borderRadius: 24, border: '1px solid var(--border-color)', position: 'relative', boxShadow: '0 8px 30px rgba(0,0,0,0.04)' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--brand-primary)', opacity: 0.35, marginBottom: 16 }}>{st.num}</div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)' }}>{st.title}</h3>
-            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.98rem', margin: 0 }}>{st.desc}</p>
           </div>
         ))}
       </div>
@@ -117,102 +162,142 @@ export const EditVideoMetadataHowToSection: React.FC = () => {
   );
 };
 
-export const EditVideoMetadataBentoSection: React.FC = () => {
-  const { t } = useLanguage();
-
-  const bento = [
-    {
-      icon: <Zap size={28} color="#38bdf8" />,
-      title: t('edtBento1Title') || 'Lossless Stream Copy',
-      desc: t('edtBento1Desc') || 'Never wait for video re-rendering. Container atoms are updated in milliseconds without touching video bitrate.'
-    },
-    {
-      icon: <Tv size={28} color="#a855f7" />,
-      title: t('edtBento2Title') || 'Universal Media Player Compatibility',
-      desc: t('edtBento2Desc') || 'Tags display properly across Apple QuickTime, VLC, Windows Media Player, Smart TVs, and Plex media servers.'
-    },
-    {
-      icon: <ShieldCheck size={28} color="#22c55e" />,
-      title: t('edtBento3Title') || 'Copyright & Attribution Protection',
-      desc: t('edtBento3Desc') || 'Embed your creator name, studio credits, and copyright ownership directly into the video file header.'
-    },
-    {
-      icon: <Layers size={28} color="#f59e0b" />,
-      title: t('edtBento4Title') || 'Batch & Library Ready',
-      desc: t('edtBento4Desc') || 'Organize your video archives and home movie collections with standardized titles and release dates.'
-    }
+/**
+ * SECTION 3: Film Archival & Media Server Compatibility Matrix
+ */
+export const EditVideoMediaServerCompatibilitySection: React.FC = () => {
+  const platforms = [
+    { title: 'Plex & Jellyfin Media Servers', desc: 'Auto-scrapes embedded title, series name, and release year without filename parsing errors.', icon: HardDrive, color: '#facc15' },
+    { title: 'Film Festival & Broadcast Standards', desc: 'Embeds director credits, production house, and copyright compliance for commercial review.', icon: Award, color: '#67e8f9' },
+    { title: 'YouTube & Social Media Attribution', desc: 'Ensures original copyright and creator licensing tags persist through distribution channels.', icon: Video, color: '#f43f5e' },
+    { title: 'Smart TVs & DLNA Home Streaming', desc: 'Enables Apple TV, Samsung Tizen, and LG webOS to display full video title and cover details.', icon: Tv, color: '#4ade80' }
   ];
 
   return (
-    <section className="seo-section bento" style={{ padding: '80px 24px', maxWidth: 1200, margin: '0 auto 60px auto' }}>
-      <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, textAlign: 'center', marginBottom: 54, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
-        {t('edtBentoTitle') || 'Professional Tagging for Archivists, Podcasters, and Creators'}
-      </h2>
+    <section className="seo-section media-server-compatibility" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 36 }}>
+        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 900, color: 'var(--text-main)', marginBottom: 10 }}>
+          Media Server & Archival Standards
+        </h3>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+          Format metadata for automatic cataloging on home media servers and broadcasting systems.
+        </p>
+      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: 24 }}>
-        {bento.map((b, idx) => (
-          <div key={idx} style={{ background: 'var(--bg-card)', padding: '32px 26px', borderRadius: 20, border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div style={{ width: 52, height: 52, borderRadius: 14, background: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-color)' }}>
-              {b.icon}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18 }}>
+        {platforms.map((p, i) => {
+          const IconComp = p.icon;
+          return (
+            <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 18, padding: 24 }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: `${p.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: p.color, marginBottom: 14 }}>
+                <IconComp size={22} />
+              </div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 6 }}>
+                {p.title}
+              </h4>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>
+                {p.desc}
+              </p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>{b.title}</h3>
-            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '0.95rem', margin: 0 }}>{b.desc}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
 };
 
-export const EditVideoMetadataComparisonSection: React.FC = () => {
+/**
+ * SECTION 4: Film Container Tag Format Specifications
+ */
+export const EditVideoFormatSpecsSection: React.FC = () => {
+  return (
+    <section className="seo-section format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
+        <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+          Video Container Tag Standard Matrix
+        </h3>
+      </div>
+
+      <div style={{ overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 600 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
+              <th style={{ padding: '16px 20px', color: 'var(--text-main)', fontWeight: 800 }}>Container</th>
+              <th style={{ padding: '16px 20px', color: '#facc15', fontWeight: 800 }}>Tag Specification</th>
+              <th style={{ padding: '16px 20px', color: '#38bdf8', fontWeight: 800 }}>Supported Fields</th>
+              <th style={{ padding: '16px 20px', color: '#22c55e', fontWeight: 800 }}>Fidelity</th>
+            </tr>
+          </thead>
+          <tbody style={{ fontSize: '0.85rem' }}>
+            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>MP4 (.mp4)</td>
+              <td style={{ padding: '14px 20px', color: '#facc15' }}>ISO BMFF ilst Atoms</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>©nam (Title), ©ART (Artist), ©day, ©gen</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>Stream Copy</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>QuickTime (.mov)</td>
+              <td style={{ padding: '14px 20px', color: '#facc15' }}>QuickTime udta Atoms</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>titl, auth, yrrc, gnre, dscp, cprt</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>ProRes Preserved</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>Matroska (.mkv)</td>
+              <td style={{ padding: '14px 20px', color: '#facc15' }}>EBML Info & Tags</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>TITLE, ARTIST, DATE_RELEASED, COMMENT</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>Bit-Exact Remux</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>WebM (.webm)</td>
+              <td style={{ padding: '14px 20px', color: '#facc15' }}>EBML Segment Info</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>Title, MuxingApp, WritingApp</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>VP9 / AV1 Untouched</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+};
+
+/**
+ * SECTION 5: Single Interactive Cinema Metadata FAQ Accordion
+ */
+export const EditVideoFaqSection: React.FC = () => {
   const { t } = useLanguage();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqs = [
+    { q: t('edtFaq1Q') || 'Will editing video metadata re-encode or compress my footage?', a: t('edtFaq1A') || 'Never. SolveMyMedia performs a direct stream demux copy (-c copy). It injects metadata tags directly into the container header in under one second without re-rendering video frames.' },
+    { q: t('edtFaq2Q') || 'Which media players display these video tags?', a: t('edtFaq2A') || 'Tags edited here are fully recognized by Apple TV, QuickTime, VLC Player, Windows Media Player, Plex, Jellyfin, and Kodi.' },
+    { q: t('edtFaq3Q') || 'Can I change creation date and timestamps?', a: t('edtFaq3A') || 'Yes! You can set custom release dates and timestamps, standardizing your catalog chronologically.' },
+    { q: t('edtFaq4Q') || 'Are my video files uploaded to your servers?', a: t('edtFaq4A') || 'No. All processing happens 100% locally inside your browser via WebAssembly. Your video files never leave your computer.' }
+  ];
 
   return (
-    <section className="seo-section comparison" style={{ padding: '80px 24px', maxWidth: 1000, margin: '0 auto 60px auto' }}>
-      <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, textAlign: 'center', marginBottom: 48, color: 'var(--text-main)' }}>
-        {t('edtCompTitle') || 'Instant Container Tagging vs Heavyweight Video Rendering'}
-      </h2>
+    <section className="seo-section video-faq" style={{ maxWidth: 840, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', textAlign: 'center', marginBottom: 24 }}>
+        Frequently Asked Questions
+      </h3>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
-        {/* SolveMyMedia */}
-        <div style={{ background: 'rgba(56,189,248,0.05)', border: '2px solid rgba(56,189,248,0.4)', borderRadius: 24, padding: 36, position: 'relative' }}>
-          <div style={{ color: '#38bdf8', fontWeight: 900, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
-            Instant Workflow
-          </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>
-            {t('edtCompSolveMyMedia') || 'SolveMyMedia Stream Copy'}
-          </h3>
-          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>
-            {t('edtCompSolveMyMediaDesc') || 'Updates header atoms only. Takes 1.2s. Zero CPU heat, zero quality loss.'}
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {['1-Second Header Remuxing', 'Preserves 100% Video Bitrate', 'No Re-encoding or Frame Drops', '100% Client-Side In-Browser'].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.92rem', color: 'var(--text-main)' }}>
-                <CheckCircle2 size={16} color="#38bdf8" /> {item}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {faqs.map((f, i) => (
+          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 14, overflow: 'hidden' }}>
+            <button
+              type="button"
+              onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              style={{ width: '100%', padding: '18px 22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', color: 'var(--text-main)', fontSize: '0.98rem', fontWeight: 700 }}
+            >
+              <span>{f.q}</span>
+              <ChevronDown size={18} style={{ transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0, color: 'var(--text-muted)' }} />
+            </button>
+            {openFaq === i && (
+              <div style={{ padding: '0 22px 18px 22px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                {f.a}
               </div>
-            ))}
+            )}
           </div>
-        </div>
-
-        {/* Heavy Editors */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 24, padding: 36, opacity: 0.85 }}>
-          <div style={{ color: '#94a3b8', fontWeight: 900, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>
-            Cumbersome Workflow
-          </div>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: 12 }}>
-            {t('edtCompEditor') || 'Traditional Video Editing Software'}
-          </h3>
-          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>
-            {t('edtCompEditorDesc') || 'Requires creating a new timeline, re-encoding the entire video track, taking 15+ minutes with quality degradation.'}
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {['15+ Minutes Re-render Time', 'Lossy Generation Loss / Quality Drop', 'Spikes CPU & Laptop Battery', 'Overcomplicated Interface'].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-                <Clock size={16} color="#94a3b8" /> {item}
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

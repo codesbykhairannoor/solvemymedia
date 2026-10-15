@@ -5,10 +5,11 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
 import {
-  EditVideoMetadataHeroSection,
-  EditVideoMetadataHowToSection,
-  EditVideoMetadataBentoSection,
-  EditVideoMetadataComparisonSection
+  EditVideoClapperboardSection,
+  EditVideoFilmstripStepperSection,
+  EditVideoMediaServerCompatibilitySection,
+  EditVideoFormatSpecsSection,
+  EditVideoFaqSection
 } from '../components/content-sections/tools/EditVideoMetadataSections';
 
 export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -378,10 +379,11 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
       {!file && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-          <EditVideoMetadataHeroSection />
-          <EditVideoMetadataHowToSection />
-          <EditVideoMetadataBentoSection />
-          <EditVideoMetadataComparisonSection />
+          <EditVideoClapperboardSection />
+          <EditVideoFilmstripStepperSection />
+          <EditVideoMediaServerCompatibilitySection />
+          <EditVideoFormatSpecsSection />
+          <EditVideoFaqSection />
         </div>
       )}
     </>

@@ -85,7 +85,7 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
 
   const VIDEO_ACCEPT = 'video/*,.mp4,.webm,.mov,.mkv,.avi,.wmv,.flv,.3gp,.m4v,.ts,.ogv';
   const AUDIO_ACCEPT = 'audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus,.aiff,.ac3';
-  const isAudioInputTool = toolId === 'convert-audio' || toolId === 'compress-audio' || toolId === 'merge-audio';
+  const isAudioInputTool = toolId === 'convert-audio' || toolId === 'compress-audio' || toolId === 'merge-audio' || toolId === 'remove-audio-metadata' || toolId === 'edit-audio-metadata';
   const defaultAccept = isAudioInputTool ? AUDIO_ACCEPT : VIDEO_ACCEPT;
   const effectiveAccept = accept || defaultAccept;
 

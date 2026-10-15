@@ -5,10 +5,11 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
 import {
-  RemoveVideoMetadataHeroSection,
-  RemoveVideoMetadataHowToSection,
-  RemoveVideoMetadataBentoSection,
-  RemoveVideoMetadataComparisonSection
+  RemoveVideoRadarHudSection,
+  RemoveVideoThreatVectorsSection,
+  RemoveVideoPerformanceMetricsSection,
+  RemoveVideoComparisonTableSection,
+  RemoveVideoFaqSection
 } from '../components/content-sections/tools/RemoveVideoMetadataSections';
 
 export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -385,10 +386,11 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
 
       {!file && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
-          <RemoveVideoMetadataHeroSection />
-          <RemoveVideoMetadataHowToSection />
-          <RemoveVideoMetadataBentoSection />
-          <RemoveVideoMetadataComparisonSection />
+          <RemoveVideoRadarHudSection />
+          <RemoveVideoThreatVectorsSection />
+          <RemoveVideoPerformanceMetricsSection />
+          <RemoveVideoComparisonTableSection />
+          <RemoveVideoFaqSection />
         </div>
       )}
     </>

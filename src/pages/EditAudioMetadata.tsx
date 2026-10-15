@@ -5,10 +5,11 @@ import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanAudioMetadata, type DetectedAudioMetadata } from '../utils/mediaMetadataScanner';
 import {
-  EditAudioMetadataHeroSection,
-  EditAudioMetadataHowToSection,
-  EditAudioMetadataBentoSection,
-  EditAudioMetadataComparisonSection
+  EditAudioTurntableShowcaseSection,
+  EditAudioProducerPipelineSection,
+  EditAudioPlatformCompatibilitySection,
+  EditAudioTagFormatSpecsSection,
+  EditAudioFaqSection
 } from '../components/content-sections/tools/EditAudioMetadataSections';
 
 export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
@@ -396,22 +397,36 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
   return (
     <>
       <CenteredActionWorkspace
-        title={t('toolEditAudioMetadata') || 'Edit Audio Metadata'}
-        subtitle={t('editAudioMetadataDesc') || 'Edit ID3 tags, song title, artist, album, year, genre, and cover details online. Fast, lossless tag editor running 100% inside your browser.'}
+        accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus"
+        title={pseoData ? pseoData.h1 : (t('toolEditAudioMetadata') || 'Edit Audio Metadata')}
+        description={pseoData ? pseoData.description : (t('editAudioMetadataDesc') || 'Edit ID3 tags, song title, artist, album, year, genre, and cover details online. Fast, lossless tag editor running 100% inside your browser.')}
+        toolId="edit-audio-metadata"
         file={file}
-        setFile={setFile}
-        accept={{ 'audio/*': ['.mp3', '.wav', '.flac', '.aac', '.m4a', '.ogg', '.opus', '.wma'] }}
+        onFileSelect={(f) => {
+          setFile(f);
+          setOutputUrl(null);
+          setErrorMsg(null);
+        }}
+        outputUrl={outputUrl}
+        onResetResult={() => setOutputUrl(null)}
         processing={processing}
         progress={progress}
-        outputUrl={outputUrl}
+        engine="tier3"
+        onProcess={handleProcess}
+        processActionText={t('edaActionBtn') || 'Save & Update Audio Tags'}
         sidebarContent={sidebarContent}
-        isAudio={true}
+        targetFormat={file ? (file.name.split('.').pop() || 'mp3') : 'mp3'}
       />
 
-      <EditAudioMetadataHeroSection />
-      <EditAudioMetadataHowToSection />
-      <EditAudioMetadataBentoSection />
-      <EditAudioMetadataComparisonSection />
+      {!file && !pseoData && (
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '40px' }}>
+          <EditAudioTurntableShowcaseSection />
+          <EditAudioProducerPipelineSection />
+          <EditAudioPlatformCompatibilitySection />
+          <EditAudioTagFormatSpecsSection />
+          <EditAudioFaqSection />
+        </div>
+      )}
     </>
   );
 };

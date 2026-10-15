@@ -1,118 +1,172 @@
 // @ts-nocheck
 import React, { useState } from 'react';
-import { Tag, Sparkles, Music, Disc, Sliders, CheckCircle2, ChevronDown, Zap, Radio, Headphones, Layers, FileCheck } from 'lucide-react';
+import { Tag, Sparkles, Music, Disc, Sliders, CheckCircle2, ChevronDown, Zap, Radio, Headphones, Layers, FileCheck, Play, Volume2 } from 'lucide-react';
 import { useLanguage } from '../../../hooks/useLanguage';
 
-export const EditAudioMetadataHeroSection: React.FC = () => {
+/**
+ * SECTION 1: Virtual Vinyl Turntable & CDJ Deck Showcase
+ * (Interactive DJ Console & Metadata Display)
+ */
+export const EditAudioTurntableShowcaseSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section hero" style={{ padding: '85px 24px', marginBottom: '60px', background: '#130e2b', borderRadius: 36, position: 'relative', overflow: 'hidden', border: '1px solid rgba(168,85,247,0.25)' }}>
-      {/* Background Studio Glow */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(168,85,247,0.12) 0%, transparent 55%), radial-gradient(circle at 75% 75%, rgba(236,72,153,0.09) 0%, transparent 60%)', zIndex: 0 }} />
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px)', backgroundSize: '36px 36px', zIndex: 0 }} />
+    <section className="seo-section turntable-showcase" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ background: '#0e0b1a', border: '1px solid rgba(168,85,247,0.3)', borderRadius: 28, padding: '36px 32px', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
+        {/* Glow Orb */}
+        <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(168,85,247,0.14) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1, color: 'white' }}>
-        {/* Studio Pill */}
-        <div style={{ display: 'inline-flex', padding: '9px 20px', background: 'rgba(168,85,247,0.15)', borderRadius: 100, color: '#c084fc', fontWeight: 800, fontSize: '0.85rem', marginBottom: 24, gap: 10, alignItems: 'center', border: '1px solid rgba(168,85,247,0.3)' }}>
-          <Music size={18} /> {t('edaHeroPill') || 'Lossless Studio Tag Editor'}
-        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 36, alignItems: 'center', position: 'relative', zIndex: 1 }}>
+          {/* Left: Spinning Vinyl Disc Visual */}
+          <div style={{ flex: '1 1 360px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ position: 'relative', width: 280, height: 280, borderRadius: '50%', background: 'radial-gradient(circle, #1a1528 0%, #090710 70%, #000 100%)', border: '6px solid #231c38', boxShadow: '0 12px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {/* Vinyl Grooves */}
+              <div style={{ position: 'absolute', inset: 20, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.05)' }} />
+              <div style={{ position: 'absolute', inset: 40, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.06)' }} />
+              <div style={{ position: 'absolute', inset: 60, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.05)' }} />
+              <div style={{ position: 'absolute', inset: 80, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.07)' }} />
 
-        <h2 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 900, marginBottom: 20, letterSpacing: '-0.03em', lineHeight: 1.15 }}>
-          {t('edaHeroTitle') || 'Organize, Edit, and Brand Your Audio Tracks with Ease'}
-        </h2>
-
-        <p style={{ fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)', color: '#cbd5e1', lineHeight: 1.8, maxWidth: 760, margin: '0 auto 36px auto' }}>
-          {t('edaHeroDesc') || 'Correct misspelled titles, update artist names, add release years, and embed genre tags across your music library. Works client-side without re-encoding audio.'}
-        </p>
-
-        {/* Floating Tag Chips */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 36 }}>
-          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', padding: '6px 14px', borderRadius: 100, fontSize: '0.8rem', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <Disc size={14} color="#c084fc" /> ID3v2.3 & ID3v2.4
-          </span>
-          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', padding: '6px 14px', borderRadius: 100, fontSize: '0.8rem', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <Headphones size={14} color="#38bdf8" /> Rekordbox & Serato Ready
-          </span>
-          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', padding: '6px 14px', borderRadius: 100, fontSize: '0.8rem', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <Radio size={14} color="#4ade80" /> Spotify & Apple Podcasts Compliant
-          </span>
-          <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', padding: '6px 14px', borderRadius: 100, fontSize: '0.8rem', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <Zap size={14} color="#fbbf24" /> 0dB Lossless Stream Copy
-          </span>
-        </div>
-
-        {/* Visual Equalizer Banner */}
-        <div style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(168,85,247,0.2)', borderRadius: 18, padding: '16px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 640, margin: '0 auto', gap: 16 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            {[24, 40, 16, 48, 32, 56, 28, 44, 20, 52, 36, 60, 24, 44, 18].map((h, idx) => (
-              <div key={idx} style={{ width: 4, height: h, background: 'linear-gradient(to top, #a855f7, #ec4899)', borderRadius: 2 }} />
-            ))}
+              {/* Center Vinyl Label */}
+              <div style={{ width: 100, height: 100, borderRadius: '50%', background: 'linear-gradient(135deg, #a855f7, #ec4899)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'white', textAlign: 'center', padding: 6, boxShadow: '0 4px 15px rgba(0,0,0,0.4)' }}>
+                <Disc size={22} />
+                <span style={{ fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.04em', marginTop: 2 }}>ID3v2.4</span>
+                <span style={{ fontSize: '0.55rem', opacity: 0.85 }}>33 ⅓ RPM</span>
+              </div>
+            </div>
           </div>
-          <div style={{ textAlign: 'left', flex: 1, paddingLeft: 12 }}>
-            <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#f1f5f9' }}>Lossless Stream Tag Injection</div>
-            <div style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Rewrites header frames in &lt;100ms without modifying sound waves.</div>
+
+          {/* Right: Digital DJ Deck & CarPlay Display Mockup */}
+          <div style={{ flex: '1 1 480px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', background: 'rgba(168,85,247,0.15)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: 100, fontSize: '0.78rem', fontWeight: 800, color: '#c084fc', marginBottom: 12 }}>
+              <Headphones size={14} />
+              <span>STUDIO METADATA MASTERING</span>
+            </div>
+            <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 900, color: '#f8fafc', margin: '0 0 12px 0', letterSpacing: '-0.02em' }}>
+              Broadcast-Ready Tags for DJ Decks & Streaming
+            </h3>
+            <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.6, margin: '0 0 20px 0' }}>
+              Properly tagged audio ensures accurate track titles, artist credits, album artwork, and release dates appear across Pioneer CDJs, Apple CarPlay, Spotify, and car stereos.
+            </p>
+
+            {/* Now Playing Live Card */}
+            <div style={{ background: '#16102a', border: '1px solid rgba(168,85,247,0.25)', borderRadius: 16, padding: '16px 20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+                <span style={{ fontSize: '0.72rem', color: '#c084fc', fontWeight: 800, textTransform: 'uppercase' }}>Now Playing Display (ID3 Live Preview)</span>
+                <span style={{ fontSize: '0.7rem', color: '#4ade80', background: 'rgba(74,222,128,0.15)', padding: '2px 8px', borderRadius: 4, fontWeight: 700 }}>Pioneer Rekordbox Ready</span>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, fontSize: '0.8rem' }}>
+                <div>
+                  <span style={{ color: '#64748b', display: 'block', fontSize: '0.7rem' }}>Track Title</span>
+                  <strong style={{ color: '#f8fafc' }}>Afternoon Boutique Hours</strong>
+                </div>
+                <div>
+                  <span style={{ color: '#64748b', display: 'block', fontSize: '0.7rem' }}>Artist / Performer</span>
+                  <strong style={{ color: '#f8fafc' }}>Google AI / Studio Artist</strong>
+                </div>
+                <div>
+                  <span style={{ color: '#64748b', display: 'block', fontSize: '0.7rem' }}>Album & Year</span>
+                  <strong style={{ color: '#f8fafc' }}>Ambient Sessions • 2026</strong>
+                </div>
+                <div>
+                  <span style={{ color: '#64748b', display: 'block', fontSize: '0.7rem' }}>Genre & Format</span>
+                  <strong style={{ color: '#f8fafc' }}>Electronic / Lo-Fi • 320k MP3</strong>
+                </div>
+              </div>
+            </div>
           </div>
-          <span style={{ color: '#4ade80', fontSize: '0.78rem', fontWeight: 800, background: 'rgba(74,222,128,0.15)', padding: '4px 10px', borderRadius: 6 }}>Ready</span>
         </div>
       </div>
     </section>
   );
 };
 
-export const EditAudioMetadataHowToSection: React.FC = () => {
-  const { t } = useLanguage();
-
+/**
+ * SECTION 2: Horizontal Zig-Zag Producer Pipeline
+ */
+export const EditAudioProducerPipelineSection: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: t('edaStep1Title') || 'Select Track or Voice Memo',
-      desc: t('edaStep1Desc') || 'Import any MP3, WAV, FLAC, or M4A audio file from your device. The editor parses existing ID3 tags instantly.',
-      icon: Disc
+      title: 'Import Any Audio Container',
+      desc: 'Supports MP3 ID3v2, WAV RIFF INFO chunks, FLAC Vorbis comments, and AAC/M4A atoms without uploading files to any server.'
     },
     {
       num: '02',
-      title: t('edaStep2Title') || 'Customize Track Metadata',
-      desc: t('edaStep2Desc') || 'Fine-tune song title, artist, album, genre, release year, track number, and producer credits.',
-      icon: Sliders
+      title: 'Smart Auto-Fill & Customization',
+      desc: 'Automatic filename cleanup suggests track title, artist, year, and genre. Easily edit track numbers and composer credits.'
     },
     {
       num: '03',
-      title: t('edaStep3Title') || 'Export Clean Tagged Audio',
-      desc: t('edaStep3Desc') || 'Download your updated audio file with newly injected metadata, fully compatible with Spotify, Apple Music, and DJ software.',
-      icon: FileCheck
+      title: 'Lossless Tag Injection (-c:a copy)',
+      desc: 'Header metadata atoms are losslessly rewritten in milliseconds, preserving 100% of original acoustic waveforms with zero re-encoding.'
     }
   ];
 
   return (
-    <section className="seo-section how-to" style={{ padding: '70px 24px', maxWidth: 1200, margin: '0 auto 60px auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', marginBottom: 12 }}>
-          {t('edaHowToTitle') || 'How to Edit Audio Tags & Metadata Online'}
+    <section className="seo-section producer-pipeline" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 36 }}>
+        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 900, color: 'var(--text-main)', marginBottom: 10 }}>
+          3-Step Studio Workflow
         </h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: 640, margin: '0 auto' }}>
-          {t('edaHowToSubtitle') || 'Streamlined workflow designed for producers, DJs, podcasters, and music lovers.'}
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+          Fast, browser-powered ID3 editing with instant stream copy.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
-        {steps.map((st, i) => {
-          const IconComp = st.icon;
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+        {steps.map((st, i) => (
+          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: '28px 24px', position: 'relative' }}>
+            <div style={{ display: 'inline-flex', padding: '6px 12px', background: 'rgba(168,85,247,0.12)', color: '#c084fc', borderRadius: 8, fontWeight: 900, fontSize: '0.85rem', marginBottom: 16 }}>
+              STEP {st.num}
+            </div>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8 }}>
+              {st.title}
+            </h4>
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+              {st.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+/**
+ * SECTION 3: DJ & Streaming Platform Verification Bento
+ */
+export const EditAudioPlatformCompatibilitySection: React.FC = () => {
+  const platforms = [
+    { name: 'Pioneer Rekordbox & Serato DJ', desc: 'Accurate BPM, key metadata, and track titles for seamless live DJ sets.', icon: Headphones, color: '#38bdf8' },
+    { name: 'Apple Music & iTunes Match', desc: 'Standardized ID3v2.3 tags ensure perfect album artwork and artist grouping.', icon: Music, color: '#ec4899' },
+    { name: 'Spotify for Artists Ready', desc: 'Formatted track title and ISRC copyright metadata for release compliance.', icon: Radio, color: '#22c55e' },
+    { name: 'Apple CarPlay & Android Auto', desc: 'Large dashboard displays correctly parse track, artist, and album year.', icon: Zap, color: '#fbbf24' }
+  ];
+
+  return (
+    <section className="seo-section platform-compatibility" style={{ maxWidth: 1200, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 36 }}>
+        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 900, color: 'var(--text-main)', marginBottom: 10 }}>
+          Universal Player & DJ Software Compatibility
+        </h3>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+          Tags formatted for standard compliance across club gear, streaming apps, and vehicles.
+        </p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18 }}>
+        {platforms.map((p, i) => {
+          const IconComp = p.icon;
           return (
-            <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: '32px 28px', position: 'relative' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 18 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(168,85,247,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#a855f7' }}>
-                  <IconComp size={22} />
-                </div>
-                <span style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--brand-primary)', opacity: 0.7 }}>
-                  {st.num}
-                </span>
+            <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 18, padding: 24 }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: `${p.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: p.color, marginBottom: 14 }}>
+                <IconComp size={22} />
               </div>
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 10 }}>
-                {st.title}
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 6 }}>
+                {p.name}
               </h4>
-              <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-                {st.desc}
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>
+                {p.desc}
               </p>
             </div>
           );
@@ -122,78 +176,64 @@ export const EditAudioMetadataHowToSection: React.FC = () => {
   );
 };
 
-export const EditAudioMetadataBentoSection: React.FC = () => {
-  const { t } = useLanguage();
-
+/**
+ * SECTION 4: Multi-Container Tag Specification Pills
+ */
+export const EditAudioTagFormatSpecsSection: React.FC = () => {
   return (
-    <section className="seo-section bento" style={{ padding: '70px 24px', maxWidth: 1200, margin: '0 auto 60px auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', marginBottom: 12 }}>
-          {t('edaBentoTitle') || 'Built for Musicians, Podcasters & Sound Engineers'}
+    <section className="seo-section tag-format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
+        <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+          Supported Tag Formats & Standards
         </h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: 650, margin: '0 auto' }}>
-          Industry-grade ID3 tagging features engineered for speed, accuracy, and format compliance.
-        </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
-        {/* Card 1 */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: '28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ width: 48, height: 48, borderRadius: 14, background: 'rgba(74,222,128,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4ade80' }}>
-            <Zap size={24} />
-          </div>
-          <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
-            {t('edaBentoCard1Title') || 'Zero Re-encoding Artifacts'}
-          </h4>
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-            {t('edaBentoCard1Desc') || 'Unlike traditional converters that recompress your music, our editor injects tags directly into the container header for 100% audio fidelity.'}
-          </p>
-        </div>
-
-        {/* Card 2 */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: '28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ width: 48, height: 48, borderRadius: 14, background: 'rgba(168,85,247,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#a855f7' }}>
-            <Sparkles size={24} />
-          </div>
-          <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
-            {t('edaBentoCard2Title') || 'Smart Auto-Fill Intelligence'}
-          </h4>
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-            {t('edaBentoCard2Desc') || 'Automatically detects song titles from clean filenames and suggests artist, year, and genre tags to save you time.'}
-          </p>
-        </div>
-
-        {/* Card 3 */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: '28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ width: 48, height: 48, borderRadius: 14, background: 'rgba(56,189,248,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8' }}>
-            <Headphones size={24} />
-          </div>
-          <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
-            {t('edaBentoCard3Title') || 'DJ & Car Stereo Compatibility'}
-          </h4>
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-            {t('edaBentoCard3Desc') || 'Formats ID3v2.3 and ID3v2.4 tags for flawless display in Pioneer CDJs, Rekordbox, Serato, Traktor, and vehicle infotainment screens.'}
-          </p>
-        </div>
-
-        {/* Card 4 */}
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: '28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ width: 48, height: 48, borderRadius: 14, background: 'rgba(251,191,36,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fbbf24' }}>
-            <Radio size={24} />
-          </div>
-          <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
-            {t('edaBentoCard4Title') || 'Podcast & Audiobook Chaptering'}
-          </h4>
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-            {t('edaBentoCard4Desc') || 'Embed standardized episode numbers, release dates, and creator credits for Apple Podcasts and Spotify compliance.'}
-          </p>
-        </div>
+      <div style={{ overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 600 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
+              <th style={{ padding: '16px 20px', color: 'var(--text-main)', fontWeight: 800 }}>Container</th>
+              <th style={{ padding: '16px 20px', color: '#c084fc', fontWeight: 800 }}>Tag Standard</th>
+              <th style={{ padding: '16px 20px', color: '#38bdf8', fontWeight: 800 }}>Supported Fields</th>
+              <th style={{ padding: '16px 20px', color: '#22c55e', fontWeight: 800 }}>Processing</th>
+            </tr>
+          </thead>
+          <tbody style={{ fontSize: '0.85rem' }}>
+            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>MP3 (.mp3)</td>
+              <td style={{ padding: '14px 20px', color: '#c084fc' }}>ID3v2.3 / ID3v2.4 UTF-8</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>Title, Artist, Album, Year, Genre, Track</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>Lossless &lt;100ms</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>WAV (.wav)</td>
+              <td style={{ padding: '14px 20px', color: '#c084fc' }}>RIFF INFO Chunks</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>INAM, IART, IPRD, IGNR, ICMT</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>24-bit Preserved</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>FLAC (.flac)</td>
+              <td style={{ padding: '14px 20px', color: '#c084fc' }}>Vorbis Comments</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>TITLE, ARTIST, ALBUM, DATE, GENRE</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>Bit-Exact Copy</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>M4A / AAC (.m4a)</td>
+              <td style={{ padding: '14px 20px', color: '#c084fc' }}>iTunes ilst Atoms</td>
+              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>©nam, ©ART, ©alb, ©day, ©gen</td>
+              <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 700 }}>Apple Ready</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   );
 };
 
-export const EditAudioMetadataComparisonSection: React.FC = () => {
+/**
+ * SECTION 5: Single Interactive Music Studio FAQ Accordion
+ */
+export const EditAudioFaqSection: React.FC = () => {
   const { t } = useLanguage();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -205,78 +245,29 @@ export const EditAudioMetadataComparisonSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section comparison-faqs" style={{ padding: '70px 24px', maxWidth: 1200, margin: '0 auto 60px auto' }}>
-      {/* Format Checklist */}
-      <div style={{ marginBottom: 60 }}>
-        <h3 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', textAlign: 'center', marginBottom: 28 }}>
-          Audio Format & ID3 Standard Matrix
-        </h3>
+    <section className="seo-section audio-faq" style={{ maxWidth: 840, margin: '0 auto 60px auto', padding: '0 24px' }}>
+      <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', textAlign: 'center', marginBottom: 24 }}>
+        Frequently Asked Questions
+      </h3>
 
-        <div style={{ overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20 }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 600 }}>
-            <thead>
-              <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
-                <th style={{ padding: '16px 20px', color: 'var(--text-main)', fontWeight: 800 }}>Audio Container</th>
-                <th style={{ padding: '16px 20px', color: 'var(--brand-primary)', fontWeight: 800 }}>Tag Standard</th>
-                <th style={{ padding: '16px 20px', color: '#22c55e', fontWeight: 800 }}>Supported Fields</th>
-                <th style={{ padding: '16px 20px', color: '#38bdf8', fontWeight: 800 }}>Speed & Fidelity</th>
-              </tr>
-            </thead>
-            <tbody style={{ fontSize: '0.88rem' }}>
-              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>MP3 (.mp3)</td>
-                <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>ID3v2.3 / ID3v2.4 UTF-8</td>
-                <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 600 }}>Title, Artist, Album, Year, Genre, Track</td>
-                <td style={{ padding: '14px 20px', color: '#38bdf8' }}>Instant (&lt;150ms) • Lossless</td>
-              </tr>
-              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>WAV (.wav)</td>
-                <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>RIFF INFO & ID3 Chunk</td>
-                <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 600 }}>INAM, IART, IPRD, IGNR, ICMT</td>
-                <td style={{ padding: '14px 20px', color: '#38bdf8' }}>24-bit 96kHz Preserved</td>
-              </tr>
-              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>FLAC (.flac)</td>
-                <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>Vorbis Comment Blocks</td>
-                <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 600 }}>TITLE, ARTIST, ALBUM, DATE, GENRE</td>
-                <td style={{ padding: '14px 20px', color: '#38bdf8' }}>Bit-exact Copy</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>AAC / M4A (.m4a)</td>
-                <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>iTunes ilst Atoms</td>
-                <td style={{ padding: '14px 20px', color: '#22c55e', fontWeight: 600 }}>©nam, ©ART, ©alb, ©day, ©gen</td>
-                <td style={{ padding: '14px 20px', color: '#38bdf8' }}>Apple Ecosystem Ready</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* FAQs */}
-      <div style={{ maxWidth: 840, margin: '0 auto' }}>
-        <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-main)', textAlign: 'center', marginBottom: 24 }}>
-          Frequently Asked Questions
-        </h3>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {faqs.map((f, i) => (
-            <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 14, overflow: 'hidden' }}>
-              <button
-                type="button"
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                style={{ width: '100%', padding: '18px 22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', color: 'var(--text-main)', fontSize: '0.98rem', fontWeight: 700 }}
-              >
-                <span>{f.q}</span>
-                <ChevronDown size={18} style={{ transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0, color: 'var(--text-muted)' }} />
-              </button>
-              {openFaq === i && (
-                <div style={{ padding: '0 22px 18px 22px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                  {f.a}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {faqs.map((f, i) => (
+          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 14, overflow: 'hidden' }}>
+            <button
+              type="button"
+              onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              style={{ width: '100%', padding: '18px 22px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', color: 'var(--text-main)', fontSize: '0.98rem', fontWeight: 700 }}
+            >
+              <span>{f.q}</span>
+              <ChevronDown size={18} style={{ transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0, color: 'var(--text-muted)' }} />
+            </button>
+            {openFaq === i && (
+              <div style={{ padding: '0 22px 18px 22px', color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                {f.a}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );
