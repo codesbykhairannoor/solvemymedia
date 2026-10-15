@@ -4,7 +4,7 @@ import {
   Sun, Moon, ChevronDown, ChevronUp, Search, Menu, X,
   Video, Music, Scissors, Minimize2, Image,
   Mic, FileAudio, RotateCw, Crop, VolumeX, Stamp, FastForward,
-  ShieldCheck, Zap, Sparkles
+  ShieldCheck, Zap, Sparkles, Tag
 } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getLocalizedSlug, getStandardSlug } from '../i18n/slugs';
@@ -19,6 +19,8 @@ const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
     'compress-video': 'Kompres Video',
     'cut-video': 'Potong Video',
     'convert-video': 'Konversi Video',
+    'remove-video-metadata': 'Hapus Metadata Video',
+    'edit-video-metadata': 'Edit Metadata Video',
     'video-speed': 'Kecepatan Video',
     'crop-video': 'Pangkas Video',
     'create-gif': 'Buat GIF',
@@ -35,6 +37,8 @@ const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
     'compress-video': 'Mampatkan Video',
     'cut-video': 'Potong Video',
     'convert-video': 'Tukar Video',
+    'remove-video-metadata': 'Buang Metadata Video',
+    'edit-video-metadata': 'Edit Metadata Video',
     'video-speed': 'Kelajuan Video',
     'crop-video': 'Pangkas Video',
     'create-gif': 'Buat GIF',
@@ -51,6 +55,8 @@ const TOOL_DISPLAY_NAMES: Record<string, Record<string, string>> = {
     'compress-video': 'Compress Video',
     'cut-video': 'Cut Video',
     'convert-video': 'Convert Video',
+    'remove-video-metadata': 'Remove Video Metadata',
+    'edit-video-metadata': 'Edit Video Metadata',
     'video-speed': 'Video Speed',
     'crop-video': 'Crop Video',
     'create-gif': 'Create GIF',
@@ -265,11 +271,13 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               animation: 'fadeInDown 0.2s ease forwards'
             }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, width: '100%', maxWidth: 1080 }}>
-                {/* Column 1: Video Essentials (4 items) */}
+                {/* Column 1: Video Essentials (6 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatVideoOpt') || 'OPTIMASI VIDEO'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-video')} onClick={() => handleToolClick('compress-video')} />
                   <MI icon={RotateCw} label={getToolName('convert-video')} onClick={() => handleToolClick('convert-video')} />
+                  <MI icon={ShieldCheck} label={getToolName('remove-video-metadata')} onClick={() => handleToolClick('remove-video-metadata')} />
+                  <MI icon={Tag} label={getToolName('edit-video-metadata')} onClick={() => handleToolClick('edit-video-metadata')} />
                   <MI icon={FastForward} label={getToolName('video-speed')} onClick={() => handleToolClick('video-speed')} />
                   <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
                 </div>
@@ -455,6 +463,8 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 { section: t('navCatVideoOpt') || 'OPTIMASI VIDEO', tools: [
                   { id: 'compress-video', Icon: Minimize2 },
                   { id: 'convert-video', Icon: RotateCw },
+                  { id: 'remove-video-metadata', Icon: ShieldCheck },
+                  { id: 'edit-video-metadata', Icon: Tag },
                   { id: 'video-speed', Icon: FastForward },
                   { id: 'mute-video', Icon: VolumeX },
                 ]},

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Video, Music, Scissors, RefreshCw, Bot, MonitorPlay, ImagePlay, Gauge, Crop, 
-  VolumeX, Stamp, AudioLines, ArrowRight, Sparkles 
+  VolumeX, Stamp, AudioLines, ArrowRight, Sparkles, ShieldCheck, Tag 
 } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getLocalizedSlug } from '../i18n/slugs';
@@ -162,6 +162,26 @@ const ALL_CORE_TOOLS: ToolItem[] = [
     descKey: 'toolRecorderDesc',
     fallbackName: 'Studio Recorder',
     fallbackDesc: 'Capture screen, camera, and microphone directly to video.'
+  },
+  {
+    id: 'remove-video-metadata',
+    icon: ShieldCheck,
+    color: '#f43f5e',
+    category: 'video',
+    nameKey: 'toolRemoveVideoMetadata',
+    descKey: 'removeVideoMetadataDesc',
+    fallbackName: 'Remove Video Metadata',
+    fallbackDesc: 'Strip hidden GPS location, camera serials, timestamps, and EXIF from video files.'
+  },
+  {
+    id: 'edit-video-metadata',
+    icon: Tag,
+    color: '#38bdf8',
+    category: 'video',
+    nameKey: 'toolEditVideoMetadata',
+    descKey: 'editVideoMetadataDesc',
+    fallbackName: 'Edit Video Metadata',
+    fallbackDesc: 'Edit title, artist, album, genre, release year, and copyright tags on video containers online.'
   },
 ];
 

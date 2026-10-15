@@ -1,4 +1,5 @@
 import cutVideoTranslations from '../data/cut-video-translations.json';
+import metadataVideoTranslations from '../data/metadata-video-translations.json';
 
 export interface UiDictionary {
   [key: string]: string | undefined;
@@ -31505,6 +31506,7 @@ export const UI_TRANSLATIONS: Record<string, UiDictionary> = {
 
 export const getUiTranslations = (langCode: string): UiDictionary => {
   const base = UI_TRANSLATIONS[langCode] || UI_TRANSLATIONS['en'];
-  const extra = (cutVideoTranslations as Record<string, UiDictionary>)[langCode] || (cutVideoTranslations as Record<string, UiDictionary>)['en'] || {};
-  return { ...base, ...extra };
+  const extraCut = (cutVideoTranslations as Record<string, UiDictionary>)[langCode] || (cutVideoTranslations as Record<string, UiDictionary>)['en'] || {};
+  const extraMeta = (metadataVideoTranslations as Record<string, UiDictionary>)[langCode] || (metadataVideoTranslations as Record<string, UiDictionary>)['en'] || {};
+  return { ...base, ...extraCut, ...extraMeta };
 };

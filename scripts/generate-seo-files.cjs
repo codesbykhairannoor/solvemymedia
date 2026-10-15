@@ -133,6 +133,18 @@ const TOOLS = [
     desc: 'Combine multiple audio files into one seamless track.',
     priority: '0.8',
   },
+  {
+    slug: 'remove-video-metadata',
+    name: 'Remove Video Metadata',
+    desc: 'Strip hidden GPS location, camera serials, timestamps, and EXIF from video files.',
+    priority: '0.9',
+  },
+  {
+    slug: 'edit-video-metadata',
+    name: 'Edit Video Metadata',
+    desc: 'Edit title, artist, album, genre, release year, and copyright tags on video containers online.',
+    priority: '0.9',
+  },
 ];
 
 // Static legal pages

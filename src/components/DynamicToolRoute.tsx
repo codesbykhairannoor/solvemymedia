@@ -20,6 +20,8 @@ import { MuteVideo } from '../pages/MuteVideo';
 import { WatermarkVideo } from '../pages/WatermarkVideo';
 import { MergeAudio } from '../pages/MergeAudio';
 import { CutVideo } from '../pages/CutVideo';
+import { RemoveVideoMetadata } from '../pages/RemoveVideoMetadata';
+import { EditVideoMetadata } from '../pages/EditVideoMetadata';
 import { RelatedTools } from './RelatedTools';
 import { useWorkspace } from '../contexts/WorkspaceContext';
 
@@ -37,7 +39,9 @@ const TOOL_COMPONENTS: Record<string, React.FC<any>> = {
   'mute-video': MuteVideo,
   'watermark-video': WatermarkVideo,
   'merge-audio': MergeAudio,
-  'cut-video': CutVideo
+  'cut-video': CutVideo,
+  'remove-video-metadata': RemoveVideoMetadata,
+  'edit-video-metadata': EditVideoMetadata
 };
 
 const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
@@ -54,7 +58,9 @@ const SLUG_TO_SEO: Record<string, { title: string, desc: string }> = {
   'mute-video': { title: 'seoMuteVideoTitle', desc: 'seoMuteVideoDesc' },
   'watermark-video': { title: 'seoWatermarkVideoTitle', desc: 'seoWatermarkVideoDesc' },
   'merge-audio': { title: 'seoMergeAudioTitle', desc: 'seoMergeAudioDesc' },
-  'cut-video': { title: 'seoCutVideoTitle', desc: 'seoCutVideoDesc' }
+  'cut-video': { title: 'seoCutVideoTitle', desc: 'seoCutVideoDesc' },
+  'remove-video-metadata': { title: 'seoRemoveVideoMetadataTitle', desc: 'seoRemoveVideoMetadataDesc' },
+  'edit-video-metadata': { title: 'seoEditVideoMetadataTitle', desc: 'seoEditVideoMetadataDesc' }
 };
 
 const LEGACY_SLUG_MAP: Record<string, string> = {
@@ -170,6 +176,18 @@ const SLUG_TO_FAQ_KEYS: Record<string, Array<{ qKey: string; aKey: string }>> = 
     { qKey: 'cutFaq2Q', aKey: 'cutFaq2A' },
     { qKey: 'cutFaq3Q', aKey: 'cutFaq3A' },
     { qKey: 'cutFaq4Q', aKey: 'cutFaq4A' },
+  ],
+  'remove-video-metadata': [
+    { qKey: 'rmvFaq1Q', aKey: 'rmvFaq1A' },
+    { qKey: 'rmvFaq2Q', aKey: 'rmvFaq2A' },
+    { qKey: 'rmvFaq3Q', aKey: 'rmvFaq3A' },
+    { qKey: 'rmvFaq4Q', aKey: 'rmvFaq4A' },
+  ],
+  'edit-video-metadata': [
+    { qKey: 'edtFaq1Q', aKey: 'edtFaq1A' },
+    { qKey: 'edtFaq2Q', aKey: 'edtFaq2A' },
+    { qKey: 'edtFaq3Q', aKey: 'edtFaq3A' },
+    { qKey: 'edtFaq4Q', aKey: 'edtFaq4A' },
   ],
 };
 

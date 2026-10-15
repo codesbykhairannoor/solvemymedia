@@ -55,7 +55,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "combine-multiple-voice-memos-into-one",
     "transcribe-zoom-meeting-recording-to-text": "transcribe-zoom-meeting-recording-to-text",
     "cut-video": "cut-video",
-    },
+    "remove-video-metadata": "remove-video-metadata",
+    "edit-video-metadata": "edit-video-metadata"
+  },
   "id": {
     "compress-video": "kompres-video",
     "compress-audio": "kompres-audio",
@@ -110,7 +112,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "transcribe-zoom-meeting-recording-to-text": "transkripsikan-zoom-meeting-ke-teks",
     "crop-mp4": "potong-mp4",
     "cut-video": "potong-video",
-    },
+    "remove-video-metadata": "hapus-metadata-video",
+    "edit-video-metadata": "edit-metadata-video"
+  },
   "es": {
     "compress-video": "comprimir-video",
     "compress-audio": "comprimir-audio",
@@ -165,7 +169,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "combine-varias-notas-de-voz-en-una",
     "transcribe-zoom-meeting-recording-to-text": "transcribir-reunion-de-zoom-a-texto",
     "cut-video": "cortar-video",
-    },
+    "remove-video-metadata": "eliminar-metadatos-video",
+    "edit-video-metadata": "editar-metadatos-video"
+  },
   "fr": {
     "compress-video": "compresser-la-video",
     "compress-audio": "compresser-laudio",
@@ -220,7 +226,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "combinez-plusieurs-memos-vocaux-en-un-seul",
     "transcribe-zoom-meeting-recording-to-text": "transcrire-la-reunion-zoom-en-texte",
     "cut-video": "couper-video",
-    },
+    "remove-video-metadata": "supprimer-metadonnees-video",
+    "edit-video-metadata": "modifier-metadonnees-video"
+  },
   "de": {
     "compress-video": "video-komprimieren",
     "compress-audio": "audio-komprimieren",
@@ -275,7 +283,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "kombinieren-sie-mehrere-sprachnotizen-zu-einer",
     "transcribe-zoom-meeting-recording-to-text": "transkribieren-sie-zoom-meeting-in-text",
     "cut-video": "video-schneiden",
-    },
+    "remove-video-metadata": "video-metadaten-entfernen",
+    "edit-video-metadata": "video-metadaten-bearbeiten"
+  },
   "ja": {
     "compress-video": "bideowoya-suo-suru",
     "compress-audio": "odeiowoya-suo-suru",
@@ -330,7 +340,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "オーディオファイルを結合する",
     "merge-mp3": "mp3を結合",
     "cut-video": "video-cut",
-    },
+    "remove-video-metadata": "douga-metadeta-sakujo",
+    "edit-video-metadata": "douga-metadeta-henshu"
+  },
   "zh": {
     "compress-video": "ya-suo-shi-pin",
     "compress-audio": "ya-suo-yin-pin",
@@ -385,7 +397,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "加入音频文件",
     "merge-mp3": "合并mp3",
     "cut-video": "cut-video",
-    },
+    "remove-video-metadata": "shanchu-shipin-yuanshuju",
+    "edit-video-metadata": "bianji-shipin-yuanshuju"
+  },
   "pt": {
     "compress-video": "compactar-video",
     "compress-audio": "comprimir-audio",
@@ -440,7 +454,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "combine-varios-memorandos-de-voz-em-um",
     "transcribe-zoom-meeting-recording-to-text": "transcrever-reuniao-zoom-para-texto",
     "cut-video": "cortar-video",
-    },
+    "remove-video-metadata": "remover-metadados-video",
+    "edit-video-metadata": "editar-metadados-video"
+  },
   "ru": {
     "compress-video": "szhimat-video",
     "compress-audio": "szhimat-audio",
@@ -495,7 +511,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "объединить-аудиофайлы",
     "merge-mp3": "объединить-mp3",
     "cut-video": "obrezat-video",
-    },
+    "remove-video-metadata": "udalit-metadannye-video",
+    "edit-video-metadata": "redaktirovat-metadannye-video"
+  },
   "ar": {
     "compress-video": "dgt-lfydyw",
     "compress-audio": "dgt-lswt",
@@ -550,7 +568,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "ljmaa-byn-lmdhkrt-lswty-lmtaadd-fy-whd",
     "transcribe-zoom-meeting-recording-to-text": "nskh-jtmaa-zoom-l-ns",
     "cut-video": "qas-al-fidyu",
-    },
+    "remove-video-metadata": "hazf-bayanat-wasf-alvideo",
+    "edit-video-metadata": "tahrir-bayanat-wasf-alvideo"
+  },
   "hi": {
     "compress-video": "viiddiyo-snpiiddit-kren",
     "compress-audio": "onddiyo-snpiiddit-kren",
@@ -605,7 +625,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "ekaadhik-vonys-memo-ko-ek-men-milaaen",
     "transcribe-zoom-meeting-recording-to-text": "juum-miitting-ko-ttekstt-men-ttraanskraaib-kren",
     "cut-video": "video-katein",
-    },
+    "remove-video-metadata": "video-metadata-hataayein",
+    "edit-video-metadata": "video-metadata-edit-karein"
+  },
   "it": {
     "compress-video": "comprimere-il-video",
     "compress-audio": "comprimere-laudio",
@@ -660,7 +682,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "combina-piu-memo-vocali-in-uno-solo",
     "transcribe-zoom-meeting-recording-to-text": "trascrivi-la-riunione-zoom-in-testo",
     "cut-video": "tagliare-video",
-    },
+    "remove-video-metadata": "rimuovi-metadati-video",
+    "edit-video-metadata": "modifica-metadati-video"
+  },
   "ko": {
     "compress-video": "bidio-abcug",
     "compress-audio": "odio-abcug",
@@ -715,7 +739,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "yeoreo-eumseong-memoreul-hanaro-gyeolhab",
     "transcribe-zoom-meeting-recording-to-text": "hwagdaecugso-hoeyireul-tegseuteuro-nogeum",
     "cut-video": "video-cut",
-    },
+    "remove-video-metadata": "dongyeongsang-metadeiteo-sakje",
+    "edit-video-metadata": "dongyeongsang-metadeiteo-pyeonjip"
+  },
   "nl": {
     "compress-video": "video-comprimeren",
     "compress-audio": "audio-comprimeren",
@@ -770,7 +796,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "combineer-meerdere-spraakmemos-in-een",
     "transcribe-zoom-meeting-recording-to-text": "zoomvergadering-omzetten-naar-tekst",
     "cut-video": "video-knippen",
-    },
+    "remove-video-metadata": "video-metadata-verwijderen",
+    "edit-video-metadata": "video-metadata-bewerken"
+  },
   "tr": {
     "compress-video": "videoyu-sikistir",
     "compress-audio": "sesi-sikistir",
@@ -825,7 +853,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "birden-fazla-sesli-notu-bir-arada-birlestirin",
     "transcribe-zoom-meeting-recording-to-text": "yakinlastirma-toplantisini-metne-donustur",
     "cut-video": "video-kes",
-    },
+    "remove-video-metadata": "video-meta-verilerini-kaldir",
+    "edit-video-metadata": "video-meta-verilerini-duzenle"
+  },
   "pl": {
     "compress-video": "kompresowac-wideo",
     "compress-audio": "kompresowac-dzwiek",
@@ -880,7 +910,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "polacz-wiele-notatek-glosowych-w-jedna",
     "transcribe-zoom-meeting-recording-to-text": "transkrypcja-spotkania-zoom-na-tekst",
     "cut-video": "przytnij-wideo",
-    },
+    "remove-video-metadata": "usun-metadane-wideo",
+    "edit-video-metadata": "edytuj-metadane-wideo"
+  },
   "vi": {
     "compress-video": "nen-video",
     "compress-audio": "nen-am-thanh",
@@ -935,7 +967,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "transcribe-zoom-meeting-recording-to-text": "phien-am-cuoc-hop-zoom-thanh-van-ban",
     "crop-mp4": "cắt-mp4",
     "cut-video": "cat-video",
-    },
+    "remove-video-metadata": "xoa-metadata-video",
+    "edit-video-metadata": "chinh-sua-metadata-video"
+  },
   "th": {
     "compress-video": "biibadwidiio",
     "compress-audio": "biibadesiiyng",
@@ -990,7 +1024,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "rwmbanthuekesiiynghlaayraaykaaraiwainthiiediiyw",
     "transcribe-zoom-meeting-recording-to-text": "thdesiiyngkaarprachum-zoom-epnkhkhwaam",
     "cut-video": "tat-video",
-    },
+    "remove-video-metadata": "lop-khomun-metadeta-widi-o",
+    "edit-video-metadata": "kaekhai-khomun-metadeta-widi-o"
+  },
   "sv": {
     "compress-video": "komprimera-video",
     "compress-audio": "komprimera-ljud",
@@ -1045,7 +1081,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "gå-med-i-ljudfiler",
     "merge-mp3": "slå-samman-mp3",
     "cut-video": "klipp-video",
-    },
+    "remove-video-metadata": "ta-bort-videometadata",
+    "edit-video-metadata": "redigera-videometadata"
+  },
   "cs": {
     "compress-video": "komprimovat-video",
     "compress-audio": "komprimovat-zvuk",
@@ -1100,7 +1138,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "připojit-zvukové-soubory",
     "merge-mp3": "sloučit-mp3",
     "cut-video": "oriznout-video",
-    },
+    "remove-video-metadata": "odstranit-metadata-videa",
+    "edit-video-metadata": "upravit-metadata-videa"
+  },
   "da": {
     "compress-video": "komprimere-video",
     "compress-audio": "komprimere-lyd",
@@ -1155,7 +1195,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "tilslutte-lydfiler",
     "merge-mp3": "flette-mp3",
     "cut-video": "klip-video",
-    },
+    "remove-video-metadata": "fjern-videometadata",
+    "edit-video-metadata": "rediger-videometadata"
+  },
   "el": {
     "compress-video": "sympiesi-vinteo",
     "compress-audio": "sympiesi-ihoy",
@@ -1210,7 +1252,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "συνδέστε-αρχεία-ήχου",
     "merge-mp3": "συγχώνευση-mp3",
     "cut-video": "kopste-to-vinteo",
-    },
+    "remove-video-metadata": "afairesi-metadedomenon-vinteo",
+    "edit-video-metadata": "epexergasia-metadedomenon-vinteo"
+  },
   "fi": {
     "compress-video": "pakkaa-video",
     "compress-audio": "pakkaa-aanta",
@@ -1265,7 +1309,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "liitä-äänitiedostoja",
     "merge-mp3": "yhdistä-mp3",
     "cut-video": "leikkaa-video",
-    },
+    "remove-video-metadata": "poista-videon-metatiedot",
+    "edit-video-metadata": "muokkaa-videon-metatietoja"
+  },
   "he": {
     "compress-video": "ldkhvs-vydv",
     "compress-audio": "ldkhvs-vdyv",
@@ -1291,7 +1337,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "shlb-mspr-tzkyrym-qvlyym-lkhd",
     "transcribe-zoom-meeting-recording-to-text": "tmlvl-pgysht-zvm-ltqst",
     "cut-video": "htoch-video",
-    },
+    "remove-video-metadata": "hasarat-metadatan-video",
+    "edit-video-metadata": "arichat-metadatan-video"
+  },
   "hu": {
     "compress-video": "video-tomoritese",
     "compress-audio": "tomoriti-a-hangot",
@@ -1346,7 +1394,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "csatlakozzon-audio-fájlokhoz",
     "merge-mp3": "mp3-egyesítése",
     "cut-video": "video-vagas",
-    },
+    "remove-video-metadata": "video-metaadatok-eltavolitasa",
+    "edit-video-metadata": "video-metaadatok-szerkesztese"
+  },
   "no": {
     "compress-video": "komprimere-video",
     "compress-audio": "komprimere-lyd",
@@ -1401,7 +1451,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "bli-med-i-lydfiler",
     "merge-mp3": "slå-sammen-mp3",
     "cut-video": "klipp-video",
-    },
+    "remove-video-metadata": "fjern-videometadata",
+    "edit-video-metadata": "rediger-videometadata"
+  },
   "ro": {
     "compress-video": "comprima-video",
     "compress-audio": "comprima-audio",
@@ -1456,7 +1508,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "alăturați-fișierelor-audio",
     "merge-mp3": "îmbinare-mp3",
     "cut-video": "taie-video",
-    },
+    "remove-video-metadata": "sterge-metadate-video",
+    "edit-video-metadata": "editeaza-metadate-video"
+  },
   "sk": {
     "compress-video": "komprimovat-video",
     "compress-audio": "komprimovat-zvuk",
@@ -1472,7 +1526,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "watermark-video": "video-s-vodoznakom",
     "merge-audio": "audio-funguje",
     "cut-video": "orezat-video",
-    },
+    "remove-video-metadata": "odstranit-metadata-videa",
+    "edit-video-metadata": "upravit-metadata-videa"
+  },
   "uk": {
     "compress-video": "stiskati-video",
     "compress-audio": "stiskati-audio",
@@ -1527,7 +1583,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "combine-multiple-voice-memos-into-one": "obiednayte-kilka-golosovih-nagaduvan-v-odne",
     "transcribe-zoom-meeting-recording-to-text": "transkribuvati-zoom-meeting-u-tekst",
     "cut-video": "obrizaty-video",
-    },
+    "remove-video-metadata": "vydalyty-metadani-video",
+    "edit-video-metadata": "redaguvaty-metadani-video"
+  },
   "ms": {
     "compress-video": "memampatkan-video",
     "compress-audio": "memampatkan-audio",
@@ -1582,7 +1640,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "menyertai-fail-audio",
     "merge-mp3": "cantumkan-mp3",
     "cut-video": "potong-video",
-    },
+    "remove-video-metadata": "buang-metadata-video",
+    "edit-video-metadata": "edit-metadata-video"
+  },
   "zh-TW": {
     "reduce-mp4-video-size-for-email": "減小電子郵件的-mp4-影片大小",
     "compress-large-video-for-whatsapp": "壓縮-whatsapp-的大視頻",
@@ -1637,7 +1697,9 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "加入音訊檔案",
     "merge-mp3": "合併mp3",
     "cut-video": "cut-video",
-    },
+    "remove-video-metadata": "shanchu-yingpian-yuanshuju",
+    "edit-video-metadata": "bianji-yingpian-yuanshuju"
+  },
   "tl": {
     "reduce-mp4-video-size-for-email": "bawasan-ang-laki-ng-mp4-video-para-sa-email",
     "compress-large-video-for-whatsapp": "i-compress-ang-malaking-video-para-sa-whatsapp",
@@ -1692,9 +1754,10 @@ export const SLUGS_MAP: Record<string, Record<string, string>> = {
     "join-audio-files": "sumali-sa-mga-audio-file",
     "merge-mp3": "pagsamahin-ang-mp3",
     "cut-video": "gupitin-ang-video",
-    }
+    "remove-video-metadata": "alisin-ang-metadata-ng-video",
+    "edit-video-metadata": "i-edit-ang-metadata-ng-video"
+  }
 };
-
 
 export const getLocalizedSlug = (standardSlug: string, lang: string): string => {
   if (SLUGS_MAP[lang] && SLUGS_MAP[lang][standardSlug]) {

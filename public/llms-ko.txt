@@ -52,6 +52,8 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 - [Mute Video](https://solvemymedia.com/ko/yeongsang-eumsogeo): Remove the audio track from any video file instantly.
 - [Watermark Video](https://solvemymedia.com/ko/weoteomakeu-bidio): Overlay text or image watermarks on video frames.
 - [Merge Audio](https://solvemymedia.com/ko/odio-jagdong): Combine multiple audio files into one seamless track.
+- [Remove Video Metadata](https://solvemymedia.com/ko/dongyeongsang-metadeiteo-sakje): Strip hidden GPS location, camera serials, timestamps, and EXIF from video files.
+- [Edit Video Metadata](https://solvemymedia.com/ko/dongyeongsang-metadeiteo-pyeonjip): Edit title, artist, album, genre, release year, and copyright tags on video containers online.
 
 ---
 
@@ -125,4 +127,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 1024 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 1088 URLs across 30 languages

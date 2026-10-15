@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://solvemymedia.com/zh-TW</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/about-us</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/about-us"/>
@@ -81,7 +81,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/privacy-policy</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.36</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/privacy-policy"/>
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/terms-of-service</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.36</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/terms-of-service"/>
@@ -159,7 +159,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/security</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/security"/>
@@ -198,7 +198,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/pricing</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.54</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/pricing"/>
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/compare</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.63</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compare"/>
@@ -276,7 +276,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/supported-languages</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.45</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/supported-languages"/>
@@ -315,7 +315,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/壓縮視頻</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-video"/>
@@ -354,7 +354,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/cut-video</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/cut-video"/>
@@ -393,7 +393,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/壓縮音訊</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-audio"/>
@@ -432,7 +432,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/轉換影片</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-video"/>
@@ -471,7 +471,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/轉換音訊</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.81</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-audio"/>
@@ -510,7 +510,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/視訊轉音訊</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/video-to-audio"/>
@@ -549,7 +549,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/錄製</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe"/>
@@ -588,7 +588,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/錄音機</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.77</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/recorder"/>
@@ -627,7 +627,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/建立gif</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/create-gif"/>
@@ -666,7 +666,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/視訊速度</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/video-speed"/>
@@ -705,7 +705,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/裁切影片</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/crop-video"/>
@@ -744,7 +744,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/靜音影片</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/mute-video"/>
@@ -783,7 +783,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/水印影片</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/watermark-video"/>
@@ -822,7 +822,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/音頻作品</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/merge-audio"/>
@@ -860,8 +860,86 @@
       <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/merge-audio"/>
   </url>
   <url>
+    <loc>https://solvemymedia.com/zh-TW/shanchu-yingpian-yuanshuju</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.81</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/remove-video-metadata"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/hapus-metadata-video"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/eliminar-metadatos-video"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/supprimer-metadonnees-video"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/video-metadaten-entfernen"/>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://solvemymedia.com/ja/douga-metadeta-sakujo"/>
+      <xhtml:link rel="alternate" hreflang="pt" href="https://solvemymedia.com/pt/remover-metadados-video"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://solvemymedia.com/ru/udalit-metadannye-video"/>
+      <xhtml:link rel="alternate" hreflang="zh" href="https://solvemymedia.com/zh/shanchu-shipin-yuanshuju"/>
+      <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solvemymedia.com/zh-TW/shanchu-yingpian-yuanshuju"/>
+      <xhtml:link rel="alternate" hreflang="ar" href="https://solvemymedia.com/ar/hazf-bayanat-wasf-alvideo"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://solvemymedia.com/hi/video-metadata-hataayein"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://solvemymedia.com/it/rimuovi-metadati-video"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://solvemymedia.com/ko/dongyeongsang-metadeiteo-sakje"/>
+      <xhtml:link rel="alternate" hreflang="nl" href="https://solvemymedia.com/nl/video-metadata-verwijderen"/>
+      <xhtml:link rel="alternate" hreflang="tr" href="https://solvemymedia.com/tr/video-meta-verilerini-kaldir"/>
+      <xhtml:link rel="alternate" hreflang="pl" href="https://solvemymedia.com/pl/usun-metadane-wideo"/>
+      <xhtml:link rel="alternate" hreflang="vi" href="https://solvemymedia.com/vi/xoa-metadata-video"/>
+      <xhtml:link rel="alternate" hreflang="th" href="https://solvemymedia.com/th/lop-khomun-metadeta-widi-o"/>
+      <xhtml:link rel="alternate" hreflang="sv" href="https://solvemymedia.com/sv/ta-bort-videometadata"/>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://solvemymedia.com/cs/odstranit-metadata-videa"/>
+      <xhtml:link rel="alternate" hreflang="da" href="https://solvemymedia.com/da/fjern-videometadata"/>
+      <xhtml:link rel="alternate" hreflang="el" href="https://solvemymedia.com/el/afairesi-metadedomenon-vinteo"/>
+      <xhtml:link rel="alternate" hreflang="fi" href="https://solvemymedia.com/fi/poista-videon-metatiedot"/>
+      <xhtml:link rel="alternate" hreflang="he" href="https://solvemymedia.com/he/hasarat-metadatan-video"/>
+      <xhtml:link rel="alternate" hreflang="hu" href="https://solvemymedia.com/hu/video-metaadatok-eltavolitasa"/>
+      <xhtml:link rel="alternate" hreflang="no" href="https://solvemymedia.com/no/fjern-videometadata"/>
+      <xhtml:link rel="alternate" hreflang="ro" href="https://solvemymedia.com/ro/sterge-metadate-video"/>
+      <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/odstranit-metadata-videa"/>
+      <xhtml:link rel="alternate" hreflang="uk" href="https://solvemymedia.com/uk/vydalyty-metadani-video"/>
+      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/buang-metadata-video"/>
+      <xhtml:link rel="alternate" hreflang="tl" href="https://solvemymedia.com/tl/alisin-ang-metadata-ng-video"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/remove-video-metadata"/>
+  </url>
+  <url>
+    <loc>https://solvemymedia.com/zh-TW/bianji-yingpian-yuanshuju</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.81</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/edit-video-metadata"/>
+      <xhtml:link rel="alternate" hreflang="id" href="https://solvemymedia.com/id/edit-metadata-video"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://solvemymedia.com/es/editar-metadatos-video"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://solvemymedia.com/fr/modifier-metadonnees-video"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://solvemymedia.com/de/video-metadaten-bearbeiten"/>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://solvemymedia.com/ja/douga-metadeta-henshu"/>
+      <xhtml:link rel="alternate" hreflang="pt" href="https://solvemymedia.com/pt/editar-metadados-video"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://solvemymedia.com/ru/redaktirovat-metadannye-video"/>
+      <xhtml:link rel="alternate" hreflang="zh" href="https://solvemymedia.com/zh/bianji-shipin-yuanshuju"/>
+      <xhtml:link rel="alternate" hreflang="zh-TW" href="https://solvemymedia.com/zh-TW/bianji-yingpian-yuanshuju"/>
+      <xhtml:link rel="alternate" hreflang="ar" href="https://solvemymedia.com/ar/tahrir-bayanat-wasf-alvideo"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://solvemymedia.com/hi/video-metadata-edit-karein"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://solvemymedia.com/it/modifica-metadati-video"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://solvemymedia.com/ko/dongyeongsang-metadeiteo-pyeonjip"/>
+      <xhtml:link rel="alternate" hreflang="nl" href="https://solvemymedia.com/nl/video-metadata-bewerken"/>
+      <xhtml:link rel="alternate" hreflang="tr" href="https://solvemymedia.com/tr/video-meta-verilerini-duzenle"/>
+      <xhtml:link rel="alternate" hreflang="pl" href="https://solvemymedia.com/pl/edytuj-metadane-wideo"/>
+      <xhtml:link rel="alternate" hreflang="vi" href="https://solvemymedia.com/vi/chinh-sua-metadata-video"/>
+      <xhtml:link rel="alternate" hreflang="th" href="https://solvemymedia.com/th/kaekhai-khomun-metadeta-widi-o"/>
+      <xhtml:link rel="alternate" hreflang="sv" href="https://solvemymedia.com/sv/redigera-videometadata"/>
+      <xhtml:link rel="alternate" hreflang="cs" href="https://solvemymedia.com/cs/upravit-metadata-videa"/>
+      <xhtml:link rel="alternate" hreflang="da" href="https://solvemymedia.com/da/rediger-videometadata"/>
+      <xhtml:link rel="alternate" hreflang="el" href="https://solvemymedia.com/el/epexergasia-metadedomenon-vinteo"/>
+      <xhtml:link rel="alternate" hreflang="fi" href="https://solvemymedia.com/fi/muokkaa-videon-metatietoja"/>
+      <xhtml:link rel="alternate" hreflang="he" href="https://solvemymedia.com/he/arichat-metadatan-video"/>
+      <xhtml:link rel="alternate" hreflang="hu" href="https://solvemymedia.com/hu/video-metaadatok-szerkesztese"/>
+      <xhtml:link rel="alternate" hreflang="no" href="https://solvemymedia.com/no/rediger-videometadata"/>
+      <xhtml:link rel="alternate" hreflang="ro" href="https://solvemymedia.com/ro/editeaza-metadate-video"/>
+      <xhtml:link rel="alternate" hreflang="sk" href="https://solvemymedia.com/sk/upravit-metadata-videa"/>
+      <xhtml:link rel="alternate" hreflang="uk" href="https://solvemymedia.com/uk/redaguvaty-metadani-video"/>
+      <xhtml:link rel="alternate" hreflang="ms" href="https://solvemymedia.com/ms/edit-metadata-video"/>
+      <xhtml:link rel="alternate" hreflang="tl" href="https://solvemymedia.com/tl/i-edit-ang-metadata-ng-video"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://solvemymedia.com/edit-video-metadata"/>
+  </url>
+  <url>
     <loc>https://solvemymedia.com/zh-TW/減小電子郵件的-mp4-影片大小</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/reduce-mp4-video-size-for-email"/>
@@ -900,7 +978,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/壓縮-whatsapp-的大視頻</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/compress-large-video-for-whatsapp"/>
@@ -939,7 +1017,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/convert-iphone-mov-to-mp4-for-android</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/convert-mov-to-mp4-for-android"/>
@@ -978,7 +1056,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/extract-audio-from-video-for-podcasts</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/extract-audio-from-video-for-podcast"/>
@@ -1017,7 +1095,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/在不損失品質的情況下縮小視頻</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/make-video-smaller-without-losing-quality"/>
@@ -1056,7 +1134,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/完全去除影片中的聲音</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/remove-sound-from-video-completely"/>
@@ -1095,7 +1173,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/speed-up-video-for-tiktok-fast</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/speed-up-video-for-tiktok"/>
@@ -1134,7 +1212,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/crop-video-for-instagram-story-916</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/crop-video-for-instagram-story"/>
@@ -1173,7 +1251,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/將多個語音備忘錄合併為一個</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/combine-multiple-voice-memos-into-one"/>
@@ -1212,7 +1290,7 @@
   </url>
   <url>
     <loc>https://solvemymedia.com/zh-TW/transcribe-zoom-meeting-to-text</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://solvemymedia.com/transcribe-zoom-meeting-recording-to-text"/>
