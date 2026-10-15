@@ -259,50 +259,50 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         </div>
       )}
 
-      {/* Toggles */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-        <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: '0.88rem', color: 'var(--text-main)', userSelect: 'none' }}>
+      {/* Toggles in 2-Column Compact Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, cursor: 'pointer', fontSize: '0.82rem', color: 'var(--text-main)', userSelect: 'none' }}>
           <input
             type="checkbox"
             checked={stripGps}
             onChange={(e) => setStripGps(e.target.checked)}
-            style={{ width: 18, height: 18, accentColor: '#e11d48', cursor: 'pointer' }}
+            style={{ width: 17, height: 17, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
           />
-          <MapPin size={16} color="#ef4444" />
-          <span>{t('rmvOptGps') || 'Strip GPS Coordinates & Location Geotags'}</span>
+          <MapPin size={15} color="#ef4444" style={{ flexShrink: 0 }} />
+          <span>{t('rmvOptGps') || 'Strip GPS Coordinates'}</span>
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: '0.88rem', color: 'var(--text-main)', userSelect: 'none' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, cursor: 'pointer', fontSize: '0.82rem', color: 'var(--text-main)', userSelect: 'none' }}>
           <input
             type="checkbox"
             checked={stripDevice}
             onChange={(e) => setStripDevice(e.target.checked)}
-            style={{ width: 18, height: 18, accentColor: '#e11d48', cursor: 'pointer' }}
+            style={{ width: 17, height: 17, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
           />
-          <Smartphone size={16} color="#38bdf8" />
-          <span>{t('rmvOptDevice') || 'Remove Camera Hardware & Serial Info'}</span>
+          <Smartphone size={15} color="#38bdf8" style={{ flexShrink: 0 }} />
+          <span>{t('rmvOptDevice') || 'Remove Camera Info'}</span>
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: '0.88rem', color: 'var(--text-main)', userSelect: 'none' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, cursor: 'pointer', fontSize: '0.82rem', color: 'var(--text-main)', userSelect: 'none' }}>
           <input
             type="checkbox"
             checked={stripAuthor}
             onChange={(e) => setStripAuthor(e.target.checked)}
-            style={{ width: 18, height: 18, accentColor: '#e11d48', cursor: 'pointer' }}
+            style={{ width: 17, height: 17, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
           />
-          <UserX size={16} color="#fbbf24" />
-          <span>{t('rmvOptAuthor') || 'Clear Creator, Title & Software Tags'}</span>
+          <UserX size={15} color="#fbbf24" style={{ flexShrink: 0 }} />
+          <span>{t('rmvOptAuthor') || 'Clear Creator Tags'}</span>
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: '0.88rem', color: 'var(--text-main)', userSelect: 'none' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, cursor: 'pointer', fontSize: '0.82rem', color: 'var(--text-main)', userSelect: 'none' }}>
           <input
             type="checkbox"
             checked={stripChapters}
             onChange={(e) => setStripChapters(e.target.checked)}
-            style={{ width: 18, height: 18, accentColor: '#e11d48', cursor: 'pointer' }}
+            style={{ width: 17, height: 17, accentColor: '#e11d48', cursor: 'pointer', flexShrink: 0 }}
           />
-          <Clock size={16} color="#a855f7" />
-          <span>{t('rmvOptChapters') || 'Remove Embedded Chapters & Timestamps'}</span>
+          <Clock size={15} color="#a855f7" style={{ flexShrink: 0 }} />
+          <span>{t('rmvOptChapters') || 'Remove Timestamps'}</span>
         </label>
       </div>
 

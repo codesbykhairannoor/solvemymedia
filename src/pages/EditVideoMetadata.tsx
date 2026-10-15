@@ -268,34 +268,34 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         />
       </div>
 
-      {/* Artist / Director */}
-      <div>
-        <label style={labelStyle}>
-          <User size={14} color="#a855f7" />
-          <span>{t('edtFieldArtist') || 'Artist / Director'}</span>
-        </label>
-        <input
-          type="text"
-          value={artist}
-          onChange={(e) => setArtist(e.target.value)}
-          placeholder={t('edtFieldArtistPlaceholder') || 'e.g. John Doe / Studio'}
-          style={inputStyle}
-        />
-      </div>
-
-      {/* Album / Series */}
-      <div>
-        <label style={labelStyle}>
-          <Music size={14} color="#ec4899" />
-          <span>{t('edtFieldAlbum') || 'Album / Series'}</span>
-        </label>
-        <input
-          type="text"
-          value={album}
-          onChange={(e) => setAlbum(e.target.value)}
-          placeholder={t('edtFieldAlbumPlaceholder') || 'e.g. Travel Vlog Season 1'}
-          style={inputStyle}
-        />
+      {/* Row for Artist & Album */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        <div>
+          <label style={labelStyle}>
+            <User size={14} color="#a855f7" />
+            <span>{t('edtFieldArtist') || 'Artist / Director'}</span>
+          </label>
+          <input
+            type="text"
+            value={artist}
+            onChange={(e) => setArtist(e.target.value)}
+            placeholder={t('edtFieldArtistPlaceholder') || 'e.g. John Doe / Studio'}
+            style={inputStyle}
+          />
+        </div>
+        <div>
+          <label style={labelStyle}>
+            <Music size={14} color="#ec4899" />
+            <span>{t('edtFieldAlbum') || 'Album / Series'}</span>
+          </label>
+          <input
+            type="text"
+            value={album}
+            onChange={(e) => setAlbum(e.target.value)}
+            placeholder={t('edtFieldAlbumPlaceholder') || 'e.g. Travel Vlog Season 1'}
+            style={inputStyle}
+          />
+        </div>
       </div>
 
       {/* Row for Year & Genre */}
@@ -328,34 +328,34 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         </div>
       </div>
 
-      {/* Description / Comment */}
-      <div>
-        <label style={labelStyle}>
-          <FileText size={14} color="#64748b" />
-          <span>{t('edtFieldComment') || 'Description / Comment'}</span>
-        </label>
-        <textarea
-          rows={2}
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          placeholder={t('edtFieldCommentPlaceholder') || 'e.g. Captured in 4K 60fps'}
-          style={{ ...inputStyle, resize: 'vertical' }}
-        />
-      </div>
-
-      {/* Copyright / License */}
-      <div>
-        <label style={labelStyle}>
-          <Shield size={14} color="#f97316" />
-          <span>{t('edtFieldCopyright') || 'Copyright / License'}</span>
-        </label>
-        <input
-          type="text"
-          value={copyright}
-          onChange={(e) => setCopyright(e.target.value)}
-          placeholder={t('edtFieldCopyrightPlaceholder') || 'e.g. (C) 2026 All Rights Reserved'}
-          style={inputStyle}
-        />
+      {/* Row for Copyright & Comment */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        <div>
+          <label style={labelStyle}>
+            <Shield size={14} color="#f97316" />
+            <span>{t('edtFieldCopyright') || 'Copyright / License'}</span>
+          </label>
+          <input
+            type="text"
+            value={copyright}
+            onChange={(e) => setCopyright(e.target.value)}
+            placeholder={t('edtFieldCopyrightPlaceholder') || 'e.g. (C) 2026 All Rights Reserved'}
+            style={inputStyle}
+          />
+        </div>
+        <div>
+          <label style={labelStyle}>
+            <FileText size={14} color="#64748b" />
+            <span>{t('edtFieldComment') || 'Description / Comment'}</span>
+          </label>
+          <input
+            type="text"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder={t('edtFieldCommentPlaceholder') || 'e.g. Captured in 4K 60fps'}
+            style={inputStyle}
+          />
+        </div>
       </div>
 
       {/* Fast Stream Note */}

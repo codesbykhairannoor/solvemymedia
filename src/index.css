@@ -164,36 +164,38 @@ textarea {
 }
 
 /* Dual Column Workspace */
+/* Dual Column Workspace - 55% / 45% Balanced Ratio */
 .tool-workspace-container {
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   height: auto;
-  max-height: 850px;
   min-height: 400px;
   gap: 24px;
   justify-content: center;
+  align-items: flex-start;
   padding: 0 24px 24px 24px;
 }
 
 .tool-workspace-left {
-  flex: 1;
+  flex: 55;
+  width: 55%;
   min-width: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding-right: 8px;
+  position: sticky;
+  top: 80px;
 }
 
 .tool-workspace-right {
-  width: 380px;
-  min-width: 380px;
+  flex: 45;
+  width: 45%;
+  min-width: 360px;
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  max-height: 100%;
-  overflow-y: auto;
 }
 
 @media (max-width: 1024px) {
@@ -205,9 +207,10 @@ textarea {
   }
 
   .tool-workspace-left {
-    min-height: 400px;
+    min-height: 380px;
     height: auto;
     width: 100% !important;
+    position: static !important;
     padding-right: 0 !important;
   }
 
