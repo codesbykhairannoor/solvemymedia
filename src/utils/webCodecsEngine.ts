@@ -271,3 +271,226 @@ export const runWebCodecs = async (
     };
   });
 };
+
+export const runWebCodecsSpeed = async (
+  file: File,
+  speed: number,
+  onProgress: (progress: number) => void
+): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const video = document.createElement('video');
+    video.src = URL.createObjectURL(file);
+    video.muted = true; // muted avoids browser auto-play blocks
+    video.playsInline = true;
+    video.crossOrigin = "anonymous";
+    try {
+      video.playbackRate = speed;
+    } catch (_) {}
+
+    const metadataTimeout = setTimeout(() => {
+      try { video.remove(); } catch (_) {}
+      reject(new Error("Video loading timed out"));
+    }, 8000);
+
+    video.onerror = () => {
+      clearTimeout(metadataTimeout);
+      try { video.remove(); } catch (_) {}
+      reject(new Error("Browser cannot natively decode this video format"));
+    };
+
+    video.onloadedmetadata = async () => {
+      clearTimeout(metadataTimeout);
+      let muxer: any = null;
+      let videoEncoder: VideoEncoder | null = null;
+      let audioEncoder: AudioEncoder | null = null;
+      
+      let muxerReady = false;
+      let pendingVideoChunks: { chunk: EncodedVideoChunk, meta: EncodedVideoChunkMetadata | undefined }[] = [];
+      let pendingAudioChunks: { chunk: EncodedAudioChunk, meta: EncodedAudioChunkMetadata | undefined }[] = [];
+
+      try {
+        const targetWidth = Math.max(16, Math.floor((video.videoWidth || 1280) / 16) * 16);
+        const targetHeight = Math.max(16, Math.floor((video.videoHeight || 720) / 16) * 16);
+        const effectiveDuration = (video.duration || 30) / (speed || 1);
+
+        const stream = typeof (video as any).captureStream === 'function' 
+          ? (video as any).captureStream() 
+          : (typeof (video as any).mozCaptureStream === 'function' ? (video as any).mozCaptureStream() : null);
+        if (!stream) throw new Error("captureStream not supported in this browser");
+
+        const videoTrack = stream.getVideoTracks()[0];
+        const audioTrack = stream.getAudioTracks()[0];
+
+        const initMuxer = (audioSampleRate: number, audioChannels: number) => {
+          const muxerOptions: any = {
+            target: new Mp4ArrayBufferTarget(),
+            video: { codec: 'avc', width: targetWidth, height: targetHeight },
+            fastStart: 'in-memory',
+            firstTimestampBehavior: 'offset'
+          };
+          if (audioTrack && audioSampleRate > 0) {
+            muxerOptions.audio = { codec: 'aac', numberOfChannels: audioChannels, sampleRate: audioSampleRate };
+          }
+          muxer = new Mp4Muxer(muxerOptions);
+          muxerReady = true;
+
+          pendingVideoChunks.forEach(c => muxer!.addVideoChunk(c.chunk, c.meta as any));
+          pendingAudioChunks.forEach(c => muxer!.addAudioChunk(c.chunk, c.meta as any));
+          pendingVideoChunks = [];
+          pendingAudioChunks = [];
+        };
+
+        if (!audioTrack) {
+          initMuxer(0, 0);
+        }
+
+        videoEncoder = new VideoEncoder({
+          output: (chunk, meta) => {
+            if (muxerReady && muxer) {
+              muxer.addVideoChunk(chunk, meta as any);
+            } else {
+              pendingVideoChunks.push({ chunk, meta: meta as any });
+            }
+            const percent = Math.round((chunk.timestamp / 1_000_000 / effectiveDuration) * 100);
+            onProgress(Math.min(100, Math.max(0, percent)));
+          },
+          error: (e) => reject(e)
+        });
+
+        const baseEncoderConfig: VideoEncoderConfig = {
+          codec: 'avc1.42001f',
+          width: targetWidth,
+          height: targetHeight,
+          bitrate: 3_500_000,
+          hardwareAcceleration: 'prefer-hardware',
+          avc: { format: 'avc' }
+        };
+
+        const check1 = await VideoEncoder.isConfigSupported(baseEncoderConfig);
+        if (!check1.supported) {
+          baseEncoderConfig.hardwareAcceleration = 'no-preference';
+          baseEncoderConfig.codec = 'avc1.4d0034';
+          const check2 = await VideoEncoder.isConfigSupported(baseEncoderConfig);
+          if (!check2.supported) {
+            baseEncoderConfig.codec = 'avc1.420034';
+            const check3 = await VideoEncoder.isConfigSupported(baseEncoderConfig);
+            if (!check3.supported) {
+              throw new DOMException("H.264 not supported");
+            }
+          }
+        }
+
+        videoEncoder.configure(baseEncoderConfig);
+
+        if (!videoTrack) throw new Error("No video track");
+
+        const processor = new (window as any).MediaStreamTrackProcessor({ track: videoTrack });
+        const reader = processor.readable.getReader();
+
+        if (audioTrack) {
+          let firstAudioDataReceived = false;
+          audioEncoder = new AudioEncoder({
+            output: (chunk, meta) => {
+              if (muxerReady && muxer) {
+                muxer.addAudioChunk(chunk, meta as any);
+              } else {
+                pendingAudioChunks.push({ chunk, meta: meta as any });
+              }
+            },
+            error: (e) => console.error("AudioEncoder error", e)
+          });
+
+          const audioProcessor = new (window as any).MediaStreamTrackProcessor({ track: audioTrack });
+          const audioReader = audioProcessor.readable.getReader();
+
+          const processAudio = async () => {
+            try {
+              while (true) {
+                const { done, value } = await audioReader.read();
+                if (done) break;
+                const data = value as AudioData;
+
+                if (!firstAudioDataReceived) {
+                  firstAudioDataReceived = true;
+                  audioEncoder!.configure({
+                    codec: 'mp4a.40.2',
+                    sampleRate: data.sampleRate,
+                    numberOfChannels: data.numberOfChannels,
+                    bitrate: 128_000
+                  });
+                  initMuxer(data.sampleRate, data.numberOfChannels);
+                }
+
+                if (audioEncoder && audioEncoder.state === 'configured') {
+                  audioEncoder.encode(data);
+                  data.close();
+                } else {
+                  data.close();
+                }
+              }
+            } catch (err) {
+              console.error("Audio err", err);
+            }
+          };
+          processAudio();
+        }
+
+        const timeoutMs = Math.max(30000, (effectiveDuration + 10) * 1000);
+        const safetyTimer = setTimeout(() => {
+          try { video.remove(); } catch (_) {}
+          reject(new Error("WebCodecs speed encoding timed out"));
+        }, timeoutMs);
+
+        video.play().catch(e => {
+          clearTimeout(safetyTimer);
+          reject(e);
+        });
+
+        const processFrames = async () => {
+          try {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+
+              const frame = value as VideoFrame;
+              if (videoEncoder && videoEncoder.state === 'configured') {
+                videoEncoder.encode(frame, { keyFrame: frame.timestamp % 2000000 < 50000 });
+                frame.close();
+              } else {
+                frame.close();
+              }
+            }
+          } catch (err) {
+            console.error("Frame err:", err);
+          }
+        };
+
+        processFrames();
+
+        video.onended = async () => {
+          clearTimeout(safetyTimer);
+          try {
+            if (videoEncoder && videoEncoder.state !== 'closed') await videoEncoder.flush();
+            if (audioEncoder && audioEncoder.state !== 'closed') await audioEncoder.flush();
+            if (muxer) {
+              muxer.finalize();
+              const { buffer } = muxer.target;
+              const blob = new Blob([buffer], { type: 'video/mp4' });
+              resolve(URL.createObjectURL(blob));
+            } else {
+              reject("Muxer failed");
+            }
+          } catch (err) {
+            reject(err);
+          } finally {
+            video.remove();
+          }
+        };
+
+      } catch (e) {
+        reject(e);
+        video.remove();
+      }
+    };
+  });
+};

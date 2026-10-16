@@ -3,10 +3,11 @@ import { Settings2, FastForward, Clock, Shield, CheckCircle, Globe2, Gauge } fro
 import { DualColumnWorkspace } from '../components/workspaces/DualColumnWorkspace';
 import { useLanguage } from '../hooks/useLanguage';
 import { useFFmpeg } from '../hooks/useFFmpeg';
+import { runWebCodecsSpeed } from '../utils/webCodecsEngine';
 import { ChangeVideoSpeedHeroSection, ChangeVideoSpeedPerformanceSection, ChangeVideoSpeedPrivacySection, ChangeVideoSpeedGeoSection, ChangeVideoSpeedHowToSection } from '../components/content-sections/tools/ChangeVideoSpeedSections';
 
 export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
-  const { processing, progress, runCustomFFmpeg } = useFFmpeg();
+  const { processing: wasmProcessing, progress: wasmProgress, runCustomFFmpeg } = useFFmpeg();
   const { t } = useLanguage();
   
   const sidebarStrings = {
@@ -21,9 +22,43 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
   const [speed, setSpeed] = useState<number>(1.5);
+  const [engine, setEngine] = useState<'tier1' | 'tier3' | null>(null);
+  const [webCodecsProcessing, setWebCodecsProcessing] = useState(false);
+  const [webCodecsProgress, setWebCodecsProgress] = useState(0);
+
+  const isProcessing = webCodecsProcessing || wasmProcessing;
+  const currentProgress = engine === 'tier1' ? webCodecsProgress : wasmProgress;
 
   const handleProcess = async () => {
     if (!file) return;
+    setOutputUrl(null);
+    setWebCodecsProgress(0);
+
+    const isVideo = file.type.startsWith('video');
+    const rawExt = (file.name.split('.').pop() || 'mp4').toLowerCase();
+    const canNativeDecode = ['mp4', 'm4v', 'webm', 'mov'].includes(rawExt);
+    const hasWebCodecs = typeof window !== 'undefined' && 'VideoEncoder' in window && 'MediaStreamTrackProcessor' in window;
+
+    // Fast Path: Tier 1 WebCodecs Hardware Acceleration (100x faster on mobile)
+    if (isVideo && hasWebCodecs && canNativeDecode) {
+      try {
+        setEngine('tier1');
+        setWebCodecsProcessing(true);
+        const url = await runWebCodecsSpeed(file, speed, (p) => setWebCodecsProgress(p));
+        if (url) {
+          setOutputUrl(url);
+          setWebCodecsProcessing(false);
+          return;
+        }
+      } catch (err) {
+        console.warn('WebCodecs speed failed, falling back to FFmpeg WASM ultrafast:', err);
+      } finally {
+        setWebCodecsProcessing(false);
+      }
+    }
+
+    // Fallback: Tier 3 FFmpeg WASM with ultrafast preset & fastdecode
+    setEngine('tier3');
     const vpts = (1 / speed).toFixed(2);
     const args = [
       '-i', file.name,
@@ -92,9 +127,9 @@ export const ChangeVideoSpeed: React.FC<{ pseoData?: any }> = ({ pseoData }) => 
         setFile={(f) => { setFile(f); setOutputUrl(null); }}
         outputUrl={outputUrl}
         onResetResult={() => setOutputUrl(null)}
-        processing={processing}
-        progress={progress}
-        engine="tier3"
+        processing={isProcessing}
+        progress={currentProgress}
+        engine={engine || 'tier1'}
         onProcess={handleProcess}
         processActionText={sidebarStrings.change}
         sidebarContent={sidebarContent}
