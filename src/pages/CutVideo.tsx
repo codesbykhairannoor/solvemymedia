@@ -406,7 +406,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
       {/* 1. HERO (Shown when no file is uploaded) */}
       {!file && (
-        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+        <div className="workspace-hero-header" style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 28px auto', width: '100%' }}>
           <h1 style={{ 
             fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
             fontWeight: 900, 

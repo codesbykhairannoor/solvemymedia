@@ -84,7 +84,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: files.length > 0 ? '20px' : '43px' }}>
       
       {files.length === 0 && (
-        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+        <div className="workspace-hero-header" style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 28px auto', width: '100%' }}>
           <h1 style={{ 
             fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
             fontWeight: 900, 
@@ -107,7 +107,7 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             <div 
               className="dropzone"
               onClick={() => fileInputRef.current?.click()}
-              style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 400 }}
+              style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
             >
               <input 
                 type="file" 

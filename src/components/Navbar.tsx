@@ -428,18 +428,25 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         <button
           className="mobile-only navbar-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
           style={{
-            background: 'transparent',
-            border: 'none',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
             color: 'var(--text-main)',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 4
+            width: 30,
+            height: 30,
+            borderRadius: 8,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+            transition: 'all 0.2s ease',
+            flexShrink: 0,
+            padding: 0
           }}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={15} /> : <Menu size={15} />}
         </button>
       </div>
       </div>
@@ -614,7 +621,8 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           .navbar-lang-btn { padding: 4px 8px !important; font-size: 0.78rem !important; border-radius: 6px !important; gap: 4px !important; }
           .navbar-theme-btn { width: 30px !important; height: 30px !important; }
           .navbar-theme-btn svg { width: 14px !important; height: 14px !important; }
-          .navbar-menu-btn svg { width: 20px !important; height: 20px !important; }
+          .navbar-menu-btn { width: 30px !important; height: 30px !important; padding: 0 !important; border-radius: 8px !important; }
+          .navbar-menu-btn svg { width: 15px !important; height: 15px !important; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }
