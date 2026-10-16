@@ -172,6 +172,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileSearch, setMobileSearch] = useState('');
   const navRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
   const megaTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -254,11 +255,16 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
   useEffect(() => {
     const fn = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        navRef.current && 
+        !navRef.current.contains(target) &&
+        !(drawerRef.current && drawerRef.current.contains(target))
+      ) {
         setIsMegaOpen(false);
         setIsMobileMenuOpen(false);
       }
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+      if (langRef.current && !langRef.current.contains(target)) {
         setIsLangOpen(false);
       }
     };
@@ -279,7 +285,12 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       <div className="navbar-container" style={{ maxWidth: 1200, width: '100%', padding: '0 clamp(12px, 3vw, 24px)', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: 0 }}>
-        <Link to={prefix || '/'} className="navbar-brand-link" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
+        <Link 
+          to={prefix || '/'} 
+          onClick={() => { setIsMobileMenuOpen(false); document.body.style.overflow = ''; }}
+          className="navbar-brand-link" 
+          style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}
+        >
           <img src="/logoweb.png" alt="SolveMyMedia Logo" width={32} height={32} fetchPriority="high" className="navbar-logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
           <span className="navbar-brand-text" style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
             SolveMy<span style={{ background: 'var(--brand-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Media</span>
@@ -292,14 +303,18 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           { id: 'compress-video', label: getToolName('compress-video') },
           { id: 'compress-audio', label: getToolName('compress-audio') },
           { id: 'video-to-audio', label: getToolName('video-to-audio') },
-        ].map(({ id, label }) => (
-          <button
-            key={id}
-            onClick={() => handleToolClick(id)}
-            className="nav-tab-btn"
-            style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', padding: '6px 12px', borderRadius: 8, fontSize: '0.84rem', fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s', letterSpacing: '0.02em', textTransform: 'uppercase' }}
-          >{label}</button>
-        ))}
+        ].map(({ id, label }) => {
+          const localizedSlug = getLocalizedSlug(id, currentLang);
+          const targetPath = `${prefix}/${localizedSlug}`;
+          return (
+            <Link
+              key={id}
+              to={targetPath}
+              className="nav-tab-btn"
+              style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', padding: '6px 12px', borderRadius: 8, fontSize: '0.84rem', fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s', letterSpacing: '0.02em', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-block' }}
+            >{label}</Link>
+          );
+        })}
 
         {/* ALL TOOLS - hover dropdown trigger */}
         <div
@@ -512,6 +527,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             onClick={() => setIsMobileMenuOpen(false)}
           />
           <div
+            ref={drawerRef}
             className="mobile-nav-drawer"
             onClick={(e) => e.stopPropagation()}
           >
@@ -548,22 +564,31 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                       const query = mobileSearch.toLowerCase().trim();
                       return name.includes(query) || tool.id.includes(query);
                     })
-                    .map(tool => (
-                      <button
-                        key={tool.id}
-                        onClick={() => handleToolClick(tool.id)}
-                        className="mobile-nav-item"
-                      >
-                        <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
-                          <tool.Icon size={18} />
-                        </div>
-                        <div className="mobile-nav-text-wrap">
-                          <span className="mobile-nav-title">{getToolName(tool.id)}</span>
-                        </div>
-                        {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
-                        <ChevronRight size={16} className="mobile-nav-arrow" />
-                      </button>
-                    ))}
+                    .map(tool => {
+                      const localizedSlug = getLocalizedSlug(tool.id, currentLang);
+                      const targetPath = `${prefix}/${localizedSlug}`;
+                      return (
+                        <Link
+                          key={tool.id}
+                          to={targetPath}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            document.body.style.overflow = '';
+                          }}
+                          className="mobile-nav-item"
+                          style={{ textDecoration: 'none' }}
+                        >
+                          <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
+                            <tool.Icon size={18} />
+                          </div>
+                          <div className="mobile-nav-text-wrap">
+                            <span className="mobile-nav-title">{getToolName(tool.id)}</span>
+                          </div>
+                          {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
+                          <ChevronRight size={16} className="mobile-nav-arrow" />
+                        </Link>
+                      );
+                    })}
                 </div>
               </div>
             ) : (
@@ -574,22 +599,31 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                       {group.name}
                     </div>
                     <div className="mobile-nav-list">
-                      {group.tools.map(tool => (
-                        <button
-                          key={tool.id}
-                          onClick={() => handleToolClick(tool.id)}
-                          className="mobile-nav-item"
-                        >
-                          <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
-                            <tool.Icon size={18} />
-                          </div>
-                          <div className="mobile-nav-text-wrap">
-                            <span className="mobile-nav-title">{getToolName(tool.id)}</span>
-                          </div>
-                          {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
-                          <ChevronRight size={16} className="mobile-nav-arrow" />
-                        </button>
-                      ))}
+                      {group.tools.map(tool => {
+                        const localizedSlug = getLocalizedSlug(tool.id, currentLang);
+                        const targetPath = `${prefix}/${localizedSlug}`;
+                        return (
+                          <Link
+                            key={tool.id}
+                            to={targetPath}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              document.body.style.overflow = '';
+                            }}
+                            className="mobile-nav-item"
+                            style={{ textDecoration: 'none' }}
+                          >
+                            <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
+                              <tool.Icon size={18} />
+                            </div>
+                            <div className="mobile-nav-text-wrap">
+                              <span className="mobile-nav-title">{getToolName(tool.id)}</span>
+                            </div>
+                            {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
+                            <ChevronRight size={16} className="mobile-nav-arrow" />
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}

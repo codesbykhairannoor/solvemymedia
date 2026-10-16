@@ -34,7 +34,22 @@ if (rootElement.innerHTML === '<!--ssr-outlet-->') {
 }
 
 // Service worker update & cache management
-if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+if (import.meta.env.DEV && typeof window !== 'undefined') {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (const registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+  if ('caches' in window) {
+    caches.keys().then((names) => {
+      for (const name of names) {
+        caches.delete(name);
+      }
+    });
+  }
+} else if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
   // Auto-reload once when a new service worker version activates
   let refreshing = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
