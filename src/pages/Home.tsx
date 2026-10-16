@@ -100,10 +100,10 @@ export const Home: React.FC = () => {
           <h1 
             className="hero-title"
             style={{ 
-              fontSize: 'clamp(2.1rem, 4.1vw, 3.75rem)', 
+              fontSize: 'clamp(2.8rem, 5.2vw, 4.85rem)', 
               fontWeight: 800, 
-              letterSpacing: '-0.03em', 
-              lineHeight: 1.18,
+              letterSpacing: '-0.035em', 
+              lineHeight: 1.12,
               color: 'var(--text-main)',
               maxWidth: 1200,
               width: '100%',
