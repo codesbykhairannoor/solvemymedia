@@ -228,7 +228,14 @@
     "edaSpecsFid4": "Apple Ready",
     "edaResetTitle": "Reset fields to initial detected tags",
     "ethicalNoticeTitle": "Responsible Use & Privacy Protection Policy",
-    "ethicalNoticeDesc": "SolveMyMedia is built strictly for personal privacy protection (sanitizing GPS geotags, hardware serials, and local user paths) and legitimate media cataloging. We do NOT endorse document forgery, identity deception, copyright evasion, or tampering with digital provenance. Users remain solely responsible for lawful and ethical use."
+    "ethicalNoticeDesc": "SolveMyMedia is built strictly for personal privacy protection (sanitizing GPS geotags, hardware serials, and local user paths) and legitimate media cataloging. We do NOT endorse document forgery, identity deception, copyright evasion, or tampering with digital provenance. Users remain solely responsible for lawful and ethical use.",
+    "edtFieldDateTime": "Creation Date & Time",
+    "edaFieldDateTime": "Release & Recording Date / Time",
+    "dateTimeNowBtn": "Now",
+    "dateTimeClearBtn": "Reset",
+    "dateTimeHelper": "Click calendar to pick date & time, or type directly",
+    "rmvTimeLabel": "Creation Date & Time",
+    "rmaTimeLabel": "Recording Date & Time"
   },
   "id": {
     "toolRemoveAudioMetadata": "Hapus Metadata Audio",
@@ -459,7 +466,14 @@
     "edaSpecsFid4": "Apel Siap",
     "edaResetTitle": "Setel ulang bidang ke tag awal yang terdeteksi",
     "ethicalNoticeTitle": "Kebijakan Penggunaan Bertanggung Jawab & Perlindungan Privasi",
-    "ethicalNoticeDesc": "SolveMyMedia dirancang khusus untuk perlindungan privasi pribadi (menghapus geotag GPS, nomor seri perangkat, dan path pengguna lokal) serta pengelolaan katalog media yang sah. Kami TIDAK mendukung pemalsuan dokumen, penipuan identitas, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggung jawab penuh atas penggunaan yang sah dan etis."
+    "ethicalNoticeDesc": "SolveMyMedia dirancang khusus untuk perlindungan privasi pribadi (menghapus geotag GPS, nomor seri perangkat, dan path pengguna lokal) serta pengelolaan katalog media yang sah. Kami TIDAK mendukung pemalsuan dokumen, penipuan identitas, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggung jawab penuh atas penggunaan yang sah dan etis.",
+    "edtFieldDateTime": "Tanggal & Jam Pembuatan",
+    "edaFieldDateTime": "Tanggal & Jam Rekaman / Rilis",
+    "dateTimeNowBtn": "Sekarang",
+    "dateTimeClearBtn": "Reset",
+    "dateTimeHelper": "Klik kalender untuk memilih tanggal & jam, atau ketik langsung",
+    "rmvTimeLabel": "Tanggal & Jam Pembuatan",
+    "rmaTimeLabel": "Tanggal & Jam Rekaman"
   },
   "es": {
     "toolRemoveAudioMetadata": "Eliminar metadatos de audio",
@@ -690,7 +704,14 @@
     "edaSpecsFid4": "Manzana lista",
     "edaResetTitle": "Restablecer campos a las etiquetas detectadas iniciales",
     "ethicalNoticeTitle": "Política de Uso Responsable y Protección de Privacidad",
-    "ethicalNoticeDesc": "SolveMyMedia está diseñado estrictamente para la protección de la privacidad personal (eliminando geoetiquetas GPS, números de serie y rutas locales) y la catalogación legítima de medios. NO respaldamos la falsificación de documentos, el engaño de identidad, la evasión de derechos de autor ni la manipulación de procedencia digital."
+    "ethicalNoticeDesc": "SolveMyMedia está diseñado estrictamente para la protección de la privacidad personal (eliminando geoetiquetas GPS, números de serie y rutas locales) y la catalogación legítima de medios. NO respaldamos la falsificación de documentos, el engaño de identidad, la evasión de derechos de autor ni la manipulación de procedencia digital.",
+    "edtFieldDateTime": "Fecha y Hora de Creación",
+    "edaFieldDateTime": "Fecha y Hora de Grabación / Lanzamiento",
+    "dateTimeNowBtn": "Ahora",
+    "dateTimeClearBtn": "Restablecer",
+    "dateTimeHelper": "Haga clic en el calendario para seleccionar fecha y hora",
+    "rmvTimeLabel": "Fecha y Hora de Creación",
+    "rmaTimeLabel": "Fecha y Hora de Grabación"
   },
   "fr": {
     "toolRemoveAudioMetadata": "Supprimer les métadonnées audio",
@@ -921,7 +942,14 @@
     "edaSpecsFid4": "Prêt pour Apple",
     "edaResetTitle": "Réinitialiser les champs avec les balises détectées initiales",
     "ethicalNoticeTitle": "Politique d'Utilisation Responsable et Protection de la Vie Privée",
-    "ethicalNoticeDesc": "SolveMyMedia est conçu exclusivement pour la protection de la vie privée (nettoyage des géotags GPS, numéros de série et chemins d'accès locaux) et le catalogage légitime des médias. Nous NE soutenons PAS la falsification de documents, l'usurpation d'identité, la violation des droits d'auteur ou la manipulation de provenance."
+    "ethicalNoticeDesc": "SolveMyMedia est conçu exclusivement pour la protection de la vie privée (nettoyage des géotags GPS, numéros de série et chemins d'accès locaux) et le catalogage légitime des médias. Nous NE soutenons PAS la falsification de documents, l'usurpation d'identité, la violation des droits d'auteur ou la manipulation de provenance.",
+    "edtFieldDateTime": "Date et Heure de Création",
+    "edaFieldDateTime": "Date et Heure d'Enregistrement / Sortie",
+    "dateTimeNowBtn": "Maintenant",
+    "dateTimeClearBtn": "Réinitialiser",
+    "dateTimeHelper": "Cliquez sur le calendrier pour choisir la date et l'heure",
+    "rmvTimeLabel": "Date et Heure de Création",
+    "rmaTimeLabel": "Date et Heure d'Enregistrement"
   },
   "de": {
     "toolRemoveAudioMetadata": "Audio-Metadaten entfernen",
@@ -1152,7 +1180,14 @@
     "edaSpecsFid4": "Apple bereit",
     "edaResetTitle": "Setzen Sie die Felder auf die ursprünglich erkannten Tags zurück",
     "ethicalNoticeTitle": "Richtlinie für Verantwortungsvolle Nutzung und Datenschutz",
-    "ethicalNoticeDesc": "SolveMyMedia dient ausschließlich dem Schutz der Privatsphäre (Entfernung von GPS-Geotags, Geräteseriennummern und lokalen Benutzerpfaden) sowie der legitimen Medienkatalogisierung. Wir unterstützen KEINE Dokumentenfälschung, Identitätstäuschung, Urheberrechtsumgehung oder Herkunftsmanipulation."
+    "ethicalNoticeDesc": "SolveMyMedia dient ausschließlich dem Schutz der Privatsphäre (Entfernung von GPS-Geotags, Geräteseriennummern und lokalen Benutzerpfaden) sowie der legitimen Medienkatalogisierung. Wir unterstützen KEINE Dokumentenfälschung, Identitätstäuschung, Urheberrechtsumgehung oder Herkunftsmanipulation.",
+    "edtFieldDateTime": "Erstellungsdatum und -uhrzeit",
+    "edaFieldDateTime": "Aufnahme- und Veröffentlichungsdatum",
+    "dateTimeNowBtn": "Jetzt",
+    "dateTimeClearBtn": "Zurücksetzen",
+    "dateTimeHelper": "Klicken Sie auf den Kalender, um Datum & Uhrzeit zu wählen",
+    "rmvTimeLabel": "Erstellungsdatum und -uhrzeit",
+    "rmaTimeLabel": "Aufnahmedatum und -uhrzeit"
   },
   "it": {
     "toolRemoveAudioMetadata": "Rimuovi metadati audio",
@@ -1383,7 +1418,14 @@
     "edaSpecsFid4": "Mela pronta",
     "edaResetTitle": "Reimposta i campi sui tag iniziali rilevati",
     "ethicalNoticeTitle": "Informativa sull'Uso Responsabile e Protezione della Privacy",
-    "ethicalNoticeDesc": "SolveMyMedia è progettato esclusivamente per la protezione della privacy personale (rimozione di geotag GPS, numeri di serie e percorsi utente locali) e per la catalogazione legittima dei media. NON approviamo la falsificazione di documenti, l'inganno sull'identità o la violazione del copyright."
+    "ethicalNoticeDesc": "SolveMyMedia è progettato esclusivamente per la protezione della privacy personale (rimozione di geotag GPS, numeri di serie e percorsi utente locali) e per la catalogazione legittima dei media. NON approviamo la falsificazione di documenti, l'inganno sull'identità o la violazione del copyright.",
+    "edtFieldDateTime": "Data e Ora di Creazione",
+    "edaFieldDateTime": "Data e Ora di Registrazione / Uscita",
+    "dateTimeNowBtn": "Adesso",
+    "dateTimeClearBtn": "Reimposta",
+    "dateTimeHelper": "Fai clic sul calendario per scegliere data e ora",
+    "rmvTimeLabel": "Data e Ora di Creazione",
+    "rmaTimeLabel": "Data e Ora di Registrazione"
   },
   "pt": {
     "toolRemoveAudioMetadata": "Remover metadados de áudio",
@@ -1614,7 +1656,14 @@
     "edaSpecsFid4": "Pronto para maçã",
     "edaResetTitle": "Redefinir campos para tags detectadas inicialmente",
     "ethicalNoticeTitle": "Política de Uso Responsável e Proteção de Privacidade",
-    "ethicalNoticeDesc": "O SolveMyMedia foi desenvolvido estritamente para proteção da privacidade pessoal (limpeza de geotags GPS, números de série e caminhos de usuário locais) e catalogação legítima de mídia. NÃO apoiamos falsificação de documentos, engano de identidade, violação de direitos autorais ou adulteração de procedência."
+    "ethicalNoticeDesc": "O SolveMyMedia foi desenvolvido estritamente para proteção da privacidade pessoal (limpeza de geotags GPS, números de série e caminhos de usuário locais) e catalogação legítima de mídia. NÃO apoiamos falsificação de documentos, engano de identidade, violação de direitos autorais ou adulteração de procedência.",
+    "edtFieldDateTime": "Data e Hora de Criação",
+    "edaFieldDateTime": "Data e Hora de Gravação / Lançamento",
+    "dateTimeNowBtn": "Agora",
+    "dateTimeClearBtn": "Redefinir",
+    "dateTimeHelper": "Clique no calendário para escolher data e hora",
+    "rmvTimeLabel": "Data e Hora de Criação",
+    "rmaTimeLabel": "Data e Hora de Gravação"
   },
   "nl": {
     "toolRemoveAudioMetadata": "Audio-metagegevens verwijderen",
@@ -1845,7 +1894,14 @@
     "edaSpecsFid4": "Appel Klaar",
     "edaResetTitle": "Velden opnieuw instellen op aanvankelijk gedetecteerde tags",
     "ethicalNoticeTitle": "Beleid voor Verantwoord Gebruik en Privacybescherming",
-    "ethicalNoticeDesc": "SolveMyMedia is uitsluitend gebouwd voor privacybescherming (verwijderen van GPS-geotags, hardware-serienummers en lokale gebruikerspaden) en legitiem mediabeheer. Wij keuren documentvervalsing, identiteitsbedrog of auteursrechtinbreuk NIET goed."
+    "ethicalNoticeDesc": "SolveMyMedia is uitsluitend gebouwd voor privacybescherming (verwijderen van GPS-geotags, hardware-serienummers en lokale gebruikerspaden) en legitiem mediabeheer. Wij keuren documentvervalsing, identiteitsbedrog of auteursrechtinbreuk NIET goed.",
+    "edtFieldDateTime": "Aanmaakdatum en -tijd",
+    "edaFieldDateTime": "Opname- en Releasedatum",
+    "dateTimeNowBtn": "Nu",
+    "dateTimeClearBtn": "Reset",
+    "dateTimeHelper": "Klik op de kalender om datum & tijd te kiezen",
+    "rmvTimeLabel": "Aanmaakdatum en -tijd",
+    "rmaTimeLabel": "Opnamedatum en -tijd"
   },
   "pl": {
     "toolRemoveAudioMetadata": "Usuń metadane audio",
@@ -2076,7 +2132,14 @@
     "edaSpecsFid4": "Gotowe jabłko",
     "edaResetTitle": "Zresetuj pola do pierwotnie wykrytych tagów",
     "ethicalNoticeTitle": "Zasady Odpowiedzialnego Użytkowania i Ochrony Prywatności",
-    "ethicalNoticeDesc": "SolveMyMedia służy wyłącznie do ochrony prywatności (usuwanie geotagów GPS, numerów seryjnych sprzętu i lokalnych ścieżek) oraz legalnego katalogowania mediów. NIE popieramy fałszowania dokumentów, podszywania się pod tożsamość ani naruszania praw autorskich."
+    "ethicalNoticeDesc": "SolveMyMedia służy wyłącznie do ochrony prywatności (usuwanie geotagów GPS, numerów seryjnych sprzętu i lokalnych ścieżek) oraz legalnego katalogowania mediów. NIE popieramy fałszowania dokumentów, podszywania się pod tożsamość ani naruszania praw autorskich.",
+    "edtFieldDateTime": "Data i Czas Utworzenia",
+    "edaFieldDateTime": "Data i Czas Nagrania / Wydania",
+    "dateTimeNowBtn": "Teraz",
+    "dateTimeClearBtn": "Resetuj",
+    "dateTimeHelper": "Kliknij kalendarz, aby wybrać datę i godzinę",
+    "rmvTimeLabel": "Data i Czas Utworzenia",
+    "rmaTimeLabel": "Data i Czas Nagrania"
   },
   "ru": {
     "toolRemoveAudioMetadata": "Удалить метаданные аудио",
@@ -2307,7 +2370,14 @@
     "edaSpecsFid4": "Яблоко готово",
     "edaResetTitle": "Сбросить поля до исходных обнаруженных тегов",
     "ethicalNoticeTitle": "Политика ответственного использования и защиты конфиденциальности",
-    "ethicalNoticeDesc": "SolveMyMedia создан исключительно для защиты личной конфиденциальности (удаления GPS-геотегов, серийных номеров оборудования и локальных путей) и легальной каталогизации медиа. Мы НЕ поддерживаем подделку документов, обман личности, нарушение авторских прав или манипуляцию цифровым происхождением."
+    "ethicalNoticeDesc": "SolveMyMedia создан исключительно для защиты личной конфиденциальности (удаления GPS-геотегов, серийных номеров оборудования и локальных путей) и легальной каталогизации медиа. Мы НЕ поддерживаем подделку документов, обман личности, нарушение авторских прав или манипуляцию цифровым происхождением.",
+    "edtFieldDateTime": "Дата и время создания",
+    "edaFieldDateTime": "Дата и время записи / релиза",
+    "dateTimeNowBtn": "Сейчас",
+    "dateTimeClearBtn": "Сброс",
+    "dateTimeHelper": "Нажмите на календарь для выбора даты и времени",
+    "rmvTimeLabel": "Дата и время создания",
+    "rmaTimeLabel": "Дата и время записи"
   },
   "ja": {
     "toolRemoveAudioMetadata": "オーディオメタデータの削除",
@@ -2538,7 +2608,14 @@
     "edaSpecsFid4": "アップルレディ",
     "edaResetTitle": "フィールドを最初に検出されたタグにリセット",
     "ethicalNoticeTitle": "責任ある利用とプライバシー保護に関するポリシー",
-    "ethicalNoticeDesc": "SolveMyMediaは、個人のプライバシー保護（GPS位置情報、端末シリアル番号、ローカルユーザーパスの消去）および正規のメディア整理を目的として設計されています。文書の偽造、なりすまし、著作権侵害、またはデジタル出所の改ざんを目的とした利用は一切推奨されません。"
+    "ethicalNoticeDesc": "SolveMyMediaは、個人のプライバシー保護（GPS位置情報、端末シリアル番号、ローカルユーザーパスの消去）および正規のメディア整理を目的として設計されています。文書の偽造、なりすまし、著作権侵害、またはデジタル出所の改ざんを目的とした利用は一切推奨されません。",
+    "edtFieldDateTime": "作成日時（年月日・時間）",
+    "edaFieldDateTime": "録音日時・リリース日",
+    "dateTimeNowBtn": "現在",
+    "dateTimeClearBtn": "リセット",
+    "dateTimeHelper": "カレンダーをクリックして日時を選択または入力",
+    "rmvTimeLabel": "作成日時",
+    "rmaTimeLabel": "録音日時"
   },
   "ko": {
     "toolRemoveAudioMetadata": "오디오 메타데이터 제거",
@@ -2769,7 +2846,14 @@
     "edaSpecsFid4": "애플 레디",
     "edaResetTitle": "처음 감지된 태그로 필드 재설정",
     "ethicalNoticeTitle": "책임 있는 사용 및 개인정보 보호 정책",
-    "ethicalNoticeDesc": "SolveMyMedia는 개인정보 보호(GPS 위치 태그, 하드웨어 일련번호, 로컬 사용자 경로 제거) 및 합법적인 미디어 관리를 위해 구축되었습니다. 문서 위조, 신원 기만, 저작권 침해 또는 디지털 출처 조작을 지원하지 않습니다."
+    "ethicalNoticeDesc": "SolveMyMedia는 개인정보 보호(GPS 위치 태그, 하드웨어 일련번호, 로컬 사용자 경로 제거) 및 합법적인 미디어 관리를 위해 구축되었습니다. 문서 위조, 신원 기만, 저작권 침해 또는 디지털 출처 조작을 지원하지 않습니다.",
+    "edtFieldDateTime": "생성 날짜 및 시간",
+    "edaFieldDateTime": "녹음 및 발매 일시",
+    "dateTimeNowBtn": "현재",
+    "dateTimeClearBtn": "재설정",
+    "dateTimeHelper": "캘린더를 클릭하여 날짜와 시간을 선택하세요",
+    "rmvTimeLabel": "생성 날짜 및 시간",
+    "rmaTimeLabel": "녹음 일시"
   },
   "zh": {
     "toolRemoveAudioMetadata": "删除音频元数据",
@@ -3000,7 +3084,14 @@
     "edaSpecsFid4": "苹果就绪",
     "edaResetTitle": "将字段重置为初始检测到的标签",
     "ethicalNoticeTitle": "负责任使用与隐私保护政策",
-    "ethicalNoticeDesc": "SolveMyMedia 专为个人隐私保护（清理 GPS 地理标签、硬件序列号和本地用户路径）以及正规媒体整理而构建。我们绝不支持伪造文件、虚假身份、规避版权或篡改数字来源。用户对其合法使用承担全部责任。"
+    "ethicalNoticeDesc": "SolveMyMedia 专为个人隐私保护（清理 GPS 地理标签、硬件序列号和本地用户路径）以及正规媒体整理而构建。我们绝不支持伪造文件、虚假身份、规避版权或篡改数字来源。用户对其合法使用承担全部责任。",
+    "edtFieldDateTime": "创建日期与时间",
+    "edaFieldDateTime": "录音与发行日期时间",
+    "dateTimeNowBtn": "现在",
+    "dateTimeClearBtn": "重置",
+    "dateTimeHelper": "点击日历选择日期与时间，或直接输入",
+    "rmvTimeLabel": "创建日期与时间",
+    "rmaTimeLabel": "录音日期与时间"
   },
   "zh-TW": {
     "toolRemoveAudioMetadata": "刪除音訊元數據",
@@ -3231,7 +3322,14 @@
     "edaSpecsFid4": "蘋果就緒",
     "edaResetTitle": "將欄位重設為初始偵測到的標籤",
     "ethicalNoticeTitle": "負責任使用與隱私保護政策",
-    "ethicalNoticeDesc": "SolveMyMedia 專為個人隱私保護（清理 GPS 地理標籤、硬體序號和本地使用者路徑）以及正規媒體整理而構建。我們絕不支持偽造文件、虛假身份、規避版權或篡改數位來源。使用者對其合法使用承擔全部責任。"
+    "ethicalNoticeDesc": "SolveMyMedia 專為個人隱私保護（清理 GPS 地理標籤、硬體序號和本地使用者路徑）以及正規媒體整理而構建。我們絕不支持偽造文件、虛假身份、規避版權或篡改數位來源。使用者對其合法使用承擔全部責任。",
+    "edtFieldDateTime": "建立日期與時間",
+    "edaFieldDateTime": "錄音與發行日期時間",
+    "dateTimeNowBtn": "現在",
+    "dateTimeClearBtn": "重設",
+    "dateTimeHelper": "點擊日曆選擇日期與時間，或直接輸入",
+    "rmvTimeLabel": "建立日期與時間",
+    "rmaTimeLabel": "錄音日期與時間"
   },
   "tr": {
     "toolRemoveAudioMetadata": "Ses Meta Verilerini Kaldır",
@@ -3462,7 +3560,14 @@
     "edaSpecsFid4": "Apple'a Hazır",
     "edaResetTitle": "Alanları başlangıçta algılanan etiketlere sıfırla",
     "ethicalNoticeTitle": "Sorumlu Kullanım ve Gizlilik Koruma Politikası",
-    "ethicalNoticeDesc": "SolveMyMedia, yalnızca kişisel gizliliği korumak (GPS coğrafi etiketlerini, donanım seri numaralarını ve yerel yolları temizlemek) ve yasal medya yönetimi için tasarlanmıştır. Belge sahteciliğini, kimlik aldatmasını veya telif hakkı ihlalini desteklemiyoruz."
+    "ethicalNoticeDesc": "SolveMyMedia, yalnızca kişisel gizliliği korumak (GPS coğrafi etiketlerini, donanım seri numaralarını ve yerel yolları temizlemek) ve yasal medya yönetimi için tasarlanmıştır. Belge sahteciliğini, kimlik aldatmasını veya telif hakkı ihlalini desteklemiyoruz.",
+    "edtFieldDateTime": "Oluşturma Tarihi ve Saati",
+    "edaFieldDateTime": "Kayıt ve Çıkış Tarihi",
+    "dateTimeNowBtn": "Şimdi",
+    "dateTimeClearBtn": "Sıfırla",
+    "dateTimeHelper": "Tarih ve saat seçmek için takvime tıklayın",
+    "rmvTimeLabel": "Oluşturma Tarihi ve Saati",
+    "rmaTimeLabel": "Kayıt Tarihi ve Saati"
   },
   "vi": {
     "toolRemoveAudioMetadata": "Xóa siêu dữ liệu âm thanh",
@@ -3693,7 +3798,14 @@
     "edaSpecsFid4": "Táo sẵn sàng",
     "edaResetTitle": "Đặt lại các trường về thẻ được phát hiện ban đầu",
     "ethicalNoticeTitle": "Chính sách Sử dụng Có trách nhiệm & Bảo vệ Quyền riêng tư",
-    "ethicalNoticeDesc": "SolveMyMedia được xây dựng nhằm bảo vệ quyền riêng tư cá nhân (xóa vị trí GPS, số sê-ri thiết bị và đường dẫn cục bộ) cũng như quản lý phương tiện hợp pháp. Chúng tôi KHÔNG ủng hộ việc làm giả tài liệu, gian lận danh tính hoặc vi phạm bản quyền."
+    "ethicalNoticeDesc": "SolveMyMedia được xây dựng nhằm bảo vệ quyền riêng tư cá nhân (xóa vị trí GPS, số sê-ri thiết bị và đường dẫn cục bộ) cũng như quản lý phương tiện hợp pháp. Chúng tôi KHÔNG ủng hộ việc làm giả tài liệu, gian lận danh tính hoặc vi phạm bản quyền.",
+    "edtFieldDateTime": "Ngày & Giờ Tạo",
+    "edaFieldDateTime": "Ngày & Giờ Ghi âm / Phát hành",
+    "dateTimeNowBtn": "Bây giờ",
+    "dateTimeClearBtn": "Đặt lại",
+    "dateTimeHelper": "Nhấp vào lịch để chọn ngày & giờ",
+    "rmvTimeLabel": "Ngày & Giờ Tạo",
+    "rmaTimeLabel": "Ngày & Giờ Ghi âm"
   },
   "th": {
     "toolRemoveAudioMetadata": "ลบข้อมูลเมตาของเสียง",
@@ -3924,7 +4036,14 @@
     "edaSpecsFid4": "แอปเปิ้ลพร้อม",
     "edaResetTitle": "รีเซ็ตฟิลด์เป็นแท็กที่ตรวจพบครั้งแรก",
     "ethicalNoticeTitle": "นโยบายการใช้งานอย่างมีความรับผิดชอบและการปกป้องความเป็นส่วนตัว",
-    "ethicalNoticeDesc": "SolveMyMedia สร้างขึ้นเพื่อการปกป้องความเป็นส่วนตัว (ลบพิกัด GPS, หมายเลขซีเรียลฮาร์ดแวร์ และเส้นทางโฟลเดอร์ผู้ใช้) และการจัดระเบียบสื่อที่ถูกต้องตามกฎหมาย เราไม่สนับสนุนการปลอมแปลงเอกสาร การหลอกลวงตัวตน หรือการละเมิดลิขสิทธิ์"
+    "ethicalNoticeDesc": "SolveMyMedia สร้างขึ้นเพื่อการปกป้องความเป็นส่วนตัว (ลบพิกัด GPS, หมายเลขซีเรียลฮาร์ดแวร์ และเส้นทางโฟลเดอร์ผู้ใช้) และการจัดระเบียบสื่อที่ถูกต้องตามกฎหมาย เราไม่สนับสนุนการปลอมแปลงเอกสาร การหลอกลวงตัวตน หรือการละเมิดลิขสิทธิ์",
+    "edtFieldDateTime": "วันที่และเวลาที่สร้าง",
+    "edaFieldDateTime": "วันที่และเวลาบันทึก / เผยแพร่",
+    "dateTimeNowBtn": "ตอนนี้",
+    "dateTimeClearBtn": "รีเซ็ต",
+    "dateTimeHelper": "คลิกปฏิทินเพื่อเลือกวันและเวลา",
+    "rmvTimeLabel": "วันที่และเวลาที่สร้าง",
+    "rmaTimeLabel": "วันที่และเวลาบันทึก"
   },
   "ar": {
     "toolRemoveAudioMetadata": "إزالة البيانات الوصفية الصوتية",
@@ -4155,7 +4274,14 @@
     "edaSpecsFid4": "أبل جاهز",
     "edaResetTitle": "إعادة تعيين الحقول إلى العلامات المكتشفة الأولية",
     "ethicalNoticeTitle": "سياسة الاستخدام المسؤول وحماية الخصوصية",
-    "ethicalNoticeDesc": "تم تصميم SolveMyMedia خصيصًا لحماية الخصوصية الشخصية (تنظيف علامات GPS الجغرافية والأرقام التسلسلية ومسارات المستخدم المحلية) وإدارة الوسائط القانونية. نحن لا ندعم تزوير المستندات أو خداع الهوية أو انتهاك حقوق الطبع والنشر."
+    "ethicalNoticeDesc": "تم تصميم SolveMyMedia خصيصًا لحماية الخصوصية الشخصية (تنظيف علامات GPS الجغرافية والأرقام التسلسلية ومسارات المستخدم المحلية) وإدارة الوسائط القانونية. نحن لا ندعم تزوير المستندات أو خداع الهوية أو انتهاك حقوق الطبع والنشر.",
+    "edtFieldDateTime": "تاريخ ووقت الإنشاء",
+    "edaFieldDateTime": "تاريخ ووقت التسجيل / الإصدار",
+    "dateTimeNowBtn": "الآن",
+    "dateTimeClearBtn": "إعادة تعيين",
+    "dateTimeHelper": "انقر على التقويم لتحديد التاريخ والوقت",
+    "rmvTimeLabel": "تاريخ ووقت الإنشاء",
+    "rmaTimeLabel": "تاريخ ووقت التسجيل"
   },
   "hi": {
     "toolRemoveAudioMetadata": "ऑडियो मेटाडेटा हटाएँ",
@@ -4386,7 +4512,14 @@
     "edaSpecsFid4": "सेब तैयार",
     "edaResetTitle": "फ़ील्ड को आरंभिक खोजे गए टैग पर रीसेट करें",
     "ethicalNoticeTitle": "जिम्मेदार उपयोग और गोपनीयता संरक्षण नीति",
-    "ethicalNoticeDesc": "SolveMyMedia को केवल व्यक्तिगत गोपनीयता सुरक्षा (GPS जियोटैग, हार्डवेयर सीरियल और स्थानीय उपयोगकर्ता पथ हटाना) और वैध मीडिया प्रबंधन के लिए बनाया गया है। हम दस्तावेज़ जालसाजी, पहचान धोखाधड़ी या कॉपीराइट उल्लंघन का समर्थन नहीं करते हैं।"
+    "ethicalNoticeDesc": "SolveMyMedia को केवल व्यक्तिगत गोपनीयता सुरक्षा (GPS जियोटैग, हार्डवेयर सीरियल और स्थानीय उपयोगकर्ता पथ हटाना) और वैध मीडिया प्रबंधन के लिए बनाया गया है। हम दस्तावेज़ जालसाजी, पहचान धोखाधड़ी या कॉपीराइट उल्लंघन का समर्थन नहीं करते हैं।",
+    "edtFieldDateTime": "निर्माण तिथि और समय",
+    "edaFieldDateTime": "रिकॉर्डिंग / रिलीज़ तिथि और समय",
+    "dateTimeNowBtn": "अभी",
+    "dateTimeClearBtn": "रीसेट",
+    "dateTimeHelper": "तारीख और समय चुनने के लिए कैलेंडर पर क्लिक करें",
+    "rmvTimeLabel": "निर्माण तिथि और समय",
+    "rmaTimeLabel": "रिकॉर्डिंग तिथि और समय"
   },
   "sv": {
     "toolRemoveAudioMetadata": "Ta bort ljudmetadata",
@@ -4617,7 +4750,14 @@
     "edaSpecsFid4": "Apple redo",
     "edaResetTitle": "Återställ fält till initialt upptäckta taggar",
     "ethicalNoticeTitle": "Policy för Ansvarsfull Användning och Integritetsskydd",
-    "ethicalNoticeDesc": "SolveMyMedia är byggt för att skydda den personliga integriteten (rensa GPS-geotaggar, hårdvaruserienummer och lokala sökvägar) samt legitim mediehantering. Vi stöder INTE förfalskning av dokument, identitetsbedrägeri eller upphovsrättsintrång."
+    "ethicalNoticeDesc": "SolveMyMedia är byggt för att skydda den personliga integriteten (rensa GPS-geotaggar, hårdvaruserienummer och lokala sökvägar) samt legitim mediehantering. Vi stöder INTE förfalskning av dokument, identitetsbedrägeri eller upphovsrättsintrång.",
+    "edtFieldDateTime": "Skapelsedatum och Tid",
+    "edaFieldDateTime": "Inspelnings- och Släppdatum",
+    "dateTimeNowBtn": "Nu",
+    "dateTimeClearBtn": "Återställ",
+    "dateTimeHelper": "Klicka på kalendern för att välja datum och tid",
+    "rmvTimeLabel": "Skapelsedatum och Tid",
+    "rmaTimeLabel": "Inspelningsdatum och Tid"
   },
   "no": {
     "toolRemoveAudioMetadata": "Fjern lydmetadata",
@@ -4848,7 +4988,14 @@
     "edaSpecsFid4": "Apple klar",
     "edaResetTitle": "Tilbakestill felt til første oppdagede tagger",
     "ethicalNoticeTitle": "Retningslinjer for Ansvarlig Bruk og Personvern",
-    "ethicalNoticeDesc": "SolveMyMedia er bygget utelukkende for personvern (fjerning av GPS-geotagger, maskinvareserienumre og lokale brukerstier) og legitim mediehåndtering. Vi støtter IKKE dokumentforfalskning, identitetsbedrag eller brudd på opphavsrett."
+    "ethicalNoticeDesc": "SolveMyMedia er bygget utelukkende for personvern (fjerning av GPS-geotagger, maskinvareserienumre og lokale brukerstier) og legitim mediehåndtering. Vi støtter IKKE dokumentforfalskning, identitetsbedrag eller brudd på opphavsrett.",
+    "edtFieldDateTime": "Opprettelsesdato og -tid",
+    "edaFieldDateTime": "Innspillings- og Utgivelsesdato",
+    "dateTimeNowBtn": "Nå",
+    "dateTimeClearBtn": "Tilbakestill",
+    "dateTimeHelper": "Klikk på kalenderen for å velge dato og tid",
+    "rmvTimeLabel": "Opprettelsesdato og -tid",
+    "rmaTimeLabel": "Innspillingsdato og -tid"
   },
   "da": {
     "toolRemoveAudioMetadata": "Fjern lydmetadata",
@@ -5079,7 +5226,14 @@
     "edaSpecsFid4": "Æble klar",
     "edaResetTitle": "Nulstil felter til oprindeligt detekterede tags",
     "ethicalNoticeTitle": "Politik for Ansvarlig Brug og Beskyttelse af Privatliv",
-    "ethicalNoticeDesc": "SolveMyMedia er udelukkende bygget til beskyttelse af personlige oplysninger (fjernelse af GPS-geotags, hardware-serienumre og lokale brugerstier) og legitim mediestyring. Vi støtter IKKE dokumentforfalskning, identitetssvindel eller kränkelse af ophavsret."
+    "ethicalNoticeDesc": "SolveMyMedia er udelukkende bygget til beskyttelse af personlige oplysninger (fjernelse af GPS-geotags, hardware-serienumre og lokale brugerstier) og legitim mediestyring. Vi støtter IKKE dokumentforfalskning, identitetssvindel eller kränkelse af ophavsret.",
+    "edtFieldDateTime": "Oprettelsesdato og -tidspunkt",
+    "edaFieldDateTime": "Optagelses- og Udgivelsesdato",
+    "dateTimeNowBtn": "Nu",
+    "dateTimeClearBtn": "Nulstil",
+    "dateTimeHelper": "Klik på kalenderen for at vælge dato og klokkeslæt",
+    "rmvTimeLabel": "Oprettelsesdato og -tidspunkt",
+    "rmaTimeLabel": "Optagelsesdato og -tidspunkt"
   },
   "fi": {
     "toolRemoveAudioMetadata": "Poista äänen metatiedot",
@@ -5310,7 +5464,14 @@
     "edaSpecsFid4": "Apple valmis",
     "edaResetTitle": "Palauta kentät alkuperäisiksi tunnistetuiksi tunnisteiksi",
     "ethicalNoticeTitle": "Vastuullisen Käytön ja Yksityisyydensuojan Käytäntö",
-    "ethicalNoticeDesc": "SolveMyMedia on rakennettu yksinomaan yksityisyyden suojaamiseen (GPS-sijaintien, laitteistosarjojen ja paikallisten polkujen poistamiseen) ja lailliseen median hallintaan. Emme tue asiakirjojen väärentämistä, henkilöllisyyden harhaanjohtamista tai tekijänoikeusrikkomuksia."
+    "ethicalNoticeDesc": "SolveMyMedia on rakennettu yksinomaan yksityisyyden suojaamiseen (GPS-sijaintien, laitteistosarjojen ja paikallisten polkujen poistamiseen) ja lailliseen median hallintaan. Emme tue asiakirjojen väärentämistä, henkilöllisyyden harhaanjohtamista tai tekijänoikeusrikkomuksia.",
+    "edtFieldDateTime": "Luontipäivämäärä ja -aika",
+    "edaFieldDateTime": "Tallennus- ja Julkaisupäivä",
+    "dateTimeNowBtn": "Nyt",
+    "dateTimeClearBtn": "Nollaa",
+    "dateTimeHelper": "Valitse päivämäärä ja aika napsauttamalla kalenteria",
+    "rmvTimeLabel": "Luontipäivämäärä ja -aika",
+    "rmaTimeLabel": "Tallennuspäivämäärä ja -aika"
   },
   "cs": {
     "toolRemoveAudioMetadata": "Odebrat metadata zvuku",
@@ -5541,7 +5702,14 @@
     "edaSpecsFid4": "Apple připraven",
     "edaResetTitle": "Resetujte pole na počáteční detekované značky",
     "ethicalNoticeTitle": "Zásady Odpovědného Používání a Ochrany Soukromí",
-    "ethicalNoticeDesc": "SolveMyMedia je určen výhradně pro ochranu soukromí (odstranění GPS geotagů, sériových čísel hardwaru a místních uživatelských cest) a legitimní správu médií. Nepodporujeme padělání dokumentů, klamání identity ani porušování autorských práv."
+    "ethicalNoticeDesc": "SolveMyMedia je určen výhradně pro ochranu soukromí (odstranění GPS geotagů, sériových čísel hardwaru a místních uživatelských cest) a legitimní správu médií. Nepodporujeme padělání dokumentů, klamání identity ani porušování autorských práv.",
+    "edtFieldDateTime": "Datum a Čas Vytvoření",
+    "edaFieldDateTime": "Datum a Čas Nahrávání / Vydání",
+    "dateTimeNowBtn": "Nyní",
+    "dateTimeClearBtn": "Resetovat",
+    "dateTimeHelper": "Kliknutím na kalendář vyberte datum a čas",
+    "rmvTimeLabel": "Datum a Čas Vytvoření",
+    "rmaTimeLabel": "Datum a Čas Nahrávání"
   },
   "hu": {
     "toolRemoveAudioMetadata": "Távolítsa el az audio metaadatokat",
@@ -5772,7 +5940,14 @@
     "edaSpecsFid4": "Apple kész",
     "edaResetTitle": "Állítsa vissza a mezőket a kezdeti észlelt címkékre",
     "ethicalNoticeTitle": "Felelősségteljes Használati és Adatvédelmi Irányelvek",
-    "ethicalNoticeDesc": "A SolveMyMedia kizárólag a személyes adatok védelmére (GPS-címkék, hardver-sorozatszámok és helyi felhasználói útvonalak eltávolítására) és a jogszerű médiakezelésre szolgál. NEM támogatjuk az okirat-hamisítást, a személyazonosság megtévesztését vagy a szerzői jogok megsértését."
+    "ethicalNoticeDesc": "A SolveMyMedia kizárólag a személyes adatok védelmére (GPS-címkék, hardver-sorozatszámok és helyi felhasználói útvonalak eltávolítására) és a jogszerű médiakezelésre szolgál. NEM támogatjuk az okirat-hamisítást, a személyazonosság megtévesztését vagy a szerzői jogok megsértését.",
+    "edtFieldDateTime": "Létrehozás Dátuma és Ideje",
+    "edaFieldDateTime": "Felvétel és Kiadás Dátuma",
+    "dateTimeNowBtn": "Most",
+    "dateTimeClearBtn": "Visszaállítás",
+    "dateTimeHelper": "Kattintson a naptárra a dátum és idő kiválasztásához",
+    "rmvTimeLabel": "Létrehozás Dátuma és Ideje",
+    "rmaTimeLabel": "Felvétel Dátuma és Ideje"
   },
   "el": {
     "toolRemoveAudioMetadata": "Κατάργηση μεταδεδομένων ήχου",
@@ -6003,7 +6178,14 @@
     "edaSpecsFid4": "Apple έτοιμο",
     "edaResetTitle": "Επαναφέρετε τα πεδία στις αρχικές ετικέτες που εντοπίστηκαν",
     "ethicalNoticeTitle": "Πολιτική Υπεύθυνης Χρήσης και Προστασίας Απορρήτου",
-    "ethicalNoticeDesc": "Το SolveMyMedia έχει σχεδιαστεί αποκλειστικά για την προστασία του απορρήτου (καθαρισμός ετικετών GPS, σειριακών αριθμών υλικού και τοπικών διαδρομών) και τη νόμιμη οργάνωση πολυμέσων. ΔΕΝ υποστηρίζουμε την παραχάραξη εγγράφων ή την παραβίαση πνευματικών δικαιωμάτων."
+    "ethicalNoticeDesc": "Το SolveMyMedia έχει σχεδιαστεί αποκλειστικά για την προστασία του απορρήτου (καθαρισμός ετικετών GPS, σειριακών αριθμών υλικού και τοπικών διαδρομών) και τη νόμιμη οργάνωση πολυμέσων. ΔΕΝ υποστηρίζουμε την παραχάραξη εγγράφων ή την παραβίαση πνευματικών δικαιωμάτων.",
+    "edtFieldDateTime": "Ημερομηνία και Ώρα Δημιουργίας",
+    "edaFieldDateTime": "Ημερομηνία Εγγραφής / Κυκλοφορίας",
+    "dateTimeNowBtn": "Τώρα",
+    "dateTimeClearBtn": "Επαναφορά",
+    "dateTimeHelper": "Κάντε κλικ στο ημερολόγιο για επιλογή ημερομηνίας & ώρας",
+    "rmvTimeLabel": "Ημερομηνία και Ώρα Δημιουργίας",
+    "rmaTimeLabel": "Ημερομηνία και Ώρα Εγγραφής"
   },
   "ro": {
     "toolRemoveAudioMetadata": "Eliminați metadatele audio",
@@ -6234,7 +6416,14 @@
     "edaSpecsFid4": "Apple gata",
     "edaResetTitle": "Resetați câmpurile la etichetele inițiale detectate",
     "ethicalNoticeTitle": "Politica de Utilizare Responsabilă și Protecție a Confidențialității",
-    "ethicalNoticeDesc": "SolveMyMedia este conceput exclusiv pentru protecția confidențialității (eliminarea etichetelor GPS, a numerelor de serie hardware și a căilor locale) și gestionarea legitimă a conținutului media. NU sprijinim falsificarea documentelor, înșelarea identității sau încălcarea drepturilor de autor."
+    "ethicalNoticeDesc": "SolveMyMedia este conceput exclusiv pentru protecția confidențialității (eliminarea etichetelor GPS, a numerelor de serie hardware și a căilor locale) și gestionarea legitimă a conținutului media. NU sprijinim falsificarea documentelor, înșelarea identității sau încălcarea drepturilor de autor.",
+    "edtFieldDateTime": "Data și Ora Creării",
+    "edaFieldDateTime": "Data și Ora Înregistrării / Lansării",
+    "dateTimeNowBtn": "Acum",
+    "dateTimeClearBtn": "Resetează",
+    "dateTimeHelper": "Faceți clic pe calendar pentru a alege data și ora",
+    "rmvTimeLabel": "Data și Ora Creării",
+    "rmaTimeLabel": "Data și Ora Înregistrării"
   },
   "uk": {
     "toolRemoveAudioMetadata": "Видалити аудіо метадані",
@@ -6465,7 +6654,14 @@
     "edaSpecsFid4": "Яблуко готове",
     "edaResetTitle": "Скинути поля до початкових виявлених тегів",
     "ethicalNoticeTitle": "Політика відповідального використання та захисту конфіденційності",
-    "ethicalNoticeDesc": "SolveMyMedia створено виключно для захисту особистої конфідενційності (видалення GPS-геотегів, серійних номерів та локальних шляхів) і легальної каталогізації медіа. Ми НЕ підтримуємо підробку документів, обман особистості або порушення авторських прав."
+    "ethicalNoticeDesc": "SolveMyMedia створено виключно для захисту особистої конфідενційності (видалення GPS-геотегів, серійних номерів та локальних шляхів) і легальної каталогізації медіа. Ми НЕ підтримуємо підробку документів, обман особистості або порушення авторських прав.",
+    "edtFieldDateTime": "Дата та час створення",
+    "edaFieldDateTime": "Дата та час запису / випуску",
+    "dateTimeNowBtn": "Зараз",
+    "dateTimeClearBtn": "Скинути",
+    "dateTimeHelper": "Натисніть на календар для вибору дати та часу",
+    "rmvTimeLabel": "Дата та час створення",
+    "rmaTimeLabel": "Дата та час запису"
   },
   "ms": {
     "toolRemoveAudioMetadata": "Alih keluar Metadata Audio",
@@ -6696,7 +6892,14 @@
     "edaSpecsFid4": "Apple Sedia",
     "edaResetTitle": "Tetapkan semula medan kepada teg awal yang dikesan",
     "ethicalNoticeTitle": "Dasar Penggunaan Bertanggungjawab & Perlindungan Privasi",
-    "ethicalNoticeDesc": "SolveMyMedia direka khas untuk perlindungan privasi peribadi (memadamkan geotag GPS, nombor siri peranti, dan laluan pengguna tempatan) serta pengurusan katalog media yang sah. Kami TIDAK menyokong pemalsuan dokumen, penipuan identiti, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggungjawab sepenuhnya untuk penggunaan yang sah dan beretika."
+    "ethicalNoticeDesc": "SolveMyMedia direka khas untuk perlindungan privasi peribadi (memadamkan geotag GPS, nombor siri peranti, dan laluan pengguna tempatan) serta pengurusan katalog media yang sah. Kami TIDAK menyokong pemalsuan dokumen, penipuan identiti, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggungjawab sepenuhnya untuk penggunaan yang sah dan beretika.",
+    "edtFieldDateTime": "Tarikh & Masa Penciptaan",
+    "edaFieldDateTime": "Tarikh & Masa Rakaman / Keluaran",
+    "dateTimeNowBtn": "Sekarang",
+    "dateTimeClearBtn": "Set Semula",
+    "dateTimeHelper": "Klik kalendar untuk memilih tarikh & masa, atau taip terus",
+    "rmvTimeLabel": "Tarikh & Masa Penciptaan",
+    "rmaTimeLabel": "Tarikh & Masa Rakaman"
   },
   "tl": {
     "toolRemoveAudioMetadata": "Alisin ang Audio Metadata",
@@ -6927,7 +7130,14 @@
     "edaSpecsFid4": "Handa ang Apple",
     "edaResetTitle": "I-reset ang mga field sa mga unang natukoy na tag",
     "ethicalNoticeTitle": "Patakaran sa Responsableng Paggamit at Proteksyon sa Privacy",
-    "ethicalNoticeDesc": "Ang SolveMyMedia ay binuo para sa proteksyon ng privacy (pag-aalis ng mga GPS geotag, serial number ng hardware, at mga lokal na path ng user) at lehitimong pamamahala ng media. HINDI namin sinusuportahan ang pamemeke ng dokumento, panlilinlang sa pagkakakilanlan, o paglabag sa copyright."
+    "ethicalNoticeDesc": "Ang SolveMyMedia ay binuo para sa proteksyon ng privacy (pag-aalis ng mga GPS geotag, serial number ng hardware, at mga lokal na path ng user) at lehitimong pamamahala ng media. HINDI namin sinusuportahan ang pamemeke ng dokumento, panlilinlang sa pagkakakilanlan, o paglabag sa copyright.",
+    "edtFieldDateTime": "Petsa at Oras ng Paglikha",
+    "edaFieldDateTime": "Petsa at Oras ng Pag-record / Release",
+    "dateTimeNowBtn": "Ngayon",
+    "dateTimeClearBtn": "I-reset",
+    "dateTimeHelper": "I-click ang kalendaryo para pumili ng petsa at oras",
+    "rmvTimeLabel": "Petsa at Oras ng Paglikha",
+    "rmaTimeLabel": "Petsa at Oras ng Pag-record"
   },
   "he": {
     "toolRemoveAudioMetadata": "הסר מטא נתונים של אודיו",
@@ -7158,7 +7368,14 @@
     "edaSpecsFid4": "מוכן לתפוח",
     "edaResetTitle": "אפס שדות לתגים שזוהו לראשונה",
     "ethicalNoticeTitle": "מדיניות שימוש אחראי והגנת פרטיות",
-    "ethicalNoticeDesc": "SolveMyMedia מיועד אך ורק להגנה על הפרטיות (הסרת מיקומי GPS, מספרים סידוריים ונתיבים מקומיים) וניהול חוקי של קובצי מדיה. איננו תומכים בזיוף מסמכים, הטעיית זהות או הפרת זכויות יוצרים."
+    "ethicalNoticeDesc": "SolveMyMedia מיועד אך ורק להגנה על הפרטיות (הסרת מיקומי GPS, מספרים סידוריים ונתיבים מקומיים) וניהול חוקי של קובצי מדיה. איננו תומכים בזיוף מסמכים, הטעיית זהות או הפרת זכויות יוצרים.",
+    "edtFieldDateTime": "תאריך ושעת יצירה",
+    "edaFieldDateTime": "תאריך ושעת הקלטה / שחרור",
+    "dateTimeNowBtn": "עכשיו",
+    "dateTimeClearBtn": "איפוס",
+    "dateTimeHelper": "לחץ על לוח השנה לבחירת תאריך ושעה",
+    "rmvTimeLabel": "תאריך ושעת יצירה",
+    "rmaTimeLabel": "תאריך ושעת הקלטה"
   },
   "sk": {
     "toolRemoveAudioMetadata": "Odstrániť zvukové metadáta",
@@ -7389,6 +7606,13 @@
     "edaSpecsFid4": "Apple pripravený",
     "edaResetTitle": "Obnovte polia na počiatočné zistené značky",
     "ethicalNoticeTitle": "Zásady Zodpovedného Používania a Ochrany Súkromia",
-    "ethicalNoticeDesc": "SolveMyMedia je určený výhradne na ochranu súkromia (odstránenie GPS geotagov, sériových čísel hardvéru a lokálnych ciest) a legitímnu správu médií. Nepodporujeme falšovanie dokumentov, klamanie identity ani porušovanie autorských práv."
+    "ethicalNoticeDesc": "SolveMyMedia je určený výhradne na ochranu súkromia (odstránenie GPS geotagov, sériových čísel hardvéru a lokálnych ciest) a legitímnu správu médií. Nepodporujeme falšovanie dokumentov, klamanie identity ani porušovanie autorských práv.",
+    "edtFieldDateTime": "Dátum a Čas Vytvorenia",
+    "edaFieldDateTime": "Dátum a Čas Nahrávania / Vydania",
+    "dateTimeNowBtn": "Teraz",
+    "dateTimeClearBtn": "Obnoviť",
+    "dateTimeHelper": "Kliknutím na kalendár vyberte dátum a čas",
+    "rmvTimeLabel": "Dátum a Čas Vytvorenia",
+    "rmaTimeLabel": "Dátum a Čas Nahrávania"
   }
 }

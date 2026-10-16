@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Tag, Sparkles, Music, User, Calendar, Disc, FileText, Check, AlertCircle, Zap, Loader2, RotateCcw, Radio, Headphones, Sliders } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { ResponsibleUseNotice } from '../components/ResponsibleUseNotice';
+import { ModernDateTimePicker } from '../components/ModernDateTimePicker';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanAudioMetadata, type DetectedAudioMetadata } from '../utils/mediaMetadataScanner';
@@ -30,6 +31,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
   const [artist, setArtist] = useState('');
   const [album, setAlbum] = useState('');
   const [year, setYear] = useState('');
+  const [dateTime, setDateTime] = useState('');
   const [genre, setGenre] = useState('');
   const [trackNumber, setTrackNumber] = useState('');
   const [composer, setComposer] = useState('');
@@ -75,6 +77,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         const initialArtist = meta.artist || '';
         const initialAlbum = meta.album || '';
         const initialYear = meta.year || '';
+        const initialDate = meta.creationTime || (meta.year ? `${meta.year}-01-01 12:00:00` : '');
         const initialGenre = meta.genre || '';
         const initialTrack = meta.trackNumber || '';
         const initialComposer = meta.composer || '';
@@ -84,6 +87,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         if (initialTitle) { setTitle(initialTitle); filled++; }
         if (initialArtist) { setArtist(initialArtist); filled++; }
         if (initialAlbum) { setAlbum(initialAlbum); filled++; }
+        if (initialDate) { setDateTime(initialDate); filled++; }
         if (initialYear) { setYear(initialYear); filled++; }
         if (initialGenre) { setGenre(initialGenre); filled++; }
         if (initialTrack) { setTrackNumber(initialTrack); filled++; }
@@ -122,7 +126,14 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     if (title.trim()) args.push('-metadata', `title=${title.trim()}`);
     if (artist.trim()) args.push('-metadata', `artist=${artist.trim()}`);
     if (album.trim()) args.push('-metadata', `album=${album.trim()}`);
-    if (year.trim()) args.push('-metadata', `date=${year.trim()}`);
+    if (dateTime.trim()) {
+      args.push('-metadata', `date=${dateTime.trim()}`);
+      args.push('-metadata', `creation_time=${dateTime.trim()}`);
+      args.push('-metadata', `year=${dateTime.trim().slice(0, 4)}`);
+    } else if (year.trim()) {
+      args.push('-metadata', `date=${year.trim()}`);
+      args.push('-metadata', `year=${year.trim()}`);
+    }
     if (genre.trim()) args.push('-metadata', `genre=${genre.trim()}`);
     if (trackNumber.trim()) args.push('-metadata', `track=${trackNumber.trim()}`);
     if (composer.trim()) args.push('-metadata', `composer=${composer.trim()}`);
@@ -151,7 +162,9 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
     setTitle(detectedMeta.title || detectedMeta.cleanTitleSuggestion || '');
     setArtist(detectedMeta.artist || '');
     setAlbum(detectedMeta.album || '');
-    setYear(detectedMeta.year || '2026');
+    const initialDate = detectedMeta.creationTime || (detectedMeta.year ? `${detectedMeta.year}-01-01 12:00:00` : '');
+    setDateTime(initialDate);
+    setYear(detectedMeta.year || (detectedMeta.creationTime ? detectedMeta.creationTime.slice(0, 4) : '2026'));
     setGenre(detectedMeta.genre || '');
     setTrackNumber(detectedMeta.trackNumber || '');
     setComposer(detectedMeta.composer || '');
@@ -193,6 +206,42 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
           </button>
         )}
       </div>
+
+      {/* Embedded Container Metadata Inspector */}
+      {file && detectedMeta && (
+        <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, padding: '8px 10px', fontSize: '0.78rem' }}>
+          <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>
+            {t('edtInspectorTitle') || 'Embedded Container Metadata'}
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {(detectedMeta.creationTime || detectedMeta.year) && (
+              <span style={{ background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 4, border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600 }}>
+                🕒 {detectedMeta.creationTime || detectedMeta.year}
+              </span>
+            )}
+            {detectedMeta.encoder && (
+              <span style={{ background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 4, border: '1px solid var(--border-color)', color: 'var(--text-main)' }}>
+                🎵 {detectedMeta.encoder}
+              </span>
+            )}
+            {(detectedMeta.hasC2pa || detectedMeta.aiGenerated) && (
+              <span style={{ background: 'rgba(168,85,247,0.12)', color: '#c084fc', padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(168,85,247,0.3)', fontWeight: 600 }}>
+                ✨ {detectedMeta.aiProvider || detectedMeta.c2paIssuer || 'AI (SynthID)'}
+              </span>
+            )}
+            {detectedMeta.hasId3 && (
+              <span style={{ background: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(56, 189, 248, 0.25)', fontWeight: 600 }}>
+                🏷️ {detectedMeta.rawTags?.['id3_version'] || 'ID3 Tag'}
+              </span>
+            )}
+            {!detectedMeta.hasC2pa && !detectedMeta.creationTime && !detectedMeta.year && !detectedMeta.encoder && !detectedMeta.title && !detectedMeta.artist && (
+              <span style={{ color: 'var(--text-muted)' }}>
+                {t('rmaNoTagsFound') || 'No hidden metadata text tags found.'}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Auto-filled Notification Chip */}
       {file && autoFilledCount > 0 && (
@@ -248,17 +297,18 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
           />
         </div>
 
-        {/* Year / Release Date */}
+        {/* Release & Recording Date / Time */}
         <div>
-          <label style={{ display: 'block', fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: 3 }}>
-            {t('edaFieldYear') || 'Year / Date'}
-          </label>
-          <input
-            type="text"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            placeholder="e.g. 2026"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+          <ModernDateTimePicker
+            label={t('edaFieldDateTime') || 'Tanggal & Jam Rekaman / Rilis'}
+            value={dateTime || (year ? `${year}-01-01 12:00:00` : '')}
+            onChange={(val) => {
+              setDateTime(val);
+              if (val.length >= 4) {
+                setYear(val.slice(0, 4));
+              }
+            }}
+            color="#eab308"
           />
         </div>
 

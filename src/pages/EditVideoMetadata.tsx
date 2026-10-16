@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Tag, Sparkles, Film, User, Calendar, Music, FileText, Shield, AlertCircle, Zap, Loader2, RotateCcw } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
 import { ResponsibleUseNotice } from '../components/ResponsibleUseNotice';
+import { ModernDateTimePicker } from '../components/ModernDateTimePicker';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
@@ -270,16 +271,11 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
           />
         </div>
         <div>
-          <label style={labelStyle}>
-            <Calendar size={13} color="#eab308" />
-            <span>{t('edtFieldDateTime') || 'Tanggal & Jam (Tahun/Bulan/Hari)'}</span>
-          </label>
-          <input
-            type="text"
+          <ModernDateTimePicker
+            label={t('edtFieldDateTime') || 'Tanggal & Jam Pembuatan'}
             value={dateTime}
-            onChange={(e) => setDateTime(e.target.value)}
-            placeholder="YYYY-MM-DD HH:mm:ss"
-            style={inputStyle}
+            onChange={(val) => setDateTime(val)}
+            color="#eab308"
           />
         </div>
       </div>

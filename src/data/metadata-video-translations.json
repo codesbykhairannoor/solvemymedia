@@ -121,7 +121,7 @@
     "rmvFlipBack": "Return to Cleaner ➔",
     "rmvDetailTitle": "Video Forensic Sheet (Reverse Side)",
     "rmvDetailSubtitle": "Complete forensics of video container atoms and metadata",
-    "rmvTimeLabel": "Time & Date:",
+    "rmvTimeLabel": "Creation Date & Time",
     "rmvAiLabel": "AI Watermark (C2PA):",
     "rmvEncoderLabel": "Software / Encoder:",
     "rmvNotFound": "Not found",
@@ -239,7 +239,13 @@
     "edtResetTitle": "Reset fields to original detected tags",
     "rmvFlipBackFull": "Done Checking — Return to Clean Options",
     "ethicalNoticeTitle": "Responsible Use & Privacy Protection Policy",
-    "ethicalNoticeDesc": "SolveMyMedia is built strictly for personal privacy protection (sanitizing GPS geotags, hardware serials, and local user paths) and legitimate media cataloging. We do NOT endorse document forgery, identity deception, copyright evasion, or tampering with digital provenance. Users remain solely responsible for lawful and ethical use."
+    "ethicalNoticeDesc": "SolveMyMedia is built strictly for personal privacy protection (sanitizing GPS geotags, hardware serials, and local user paths) and legitimate media cataloging. We do NOT endorse document forgery, identity deception, copyright evasion, or tampering with digital provenance. Users remain solely responsible for lawful and ethical use.",
+    "edtFieldDateTime": "Creation Date & Time",
+    "edaFieldDateTime": "Release & Recording Date / Time",
+    "dateTimeNowBtn": "Now",
+    "dateTimeClearBtn": "Reset",
+    "dateTimeHelper": "Click calendar to pick date & time, or type directly",
+    "rmaTimeLabel": "Recording Date & Time"
   },
   "id": {
     "toolRemoveVideoMetadata": "Hapus Metadata Video",
@@ -363,7 +369,7 @@
     "rmvFlipBack": "Kembali ke Pembersih ➔",
     "rmvDetailTitle": "Lembar Video Forensik (Sisi Terbalik)",
     "rmvDetailSubtitle": "Forensik lengkap atom dan metadata wadah video",
-    "rmvTimeLabel": "Waktu & Tanggal:",
+    "rmvTimeLabel": "Tanggal & Jam Pembuatan",
     "rmvAiLabel": "Tanda Air AI (C2PA):",
     "rmvEncoderLabel": "Perangkat Lunak / Pembuat Enkode:",
     "rmvNotFound": "Tidak ditemukan",
@@ -481,7 +487,13 @@
     "edtResetTitle": "Setel ulang bidang ke tag asli yang terdeteksi",
     "rmvFlipBackFull": "Selesai Cek — Balik ke Opsi Bersihkan",
     "ethicalNoticeTitle": "Kebijakan Penggunaan Bertanggung Jawab & Perlindungan Privasi",
-    "ethicalNoticeDesc": "SolveMyMedia dirancang khusus untuk perlindungan privasi pribadi (menghapus geotag GPS, nomor seri perangkat, dan path pengguna lokal) serta pengelolaan katalog media yang sah. Kami TIDAK mendukung pemalsuan dokumen, penipuan identitas, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggung jawab penuh atas penggunaan yang sah dan etis."
+    "ethicalNoticeDesc": "SolveMyMedia dirancang khusus untuk perlindungan privasi pribadi (menghapus geotag GPS, nomor seri perangkat, dan path pengguna lokal) serta pengelolaan katalog media yang sah. Kami TIDAK mendukung pemalsuan dokumen, penipuan identitas, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggung jawab penuh atas penggunaan yang sah dan etis.",
+    "edtFieldDateTime": "Tanggal & Jam Pembuatan",
+    "edaFieldDateTime": "Tanggal & Jam Rekaman / Rilis",
+    "dateTimeNowBtn": "Sekarang",
+    "dateTimeClearBtn": "Reset",
+    "dateTimeHelper": "Klik kalender untuk memilih tanggal & jam, atau ketik langsung",
+    "rmaTimeLabel": "Tanggal & Jam Rekaman"
   },
   "es": {
     "toolRemoveVideoMetadata": "Eliminar metadatos de vídeo",
@@ -605,7 +617,7 @@
     "rmvFlipBack": "Volver a Limpiador ➔",
     "rmvDetailTitle": "Hoja de video forense (reverso)",
     "rmvDetailSubtitle": "Análisis forense completo de átomos y metadatos de contenedores de vídeo.",
-    "rmvTimeLabel": "Hora y fecha:",
+    "rmvTimeLabel": "Fecha y Hora de Creación",
     "rmvAiLabel": "Marca de agua AI (C2PA):",
     "rmvEncoderLabel": "Software / Codificadora:",
     "rmvNotFound": "Extraviado",
@@ -723,7 +735,13 @@
     "edtResetTitle": "Restablecer campos a etiquetas originales detectadas",
     "rmvFlipBackFull": "Comprobación terminada: volver a las opciones de limpieza",
     "ethicalNoticeTitle": "Política de Uso Responsable y Protección de Privacidad",
-    "ethicalNoticeDesc": "SolveMyMedia está diseñado estrictamente para la protección de la privacidad personal (eliminando geoetiquetas GPS, números de serie y rutas locales) y la catalogación legítima de medios. NO respaldamos la falsificación de documentos, el engaño de identidad, la evasión de derechos de autor ni la manipulación de procedencia digital."
+    "ethicalNoticeDesc": "SolveMyMedia está diseñado estrictamente para la protección de la privacidad personal (eliminando geoetiquetas GPS, números de serie y rutas locales) y la catalogación legítima de medios. NO respaldamos la falsificación de documentos, el engaño de identidad, la evasión de derechos de autor ni la manipulación de procedencia digital.",
+    "edtFieldDateTime": "Fecha y Hora de Creación",
+    "edaFieldDateTime": "Fecha y Hora de Grabación / Lanzamiento",
+    "dateTimeNowBtn": "Ahora",
+    "dateTimeClearBtn": "Restablecer",
+    "dateTimeHelper": "Haga clic en el calendario para seleccionar fecha y hora",
+    "rmaTimeLabel": "Fecha y Hora de Grabación"
   },
   "fr": {
     "toolRemoveVideoMetadata": "Supprimer les métadonnées vidéo",
@@ -847,7 +865,7 @@
     "rmvFlipBack": "Revenir au nettoyeur ➔",
     "rmvDetailTitle": "Feuille d'investigation vidéo (verso)",
     "rmvDetailSubtitle": "Analyse approfondie des atomes et des métadonnées des conteneurs vidéo",
-    "rmvTimeLabel": "Heure et date :",
+    "rmvTimeLabel": "Date et Heure de Création",
     "rmvAiLabel": "Filigrane IA (C2PA) :",
     "rmvEncoderLabel": "Logiciel / Encodeur :",
     "rmvNotFound": "Pas trouvé",
@@ -965,7 +983,13 @@
     "edtResetTitle": "Réinitialiser les champs aux balises détectées d'origine",
     "rmvFlipBackFull": "Vérification terminée – Revenir aux options de nettoyage",
     "ethicalNoticeTitle": "Politique d'Utilisation Responsable et Protection de la Vie Privée",
-    "ethicalNoticeDesc": "SolveMyMedia est conçu exclusivement pour la protection de la vie privée (nettoyage des géotags GPS, numéros de série et chemins d'accès locaux) et le catalogage légitime des médias. Nous NE soutenons PAS la falsification de documents, l'usurpation d'identité, la violation des droits d'auteur ou la manipulation de provenance."
+    "ethicalNoticeDesc": "SolveMyMedia est conçu exclusivement pour la protection de la vie privée (nettoyage des géotags GPS, numéros de série et chemins d'accès locaux) et le catalogage légitime des médias. Nous NE soutenons PAS la falsification de documents, l'usurpation d'identité, la violation des droits d'auteur ou la manipulation de provenance.",
+    "edtFieldDateTime": "Date et Heure de Création",
+    "edaFieldDateTime": "Date et Heure d'Enregistrement / Sortie",
+    "dateTimeNowBtn": "Maintenant",
+    "dateTimeClearBtn": "Réinitialiser",
+    "dateTimeHelper": "Cliquez sur le calendrier pour choisir la date et l'heure",
+    "rmaTimeLabel": "Date et Heure d'Enregistrement"
   },
   "de": {
     "toolRemoveVideoMetadata": "Video-Metadaten entfernen",
@@ -1089,7 +1113,7 @@
     "rmvFlipBack": "Zurück zu Reiniger ➔",
     "rmvDetailTitle": "Videoforensisches Blatt (Rückseite)",
     "rmvDetailSubtitle": "Vollständige Forensik von Video-Container-Atomen und Metadaten",
-    "rmvTimeLabel": "Uhrzeit und Datum:",
+    "rmvTimeLabel": "Erstellungsdatum und -uhrzeit",
     "rmvAiLabel": "KI-Wasserzeichen (C2PA):",
     "rmvEncoderLabel": "Software / Encoder:",
     "rmvNotFound": "Nicht gefunden",
@@ -1207,7 +1231,13 @@
     "edtResetTitle": "Setzen Sie die Felder auf die ursprünglich erkannten Tags zurück",
     "rmvFlipBackFull": "Überprüfung abgeschlossen – Zurück zu den Reinigungsoptionen",
     "ethicalNoticeTitle": "Richtlinie für Verantwortungsvolle Nutzung und Datenschutz",
-    "ethicalNoticeDesc": "SolveMyMedia dient ausschließlich dem Schutz der Privatsphäre (Entfernung von GPS-Geotags, Geräteseriennummern und lokalen Benutzerpfaden) sowie der legitimen Medienkatalogisierung. Wir unterstützen KEINE Dokumentenfälschung, Identitätstäuschung, Urheberrechtsumgehung oder Herkunftsmanipulation."
+    "ethicalNoticeDesc": "SolveMyMedia dient ausschließlich dem Schutz der Privatsphäre (Entfernung von GPS-Geotags, Geräteseriennummern und lokalen Benutzerpfaden) sowie der legitimen Medienkatalogisierung. Wir unterstützen KEINE Dokumentenfälschung, Identitätstäuschung, Urheberrechtsumgehung oder Herkunftsmanipulation.",
+    "edtFieldDateTime": "Erstellungsdatum und -uhrzeit",
+    "edaFieldDateTime": "Aufnahme- und Veröffentlichungsdatum",
+    "dateTimeNowBtn": "Jetzt",
+    "dateTimeClearBtn": "Zurücksetzen",
+    "dateTimeHelper": "Klicken Sie auf den Kalender, um Datum & Uhrzeit zu wählen",
+    "rmaTimeLabel": "Aufnahmedatum und -uhrzeit"
   },
   "it": {
     "toolRemoveVideoMetadata": "Rimuovi metadati video",
@@ -1331,7 +1361,7 @@
     "rmvFlipBack": "Torna a Pulitore ➔",
     "rmvDetailTitle": "Foglio video forense (retro)",
     "rmvDetailSubtitle": "Analisi forense completa degli atomi e dei metadati dei contenitori video",
-    "rmvTimeLabel": "Ora e data:",
+    "rmvTimeLabel": "Data e Ora di Creazione",
     "rmvAiLabel": "Filigrana AI (C2PA):",
     "rmvEncoderLabel": "Software/codificatore:",
     "rmvNotFound": "Non trovato",
@@ -1449,7 +1479,13 @@
     "edtResetTitle": "Reimposta i campi sui tag originali rilevati",
     "rmvFlipBackFull": "Controllo terminato: torna alle opzioni di pulizia",
     "ethicalNoticeTitle": "Informativa sull'Uso Responsabile e Protezione della Privacy",
-    "ethicalNoticeDesc": "SolveMyMedia è progettato esclusivamente per la protezione della privacy personale (rimozione di geotag GPS, numeri di serie e percorsi utente locali) e per la catalogazione legittima dei media. NON approviamo la falsificazione di documenti, l'inganno sull'identità o la violazione del copyright."
+    "ethicalNoticeDesc": "SolveMyMedia è progettato esclusivamente per la protezione della privacy personale (rimozione di geotag GPS, numeri di serie e percorsi utente locali) e per la catalogazione legittima dei media. NON approviamo la falsificazione di documenti, l'inganno sull'identità o la violazione del copyright.",
+    "edtFieldDateTime": "Data e Ora di Creazione",
+    "edaFieldDateTime": "Data e Ora di Registrazione / Uscita",
+    "dateTimeNowBtn": "Adesso",
+    "dateTimeClearBtn": "Reimposta",
+    "dateTimeHelper": "Fai clic sul calendario per scegliere data e ora",
+    "rmaTimeLabel": "Data e Ora di Registrazione"
   },
   "pt": {
     "toolRemoveVideoMetadata": "Remover metadados de vídeo",
@@ -1573,7 +1609,7 @@
     "rmvFlipBack": "Retorne ao limpador ➔",
     "rmvDetailTitle": "Folha de vídeo forense (verso)",
     "rmvDetailSubtitle": "Análise forense completa de átomos e metadados de contêineres de vídeo",
-    "rmvTimeLabel": "Hora e data:",
+    "rmvTimeLabel": "Data e Hora de Criação",
     "rmvAiLabel": "Marca d'água AI (C2PA):",
     "rmvEncoderLabel": "Software/Codificador:",
     "rmvNotFound": "Não encontrado",
@@ -1691,7 +1727,13 @@
     "edtResetTitle": "Redefinir campos para tags originais detectadas",
     "rmvFlipBackFull": "Verificação concluída – retornar às opções de limpeza",
     "ethicalNoticeTitle": "Política de Uso Responsável e Proteção de Privacidade",
-    "ethicalNoticeDesc": "O SolveMyMedia foi desenvolvido estritamente para proteção da privacidade pessoal (limpeza de geotags GPS, números de série e caminhos de usuário locais) e catalogação legítima de mídia. NÃO apoiamos falsificação de documentos, engano de identidade, violação de direitos autorais ou adulteração de procedência."
+    "ethicalNoticeDesc": "O SolveMyMedia foi desenvolvido estritamente para proteção da privacidade pessoal (limpeza de geotags GPS, números de série e caminhos de usuário locais) e catalogação legítima de mídia. NÃO apoiamos falsificação de documentos, engano de identidade, violação de direitos autorais ou adulteração de procedência.",
+    "edtFieldDateTime": "Data e Hora de Criação",
+    "edaFieldDateTime": "Data e Hora de Gravação / Lançamento",
+    "dateTimeNowBtn": "Agora",
+    "dateTimeClearBtn": "Redefinir",
+    "dateTimeHelper": "Clique no calendário para escolher data e hora",
+    "rmaTimeLabel": "Data e Hora de Gravação"
   },
   "nl": {
     "toolRemoveVideoMetadata": "Videometagegevens verwijderen",
@@ -1815,7 +1857,7 @@
     "rmvFlipBack": "Ga terug naar Reiniger ➔",
     "rmvDetailTitle": "Forensisch videoblad (achterkant)",
     "rmvDetailSubtitle": "Compleet forensisch onderzoek van videocontaineratomen en metadata",
-    "rmvTimeLabel": "Tijd en datum:",
+    "rmvTimeLabel": "Aanmaakdatum en -tijd",
     "rmvAiLabel": "AI-watermerk (C2PA):",
     "rmvEncoderLabel": "Software / Encoder:",
     "rmvNotFound": "Niet gevonden",
@@ -1933,7 +1975,13 @@
     "edtResetTitle": "Velden opnieuw instellen op origineel gedetecteerde tags",
     "rmvFlipBackFull": "Klaar met controleren — Terug naar Opschoningsopties",
     "ethicalNoticeTitle": "Beleid voor Verantwoord Gebruik en Privacybescherming",
-    "ethicalNoticeDesc": "SolveMyMedia is uitsluitend gebouwd voor privacybescherming (verwijderen van GPS-geotags, hardware-serienummers en lokale gebruikerspaden) en legitiem mediabeheer. Wij keuren documentvervalsing, identiteitsbedrog of auteursrechtinbreuk NIET goed."
+    "ethicalNoticeDesc": "SolveMyMedia is uitsluitend gebouwd voor privacybescherming (verwijderen van GPS-geotags, hardware-serienummers en lokale gebruikerspaden) en legitiem mediabeheer. Wij keuren documentvervalsing, identiteitsbedrog of auteursrechtinbreuk NIET goed.",
+    "edtFieldDateTime": "Aanmaakdatum en -tijd",
+    "edaFieldDateTime": "Opname- en Releasedatum",
+    "dateTimeNowBtn": "Nu",
+    "dateTimeClearBtn": "Reset",
+    "dateTimeHelper": "Klik op de kalender om datum & tijd te kiezen",
+    "rmaTimeLabel": "Opnamedatum en -tijd"
   },
   "pl": {
     "toolRemoveVideoMetadata": "Usuń metadane wideo",
@@ -2057,7 +2105,7 @@
     "rmvFlipBack": "Wróć do Cleanera ➔",
     "rmvDetailTitle": "Arkusz kryminalistyczny wideo (odwrotna strona)",
     "rmvDetailSubtitle": "Kompletna analiza kryminalistyczna atomów i metadanych kontenerów wideo",
-    "rmvTimeLabel": "Czas i data:",
+    "rmvTimeLabel": "Data i Czas Utworzenia",
     "rmvAiLabel": "Znak wodny AI (C2PA):",
     "rmvEncoderLabel": "Oprogramowanie / Enkoder:",
     "rmvNotFound": "Nie znaleziono",
@@ -2175,7 +2223,13 @@
     "edtResetTitle": "Zresetuj pola do oryginalnych wykrytych tagów",
     "rmvFlipBackFull": "Sprawdzanie zakończone — wróć do opcji czyszczenia",
     "ethicalNoticeTitle": "Zasady Odpowiedzialnego Użytkowania i Ochrony Prywatności",
-    "ethicalNoticeDesc": "SolveMyMedia służy wyłącznie do ochrony prywatności (usuwanie geotagów GPS, numerów seryjnych sprzętu i lokalnych ścieżek) oraz legalnego katalogowania mediów. NIE popieramy fałszowania dokumentów, podszywania się pod tożsamość ani naruszania praw autorskich."
+    "ethicalNoticeDesc": "SolveMyMedia służy wyłącznie do ochrony prywatności (usuwanie geotagów GPS, numerów seryjnych sprzętu i lokalnych ścieżek) oraz legalnego katalogowania mediów. NIE popieramy fałszowania dokumentów, podszywania się pod tożsamość ani naruszania praw autorskich.",
+    "edtFieldDateTime": "Data i Czas Utworzenia",
+    "edaFieldDateTime": "Data i Czas Nagrania / Wydania",
+    "dateTimeNowBtn": "Teraz",
+    "dateTimeClearBtn": "Resetuj",
+    "dateTimeHelper": "Kliknij kalendarz, aby wybrać datę i godzinę",
+    "rmaTimeLabel": "Data i Czas Nagrania"
   },
   "ru": {
     "toolRemoveVideoMetadata": "Удалить метаданные видео",
@@ -2299,7 +2353,7 @@
     "rmvFlipBack": "Вернуться в Очиститель ➔",
     "rmvDetailTitle": "Видео-криминалистический лист (обратная сторона)",
     "rmvDetailSubtitle": "Полная экспертиза атомов и метаданных видеоконтейнера",
-    "rmvTimeLabel": "Время и дата:",
+    "rmvTimeLabel": "Дата и время создания",
     "rmvAiLabel": "Водяной знак AI (C2PA):",
     "rmvEncoderLabel": "Программное обеспечение/кодировщик:",
     "rmvNotFound": "Не найдено",
@@ -2417,7 +2471,13 @@
     "edtResetTitle": "Сбросить поля до исходных обнаруженных тегов",
     "rmvFlipBackFull": "Проверка завершена — возврат к опциям очистки",
     "ethicalNoticeTitle": "Политика ответственного использования и защиты конфиденциальности",
-    "ethicalNoticeDesc": "SolveMyMedia создан исключительно для защиты личной конфиденциальности (удаления GPS-геотегов, серийных номеров оборудования и локальных путей) и легальной каталогизации медиа. Мы НЕ поддерживаем подделку документов, обман личности, нарушение авторских прав или манипуляцию цифровым происхождением."
+    "ethicalNoticeDesc": "SolveMyMedia создан исключительно для защиты личной конфиденциальности (удаления GPS-геотегов, серийных номеров оборудования и локальных путей) и легальной каталогизации медиа. Мы НЕ поддерживаем подделку документов, обман личности, нарушение авторских прав или манипуляцию цифровым происхождением.",
+    "edtFieldDateTime": "Дата и время создания",
+    "edaFieldDateTime": "Дата и время записи / релиза",
+    "dateTimeNowBtn": "Сейчас",
+    "dateTimeClearBtn": "Сброс",
+    "dateTimeHelper": "Нажмите на календарь для выбора даты и времени",
+    "rmaTimeLabel": "Дата и время записи"
   },
   "ja": {
     "toolRemoveVideoMetadata": "ビデオのメタデータを削除する",
@@ -2541,7 +2601,7 @@
     "rmvFlipBack": "クリーナーに戻る ➔",
     "rmvDetailTitle": "ビデオフォレンジックシート（裏面）",
     "rmvDetailSubtitle": "ビデオコンテナのアトムとメタデータの完全なフォレンジック",
-    "rmvTimeLabel": "日時:",
+    "rmvTimeLabel": "作成日時",
     "rmvAiLabel": "AI ウォーターマーク (C2PA):",
     "rmvEncoderLabel": "ソフトウェア/エンコーダー:",
     "rmvNotFound": "見つかりません",
@@ -2659,7 +2719,13 @@
     "edtResetTitle": "フィールドを元の検出されたタグにリセット",
     "rmvFlipBackFull": "チェック完了 — クリーンオプションに戻る",
     "ethicalNoticeTitle": "責任ある利用とプライバシー保護に関するポリシー",
-    "ethicalNoticeDesc": "SolveMyMediaは、個人のプライバシー保護（GPS位置情報、端末シリアル番号、ローカルユーザーパスの消去）および正規のメディア整理を目的として設計されています。文書の偽造、なりすまし、著作権侵害、またはデジタル出所の改ざんを目的とした利用は一切推奨されません。"
+    "ethicalNoticeDesc": "SolveMyMediaは、個人のプライバシー保護（GPS位置情報、端末シリアル番号、ローカルユーザーパスの消去）および正規のメディア整理を目的として設計されています。文書の偽造、なりすまし、著作権侵害、またはデジタル出所の改ざんを目的とした利用は一切推奨されません。",
+    "edtFieldDateTime": "作成日時（年月日・時間）",
+    "edaFieldDateTime": "録音日時・リリース日",
+    "dateTimeNowBtn": "現在",
+    "dateTimeClearBtn": "リセット",
+    "dateTimeHelper": "カレンダーをクリックして日時を選択または入力",
+    "rmaTimeLabel": "録音日時"
   },
   "ko": {
     "toolRemoveVideoMetadata": "비디오 메타데이터 제거",
@@ -2783,7 +2849,7 @@
     "rmvFlipBack": "클리너로 돌아가기 ➔",
     "rmvDetailTitle": "영상 포렌식 시트(뒷면)",
     "rmvDetailSubtitle": "비디오 컨테이너 원자 및 메타데이터에 대한 완전한 포렌식",
-    "rmvTimeLabel": "시간 및 날짜:",
+    "rmvTimeLabel": "생성 날짜 및 시간",
     "rmvAiLabel": "AI 워터마크(C2PA):",
     "rmvEncoderLabel": "소프트웨어/인코더:",
     "rmvNotFound": "찾을 수 없음",
@@ -2901,7 +2967,13 @@
     "edtResetTitle": "필드를 원래 감지된 태그로 재설정",
     "rmvFlipBackFull": "확인 완료 — 정리 옵션으로 돌아가기",
     "ethicalNoticeTitle": "책임 있는 사용 및 개인정보 보호 정책",
-    "ethicalNoticeDesc": "SolveMyMedia는 개인정보 보호(GPS 위치 태그, 하드웨어 일련번호, 로컬 사용자 경로 제거) 및 합법적인 미디어 관리를 위해 구축되었습니다. 문서 위조, 신원 기만, 저작권 침해 또는 디지털 출처 조작을 지원하지 않습니다."
+    "ethicalNoticeDesc": "SolveMyMedia는 개인정보 보호(GPS 위치 태그, 하드웨어 일련번호, 로컬 사용자 경로 제거) 및 합법적인 미디어 관리를 위해 구축되었습니다. 문서 위조, 신원 기만, 저작권 침해 또는 디지털 출처 조작을 지원하지 않습니다.",
+    "edtFieldDateTime": "생성 날짜 및 시간",
+    "edaFieldDateTime": "녹음 및 발매 일시",
+    "dateTimeNowBtn": "현재",
+    "dateTimeClearBtn": "재설정",
+    "dateTimeHelper": "캘린더를 클릭하여 날짜와 시간을 선택하세요",
+    "rmaTimeLabel": "녹음 일시"
   },
   "zh": {
     "toolRemoveVideoMetadata": "删除视频元数据",
@@ -3025,7 +3097,7 @@
     "rmvFlipBack": "返回清洁工 ➔",
     "rmvDetailTitle": "视频取证表（反面）",
     "rmvDetailSubtitle": "视频容器原子和元数据的完整取证",
-    "rmvTimeLabel": "时间和日期：",
+    "rmvTimeLabel": "创建日期与时间",
     "rmvAiLabel": "人工智能水印（C2PA）：",
     "rmvEncoderLabel": "软件/编码器：",
     "rmvNotFound": "未找到",
@@ -3143,7 +3215,13 @@
     "edtResetTitle": "将字段重置为原始检测到的标签",
     "rmvFlipBackFull": "完成检查 - 返回清洁选项",
     "ethicalNoticeTitle": "负责任使用与隐私保护政策",
-    "ethicalNoticeDesc": "SolveMyMedia 专为个人隐私保护（清理 GPS 地理标签、硬件序列号和本地用户路径）以及正规媒体整理而构建。我们绝不支持伪造文件、虚假身份、规避版权或篡改数字来源。用户对其合法使用承担全部责任。"
+    "ethicalNoticeDesc": "SolveMyMedia 专为个人隐私保护（清理 GPS 地理标签、硬件序列号和本地用户路径）以及正规媒体整理而构建。我们绝不支持伪造文件、虚假身份、规避版权或篡改数字来源。用户对其合法使用承担全部责任。",
+    "edtFieldDateTime": "创建日期与时间",
+    "edaFieldDateTime": "录音与发行日期时间",
+    "dateTimeNowBtn": "现在",
+    "dateTimeClearBtn": "重置",
+    "dateTimeHelper": "点击日历选择日期与时间，或直接输入",
+    "rmaTimeLabel": "录音日期与时间"
   },
   "zh-TW": {
     "toolRemoveVideoMetadata": "刪除視訊元數據",
@@ -3267,7 +3345,7 @@
     "rmvFlipBack": "返回清潔工 ➔",
     "rmvDetailTitle": "視訊取證表（反面）",
     "rmvDetailSubtitle": "視訊容器原子和元資料的完整取證",
-    "rmvTimeLabel": "時間和日期：",
+    "rmvTimeLabel": "建立日期與時間",
     "rmvAiLabel": "人工智慧浮水印（C2PA）：",
     "rmvEncoderLabel": "軟體/編碼器：",
     "rmvNotFound": "未找到",
@@ -3385,7 +3463,13 @@
     "edtResetTitle": "將欄位重設為原始偵測到的標籤",
     "rmvFlipBackFull": "完成檢查 - 返回清潔選項",
     "ethicalNoticeTitle": "負責任使用與隱私保護政策",
-    "ethicalNoticeDesc": "SolveMyMedia 專為個人隱私保護（清理 GPS 地理標籤、硬體序號和本地使用者路徑）以及正規媒體整理而構建。我們絕不支持偽造文件、虛假身份、規避版權或篡改數位來源。使用者對其合法使用承擔全部責任。"
+    "ethicalNoticeDesc": "SolveMyMedia 專為個人隱私保護（清理 GPS 地理標籤、硬體序號和本地使用者路徑）以及正規媒體整理而構建。我們絕不支持偽造文件、虛假身份、規避版權或篡改數位來源。使用者對其合法使用承擔全部責任。",
+    "edtFieldDateTime": "建立日期與時間",
+    "edaFieldDateTime": "錄音與發行日期時間",
+    "dateTimeNowBtn": "現在",
+    "dateTimeClearBtn": "重設",
+    "dateTimeHelper": "點擊日曆選擇日期與時間，或直接輸入",
+    "rmaTimeLabel": "錄音日期與時間"
   },
   "tr": {
     "toolRemoveVideoMetadata": "Video Meta Verilerini Kaldır",
@@ -3509,7 +3593,7 @@
     "rmvFlipBack": "Temizleyiciye Geri Dön ➔",
     "rmvDetailTitle": "Video Adli Bilgi Formu (Arka Taraf)",
     "rmvDetailSubtitle": "Video kapsayıcı atomları ve meta verilerle ilgili eksiksiz adli tıp",
-    "rmvTimeLabel": "Saat ve Tarih:",
+    "rmvTimeLabel": "Oluşturma Tarihi ve Saati",
     "rmvAiLabel": "AI Filigranı (C2PA):",
     "rmvEncoderLabel": "Yazılım / Kodlayıcı:",
     "rmvNotFound": "Bulunamadı",
@@ -3627,7 +3711,13 @@
     "edtResetTitle": "Alanları orijinal algılanan etiketlere sıfırla",
     "rmvFlipBackFull": "Kontrol Bitti — Temizleme Seçeneklerine Dön",
     "ethicalNoticeTitle": "Sorumlu Kullanım ve Gizlilik Koruma Politikası",
-    "ethicalNoticeDesc": "SolveMyMedia, yalnızca kişisel gizliliği korumak (GPS coğrafi etiketlerini, donanım seri numaralarını ve yerel yolları temizlemek) ve yasal medya yönetimi için tasarlanmıştır. Belge sahteciliğini, kimlik aldatmasını veya telif hakkı ihlalini desteklemiyoruz."
+    "ethicalNoticeDesc": "SolveMyMedia, yalnızca kişisel gizliliği korumak (GPS coğrafi etiketlerini, donanım seri numaralarını ve yerel yolları temizlemek) ve yasal medya yönetimi için tasarlanmıştır. Belge sahteciliğini, kimlik aldatmasını veya telif hakkı ihlalini desteklemiyoruz.",
+    "edtFieldDateTime": "Oluşturma Tarihi ve Saati",
+    "edaFieldDateTime": "Kayıt ve Çıkış Tarihi",
+    "dateTimeNowBtn": "Şimdi",
+    "dateTimeClearBtn": "Sıfırla",
+    "dateTimeHelper": "Tarih ve saat seçmek için takvime tıklayın",
+    "rmaTimeLabel": "Kayıt Tarihi ve Saati"
   },
   "vi": {
     "toolRemoveVideoMetadata": "Xóa siêu dữ liệu video",
@@ -3751,7 +3841,7 @@
     "rmvFlipBack": "Quay lại Trình dọn dẹp ➔",
     "rmvDetailTitle": "Bảng điều tra video (Mặt sau)",
     "rmvDetailSubtitle": "Điều tra hoàn chỉnh về các nguyên tử và siêu dữ liệu chứa video",
-    "rmvTimeLabel": "Ngày & Giờ:",
+    "rmvTimeLabel": "Ngày & Giờ Tạo",
     "rmvAiLabel": "Hình mờ AI (C2PA):",
     "rmvEncoderLabel": "Phần mềm/Bộ mã hóa:",
     "rmvNotFound": "Không tìm thấy",
@@ -3869,7 +3959,13 @@
     "edtResetTitle": "Đặt lại các trường về thẻ được phát hiện ban đầu",
     "rmvFlipBackFull": "Kiểm tra xong - Quay lại Tùy chọn sạch",
     "ethicalNoticeTitle": "Chính sách Sử dụng Có trách nhiệm & Bảo vệ Quyền riêng tư",
-    "ethicalNoticeDesc": "SolveMyMedia được xây dựng nhằm bảo vệ quyền riêng tư cá nhân (xóa vị trí GPS, số sê-ri thiết bị và đường dẫn cục bộ) cũng như quản lý phương tiện hợp pháp. Chúng tôi KHÔNG ủng hộ việc làm giả tài liệu, gian lận danh tính hoặc vi phạm bản quyền."
+    "ethicalNoticeDesc": "SolveMyMedia được xây dựng nhằm bảo vệ quyền riêng tư cá nhân (xóa vị trí GPS, số sê-ri thiết bị và đường dẫn cục bộ) cũng như quản lý phương tiện hợp pháp. Chúng tôi KHÔNG ủng hộ việc làm giả tài liệu, gian lận danh tính hoặc vi phạm bản quyền.",
+    "edtFieldDateTime": "Ngày & Giờ Tạo",
+    "edaFieldDateTime": "Ngày & Giờ Ghi âm / Phát hành",
+    "dateTimeNowBtn": "Bây giờ",
+    "dateTimeClearBtn": "Đặt lại",
+    "dateTimeHelper": "Nhấp vào lịch để chọn ngày & giờ",
+    "rmaTimeLabel": "Ngày & Giờ Ghi âm"
   },
   "th": {
     "toolRemoveVideoMetadata": "ลบข้อมูลเมตาของวิดีโอ",
@@ -3993,7 +4089,7 @@
     "rmvFlipBack": "กลับไปทำความสะอาด ➔",
     "rmvDetailTitle": "เอกสารนิติเวชวิดีโอ (ด้านหลัง)",
     "rmvDetailSubtitle": "นิติเวชที่สมบูรณ์ของอะตอมของคอนเทนเนอร์วิดีโอและข้อมูลเมตา",
-    "rmvTimeLabel": "เวลาและวันที่:",
+    "rmvTimeLabel": "วันที่และเวลาที่สร้าง",
     "rmvAiLabel": "ลายน้ำ AI (C2PA):",
     "rmvEncoderLabel": "ซอฟต์แวร์ / ตัวเข้ารหัส:",
     "rmvNotFound": "ไม่พบ",
@@ -4111,7 +4207,13 @@
     "edtResetTitle": "รีเซ็ตฟิลด์เป็นแท็กที่ตรวจพบดั้งเดิม",
     "rmvFlipBackFull": "การตรวจสอบเสร็จสิ้น - กลับสู่ตัวเลือกการทำความสะอาด",
     "ethicalNoticeTitle": "นโยบายการใช้งานอย่างมีความรับผิดชอบและการปกป้องความเป็นส่วนตัว",
-    "ethicalNoticeDesc": "SolveMyMedia สร้างขึ้นเพื่อการปกป้องความเป็นส่วนตัว (ลบพิกัด GPS, หมายเลขซีเรียลฮาร์ดแวร์ และเส้นทางโฟลเดอร์ผู้ใช้) และการจัดระเบียบสื่อที่ถูกต้องตามกฎหมาย เราไม่สนับสนุนการปลอมแปลงเอกสาร การหลอกลวงตัวตน หรือการละเมิดลิขสิทธิ์"
+    "ethicalNoticeDesc": "SolveMyMedia สร้างขึ้นเพื่อการปกป้องความเป็นส่วนตัว (ลบพิกัด GPS, หมายเลขซีเรียลฮาร์ดแวร์ และเส้นทางโฟลเดอร์ผู้ใช้) และการจัดระเบียบสื่อที่ถูกต้องตามกฎหมาย เราไม่สนับสนุนการปลอมแปลงเอกสาร การหลอกลวงตัวตน หรือการละเมิดลิขสิทธิ์",
+    "edtFieldDateTime": "วันที่และเวลาที่สร้าง",
+    "edaFieldDateTime": "วันที่และเวลาบันทึก / เผยแพร่",
+    "dateTimeNowBtn": "ตอนนี้",
+    "dateTimeClearBtn": "รีเซ็ต",
+    "dateTimeHelper": "คลิกปฏิทินเพื่อเลือกวันและเวลา",
+    "rmaTimeLabel": "วันที่และเวลาบันทึก"
   },
   "ar": {
     "toolRemoveVideoMetadata": "إزالة البيانات الوصفية للفيديو",
@@ -4235,7 +4337,7 @@
     "rmvFlipBack": "العودة إلى المنظف ➔",
     "rmvDetailTitle": "ورقة الطب الشرعي بالفيديو (الجانب الخلفي)",
     "rmvDetailSubtitle": "الطب الشرعي الكامل لذرات حاوية الفيديو والبيانات الوصفية",
-    "rmvTimeLabel": "الوقت والتاريخ:",
+    "rmvTimeLabel": "تاريخ ووقت الإنشاء",
     "rmvAiLabel": "العلامة المائية بالذكاء الاصطناعي (C2PA):",
     "rmvEncoderLabel": "البرمجيات / التشفير:",
     "rmvNotFound": "لم يتم العثور عليه",
@@ -4353,7 +4455,13 @@
     "edtResetTitle": "إعادة تعيين الحقول إلى العلامات الأصلية المكتشفة",
     "rmvFlipBackFull": "تم التحقق - العودة إلى الخيارات النظيفة",
     "ethicalNoticeTitle": "سياسة الاستخدام المسؤول وحماية الخصوصية",
-    "ethicalNoticeDesc": "تم تصميم SolveMyMedia خصيصًا لحماية الخصوصية الشخصية (تنظيف علامات GPS الجغرافية والأرقام التسلسلية ومسارات المستخدم المحلية) وإدارة الوسائط القانونية. نحن لا ندعم تزوير المستندات أو خداع الهوية أو انتهاك حقوق الطبع والنشر."
+    "ethicalNoticeDesc": "تم تصميم SolveMyMedia خصيصًا لحماية الخصوصية الشخصية (تنظيف علامات GPS الجغرافية والأرقام التسلسلية ومسارات المستخدم المحلية) وإدارة الوسائط القانونية. نحن لا ندعم تزوير المستندات أو خداع الهوية أو انتهاك حقوق الطبع والنشر.",
+    "edtFieldDateTime": "تاريخ ووقت الإنشاء",
+    "edaFieldDateTime": "تاريخ ووقت التسجيل / الإصدار",
+    "dateTimeNowBtn": "الآن",
+    "dateTimeClearBtn": "إعادة تعيين",
+    "dateTimeHelper": "انقر على التقويم لتحديد التاريخ والوقت",
+    "rmaTimeLabel": "تاريخ ووقت التسجيل"
   },
   "hi": {
     "toolRemoveVideoMetadata": "वीडियो मेटाडेटा हटाएँ",
@@ -4477,7 +4585,7 @@
     "rmvFlipBack": "क्लीनर पर लौटें ➔",
     "rmvDetailTitle": "वीडियो फोरेंसिक शीट (रिवर्स साइड)",
     "rmvDetailSubtitle": "वीडियो कंटेनर परमाणुओं और मेटाडेटा की संपूर्ण फोरेंसिक",
-    "rmvTimeLabel": "समय एवं दिनांक:",
+    "rmvTimeLabel": "निर्माण तिथि और समय",
     "rmvAiLabel": "एआई वॉटरमार्क (C2PA):",
     "rmvEncoderLabel": "सॉफ्टवेयर/एनकोडर:",
     "rmvNotFound": "नहीं मिला",
@@ -4595,7 +4703,13 @@
     "edtResetTitle": "फ़ील्ड को मूल खोजे गए टैग पर रीसेट करें",
     "rmvFlipBackFull": "जाँच पूरी हो गई - स्वच्छ विकल्पों पर लौटें",
     "ethicalNoticeTitle": "जिम्मेदार उपयोग और गोपनीयता संरक्षण नीति",
-    "ethicalNoticeDesc": "SolveMyMedia को केवल व्यक्तिगत गोपनीयता सुरक्षा (GPS जियोटैग, हार्डवेयर सीरियल और स्थानीय उपयोगकर्ता पथ हटाना) और वैध मीडिया प्रबंधन के लिए बनाया गया है। हम दस्तावेज़ जालसाजी, पहचान धोखाधड़ी या कॉपीराइट उल्लंघन का समर्थन नहीं करते हैं।"
+    "ethicalNoticeDesc": "SolveMyMedia को केवल व्यक्तिगत गोपनीयता सुरक्षा (GPS जियोटैग, हार्डवेयर सीरियल और स्थानीय उपयोगकर्ता पथ हटाना) और वैध मीडिया प्रबंधन के लिए बनाया गया है। हम दस्तावेज़ जालसाजी, पहचान धोखाधड़ी या कॉपीराइट उल्लंघन का समर्थन नहीं करते हैं।",
+    "edtFieldDateTime": "निर्माण तिथि और समय",
+    "edaFieldDateTime": "रिकॉर्डिंग / रिलीज़ तिथि और समय",
+    "dateTimeNowBtn": "अभी",
+    "dateTimeClearBtn": "रीसेट",
+    "dateTimeHelper": "तारीख और समय चुनने के लिए कैलेंडर पर क्लिक करें",
+    "rmaTimeLabel": "रिकॉर्डिंग तिथि और समय"
   },
   "sv": {
     "toolRemoveVideoMetadata": "Ta bort videometadata",
@@ -4719,7 +4833,7 @@
     "rmvFlipBack": "Återgå till Cleaner ➔",
     "rmvDetailTitle": "Rättsmedicinsk videoblad (baksidan)",
     "rmvDetailSubtitle": "Komplett kriminalteknik av videobehållares atomer och metadata",
-    "rmvTimeLabel": "Tid och datum:",
+    "rmvTimeLabel": "Skapelsedatum och Tid",
     "rmvAiLabel": "AI vattenstämpel (C2PA):",
     "rmvEncoderLabel": "Programvara/kodare:",
     "rmvNotFound": "Hittade inte",
@@ -4837,7 +4951,13 @@
     "edtResetTitle": "Återställ fälten till ursprungliga upptäckta taggar",
     "rmvFlipBackFull": "Klar kontroll — Återgå till Rengöringsalternativ",
     "ethicalNoticeTitle": "Policy för Ansvarsfull Användning och Integritetsskydd",
-    "ethicalNoticeDesc": "SolveMyMedia är byggt för att skydda den personliga integriteten (rensa GPS-geotaggar, hårdvaruserienummer och lokala sökvägar) samt legitim mediehantering. Vi stöder INTE förfalskning av dokument, identitetsbedrägeri eller upphovsrättsintrång."
+    "ethicalNoticeDesc": "SolveMyMedia är byggt för att skydda den personliga integriteten (rensa GPS-geotaggar, hårdvaruserienummer och lokala sökvägar) samt legitim mediehantering. Vi stöder INTE förfalskning av dokument, identitetsbedrägeri eller upphovsrättsintrång.",
+    "edtFieldDateTime": "Skapelsedatum och Tid",
+    "edaFieldDateTime": "Inspelnings- och Släppdatum",
+    "dateTimeNowBtn": "Nu",
+    "dateTimeClearBtn": "Återställ",
+    "dateTimeHelper": "Klicka på kalendern för att välja datum och tid",
+    "rmaTimeLabel": "Inspelningsdatum och Tid"
   },
   "no": {
     "toolRemoveVideoMetadata": "Fjern videometadata",
@@ -4961,7 +5081,7 @@
     "rmvFlipBack": "Gå tilbake til Cleaner ➔",
     "rmvDetailTitle": "Video rettsmedisinsk ark (bakside)",
     "rmvDetailSubtitle": "Komplett etterforskning av videobeholderatomer og metadata",
-    "rmvTimeLabel": "Tid og dato:",
+    "rmvTimeLabel": "Opprettelsesdato og -tid",
     "rmvAiLabel": "AI vannmerke (C2PA):",
     "rmvEncoderLabel": "Programvare / Encoder:",
     "rmvNotFound": "Ikke funnet",
@@ -5079,7 +5199,13 @@
     "edtResetTitle": "Tilbakestill feltene til originale oppdagede tagger",
     "rmvFlipBackFull": "Ferdig med kontroll — Gå tilbake til rene alternativer",
     "ethicalNoticeTitle": "Retningslinjer for Ansvarlig Bruk og Personvern",
-    "ethicalNoticeDesc": "SolveMyMedia er bygget utelukkende for personvern (fjerning av GPS-geotagger, maskinvareserienumre og lokale brukerstier) og legitim mediehåndtering. Vi støtter IKKE dokumentforfalskning, identitetsbedrag eller brudd på opphavsrett."
+    "ethicalNoticeDesc": "SolveMyMedia er bygget utelukkende for personvern (fjerning av GPS-geotagger, maskinvareserienumre og lokale brukerstier) og legitim mediehåndtering. Vi støtter IKKE dokumentforfalskning, identitetsbedrag eller brudd på opphavsrett.",
+    "edtFieldDateTime": "Opprettelsesdato og -tid",
+    "edaFieldDateTime": "Innspillings- og Utgivelsesdato",
+    "dateTimeNowBtn": "Nå",
+    "dateTimeClearBtn": "Tilbakestill",
+    "dateTimeHelper": "Klikk på kalenderen for å velge dato og tid",
+    "rmaTimeLabel": "Innspillingsdato og -tid"
   },
   "da": {
     "toolRemoveVideoMetadata": "Fjern videometadata",
@@ -5203,7 +5329,7 @@
     "rmvFlipBack": "Vend tilbage til Cleaner ➔",
     "rmvDetailTitle": "Video retsmedicinsk ark (bagside)",
     "rmvDetailSubtitle": "Komplet efterforskning af videobeholderatomer og metadata",
-    "rmvTimeLabel": "Tid og dato:",
+    "rmvTimeLabel": "Oprettelsesdato og -tidspunkt",
     "rmvAiLabel": "AI vandmærke (C2PA):",
     "rmvEncoderLabel": "Software / Encoder:",
     "rmvNotFound": "Ikke fundet",
@@ -5321,7 +5447,13 @@
     "edtResetTitle": "Nulstil felter til originale registrerede tags",
     "rmvFlipBackFull": "Udført kontrol — Vend tilbage til Rengøringsindstillinger",
     "ethicalNoticeTitle": "Politik for Ansvarlig Brug og Beskyttelse af Privatliv",
-    "ethicalNoticeDesc": "SolveMyMedia er udelukkende bygget til beskyttelse af personlige oplysninger (fjernelse af GPS-geotags, hardware-serienumre og lokale brugerstier) og legitim mediestyring. Vi støtter IKKE dokumentforfalskning, identitetssvindel eller kränkelse af ophavsret."
+    "ethicalNoticeDesc": "SolveMyMedia er udelukkende bygget til beskyttelse af personlige oplysninger (fjernelse af GPS-geotags, hardware-serienumre og lokale brugerstier) og legitim mediestyring. Vi støtter IKKE dokumentforfalskning, identitetssvindel eller kränkelse af ophavsret.",
+    "edtFieldDateTime": "Oprettelsesdato og -tidspunkt",
+    "edaFieldDateTime": "Optagelses- og Udgivelsesdato",
+    "dateTimeNowBtn": "Nu",
+    "dateTimeClearBtn": "Nulstil",
+    "dateTimeHelper": "Klik på kalenderen for at vælge dato og klokkeslæt",
+    "rmaTimeLabel": "Optagelsesdato og -tidspunkt"
   },
   "fi": {
     "toolRemoveVideoMetadata": "Poista videon metatiedot",
@@ -5445,7 +5577,7 @@
     "rmvFlipBack": "Palaa Cleaneriin ➔",
     "rmvDetailTitle": "Video oikeuslääketieteen lomake (kääntöpuoli)",
     "rmvDetailSubtitle": "Täydellinen videosäiliöatomien ja metatietojen rikostekninen tutkimus",
-    "rmvTimeLabel": "Aika ja päivämäärä:",
+    "rmvTimeLabel": "Luontipäivämäärä ja -aika",
     "rmvAiLabel": "AI-vesileima (C2PA):",
     "rmvEncoderLabel": "Ohjelmisto / Enkooderi:",
     "rmvNotFound": "Ei löytynyt",
@@ -5563,7 +5695,13 @@
     "edtResetTitle": "Palauta kentät alkuperäisiksi tunnistetuiksi tunnisteiksi",
     "rmvFlipBackFull": "Tarkastus tehty – Palaa puhdistusasetuksiin",
     "ethicalNoticeTitle": "Vastuullisen Käytön ja Yksityisyydensuojan Käytäntö",
-    "ethicalNoticeDesc": "SolveMyMedia on rakennettu yksinomaan yksityisyyden suojaamiseen (GPS-sijaintien, laitteistosarjojen ja paikallisten polkujen poistamiseen) ja lailliseen median hallintaan. Emme tue asiakirjojen väärentämistä, henkilöllisyyden harhaanjohtamista tai tekijänoikeusrikkomuksia."
+    "ethicalNoticeDesc": "SolveMyMedia on rakennettu yksinomaan yksityisyyden suojaamiseen (GPS-sijaintien, laitteistosarjojen ja paikallisten polkujen poistamiseen) ja lailliseen median hallintaan. Emme tue asiakirjojen väärentämistä, henkilöllisyyden harhaanjohtamista tai tekijänoikeusrikkomuksia.",
+    "edtFieldDateTime": "Luontipäivämäärä ja -aika",
+    "edaFieldDateTime": "Tallennus- ja Julkaisupäivä",
+    "dateTimeNowBtn": "Nyt",
+    "dateTimeClearBtn": "Nollaa",
+    "dateTimeHelper": "Valitse päivämäärä ja aika napsauttamalla kalenteria",
+    "rmaTimeLabel": "Tallennuspäivämäärä ja -aika"
   },
   "cs": {
     "toolRemoveVideoMetadata": "Odebrat metadata videa",
@@ -5687,7 +5825,7 @@
     "rmvFlipBack": "Vraťte se do čističe ➔",
     "rmvDetailTitle": "Forenzní list videa (zadní strana)",
     "rmvDetailSubtitle": "Kompletní forenzní analýza atomů a metadat video kontejnerů",
-    "rmvTimeLabel": "Čas a datum:",
+    "rmvTimeLabel": "Datum a Čas Vytvoření",
     "rmvAiLabel": "AI vodoznak (C2PA):",
     "rmvEncoderLabel": "Software / kodér:",
     "rmvNotFound": "Nenalezeno",
@@ -5805,7 +5943,13 @@
     "edtResetTitle": "Resetovat pole na původní detekované značky",
     "rmvFlipBackFull": "Kontrola dokončena — Vraťte se k možnostem čištění",
     "ethicalNoticeTitle": "Zásady Odpovědného Používání a Ochrany Soukromí",
-    "ethicalNoticeDesc": "SolveMyMedia je určen výhradně pro ochranu soukromí (odstranění GPS geotagů, sériových čísel hardwaru a místních uživatelských cest) a legitimní správu médií. Nepodporujeme padělání dokumentů, klamání identity ani porušování autorských práv."
+    "ethicalNoticeDesc": "SolveMyMedia je určen výhradně pro ochranu soukromí (odstranění GPS geotagů, sériových čísel hardwaru a místních uživatelských cest) a legitimní správu médií. Nepodporujeme padělání dokumentů, klamání identity ani porušování autorských práv.",
+    "edtFieldDateTime": "Datum a Čas Vytvoření",
+    "edaFieldDateTime": "Datum a Čas Nahrávání / Vydání",
+    "dateTimeNowBtn": "Nyní",
+    "dateTimeClearBtn": "Resetovat",
+    "dateTimeHelper": "Kliknutím na kalendář vyberte datum a čas",
+    "rmaTimeLabel": "Datum a Čas Nahrávání"
   },
   "hu": {
     "toolRemoveVideoMetadata": "Távolítsa el a videó metaadatait",
@@ -5929,7 +6073,7 @@
     "rmvFlipBack": "Vissza a Tisztítóhoz ➔",
     "rmvDetailTitle": "Videó kriminalisztikai lap (hátoldal)",
     "rmvDetailSubtitle": "Videokonténer atomok és metaadatok teljes kriminalisztika",
-    "rmvTimeLabel": "Idő és dátum:",
+    "rmvTimeLabel": "Létrehozás Dátuma és Ideje",
     "rmvAiLabel": "AI vízjel (C2PA):",
     "rmvEncoderLabel": "Szoftver / kódoló:",
     "rmvNotFound": "Nem található",
@@ -6047,7 +6191,13 @@
     "edtResetTitle": "Állítsa vissza a mezőket az eredeti észlelt címkékre",
     "rmvFlipBackFull": "Ellenőrzés kész — Térjen vissza a Tisztítási beállításokhoz",
     "ethicalNoticeTitle": "Felelősségteljes Használati és Adatvédelmi Irányelvek",
-    "ethicalNoticeDesc": "A SolveMyMedia kizárólag a személyes adatok védelmére (GPS-címkék, hardver-sorozatszámok és helyi felhasználói útvonalak eltávolítására) és a jogszerű médiakezelésre szolgál. NEM támogatjuk az okirat-hamisítást, a személyazonosság megtévesztését vagy a szerzői jogok megsértését."
+    "ethicalNoticeDesc": "A SolveMyMedia kizárólag a személyes adatok védelmére (GPS-címkék, hardver-sorozatszámok és helyi felhasználói útvonalak eltávolítására) és a jogszerű médiakezelésre szolgál. NEM támogatjuk az okirat-hamisítást, a személyazonosság megtévesztését vagy a szerzői jogok megsértését.",
+    "edtFieldDateTime": "Létrehozás Dátuma és Ideje",
+    "edaFieldDateTime": "Felvétel és Kiadás Dátuma",
+    "dateTimeNowBtn": "Most",
+    "dateTimeClearBtn": "Visszaállítás",
+    "dateTimeHelper": "Kattintson a naptárra a dátum és idő kiválasztásához",
+    "rmaTimeLabel": "Felvétel Dátuma és Ideje"
   },
   "el": {
     "toolRemoveVideoMetadata": "Κατάργηση μεταδεδομένων βίντεο",
@@ -6171,7 +6321,7 @@
     "rmvFlipBack": "Επιστροφή στο Cleaner ➔",
     "rmvDetailTitle": "Φύλλο εγκληματολογικής εξέτασης βίντεο (πίσω πλευρά)",
     "rmvDetailSubtitle": "Πλήρης εγκληματολογία ατόμων και μεταδεδομένων κοντέινερ βίντεο",
-    "rmvTimeLabel": "Ώρα & Ημερομηνία:",
+    "rmvTimeLabel": "Ημερομηνία και Ώρα Δημιουργίας",
     "rmvAiLabel": "Υδατογράφημα AI (C2PA):",
     "rmvEncoderLabel": "Λογισμικό / Κωδικοποιητής:",
     "rmvNotFound": "Δεν βρέθηκε",
@@ -6289,7 +6439,13 @@
     "edtResetTitle": "Επαναφέρετε τα πεδία στις αρχικές ετικέτες που εντοπίστηκαν",
     "rmvFlipBackFull": "Ολοκλήρωση ελέγχου — Επιστροφή στις Επιλογές καθαρισμού",
     "ethicalNoticeTitle": "Πολιτική Υπεύθυνης Χρήσης και Προστασίας Απορρήτου",
-    "ethicalNoticeDesc": "Το SolveMyMedia έχει σχεδιαστεί αποκλειστικά για την προστασία του απορρήτου (καθαρισμός ετικετών GPS, σειριακών αριθμών υλικού και τοπικών διαδρομών) και τη νόμιμη οργάνωση πολυμέσων. ΔΕΝ υποστηρίζουμε την παραχάραξη εγγράφων ή την παραβίαση πνευματικών δικαιωμάτων."
+    "ethicalNoticeDesc": "Το SolveMyMedia έχει σχεδιαστεί αποκλειστικά για την προστασία του απορρήτου (καθαρισμός ετικετών GPS, σειριακών αριθμών υλικού και τοπικών διαδρομών) και τη νόμιμη οργάνωση πολυμέσων. ΔΕΝ υποστηρίζουμε την παραχάραξη εγγράφων ή την παραβίαση πνευματικών δικαιωμάτων.",
+    "edtFieldDateTime": "Ημερομηνία και Ώρα Δημιουργίας",
+    "edaFieldDateTime": "Ημερομηνία Εγγραφής / Κυκλοφορίας",
+    "dateTimeNowBtn": "Τώρα",
+    "dateTimeClearBtn": "Επαναφορά",
+    "dateTimeHelper": "Κάντε κλικ στο ημερολόγιο για επιλογή ημερομηνίας & ώρας",
+    "rmaTimeLabel": "Ημερομηνία και Ώρα Εγγραφής"
   },
   "ro": {
     "toolRemoveVideoMetadata": "Eliminați metadatele video",
@@ -6413,7 +6569,7 @@
     "rmvFlipBack": "Reveniți la Cleaner ➔",
     "rmvDetailTitle": "Fișă video criminalistică (verso)",
     "rmvDetailSubtitle": "Criminalistica completă a atomilor și metadatelor containerelor video",
-    "rmvTimeLabel": "Ora și data:",
+    "rmvTimeLabel": "Data și Ora Creării",
     "rmvAiLabel": "Filigran AI (C2PA):",
     "rmvEncoderLabel": "Software / Encoder:",
     "rmvNotFound": "Nu a fost găsit",
@@ -6531,7 +6687,13 @@
     "edtResetTitle": "Resetați câmpurile la etichetele inițiale detectate",
     "rmvFlipBackFull": "Verificare gata — Reveniți la Opțiuni de curățare",
     "ethicalNoticeTitle": "Politica de Utilizare Responsabilă și Protecție a Confidențialității",
-    "ethicalNoticeDesc": "SolveMyMedia este conceput exclusiv pentru protecția confidențialității (eliminarea etichetelor GPS, a numerelor de serie hardware și a căilor locale) și gestionarea legitimă a conținutului media. NU sprijinim falsificarea documentelor, înșelarea identității sau încălcarea drepturilor de autor."
+    "ethicalNoticeDesc": "SolveMyMedia este conceput exclusiv pentru protecția confidențialității (eliminarea etichetelor GPS, a numerelor de serie hardware și a căilor locale) și gestionarea legitimă a conținutului media. NU sprijinim falsificarea documentelor, înșelarea identității sau încălcarea drepturilor de autor.",
+    "edtFieldDateTime": "Data și Ora Creării",
+    "edaFieldDateTime": "Data și Ora Înregistrării / Lansării",
+    "dateTimeNowBtn": "Acum",
+    "dateTimeClearBtn": "Resetează",
+    "dateTimeHelper": "Faceți clic pe calendar pentru a alege data și ora",
+    "rmaTimeLabel": "Data și Ora Înregistrării"
   },
   "uk": {
     "toolRemoveVideoMetadata": "Видалити метадані відео",
@@ -6655,7 +6817,7 @@
     "rmvFlipBack": "Повернутися до Cleaner ➔",
     "rmvDetailTitle": "Відеокриміналістичний лист (зворотний бік)",
     "rmvDetailSubtitle": "Повна криміналістика атомів відеоконтейнера та метаданих",
-    "rmvTimeLabel": "час і дата:",
+    "rmvTimeLabel": "Дата та час створення",
     "rmvAiLabel": "Водяний знак AI (C2PA):",
     "rmvEncoderLabel": "Програмне забезпечення / кодувальник:",
     "rmvNotFound": "Не знайдено",
@@ -6773,7 +6935,13 @@
     "edtResetTitle": "Скинути поля до оригінальних виявлених тегів",
     "rmvFlipBackFull": "Перевірку завершено — повернутися до параметрів очищення",
     "ethicalNoticeTitle": "Політика відповідального використання та захисту конфіденційності",
-    "ethicalNoticeDesc": "SolveMyMedia створено виключно для захисту особистої конфідενційності (видалення GPS-геотегів, серійних номерів та локальних шляхів) і легальної каталогізації медіа. Ми НЕ підтримуємо підробку документів, обман особистості або порушення авторських прав."
+    "ethicalNoticeDesc": "SolveMyMedia створено виключно для захисту особистої конфідενційності (видалення GPS-геотегів, серійних номерів та локальних шляхів) і легальної каталогізації медіа. Ми НЕ підтримуємо підробку документів, обман особистості або порушення авторських прав.",
+    "edtFieldDateTime": "Дата та час створення",
+    "edaFieldDateTime": "Дата та час запису / випуску",
+    "dateTimeNowBtn": "Зараз",
+    "dateTimeClearBtn": "Скинути",
+    "dateTimeHelper": "Натисніть на календар для вибору дати та часу",
+    "rmaTimeLabel": "Дата та час запису"
   },
   "ms": {
     "toolRemoveVideoMetadata": "Alih keluar Metadata Video",
@@ -6897,7 +7065,7 @@
     "rmvFlipBack": "Kembali ke Pembersih ➔",
     "rmvDetailTitle": "Helaian Forensik Video (Sebelah Belakang)",
     "rmvDetailSubtitle": "Forensik lengkap atom kontena video dan metadata",
-    "rmvTimeLabel": "Masa & Tarikh:",
+    "rmvTimeLabel": "Tarikh & Masa Penciptaan",
     "rmvAiLabel": "Tera Air AI (C2PA):",
     "rmvEncoderLabel": "Perisian / Pengekod:",
     "rmvNotFound": "Tidak dijumpai",
@@ -7015,7 +7183,13 @@
     "edtResetTitle": "Tetapkan semula medan kepada tag asal yang dikesan",
     "rmvFlipBackFull": "Selesai Menyemak — Kembali ke Pilihan Bersih",
     "ethicalNoticeTitle": "Dasar Penggunaan Bertanggungjawab & Perlindungan Privasi",
-    "ethicalNoticeDesc": "SolveMyMedia direka khas untuk perlindungan privasi peribadi (memadamkan geotag GPS, nombor siri peranti, dan laluan pengguna tempatan) serta pengurusan katalog media yang sah. Kami TIDAK menyokong pemalsuan dokumen, penipuan identiti, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggungjawab sepenuhnya untuk penggunaan yang sah dan beretika."
+    "ethicalNoticeDesc": "SolveMyMedia direka khas untuk perlindungan privasi peribadi (memadamkan geotag GPS, nombor siri peranti, dan laluan pengguna tempatan) serta pengurusan katalog media yang sah. Kami TIDAK menyokong pemalsuan dokumen, penipuan identiti, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggungjawab sepenuhnya untuk penggunaan yang sah dan beretika.",
+    "edtFieldDateTime": "Tarikh & Masa Penciptaan",
+    "edaFieldDateTime": "Tarikh & Masa Rakaman / Keluaran",
+    "dateTimeNowBtn": "Sekarang",
+    "dateTimeClearBtn": "Set Semula",
+    "dateTimeHelper": "Klik kalendar untuk memilih tarikh & masa, atau taip terus",
+    "rmaTimeLabel": "Tarikh & Masa Rakaman"
   },
   "tl": {
     "toolRemoveVideoMetadata": "Alisin ang Metadata ng Video",
@@ -7139,7 +7313,7 @@
     "rmvFlipBack": "Bumalik sa Cleaner ➔",
     "rmvDetailTitle": "Video Forensic Sheet (Reverse Side)",
     "rmvDetailSubtitle": "Kumpletuhin ang forensics ng mga atom at metadata ng container ng video",
-    "rmvTimeLabel": "Oras at Petsa:",
+    "rmvTimeLabel": "Petsa at Oras ng Paglikha",
     "rmvAiLabel": "AI Watermark (C2PA):",
     "rmvEncoderLabel": "Software / Encoder:",
     "rmvNotFound": "Hindi nahanap",
@@ -7257,7 +7431,13 @@
     "edtResetTitle": "I-reset ang mga field sa orihinal na nakitang mga tag",
     "rmvFlipBackFull": "Tapos na sa Pagsusuri — Bumalik sa Clean Options",
     "ethicalNoticeTitle": "Patakaran sa Responsableng Paggamit at Proteksyon sa Privacy",
-    "ethicalNoticeDesc": "Ang SolveMyMedia ay binuo para sa proteksyon ng privacy (pag-aalis ng mga GPS geotag, serial number ng hardware, at mga lokal na path ng user) at lehitimong pamamahala ng media. HINDI namin sinusuportahan ang pamemeke ng dokumento, panlilinlang sa pagkakakilanlan, o paglabag sa copyright."
+    "ethicalNoticeDesc": "Ang SolveMyMedia ay binuo para sa proteksyon ng privacy (pag-aalis ng mga GPS geotag, serial number ng hardware, at mga lokal na path ng user) at lehitimong pamamahala ng media. HINDI namin sinusuportahan ang pamemeke ng dokumento, panlilinlang sa pagkakakilanlan, o paglabag sa copyright.",
+    "edtFieldDateTime": "Petsa at Oras ng Paglikha",
+    "edaFieldDateTime": "Petsa at Oras ng Pag-record / Release",
+    "dateTimeNowBtn": "Ngayon",
+    "dateTimeClearBtn": "I-reset",
+    "dateTimeHelper": "I-click ang kalendaryo para pumili ng petsa at oras",
+    "rmaTimeLabel": "Petsa at Oras ng Pag-record"
   },
   "he": {
     "toolRemoveVideoMetadata": "הסר מטא נתונים של וידאו",
@@ -7381,7 +7561,7 @@
     "rmvFlipBack": "חזור למנקה ➔",
     "rmvDetailTitle": "גיליון פורנזי של וידאו (צד הפוך)",
     "rmvDetailSubtitle": "זיהוי פלילי מלא של אטומים ומטא נתונים של מיכל וידאו",
-    "rmvTimeLabel": "זמן ותאריך:",
+    "rmvTimeLabel": "תאריך ושעת יצירה",
     "rmvAiLabel": "סימן מים בינה מלאכותית (C2PA):",
     "rmvEncoderLabel": "תוכנה / מקודד:",
     "rmvNotFound": "לא נמצא",
@@ -7499,7 +7679,13 @@
     "edtResetTitle": "אפס שדות לתגים מקוריים שזוהו",
     "rmvFlipBackFull": "סיום הבדיקה - חזור לאפשרויות נקיות",
     "ethicalNoticeTitle": "מדיניות שימוש אחראי והגנת פרטיות",
-    "ethicalNoticeDesc": "SolveMyMedia מיועד אך ורק להגנה על הפרטיות (הסרת מיקומי GPS, מספרים סידוריים ונתיבים מקומיים) וניהול חוקי של קובצי מדיה. איננו תומכים בזיוף מסמכים, הטעיית זהות או הפרת זכויות יוצרים."
+    "ethicalNoticeDesc": "SolveMyMedia מיועד אך ורק להגנה על הפרטיות (הסרת מיקומי GPS, מספרים סידוריים ונתיבים מקומיים) וניהול חוקי של קובצי מדיה. איננו תומכים בזיוף מסמכים, הטעיית זהות או הפרת זכויות יוצרים.",
+    "edtFieldDateTime": "תאריך ושעת יצירה",
+    "edaFieldDateTime": "תאריך ושעת הקלטה / שחרור",
+    "dateTimeNowBtn": "עכשיו",
+    "dateTimeClearBtn": "איפוס",
+    "dateTimeHelper": "לחץ על לוח השנה לבחירת תאריך ושעה",
+    "rmaTimeLabel": "תאריך ושעת הקלטה"
   },
   "sk": {
     "toolRemoveVideoMetadata": "Odstrániť metadáta videa",
@@ -7623,7 +7809,7 @@
     "rmvFlipBack": "Vráťte sa do čističa ➔",
     "rmvDetailTitle": "Forenzný hárok videa (zadná strana)",
     "rmvDetailSubtitle": "Kompletná forenzná analýza atómov a metadát video kontajnerov",
-    "rmvTimeLabel": "Čas a dátum:",
+    "rmvTimeLabel": "Dátum a Čas Vytvorenia",
     "rmvAiLabel": "AI vodoznak (C2PA):",
     "rmvEncoderLabel": "Softvér / kódovač:",
     "rmvNotFound": "Nenájdené",
@@ -7741,6 +7927,12 @@
     "edtResetTitle": "Resetovať polia na pôvodné zistené značky",
     "rmvFlipBackFull": "Kontrola dokončená — Vráťte sa do možností čistenia",
     "ethicalNoticeTitle": "Zásady Zodpovedného Používania a Ochrany Súkromia",
-    "ethicalNoticeDesc": "SolveMyMedia je určený výhradne na ochranu súkromia (odstránenie GPS geotagov, sériových čísel hardvéru a lokálnych ciest) a legitímnu správu médií. Nepodporujeme falšovanie dokumentov, klamanie identity ani porušovanie autorských práv."
+    "ethicalNoticeDesc": "SolveMyMedia je určený výhradne na ochranu súkromia (odstránenie GPS geotagov, sériových čísel hardvéru a lokálnych ciest) a legitímnu správu médií. Nepodporujeme falšovanie dokumentov, klamanie identity ani porušovanie autorských práv.",
+    "edtFieldDateTime": "Dátum a Čas Vytvorenia",
+    "edaFieldDateTime": "Dátum a Čas Nahrávania / Vydania",
+    "dateTimeNowBtn": "Teraz",
+    "dateTimeClearBtn": "Obnoviť",
+    "dateTimeHelper": "Kliknutím na kalendár vyberte dátum a čas",
+    "rmaTimeLabel": "Dátum a Čas Nahrávania"
   }
 }

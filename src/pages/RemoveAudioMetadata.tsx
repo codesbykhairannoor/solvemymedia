@@ -169,7 +169,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 </span>
                 {(detectedMeta?.creationTime || detectedMeta?.year) && (
                   <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>
-                    🕒 {detectedMeta.year || detectedMeta.creationTime}
+                    🕒 {detectedMeta.creationTime || detectedMeta.year}
                   </span>
                 )}
                 {(detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) && (
@@ -291,7 +291,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
           )}
 
           {/* Quick Audio Technical Specs */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6, background: 'var(--bg-app)', padding: 8, borderRadius: 8, border: '1px solid var(--border-color)', fontSize: '0.72rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 6, background: 'var(--bg-app)', padding: 8, borderRadius: 8, border: '1px solid var(--border-color)', fontSize: '0.72rem' }}>
             <div>
               <span style={{ color: 'var(--text-muted)' }}>{t('rmaDuration') || 'Duration'}: </span>
               <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.durationFormatted || '00:00'}</strong>
@@ -303,6 +303,10 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             <div>
               <span style={{ color: 'var(--text-muted)' }}>{t('rmaSize') || 'Size'}: </span>
               <strong style={{ color: 'var(--text-main)' }}>{file ? formatFileSize(file.size) : '0 B'}</strong>
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)' }}>🕒 {t('rmaTimeLabel') || 'Time & Date'}: </span>
+              <strong style={{ color: 'var(--text-main)' }}>{detectedMeta?.creationTime || detectedMeta?.year || (t('rmvNotFound') || 'Not found')}</strong>
             </div>
           </div>
 
