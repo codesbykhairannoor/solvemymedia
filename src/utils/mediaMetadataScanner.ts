@@ -920,7 +920,124 @@ const parseEbmlChunk = (u8: Uint8Array, result: DetectedVideoMetadata) => {
 };
 
 /**
- * Primary Fast Scanner for Video Files: Reads file directly from RAM in <10ms
+ * Universal MediaInfoLib WebAssembly (WASM) Scanner
+ * Powered by Jerome Martinez's MediaInfoLib (mediainfo.js) - world-standard C++ engine
+ * Streams container chunks directly in browser RAM without uploading or freezing UI
+ */
+export const scanWithMediaInfoWasm = async (file: File): Promise<{
+  generalTrack?: any;
+  videoTrack?: any;
+  audioTrack?: any;
+  rawTags: Record<string, string>;
+} | null> => {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const { default: mediaInfoFactory } = await import('mediainfo.js');
+    const mi = await mediaInfoFactory({
+      format: 'object',
+      locateFile: () => '/MediaInfoModule.wasm'
+    });
+
+    try {
+      const result = await mi.analyzeData(file.size, async (size: number, offset: number) => {
+        const slice = file.slice(offset, offset + size);
+        const buf = await slice.arrayBuffer();
+        return new Uint8Array(buf);
+      });
+
+      if (!result?.media?.track) return null;
+
+      const tracks = Array.isArray(result.media.track) ? result.media.track : [result.media.track];
+      const generalTrack = tracks.find((t: any) => t['@type'] === 'General');
+      const videoTrack = tracks.find((t: any) => t['@type'] === 'Video');
+      const audioTrack = tracks.find((t: any) => t['@type'] === 'Audio');
+
+      const rawTags: Record<string, string> = {};
+
+      for (const t of tracks) {
+        const type = t['@type'] || 'Track';
+        for (const [k, v] of Object.entries(t)) {
+          if (k.startsWith('@') || typeof v === 'object' || v === undefined || v === null) continue;
+          rawTags[`${type}_${k}`] = String(v);
+        }
+        if (t.extra && typeof t.extra === 'object') {
+          for (const [k, v] of Object.entries(t.extra as Record<string, unknown>)) {
+            if (typeof v === 'object' || v === undefined || v === null) continue;
+            rawTags[`${type}_extra_${k}`] = String(v);
+          }
+        }
+      }
+
+      return { generalTrack, videoTrack, audioTrack, rawTags };
+    } finally {
+      mi.close();
+    }
+  } catch (err) {
+    console.warn('MediaInfoLib WASM probe notice:', err);
+    return null;
+  }
+};
+
+/**
+ * Normalizes MediaInfo date strings (UTC YYYY-MM-DD HH:MM:SS, ISO 8601, etc.) into clean standard format
+ */
+export const parseMediaInfoDate = (raw?: string): { creationTime?: string; year?: string } => {
+  if (!raw) return {};
+  const cleaned = raw.replace(/^UTC\s+/i, '').replace(/\s+UTC$/i, '').trim();
+  const m = cleaned.match(/\b(19\d{2}|20\d{2})[-/.](\d{2})[-/.](\d{2})(?:[ T]+(\d{2}):(\d{2}):(\d{2}))?/);
+  if (m) {
+    const y = m[1];
+    const mo = m[2];
+    const d = m[3];
+    const h = m[4] || '12';
+    const mi = m[5] || '00';
+    const s = m[6] || '00';
+    return {
+      creationTime: `${y}-${mo}-${d} ${h}:${mi}:${s}`,
+      year: y
+    };
+  }
+  const yOnly = cleaned.match(/\b(19\d{2}|20\d{2})\b/);
+  if (yOnly) {
+    return {
+      creationTime: `${yOnly[1]}-01-01 12:00:00`,
+      year: yOnly[1]
+    };
+  }
+  return {};
+};
+
+/**
+ * Extracts normalized GPS string from MediaInfo track fields or ISO 6709 coordinates
+ */
+export const extractLocationFromTrack = (general: any): string | undefined => {
+  if (!general) return undefined;
+  const candidates = [
+    general.Recorded_Location,
+    general.xyz,
+    general.location,
+    general.extra?.xyz,
+    general.extra?.Recorded_Location,
+    general.extra?.['com.apple.quicktime.location.ISO6709'],
+    general.extra?.['location']
+  ];
+  for (const c of candidates) {
+    if (typeof c === 'string' && c.trim()) {
+      const parsed = extractGpsCoordinates(c);
+      if (parsed) return parsed;
+      const isoMatch = c.match(/([+-]\d{1,2}(?:\.\d+)?)\s*([+-]\d{1,3}(?:\.\d+)?)/);
+      if (isoMatch) {
+        return `${isoMatch[1]}°, ${isoMatch[2]}°`;
+      }
+      return c.trim();
+    }
+  }
+  return undefined;
+};
+
+/**
+ * Primary Fast Scanner for Video Files: Reads file directly from RAM using MediaInfoLib WASM
  */
 export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadata> => {
   const { title: cleanTitle, year: filenameYear, dateTime: filenameDateTime } = cleanFilenameToTitle(file.name);
@@ -937,15 +1054,79 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
   };
 
   try {
-    const nativeInfo = await scanVideoElement(file);
-    if (nativeInfo.width > 0 && nativeInfo.height > 0) {
-      result.resolution = `${nativeInfo.width}x${nativeInfo.height}`;
-    }
-    if (nativeInfo.duration > 0) {
-      result.durationSeconds = nativeInfo.duration;
-      result.durationFormatted = formatDurationSeconds(nativeInfo.duration);
+    // 1. Industrial-grade MediaInfoLib WASM analysis
+    const wasmResult = await scanWithMediaInfoWasm(file);
+    if (wasmResult) {
+      result.rawTags = { ...result.rawTags, ...wasmResult.rawTags };
+      const gen = wasmResult.generalTrack;
+      const vid = wasmResult.videoTrack;
+
+      if (gen) {
+        if (gen.Title || gen.Track_Name || gen.Movie_Name) {
+          result.title = gen.Title || gen.Track_Name || gen.Movie_Name;
+        }
+        if (gen.Performer || gen.Artist || gen.Album_Performer) {
+          result.artist = gen.Performer || gen.Artist || gen.Album_Performer;
+        }
+        if (gen.Album) {
+          result.album = gen.Album;
+        }
+        if (gen.Genre) {
+          result.genre = gen.Genre;
+        }
+        if (gen.Comment || gen.Description) {
+          result.comment = gen.Comment || gen.Description;
+        }
+        if (gen.Copyright) {
+          result.copyright = gen.Copyright;
+        }
+        if (gen.Encoded_Application || gen.Writing_Application || gen.Encoded_Library) {
+          result.encoder = gen.Encoded_Application || gen.Writing_Application || gen.Encoded_Library;
+        }
+
+        const dateParsed = parseMediaInfoDate(gen.Encoded_Date || gen.Tagged_Date || gen.Recorded_Date);
+        if (dateParsed.creationTime) {
+          result.creationTime = dateParsed.creationTime;
+          result.year = dateParsed.year;
+        }
+
+        const loc = extractLocationFromTrack(gen);
+        if (loc) {
+          result.location = loc;
+          result.hasGps = true;
+        }
+
+        const make = gen.extra?.make || gen.extra?.['com.apple.quicktime.make'];
+        const model = gen.extra?.model || gen.extra?.['com.apple.quicktime.model'];
+        if (make) result.deviceMake = String(make);
+        if (model) result.deviceModel = String(model);
+      }
+
+      if (vid) {
+        if (vid.Width && vid.Height) {
+          result.resolution = `${vid.Width}x${vid.Height}`;
+        }
+        const durSec = Number(vid.Duration || gen?.Duration);
+        if (durSec > 0) {
+          result.durationSeconds = durSec;
+          result.durationFormatted = formatDurationSeconds(durSec);
+        }
+      }
     }
 
+    // 2. Native HTML5 Video Element probe if resolution or duration still missing
+    if (!result.resolution || !result.durationSeconds) {
+      const nativeInfo = await scanVideoElement(file);
+      if (nativeInfo.width > 0 && nativeInfo.height > 0 && !result.resolution) {
+        result.resolution = `${nativeInfo.width}x${nativeInfo.height}`;
+      }
+      if (nativeInfo.duration > 0 && !result.durationSeconds) {
+        result.durationSeconds = nativeInfo.duration;
+        result.durationFormatted = formatDurationSeconds(nativeInfo.duration);
+      }
+    }
+
+    // 3. Fast local atom slice inspection for C2PA provenance & AI SynthID
     const firstChunkSize = Math.min(1024 * 1024, file.size);
     const firstBlob = file.slice(0, firstChunkSize);
     const firstBuf = await firstBlob.arrayBuffer();
@@ -964,7 +1145,7 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
       parseMp4Chunk(lastU8, result);
     }
 
-    // Direct GPS extraction across the entire first & last slices
+    // Direct GPS extraction across the entire first & last slices if not yet located
     if (!result.location) {
       const firstText = new TextDecoder('latin1').decode(firstU8);
       const gps1 = extractGpsCoordinates(firstText);
@@ -978,6 +1159,7 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
     console.warn('scanFileMetadata notice:', err);
   }
 
+  // 4. Date & Time fallbacks from filename (e.g. WhatsApp video, screen recordings)
   if (!result.creationTime && filenameDateTime) {
     result.creationTime = filenameDateTime;
   }
@@ -1020,7 +1202,7 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
 
 /**
  * Dedicated Fast Scanner for Audio Files (MP3, WAV, FLAC, AAC, M4A, OGG, OPUS)
- * Extracts ID3v2, RIFF WAV INFO, Vorbis comments, and deep AI Provenance
+ * Extracts ID3v2, RIFF WAV INFO, Vorbis comments, and deep AI Provenance using MediaInfoLib WASM
  */
 export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetadata> => {
   const { title: cleanTitle, year: filenameYear, dateTime: filenameDateTime } = cleanFilenameToTitle(file.name);
@@ -1035,20 +1217,77 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
   };
 
   try {
-    // 1. Native duration probe
-    const nativeAudio = await scanAudioElement(file);
-    if (nativeAudio.duration > 0) {
-      result.durationSeconds = nativeAudio.duration;
-      result.durationFormatted = formatDurationSeconds(nativeAudio.duration);
+    // 1. Industrial-grade MediaInfoLib WASM analysis
+    const wasmResult = await scanWithMediaInfoWasm(file);
+    if (wasmResult) {
+      result.rawTags = { ...result.rawTags, ...wasmResult.rawTags };
+      const gen = wasmResult.generalTrack;
+      const aud = wasmResult.audioTrack;
+
+      if (gen || aud) {
+        const title = gen?.Title || gen?.Track_Name || aud?.Title;
+        if (title) result.title = title;
+
+        const artist = gen?.Performer || gen?.Artist || gen?.Album_Performer || aud?.Performer;
+        if (artist) result.artist = artist;
+
+        if (gen?.Album) result.album = gen.Album;
+        if (gen?.Genre) result.genre = gen.Genre;
+        if (gen?.Comment || gen?.Description) result.comment = gen.Comment || gen.Description;
+        if (gen?.Composer) result.composer = gen.Composer;
+        if (gen?.Copyright) result.copyright = gen.Copyright;
+        if (gen?.Encoded_Library || gen?.Encoded_Application) {
+          result.encoder = gen.Encoded_Library || gen.Encoded_Application;
+        }
+
+        if (gen?.Track_Position) {
+          result.trackNumber = gen.Track_Position_Total ? `${gen.Track_Position}/${gen.Track_Position_Total}` : String(gen.Track_Position);
+        }
+
+        const dateParsed = parseMediaInfoDate(gen?.Encoded_Date || gen?.Tagged_Date || gen?.Recorded_Date);
+        if (dateParsed.creationTime) {
+          result.creationTime = dateParsed.creationTime;
+          result.year = dateParsed.year;
+        }
+
+        if (aud) {
+          if (aud.Channels) {
+            result.channels = `${aud.Channels} Channels (${aud.ChannelLayout || 'Stereo'})`;
+          }
+          if (aud.SamplingRate) {
+            result.sampleRate = `${aud.SamplingRate} Hz`;
+          }
+          if (aud.BitRate) {
+            result.bitrate = `${Math.round(Number(aud.BitRate) / 1000)} kbps`;
+          }
+          const durSec = Number(aud.Duration || gen?.Duration);
+          if (durSec > 0) {
+            result.durationSeconds = durSec;
+            result.durationFormatted = formatDurationSeconds(durSec);
+          }
+        }
+
+        if (result.title || result.artist || result.album) {
+          result.hasId3 = true;
+        }
+      }
     }
 
-    // 2. Read first 512KB for headers
+    // 2. Native HTML5 Audio probe if duration missing
+    if (!result.durationSeconds) {
+      const nativeAudio = await scanAudioElement(file);
+      if (nativeAudio.duration > 0) {
+        result.durationSeconds = nativeAudio.duration;
+        result.durationFormatted = formatDurationSeconds(nativeAudio.duration);
+      }
+    }
+
+    // 3. Binary slice analysis for deep AI provenance & fallbacks
     const readSize = Math.min(512 * 1024, file.size);
     const blob = file.slice(0, readSize);
     const buf = await blob.arrayBuffer();
     const u8 = new Uint8Array(buf);
 
-    // AI Check across binary sample
     let textSample = '';
     const sampleLimit = Math.min(u8.length, 65536);
     for (let i = 0; i < sampleLimit; i++) {
@@ -1056,7 +1295,6 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
     }
     detectAiSignatures(textSample, result);
 
-    // Extract C2PA digital signing timestamp (RFC 3161 TSP token)
     const c2paTimeMatch = textSample.match(/\b(20\d{2})([01]\d)([0-3]\d)([0-2]\d)([0-5]\d)([0-5]\d)Z\b/);
     if (c2paTimeMatch && !result.creationTime) {
       result.creationTime = `${c2paTimeMatch[1]}-${c2paTimeMatch[2]}-${c2paTimeMatch[3]} ${c2paTimeMatch[4]}:${c2paTimeMatch[5]}:${c2paTimeMatch[6]}`;
@@ -1064,21 +1302,21 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
       result.rawTags['c2pa_signature_time'] = result.creationTime;
     }
 
-    // Check GPS in audio (e.g. BWF/iXML or field recorders)
     const audioGps = extractGpsCoordinates(textSample);
     if (audioGps) {
       result.rawTags['gps_coordinates'] = audioGps;
     }
 
-    // Format specific parsers
     const ext = (file.name.split('.').pop() || '').toLowerCase();
-    if (ext === 'mp3' || (u8[0] === 0x49 && u8[1] === 0x44 && u8[2] === 0x33)) {
-      parseId3v2Tags(u8, result);
-    } else if (ext === 'wav' || (u8[0] === 0x52 && u8[1] === 0x49 && u8[2] === 0x46 && u8[3] === 0x46)) {
-      parseRiffWav(u8, result);
+    if (!result.title || !result.artist) {
+      if (ext === 'mp3' || (u8[0] === 0x49 && u8[1] === 0x44 && u8[2] === 0x33)) {
+        parseId3v2Tags(u8, result);
+      } else if (ext === 'wav' || (u8[0] === 0x52 && u8[1] === 0x49 && u8[2] === 0x46 && u8[3] === 0x46)) {
+        parseRiffWav(u8, result);
+      }
     }
 
-    // Check last 128 bytes for ID3v1 if no title/artist found yet
+    // Check last 128 bytes for ID3v1 if still missing title/artist
     if ((!result.title || !result.artist) && file.size > 128) {
       const v1Blob = file.slice(file.size - 128, file.size);
       const v1Buf = await v1Blob.arrayBuffer();
@@ -1107,7 +1345,7 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
     console.warn('scanAudioMetadata notice:', err);
   }
 
-  // Date & Time defaults
+  // 4. Date & Time fallbacks (e.g. WhatsApp audio)
   if (!result.creationTime && filenameDateTime) {
     result.creationTime = filenameDateTime;
   }
@@ -1127,7 +1365,7 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
     result.creationTime = `${result.year}-01-01 12:00:00`;
   }
 
-  // Smart suggestions
+  // 5. Smart title suggestion
   if (!result.title && cleanTitle) {
     result.title = cleanTitle;
     result.cleanTitleSuggestion = cleanTitle;
