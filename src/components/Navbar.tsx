@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Sun, Moon, ChevronDown, ChevronUp, ChevronRight, Search, Menu, X,
@@ -273,7 +274,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       position: 'fixed', top: 0, left: 0, right: 0, height: 'var(--navbar-height, 60px)',
       background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)',
       backdropFilter: 'blur(20px)', boxShadow: '0 4px 28px rgba(0,0,0,0.12)',
-      zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
+      zIndex: 10001, display: 'flex', alignItems: 'center', justifyContent: 'center'
     }}>
       <div className="navbar-container" style={{ maxWidth: 1200, width: '100%', padding: '0 clamp(12px, 3vw, 24px)', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         
@@ -503,69 +504,51 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       </div>
       </div>
       
-      {/* Mobile Nav Drawer (shadcn / Apple HIG Standard 1-Column Stack) */}
-      {isMobileMenuOpen && (
-        <div className="mobile-nav-drawer">
-          {/* Quick Search Tool Input */}
-          <div className="mobile-nav-search-bar">
-            <Search size={16} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
-            <input
-              type="text"
-              placeholder={currentLang === 'id' ? 'Cari dari 18 alat media...' : (currentLang === 'ms' ? 'Cari semua 18 alat media...' : 'Search all 18 tools...')}
-              value={mobileSearch}
-              onChange={(e) => setMobileSearch(e.target.value)}
-            />
-            {mobileSearch && (
-              <button
-                type="button"
-                onClick={() => setMobileSearch('')}
-                style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: 4 }}
-              >
-                <X size={14} />
-              </button>
-            )}
-          </div>
-
-          {/* Search Result or Category Lists */}
-          {mobileSearch.trim() ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <div className="mobile-nav-section-label">
-                {currentLang === 'id' ? 'HASIL PENCARIAN' : (currentLang === 'ms' ? 'KEPUTUSAN CARIAN' : 'SEARCH RESULTS')}
-              </div>
-              <div className="mobile-nav-list">
-                {TOOL_CATEGORIES.flatMap(c => c.tools)
-                  .filter(tool => {
-                    const name = getToolName(tool.id).toLowerCase();
-                    const query = mobileSearch.toLowerCase().trim();
-                    return name.includes(query) || tool.id.includes(query);
-                  })
-                  .map(tool => (
-                    <button
-                      key={tool.id}
-                      onClick={() => handleToolClick(tool.id)}
-                      className="mobile-nav-item"
-                    >
-                      <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
-                        <tool.Icon size={18} />
-                      </div>
-                      <div className="mobile-nav-text-wrap">
-                        <span className="mobile-nav-title">{getToolName(tool.id)}</span>
-                      </div>
-                      {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
-                      <ChevronRight size={16} className="mobile-nav-arrow" />
-                    </button>
-                  ))}
-              </div>
+      {/* Mobile Nav Drawer (shadcn / Apple HIG Standard 1-Column Stack rendered in Portal) */}
+      {isMobileMenuOpen && typeof document !== 'undefined' && createPortal(
+        <>
+          <div
+            className="mobile-nav-backdrop"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div
+            className="mobile-nav-drawer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Quick Search Tool Input */}
+            <div className="mobile-nav-search-bar">
+              <Search size={16} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
+              <input
+                type="text"
+                placeholder={currentLang === 'id' ? 'Cari dari 18 alat media...' : (currentLang === 'ms' ? 'Cari semua 18 alat media...' : 'Search all 18 tools...')}
+                value={mobileSearch}
+                onChange={(e) => setMobileSearch(e.target.value)}
+              />
+              {mobileSearch && (
+                <button
+                  type="button"
+                  onClick={() => setMobileSearch('')}
+                  style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: 4 }}
+                >
+                  <X size={14} />
+                </button>
+              )}
             </div>
-          ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {TOOL_CATEGORIES.map(group => (
-                <div key={group.name}>
-                  <div className="mobile-nav-section-label">
-                    {group.name}
-                  </div>
-                  <div className="mobile-nav-list">
-                    {group.tools.map(tool => (
+
+            {/* Search Result or Category Lists */}
+            {mobileSearch.trim() ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <div className="mobile-nav-section-label">
+                  {currentLang === 'id' ? 'HASIL PENCARIAN' : (currentLang === 'ms' ? 'KEPUTUSAN CARIAN' : 'SEARCH RESULTS')}
+                </div>
+                <div className="mobile-nav-list">
+                  {TOOL_CATEGORIES.flatMap(c => c.tools)
+                    .filter(tool => {
+                      const name = getToolName(tool.id).toLowerCase();
+                      const query = mobileSearch.toLowerCase().trim();
+                      return name.includes(query) || tool.id.includes(query);
+                    })
+                    .map(tool => (
                       <button
                         key={tool.id}
                         onClick={() => handleToolClick(tool.id)}
@@ -581,49 +564,77 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                         <ChevronRight size={16} className="mobile-nav-arrow" />
                       </button>
                     ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Bottom Theme Card */}
-          <div className="mobile-nav-theme-card">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              {isLightMode ? <Sun size={18} color="#d97706" /> : <Moon size={18} color="#a855f7" />}
-              <div>
-                <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                  {isLightMode ? 'Light Mode' : 'Dark Mode'}
-                </div>
-                <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
-                  {currentLang === 'id' ? 'Ubah tema tampilan' : 'Switch appearance'}
                 </div>
               </div>
-            </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {TOOL_CATEGORIES.map(group => (
+                  <div key={group.name}>
+                    <div className="mobile-nav-section-label">
+                      {group.name}
+                    </div>
+                    <div className="mobile-nav-list">
+                      {group.tools.map(tool => (
+                        <button
+                          key={tool.id}
+                          onClick={() => handleToolClick(tool.id)}
+                          className="mobile-nav-item"
+                        >
+                          <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
+                            <tool.Icon size={18} />
+                          </div>
+                          <div className="mobile-nav-text-wrap">
+                            <span className="mobile-nav-title">{getToolName(tool.id)}</span>
+                          </div>
+                          {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
+                          <ChevronRight size={16} className="mobile-nav-arrow" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
-            <button
-              type="button"
-              onClick={toggleTheme}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6,
-                padding: '8px 16px',
-                borderRadius: 9999,
-                border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`,
-                background: isLightMode ? '#fef3c7' : '#1e1b4b',
-                color: isLightMode ? '#d97706' : '#a855f7',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              {isLightMode ? <Moon size={14} /> : <Sun size={14} />}
-              <span>{isLightMode ? 'Dark' : 'Light'}</span>
-            </button>
+            {/* Bottom Theme Card */}
+            <div className="mobile-nav-theme-card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                {isLightMode ? <Sun size={18} color="#d97706" /> : <Moon size={18} color="#a855f7" />}
+                <div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                    {isLightMode ? 'Light Mode' : 'Dark Mode'}
+                  </div>
+                  <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                    {currentLang === 'id' ? 'Ubah tema tampilan' : 'Switch appearance'}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={toggleTheme}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  padding: '8px 16px',
+                  borderRadius: 9999,
+                  border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`,
+                  background: isLightMode ? '#fef3c7' : '#1e1b4b',
+                  color: isLightMode ? '#d97706' : '#a855f7',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                {isLightMode ? <Moon size={14} /> : <Sun size={14} />}
+                <span>{isLightMode ? 'Dark' : 'Light'}</span>
+              </button>
+            </div>
           </div>
-        </div>
+        </>,
+        document.body
       )}
 
       <style>{`
