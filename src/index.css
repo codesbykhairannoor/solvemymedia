@@ -82,6 +82,20 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Khusus Desktop & Laptop (≥1025px): Tetap kompak dengan zoom 0.8 */
+@media (min-width: 1025px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
+/* Khusus Mobile & Tablet (≤1024px): Skala normal 100% (zoom: 1) agar tidak mengecil */
+@media (max-width: 1024px) {
+  html {
+    zoom: 1 !important;
+  }
+}
+
 body {
   font-family: var(--font-main);
   background-color: var(--bg-app);
