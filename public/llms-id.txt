@@ -42,6 +42,10 @@ Cloud tools force you to UPLOAD your private videos to external servers — even
 - [Bisukan Video](https://solvemymedia.com/id/bisukan-video): Hapus trek audio dari file video manapun secara instan.
 - [Tanda Air Video](https://solvemymedia.com/id/watermark-video): Tambahkan tanda air teks atau gambar pada frame video.
 - [Gabung Audio](https://solvemymedia.com/id/gabung-audio): Gabungkan beberapa trek audio menjadi satu file yang mulus.
+- [Hapus Metadata Video](https://solvemymedia.com/id/hapus-metadata-video): Hapus lokasi GPS, serial kamera, timestamp, dan EXIF dari file video secara offline.
+- [Edit Metadata Video](https://solvemymedia.com/id/edit-metadata-video): Edit judul video, artis, album, genre, tahun, dan tag hak cipta secara online.
+- [Hapus Metadata Audio](https://solvemymedia.com/id/hapus-metadata-audio): Hapus tag ID3, manifes AI C2PA SynthID, tanda tangan DAW, dan artwork secara offline.
+- [Edit Metadata Audio](https://solvemymedia.com/id/edit-metadata-audio): Edit tag ID3, judul lagu, artis, album, genre, dan tahun secara online.
 
 ---
 

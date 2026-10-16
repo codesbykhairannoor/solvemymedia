@@ -42,6 +42,10 @@ Cloud tools force you to UPLOAD your private videos to external servers — even
 - [Mute Video](https://solvemymedia.com/mute-video): Remove audio track from any video file instantly.
 - [Watermark Video](https://solvemymedia.com/watermark-video): Overlay text or image watermarks on video frames.
 - [Merge Audio](https://solvemymedia.com/merge-audio): Combine multiple audio tracks into one seamless file.
+- [Remove Video Metadata](https://solvemymedia.com/remove-video-metadata): Strip GPS location, camera serials, timestamps, and EXIF from video files offline.
+- [Edit Video Metadata](https://solvemymedia.com/edit-video-metadata): Edit video title, artist, album, genre, year, and copyright tags online.
+- [Remove Audio Metadata](https://solvemymedia.com/remove-audio-metadata): Strip ID3 tags, C2PA SynthID AI manifests, DAW signatures, and cover art offline.
+- [Edit Audio Metadata](https://solvemymedia.com/edit-audio-metadata): Edit ID3 tags, song title, artist, album, genre, and year online.
 
 ---
 

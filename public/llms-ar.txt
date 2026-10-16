@@ -54,6 +54,8 @@ SolveMyMedia eliminates the need for servers entirely. All 13 tools run directly
 - [Merge Audio](https://solvemymedia.com/ar/aaml-swty): Combine multiple audio files into one seamless track.
 - [Remove Video Metadata](https://solvemymedia.com/ar/hazf-bayanat-wasf-alvideo): Strip hidden GPS location, camera serials, timestamps, and EXIF from video files.
 - [Edit Video Metadata](https://solvemymedia.com/ar/tahrir-bayanat-wasf-alvideo): Edit title, artist, album, genre, release year, and copyright tags on video containers online.
+- [Remove Audio Metadata](https://solvemymedia.com/ar/hazf-bayanat-wasf-alsawt): Strip ID3 tags, C2PA AI manifests, SynthID watermarks, DAW signatures, and album artwork from audio files offline.
+- [Edit Audio Metadata](https://solvemymedia.com/ar/tahrir-bayanat-wasf-alsawt): Edit ID3 tags, song title, artist, album, year, genre, and cover details online without re-encoding.
 
 ---
 
@@ -127,4 +129,4 @@ You can independently verify SolveMyMedia's privacy claim:
 
 - [llms-full.txt](https://solvemymedia.com/llms-full.txt) — Complete specifications and AI agent instructions
 - [robots.txt](https://solvemymedia.com/robots.txt) — Crawler and AI bot directives
-- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 1088 URLs across 30 languages
+- [sitemap.xml](https://solvemymedia.com/sitemap.xml) — All 1152 URLs across 30 languages

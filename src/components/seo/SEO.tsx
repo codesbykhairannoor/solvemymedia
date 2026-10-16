@@ -133,6 +133,42 @@ const TOOL_SCHEMA: Record<string, { appName: string; category: string; steps: Ar
       { name: 'Merge & Download', text: 'Files are concatenated locally using WebAssembly. Download the merged audio.' },
     ],
   },
+  'remove-video-metadata': {
+    appName: 'Video Metadata Scrubber',
+    category: 'SecurityApplication',
+    steps: [
+      { name: 'Upload Video', text: 'Select your MP4, MOV, or MKV video file. It remains in browser memory.' },
+      { name: 'Scan & Inspect', text: 'Detect GPS coordinates, camera hardware serials, and timestamps.' },
+      { name: 'Scrub & Download', text: 'Losslessly strip container metadata atoms without re-encoding.' },
+    ],
+  },
+  'edit-video-metadata': {
+    appName: 'Video Metadata & Tag Editor',
+    category: 'MultimediaApplication',
+    steps: [
+      { name: 'Upload Video', text: 'Select video file to inspect and customize tags.' },
+      { name: 'Update Metadata', text: 'Edit title, artist, album, genre, year, and copyright information.' },
+      { name: 'Save & Export', text: 'Losslessly remux video container with updated metadata atoms.' },
+    ],
+  },
+  'remove-audio-metadata': {
+    appName: 'Audio Metadata Scrubber',
+    category: 'SecurityApplication',
+    steps: [
+      { name: 'Upload Audio', text: 'Select your MP3, WAV, FLAC, or OGG file. 100% private in-browser.' },
+      { name: 'Forensic Audit', text: 'Detect ID3 tags, DAW project paths, and C2PA SynthID manifests.' },
+      { name: 'Strip & Download', text: 'Purge hidden tracking tags losslessly with zero acoustic quality loss.' },
+    ],
+  },
+  'edit-audio-metadata': {
+    appName: 'Audio ID3 Tag Studio',
+    category: 'MultimediaApplication',
+    steps: [
+      { name: 'Upload Audio', text: 'Select any audio track to edit tags.' },
+      { name: 'Customize ID3 Tags', text: 'Edit song title, artist, album, genre, year, and cover details.' },
+      { name: 'Save & Export', text: 'Inject standard ID3v2 tags directly into your audio file.' },
+    ],
+  },
 };
 
 const FALLBACK_LEGAL_SEOS: Record<string, { title: string; desc: string }> = {

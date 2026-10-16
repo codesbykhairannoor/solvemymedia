@@ -236,7 +236,8 @@
     "edtSpecsFields4": "Title, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Untouched",
     "edtResetBtn": "Reset",
-    "edtResetTitle": "Reset fields to original detected tags"
+    "edtResetTitle": "Reset fields to original detected tags",
+    "rmvFlipBackFull": "Done Checking — Return to Clean Options"
   },
   "id": {
     "toolRemoveVideoMetadata": "Hapus Metadata Video",
@@ -475,7 +476,8 @@
     "edtSpecsFields4": "Judul, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Tak Tersentuh",
     "edtResetBtn": "Mengatur ulang",
-    "edtResetTitle": "Setel ulang bidang ke tag asli yang terdeteksi"
+    "edtResetTitle": "Setel ulang bidang ke tag asli yang terdeteksi",
+    "rmvFlipBackFull": "Selesai Cek — Balik ke Opsi Bersihkan"
   },
   "es": {
     "toolRemoveVideoMetadata": "Eliminar metadatos de vídeo",
@@ -714,7 +716,8 @@
     "edtSpecsFields4": "Título, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 intacto",
     "edtResetBtn": "Reiniciar",
-    "edtResetTitle": "Restablecer campos a etiquetas originales detectadas"
+    "edtResetTitle": "Restablecer campos a etiquetas originales detectadas",
+    "rmvFlipBackFull": "Comprobación terminada: volver a las opciones de limpieza"
   },
   "fr": {
     "toolRemoveVideoMetadata": "Supprimer les métadonnées vidéo",
@@ -953,7 +956,8 @@
     "edtSpecsFields4": "Titre, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 intacts",
     "edtResetBtn": "Réinitialiser",
-    "edtResetTitle": "Réinitialiser les champs aux balises détectées d'origine"
+    "edtResetTitle": "Réinitialiser les champs aux balises détectées d'origine",
+    "rmvFlipBackFull": "Vérification terminée – Revenir aux options de nettoyage"
   },
   "de": {
     "toolRemoveVideoMetadata": "Video-Metadaten entfernen",
@@ -1192,7 +1196,8 @@
     "edtSpecsFields4": "Titel, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Unberührt",
     "edtResetBtn": "Zurücksetzen",
-    "edtResetTitle": "Setzen Sie die Felder auf die ursprünglich erkannten Tags zurück"
+    "edtResetTitle": "Setzen Sie die Felder auf die ursprünglich erkannten Tags zurück",
+    "rmvFlipBackFull": "Überprüfung abgeschlossen – Zurück zu den Reinigungsoptionen"
   },
   "it": {
     "toolRemoveVideoMetadata": "Rimuovi metadati video",
@@ -1431,7 +1436,8 @@
     "edtSpecsFields4": "Titolo, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Intatto",
     "edtResetBtn": "Reset",
-    "edtResetTitle": "Reimposta i campi sui tag originali rilevati"
+    "edtResetTitle": "Reimposta i campi sui tag originali rilevati",
+    "rmvFlipBackFull": "Controllo terminato: torna alle opzioni di pulizia"
   },
   "pt": {
     "toolRemoveVideoMetadata": "Remover metadados de vídeo",
@@ -1670,7 +1676,8 @@
     "edtSpecsFields4": "Título, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9/AV1 intocado",
     "edtResetBtn": "Reiniciar",
-    "edtResetTitle": "Redefinir campos para tags originais detectadas"
+    "edtResetTitle": "Redefinir campos para tags originais detectadas",
+    "rmvFlipBackFull": "Verificação concluída – retornar às opções de limpeza"
   },
   "nl": {
     "toolRemoveVideoMetadata": "Videometagegevens verwijderen",
@@ -1909,7 +1916,8 @@
     "edtSpecsFields4": "Titel, MuxingApp, SchrijvenApp",
     "edtSpecsFid4": "VP9/AV1 Onaangeroerd",
     "edtResetBtn": "Opnieuw instellen",
-    "edtResetTitle": "Velden opnieuw instellen op origineel gedetecteerde tags"
+    "edtResetTitle": "Velden opnieuw instellen op origineel gedetecteerde tags",
+    "rmvFlipBackFull": "Klaar met controleren — Terug naar Opschoningsopties"
   },
   "pl": {
     "toolRemoveVideoMetadata": "Usuń metadane wideo",
@@ -2148,7 +2156,8 @@
     "edtSpecsFields4": "Tytuł, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9/AV1 Nietknięte",
     "edtResetBtn": "Nastawić",
-    "edtResetTitle": "Zresetuj pola do oryginalnych wykrytych tagów"
+    "edtResetTitle": "Zresetuj pola do oryginalnych wykrytych tagów",
+    "rmvFlipBackFull": "Sprawdzanie zakończone — wróć do opcji czyszczenia"
   },
   "ru": {
     "toolRemoveVideoMetadata": "Удалить метаданные видео",
@@ -2387,7 +2396,8 @@
     "edtSpecsFields4": "Название, MuxingApp, WriteApp",
     "edtSpecsFid4": "VP9/AV1 нетронутый",
     "edtResetBtn": "Перезагрузить",
-    "edtResetTitle": "Сбросить поля до исходных обнаруженных тегов"
+    "edtResetTitle": "Сбросить поля до исходных обнаруженных тегов",
+    "rmvFlipBackFull": "Проверка завершена — возврат к опциям очистки"
   },
   "ja": {
     "toolRemoveVideoMetadata": "ビデオのメタデータを削除する",
@@ -2626,7 +2636,8 @@
     "edtSpecsFields4": "タイトル、MuxingApp、WritingApp",
     "edtSpecsFid4": "VP9 / AV1 そのまま",
     "edtResetBtn": "リセット",
-    "edtResetTitle": "フィールドを元の検出されたタグにリセット"
+    "edtResetTitle": "フィールドを元の検出されたタグにリセット",
+    "rmvFlipBackFull": "チェック完了 — クリーンオプションに戻る"
   },
   "ko": {
     "toolRemoveVideoMetadata": "비디오 메타데이터 제거",
@@ -2865,7 +2876,8 @@
     "edtSpecsFields4": "제목, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 손대지 않음",
     "edtResetBtn": "다시 놓기",
-    "edtResetTitle": "필드를 원래 감지된 태그로 재설정"
+    "edtResetTitle": "필드를 원래 감지된 태그로 재설정",
+    "rmvFlipBackFull": "확인 완료 — 정리 옵션으로 돌아가기"
   },
   "zh": {
     "toolRemoveVideoMetadata": "删除视频元数据",
@@ -3104,7 +3116,8 @@
     "edtSpecsFields4": "标题、MuxingApp、WritingApp",
     "edtSpecsFid4": "VP9 / AV1 未受影响",
     "edtResetBtn": "重置",
-    "edtResetTitle": "将字段重置为原始检测到的标签"
+    "edtResetTitle": "将字段重置为原始检测到的标签",
+    "rmvFlipBackFull": "完成检查 - 返回清洁选项"
   },
   "zh-TW": {
     "toolRemoveVideoMetadata": "刪除視訊元數據",
@@ -3343,7 +3356,8 @@
     "edtSpecsFields4": "標題、MuxingApp、WritingApp",
     "edtSpecsFid4": "VP9 / AV1 未受影響",
     "edtResetBtn": "重置",
-    "edtResetTitle": "將欄位重設為原始偵測到的標籤"
+    "edtResetTitle": "將欄位重設為原始偵測到的標籤",
+    "rmvFlipBackFull": "完成檢查 - 返回清潔選項"
   },
   "tr": {
     "toolRemoveVideoMetadata": "Video Meta Verilerini Kaldır",
@@ -3582,7 +3596,8 @@
     "edtSpecsFields4": "Başlık, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 El değmemiş",
     "edtResetBtn": "Sıfırla",
-    "edtResetTitle": "Alanları orijinal algılanan etiketlere sıfırla"
+    "edtResetTitle": "Alanları orijinal algılanan etiketlere sıfırla",
+    "rmvFlipBackFull": "Kontrol Bitti — Temizleme Seçeneklerine Dön"
   },
   "vi": {
     "toolRemoveVideoMetadata": "Xóa siêu dữ liệu video",
@@ -3821,7 +3836,8 @@
     "edtSpecsFields4": "Tiêu đề, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Chưa được chạm tới",
     "edtResetBtn": "Cài lại",
-    "edtResetTitle": "Đặt lại các trường về thẻ được phát hiện ban đầu"
+    "edtResetTitle": "Đặt lại các trường về thẻ được phát hiện ban đầu",
+    "rmvFlipBackFull": "Kiểm tra xong - Quay lại Tùy chọn sạch"
   },
   "th": {
     "toolRemoveVideoMetadata": "ลบข้อมูลเมตาของวิดีโอ",
@@ -4060,7 +4076,8 @@
     "edtSpecsFields4": "ชื่อ, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 ไม่ถูกแตะต้อง",
     "edtResetBtn": "รีเซ็ต",
-    "edtResetTitle": "รีเซ็ตฟิลด์เป็นแท็กที่ตรวจพบดั้งเดิม"
+    "edtResetTitle": "รีเซ็ตฟิลด์เป็นแท็กที่ตรวจพบดั้งเดิม",
+    "rmvFlipBackFull": "การตรวจสอบเสร็จสิ้น - กลับสู่ตัวเลือกการทำความสะอาด"
   },
   "ar": {
     "toolRemoveVideoMetadata": "إزالة البيانات الوصفية للفيديو",
@@ -4299,7 +4316,8 @@
     "edtSpecsFields4": "العنوان، MuxingApp، WritingApp",
     "edtSpecsFid4": "VP9 / AV1 لم يمسها",
     "edtResetBtn": "إعادة ضبط",
-    "edtResetTitle": "إعادة تعيين الحقول إلى العلامات الأصلية المكتشفة"
+    "edtResetTitle": "إعادة تعيين الحقول إلى العلامات الأصلية المكتشفة",
+    "rmvFlipBackFull": "تم التحقق - العودة إلى الخيارات النظيفة"
   },
   "hi": {
     "toolRemoveVideoMetadata": "वीडियो मेटाडेटा हटाएँ",
@@ -4538,7 +4556,8 @@
     "edtSpecsFields4": "शीर्षक, मक्सिंगऐप, राइटिंगऐप",
     "edtSpecsFid4": "VP9/AV1 अछूता",
     "edtResetBtn": "रीसेट करें",
-    "edtResetTitle": "फ़ील्ड को मूल खोजे गए टैग पर रीसेट करें"
+    "edtResetTitle": "फ़ील्ड को मूल खोजे गए टैग पर रीसेट करें",
+    "rmvFlipBackFull": "जाँच पूरी हो गई - स्वच्छ विकल्पों पर लौटें"
   },
   "sv": {
     "toolRemoveVideoMetadata": "Ta bort videometadata",
@@ -4777,7 +4796,8 @@
     "edtSpecsFields4": "Titel, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 orörd",
     "edtResetBtn": "Återställa",
-    "edtResetTitle": "Återställ fälten till ursprungliga upptäckta taggar"
+    "edtResetTitle": "Återställ fälten till ursprungliga upptäckta taggar",
+    "rmvFlipBackFull": "Klar kontroll — Återgå till Rengöringsalternativ"
   },
   "no": {
     "toolRemoveVideoMetadata": "Fjern videometadata",
@@ -5016,7 +5036,8 @@
     "edtSpecsFields4": "Tittel, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Urørt",
     "edtResetBtn": "Tilbakestill",
-    "edtResetTitle": "Tilbakestill feltene til originale oppdagede tagger"
+    "edtResetTitle": "Tilbakestill feltene til originale oppdagede tagger",
+    "rmvFlipBackFull": "Ferdig med kontroll — Gå tilbake til rene alternativer"
   },
   "da": {
     "toolRemoveVideoMetadata": "Fjern videometadata",
@@ -5255,7 +5276,8 @@
     "edtSpecsFields4": "Titel, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Urørt",
     "edtResetBtn": "Nulstil",
-    "edtResetTitle": "Nulstil felter til originale registrerede tags"
+    "edtResetTitle": "Nulstil felter til originale registrerede tags",
+    "rmvFlipBackFull": "Udført kontrol — Vend tilbage til Rengøringsindstillinger"
   },
   "fi": {
     "toolRemoveVideoMetadata": "Poista videon metatiedot",
@@ -5494,7 +5516,8 @@
     "edtSpecsFields4": "Otsikko, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 koskematon",
     "edtResetBtn": "Nollaa",
-    "edtResetTitle": "Palauta kentät alkuperäisiksi tunnistetuiksi tunnisteiksi"
+    "edtResetTitle": "Palauta kentät alkuperäisiksi tunnistetuiksi tunnisteiksi",
+    "rmvFlipBackFull": "Tarkastus tehty – Palaa puhdistusasetuksiin"
   },
   "cs": {
     "toolRemoveVideoMetadata": "Odebrat metadata videa",
@@ -5733,7 +5756,8 @@
     "edtSpecsFields4": "Název, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Nedotčeno",
     "edtResetBtn": "Resetovat",
-    "edtResetTitle": "Resetovat pole na původní detekované značky"
+    "edtResetTitle": "Resetovat pole na původní detekované značky",
+    "rmvFlipBackFull": "Kontrola dokončena — Vraťte se k možnostem čištění"
   },
   "hu": {
     "toolRemoveVideoMetadata": "Távolítsa el a videó metaadatait",
@@ -5972,7 +5996,8 @@
     "edtSpecsFields4": "Cím, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Érintetlen",
     "edtResetBtn": "Reset",
-    "edtResetTitle": "Állítsa vissza a mezőket az eredeti észlelt címkékre"
+    "edtResetTitle": "Állítsa vissza a mezőket az eredeti észlelt címkékre",
+    "rmvFlipBackFull": "Ellenőrzés kész — Térjen vissza a Tisztítási beállításokhoz"
   },
   "el": {
     "toolRemoveVideoMetadata": "Κατάργηση μεταδεδομένων βίντεο",
@@ -6211,7 +6236,8 @@
     "edtSpecsFields4": "Title, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Άθικτο",
     "edtResetBtn": "Επαναφορά",
-    "edtResetTitle": "Επαναφέρετε τα πεδία στις αρχικές ετικέτες που εντοπίστηκαν"
+    "edtResetTitle": "Επαναφέρετε τα πεδία στις αρχικές ετικέτες που εντοπίστηκαν",
+    "rmvFlipBackFull": "Ολοκλήρωση ελέγχου — Επιστροφή στις Επιλογές καθαρισμού"
   },
   "ro": {
     "toolRemoveVideoMetadata": "Eliminați metadatele video",
@@ -6450,7 +6476,8 @@
     "edtSpecsFields4": "Titlu, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 neatins",
     "edtResetBtn": "Resetați",
-    "edtResetTitle": "Resetați câmpurile la etichetele inițiale detectate"
+    "edtResetTitle": "Resetați câmpurile la etichetele inițiale detectate",
+    "rmvFlipBackFull": "Verificare gata — Reveniți la Opțiuni de curățare"
   },
   "uk": {
     "toolRemoveVideoMetadata": "Видалити метадані відео",
@@ -6689,7 +6716,8 @@
     "edtSpecsFields4": "Назва, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Недоторканий",
     "edtResetBtn": "Скинути",
-    "edtResetTitle": "Скинути поля до оригінальних виявлених тегів"
+    "edtResetTitle": "Скинути поля до оригінальних виявлених тегів",
+    "rmvFlipBackFull": "Перевірку завершено — повернутися до параметрів очищення"
   },
   "ms": {
     "toolRemoveVideoMetadata": "Alih keluar Metadata Video",
@@ -6928,7 +6956,8 @@
     "edtSpecsFields4": "Tajuk, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Tidak Tersentuh",
     "edtResetBtn": "Tetapkan semula",
-    "edtResetTitle": "Tetapkan semula medan kepada tag asal yang dikesan"
+    "edtResetTitle": "Tetapkan semula medan kepada tag asal yang dikesan",
+    "rmvFlipBackFull": "Selesai Menyemak — Kembali ke Pilihan Bersih"
   },
   "tl": {
     "toolRemoveVideoMetadata": "Alisin ang Metadata ng Video",
@@ -7167,7 +7196,8 @@
     "edtSpecsFields4": "Pamagat, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Hindi Nagalaw",
     "edtResetBtn": "I-reset",
-    "edtResetTitle": "I-reset ang mga field sa orihinal na nakitang mga tag"
+    "edtResetTitle": "I-reset ang mga field sa orihinal na nakitang mga tag",
+    "rmvFlipBackFull": "Tapos na sa Pagsusuri — Bumalik sa Clean Options"
   },
   "he": {
     "toolRemoveVideoMetadata": "הסר מטא נתונים של וידאו",
@@ -7406,7 +7436,8 @@
     "edtSpecsFields4": "כותרת, MuxingApp, WritingApp",
     "edtSpecsFid4": "VP9 / AV1 Untouched",
     "edtResetBtn": "אִתחוּל",
-    "edtResetTitle": "אפס שדות לתגים מקוריים שזוהו"
+    "edtResetTitle": "אפס שדות לתגים מקוריים שזוהו",
+    "rmvFlipBackFull": "סיום הבדיקה - חזור לאפשרויות נקיות"
   },
   "sk": {
     "toolRemoveVideoMetadata": "Odstrániť metadáta videa",
@@ -7645,6 +7676,7 @@
     "edtSpecsFields4": "Názov, MuxingApp, WriteApp",
     "edtSpecsFid4": "VP9 / AV1 Nedotknuté",
     "edtResetBtn": "Resetovať",
-    "edtResetTitle": "Resetovať polia na pôvodné zistené značky"
+    "edtResetTitle": "Resetovať polia na pôvodné zistené značky",
+    "rmvFlipBackFull": "Kontrola dokončená — Vráťte sa do možností čistenia"
   }
 }

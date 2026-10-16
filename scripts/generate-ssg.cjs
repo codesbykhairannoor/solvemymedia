@@ -5,7 +5,9 @@ const CORE_TOOLS = [
   '/', '/compress-video', '/cut-video', '/compress-audio', '/convert-video', 
   '/convert-audio', '/video-to-audio', '/transcribe', '/recorder', 
   '/create-gif', '/video-speed', '/crop-video', '/mute-video', 
-  '/watermark-video', '/merge-audio', '/remove-video-metadata', '/edit-video-metadata'
+  '/watermark-video', '/merge-audio', 
+  '/remove-video-metadata', '/edit-video-metadata',
+  '/remove-audio-metadata', '/edit-audio-metadata'
 ];
 
 async function run() {

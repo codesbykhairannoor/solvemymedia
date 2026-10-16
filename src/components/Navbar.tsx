@@ -277,7 +277,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               animation: 'fadeInDown 0.2s ease forwards'
             }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, width: '100%', maxWidth: 1080 }}>
-                {/* Column 1: Video Essentials (6 items) */}
+                {/* Column 1: Video Essentials (5 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatVideoOpt') || 'OPTIMASI VIDEO'}</div>
                   <MI icon={Minimize2} label={getToolName('compress-video')} onClick={() => handleToolClick('compress-video')} />
@@ -285,7 +285,6 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                   <MI icon={ShieldCheck} label={getToolName('remove-video-metadata')} onClick={() => handleToolClick('remove-video-metadata')} />
                   <MI icon={Tag} label={getToolName('edit-video-metadata')} onClick={() => handleToolClick('edit-video-metadata')} />
                   <MI icon={FastForward} label={getToolName('video-speed')} onClick={() => handleToolClick('video-speed')} />
-                  <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
                 </div>
                 
                 {/* Column 2: Video Editing (4 items) */}
@@ -294,7 +293,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                   <MI icon={Scissors} label={getToolName('cut-video')} onClick={() => handleToolClick('cut-video')} />
                   <MI icon={Crop} label={getToolName('crop-video')} onClick={() => handleToolClick('crop-video')} />
                   <MI icon={Image} label={getToolName('create-gif')} onClick={() => handleToolClick('create-gif')} />
-                  <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
+                  <MI icon={VolumeX} label={getToolName('mute-video')} onClick={() => handleToolClick('mute-video')} />
                 </div>
 
                 {/* Column 3: Audio Tools (5 items) */}
@@ -307,9 +306,10 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                   <MI icon={Scissors} label={getToolName('merge-audio')} onClick={() => handleToolClick('merge-audio')} />
                 </div>
 
-                {/* Column 4: AI & Studio (3 items) */}
+                {/* Column 4: AI & Studio (4 items) */}
                 <div className="mega-menu-col">
                   <div className="mega-menu-title">{t('navCatAiStudio') || 'AI & STUDIO'}</div>
+                  <MI icon={Stamp} label={getToolName('watermark-video')} onClick={() => handleToolClick('watermark-video')} />
                   <MI icon={FileAudio} label={getToolName('video-to-audio')} onClick={() => handleToolClick('video-to-audio')} />
                   <MI icon={Mic} label={getToolName('transcribe')} onClick={() => handleToolClick('transcribe')} badge="AI" />
                   <MI icon={Video} label={getToolName('recorder')} onClick={() => handleToolClick('recorder')} badge="Studio" />
@@ -474,23 +474,23 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                   { id: 'remove-video-metadata', Icon: ShieldCheck },
                   { id: 'edit-video-metadata', Icon: Tag },
                   { id: 'video-speed', Icon: FastForward },
-                  { id: 'mute-video', Icon: VolumeX },
                 ]},
                 { section: t('navCatVideoEdit') || 'PENGEDITAN VIDEO', tools: [
                   { id: 'cut-video', Icon: Scissors },
                   { id: 'crop-video', Icon: Crop },
                   { id: 'create-gif', Icon: Image },
-                  { id: 'watermark-video', Icon: Stamp },
+                  { id: 'mute-video', Icon: VolumeX },
                 ]},
                 { section: t('navCatAudio') || 'ALAT AUDIO', tools: [
                   { id: 'compress-audio', Icon: Minimize2 },
                   { id: 'convert-audio', Icon: Music },
                   { id: 'remove-audio-metadata', Icon: ShieldCheck },
                   { id: 'edit-audio-metadata', Icon: Tag },
-                  { id: 'video-to-audio', Icon: FileAudio },
                   { id: 'merge-audio', Icon: Scissors },
                 ]},
                 { section: t('navCatAiStudio') || 'AI & STUDIO', tools: [
+                  { id: 'watermark-video', Icon: Stamp },
+                  { id: 'video-to-audio', Icon: FileAudio },
                   { id: 'transcribe', Icon: Mic },
                   { id: 'recorder', Icon: Video },
                 ]},

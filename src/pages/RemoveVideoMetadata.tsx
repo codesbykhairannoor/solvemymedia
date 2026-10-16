@@ -345,7 +345,7 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             }}
           >
             <RotateCcw size={13} />
-            <span>Selesai Cek — Balik ke Opsi Bersihkan</span>
+            <span>{t('rmvFlipBackFull') || 'Selesai Cek — Balik ke Opsi Bersihkan'}</span>
           </button>
         </div>
       )}
