@@ -184,10 +184,11 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
       '-filter_complex', `${baseWmFilter};${overlayFilter}`, 
       '-c:v', 'libx264',
       '-pix_fmt', 'yuv420p',
-      '-preset', 'fast',
+      '-preset', 'ultrafast',
+      '-tune', 'fastdecode',
       '-movflags', '+faststart',
       '-c:a', 'aac',
-      '-b:a', '192k',
+      '-b:a', '128k',
       'output.mp4'
     ];
     

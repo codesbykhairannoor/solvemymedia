@@ -20,20 +20,34 @@ export const MuteVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
   const [file, setFile] = useState<File | null>(null);
   const [outputUrl, setOutputUrl] = useState<string | null>(null);
-
   const handleProcess = async () => {
     if (!file) return;
-    const args = [
-      '-i', file.name,
-      '-c:v', 'libx264',
-      '-pix_fmt', 'yuv420p',
-      '-preset', 'fast',
-      '-movflags', '+faststart',
-      '-an',
-      'output.mp4'
-    ];
-    const url = await runCustomFFmpeg([file], args, 'output.mp4', 'video/mp4');
-    if (url) setOutputUrl(url);
+    try {
+      // Stream copy: instant (less than a second, zero quality loss)
+      const fastArgs = [
+        '-i', file.name,
+        '-c:v', 'copy',
+        '-an',
+        'output.mp4'
+      ];
+      const url = await runCustomFFmpeg([file], fastArgs, 'output.mp4', 'video/mp4');
+      if (url) {
+        setOutputUrl(url);
+        return;
+      }
+    } catch (_) {
+      // Fallback to ultrafast re-encode if stream copy fails for exotic codec
+      const fallbackArgs = [
+        '-i', file.name,
+        '-c:v', 'libx264',
+        '-pix_fmt', 'yuv420p',
+        '-preset', 'ultrafast',
+        '-an',
+        'output.mp4'
+      ];
+      const url = await runCustomFFmpeg([file], fallbackArgs, 'output.mp4', 'video/mp4');
+      if (url) setOutputUrl(url);
+    }
   };
 
   const sidebarContent = (

@@ -336,7 +336,8 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         '-i', file.name,
         '-c:v', 'libx264',
         '-pix_fmt', 'yuv420p',
-        '-preset', 'fast',
+        '-preset', 'ultrafast',
+        '-tune', 'fastdecode',
         '-movflags', '+faststart',
         ...(muteAudio ? ['-an'] : ['-c:a', 'aac', '-b:a', '192k']),
         outFileName
@@ -362,7 +363,8 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
         '-i', file.name,
         '-c:v', 'libx264',
         '-pix_fmt', 'yuv420p',
-        '-preset', 'fast',
+        '-preset', 'ultrafast',
+        '-tune', 'fastdecode',
         '-movflags', '+faststart',
         ...(muteAudio ? ['-an'] : ['-c:a', 'aac', '-b:a', '192k']),
         outFileName
