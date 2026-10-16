@@ -81,21 +81,14 @@ export const MergeAudio: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'merged_audio')}.mp3`;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: files.length > 0 ? '20px' : '43px' }}>
+    <div className="workspace-main-wrapper" style={{ height: '100%' }}>
       
       {files.length === 0 && (
-        <div className="workspace-hero-header" style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 28px auto', width: '100%' }}>
-          <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
-            fontWeight: 900, 
-            marginBottom: 20, 
-            letterSpacing: '-0.03em', 
-            lineHeight: 1.15, 
-            fontFamily: 'Outfit, sans-serif'
-          }}>
+        <div className="workspace-hero-header">
+          <h1>
             {smartHighlight(pseoData ? pseoData.h1 : (t('maTitle') || 'Merge Audio Files Seamlessly'))}
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+          <p>
             {pseoData ? pseoData.description : uiStrings.upload}
           </p>
         </div>

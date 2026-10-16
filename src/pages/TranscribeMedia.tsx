@@ -135,21 +135,14 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const isVideo = file?.type.startsWith('video');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: file ? '20px' : '43px' }}>
+    <div className="workspace-main-wrapper" style={{ height: '100%' }}>
       
       {!file && finalTitle && (
-        <div className="workspace-hero-header" style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 28px auto', width: '100%' }}>
-          <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
-            fontWeight: 900, 
-            marginBottom: 20, 
-            letterSpacing: '-0.03em', 
-            lineHeight: 1.15, 
-            fontFamily: 'Outfit, sans-serif'
-          }}>
+        <div className="workspace-hero-header">
+          <h1>
             {smartHighlight(finalTitle)}
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+          <p>
             {finalDesc}
           </p>
         </div>

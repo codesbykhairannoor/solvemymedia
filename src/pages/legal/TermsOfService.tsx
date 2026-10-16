@@ -96,7 +96,7 @@ export const TermsOfService: React.FC = () => {
         
         {/* Section 6: Modifications & Contact */}
         <section className="seo-section contact" style={{ padding: '80px 24px' }}>
-           <div style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40 }}>
+           <div style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 40 }}>
               <div style={{ padding: 40, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)' }}>
                  <AlertTriangle size={32} color="var(--warning-color)" style={{ marginBottom: 24 }} />
                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{t('terms_modTitle') || 'Modifications'}</h3>

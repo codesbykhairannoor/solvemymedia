@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
-  Sun, Moon, ChevronDown, ChevronUp, Search, Menu, X,
+  Sun, Moon, ChevronDown, ChevronUp, ChevronRight, Search, Menu, X,
   Video, Music, Scissors, Minimize2, Image,
   Mic, FileAudio, RotateCw, Crop, VolumeX, Stamp, FastForward,
-  ShieldCheck, Zap, Sparkles, Tag
+  ShieldCheck, Zap, Sparkles, Tag, Layers
 } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 import { getLocalizedSlug, getStandardSlug } from '../i18n/slugs';
@@ -169,9 +169,61 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileAllOpen, setIsMobileAllOpen] = useState(false);
+  const [mobileSearch, setMobileSearch] = useState('');
   const navRef = useRef<HTMLDivElement>(null);
   const megaTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  const TOOL_CATEGORIES = [
+    {
+      name: t('navCatVideoOpt') || 'Video Optimization',
+      tools: [
+        { id: 'compress-video', Icon: Minimize2, color: '#a855f7' },
+        { id: 'convert-video', Icon: RotateCw, color: '#06b6d4' },
+        { id: 'remove-video-metadata', Icon: ShieldCheck, color: '#10b981' },
+        { id: 'edit-video-metadata', Icon: Tag, color: '#f59e0b' },
+        { id: 'video-speed', Icon: FastForward, color: '#ec4899' },
+      ]
+    },
+    {
+      name: t('navCatVideoEdit') || 'Video Editing',
+      tools: [
+        { id: 'cut-video', Icon: Scissors, color: '#ef4444' },
+        { id: 'crop-video', Icon: Crop, color: '#3b82f6' },
+        { id: 'create-gif', Icon: Image, color: '#8b5cf6' },
+        { id: 'mute-video', Icon: VolumeX, color: '#64748b' },
+      ]
+    },
+    {
+      name: t('navCatAudio') || 'Audio Tools',
+      tools: [
+        { id: 'compress-audio', Icon: Minimize2, color: '#a855f7' },
+        { id: 'convert-audio', Icon: Music, color: '#06b6d4' },
+        { id: 'remove-audio-metadata', Icon: ShieldCheck, color: '#10b981' },
+        { id: 'edit-audio-metadata', Icon: Tag, color: '#f59e0b' },
+        { id: 'merge-audio', Icon: Layers, color: '#f97316' },
+      ]
+    },
+    {
+      name: t('navCatAiStudio') || 'AI & Studio',
+      tools: [
+        { id: 'watermark-video', Icon: Stamp, color: '#ec4899' },
+        { id: 'video-to-audio', Icon: FileAudio, color: '#3b82f6' },
+        { id: 'transcribe', Icon: Mic, color: '#8b5cf6', badge: 'AI' },
+        { id: 'recorder', Icon: Video, color: '#10b981', badge: 'Studio' },
+      ]
+    }
+  ];
 
 
   const getToolName = (toolId: string) => {
@@ -424,7 +476,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           {isLightMode ? <Moon size={16} /> : <Sun size={16} />}
         </button>
         
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button (Apple HIG / Material 3 standard min 44x44px touch target) */}
         <button
           className="mobile-only navbar-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -437,86 +489,96 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 36,
-            height: 36,
-            borderRadius: 9,
+            width: 44,
+            height: 44,
+            borderRadius: 12,
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
             transition: 'all 0.2s ease',
             flexShrink: 0,
             padding: 0
           }}
         >
-          {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
       </div>
       
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Nav Drawer (shadcn / Apple HIG Standard 1-Column Stack) */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu-container" style={{ position: 'absolute', top: 'var(--navbar-height, 60px)', left: 0, right: 0, background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)', padding: '16px 16px 28px', maxHeight: 'calc(100vh - var(--navbar-height, 60px))', overflowY: 'auto', zIndex: 40, boxShadow: '0 12px 30px rgba(0,0,0,0.15)' }}>
-          {/* Quick 3 buttons */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, marginBottom: 16 }}>
-            {[
-              { id: 'compress-video', label: getToolName('compress-video') },
-              { id: 'compress-audio', label: getToolName('compress-audio') },
-              { id: 'video-to-audio', label: getToolName('video-to-audio') },
-            ].map(({ id, label }) => (
-              <button key={id} onClick={() => handleToolClick(id)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '10px', borderRadius: 8, fontWeight: 700, color: 'var(--text-main)', fontSize: '0.82rem', cursor: 'pointer', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</button>
-            ))}
+        <div className="mobile-nav-drawer">
+          {/* Quick Search Tool Input */}
+          <div className="mobile-nav-search-bar">
+            <Search size={16} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
+            <input
+              type="text"
+              placeholder={currentLang === 'id' ? 'Cari dari 18 alat media...' : (currentLang === 'ms' ? 'Cari semua 18 alat media...' : 'Search all 18 tools...')}
+              value={mobileSearch}
+              onChange={(e) => setMobileSearch(e.target.value)}
+            />
+            {mobileSearch && (
+              <button
+                type="button"
+                onClick={() => setMobileSearch('')}
+                style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: 4 }}
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
-          {/* Accordion: All Tools */}
-          <button
-            onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
-            style={{ width: '100%', background: 'var(--brand-gradient)', color: '#fff', border: 'none', padding: '11px 16px', borderRadius: 8, fontWeight: 800, fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', marginBottom: isMobileAllOpen ? 12 : 0 }}
-          >
-            <span style={{ textTransform: 'uppercase' }}>{t('allTools') || 'ALL MEDIA TOOLS'}</span>
-            {isMobileAllOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-          </button>
-
-          {isMobileAllOpen && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {[
-                { section: t('navCatVideoOpt') || 'OPTIMASI VIDEO', tools: [
-                  { id: 'compress-video', Icon: Minimize2 },
-                  { id: 'convert-video', Icon: RotateCw },
-                  { id: 'remove-video-metadata', Icon: ShieldCheck },
-                  { id: 'edit-video-metadata', Icon: Tag },
-                  { id: 'video-speed', Icon: FastForward },
-                ]},
-                { section: t('navCatVideoEdit') || 'PENGEDITAN VIDEO', tools: [
-                  { id: 'cut-video', Icon: Scissors },
-                  { id: 'crop-video', Icon: Crop },
-                  { id: 'create-gif', Icon: Image },
-                  { id: 'mute-video', Icon: VolumeX },
-                ]},
-                { section: t('navCatAudio') || 'ALAT AUDIO', tools: [
-                  { id: 'compress-audio', Icon: Minimize2 },
-                  { id: 'convert-audio', Icon: Music },
-                  { id: 'remove-audio-metadata', Icon: ShieldCheck },
-                  { id: 'edit-audio-metadata', Icon: Tag },
-                  { id: 'merge-audio', Icon: Scissors },
-                ]},
-                { section: t('navCatAiStudio') || 'AI & STUDIO', tools: [
-                  { id: 'watermark-video', Icon: Stamp },
-                  { id: 'video-to-audio', Icon: FileAudio },
-                  { id: 'transcribe', Icon: Mic },
-                  { id: 'recorder', Icon: Video },
-                ]},
-              ].map(group => (
-                <div key={group.section}>
-                  <div style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--text-accent)', letterSpacing: '0.06em', marginTop: 8, marginBottom: 8, paddingBottom: 6, borderBottom: '1px dashed var(--border-color)', textTransform: 'uppercase' }}>
-                    {group.section}
+          {/* Search Result or Category Lists */}
+          {mobileSearch.trim() ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <div className="mobile-nav-section-label">
+                {currentLang === 'id' ? 'HASIL PENCARIAN' : (currentLang === 'ms' ? 'KEPUTUSAN CARIAN' : 'SEARCH RESULTS')}
+              </div>
+              <div className="mobile-nav-list">
+                {TOOL_CATEGORIES.flatMap(c => c.tools)
+                  .filter(tool => {
+                    const name = getToolName(tool.id).toLowerCase();
+                    const query = mobileSearch.toLowerCase().trim();
+                    return name.includes(query) || tool.id.includes(query);
+                  })
+                  .map(tool => (
+                    <button
+                      key={tool.id}
+                      onClick={() => handleToolClick(tool.id)}
+                      className="mobile-nav-item"
+                    >
+                      <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
+                        <tool.Icon size={18} />
+                      </div>
+                      <div className="mobile-nav-text-wrap">
+                        <span className="mobile-nav-title">{getToolName(tool.id)}</span>
+                      </div>
+                      {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
+                      <ChevronRight size={16} className="mobile-nav-arrow" />
+                    </button>
+                  ))}
+              </div>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {TOOL_CATEGORIES.map(group => (
+                <div key={group.name}>
+                  <div className="mobile-nav-section-label">
+                    {group.name}
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-                    {group.tools.map(({ id, Icon }) => (
+                  <div className="mobile-nav-list">
+                    {group.tools.map(tool => (
                       <button
-                        key={id}
-                        onClick={() => handleToolClick(id)}
-                        style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '9px 11px', borderRadius: 8, fontWeight: 600, color: 'var(--text-main)', fontSize: '0.79rem', cursor: 'pointer', textAlign: 'left', textTransform: 'uppercase' }}
+                        key={tool.id}
+                        onClick={() => handleToolClick(tool.id)}
+                        className="mobile-nav-item"
                       >
-                        <Icon size={14} color="var(--brand-primary)" />
-                        <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{getToolName(id)}</span>
+                        <div className="mobile-nav-icon-wrap" style={{ color: tool.color, background: `${tool.color}18` }}>
+                          <tool.Icon size={18} />
+                        </div>
+                        <div className="mobile-nav-text-wrap">
+                          <span className="mobile-nav-title">{getToolName(tool.id)}</span>
+                        </div>
+                        {tool.badge && <span className="mobile-nav-badge">{tool.badge}</span>}
+                        <ChevronRight size={16} className="mobile-nav-arrow" />
                       </button>
                     ))}
                   </div>
@@ -525,32 +587,40 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             </div>
           )}
 
-          {/* Mobile Theme Toggle Row */}
-          <div style={{ marginTop: 20, paddingTop: 14, borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: 8 }}>
-              {isLightMode ? <Sun size={16} color="#d97706" /> : <Moon size={16} color="#a855f7" />}
-              <span>{isLightMode ? 'Light Theme' : 'Dark Theme'}</span>
-            </span>
+          {/* Bottom Theme Card */}
+          <div className="mobile-nav-theme-card">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              {isLightMode ? <Sun size={18} color="#d97706" /> : <Moon size={18} color="#a855f7" />}
+              <div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                  {isLightMode ? 'Light Mode' : 'Dark Mode'}
+                </div>
+                <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                  {currentLang === 'id' ? 'Ubah tema tampilan' : 'Switch appearance'}
+                </div>
+              </div>
+            </div>
+
             <button
               type="button"
               onClick={toggleTheme}
               style={{
-                background: isLightMode ? '#fef3c7' : '#1e1b4b',
-                color: isLightMode ? '#d97706' : '#a855f7',
-                border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`,
-                cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
-                padding: '6px 14px',
-                borderRadius: 20,
-                fontSize: '0.8rem',
+                padding: '8px 16px',
+                borderRadius: 9999,
+                border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`,
+                background: isLightMode ? '#fef3c7' : '#1e1b4b',
+                color: isLightMode ? '#d97706' : '#a855f7',
+                fontSize: '0.82rem',
                 fontWeight: 700,
+                cursor: 'pointer',
                 transition: 'all 0.2s ease'
               }}
             >
-              {isLightMode ? <Moon size={13} /> : <Sun size={13} />}
-              <span>{isLightMode ? 'Dark Mode' : 'Light Mode'}</span>
+              {isLightMode ? <Moon size={14} /> : <Sun size={14} />}
+              <span>{isLightMode ? 'Dark' : 'Light'}</span>
             </button>
           </div>
         </div>
@@ -608,23 +678,21 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         @media (max-width: 768px) {
           .desktop-only { display: none !important; }
           .mobile-only { display: flex !important; }
-          .mobile-menu-container { display: block !important; }
-          .mega-menu-item { padding: 4px 6px; }
-          .mega-menu-item .item-title { font-size: 0.84rem; }
-          .navbar-container { padding: 0 12px !important; }
+          .mobile-nav-drawer { display: flex !important; }
+          .navbar-container { padding: 0 14px !important; }
 
           /* Skala Ramping Nyaman di Mobile (Elegan, Sleek, Tanpa Theme Button di Header) */
           .navbar-brand-link { gap: 8px !important; }
           .navbar-logo { width: 28px !important; height: 28px !important; }
           .navbar-brand-text { font-size: 1.15rem !important; }
           .navbar-right-controls { gap: 8px !important; }
-          .navbar-lang-btn { padding: 5px 10px !important; font-size: 0.82rem !important; border-radius: 7px !important; gap: 4px !important; }
-          .navbar-menu-btn { width: 36px !important; height: 36px !important; padding: 0 !important; border-radius: 9px !important; }
-          .navbar-menu-btn svg { width: 18px !important; height: 18px !important; }
+          .navbar-lang-btn { padding: 6px 12px !important; font-size: 0.82rem !important; border-radius: 8px !important; gap: 4px !important; }
+          .navbar-menu-btn { width: 44px !important; height: 44px !important; padding: 0 !important; border-radius: 12px !important; }
+          .navbar-menu-btn svg { width: 20px !important; height: 20px !important; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }
-          .mobile-only, .mobile-menu-container { display: none !important; }
+          .mobile-only, .mobile-nav-drawer { display: none !important; }
         }
         @keyframes fadeInDown {
           from { opacity: 0; transform: translateY(-8px); }

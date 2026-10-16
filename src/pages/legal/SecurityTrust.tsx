@@ -50,7 +50,7 @@ export const SecurityTrust: React.FC = () => {
         <section className="seo-section wasm" style={{ padding: '80px 24px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('sec_wasmTitle') || 'WebAssembly Isolation'}</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 32 }}>
               <div style={{ padding: 40, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', display: 'flex', gap: 24 }}>
                 <Cpu size={40} color="var(--brand-primary)" style={{ flexShrink: 0 }} />
                 <div>
@@ -110,7 +110,7 @@ export const SecurityTrust: React.FC = () => {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 32, marginBottom: 32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 32, marginBottom: 32 }}>
               {/* Pillar 1 */}
               <div style={{
                 padding: 40,

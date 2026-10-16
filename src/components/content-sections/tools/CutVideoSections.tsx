@@ -254,7 +254,7 @@ export const CutVideoFilmstripBenchmarkSection: React.FC<SectionProps> = ({ sect
         </div>
 
         {/* Dual Velocity Benchmark Matrix */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
           {/* Cloud Converter Column */}
           <div 
             style={{ 

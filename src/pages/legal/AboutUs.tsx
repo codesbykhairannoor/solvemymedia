@@ -50,7 +50,7 @@ export const AboutUs: React.FC = () => {
         <section className="seo-section values" style={{ padding: '80px 24px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('about_valuesTitle') || 'Our Core Values'}</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 32 }}>
               {[
                 { icon: ShieldCheck, title: t('about_val1Title') || "Absolute Privacy", desc: t('about_val1Desc') || "Your files never leave your device." },
                 { icon: Zap, title: t('about_val2Title') || "Unmatched Speed", desc: t('about_val2Desc') || "We utilize your hardware, not sluggish cloud servers." },

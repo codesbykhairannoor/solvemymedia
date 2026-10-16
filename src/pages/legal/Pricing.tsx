@@ -125,7 +125,7 @@ export const Pricing: React.FC = () => {
         <section className="seo-section features" style={{ padding: '80px 24px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 64, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('price_inclTitle') || 'Everything Included'}</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 32 }}>
               {[
                 t('price_feat1') || "No Watermarks on any exports",
                 t('price_feat2') || "Unlimited processing queues",

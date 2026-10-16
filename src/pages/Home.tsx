@@ -207,7 +207,7 @@ export const Home: React.FC = () => {
               <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>{t('homeSearchNotFoundDesc') || 'Try using different keywords or select the All Tools category.'}</p>
             </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
               {filteredTools.map((tool) => (
                 <div
                   key={tool.id}
@@ -350,7 +350,7 @@ export const Home: React.FC = () => {
           {/* Bento Grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: 24,
             marginBottom: 32
           }}>

@@ -93,22 +93,14 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
   const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'processed')}.${finalExt}`;
 
   return (
-    <div className="workspace-main-wrapper" style={{ display: 'flex', flexDirection: 'column', width: '100%', maxWidth: '100%', boxSizing: 'border-box', height: '100%', paddingTop: file ? '20px' : '36px' }}>
+    <div className="workspace-main-wrapper" style={{ height: '100%' }}>
       
       {!file && finalTitle && (
-        <div className="workspace-hero-header" style={{ textAlign: 'center', padding: '0 20px', maxWidth: 1200, margin: '0 auto 28px auto', width: '100%', boxSizing: 'border-box' }}>
-          <h1 style={{ 
-            fontSize: 'clamp(1.9rem, 5vw, 3.8rem)', 
-            fontWeight: 900, 
-            marginBottom: 16, 
-            letterSpacing: '-0.03em', 
-            lineHeight: 1.15, 
-            fontFamily: 'Outfit, sans-serif', 
-            textTransform: 'capitalize'
-          }}>
+        <div className="workspace-hero-header">
+          <h1>
             {smartHighlight(finalTitle)}
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+          <p>
             {finalDescription}
           </p>
         </div>

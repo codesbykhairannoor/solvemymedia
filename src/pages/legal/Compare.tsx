@@ -60,7 +60,7 @@ export const Compare: React.FC = () => {
         <section className="seo-section privacy" style={{ padding: '80px 24px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 48, color: 'var(--text-main)', lineHeight: 1.2 }}>{t('cmp_privacyTitle') || 'Who Controls Your Data?'}</h2>
-             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40 }}>
+             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 40 }}>
                <div style={{ padding: 40, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                  <ShieldAlert size={48} color="var(--error-color)" style={{ marginBottom: 24 }} />
                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{t('cmp_cloudCardTitle') || 'Cloud Converters'}</h3>

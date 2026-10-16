@@ -420,7 +420,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const isReadyToProcess = !!videoFile && (watermarkType === 'image' ? !!imageFile : !!textWatermark.trim());
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: videoFile ? '20px' : '43px' }}>
+    <div className="workspace-main-wrapper" style={{ height: '100%' }}>
       
       {/* Hidden File Inputs */}
       <input 
@@ -452,18 +452,11 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
       {/* Header */}
       {!videoFile && (
-        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
-          <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
-            fontWeight: 900, 
-            marginBottom: 20, 
-            letterSpacing: '-0.03em', 
-            lineHeight: 1.15, 
-            fontFamily: 'Outfit, sans-serif'
-          }}>
+        <div className="workspace-hero-header">
+          <h1>
             {smartHighlight(pseoData ? pseoData.h1 : (t('wmTitle') || 'Add Custom Watermark Logo to Video'))}
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+          <p>
             {pseoData ? pseoData.description : (t('wmSub') || "Protect your creative work by overlaying custom text or image watermarks onto your videos before sharing them online.")}
           </p>
         </div>

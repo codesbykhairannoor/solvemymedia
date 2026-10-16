@@ -390,7 +390,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const downloadFileName = `${customFileName.trim() || 'cut_video'}.${effectiveTargetExt}`;
 
   return (
-    <div style={{ width: '100%', minHeight: '80vh', padding: file ? '24px 16px 80px' : '43px 16px 80px' }}>
+    <div className="workspace-main-wrapper" style={{ minHeight: '80vh', paddingBottom: 80 }}>
       {/* Hidden File Input */}
       <input
         type="file"
@@ -406,18 +406,11 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
       {/* 1. HERO (Shown when no file is uploaded) */}
       {!file && (
-        <div className="workspace-hero-header" style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 28px auto', width: '100%' }}>
-          <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
-            fontWeight: 900, 
-            marginBottom: 20, 
-            letterSpacing: '-0.03em', 
-            lineHeight: 1.15, 
-            fontFamily: 'Outfit, sans-serif'
-          }}>
+        <div className="workspace-hero-header">
+          <h1>
             {smartHighlight(pseoData ? pseoData.h1 : (t('toolCutVideoTitle') || t('toolCutVideo') || 'Cut Video Online Fast & Lossless'))}
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+          <p>
             {pseoData ? pseoData.description : (t('cutVideoDesc') || t('cwUploadDesc') || 'Trim and slice video clips directly in your browser with instant WebAssembly stream demuxing. 100% private, free, and zero server uploads.')}
           </p>
         </div>
