@@ -74,7 +74,7 @@ export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ sectio
   return (
     <section className="seo-section performance" style={{ padding: '80px 24px' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 48, flexWrap: 'wrap' }}>
-      <div style={{ flex: 1, minWidth: 300 }}>
+      <div style={{ flex: '1 1 260px', minWidth: 0 }}>
         <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)' }}>{section.title}</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 32 }}>{section.content}</p>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>

@@ -410,7 +410,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         
         <button 
           onClick={toggleTheme}
-          className="navbar-theme-btn"
+          className="desktop-only navbar-theme-btn"
           style={{
             background: isLightMode ? '#fef3c7' : '#1e1b4b', color: isLightMode ? '#d97706' : '#a855f7',
             border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`, cursor: 'pointer',
@@ -437,16 +437,16 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 30,
-            height: 30,
-            borderRadius: 8,
+            width: 36,
+            height: 36,
+            borderRadius: 9,
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
             transition: 'all 0.2s ease',
             flexShrink: 0,
             padding: 0
           }}
         >
-          {isMobileMenuOpen ? <X size={15} /> : <Menu size={15} />}
+          {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
       </div>
@@ -613,16 +613,14 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           .mega-menu-item .item-title { font-size: 0.84rem; }
           .navbar-container { padding: 0 12px !important; }
 
-          /* Skala Ramping 85-90% Khusus Navbar di Mobile (Elegan, Sleek, tanpa bug zoom) */
-          .navbar-brand-link { gap: 6px !important; }
-          .navbar-logo { width: 25px !important; height: 25px !important; }
-          .navbar-brand-text { font-size: 1.05rem !important; }
+          /* Skala Ramping Nyaman di Mobile (Elegan, Sleek, Tanpa Theme Button di Header) */
+          .navbar-brand-link { gap: 8px !important; }
+          .navbar-logo { width: 28px !important; height: 28px !important; }
+          .navbar-brand-text { font-size: 1.15rem !important; }
           .navbar-right-controls { gap: 8px !important; }
-          .navbar-lang-btn { padding: 4px 8px !important; font-size: 0.78rem !important; border-radius: 6px !important; gap: 4px !important; }
-          .navbar-theme-btn { width: 30px !important; height: 30px !important; }
-          .navbar-theme-btn svg { width: 14px !important; height: 14px !important; }
-          .navbar-menu-btn { width: 30px !important; height: 30px !important; padding: 0 !important; border-radius: 8px !important; }
-          .navbar-menu-btn svg { width: 15px !important; height: 15px !important; }
+          .navbar-lang-btn { padding: 5px 10px !important; font-size: 0.82rem !important; border-radius: 7px !important; gap: 4px !important; }
+          .navbar-menu-btn { width: 36px !important; height: 36px !important; padding: 0 !important; border-radius: 9px !important; }
+          .navbar-menu-btn svg { width: 18px !important; height: 18px !important; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }

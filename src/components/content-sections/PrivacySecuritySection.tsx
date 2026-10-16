@@ -8,7 +8,7 @@ export const PrivacySecuritySection: React.FC<SectionProps> = ({ section }) => (
       <div style={{ width: 80, height: 80, borderRadius: 24, background: '#10b981', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 10px 25px rgba(16,185,129,0.3)' }}>
         <Shield size={40} />
       </div>
-      <div style={{ flex: 1, minWidth: 300 }}>
+      <div style={{ flex: '1 1 260px', minWidth: 0 }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{section.title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>{section.content}</p>
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>

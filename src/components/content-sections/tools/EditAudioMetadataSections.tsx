@@ -226,15 +226,43 @@ export const EditAudioPlatformCompatibilitySection: React.FC = () => {
 export const EditAudioTagFormatSpecsSection: React.FC = () => {
   const { t } = useLanguage();
 
+  const rows = [
+    {
+      fmt: t('edaSpecsFmt1') || 'MP3 (.mp3)',
+      spec: t('edaSpecsSpec1') || 'ID3v2.3 / ID3v2.4 (UTF-8)',
+      fields: t('edaSpecsFields1') || 'TIT2 (Title), TPE1 (Artist), TALB, TYER, TCON, TRCK',
+      fidelity: t('edaSpecsFid1') || 'Lossless Remux'
+    },
+    {
+      fmt: t('edaSpecsFmt2') || 'FLAC (.flac)',
+      spec: t('edaSpecsSpec2') || 'Ogg Vorbis Comments',
+      fields: t('edaSpecsFields2') || 'TITLE, ARTIST, ALBUM, DATE, GENRE, TRACKNUMBER',
+      fidelity: t('edaSpecsFid2') || 'Bit-Exact Lossless'
+    },
+    {
+      fmt: t('edaSpecsFmt3') || 'WAV (.wav)',
+      spec: t('edaSpecsSpec3') || 'RIFF INFO & ID3 Chunk',
+      fields: t('edaSpecsFields3') || 'INAM (Title), IART (Artist), IPRD, ICRD, IGNR',
+      fidelity: t('edaSpecsFid3') || 'Uncompressed PCM'
+    },
+    {
+      fmt: t('edaSpecsFmt4') || 'M4A / AAC (.m4a)',
+      spec: t('edaSpecsSpec4') || 'iTunes ilst Atoms',
+      fields: t('edaSpecsFields4') || '©nam, ©ART, ©alb, ©day, ©gen',
+      fidelity: t('edaSpecsFid4') || 'Apple Ready'
+    }
+  ];
+
   return (
-    <section className="seo-section tag-format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
+    <section className="seo-section tag-format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('edaSpecsTitle') || 'Audio Container Tag Standard Matrix'}
         </h2>
       </div>
 
-      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+      {/* Desktop Table */}
+      <div className="matrix-desktop-table" style={{ width: '100%', overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
@@ -253,64 +281,42 @@ export const EditAudioTagFormatSpecsSection: React.FC = () => {
             </tr>
           </thead>
           <tbody style={{ fontSize: '0.88rem' }}>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edaSpecsFmt1') || 'MP3 (.mp3)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edaSpecsSpec1') || 'ID3v2.3 / ID3v2.4 (UTF-8)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edaSpecsFields1') || 'TIT2 (Title), TPE1 (Artist), TALB, TYER, TCON, TRCK'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edaSpecsFid1') || 'Lossless Remux'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edaSpecsFmt2') || 'FLAC (.flac)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edaSpecsSpec2') || 'Ogg Vorbis Comments'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edaSpecsFields2') || 'TITLE, ARTIST, ALBUM, DATE, GENRE, TRACKNUMBER'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edaSpecsFid2') || 'Bit-Exact Lossless'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edaSpecsFmt3') || 'WAV (.wav)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edaSpecsSpec3') || 'RIFF INFO & ID3 Chunk'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edaSpecsFields3') || 'INAM (Title), IART (Artist), IPRD, ICRD, IGNR'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edaSpecsFid3') || 'Uncompressed PCM'}
-              </td>
-            </tr>
-            <tr>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edaSpecsFmt4') || 'M4A / AAC (.m4a)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edaSpecsSpec4') || 'iTunes ilst Atoms'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edaSpecsFields4') || '©nam, ©ART, ©alb, ©day, ©gen'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edaSpecsFid4') || 'Apple Ready'}
-              </td>
-            </tr>
+            {rows.map((row, idx) => (
+              <tr key={idx} style={{ borderBottom: idx < rows.length - 1 ? '1px solid var(--border-color)' : 'none' }}>
+                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
+                  {row.fmt}
+                </td>
+                <td style={{ padding: '14px 20px', color: 'var(--brand-primary)', fontWeight: 600 }}>
+                  {row.spec}
+                </td>
+                <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
+                  {row.fields}
+                </td>
+                <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
+                  {row.fidelity}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Responsive Cards */}
+      <div className="matrix-mobile-cards">
+        {rows.map((row, idx) => (
+          <div key={idx} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 16, padding: '16px', display: 'flex', flexDirection: 'column', gap: 10, boxSizing: 'border-box' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: 10 }}>
+              <span style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-main)' }}>{row.fmt}</span>
+              <span style={{ fontSize: '0.74rem', fontWeight: 700, padding: '3px 8px', borderRadius: 6, background: 'rgba(16, 185, 129, 0.12)', color: '#10b981', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
+                {row.fidelity}
+              </span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: '0.82rem' }}>
+              <div style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>{row.spec}</div>
+              <div style={{ color: 'var(--text-muted)', lineHeight: 1.45 }}>{row.fields}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

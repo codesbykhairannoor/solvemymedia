@@ -226,15 +226,43 @@ export const EditVideoMediaServerCompatibilitySection: React.FC = () => {
 export const EditVideoFormatSpecsSection: React.FC = () => {
   const { t } = useLanguage();
 
+  const rows = [
+    {
+      fmt: t('edtSpecsFmt1') || 'MP4 (.mp4)',
+      spec: t('edtSpecsSpec1') || 'ISO BMFF ilst Atoms',
+      fields: t('edtSpecsFields1') || '©nam (Title), ©ART (Artist), ©day, ©gen',
+      fidelity: t('edtSpecsFid1') || 'Stream Copy'
+    },
+    {
+      fmt: t('edtSpecsFmt2') || 'QuickTime (.mov)',
+      spec: t('edtSpecsSpec2') || 'QuickTime udta Atoms',
+      fields: t('edtSpecsFields2') || 'titl, auth, yrrc, gnre, dscp, cprt',
+      fidelity: t('edtSpecsFid2') || 'ProRes Preserved'
+    },
+    {
+      fmt: t('edtSpecsFmt3') || 'Matroska (.mkv)',
+      spec: t('edtSpecsSpec3') || 'EBML Info & Tags',
+      fields: t('edtSpecsFields3') || 'TITLE, ARTIST, DATE_RELEASED, COMMENT',
+      fidelity: t('edtSpecsFid3') || 'Bit-Exact Remux'
+    },
+    {
+      fmt: t('edtSpecsFmt4') || 'WebM (.webm)',
+      spec: t('edtSpecsSpec4') || 'EBML Segment Info',
+      fields: t('edtSpecsFields4') || 'Title, MuxingApp, WritingApp',
+      fidelity: t('edtSpecsFid4') || 'VP9 / AV1 Untouched'
+    }
+  ];
+
   return (
-    <section className="seo-section format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
+    <section className="seo-section format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('edtSpecsTitle') || 'Video Container Tag Standard Matrix'}
         </h2>
       </div>
 
-      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+      {/* Desktop Table */}
+      <div className="matrix-desktop-table" style={{ width: '100%', overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
@@ -253,64 +281,42 @@ export const EditVideoFormatSpecsSection: React.FC = () => {
             </tr>
           </thead>
           <tbody style={{ fontSize: '0.88rem' }}>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edtSpecsFmt1') || 'MP4 (.mp4)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edtSpecsSpec1') || 'ISO BMFF ilst Atoms'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edtSpecsFields1') || '©nam (Title), ©ART (Artist), ©day, ©gen'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edtSpecsFid1') || 'Stream Copy'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edtSpecsFmt2') || 'QuickTime (.mov)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edtSpecsSpec2') || 'QuickTime udta Atoms'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edtSpecsFields2') || 'titl, auth, yrrc, gnre, dscp, cprt'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edtSpecsFid2') || 'ProRes Preserved'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edtSpecsFmt3') || 'Matroska (.mkv)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edtSpecsSpec3') || 'EBML Info & Tags'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edtSpecsFields3') || 'TITLE, ARTIST, DATE_RELEASED, COMMENT'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edtSpecsFid3') || 'Bit-Exact Remux'}
-              </td>
-            </tr>
-            <tr>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('edtSpecsFmt4') || 'WebM (.webm)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--brand-primary)' }}>
-                {t('edtSpecsSpec4') || 'EBML Segment Info'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('edtSpecsFields4') || 'Title, MuxingApp, WritingApp'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('edtSpecsFid4') || 'VP9 / AV1 Untouched'}
-              </td>
-            </tr>
+            {rows.map((row, idx) => (
+              <tr key={idx} style={{ borderBottom: idx < rows.length - 1 ? '1px solid var(--border-color)' : 'none' }}>
+                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
+                  {row.fmt}
+                </td>
+                <td style={{ padding: '14px 20px', color: 'var(--brand-primary)', fontWeight: 600 }}>
+                  {row.spec}
+                </td>
+                <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
+                  {row.fields}
+                </td>
+                <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
+                  {row.fidelity}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Responsive Cards */}
+      <div className="matrix-mobile-cards">
+        {rows.map((row, idx) => (
+          <div key={idx} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 16, padding: '16px', display: 'flex', flexDirection: 'column', gap: 10, boxSizing: 'border-box' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: 10 }}>
+              <span style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-main)' }}>{row.fmt}</span>
+              <span style={{ fontSize: '0.74rem', fontWeight: 700, padding: '3px 8px', borderRadius: 6, background: 'rgba(16, 185, 129, 0.12)', color: '#10b981', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
+                {row.fidelity}
+              </span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: '0.82rem' }}>
+              <div style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>{row.spec}</div>
+              <div style={{ color: 'var(--text-muted)', lineHeight: 1.45 }}>{row.fields}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

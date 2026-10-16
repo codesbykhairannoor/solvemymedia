@@ -322,15 +322,44 @@ export const RemoveAudioRackmountCardsSection: React.FC = () => {
 export const RemoveAudioForensicDiffSection: React.FC = () => {
   const { t } = useLanguage();
 
+  const rows = [
+    {
+      layer: t('rmaDiffRow1Layer') || 'C2PA / Google SynthID Manifest',
+      raw: t('rmaDiffRow1Raw') || 'Active (trainedAlgorithmicMedia)',
+      clean: t('rmaDiffRow1Clean') || '✓ 100% Stripped & Purged'
+    },
+    {
+      layer: t('rmaDiffRow2Layer') || 'DAW Signature & Username',
+      raw: t('rmaDiffRow2Raw') || 'Exposed (Ableton/Logic/FL path)',
+      clean: t('rmaDiffRow2Clean') || '✓ Completely Neutralized'
+    },
+    {
+      layer: t('rmaDiffRow3Layer') || 'ID3 Title, Artist, Album & Artwork',
+      raw: t('rmaDiffRow3Raw') || 'Exposed text & embedded JPEG/PNG',
+      clean: t('rmaDiffRow3Clean') || '✓ Cleared to Pure Audio'
+    },
+    {
+      layer: t('rmaDiffRow4Layer') || 'Recording Timestamps & Clocks',
+      raw: t('rmaDiffRow4Raw') || 'Subsecond render timestamp',
+      clean: t('rmaDiffRow4Clean') || '✓ Nullified'
+    },
+    {
+      layer: t('rmaDiffRow5Layer') || 'Audio Quality & Frequency',
+      raw: t('rmaDiffRow5Raw') || 'Original sound frames',
+      clean: t('rmaDiffRow5Clean') || '✓ 0dB loss (Pure stream copy)'
+    }
+  ];
+
   return (
-    <section className="seo-section forensic-diff" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
+    <section className="seo-section forensic-diff" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('rmaDiffTitle') || 'Audio Forensic Inspection Matrix'}
         </h2>
       </div>
 
-      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+      {/* Desktop Table */}
+      <div className="matrix-desktop-table" style={{ width: '100%', overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
@@ -346,63 +375,42 @@ export const RemoveAudioForensicDiffSection: React.FC = () => {
             </tr>
           </thead>
           <tbody style={{ fontSize: '0.88rem' }}>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmaDiffRow1Layer') || 'C2PA / Google SynthID Manifest'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmaDiffRow1Raw') || 'Active (trainedAlgorithmicMedia)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmaDiffRow1Clean') || '✓ 100% Stripped & Purged'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmaDiffRow2Layer') || 'DAW Signature & Username'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmaDiffRow2Raw') || 'Exposed (Ableton/Logic/FL path)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmaDiffRow2Clean') || '✓ Completely Neutralized'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmaDiffRow3Layer') || 'ID3 Title, Artist, Album & Artwork'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmaDiffRow3Raw') || 'Exposed text & embedded JPEG/PNG'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmaDiffRow3Clean') || '✓ Cleared to Pure Audio'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmaDiffRow4Layer') || 'Recording Timestamps & Clocks'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmaDiffRow4Raw') || 'Subsecond render timestamp'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmaDiffRow4Clean') || '✓ Nullified'}
-              </td>
-            </tr>
-            <tr>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmaDiffRow5Layer') || 'Audio Quality & Frequency'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('rmaDiffRow5Raw') || 'Original sound frames'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmaDiffRow5Clean') || '✓ 0dB loss (Pure stream copy)'}
-              </td>
-            </tr>
+            {rows.map((row, idx) => (
+              <tr key={idx} style={{ borderBottom: idx < rows.length - 1 ? '1px solid var(--border-color)' : 'none' }}>
+                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
+                  {row.layer}
+                </td>
+                <td style={{ padding: '14px 20px', color: '#ef4444' }}>
+                  {row.raw}
+                </td>
+                <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
+                  {row.clean}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Responsive Cards */}
+      <div className="matrix-mobile-cards">
+        {rows.map((row, idx) => (
+          <div key={idx} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 16, padding: '16px', display: 'flex', flexDirection: 'column', gap: 8, boxSizing: 'border-box' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-main)', borderBottom: '1px solid var(--border-color)', paddingBottom: 8 }}>
+              {row.layer}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.82rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span style={{ color: '#ef4444', fontWeight: 700, minWidth: 80 }}>Unsanitized:</span>
+                <span style={{ color: 'var(--text-muted)', lineHeight: 1.4 }}>{row.raw}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span style={{ color: '#10b981', fontWeight: 700, minWidth: 80 }}>Scrubbed:</span>
+                <span style={{ color: '#10b981', fontWeight: 700, lineHeight: 1.4 }}>{row.clean}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

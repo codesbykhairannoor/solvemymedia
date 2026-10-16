@@ -1246,7 +1246,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
             {/* Bottom Row: Filename, Mute toggle, Process Button */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, paddingTop: 16, borderTop: '1px solid var(--border-color)' }}>
               
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', flex: 1, minWidth: 280 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', flex: '1 1 240px', minWidth: 0 }}>
                 {/* File rename input */}
                 <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 10, overflow: 'hidden', flex: 1, maxWidth: 360 }}>
                   <input

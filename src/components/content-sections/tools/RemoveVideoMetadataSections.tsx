@@ -212,15 +212,44 @@ export const RemoveVideoPerformanceMetricsSection: React.FC = () => {
 export const RemoveVideoComparisonTableSection: React.FC = () => {
   const { t } = useLanguage();
 
+  const rows = [
+    {
+      vector: t('rmvMatrixRow1Vector') || 'GPS Geolocation (©xyz, xyz )',
+      raw: t('rmvMatrixRow1Raw') || 'Exact lat/long coordinate pinpoint',
+      clean: t('rmvMatrixRow1Clean') || '✓ 100% Wiped Clean'
+    },
+    {
+      vector: t('rmvMatrixRow2Vector') || 'Device Hardware Serial & Model',
+      raw: t('rmvMatrixRow2Raw') || 'Camera serial, phone model (A3084)',
+      clean: t('rmvMatrixRow2Clean') || '✓ Zero hardware fingerprints'
+    },
+    {
+      vector: t('rmvMatrixRow3Vector') || 'Exact Recording Timestamp',
+      raw: t('rmvMatrixRow3Raw') || 'Creation date & subsecond clock',
+      clean: t('rmvMatrixRow3Clean') || '✓ Neutralized to null'
+    },
+    {
+      vector: t('rmvMatrixRow4Vector') || 'C2PA / AI Watermark Manifests',
+      raw: t('rmvMatrixRow4Raw') || 'Embedded AI provenance metadata',
+      clean: t('rmvMatrixRow4Clean') || '✓ Stripped from container'
+    },
+    {
+      vector: t('rmvMatrixRow5Vector') || 'Video Visual Quality & Framerate',
+      raw: t('rmvMatrixRow5Raw') || 'Original 4K / 1080p stream',
+      clean: t('rmvMatrixRow5Clean') || '✓ 100% Untouched (-c copy)'
+    }
+  ];
+
   return (
-    <section className="seo-section comparison-table" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
+    <section className="seo-section comparison-table" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ textAlign: 'center', marginBottom: 28 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('rmvMatrixTitle') || 'Video Privacy Inspection Matrix'}
         </h2>
       </div>
 
-      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+      {/* Desktop Table */}
+      <div className="matrix-desktop-table" style={{ width: '100%', overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
@@ -236,63 +265,42 @@ export const RemoveVideoComparisonTableSection: React.FC = () => {
             </tr>
           </thead>
           <tbody style={{ fontSize: '0.88rem' }}>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmvMatrixRow1Vector') || 'GPS Geolocation (©xyz, xyz )'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmvMatrixRow1Raw') || 'Exact lat/long coordinate pinpoint'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmvMatrixRow1Clean') || '✓ 100% Wiped Clean'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmvMatrixRow2Vector') || 'Device Hardware Serial & Model'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmvMatrixRow2Raw') || 'Camera serial, phone model (A3084)'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmvMatrixRow2Clean') || '✓ Zero hardware fingerprints'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmvMatrixRow3Vector') || 'Exact Recording Timestamp'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmvMatrixRow3Raw') || 'Creation date & subsecond clock'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmvMatrixRow3Clean') || '✓ Neutralized to null'}
-              </td>
-            </tr>
-            <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmvMatrixRow4Vector') || 'C2PA / AI Watermark Manifests'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#ef4444' }}>
-                {t('rmvMatrixRow4Raw') || 'Embedded AI provenance metadata'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmvMatrixRow4Clean') || '✓ Stripped from container'}
-              </td>
-            </tr>
-            <tr>
-              <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
-                {t('rmvMatrixRow5Vector') || 'Video Visual Quality & Framerate'}
-              </td>
-              <td style={{ padding: '14px 20px', color: 'var(--text-muted)' }}>
-                {t('rmvMatrixRow5Raw') || 'Original 4K / 1080p stream'}
-              </td>
-              <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
-                {t('rmvMatrixRow5Clean') || '✓ 100% Untouched (-c copy)'}
-              </td>
-            </tr>
+            {rows.map((row, idx) => (
+              <tr key={idx} style={{ borderBottom: idx < rows.length - 1 ? '1px solid var(--border-color)' : 'none' }}>
+                <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-main)' }}>
+                  {row.vector}
+                </td>
+                <td style={{ padding: '14px 20px', color: '#ef4444' }}>
+                  {row.raw}
+                </td>
+                <td style={{ padding: '14px 20px', color: '#10b981', fontWeight: 700 }}>
+                  {row.clean}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Responsive Cards */}
+      <div className="matrix-mobile-cards">
+        {rows.map((row, idx) => (
+          <div key={idx} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 16, padding: '16px', display: 'flex', flexDirection: 'column', gap: 8, boxSizing: 'border-box' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-main)', borderBottom: '1px solid var(--border-color)', paddingBottom: 8 }}>
+              {row.vector}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: '0.82rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span style={{ color: '#ef4444', fontWeight: 700, minWidth: 80 }}>Unsanitized:</span>
+                <span style={{ color: 'var(--text-muted)', lineHeight: 1.4 }}>{row.raw}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span style={{ color: '#10b981', fontWeight: 700, minWidth: 80 }}>Scrubbed:</span>
+                <span style={{ color: '#10b981', fontWeight: 700, lineHeight: 1.4 }}>{row.clean}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

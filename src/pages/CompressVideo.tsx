@@ -218,12 +218,12 @@ export const CompressVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
 
             {/* SECTION 3: PRIVACY SHIELD */}
             <section className="content-section privacy-security" style={{ padding: '0 24px', maxWidth: 1000, margin: '0 auto', width: '100%' }}>
-              <div style={{ background: 'linear-gradient(to right, rgba(var(--brand-primary-rgb),0.05), transparent)', borderRadius: 32, borderLeft: '8px solid var(--brand-primary)', padding: '60px 40px' }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: 40 }}>
-                <div style={{ width: 80, height: 80, borderRadius: 24, background: 'var(--brand-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 10px 25px rgba(var(--brand-primary-rgb),0.3)' }}>
-                  <Shield size={40} />
+              <div style={{ background: 'linear-gradient(to right, rgba(var(--brand-primary-rgb),0.05), transparent)', borderRadius: 32, borderLeft: '8px solid var(--brand-primary)', padding: 'clamp(24px, 5vw, 60px) clamp(16px, 5vw, 40px)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: 30 }}>
+                <div style={{ width: 64, height: 64, borderRadius: 20, background: 'var(--brand-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 10px 25px rgba(var(--brand-primary-rgb),0.3)' }}>
+                  <Shield size={32} />
                 </div>
-                <div style={{ flex: 1, minWidth: 300 }}>
+                <div style={{ flex: '1 1 260px', minWidth: 0 }}>
                   <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{t('compVPrivacyTitle') || 'Bank-Grade Privacy for Your Media'}</h2>
                   <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>{t('compVPrivacyDesc') || 'When you compress a home video or a sensitive corporate presentation, it should stay private. Media Compressor acts as a purely local tool, effectively cutting the cord to the internet.'}</p>
                   <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>

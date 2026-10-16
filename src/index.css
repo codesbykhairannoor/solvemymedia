@@ -73,7 +73,7 @@
 
 @media (max-width: 768px) {
   :root {
-    --navbar-height: 52px;
+    --navbar-height: 58px;
   }
 }
 
@@ -374,25 +374,54 @@ textarea {
     padding-bottom: 10px !important;
   }
 
-  /* Hero title spacing on mobile */
+  /* Hero title spacing on mobile - Generous and clean */
   .workspace-hero-header {
-    padding: 0 14px !important;
-    margin: 0 auto 16px auto !important;
+    padding: 0 16px !important;
+    margin: 0 auto 24px auto !important;
   }
 
   .workspace-hero-header h1 {
-    font-size: clamp(1.65rem, 6.5vw, 2.2rem) !important;
-    margin-bottom: 8px !important;
-    line-height: 1.2 !important;
+    font-size: clamp(2rem, 6.5vw, 2.7rem) !important;
+    margin-bottom: 12px !important;
+    line-height: 1.18 !important;
+    font-weight: 900 !important;
   }
 
   .workspace-hero-header p {
-    font-size: 0.92rem !important;
-    line-height: 1.5 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
   }
 
   .workspace-main-wrapper {
-    padding-top: 14px !important;
+    padding-top: clamp(28px, 6vw, 42px) !important;
+  }
+}
+
+/* Responsive Table & Matrix Card System */
+.matrix-desktop-table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.matrix-mobile-cards {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .matrix-desktop-table {
+    display: none !important;
+  }
+  .matrix-mobile-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
