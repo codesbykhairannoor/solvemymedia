@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tag, Sparkles, Film, User, Calendar, Music, FileText, Shield, AlertCircle, Zap, Loader2, RotateCcw } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
+import { ResponsibleUseNotice } from '../components/ResponsibleUseNotice';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
@@ -67,13 +68,13 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
         setDetectedMeta(meta);
 
-        // Pre-fill existing metadata tags into the form with smart defaults
+        // Pre-fill existing metadata tags authentically from the user's video file
         const initialTitle = meta.title || meta.cleanTitleSuggestion || '';
-        const initialArtist = meta.artist || (meta.hasC2pa ? 'Google AI' : meta.encoder || '');
+        const initialArtist = meta.artist || meta.encoder || '';
         const initialDate = meta.creationTime || (meta.year ? `${meta.year}-01-01 12:00:00` : '');
         const initialAlbum = meta.album || '';
         const initialGenre = meta.genre || '';
-        const initialComment = meta.comment || (meta.hasC2pa ? 'Google AI C2PA Provenance' : '');
+        const initialComment = meta.comment || '';
         const initialCopyright = meta.copyright || '';
 
         let filled = 0;
@@ -375,6 +376,9 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         sidebarContent={sidebarContent}
         targetFormat={file ? (file.name.split('.').pop() || 'mp4') : 'mp4'}
       />
+
+      {/* Ethical Responsible Use Policy Banner */}
+      <ResponsibleUseNotice />
 
       {!file && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>

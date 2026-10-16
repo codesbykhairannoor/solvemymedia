@@ -156,7 +156,7 @@ const TOOL_SCHEMA: Record<string, { appName: string; category: string; steps: Ar
     category: 'SecurityApplication',
     steps: [
       { name: 'Upload Audio', text: 'Select your MP3, WAV, FLAC, or OGG file. 100% private in-browser.' },
-      { name: 'Forensic Audit', text: 'Detect ID3 tags, DAW project paths, and C2PA SynthID manifests.' },
+      { name: 'Privacy Audit', text: 'Detect hidden ID3 tags, DAW project paths, and device telemetry.' },
       { name: 'Strip & Download', text: 'Purge hidden tracking tags losslessly with zero acoustic quality loss.' },
     ],
   },

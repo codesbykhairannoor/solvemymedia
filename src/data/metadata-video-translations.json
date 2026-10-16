@@ -170,9 +170,9 @@
     "rmvMatrixRow3Vector": "Exact Recording Timestamp",
     "rmvMatrixRow3Raw": "Creation date & subsecond clock",
     "rmvMatrixRow3Clean": "✓ Neutralized to null",
-    "rmvMatrixRow4Vector": "C2PA / AI Watermark Manifests",
-    "rmvMatrixRow4Raw": "Embedded AI provenance metadata",
-    "rmvMatrixRow4Clean": "✓ Stripped from container",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Video Visual Quality & Framerate",
     "rmvMatrixRow5Raw": "Original 4K / 1080p stream",
     "rmvMatrixRow5Clean": "✓ 100% Untouched (-c copy)",
@@ -237,7 +237,9 @@
     "edtSpecsFid4": "VP9 / AV1 Untouched",
     "edtResetBtn": "Reset",
     "edtResetTitle": "Reset fields to original detected tags",
-    "rmvFlipBackFull": "Done Checking — Return to Clean Options"
+    "rmvFlipBackFull": "Done Checking — Return to Clean Options",
+    "ethicalNoticeTitle": "Responsible Use & Privacy Protection Policy",
+    "ethicalNoticeDesc": "SolveMyMedia is built strictly for personal privacy protection (sanitizing GPS geotags, hardware serials, and local user paths) and legitimate media cataloging. We do NOT endorse document forgery, identity deception, copyright evasion, or tampering with digital provenance. Users remain solely responsible for lawful and ethical use."
   },
   "id": {
     "toolRemoveVideoMetadata": "Hapus Metadata Video",
@@ -410,9 +412,9 @@
     "rmvMatrixRow3Vector": "Stempel Waktu Perekaman yang Tepat",
     "rmvMatrixRow3Raw": "Tanggal pembuatan & jam subdetik",
     "rmvMatrixRow3Clean": "✓ Dinetralkan menjadi nol",
-    "rmvMatrixRow4Vector": "Manifes Tanda Air C2PA / AI",
-    "rmvMatrixRow4Raw": "Metadata asal AI yang tersemat",
-    "rmvMatrixRow4Clean": "✓ Dikeluarkan dari wadahnya",
+    "rmvMatrixRow4Vector": "Jejak Telemetri Software & Sistem",
+    "rmvMatrixRow4Raw": "Versi encoder, build OS, path file pengguna",
+    "rmvMatrixRow4Clean": "✓ Dibersihkan dari kontainer",
     "rmvMatrixRow5Vector": "Kualitas Visual & Kecepatan Bingkai Video",
     "rmvMatrixRow5Raw": "Aliran 4K / 1080p asli",
     "rmvMatrixRow5Clean": "✓ 100% Tak Tersentuh (-c copy)",
@@ -477,7 +479,9 @@
     "edtSpecsFid4": "VP9 / AV1 Tak Tersentuh",
     "edtResetBtn": "Mengatur ulang",
     "edtResetTitle": "Setel ulang bidang ke tag asli yang terdeteksi",
-    "rmvFlipBackFull": "Selesai Cek — Balik ke Opsi Bersihkan"
+    "rmvFlipBackFull": "Selesai Cek — Balik ke Opsi Bersihkan",
+    "ethicalNoticeTitle": "Kebijakan Penggunaan Bertanggung Jawab & Perlindungan Privasi",
+    "ethicalNoticeDesc": "SolveMyMedia dirancang khusus untuk perlindungan privasi pribadi (menghapus geotag GPS, nomor seri perangkat, dan path pengguna lokal) serta pengelolaan katalog media yang sah. Kami TIDAK mendukung pemalsuan dokumen, penipuan identitas, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggung jawab penuh atas penggunaan yang sah dan etis."
   },
   "es": {
     "toolRemoveVideoMetadata": "Eliminar metadatos de vídeo",
@@ -650,9 +654,9 @@
     "rmvMatrixRow3Vector": "Marca de tiempo de grabación exacta",
     "rmvMatrixRow3Raw": "Fecha de creación y reloj de subsegundos",
     "rmvMatrixRow3Clean": "✓ Neutralizada a nula",
-    "rmvMatrixRow4Vector": "Manifiestos de marca de agua C2PA / AI",
-    "rmvMatrixRow4Raw": "Metadatos de procedencia de IA integrados",
-    "rmvMatrixRow4Clean": "✓ Despojado del contenedor",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Calidad visual del vídeo y velocidad de fotogramas",
     "rmvMatrixRow5Raw": "Transmisión original en 4K/1080p",
     "rmvMatrixRow5Clean": "✓ 100% intacto (copia -c)",
@@ -717,7 +721,9 @@
     "edtSpecsFid4": "VP9 / AV1 intacto",
     "edtResetBtn": "Reiniciar",
     "edtResetTitle": "Restablecer campos a etiquetas originales detectadas",
-    "rmvFlipBackFull": "Comprobación terminada: volver a las opciones de limpieza"
+    "rmvFlipBackFull": "Comprobación terminada: volver a las opciones de limpieza",
+    "ethicalNoticeTitle": "Política de Uso Responsable y Protección de Privacidad",
+    "ethicalNoticeDesc": "SolveMyMedia está diseñado estrictamente para la protección de la privacidad personal (eliminando geoetiquetas GPS, números de serie y rutas locales) y la catalogación legítima de medios. NO respaldamos la falsificación de documentos, el engaño de identidad, la evasión de derechos de autor ni la manipulación de procedencia digital."
   },
   "fr": {
     "toolRemoveVideoMetadata": "Supprimer les métadonnées vidéo",
@@ -890,9 +896,9 @@
     "rmvMatrixRow3Vector": "Horodatage exact de l’enregistrement",
     "rmvMatrixRow3Raw": "Date de création et horloge en sous-seconde",
     "rmvMatrixRow3Clean": "✓ Neutralisé à nul",
-    "rmvMatrixRow4Vector": "Manifestes de filigrane C2PA / AI",
-    "rmvMatrixRow4Raw": "Métadonnées de provenance de l'IA intégrées",
-    "rmvMatrixRow4Clean": "✓ Dépouillé du conteneur",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Qualité visuelle et fréquence d'images de la vidéo",
     "rmvMatrixRow5Raw": "Flux original 4K/1080p",
     "rmvMatrixRow5Clean": "✓ 100% intact (copie -c)",
@@ -957,7 +963,9 @@
     "edtSpecsFid4": "VP9 / AV1 intacts",
     "edtResetBtn": "Réinitialiser",
     "edtResetTitle": "Réinitialiser les champs aux balises détectées d'origine",
-    "rmvFlipBackFull": "Vérification terminée – Revenir aux options de nettoyage"
+    "rmvFlipBackFull": "Vérification terminée – Revenir aux options de nettoyage",
+    "ethicalNoticeTitle": "Politique d'Utilisation Responsable et Protection de la Vie Privée",
+    "ethicalNoticeDesc": "SolveMyMedia est conçu exclusivement pour la protection de la vie privée (nettoyage des géotags GPS, numéros de série et chemins d'accès locaux) et le catalogage légitime des médias. Nous NE soutenons PAS la falsification de documents, l'usurpation d'identité, la violation des droits d'auteur ou la manipulation de provenance."
   },
   "de": {
     "toolRemoveVideoMetadata": "Video-Metadaten entfernen",
@@ -1130,9 +1138,9 @@
     "rmvMatrixRow3Vector": "Exakter Aufnahmezeitstempel",
     "rmvMatrixRow3Raw": "Erstellungsdatum und Subsekundenuhr",
     "rmvMatrixRow3Clean": "✓ Neutralisiert auf Null",
-    "rmvMatrixRow4Vector": "C2PA/AI-Wasserzeichenmanifeste",
-    "rmvMatrixRow4Raw": "Eingebettete KI-Herkunftsmetadaten",
-    "rmvMatrixRow4Clean": "✓ Aus dem Behälter entfernt",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Visuelle Videoqualität und Framerate",
     "rmvMatrixRow5Raw": "Originaler 4K/1080p-Stream",
     "rmvMatrixRow5Clean": "✓ 100 % unberührt (-c Kopie)",
@@ -1197,7 +1205,9 @@
     "edtSpecsFid4": "VP9 / AV1 Unberührt",
     "edtResetBtn": "Zurücksetzen",
     "edtResetTitle": "Setzen Sie die Felder auf die ursprünglich erkannten Tags zurück",
-    "rmvFlipBackFull": "Überprüfung abgeschlossen – Zurück zu den Reinigungsoptionen"
+    "rmvFlipBackFull": "Überprüfung abgeschlossen – Zurück zu den Reinigungsoptionen",
+    "ethicalNoticeTitle": "Richtlinie für Verantwortungsvolle Nutzung und Datenschutz",
+    "ethicalNoticeDesc": "SolveMyMedia dient ausschließlich dem Schutz der Privatsphäre (Entfernung von GPS-Geotags, Geräteseriennummern und lokalen Benutzerpfaden) sowie der legitimen Medienkatalogisierung. Wir unterstützen KEINE Dokumentenfälschung, Identitätstäuschung, Urheberrechtsumgehung oder Herkunftsmanipulation."
   },
   "it": {
     "toolRemoveVideoMetadata": "Rimuovi metadati video",
@@ -1370,9 +1380,9 @@
     "rmvMatrixRow3Vector": "Timestamp esatto della registrazione",
     "rmvMatrixRow3Raw": "Data di creazione e orologio al secondo",
     "rmvMatrixRow3Clean": "✓ Neutralizzato a null",
-    "rmvMatrixRow4Vector": "Manifesta filigrana C2PA/AI",
-    "rmvMatrixRow4Raw": "Metadati di provenienza dell'intelligenza artificiale incorporati",
-    "rmvMatrixRow4Clean": "✓ Estratto dal contenitore",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Qualità visiva e framerate del video",
     "rmvMatrixRow5Raw": "Streaming originale 4K/1080p",
     "rmvMatrixRow5Clean": "✓ 100% intatto (copia -c)",
@@ -1437,7 +1447,9 @@
     "edtSpecsFid4": "VP9 / AV1 Intatto",
     "edtResetBtn": "Reset",
     "edtResetTitle": "Reimposta i campi sui tag originali rilevati",
-    "rmvFlipBackFull": "Controllo terminato: torna alle opzioni di pulizia"
+    "rmvFlipBackFull": "Controllo terminato: torna alle opzioni di pulizia",
+    "ethicalNoticeTitle": "Informativa sull'Uso Responsabile e Protezione della Privacy",
+    "ethicalNoticeDesc": "SolveMyMedia è progettato esclusivamente per la protezione della privacy personale (rimozione di geotag GPS, numeri di serie e percorsi utente locali) e per la catalogazione legittima dei media. NON approviamo la falsificazione di documenti, l'inganno sull'identità o la violazione del copyright."
   },
   "pt": {
     "toolRemoveVideoMetadata": "Remover metadados de vídeo",
@@ -1610,9 +1622,9 @@
     "rmvMatrixRow3Vector": "Carimbo de data e hora exato da gravação",
     "rmvMatrixRow3Raw": "Data de criação e relógio em subsegundos",
     "rmvMatrixRow3Clean": "✓ Neutralizado para nulo",
-    "rmvMatrixRow4Vector": "Manifestos de marca d’água C2PA/AI",
-    "rmvMatrixRow4Raw": "Metadados de proveniência de IA incorporados",
-    "rmvMatrixRow4Clean": "✓ Retirado do contêiner",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Qualidade visual e taxa de quadros do vídeo",
     "rmvMatrixRow5Raw": "Transmissão original em 4K/1080p",
     "rmvMatrixRow5Clean": "✓ 100% intocado (cópia -c)",
@@ -1677,7 +1689,9 @@
     "edtSpecsFid4": "VP9/AV1 intocado",
     "edtResetBtn": "Reiniciar",
     "edtResetTitle": "Redefinir campos para tags originais detectadas",
-    "rmvFlipBackFull": "Verificação concluída – retornar às opções de limpeza"
+    "rmvFlipBackFull": "Verificação concluída – retornar às opções de limpeza",
+    "ethicalNoticeTitle": "Política de Uso Responsável e Proteção de Privacidade",
+    "ethicalNoticeDesc": "O SolveMyMedia foi desenvolvido estritamente para proteção da privacidade pessoal (limpeza de geotags GPS, números de série e caminhos de usuário locais) e catalogação legítima de mídia. NÃO apoiamos falsificação de documentos, engano de identidade, violação de direitos autorais ou adulteração de procedência."
   },
   "nl": {
     "toolRemoveVideoMetadata": "Videometagegevens verwijderen",
@@ -1850,9 +1864,9 @@
     "rmvMatrixRow3Vector": "Exacte opnametijdstempel",
     "rmvMatrixRow3Raw": "Aanmaakdatum en subsecondeklok",
     "rmvMatrixRow3Clean": "✓ Geneutraliseerd tot nul",
-    "rmvMatrixRow4Vector": "C2PA / AI-watermerkmanifesten",
-    "rmvMatrixRow4Raw": "Ingebedde AI-metagegevens over de herkomst",
-    "rmvMatrixRow4Clean": "✓ Gestript uit container",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Videovisuele kwaliteit en framesnelheid",
     "rmvMatrixRow5Raw": "Originele 4K / 1080p-stream",
     "rmvMatrixRow5Clean": "✓ 100% onaangeroerd (-c kopie)",
@@ -1917,7 +1931,9 @@
     "edtSpecsFid4": "VP9/AV1 Onaangeroerd",
     "edtResetBtn": "Opnieuw instellen",
     "edtResetTitle": "Velden opnieuw instellen op origineel gedetecteerde tags",
-    "rmvFlipBackFull": "Klaar met controleren — Terug naar Opschoningsopties"
+    "rmvFlipBackFull": "Klaar met controleren — Terug naar Opschoningsopties",
+    "ethicalNoticeTitle": "Beleid voor Verantwoord Gebruik en Privacybescherming",
+    "ethicalNoticeDesc": "SolveMyMedia is uitsluitend gebouwd voor privacybescherming (verwijderen van GPS-geotags, hardware-serienummers en lokale gebruikerspaden) en legitiem mediabeheer. Wij keuren documentvervalsing, identiteitsbedrog of auteursrechtinbreuk NIET goed."
   },
   "pl": {
     "toolRemoveVideoMetadata": "Usuń metadane wideo",
@@ -2090,9 +2106,9 @@
     "rmvMatrixRow3Vector": "Dokładny znacznik czasu nagrania",
     "rmvMatrixRow3Raw": "Data utworzenia i zegar subsekundowy",
     "rmvMatrixRow3Clean": "✓ Zneutralizowany do zera",
-    "rmvMatrixRow4Vector": "Manifesty znaku wodnego C2PA / AI",
-    "rmvMatrixRow4Raw": "Wbudowane metadane pochodzenia AI",
-    "rmvMatrixRow4Clean": "✓ Wyjęty z pojemnika",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Jakość wizualna wideo i liczba klatek na sekundę",
     "rmvMatrixRow5Raw": "Oryginalny strumień 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% nietknięte (-c kopia)",
@@ -2157,7 +2173,9 @@
     "edtSpecsFid4": "VP9/AV1 Nietknięte",
     "edtResetBtn": "Nastawić",
     "edtResetTitle": "Zresetuj pola do oryginalnych wykrytych tagów",
-    "rmvFlipBackFull": "Sprawdzanie zakończone — wróć do opcji czyszczenia"
+    "rmvFlipBackFull": "Sprawdzanie zakończone — wróć do opcji czyszczenia",
+    "ethicalNoticeTitle": "Zasady Odpowiedzialnego Użytkowania i Ochrony Prywatności",
+    "ethicalNoticeDesc": "SolveMyMedia służy wyłącznie do ochrony prywatności (usuwanie geotagów GPS, numerów seryjnych sprzętu i lokalnych ścieżek) oraz legalnego katalogowania mediów. NIE popieramy fałszowania dokumentów, podszywania się pod tożsamość ani naruszania praw autorskich."
   },
   "ru": {
     "toolRemoveVideoMetadata": "Удалить метаданные видео",
@@ -2330,9 +2348,9 @@
     "rmvMatrixRow3Vector": "Точная временная метка записи",
     "rmvMatrixRow3Raw": "Дата создания и секундные часы",
     "rmvMatrixRow3Clean": "✓ Нейтрализуется до нуля",
-    "rmvMatrixRow4Vector": "Манифесты водяных знаков C2PA/AI",
-    "rmvMatrixRow4Raw": "Встроенные метаданные происхождения ИИ",
-    "rmvMatrixRow4Clean": "✓ Вынут из контейнера",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Качество видео и частота кадров",
     "rmvMatrixRow5Raw": "Оригинальный поток 4K/1080p",
     "rmvMatrixRow5Clean": "✓ 100% нетронутый (копия -c)",
@@ -2397,7 +2415,9 @@
     "edtSpecsFid4": "VP9/AV1 нетронутый",
     "edtResetBtn": "Перезагрузить",
     "edtResetTitle": "Сбросить поля до исходных обнаруженных тегов",
-    "rmvFlipBackFull": "Проверка завершена — возврат к опциям очистки"
+    "rmvFlipBackFull": "Проверка завершена — возврат к опциям очистки",
+    "ethicalNoticeTitle": "Политика ответственного использования и защиты конфиденциальности",
+    "ethicalNoticeDesc": "SolveMyMedia создан исключительно для защиты личной конфиденциальности (удаления GPS-геотегов, серийных номеров оборудования и локальных путей) и легальной каталогизации медиа. Мы НЕ поддерживаем подделку документов, обман личности, нарушение авторских прав или манипуляцию цифровым происхождением."
   },
   "ja": {
     "toolRemoveVideoMetadata": "ビデオのメタデータを削除する",
@@ -2570,9 +2590,9 @@
     "rmvMatrixRow3Vector": "正確な録音タイムスタンプ",
     "rmvMatrixRow3Raw": "作成日とサブ秒クロック",
     "rmvMatrixRow3Clean": "✓ ヌルに中和される",
-    "rmvMatrixRow4Vector": "C2PA / AI ウォーターマーク マニフェスト",
-    "rmvMatrixRow4Raw": "埋め込み AI 来歴メタデータ",
-    "rmvMatrixRow4Clean": "✓ 容器から剥がした状態",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "ビデオのビジュアル品質とフレームレート",
     "rmvMatrixRow5Raw": "オリジナル 4K / 1080p ストリーム",
     "rmvMatrixRow5Clean": "✓ 100% そのまま (-c copy)",
@@ -2637,7 +2657,9 @@
     "edtSpecsFid4": "VP9 / AV1 そのまま",
     "edtResetBtn": "リセット",
     "edtResetTitle": "フィールドを元の検出されたタグにリセット",
-    "rmvFlipBackFull": "チェック完了 — クリーンオプションに戻る"
+    "rmvFlipBackFull": "チェック完了 — クリーンオプションに戻る",
+    "ethicalNoticeTitle": "責任ある利用とプライバシー保護に関するポリシー",
+    "ethicalNoticeDesc": "SolveMyMediaは、個人のプライバシー保護（GPS位置情報、端末シリアル番号、ローカルユーザーパスの消去）および正規のメディア整理を目的として設計されています。文書の偽造、なりすまし、著作権侵害、またはデジタル出所の改ざんを目的とした利用は一切推奨されません。"
   },
   "ko": {
     "toolRemoveVideoMetadata": "비디오 메타데이터 제거",
@@ -2810,9 +2832,9 @@
     "rmvMatrixRow3Vector": "정확한 녹화 타임스탬프",
     "rmvMatrixRow3Raw": "생성 날짜 및 1초 미만 시계",
     "rmvMatrixRow3Clean": "✓ 무효화되어 null",
-    "rmvMatrixRow4Vector": "C2PA / AI 워터마크 매니페스트",
-    "rmvMatrixRow4Raw": "내장된 AI 출처 메타데이터",
-    "rmvMatrixRow4Clean": "✓ 용기에서 벗겨낸 것",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "비디오 시각적 품질 및 프레임 속도",
     "rmvMatrixRow5Raw": "원본 4K/1080p 스트림",
     "rmvMatrixRow5Clean": "✓ 100% 그대로 유지됨(-c copy)",
@@ -2877,7 +2899,9 @@
     "edtSpecsFid4": "VP9 / AV1 손대지 않음",
     "edtResetBtn": "다시 놓기",
     "edtResetTitle": "필드를 원래 감지된 태그로 재설정",
-    "rmvFlipBackFull": "확인 완료 — 정리 옵션으로 돌아가기"
+    "rmvFlipBackFull": "확인 완료 — 정리 옵션으로 돌아가기",
+    "ethicalNoticeTitle": "책임 있는 사용 및 개인정보 보호 정책",
+    "ethicalNoticeDesc": "SolveMyMedia는 개인정보 보호(GPS 위치 태그, 하드웨어 일련번호, 로컬 사용자 경로 제거) 및 합법적인 미디어 관리를 위해 구축되었습니다. 문서 위조, 신원 기만, 저작권 침해 또는 디지털 출처 조작을 지원하지 않습니다."
   },
   "zh": {
     "toolRemoveVideoMetadata": "删除视频元数据",
@@ -3050,9 +3074,9 @@
     "rmvMatrixRow3Vector": "精确的录音时间戳",
     "rmvMatrixRow3Raw": "创建日期和亚秒时钟",
     "rmvMatrixRow3Clean": "✓ 中和为空",
-    "rmvMatrixRow4Vector": "C2PA / AI 水印清单",
-    "rmvMatrixRow4Raw": "嵌入式 AI 来源元数据",
-    "rmvMatrixRow4Clean": "✓ 从容器中取出",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "视频视觉质量和帧速率",
     "rmvMatrixRow5Raw": "原始4K/1080p流",
     "rmvMatrixRow5Clean": "✓ 100% 未受影响（-c 副本）",
@@ -3117,7 +3141,9 @@
     "edtSpecsFid4": "VP9 / AV1 未受影响",
     "edtResetBtn": "重置",
     "edtResetTitle": "将字段重置为原始检测到的标签",
-    "rmvFlipBackFull": "完成检查 - 返回清洁选项"
+    "rmvFlipBackFull": "完成检查 - 返回清洁选项",
+    "ethicalNoticeTitle": "负责任使用与隐私保护政策",
+    "ethicalNoticeDesc": "SolveMyMedia 专为个人隐私保护（清理 GPS 地理标签、硬件序列号和本地用户路径）以及正规媒体整理而构建。我们绝不支持伪造文件、虚假身份、规避版权或篡改数字来源。用户对其合法使用承担全部责任。"
   },
   "zh-TW": {
     "toolRemoveVideoMetadata": "刪除視訊元數據",
@@ -3290,9 +3316,9 @@
     "rmvMatrixRow3Vector": "精確的錄音時間戳",
     "rmvMatrixRow3Raw": "創建日期和亞秒時鐘",
     "rmvMatrixRow3Clean": "✓ 中和為空",
-    "rmvMatrixRow4Vector": "C2PA / AI 浮水印清單",
-    "rmvMatrixRow4Raw": "嵌入式 AI 來源元數據",
-    "rmvMatrixRow4Clean": "✓ 從容器中取出",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "視訊視覺品質和幀速率",
     "rmvMatrixRow5Raw": "原始4K/1080p流",
     "rmvMatrixRow5Clean": "✓ 100% 未受影響（-c 副本）",
@@ -3357,7 +3383,9 @@
     "edtSpecsFid4": "VP9 / AV1 未受影響",
     "edtResetBtn": "重置",
     "edtResetTitle": "將欄位重設為原始偵測到的標籤",
-    "rmvFlipBackFull": "完成檢查 - 返回清潔選項"
+    "rmvFlipBackFull": "完成檢查 - 返回清潔選項",
+    "ethicalNoticeTitle": "負責任使用與隱私保護政策",
+    "ethicalNoticeDesc": "SolveMyMedia 專為個人隱私保護（清理 GPS 地理標籤、硬體序號和本地使用者路徑）以及正規媒體整理而構建。我們絕不支持偽造文件、虛假身份、規避版權或篡改數位來源。使用者對其合法使用承擔全部責任。"
   },
   "tr": {
     "toolRemoveVideoMetadata": "Video Meta Verilerini Kaldır",
@@ -3530,9 +3558,9 @@
     "rmvMatrixRow3Vector": "Tam Kayıt Zaman Damgası",
     "rmvMatrixRow3Raw": "Oluşturulma tarihi ve saniye altı saati",
     "rmvMatrixRow3Clean": "✓ Sıfıra nötrleştirildi",
-    "rmvMatrixRow4Vector": "C2PA / AI Filigran Bildirimleri",
-    "rmvMatrixRow4Raw": "Gömülü AI kaynak meta verileri",
-    "rmvMatrixRow4Clean": "✓ Konteynerden sıyrılmış",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Video Görsel Kalitesi ve Kare Hızı",
     "rmvMatrixRow5Raw": "Orijinal 4K / 1080p akışı",
     "rmvMatrixRow5Clean": "✓ %100 El değmemiş (-c kopya)",
@@ -3597,7 +3625,9 @@
     "edtSpecsFid4": "VP9 / AV1 El değmemiş",
     "edtResetBtn": "Sıfırla",
     "edtResetTitle": "Alanları orijinal algılanan etiketlere sıfırla",
-    "rmvFlipBackFull": "Kontrol Bitti — Temizleme Seçeneklerine Dön"
+    "rmvFlipBackFull": "Kontrol Bitti — Temizleme Seçeneklerine Dön",
+    "ethicalNoticeTitle": "Sorumlu Kullanım ve Gizlilik Koruma Politikası",
+    "ethicalNoticeDesc": "SolveMyMedia, yalnızca kişisel gizliliği korumak (GPS coğrafi etiketlerini, donanım seri numaralarını ve yerel yolları temizlemek) ve yasal medya yönetimi için tasarlanmıştır. Belge sahteciliğini, kimlik aldatmasını veya telif hakkı ihlalini desteklemiyoruz."
   },
   "vi": {
     "toolRemoveVideoMetadata": "Xóa siêu dữ liệu video",
@@ -3770,9 +3800,9 @@
     "rmvMatrixRow3Vector": "Dấu thời gian ghi chính xác",
     "rmvMatrixRow3Raw": "Ngày tạo và đồng hồ phụ",
     "rmvMatrixRow3Clean": "✓ Trung hòa thành null",
-    "rmvMatrixRow4Vector": "Bản kê khai hình mờ C2PA / AI",
-    "rmvMatrixRow4Raw": "Siêu dữ liệu xuất xứ AI được nhúng",
-    "rmvMatrixRow4Clean": "✓ Tước từ container",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Chất lượng hình ảnh và tốc độ khung hình của video",
     "rmvMatrixRow5Raw": "Luồng 4K / 1080p gốc",
     "rmvMatrixRow5Clean": "✓ 100% chưa được xử lý (bản sao -c)",
@@ -3837,7 +3867,9 @@
     "edtSpecsFid4": "VP9 / AV1 Chưa được chạm tới",
     "edtResetBtn": "Cài lại",
     "edtResetTitle": "Đặt lại các trường về thẻ được phát hiện ban đầu",
-    "rmvFlipBackFull": "Kiểm tra xong - Quay lại Tùy chọn sạch"
+    "rmvFlipBackFull": "Kiểm tra xong - Quay lại Tùy chọn sạch",
+    "ethicalNoticeTitle": "Chính sách Sử dụng Có trách nhiệm & Bảo vệ Quyền riêng tư",
+    "ethicalNoticeDesc": "SolveMyMedia được xây dựng nhằm bảo vệ quyền riêng tư cá nhân (xóa vị trí GPS, số sê-ri thiết bị và đường dẫn cục bộ) cũng như quản lý phương tiện hợp pháp. Chúng tôi KHÔNG ủng hộ việc làm giả tài liệu, gian lận danh tính hoặc vi phạm bản quyền."
   },
   "th": {
     "toolRemoveVideoMetadata": "ลบข้อมูลเมตาของวิดีโอ",
@@ -4010,9 +4042,9 @@
     "rmvMatrixRow3Vector": "การประทับเวลาการบันทึกที่แน่นอน",
     "rmvMatrixRow3Raw": "วันที่สร้างและนาฬิการอง",
     "rmvMatrixRow3Clean": "✓ ทำให้เป็นกลางเป็นโมฆะ",
-    "rmvMatrixRow4Vector": "การแสดงลายน้ำ C2PA / AI",
-    "rmvMatrixRow4Raw": "ข้อมูลเมตาที่มาของ AI ที่ฝังอยู่",
-    "rmvMatrixRow4Clean": "✓ แกะออกจากภาชนะ",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "คุณภาพภาพวิดีโอและอัตราเฟรม",
     "rmvMatrixRow5Raw": "สตรีม 4K / 1080p ดั้งเดิม",
     "rmvMatrixRow5Clean": "✓ ไม่มีการแตะต้อง 100% (สำเนา -c)",
@@ -4077,7 +4109,9 @@
     "edtSpecsFid4": "VP9 / AV1 ไม่ถูกแตะต้อง",
     "edtResetBtn": "รีเซ็ต",
     "edtResetTitle": "รีเซ็ตฟิลด์เป็นแท็กที่ตรวจพบดั้งเดิม",
-    "rmvFlipBackFull": "การตรวจสอบเสร็จสิ้น - กลับสู่ตัวเลือกการทำความสะอาด"
+    "rmvFlipBackFull": "การตรวจสอบเสร็จสิ้น - กลับสู่ตัวเลือกการทำความสะอาด",
+    "ethicalNoticeTitle": "นโยบายการใช้งานอย่างมีความรับผิดชอบและการปกป้องความเป็นส่วนตัว",
+    "ethicalNoticeDesc": "SolveMyMedia สร้างขึ้นเพื่อการปกป้องความเป็นส่วนตัว (ลบพิกัด GPS, หมายเลขซีเรียลฮาร์ดแวร์ และเส้นทางโฟลเดอร์ผู้ใช้) และการจัดระเบียบสื่อที่ถูกต้องตามกฎหมาย เราไม่สนับสนุนการปลอมแปลงเอกสาร การหลอกลวงตัวตน หรือการละเมิดลิขสิทธิ์"
   },
   "ar": {
     "toolRemoveVideoMetadata": "إزالة البيانات الوصفية للفيديو",
@@ -4250,9 +4284,9 @@
     "rmvMatrixRow3Vector": "الطابع الزمني للتسجيل الدقيق",
     "rmvMatrixRow3Raw": "تاريخ الإنشاء والساعة الفرعية",
     "rmvMatrixRow3Clean": "✓ تحييد إلى لاغية",
-    "rmvMatrixRow4Vector": "C2PA / AI بيانات العلامة المائية",
-    "rmvMatrixRow4Raw": "البيانات الوصفية المضمنة لمصدر الذكاء الاصطناعي",
-    "rmvMatrixRow4Clean": "✓ جردت من الحاوية",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "جودة الفيديو المرئي ومعدل الإطارات",
     "rmvMatrixRow5Raw": "تيار 4K / 1080p الأصلي",
     "rmvMatrixRow5Clean": "✓ 100% لم تمسها (نسخة -c)",
@@ -4317,7 +4351,9 @@
     "edtSpecsFid4": "VP9 / AV1 لم يمسها",
     "edtResetBtn": "إعادة ضبط",
     "edtResetTitle": "إعادة تعيين الحقول إلى العلامات الأصلية المكتشفة",
-    "rmvFlipBackFull": "تم التحقق - العودة إلى الخيارات النظيفة"
+    "rmvFlipBackFull": "تم التحقق - العودة إلى الخيارات النظيفة",
+    "ethicalNoticeTitle": "سياسة الاستخدام المسؤول وحماية الخصوصية",
+    "ethicalNoticeDesc": "تم تصميم SolveMyMedia خصيصًا لحماية الخصوصية الشخصية (تنظيف علامات GPS الجغرافية والأرقام التسلسلية ومسارات المستخدم المحلية) وإدارة الوسائط القانونية. نحن لا ندعم تزوير المستندات أو خداع الهوية أو انتهاك حقوق الطبع والنشر."
   },
   "hi": {
     "toolRemoveVideoMetadata": "वीडियो मेटाडेटा हटाएँ",
@@ -4490,9 +4526,9 @@
     "rmvMatrixRow3Vector": "सटीक रिकॉर्डिंग टाइमस्टैम्प",
     "rmvMatrixRow3Raw": "निर्माण तिथि और उपसेकंड घड़ी",
     "rmvMatrixRow3Clean": "✓ निष्प्रभावी से शून्य",
-    "rmvMatrixRow4Vector": "C2PA/AI वॉटरमार्क प्रकट",
-    "rmvMatrixRow4Raw": "एंबेडेड एआई उद्गम मेटाडेटा",
-    "rmvMatrixRow4Clean": "✓ कंटेनर से निकाला गया",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "वीडियो दृश्य गुणवत्ता और फ़्रेमरेट",
     "rmvMatrixRow5Raw": "मूल 4K/1080p स्ट्रीम",
     "rmvMatrixRow5Clean": "✓ 100% अछूता (-सी कॉपी)",
@@ -4557,7 +4593,9 @@
     "edtSpecsFid4": "VP9/AV1 अछूता",
     "edtResetBtn": "रीसेट करें",
     "edtResetTitle": "फ़ील्ड को मूल खोजे गए टैग पर रीसेट करें",
-    "rmvFlipBackFull": "जाँच पूरी हो गई - स्वच्छ विकल्पों पर लौटें"
+    "rmvFlipBackFull": "जाँच पूरी हो गई - स्वच्छ विकल्पों पर लौटें",
+    "ethicalNoticeTitle": "जिम्मेदार उपयोग और गोपनीयता संरक्षण नीति",
+    "ethicalNoticeDesc": "SolveMyMedia को केवल व्यक्तिगत गोपनीयता सुरक्षा (GPS जियोटैग, हार्डवेयर सीरियल और स्थानीय उपयोगकर्ता पथ हटाना) और वैध मीडिया प्रबंधन के लिए बनाया गया है। हम दस्तावेज़ जालसाजी, पहचान धोखाधड़ी या कॉपीराइट उल्लंघन का समर्थन नहीं करते हैं।"
   },
   "sv": {
     "toolRemoveVideoMetadata": "Ta bort videometadata",
@@ -4730,9 +4768,9 @@
     "rmvMatrixRow3Vector": "Exakt inspelningstidsstämpel",
     "rmvMatrixRow3Raw": "Skapandedatum och andra klocka",
     "rmvMatrixRow3Clean": "✓ Neutraliserad till noll",
-    "rmvMatrixRow4Vector": "C2PA / AI vattenmärkesmanifest",
-    "rmvMatrixRow4Raw": "Inbäddad AI-härkomstmetadata",
-    "rmvMatrixRow4Clean": "✓ Skalad från behållaren",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Video visuell kvalitet och framerate",
     "rmvMatrixRow5Raw": "Original 4K / 1080p stream",
     "rmvMatrixRow5Clean": "✓ 100 % orörd (-c kopia)",
@@ -4797,7 +4835,9 @@
     "edtSpecsFid4": "VP9 / AV1 orörd",
     "edtResetBtn": "Återställa",
     "edtResetTitle": "Återställ fälten till ursprungliga upptäckta taggar",
-    "rmvFlipBackFull": "Klar kontroll — Återgå till Rengöringsalternativ"
+    "rmvFlipBackFull": "Klar kontroll — Återgå till Rengöringsalternativ",
+    "ethicalNoticeTitle": "Policy för Ansvarsfull Användning och Integritetsskydd",
+    "ethicalNoticeDesc": "SolveMyMedia är byggt för att skydda den personliga integriteten (rensa GPS-geotaggar, hårdvaruserienummer och lokala sökvägar) samt legitim mediehantering. Vi stöder INTE förfalskning av dokument, identitetsbedrägeri eller upphovsrättsintrång."
   },
   "no": {
     "toolRemoveVideoMetadata": "Fjern videometadata",
@@ -4970,9 +5010,9 @@
     "rmvMatrixRow3Vector": "Nøyaktig tidsstempel for opptak",
     "rmvMatrixRow3Raw": "Opprettelsesdato og andre klokke",
     "rmvMatrixRow3Clean": "✓ Nøytralisert til null",
-    "rmvMatrixRow4Vector": "C2PA / AI vannmerkemanifester",
-    "rmvMatrixRow4Raw": "Innebygde AI herkomstmetadata",
-    "rmvMatrixRow4Clean": "✓ Fjernet fra beholderen",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Video visuell kvalitet og rammehastighet",
     "rmvMatrixRow5Raw": "Original 4K / 1080p-strøm",
     "rmvMatrixRow5Clean": "✓ 100 % urørt (-c kopi)",
@@ -5037,7 +5077,9 @@
     "edtSpecsFid4": "VP9 / AV1 Urørt",
     "edtResetBtn": "Tilbakestill",
     "edtResetTitle": "Tilbakestill feltene til originale oppdagede tagger",
-    "rmvFlipBackFull": "Ferdig med kontroll — Gå tilbake til rene alternativer"
+    "rmvFlipBackFull": "Ferdig med kontroll — Gå tilbake til rene alternativer",
+    "ethicalNoticeTitle": "Retningslinjer for Ansvarlig Bruk og Personvern",
+    "ethicalNoticeDesc": "SolveMyMedia er bygget utelukkende for personvern (fjerning av GPS-geotagger, maskinvareserienumre og lokale brukerstier) og legitim mediehåndtering. Vi støtter IKKE dokumentforfalskning, identitetsbedrag eller brudd på opphavsrett."
   },
   "da": {
     "toolRemoveVideoMetadata": "Fjern videometadata",
@@ -5210,9 +5252,9 @@
     "rmvMatrixRow3Vector": "Præcis optagelsestidsstempel",
     "rmvMatrixRow3Raw": "Oprettelsesdato og sekundært ur",
     "rmvMatrixRow3Clean": "✓ Neutraliseret til nul",
-    "rmvMatrixRow4Vector": "C2PA / AI vandmærkemanifester",
-    "rmvMatrixRow4Raw": "Indlejret AI herkomst metadata",
-    "rmvMatrixRow4Clean": "✓ Fjernet fra beholderen",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Video visuel kvalitet og framerate",
     "rmvMatrixRow5Raw": "Original 4K / 1080p stream",
     "rmvMatrixRow5Clean": "✓ 100 % uberørt (-c kopi)",
@@ -5277,7 +5319,9 @@
     "edtSpecsFid4": "VP9 / AV1 Urørt",
     "edtResetBtn": "Nulstil",
     "edtResetTitle": "Nulstil felter til originale registrerede tags",
-    "rmvFlipBackFull": "Udført kontrol — Vend tilbage til Rengøringsindstillinger"
+    "rmvFlipBackFull": "Udført kontrol — Vend tilbage til Rengøringsindstillinger",
+    "ethicalNoticeTitle": "Politik for Ansvarlig Brug og Beskyttelse af Privatliv",
+    "ethicalNoticeDesc": "SolveMyMedia er udelukkende bygget til beskyttelse af personlige oplysninger (fjernelse af GPS-geotags, hardware-serienumre og lokale brugerstier) og legitim mediestyring. Vi støtter IKKE dokumentforfalskning, identitetssvindel eller kränkelse af ophavsret."
   },
   "fi": {
     "toolRemoveVideoMetadata": "Poista videon metatiedot",
@@ -5450,9 +5494,9 @@
     "rmvMatrixRow3Vector": "Tarkka tallennusaikaleima",
     "rmvMatrixRow3Raw": "Luontipäivä ja sekunti kello",
     "rmvMatrixRow3Clean": "✓ Neutraloitu nollaksi",
-    "rmvMatrixRow4Vector": "C2PA / AI Watermark Manifests",
-    "rmvMatrixRow4Raw": "Upotetut tekoälyn alkuperän metatiedot",
-    "rmvMatrixRow4Clean": "✓ Irrotettu säiliöstä",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Videon visuaalinen laatu ja kehystaajuus",
     "rmvMatrixRow5Raw": "Alkuperäinen 4K / 1080p stream",
     "rmvMatrixRow5Clean": "✓ 100 % koskematon (-c kopio)",
@@ -5517,7 +5561,9 @@
     "edtSpecsFid4": "VP9 / AV1 koskematon",
     "edtResetBtn": "Nollaa",
     "edtResetTitle": "Palauta kentät alkuperäisiksi tunnistetuiksi tunnisteiksi",
-    "rmvFlipBackFull": "Tarkastus tehty – Palaa puhdistusasetuksiin"
+    "rmvFlipBackFull": "Tarkastus tehty – Palaa puhdistusasetuksiin",
+    "ethicalNoticeTitle": "Vastuullisen Käytön ja Yksityisyydensuojan Käytäntö",
+    "ethicalNoticeDesc": "SolveMyMedia on rakennettu yksinomaan yksityisyyden suojaamiseen (GPS-sijaintien, laitteistosarjojen ja paikallisten polkujen poistamiseen) ja lailliseen median hallintaan. Emme tue asiakirjojen väärentämistä, henkilöllisyyden harhaanjohtamista tai tekijänoikeusrikkomuksia."
   },
   "cs": {
     "toolRemoveVideoMetadata": "Odebrat metadata videa",
@@ -5690,9 +5736,9 @@
     "rmvMatrixRow3Vector": "Přesné časové razítko záznamu",
     "rmvMatrixRow3Raw": "Datum vytvoření a podsekundové hodiny",
     "rmvMatrixRow3Clean": "✓ Neutralizováno na nulu",
-    "rmvMatrixRow4Vector": "Manifesty vodoznaku C2PA / AI",
-    "rmvMatrixRow4Raw": "Vložená metadata původu AI",
-    "rmvMatrixRow4Clean": "✓ Vyjmutí z nádoby",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Vizuální kvalita videa a snímková frekvence",
     "rmvMatrixRow5Raw": "Původní stream 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% nedotčeno (-c kopie)",
@@ -5757,7 +5803,9 @@
     "edtSpecsFid4": "VP9 / AV1 Nedotčeno",
     "edtResetBtn": "Resetovat",
     "edtResetTitle": "Resetovat pole na původní detekované značky",
-    "rmvFlipBackFull": "Kontrola dokončena — Vraťte se k možnostem čištění"
+    "rmvFlipBackFull": "Kontrola dokončena — Vraťte se k možnostem čištění",
+    "ethicalNoticeTitle": "Zásady Odpovědného Používání a Ochrany Soukromí",
+    "ethicalNoticeDesc": "SolveMyMedia je určen výhradně pro ochranu soukromí (odstranění GPS geotagů, sériových čísel hardwaru a místních uživatelských cest) a legitimní správu médií. Nepodporujeme padělání dokumentů, klamání identity ani porušování autorských práv."
   },
   "hu": {
     "toolRemoveVideoMetadata": "Távolítsa el a videó metaadatait",
@@ -5930,9 +5978,9 @@
     "rmvMatrixRow3Vector": "Pontos rögzítési időbélyeg",
     "rmvMatrixRow3Raw": "Létrehozás dátuma és a másodperc alatti óra",
     "rmvMatrixRow3Clean": "✓ Semlegesítve nullára",
-    "rmvMatrixRow4Vector": "C2PA / AI vízjel manifesztációk",
-    "rmvMatrixRow4Raw": "Beágyazott mesterséges intelligencia származási metaadatok",
-    "rmvMatrixRow4Clean": "✓ A tartályból leszedve",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Videó képminőség és képkockaszám",
     "rmvMatrixRow5Raw": "Eredeti 4K / 1080p adatfolyam",
     "rmvMatrixRow5Clean": "✓ 100% érintetlen (-c másolat)",
@@ -5997,7 +6045,9 @@
     "edtSpecsFid4": "VP9 / AV1 Érintetlen",
     "edtResetBtn": "Reset",
     "edtResetTitle": "Állítsa vissza a mezőket az eredeti észlelt címkékre",
-    "rmvFlipBackFull": "Ellenőrzés kész — Térjen vissza a Tisztítási beállításokhoz"
+    "rmvFlipBackFull": "Ellenőrzés kész — Térjen vissza a Tisztítási beállításokhoz",
+    "ethicalNoticeTitle": "Felelősségteljes Használati és Adatvédelmi Irányelvek",
+    "ethicalNoticeDesc": "A SolveMyMedia kizárólag a személyes adatok védelmére (GPS-címkék, hardver-sorozatszámok és helyi felhasználói útvonalak eltávolítására) és a jogszerű médiakezelésre szolgál. NEM támogatjuk az okirat-hamisítást, a személyazonosság megtévesztését vagy a szerzői jogok megsértését."
   },
   "el": {
     "toolRemoveVideoMetadata": "Κατάργηση μεταδεδομένων βίντεο",
@@ -6170,9 +6220,9 @@
     "rmvMatrixRow3Vector": "Ακριβής χρονική σήμανση εγγραφής",
     "rmvMatrixRow3Raw": "Ημερομηνία δημιουργίας & ρολόι δευτερολέπτου",
     "rmvMatrixRow3Clean": "✓ Εξουδετερωμένη έως μηδενική",
-    "rmvMatrixRow4Vector": "Εκδηλώσεις υδατογραφήματος C2PA / AI",
-    "rmvMatrixRow4Raw": "Ενσωματωμένα μεταδεδομένα προέλευσης AI",
-    "rmvMatrixRow4Clean": "✓ Απογυμνώθηκε από το δοχείο",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Ποιότητα οπτικού βίντεο και καρέ",
     "rmvMatrixRow5Raw": "Αρχική ροή 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% ανέγγιχτο (-c αντίγραφο)",
@@ -6237,7 +6287,9 @@
     "edtSpecsFid4": "VP9 / AV1 Άθικτο",
     "edtResetBtn": "Επαναφορά",
     "edtResetTitle": "Επαναφέρετε τα πεδία στις αρχικές ετικέτες που εντοπίστηκαν",
-    "rmvFlipBackFull": "Ολοκλήρωση ελέγχου — Επιστροφή στις Επιλογές καθαρισμού"
+    "rmvFlipBackFull": "Ολοκλήρωση ελέγχου — Επιστροφή στις Επιλογές καθαρισμού",
+    "ethicalNoticeTitle": "Πολιτική Υπεύθυνης Χρήσης και Προστασίας Απορρήτου",
+    "ethicalNoticeDesc": "Το SolveMyMedia έχει σχεδιαστεί αποκλειστικά για την προστασία του απορρήτου (καθαρισμός ετικετών GPS, σειριακών αριθμών υλικού και τοπικών διαδρομών) και τη νόμιμη οργάνωση πολυμέσων. ΔΕΝ υποστηρίζουμε την παραχάραξη εγγράφων ή την παραβίαση πνευματικών δικαιωμάτων."
   },
   "ro": {
     "toolRemoveVideoMetadata": "Eliminați metadatele video",
@@ -6410,9 +6462,9 @@
     "rmvMatrixRow3Vector": "Timpul exact de înregistrare",
     "rmvMatrixRow3Raw": "Data creării și ceasul subsecunde",
     "rmvMatrixRow3Clean": "✓ Neutralizat la nul",
-    "rmvMatrixRow4Vector": "Manifeste C2PA / AI Watermark",
-    "rmvMatrixRow4Raw": "Metadate de proveniență AI încorporate",
-    "rmvMatrixRow4Clean": "✓ Scoate din container",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Calitate vizuală și framerate video",
     "rmvMatrixRow5Raw": "Flux original 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% neatins (copie -c)",
@@ -6477,7 +6529,9 @@
     "edtSpecsFid4": "VP9 / AV1 neatins",
     "edtResetBtn": "Resetați",
     "edtResetTitle": "Resetați câmpurile la etichetele inițiale detectate",
-    "rmvFlipBackFull": "Verificare gata — Reveniți la Opțiuni de curățare"
+    "rmvFlipBackFull": "Verificare gata — Reveniți la Opțiuni de curățare",
+    "ethicalNoticeTitle": "Politica de Utilizare Responsabilă și Protecție a Confidențialității",
+    "ethicalNoticeDesc": "SolveMyMedia este conceput exclusiv pentru protecția confidențialității (eliminarea etichetelor GPS, a numerelor de serie hardware și a căilor locale) și gestionarea legitimă a conținutului media. NU sprijinim falsificarea documentelor, înșelarea identității sau încălcarea drepturilor de autor."
   },
   "uk": {
     "toolRemoveVideoMetadata": "Видалити метадані відео",
@@ -6650,9 +6704,9 @@
     "rmvMatrixRow3Vector": "Точна позначка часу запису",
     "rmvMatrixRow3Raw": "Дата створення та субсекундний годинник",
     "rmvMatrixRow3Clean": "✓ Нейтралізовано до нуля",
-    "rmvMatrixRow4Vector": "Маніфести водяних знаків C2PA / AI",
-    "rmvMatrixRow4Raw": "Вбудовані метадані походження ШІ",
-    "rmvMatrixRow4Clean": "✓ Витягнуто з контейнера",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Візуальна якість відео та частота кадрів",
     "rmvMatrixRow5Raw": "Оригінальний потік 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% незайманий (-c копія)",
@@ -6717,7 +6771,9 @@
     "edtSpecsFid4": "VP9 / AV1 Недоторканий",
     "edtResetBtn": "Скинути",
     "edtResetTitle": "Скинути поля до оригінальних виявлених тегів",
-    "rmvFlipBackFull": "Перевірку завершено — повернутися до параметрів очищення"
+    "rmvFlipBackFull": "Перевірку завершено — повернутися до параметрів очищення",
+    "ethicalNoticeTitle": "Політика відповідального використання та захисту конфіденційності",
+    "ethicalNoticeDesc": "SolveMyMedia створено виключно для захисту особистої конфідενційності (видалення GPS-геотегів, серійних номерів та локальних шляхів) і легальної каталогізації медіа. Ми НЕ підтримуємо підробку документів, обман особистості або порушення авторських прав."
   },
   "ms": {
     "toolRemoveVideoMetadata": "Alih keluar Metadata Video",
@@ -6890,9 +6946,9 @@
     "rmvMatrixRow3Vector": "Cap Masa Rakaman Tepat",
     "rmvMatrixRow3Raw": "Tarikh penciptaan & jam subsaat",
     "rmvMatrixRow3Clean": "✓ Dineutralkan kepada null",
-    "rmvMatrixRow4Vector": "Manifes Tera Air C2PA / AI",
-    "rmvMatrixRow4Raw": "Metadata asal AI terbenam",
-    "rmvMatrixRow4Clean": "✓ Dilucutkan dari bekas",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Kualiti Visual & Kadar Bingkai Video",
     "rmvMatrixRow5Raw": "Strim 4K / 1080p asal",
     "rmvMatrixRow5Clean": "✓ 100% Tidak Disentuh (-c salinan)",
@@ -6957,7 +7013,9 @@
     "edtSpecsFid4": "VP9 / AV1 Tidak Tersentuh",
     "edtResetBtn": "Tetapkan semula",
     "edtResetTitle": "Tetapkan semula medan kepada tag asal yang dikesan",
-    "rmvFlipBackFull": "Selesai Menyemak — Kembali ke Pilihan Bersih"
+    "rmvFlipBackFull": "Selesai Menyemak — Kembali ke Pilihan Bersih",
+    "ethicalNoticeTitle": "Dasar Penggunaan Bertanggungjawab & Perlindungan Privasi",
+    "ethicalNoticeDesc": "SolveMyMedia direka khas untuk perlindungan privasi peribadi (memadamkan geotag GPS, nombor siri peranti, dan laluan pengguna tempatan) serta pengurusan katalog media yang sah. Kami TIDAK menyokong pemalsuan dokumen, penipuan identiti, pelanggaran hak cipta, atau manipulasi asal-usul digital. Pengguna bertanggungjawab sepenuhnya untuk penggunaan yang sah dan beretika."
   },
   "tl": {
     "toolRemoveVideoMetadata": "Alisin ang Metadata ng Video",
@@ -7130,9 +7188,9 @@
     "rmvMatrixRow3Vector": "Eksaktong Recording Timestamp",
     "rmvMatrixRow3Raw": "Petsa ng paggawa at subsecond na orasan",
     "rmvMatrixRow3Clean": "✓ Neutralize sa null",
-    "rmvMatrixRow4Vector": "C2PA / AI Watermark Manifests",
-    "rmvMatrixRow4Raw": "Naka-embed na AI provenance metadata",
-    "rmvMatrixRow4Clean": "✓ Hinubad mula sa lalagyan",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Kalidad ng Visual at Framerate ng Video",
     "rmvMatrixRow5Raw": "Orihinal na 4K / 1080p stream",
     "rmvMatrixRow5Clean": "✓ 100% Hindi Nagalaw (-c kopya)",
@@ -7197,7 +7255,9 @@
     "edtSpecsFid4": "VP9 / AV1 Hindi Nagalaw",
     "edtResetBtn": "I-reset",
     "edtResetTitle": "I-reset ang mga field sa orihinal na nakitang mga tag",
-    "rmvFlipBackFull": "Tapos na sa Pagsusuri — Bumalik sa Clean Options"
+    "rmvFlipBackFull": "Tapos na sa Pagsusuri — Bumalik sa Clean Options",
+    "ethicalNoticeTitle": "Patakaran sa Responsableng Paggamit at Proteksyon sa Privacy",
+    "ethicalNoticeDesc": "Ang SolveMyMedia ay binuo para sa proteksyon ng privacy (pag-aalis ng mga GPS geotag, serial number ng hardware, at mga lokal na path ng user) at lehitimong pamamahala ng media. HINDI namin sinusuportahan ang pamemeke ng dokumento, panlilinlang sa pagkakakilanlan, o paglabag sa copyright."
   },
   "he": {
     "toolRemoveVideoMetadata": "הסר מטא נתונים של וידאו",
@@ -7370,9 +7430,9 @@
     "rmvMatrixRow3Vector": "חותמת זמן הקלטה מדויקת",
     "rmvMatrixRow3Raw": "תאריך יצירה ושעון משנה",
     "rmvMatrixRow3Clean": "✓ מנוטרל לריק",
-    "rmvMatrixRow4Vector": "גילויי סימן מים C2PA / AI",
-    "rmvMatrixRow4Raw": "מטא נתונים משובצים של AI",
-    "rmvMatrixRow4Clean": "✓ מופשט מהמיכל",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "איכות חזותית וקצב פריימים של וידאו",
     "rmvMatrixRow5Raw": "זרם מקורי של 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% ללא נגיעה (-c עותק)",
@@ -7437,7 +7497,9 @@
     "edtSpecsFid4": "VP9 / AV1 Untouched",
     "edtResetBtn": "אִתחוּל",
     "edtResetTitle": "אפס שדות לתגים מקוריים שזוהו",
-    "rmvFlipBackFull": "סיום הבדיקה - חזור לאפשרויות נקיות"
+    "rmvFlipBackFull": "סיום הבדיקה - חזור לאפשרויות נקיות",
+    "ethicalNoticeTitle": "מדיניות שימוש אחראי והגנת פרטיות",
+    "ethicalNoticeDesc": "SolveMyMedia מיועד אך ורק להגנה על הפרטיות (הסרת מיקומי GPS, מספרים סידוריים ונתיבים מקומיים) וניהול חוקי של קובצי מדיה. איננו תומכים בזיוף מסמכים, הטעיית זהות או הפרת זכויות יוצרים."
   },
   "sk": {
     "toolRemoveVideoMetadata": "Odstrániť metadáta videa",
@@ -7610,9 +7672,9 @@
     "rmvMatrixRow3Vector": "Presná časová pečiatka záznamu",
     "rmvMatrixRow3Raw": "Dátum vytvorenia a hodiny v sekundách",
     "rmvMatrixRow3Clean": "✓ Neutralizované na nulu",
-    "rmvMatrixRow4Vector": "Manifesty vodoznaku C2PA / AI",
-    "rmvMatrixRow4Raw": "Vložené metadáta pôvodu AI",
-    "rmvMatrixRow4Clean": "✓ Vybraté z nádoby",
+    "rmvMatrixRow4Vector": "Software & Operating System Telemetry",
+    "rmvMatrixRow4Raw": "Encoder version, OS build, user filepaths",
+    "rmvMatrixRow4Clean": "✓ Purged from container",
     "rmvMatrixRow5Vector": "Vizuálna kvalita videa a snímková frekvencia",
     "rmvMatrixRow5Raw": "Pôvodný stream 4K / 1080p",
     "rmvMatrixRow5Clean": "✓ 100% nedotknuté (-c kópia)",
@@ -7677,6 +7739,8 @@
     "edtSpecsFid4": "VP9 / AV1 Nedotknuté",
     "edtResetBtn": "Resetovať",
     "edtResetTitle": "Resetovať polia na pôvodné zistené značky",
-    "rmvFlipBackFull": "Kontrola dokončená — Vráťte sa do možností čistenia"
+    "rmvFlipBackFull": "Kontrola dokončená — Vráťte sa do možností čistenia",
+    "ethicalNoticeTitle": "Zásady Zodpovedného Používania a Ochrany Súkromia",
+    "ethicalNoticeDesc": "SolveMyMedia je určený výhradne na ochranu súkromia (odstránenie GPS geotagov, sériových čísel hardvéru a lokálnych ciest) a legitímnu správu médií. Nepodporujeme falšovanie dokumentov, klamanie identity ani porušovanie autorských práv."
   }
 }

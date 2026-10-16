@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tag, Sparkles, Music, User, Calendar, Disc, FileText, Check, AlertCircle, Zap, Loader2, RotateCcw, Radio, Headphones, Sliders } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
+import { ResponsibleUseNotice } from '../components/ResponsibleUseNotice';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanAudioMetadata, type DetectedAudioMetadata } from '../utils/mediaMetadataScanner';
@@ -69,15 +70,15 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
 
         setDetectedMeta(meta);
 
-        // Pre-fill existing metadata tags into the form with smart defaults
+        // Pre-fill existing metadata tags authentically from the user's audio file
         const initialTitle = meta.title || meta.cleanTitleSuggestion || '';
-        const initialArtist = meta.artist || (meta.hasC2pa ? 'Google AI' : meta.aiProvider || meta.encoder || '');
-        const initialAlbum = meta.album || (meta.hasC2pa ? 'AI Generated Audio' : '');
-        const initialYear = meta.year || '2026';
-        const initialGenre = meta.genre || (meta.hasC2pa ? 'Ambient / Electronic' : 'Music');
-        const initialTrack = meta.trackNumber || '1';
-        const initialComposer = meta.composer || (meta.hasC2pa ? 'Google DeepMind' : '');
-        const initialComment = meta.comment || (meta.hasC2pa ? 'SynthID C2PA Audio Provenance' : '');
+        const initialArtist = meta.artist || '';
+        const initialAlbum = meta.album || '';
+        const initialYear = meta.year || '';
+        const initialGenre = meta.genre || '';
+        const initialTrack = meta.trackNumber || '';
+        const initialComposer = meta.composer || '';
+        const initialComment = meta.comment || '';
 
         let filled = 0;
         if (initialTitle) { setTitle(initialTitle); filled++; }
@@ -351,6 +352,9 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
         sidebarContent={sidebarContent}
         targetFormat={file ? (file.name.split('.').pop() || 'mp3') : 'mp3'}
       />
+
+      {/* Ethical Responsible Use Policy Banner */}
+      <ResponsibleUseNotice />
 
       {!file && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>

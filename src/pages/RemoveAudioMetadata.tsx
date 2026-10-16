@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, ShieldAlert, Music, Mic, UserX, Clock, Check, AlertCircle, FileAudio, Zap, Lock, Loader2, Sparkles, Tag, Eye, RotateCcw, Volume2, Radio, Disc } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
+import { ResponsibleUseNotice } from '../components/ResponsibleUseNotice';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanAudioMetadata, type DetectedAudioMetadata } from '../utils/mediaMetadataScanner';
@@ -276,15 +277,15 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
             </button>
           </div>
 
-          {/* AI Signature Alert Card (if detected) */}
-          {(detectedMeta?.hasC2pa || detectedMeta?.aiGenerated) && (
+          {/* File Metadata & Technical Headers (if detected) */}
+          {(detectedMeta?.hasC2pa || detectedMeta?.aiGenerated || detectedMeta?.encoder) && (
             <div style={{ background: 'rgba(168,85,247,0.08)', border: '1px solid rgba(168,85,247,0.25)', borderRadius: 8, padding: '10px 12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#c084fc', fontWeight: 800, fontSize: '0.8rem', marginBottom: 4 }}>
                 <Sparkles size={14} />
-                <span>{t('rmaAiDetected') || 'AI Provenance / SynthID Watermark Detected'}</span>
+                <span>{t('rmaAiDetected') || 'File Metadata & Technical Headers Detected'}</span>
               </div>
               <p style={{ margin: 0, fontSize: '0.74rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                {detectedMeta.aiDetails || detectedMeta.c2paIssuer || (t('rmaAiDetailsFallback') || 'Contains Google C2PA manifest & imperceptible SynthID watermark (trainedAlgorithmicMedia).')}
+                {detectedMeta.aiDetails || detectedMeta.c2paIssuer || (detectedMeta.encoder ? `Encoder: ${detectedMeta.encoder}` : (t('rmaAiDetailsFallback') || 'Container contains technical tags and encoder properties.'))}
               </p>
             </div>
           )}
@@ -344,7 +345,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
       <CenteredActionWorkspace
         accept="audio/*,.mp3,.wav,.ogg,.aac,.flac,.m4a,.wma,.opus"
         title={pseoData ? pseoData.h1 : (t('toolRemoveAudioMetadata') || 'Remove Audio Metadata')}
-        description={pseoData ? pseoData.description : (t('removeAudioMetadataDesc') || 'Strip ID3 tags, C2PA AI manifests, SynthID watermarks, DAW signatures, and album artwork from MP3, WAV, and FLAC files. 100% private in-browser cleaner.')}
+        description={pseoData ? pseoData.description : (t('removeAudioMetadataDesc') || 'Strip hidden ID3 tags, GPS locations, DAW project paths, and personal device signatures from MP3, WAV, and FLAC files. 100% private in-browser cleaner.')}
         toolId="remove-audio-metadata"
         file={file}
         onFileSelect={(f) => {
@@ -362,6 +363,9 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         sidebarContent={sidebarContent}
         targetFormat={file ? (file.name.split('.').pop() || 'mp3') : 'mp3'}
       />
+
+      {/* Ethical Responsible Use Policy Banner */}
+      <ResponsibleUseNotice />
 
       {!file && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>

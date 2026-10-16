@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, ShieldAlert, MapPin, Smartphone, UserX, Clock, Check, AlertCircle, FileVideo, Zap, Lock, Loader2, Sparkles, Tag, Eye, RotateCcw } from 'lucide-react';
 import { CenteredActionWorkspace } from '../components/workspaces/CenteredActionWorkspace';
+import { ResponsibleUseNotice } from '../components/ResponsibleUseNotice';
 import { useFFmpeg } from '../hooks/useFFmpeg';
 import { useLanguage } from '../hooks/useLanguage';
 import { scanFileMetadata, type DetectedVideoMetadata } from '../utils/mediaMetadataScanner';
@@ -382,6 +383,9 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
         sidebarContent={sidebarContent}
         targetFormat={file ? (file.name.split('.').pop() || 'mp4') : 'mp4'}
       />
+
+      {/* Ethical Responsible Use Policy Banner */}
+      <ResponsibleUseNotice />
 
       {!file && !pseoData && (
         <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>

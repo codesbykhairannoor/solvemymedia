@@ -191,7 +191,7 @@ const ALL_CORE_TOOLS: ToolItem[] = [
     nameKey: 'toolRemoveAudioMetadata',
     descKey: 'removeAudioMetadataDesc',
     fallbackName: 'Remove Audio Metadata',
-    fallbackDesc: 'Strip ID3 tags, C2PA AI manifests, SynthID watermarks, DAW signatures, and album artwork from audio files.'
+    fallbackDesc: 'Strip hidden ID3 tags, GPS locations, DAW project paths, and device signatures from audio files.'
   },
   {
     id: 'edit-audio-metadata',
