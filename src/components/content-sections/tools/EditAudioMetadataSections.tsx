@@ -25,7 +25,7 @@ export const EditAudioTurntableShowcaseSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section turntable-showcase" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section turntable-showcase" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Disc size={15} />
@@ -37,11 +37,9 @@ export const EditAudioTurntableShowcaseSection: React.FC = () => {
         <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--text-muted)', textAlign: 'center', maxWidth: 760, margin: '0 auto', lineHeight: 1.7 }}>
           {t('edaTurntableSubtitle') || 'Losslessly tag your audio releases with metadata compatible with Spotify, Apple Music, Traktor, and Rekordbox.'}
         </p>
-      </div>
-
-      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 28, padding: '40px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 36, boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
+      </div>      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 28, padding: 'clamp(20px, 4vw, 36px) clamp(16px, 4vw, 32px)', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 28, boxShadow: '0 10px 30px rgba(0,0,0,0.04)', width: '100%', boxSizing: 'border-box' }}>
         {/* Turntable Vinyl Graphic */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, maxWidth: '100%' }}>
           <div style={{ position: 'relative', width: 220, height: 220, borderRadius: '50%', background: 'radial-gradient(circle, #1e293b 0%, #0f172a 40%, #020617 70%, #000 100%)', border: '6px solid #334155', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.3)', animation: 'spinVinyl 12s linear infinite' }}>
             {/* Vinyl Grooves */}
             <div style={{ position: 'absolute', width: 180, height: 180, borderRadius: '50%', border: '1px dashed rgba(255,255,255,0.08)' }} />
@@ -55,13 +53,13 @@ export const EditAudioTurntableShowcaseSection: React.FC = () => {
             <div style={{ position: 'absolute', width: 12, height: 12, borderRadius: '50%', background: '#fff', border: '2px solid #0f172a' }} />
           </div>
           <style>{`@keyframes spinVinyl { 100% { transform: rotate(360deg); } }`}</style>
-          <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>
+          <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'monospace', textAlign: 'center' }}>
             {t('edaTurntableFmtVal') || 'MP3 320kbps • 44.1kHz • Stereo'}
           </span>
         </div>
 
         {/* Live ID3 Tag Slate */}
-        <div style={{ flex: '1 1 360px', maxWidth: 520, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 24 }}>
+        <div style={{ flex: '1 1 260px', width: '100%', minWidth: 0, maxWidth: 520, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 'clamp(16px, 3vw, 24px)', boxSizing: 'border-box' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 12, borderBottom: '1px solid var(--border-color)', marginBottom: 14 }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {t('edaTurntableNow') || 'NOW EDITING'}
@@ -72,25 +70,25 @@ export const EditAudioTurntableShowcaseSection: React.FC = () => {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 10, fontSize: '0.86rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableTrack') || 'Title:'}</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edaTurntableTrackVal') || 'Afternoon Boutique Hours'}</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
+              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableTrack') || 'Title:'}:</span>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edaTurntableTrackVal') || 'Afternoon Boutique Hours'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableArtist') || 'Artist:'}</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edaTurntableArtistVal') || 'SolveMyMedia Studio'}</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
+              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableArtist') || 'Artist:'}:</span>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edaTurntableArtistVal') || 'SolveMyMedia Studio'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableAlbum') || 'Album:'}</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edaTurntableAlbumVal') || 'Acoustic Sessions 2026'}</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
+              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableAlbum') || 'Album:'}:</span>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edaTurntableAlbumVal') || 'Acoustic Sessions 2026'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableGenre') || 'Genre:'}</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edaTurntableGenreVal') || 'Lo-Fi Jazz / Chillhop'}</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
+              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableGenre') || 'Genre:'}:</span>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edaTurntableGenreVal') || 'Lo-Fi Jazz / Chillhop'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableYear') || 'Year:'}</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edaTurntableYearVal') || '2026'}</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
+              <span style={{ color: 'var(--text-muted)' }}>{t('edaTurntableYear') || 'Year:'}:</span>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edaTurntableYearVal') || '2026'}</strong>
             </div>
           </div>
         </div>
@@ -124,7 +122,7 @@ export const EditAudioProducerPipelineSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section producer-pipeline" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section producer-pipeline" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Sliders size={15} />
@@ -138,17 +136,17 @@ export const EditAudioProducerPipelineSection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: '100%', boxSizing: 'border-box' }}>
         {steps.map((st, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 24, padding: 32, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'clamp(14px, 3vw, 24px)', padding: 'clamp(18px, 4vw, 32px)', background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', width: '100%', boxSizing: 'border-box' }}>
             <div style={{ width: 48, height: 48, borderRadius: 16, background: 'var(--brand-gradient)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.9rem', flexShrink: 0 }}>
               {st.num}
             </div>
-            <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)', letterSpacing: '-0.02em', wordBreak: 'break-word' }}>
                 {st.title}
               </h3>
-              <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>
+              <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0, wordBreak: 'break-word' }}>
                 {st.desc}
               </p>
             </div>
@@ -189,7 +187,7 @@ export const EditAudioPlatformCompatibilitySection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section platform-compatibility" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section platform-compatibility" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Sparkles size={15} />
@@ -203,16 +201,16 @@ export const EditAudioPlatformCompatibilitySection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 20, width: '100%', boxSizing: 'border-box' }}>
         {platforms.map((p, i) => (
-          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 24, display: 'flex', flexDirection: 'column', gap: 12, boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 'clamp(18px, 3vw, 24px)', display: 'flex', flexDirection: 'column', gap: 12, boxShadow: '0 4px 20px rgba(0,0,0,0.02)', width: '100%', boxSizing: 'border-box' }}>
             <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--bg-app)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {p.icon}
             </div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', margin: 0, wordBreak: 'break-word' }}>
               {p.title}
             </h3>
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, wordBreak: 'break-word' }}>
               {p.desc}
             </p>
           </div>
@@ -229,15 +227,15 @@ export const EditAudioTagFormatSpecsSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section tag-format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section tag-format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 32 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('edaSpecsTitle') || 'Audio Container Tag Standard Matrix'}
         </h2>
       </div>
 
-      <div style={{ overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 600 }}>
+      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
               <th style={{ padding: '16px 20px', color: 'var(--text-main)', fontWeight: 800 }}>

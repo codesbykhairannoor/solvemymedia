@@ -42,7 +42,7 @@ export const RemoveVideoRadarHudSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section video-radar-hud" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section video-radar-hud" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 100, color: '#ef4444', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Radar size={15} />
@@ -56,9 +56,9 @@ export const RemoveVideoRadarHudSection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 28, padding: '36px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 36, boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
+      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 28, padding: 'clamp(20px, 4vw, 36px) clamp(16px, 4vw, 32px)', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 28, boxShadow: '0 10px 30px rgba(0,0,0,0.04)', width: '100%', boxSizing: 'border-box' }}>
         {/* Radar Scanner Graphic */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14, maxWidth: '100%' }}>
           <div style={{ position: 'relative', width: 220, height: 220, borderRadius: '50%', background: 'radial-gradient(circle, rgba(239,68,68,0.05) 0%, var(--bg-app) 70%)', border: '2px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             {/* Concentric Radar Rings */}
             <div style={{ position: 'absolute', width: 160, height: 160, borderRadius: '50%', border: '1px dashed var(--border-color)' }} />
@@ -73,23 +73,23 @@ export const RemoveVideoRadarHudSection: React.FC = () => {
             <div style={{ position: 'absolute', width: '50%', height: 2, background: 'linear-gradient(90deg, transparent, #ef4444)', top: '50%', left: '50%', transformOrigin: '0% 0%', animation: 'radarSweep 4s linear infinite' }} />
           </div>
           <style>{`@keyframes radarSweep { 100% { transform: rotate(360deg); } }`}</style>
-          <span style={{ fontSize: '0.78rem', color: '#ef4444', fontWeight: 700, fontFamily: 'monospace' }}>
+          <span style={{ fontSize: '0.78rem', color: '#ef4444', fontWeight: 700, fontFamily: 'monospace', textAlign: 'center' }}>
             {t('rmvRadarIdentified') || '3 TRACKING ATOMS IDENTIFIED'}
           </span>
         </div>
 
         {/* Threat Cards */}
-        <div style={{ flex: '1 1 360px', maxWidth: 540, display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div style={{ flex: '1 1 260px', width: '100%', minWidth: 0, maxWidth: 540, display: 'flex', flexDirection: 'column', gap: 14 }}>
           {threats.map((th, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: 18, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 16 }}>
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 16, width: '100%', minWidth: 0, boxSizing: 'border-box' }}>
               <div style={{ width: 42, height: 42, borderRadius: 12, background: 'var(--bg-card)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 {th.icon}
               </div>
-              <div>
-                <h4 style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 4px 0' }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h4 style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-main)', margin: '0 0 4px 0', wordBreak: 'break-word' }}>
                   {th.title}
                 </h4>
-                <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
+                <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5, wordBreak: 'break-word' }}>
                   {th.desc}
                 </p>
               </div>
@@ -126,7 +126,7 @@ export const RemoveVideoThreatVectorsSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section threat-vectors" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section threat-vectors" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <ShieldAlert size={15} />
@@ -140,17 +140,17 @@ export const RemoveVideoThreatVectorsSection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: '100%', boxSizing: 'border-box' }}>
         {vectors.map((vec, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 24, padding: 32, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
-            <div style={{ width: 48, height: 48, borderRadius: 16, background: 'var(--brand-gradient)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.9rem', flexShrink: 0 }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'clamp(14px, 3vw, 24px)', padding: 'clamp(18px, 4vw, 32px)', background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', width: '100%', boxSizing: 'border-box' }}>
+            <div style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--brand-gradient)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.9rem', flexShrink: 0 }}>
               {vec.num}
             </div>
-            <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)', letterSpacing: '-0.02em', wordBreak: 'break-word' }}>
                 {vec.title}
               </h3>
-              <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>
+              <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0, wordBreak: 'break-word' }}>
                 {vec.desc}
               </p>
             </div>
@@ -186,17 +186,17 @@ export const RemoveVideoPerformanceMetricsSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section metric-counters" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+    <section className="seo-section metric-counters" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 20, width: '100%', boxSizing: 'border-box' }}>
         {metrics.map((m, i) => (
-          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 24, padding: '36px 28px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 24, padding: 'clamp(24px, 4vw, 36px) clamp(16px, 3vw, 28px)', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', width: '100%', boxSizing: 'border-box' }}>
             <div style={{ fontSize: 'clamp(2.5rem, 5vw, 3.2rem)', fontWeight: 900, color: 'var(--brand-primary)', marginBottom: 8, letterSpacing: '-0.03em' }}>
               {m.val}
             </div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8 }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 8, wordBreak: 'break-word' }}>
               {m.title}
             </h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, wordBreak: 'break-word' }}>
               {m.desc}
             </p>
           </div>
@@ -213,15 +213,15 @@ export const RemoveVideoComparisonTableSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section comparison-table" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section comparison-table" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 32 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('rmvMatrixTitle') || 'Video Privacy Inspection Matrix'}
         </h2>
       </div>
 
-      <div style={{ overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 600 }}>
+      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
               <th style={{ padding: '16px 20px', color: 'var(--text-main)', fontWeight: 800 }}>

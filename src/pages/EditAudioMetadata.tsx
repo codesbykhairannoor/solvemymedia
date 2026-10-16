@@ -251,7 +251,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       )}
 
       {/* Compact 2-Column Form Fields */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10, width: '100%', boxSizing: 'border-box' }}>
         {/* Track Title */}
         <div style={{ gridColumn: 'span 2' }}>
           <label style={{ display: 'block', fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: 3 }}>
@@ -262,7 +262,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g. Afternoon Boutique Hours"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
 
@@ -276,7 +276,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
             placeholder="e.g. Google AI / Artist Name"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
 
@@ -290,7 +290,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={album}
             onChange={(e) => setAlbum(e.target.value)}
             placeholder="e.g. Ambient Sessions Vol. 1"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
 
@@ -319,7 +319,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
             placeholder="e.g. Ambient, Electronic, Lo-Fi"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
 
@@ -333,7 +333,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={trackNumber}
             onChange={(e) => setTrackNumber(e.target.value)}
             placeholder="e.g. 1 or 01/12"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
 
@@ -347,7 +347,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={composer}
             onChange={(e) => setComposer(e.target.value)}
             placeholder="e.g. Producer Name"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
 
@@ -361,7 +361,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="e.g. ℗ 2026 Studio Records"
-            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none' }}
+            style={{ width: '100%', padding: '8px 10px', background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 8, color: 'var(--text-main)', fontSize: '0.82rem', outline: 'none', boxSizing: 'border-box' }}
           />
         </div>
       </div>
@@ -404,7 +404,7 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
       <ResponsibleUseNotice />
 
       {!file && !pseoData && (
-        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px' }}>
+        <div className="seo-sections-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '80px', paddingBottom: '80px', paddingTop: '80px', marginTop: '60px', width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'hidden', boxSizing: 'border-box' }}>
           <EditAudioTurntableShowcaseSection />
           <EditAudioProducerPipelineSection />
           <EditAudioPlatformCompatibilitySection />

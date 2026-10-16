@@ -7,17 +7,19 @@ export const ResponsibleUseNotice: React.FC = () => {
 
   return (
     <div style={{
-      maxWidth: 1000,
-      margin: '40px auto 0',
-      padding: '18px 24px',
+      width: '100%',
+      maxWidth: 'min(1000px, calc(100% - 32px))',
+      margin: '36px auto 0',
+      padding: '16px 18px',
       borderRadius: 16,
       background: 'rgba(234, 179, 8, 0.04)',
       border: '1px solid rgba(234, 179, 8, 0.22)',
       display: 'flex',
       alignItems: 'flex-start',
-      gap: 16,
+      gap: 14,
       textAlign: 'left',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
+      boxShadow: '0 4px 20px rgba(0,0,0,0.02)',
+      boxSizing: 'border-box'
     }}>
       <div style={{
         width: 36,
@@ -33,15 +35,16 @@ export const ResponsibleUseNotice: React.FC = () => {
       }}>
         <Scale size={20} />
       </div>
-      <div>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{
           fontWeight: 800,
           fontSize: '0.92rem',
           color: '#eab308',
           letterSpacing: '-0.01em',
-          marginBottom: 4,
+          marginBottom: 6,
           display: 'flex',
           alignItems: 'center',
+          flexWrap: 'wrap',
           gap: 8
         }}>
           <span>{t('ethicalNoticeTitle') || 'Responsible Use & Privacy Protection Policy'}</span>
@@ -61,7 +64,8 @@ export const ResponsibleUseNotice: React.FC = () => {
           fontSize: '0.82rem',
           color: 'var(--text-muted)',
           lineHeight: 1.6,
-          margin: 0
+          margin: 0,
+          wordBreak: 'break-word'
         }}>
           {t('ethicalNoticeDesc') || 'SolveMyMedia is built strictly for personal privacy protection (sanitizing GPS geotags, hardware serials, and local user paths) and legitimate media cataloging. We do NOT endorse document forgery, identity deception, copyright evasion, or tampering with digital provenance. Users remain solely responsible for lawful and ethical use.'}
         </p>

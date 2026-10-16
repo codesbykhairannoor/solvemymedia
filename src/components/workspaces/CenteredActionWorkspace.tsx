@@ -96,10 +96,10 @@ export const CenteredActionWorkspace: React.FC<CenteredActionWorkspaceProps> = (
   const downloadFileName = `${(customFileName.trim() || defaultBaseName || 'processed')}.${finalExt}`;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: file ? '20px' : '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', maxWidth: '100%', boxSizing: 'border-box', height: '100%', paddingTop: file ? '20px' : '40px' }}>
       
       {!file && finalTitle && (
-        <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
+        <div style={{ textAlign: 'center', padding: '0 20px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%', boxSizing: 'border-box' }}>
           <h1 style={{ 
             fontSize: 'clamp(1.9rem, 5vw, 3.8rem)', 
             fontWeight: 900, 

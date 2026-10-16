@@ -223,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       backdropFilter: 'blur(20px)', boxShadow: '0 4px 28px rgba(0,0,0,0.12)',
       zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
     }}>
-      <div className="navbar-container" style={{ maxWidth: 1200, width: '100%', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
+      <div className="navbar-container" style={{ maxWidth: 1200, width: '100%', padding: '0 clamp(12px, 3vw, 24px)', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: 0 }}>
         <Link to={prefix || '/'} style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>

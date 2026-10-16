@@ -253,15 +253,17 @@ export const RelatedTools: React.FC<RelatedToolsProps> = ({ currentToolId }) => 
     <section 
       className="related-tools-section" 
       style={{ 
-        padding: '80px 24px', 
+        padding: 'clamp(48px, 8vw, 80px) clamp(16px, 4vw, 24px)', 
         background: 'var(--bg-app)', 
         borderTop: '1px solid var(--border-color)',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        width: '100%',
+        boxSizing: 'border-box'
       }}
     >
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+      <div style={{ maxWidth: 1200, width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
+        <div style={{ textAlign: 'center', marginBottom: 48, width: '100%', boxSizing: 'border-box' }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -286,7 +288,8 @@ export const RelatedTools: React.FC<RelatedToolsProps> = ({ currentToolId }) => 
             fontWeight: 800,
             color: 'var(--text-main)',
             letterSpacing: '-0.02em',
-            margin: '0 0 12px'
+            margin: '0 0 12px',
+            wordBreak: 'break-word'
           }}>
             {t('relatedToolsTitle') || 'Explore Related Media Tools'}
           </h2>
@@ -296,7 +299,8 @@ export const RelatedTools: React.FC<RelatedToolsProps> = ({ currentToolId }) => 
             color: 'var(--text-muted)',
             maxWidth: 600,
             margin: '0 auto',
-            lineHeight: 1.6
+            lineHeight: 1.6,
+            wordBreak: 'break-word'
           }}>
             {t('relatedToolsDesc') || 'All tools run 100% locally in your browser with no file size limits, no tracking, and zero cloud uploads.'}
           </p>
@@ -304,8 +308,10 @@ export const RelatedTools: React.FC<RelatedToolsProps> = ({ currentToolId }) => 
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 24
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(14px, 3vw, 24px)',
+          width: '100%',
+          boxSizing: 'border-box'
         }}>
           {selectedTools.map((item) => {
             const Icon = item.icon;

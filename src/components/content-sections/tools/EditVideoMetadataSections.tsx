@@ -22,7 +22,7 @@ export const EditVideoClapperboardSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section clapperboard-showcase" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section clapperboard-showcase" style={{ maxWidth: 1200, margin: '40px auto 60px auto', padding: '0 clamp(16px, 3vw, 24px)', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Clapperboard size={15} />
@@ -36,9 +36,9 @@ export const EditVideoClapperboardSection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 28, padding: '36px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 36, boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
+      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 28, padding: 'clamp(20px, 4vw, 36px) clamp(16px, 4vw, 32px)', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 28, boxShadow: '0 10px 30px rgba(0,0,0,0.04)', width: '100%', boxSizing: 'border-box' }}>
         {/* Clapperboard Graphic */}
-        <div style={{ width: 280, background: '#090d1e', border: '3px solid #334155', borderRadius: 18, overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}>
+        <div style={{ width: 280, maxWidth: '100%', background: '#090d1e', border: '3px solid #334155', borderRadius: 18, overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.3)', boxSizing: 'border-box' }}>
           {/* Top Chevron Sticks */}
           <div style={{ height: 38, background: 'repeating-linear-gradient(45deg, #1e293b, #1e293b 15px, #f8fafc 15px, #f8fafc 30px)', borderBottom: '3px solid #334155' }} />
           {/* Slate Body */}
@@ -59,7 +59,7 @@ export const EditVideoClapperboardSection: React.FC = () => {
         </div>
 
         {/* Live Video Atom Form Preview */}
-        <div style={{ flex: '1 1 360px', maxWidth: 520, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 24 }}>
+        <div style={{ flex: '1 1 260px', width: '100%', minWidth: 0, maxWidth: 520, background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 'clamp(16px, 3vw, 24px)', boxSizing: 'border-box' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 12, borderBottom: '1px solid var(--border-color)', marginBottom: 14 }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--brand-primary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               CONTAINER ATOM MAP (moov / udta)
@@ -70,25 +70,25 @@ export const EditVideoClapperboardSection: React.FC = () => {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 10, fontSize: '0.86rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
               <span style={{ color: 'var(--text-muted)' }}>{t('edtClapperTitleLbl') || 'Title'}:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edtClapperTitleVal') || 'Afternoon Cinematic Reel'}</strong>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edtClapperTitleVal') || 'Afternoon Cinematic Reel'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
               <span style={{ color: 'var(--text-muted)' }}>{t('edtClapperDirLbl') || 'Director / Artist'}:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edtClapperDirVal') || 'Studio Master'}</strong>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edtClapperDirVal') || 'Studio Master'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
               <span style={{ color: 'var(--text-muted)' }}>{t('edtClapperYearLbl') || 'Release Year'}:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edtClapperYearVal') || '2026'}</strong>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edtClapperYearVal') || '2026'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
               <span style={{ color: 'var(--text-muted)' }}>{t('edtClapperGenreLbl') || 'Genre'}:</span>
-              <strong style={{ color: 'var(--text-main)' }}>{t('edtClapperGenreVal') || 'Cinematic Documentary'}</strong>
+              <strong style={{ color: 'var(--text-main)', textAlign: 'right' }}>{t('edtClapperGenreVal') || 'Cinematic Documentary'}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', wordBreak: 'break-word', gap: 8 }}>
               <span style={{ color: 'var(--text-muted)' }}>{t('edtClapperFmtLbl') || 'Format'}:</span>
-              <span style={{ color: '#10b981', fontWeight: 700 }}>{t('edtClapperFmtVal') || 'MP4 H.264 • 4K UHD • Lossless Remux'}</span>
+              <span style={{ color: '#10b981', fontWeight: 700, textAlign: 'right' }}>{t('edtClapperFmtVal') || 'MP4 H.264 • 4K UHD'}</span>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ export const EditVideoFilmstripStepperSection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section filmstrip-stepper" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section filmstrip-stepper" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Film size={15} />
@@ -136,17 +136,17 @@ export const EditVideoFilmstripStepperSection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: '100%', boxSizing: 'border-box' }}>
         {frames.map((fr, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 24, padding: 32, background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'clamp(14px, 3vw, 24px)', padding: 'clamp(18px, 4vw, 32px)', background: 'var(--bg-card)', borderRadius: 24, border: '1px solid var(--border-color)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', width: '100%', boxSizing: 'border-box' }}>
             <div style={{ width: 48, height: 48, borderRadius: 16, background: 'var(--brand-gradient)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.9rem', flexShrink: 0 }}>
               {fr.num}
             </div>
-            <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 8, color: 'var(--text-main)', letterSpacing: '-0.02em', wordBreak: 'break-word' }}>
                 {fr.title}
               </h3>
-              <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>
+              <p style={{ fontSize: '0.98rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0, wordBreak: 'break-word' }}>
                 {fr.desc}
               </p>
             </div>
@@ -187,7 +187,7 @@ export const EditVideoMediaServerCompatibilitySection: React.FC = () => {
   ];
 
   return (
-    <section className="seo-section media-server-compatibility" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section media-server-compatibility" style={{ maxWidth: 1100, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 16px', background: 'var(--brand-glow)', border: '1px solid var(--brand-primary)', borderRadius: 100, color: 'var(--brand-primary)', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.05em', marginBottom: 16 }}>
           <Sparkles size={15} />
@@ -201,16 +201,16 @@ export const EditVideoMediaServerCompatibilitySection: React.FC = () => {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 20, width: '100%', boxSizing: 'border-box' }}>
         {servers.map((s, i) => (
-          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 24, display: 'flex', flexDirection: 'column', gap: 12, boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+          <div key={i} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, padding: 'clamp(18px, 3vw, 24px)', display: 'flex', flexDirection: 'column', gap: 12, boxShadow: '0 4px 20px rgba(0,0,0,0.02)', width: '100%', boxSizing: 'border-box' }}>
             <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--bg-app)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {s.icon}
             </div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', margin: 0, wordBreak: 'break-word' }}>
               {s.title}
             </h3>
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, wordBreak: 'break-word' }}>
               {s.desc}
             </p>
           </div>
@@ -227,15 +227,15 @@ export const EditVideoFormatSpecsSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="seo-section format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px' }}>
+    <section className="seo-section format-specs" style={{ maxWidth: 1000, margin: '0 auto 60px auto', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
       <div style={{ textAlign: 'center', marginBottom: 32 }}>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.2, margin: 0 }}>
           {t('edtSpecsTitle') || 'Video Container Tag Standard Matrix'}
         </h2>
       </div>
 
-      <div style={{ overflowX: 'auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 600 }}>
+      <div style={{ width: '100%', maxWidth: '100%', minWidth: 0, overflowX: 'auto', WebkitOverflowScrolling: 'touch', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 20, boxSizing: 'border-box' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: 540 }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border-color)', background: 'var(--bg-app)' }}>
               <th style={{ padding: '16px 20px', color: 'var(--text-main)', fontWeight: 800 }}>
