@@ -218,7 +218,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
   return (
     <nav ref={navRef} aria-label="Main Site Header" style={{
-      position: 'fixed', top: 0, left: 0, right: 0, height: 60,
+      position: 'fixed', top: 0, left: 0, right: 0, height: 'var(--navbar-height, 60px)',
       background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)',
       backdropFilter: 'blur(20px)', boxShadow: '0 4px 28px rgba(0,0,0,0.12)',
       zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
@@ -226,9 +226,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       <div className="navbar-container" style={{ maxWidth: 1200, width: '100%', padding: '0 clamp(12px, 3vw, 24px)', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: 0 }}>
-        <Link to={prefix || '/'} style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
-          <img src="/logoweb.png" alt="SolveMyMedia Logo" width={32} height={32} fetchPriority="high" style={{ width: 32, height: 32, objectFit: 'contain' }} />
-          <span style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
+        <Link to={prefix || '/'} className="navbar-brand-link" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: 'var(--text-main)' }}>
+          <img src="/logoweb.png" alt="SolveMyMedia Logo" width={32} height={32} fetchPriority="high" className="navbar-logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
+          <span className="navbar-brand-text" style={{ fontWeight: 900, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
             SolveMy<span style={{ background: 'var(--brand-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Media</span>
           </span>
         </Link>
@@ -270,7 +270,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
           {isMegaOpen && (
             <div style={{
-              position: 'fixed', top: 60, left: 0, right: 0,
+              position: 'fixed', top: 'var(--navbar-height, 60px)', left: 0, right: 0,
               background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)',
               boxShadow: '0 24px 60px rgba(0,0,0,0.15)',
               padding: '32px', display: 'flex', justifyContent: 'center',
@@ -321,11 +321,12 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       </div>
 
       {/* Right: Theme + Lang */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, justifyContent: 'flex-end' }}>
+      <div className="navbar-right-controls" style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, justifyContent: 'flex-end' }}>
         
         <div ref={langRef} style={{ position: 'relative' }}>
           <button 
             onClick={() => setIsLangOpen(!isLangOpen)}
+            className="navbar-lang-btn"
             style={{ 
               padding: '6px 12px', 
               borderRadius: '8px', 
@@ -409,6 +410,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         
         <button 
           onClick={toggleTheme}
+          className="navbar-theme-btn"
           style={{
             background: isLightMode ? '#fef3c7' : '#1e1b4b', color: isLightMode ? '#d97706' : '#a855f7',
             border: `1.5px solid ${isLightMode ? '#f59e0b' : '#6366f1'}`, cursor: 'pointer',
@@ -424,7 +426,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         
         {/* Mobile Hamburger Button */}
         <button
-          className="mobile-only"
+          className="mobile-only navbar-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           style={{
             background: 'transparent',
@@ -444,7 +446,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
       
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu-container" style={{ position: 'absolute', top: 60, left: 0, right: 0, background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)', padding: '16px 16px 28px', maxHeight: 'calc(100vh - 60px)', overflowY: 'auto', zIndex: 40, boxShadow: '0 12px 30px rgba(0,0,0,0.15)' }}>
+        <div className="mobile-menu-container" style={{ position: 'absolute', top: 'var(--navbar-height, 60px)', left: 0, right: 0, background: 'var(--bg-app)', borderBottom: '1px solid var(--border-color)', padding: '16px 16px 28px', maxHeight: 'calc(100vh - var(--navbar-height, 60px))', overflowY: 'auto', zIndex: 40, boxShadow: '0 12px 30px rgba(0,0,0,0.15)' }}>
           {/* Quick 3 buttons */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, marginBottom: 16 }}>
             {[
@@ -602,7 +604,17 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           .mobile-menu-container { display: block !important; }
           .mega-menu-item { padding: 4px 6px; }
           .mega-menu-item .item-title { font-size: 0.84rem; }
-          .navbar-container { padding: 0 16px !important; }
+          .navbar-container { padding: 0 12px !important; }
+
+          /* Skala Ramping 85-90% Khusus Navbar di Mobile (Elegan, Sleek, tanpa bug zoom) */
+          .navbar-brand-link { gap: 6px !important; }
+          .navbar-logo { width: 25px !important; height: 25px !important; }
+          .navbar-brand-text { font-size: 1.05rem !important; }
+          .navbar-right-controls { gap: 8px !important; }
+          .navbar-lang-btn { padding: 4px 8px !important; font-size: 0.78rem !important; border-radius: 6px !important; gap: 4px !important; }
+          .navbar-theme-btn { width: 30px !important; height: 30px !important; }
+          .navbar-theme-btn svg { width: 14px !important; height: 14px !important; }
+          .navbar-menu-btn svg { width: 20px !important; height: 20px !important; }
         }
         @media (min-width: 769px) {
           .desktop-only { display: flex !important; }

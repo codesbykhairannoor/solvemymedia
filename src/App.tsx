@@ -51,7 +51,7 @@ function LanguageLayoutContent({ theme, toggleTheme }: { theme: 'light' | 'dark'
   const { hasActiveFile } = useWorkspace();
 
   return (
-    <div className={`app-container ${hasActiveFile ? 'workspace-focused' : ''}`} style={{ paddingTop: 60 }}>
+    <div className={`app-container ${hasActiveFile ? 'workspace-focused' : ''}`} style={{ paddingTop: 'var(--navbar-height, 60px)' }}>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>

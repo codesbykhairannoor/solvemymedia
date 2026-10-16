@@ -68,6 +68,13 @@
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-full: 9999px;
+  --navbar-height: 60px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 52px;
+  }
 }
 
 * {
