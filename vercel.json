@@ -134,6 +134,16 @@
       "permanent": true
     }
   ],
+  "rewrites": [
+    {
+      "source": "/assets/index-:hash(.*)\\.css",
+      "destination": "/assets/index-SU1hgLSr.css"
+    },
+    {
+      "source": "/assets/index-:hash(.*)\\.js",
+      "destination": "/assets/index-ZjfHQqWI.js"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
