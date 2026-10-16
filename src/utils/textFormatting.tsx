@@ -1,13 +1,13 @@
 import React from 'react';
 
 const STOP_WORDS = new Set([
-  'and', 'or', 'in', 'to', 'for', 'with', 'at', 'on', 'by', 'of', 'from',
+  'and', 'or', 'in', 'to', 'for', 'with', 'at', 'on', 'by', 'of', 'from', '&',
   'di', 'ke', 'dan', 'atau', 'dalam', 'untuk', 'dari', 'dengan', 'pada',
   'y', 'et', 'en', 'und', 'zu', 'mit', 'para', 'por', 'de', 'a', 'la', 'el', 'le', 'les', 'des', 'un', 'une', 'o'
 ]);
 
 const CRITICAL_NOUNS = new Set([
-  'video', 'audio', 'mp4', 'mp3', 'webm', 'ogg', 'wav', 'speed', 'watermark', 'compress', 'mute',
+  'video', 'audio', 'mp4', 'mp3', 'webm', 'ogg', 'wav', 'speed', 'watermark', 'compress', 'mute', 'edit',
   'document', 'dokumen', 'documents', 'file', 'files', 'berkas', 'halaman', 'pages', 'image', 'images',
   'crop', 'merge', 'convert', 'gif', 'extract', 'record', 'screen', 'transcribe', 'text', 'format', 'formats', 'aspect', 'ratio', 'quality', 'playback'
 ]);

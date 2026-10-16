@@ -100,18 +100,19 @@ export const Home: React.FC = () => {
           <h1 
             className="hero-title"
             style={{ 
-              fontSize: 'clamp(2.7rem, 6vw, 5.3rem)', 
+              fontSize: 'clamp(2.1rem, 4.1vw, 3.75rem)', 
               fontWeight: 800, 
               letterSpacing: '-0.03em', 
-              lineHeight: 1.15,
+              lineHeight: 1.18,
               color: 'var(--text-main)',
-              maxWidth: 1000,
-              margin: '24px auto 24px auto', // Added 24px top margin
+              maxWidth: 1200,
+              width: '100%',
+              margin: '24px auto 24px auto',
               textWrap: 'balance',
               fontFamily: 'var(--font-display)'
             }}
           >
-            {smartHighlight(t('homeHeroTitle') || 'All Media Tools in One Place')}
+            {smartHighlight(t('homeHeroTitle') || 'Compress, Convert & Edit Video and Audio in Your Browser')}
           </h1>
 
           <p style={{
@@ -720,12 +721,8 @@ export const Home: React.FC = () => {
           to { transform: rotate(360deg); }
         }
         .hero-title {
-          white-space: nowrap;
-        }
-        @media (max-width: 800px) {
-          .hero-title {
-            white-space: normal;
-          }
+          text-wrap: balance;
+          max-width: 1200px;
         }
       `}</style>
     </main>
