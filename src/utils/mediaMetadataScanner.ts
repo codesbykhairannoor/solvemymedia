@@ -601,6 +601,18 @@ const parseRiffWav = (u8: Uint8Array, result: DetectedAudioMetadata) => {
       result.bitrate = `${Math.round((byteRate * 8) / 1000)} kbps`;
       result.rawTags['channels'] = result.channels;
       result.rawTags['sample_rate'] = result.sampleRate;
+    } else if (id === 'bext' && size >= 360) {
+      let oDate = '';
+      for (let i = 0; i < 10; i++) oDate += String.fromCharCode(u8[offset + 340 + i]);
+      let oTime = '';
+      for (let i = 0; i < 8; i++) oTime += String.fromCharCode(u8[offset + 350 + i]);
+      oDate = oDate.replace(/\0/g, '').trim();
+      oTime = oTime.replace(/\0/g, '').trim();
+      if (oDate && oDate.length >= 4) {
+        result.creationTime = oTime ? `${oDate} ${oTime}` : `${oDate} 12:00:00`;
+        result.year = oDate.slice(0, 4);
+        result.rawTags['origination_date'] = result.creationTime;
+      }
     } else if (id === 'LIST' && size >= 4) {
       const listType = String.fromCharCode(u8[offset], u8[offset + 1], u8[offset + 2], u8[offset + 3]);
       if (listType === 'INFO') {
@@ -628,6 +640,11 @@ const parseRiffWav = (u8: Uint8Array, result: DetectedAudioMetadata) => {
             else if (subId === 'IGNR') result.genre = val;
             else if (subId === 'ICOP') result.copyright = val;
             else if (subId === 'ISFT') result.encoder = val;
+            else if (subId === 'ICRD') {
+              result.year = val.slice(0, 4);
+              result.creationTime = val.length >= 10 ? val : `${val}-01-01 12:00:00`;
+              result.rawTags['creation_date'] = val;
+            }
           }
           subOff += (subSize + (subSize % 2)); // 2-byte word aligned
         }
@@ -794,15 +811,91 @@ const parseMp4Chunk = (u8: Uint8Array, result: DetectedVideoMetadata) => {
 
   parseBoxesRecursive(0, u8.length);
 
-  if (!result.encoder && !result.title) {
-    for (let i = 0; i < u8.length - 8; i++) {
-      if (u8[i] === 0x6d && u8[i + 1] === 0x6f && u8[i + 2] === 0x6f && u8[i + 3] === 0x76) { // 'moov'
-        const moovBoxStart = Math.max(0, i - 4);
-        parseBoxesRecursive(moovBoxStart, u8.length, 1);
-        break;
+  // Fallback 1: Direct search for 'moov' box in chunk (essential when chunk is sliced from end of large file)
+  for (let i = 0; i < u8.length - 8; i++) {
+    if (u8[i] === 0x6d && u8[i + 1] === 0x6f && u8[i + 2] === 0x6f && u8[i + 3] === 0x76) { // 'moov'
+      const boxSize = readU32(i - 4);
+      const boxEnd = boxSize > 0 && (i - 4 + boxSize <= u8.length) ? i - 4 + boxSize : u8.length;
+      parseBoxesRecursive(i + 4, boxEnd, 1);
+      break;
+    }
+  }
+
+  // Fallback 2: Direct scan for 'mvhd' atom (container creation timestamp)
+  if (!result.creationTime) {
+    for (let i = 0; i < u8.length - 24; i++) {
+      if (u8[i] === 0x6d && u8[i + 1] === 0x76 && u8[i + 2] === 0x68 && u8[i + 3] === 0x64) { // 'mvhd'
+        const ver = u8[i + 4];
+        const creationSec = ver === 0 ? readU32(i + 8) : readU32(i + 16);
+        if (creationSec > 2082844800) {
+          const d = new Date((creationSec - 2082844800) * 1000);
+          result.creationTime = d.toISOString().replace('T', ' ').slice(0, 19);
+          result.year = String(d.getUTCFullYear());
+          result.rawTags['creation_time'] = result.creationTime;
+          break;
+        }
       }
     }
   }
+
+  // Fallback 3: Apple QuickTime metadata (creationdate, location.ISO6709, make, model)
+  const textChunk = new TextDecoder('latin1').decode(u8);
+  if (!result.creationTime) {
+    const appleDt = textChunk.match(/com\.apple\.quicktime\.creationdate[^\x20-\x7E]*([12]\d{3}[-_/]\d{2}[-_/]\d{2}[ T]\d{2}[:._]\d{2}(?:[:._]\d{2})?)/);
+    if (appleDt) {
+      const cleanDt = appleDt[1].replace('T', ' ').slice(0, 19);
+      result.creationTime = cleanDt;
+      result.year = cleanDt.slice(0, 4);
+      result.rawTags['creation_time'] = cleanDt;
+    }
+  }
+
+  // Camera make & model
+  if (!result.deviceMake) {
+    const makeMatch = textChunk.match(/com\.apple\.quicktime\.make[^\x20-\x7E]*([a-zA-Z0-9 ._-]{2,30})/);
+    if (makeMatch) result.deviceMake = makeMatch[1].trim();
+  }
+  if (!result.deviceModel) {
+    const modelMatch = textChunk.match(/com\.apple\.quicktime\.model[^\x20-\x7E]*([a-zA-Z0-9 ._-]{2,40})/);
+    if (modelMatch) result.deviceModel = modelMatch[1].trim();
+  }
+
+  // Fallback 4: Extract GPS coordinates from chunk text
+  if (!result.location) {
+    const gps = extractGpsCoordinates(textChunk);
+    if (gps) {
+      result.location = gps;
+      result.hasGps = true;
+      result.rawTags['gps_coordinates'] = gps;
+    }
+  }
+};
+
+/**
+ * Universal GPS Geolocation Extractor:
+ * Parses ISO 6709 (e.g. +37.7749-122.4194/ or +06.2088+106.8456+015.000/) and XMP coordinates
+ */
+export const extractGpsCoordinates = (textSample: string): string | undefined => {
+  if (!textSample) return undefined;
+  // 1. ISO 6709 pattern: Latitude [-90, +90], Longitude [-180, +180]
+  const match = textSample.match(/([+-]\d{1,2}\.\d{3,8})([+-]\d{1,3}\.\d{3,8})(?:([+-]\d{1,4}(?:\.\d{1,3})?))?\/?/);
+  if (match) {
+    const lat = parseFloat(match[1]);
+    const lon = parseFloat(match[2]);
+    if (!isNaN(lat) && !isNaN(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180) {
+      return `${lat > 0 ? '+' : ''}${lat.toFixed(4)}°, ${lon > 0 ? '+' : ''}${lon.toFixed(4)}°`;
+    }
+  }
+  // 2. Decimal degrees pattern in XMP / JSON / QuickTime location
+  const xmpMatch = textSample.match(/(?:GPSCoordinates|gps_coordinates|location|coordinates)[^\x20-\x7E]*["']([+-]?\d{1,2}\.\d{3,8})[ ,]+([+-]?\d{1,3}\.\d{3,8})["']/i);
+  if (xmpMatch) {
+    const lat = parseFloat(xmpMatch[1]);
+    const lon = parseFloat(xmpMatch[2]);
+    if (!isNaN(lat) && !isNaN(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180) {
+      return `${lat > 0 ? '+' : ''}${lat.toFixed(4)}°, ${lon > 0 ? '+' : ''}${lon.toFixed(4)}°`;
+    }
+  }
+  return undefined;
 };
 
 /**
@@ -868,13 +961,14 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
       parseMp4Chunk(lastU8, result);
     }
 
+    // Direct GPS extraction across the entire first & last slices
     if (!result.location) {
       const firstText = new TextDecoder('latin1').decode(firstU8);
-      const gpsMatch = firstText.match(/([+-]\d{2}\.\d{4,8}[+-]\d{3}\.\d{4,8}[+-]?\d{0,4}\.?\d{0,2}\/?)/);
-      if (gpsMatch) {
-        result.location = gpsMatch[1];
+      const gps1 = extractGpsCoordinates(firstText);
+      if (gps1) {
+        result.location = gps1;
         result.hasGps = true;
-        result.rawTags['gps_coordinates'] = result.location;
+        result.rawTags['gps_coordinates'] = gps1;
       }
     }
   } catch (err) {
@@ -883,6 +977,15 @@ export const scanFileMetadata = async (file: File): Promise<DetectedVideoMetadat
 
   if (!result.creationTime && filenameDateTime) {
     result.creationTime = filenameDateTime;
+  }
+  if (!result.creationTime) {
+    const combined = `${file.name} ${result.title || ''} ${cleanTitle || ''}`;
+    const dtMatch = combined.match(/\b(20\d{2})([01]\d)([0-3]\d)([0-2]\d)([0-5]\d)([0-5]\d)?\b/);
+    if (dtMatch) {
+      const sec = dtMatch[6] ? dtMatch[6] : '00';
+      result.creationTime = `${dtMatch[1]}-${dtMatch[2]}-${dtMatch[3]} ${dtMatch[4]}:${dtMatch[5]}:${sec}`;
+      result.year = dtMatch[1];
+    }
   }
   if (!result.year && filenameYear) {
     result.year = filenameYear;
@@ -950,6 +1053,20 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
     }
     detectAiSignatures(textSample, result);
 
+    // Extract C2PA digital signing timestamp (RFC 3161 TSP token)
+    const c2paTimeMatch = textSample.match(/\b(20\d{2})([01]\d)([0-3]\d)([0-2]\d)([0-5]\d)([0-5]\d)Z\b/);
+    if (c2paTimeMatch && !result.creationTime) {
+      result.creationTime = `${c2paTimeMatch[1]}-${c2paTimeMatch[2]}-${c2paTimeMatch[3]} ${c2paTimeMatch[4]}:${c2paTimeMatch[5]}:${c2paTimeMatch[6]}`;
+      result.year = c2paTimeMatch[1];
+      result.rawTags['c2pa_signature_time'] = result.creationTime;
+    }
+
+    // Check GPS in audio (e.g. BWF/iXML or field recorders)
+    const audioGps = extractGpsCoordinates(textSample);
+    if (audioGps) {
+      result.rawTags['gps_coordinates'] = audioGps;
+    }
+
     // Format specific parsers
     const ext = (file.name.split('.').pop() || '').toLowerCase();
     if (ext === 'mp3' || (u8[0] === 0x49 && u8[1] === 0x44 && u8[2] === 0x33)) {
@@ -990,6 +1107,15 @@ export const scanAudioMetadata = async (file: File): Promise<DetectedAudioMetada
   // Date & Time defaults
   if (!result.creationTime && filenameDateTime) {
     result.creationTime = filenameDateTime;
+  }
+  if (!result.creationTime) {
+    const combined = `${file.name} ${result.title || ''} ${cleanTitle || ''}`;
+    const dtMatch = combined.match(/\b(20\d{2})([01]\d)([0-3]\d)([0-2]\d)([0-5]\d)([0-5]\d)?\b/);
+    if (dtMatch) {
+      const sec = dtMatch[6] ? dtMatch[6] : '00';
+      result.creationTime = `${dtMatch[1]}-${dtMatch[2]}-${dtMatch[3]} ${dtMatch[4]}:${dtMatch[5]}:${sec}`;
+      result.year = dtMatch[1];
+    }
   }
   if (!result.year && filenameYear) {
     result.year = filenameYear;

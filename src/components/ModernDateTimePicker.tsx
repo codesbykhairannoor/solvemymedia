@@ -187,11 +187,6 @@ export const ModernDateTimePicker: React.FC<ModernDateTimePickerProps> = ({
           }}
         />
       </div>
-
-      {/* Helper caption */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.68rem', color: 'var(--text-muted)', padding: '0 2px' }}>
-        <span>{value ? `🕒 ${value}` : (t('dateTimeHelper') || 'Klik kalender untuk memilih tanggal & jam')}</span>
-      </div>
     </div>
   );
 };

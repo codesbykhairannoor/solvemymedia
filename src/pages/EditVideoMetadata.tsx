@@ -216,8 +216,13 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             {t('edtInspectorTitle') || 'Embedded Container Metadata'}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {detectedMeta.location && (
+              <span style={{ background: 'rgba(239, 68, 68, 0.12)', color: '#ef4444', padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(239, 68, 68, 0.3)', fontWeight: 700 }}>
+                📍 {detectedMeta.location}
+              </span>
+            )}
             {(detectedMeta.creationTime || detectedMeta.year) && (
-              <span style={{ background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 4, border: '1px solid var(--border-color)', color: 'var(--text-main)' }}>
+              <span style={{ background: 'var(--bg-card)', padding: '2px 8px', borderRadius: 4, border: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 600 }}>
                 🕒 {detectedMeta.creationTime || detectedMeta.year}
               </span>
             )}
@@ -231,9 +236,9 @@ export const EditVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
                 ✨ {detectedMeta.c2paIssuer || 'AI (C2PA / SynthID)'}
               </span>
             )}
-            {!detectedMeta.hasC2pa && !detectedMeta.creationTime && !detectedMeta.year && !detectedMeta.encoder && !detectedMeta.title && !detectedMeta.artist && (
+            {!detectedMeta.hasC2pa && !detectedMeta.creationTime && !detectedMeta.year && !detectedMeta.encoder && !detectedMeta.title && !detectedMeta.artist && !detectedMeta.location && (
               <span style={{ color: 'var(--text-muted)' }}>
-                Wadah belum memiliki tag bawaan.
+                {t('rmvCleanStatus') || 'Ready to sanitize video container'}
               </span>
             )}
           </div>

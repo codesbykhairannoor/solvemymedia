@@ -169,6 +169,11 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 <span style={{ fontWeight: 700, color: 'var(--text-muted)', fontSize: '0.72rem', textTransform: 'uppercase' }}>
                   {t('rmaDetected') || 'Detected:'}
                 </span>
+                {detectedMeta?.location && (
+                  <span style={{ color: '#ef4444', fontWeight: 700 }}>
+                    📍 {detectedMeta.location}
+                  </span>
+                )}
                 {(detectedMeta?.creationTime || detectedMeta?.year) && (
                   <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>
                     🕒 {detectedMeta.creationTime || detectedMeta.year}
@@ -184,7 +189,7 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                     🎬 {detectedMeta.encoder}
                   </span>
                 )}
-                {!detectedMeta?.hasC2pa && !detectedMeta?.creationTime && !detectedMeta?.year && !detectedMeta?.encoder && (
+                {!detectedMeta?.hasC2pa && !detectedMeta?.creationTime && !detectedMeta?.year && !detectedMeta?.encoder && !detectedMeta?.location && (
                   <span style={{ color: '#22c55e', fontWeight: 600 }}>
                     🛡️ {t('rmvCleanStatus') || 'Ready to sanitize video container'}
                   </span>

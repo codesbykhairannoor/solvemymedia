@@ -167,6 +167,11 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 <span style={{ fontWeight: 700, color: 'var(--text-muted)', fontSize: '0.72rem', textTransform: 'uppercase' }}>
                   {t('rmaDetected') || 'Terdeteksi:'}
                 </span>
+                {detectedMeta?.rawTags?.['gps_coordinates'] && (
+                  <span style={{ color: '#ef4444', fontWeight: 700 }}>
+                    📍 {detectedMeta.rawTags['gps_coordinates']}
+                  </span>
+                )}
                 {(detectedMeta?.creationTime || detectedMeta?.year) && (
                   <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>
                     🕒 {detectedMeta.creationTime || detectedMeta.year}
@@ -182,7 +187,7 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                     🏷️ {detectedMeta.rawTags['id3_version'] || 'ID3 Tag'}
                   </span>
                 )}
-                {!detectedMeta?.hasC2pa && !detectedMeta?.hasId3 && !detectedMeta?.aiGenerated && (
+                {!detectedMeta?.hasC2pa && !detectedMeta?.hasId3 && !detectedMeta?.aiGenerated && !detectedMeta?.rawTags?.['gps_coordinates'] && (
                   <span style={{ color: '#22c55e', fontWeight: 600 }}>
                     🛡️ {t('rmaCleanContainer') || 'Wadah audio bersih dari tag pelacak'}
                   </span>
