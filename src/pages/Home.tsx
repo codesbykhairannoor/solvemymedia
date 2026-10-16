@@ -100,7 +100,7 @@ export const Home: React.FC = () => {
           <h1 
             className="hero-title"
             style={{ 
-              fontSize: 'clamp(2.8rem, 5.2vw, 4.85rem)', 
+              fontSize: 'clamp(2rem, 5.2vw, 4.85rem)', 
               fontWeight: 800, 
               letterSpacing: '-0.035em', 
               lineHeight: 1.12,

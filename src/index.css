@@ -77,7 +77,9 @@
 }
 
 html {
-  zoom: 0.8;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -201,10 +203,12 @@ textarea {
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
+    padding: 0 16px 20px 16px !important;
+    gap: 16px !important;
   }
 
   .tool-workspace-left {
-    min-height: 380px;
+    min-height: 320px;
     height: auto;
     width: 100% !important;
     position: static !important;
@@ -213,7 +217,7 @@ textarea {
 
   .tool-workspace-right {
     width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
     height: auto !important;
     overflow: visible !important;
   }

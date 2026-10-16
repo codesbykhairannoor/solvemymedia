@@ -98,9 +98,9 @@ export const DualColumnWorkspace: React.FC<DualColumnWorkspaceProps> = ({
       {!file && finalTitle && (
         <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>
           <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            fontSize: 'clamp(1.9rem, 5vw, 3.8rem)', 
             fontWeight: 900, 
-            marginBottom: 20, 
+            marginBottom: 16, 
             letterSpacing: '-0.03em', 
             lineHeight: 1.15, 
             fontFamily: 'Outfit, sans-serif', 
