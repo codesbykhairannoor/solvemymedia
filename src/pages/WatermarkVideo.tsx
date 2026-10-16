@@ -420,7 +420,7 @@ export const WatermarkVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const isReadyToProcess = !!videoFile && (watermarkType === 'image' ? !!imageFile : !!textWatermark.trim());
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: videoFile ? '20px' : '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: videoFile ? '20px' : '43px' }}>
       
       {/* Hidden File Inputs */}
       <input 

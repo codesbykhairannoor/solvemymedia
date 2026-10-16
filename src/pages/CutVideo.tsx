@@ -390,7 +390,7 @@ export const CutVideo: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const downloadFileName = `${customFileName.trim() || 'cut_video'}.${effectiveTargetExt}`;
 
   return (
-    <div style={{ width: '100%', minHeight: '80vh', padding: '24px 16px 80px' }}>
+    <div style={{ width: '100%', minHeight: '80vh', padding: file ? '24px 16px 80px' : '43px 16px 80px' }}>
       {/* Hidden File Input */}
       <input
         type="file"

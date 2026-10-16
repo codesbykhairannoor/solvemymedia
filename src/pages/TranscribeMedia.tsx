@@ -135,7 +135,7 @@ export const TranscribeMedia: React.FC<{ pseoData?: any }> = ({ pseoData }) => {
   const isVideo = file?.type.startsWith('video');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: file ? '20px' : '40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', paddingTop: file ? '20px' : '43px' }}>
       
       {!file && finalTitle && (
         <div style={{ textAlign: 'center', padding: '0 24px', maxWidth: 1200, margin: '0 auto 32px auto', width: '100%' }}>

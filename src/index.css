@@ -94,11 +94,6 @@ html {
   html {
     zoom: 1 !important;
   }
-
-  /* Khusus Navbar di Mobile: skala 0.85 agar ramping dan tidak kegedean */
-  nav[aria-label="Main Site Header"] {
-    zoom: 0.85;
-  }
 }
 
 .seo-sections-wrapper {
@@ -148,8 +143,10 @@ textarea {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
+  margin: 0 auto;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .container-global {
@@ -164,14 +161,6 @@ textarea {
   margin: 40px auto;
   width: 100%;
   max-width: 1200px;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-.seo-sections-wrapper {
-  width: 100%;
-  max-width: 100vw;
-  min-width: 0;
   overflow-x: hidden;
   box-sizing: border-box;
 }
