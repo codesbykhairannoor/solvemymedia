@@ -119,9 +119,6 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 <ShieldAlert size={18} color="#ef4444" />
                 <span>{t('rmvFileInspector') || 'Video Metadata Scrubber'}</span>
               </h4>
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
-                {t('rmvSubtitle') || 'Pilih tag pelacak yang ingin dihapus.'}
-              </p>
             </div>
             {file && (
               <button
@@ -329,30 +326,6 @@ export const RemoveVideoMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
               </strong>
             </div>
           </div>
-
-          {/* Balik Button */}
-          <button
-            type="button"
-            onClick={() => setIsFlipped(false)}
-            style={{
-              width: '100%',
-              padding: '8px 12px',
-              borderRadius: 8,
-              cursor: 'pointer',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 8,
-              background: 'rgba(var(--brand-primary-rgb), 0.12)',
-              color: 'var(--brand-primary)',
-              border: '1px solid rgba(var(--brand-primary-rgb), 0.25)'
-            }}
-          >
-            <RotateCcw size={13} />
-            <span>{t('rmvFlipBackFull') || 'Selesai Cek — Balik ke Opsi Bersihkan'}</span>
-          </button>
         </div>
       )}
 

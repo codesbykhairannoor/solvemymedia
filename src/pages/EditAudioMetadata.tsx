@@ -180,9 +180,6 @@ export const EditAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) =>
             <Tag size={18} color="var(--brand-primary)" />
             <span>{t('edaFileInspector') || 'Audio ID3 Tag Editor'}</span>
           </h4>
-          <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
-            {t('edaSubtitle') || 'Losslessly modify track title, artist, album, year, and genre tags.'}
-          </p>
         </div>
         {file && (
           <button

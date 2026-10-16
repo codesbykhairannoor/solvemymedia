@@ -71,58 +71,35 @@ export const ModernDateTimePicker: React.FC<ModernDateTimePickerProps> = ({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       {label && (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)' }}>
             <Calendar size={13} color={color} />
             <span>{label}</span>
           </label>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          {value && (
             <button
               type="button"
-              onClick={setNow}
-              title={t('dateTimeNowBtn') || 'Set ke Waktu Sekarang'}
+              onClick={clearValue}
+              title={t('dateTimeClearBtn') || 'Reset'}
               style={{
-                background: 'rgba(234, 179, 8, 0.1)',
-                color: color,
-                border: '1px solid rgba(234, 179, 8, 0.25)',
-                borderRadius: 6,
-                padding: '2px 8px',
+                background: 'transparent',
+                color: 'var(--text-muted)',
+                border: 'none',
+                borderRadius: 4,
+                padding: '1px 6px',
                 fontSize: '0.68rem',
-                fontWeight: 700,
+                fontWeight: 600,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: 4,
-                transition: 'all 0.2s'
+                transition: 'color 0.2s'
               }}
             >
-              <Clock size={11} />
-              <span>{t('dateTimeNowBtn') || 'Sekarang'}</span>
+              <RotateCcw size={10} />
+              <span>{t('dateTimeClearBtn') || 'Reset'}</span>
             </button>
-            {value && (
-              <button
-                type="button"
-                onClick={clearValue}
-                title={t('dateTimeClearBtn') || 'Hapus Waktu'}
-                style={{
-                  background: 'transparent',
-                  color: 'var(--text-muted)',
-                  border: 'none',
-                  borderRadius: 6,
-                  padding: '2px 6px',
-                  fontSize: '0.68rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 3
-                }}
-              >
-                <RotateCcw size={10} />
-                <span>{t('dateTimeClearBtn') || 'Reset'}</span>
-              </button>
-            )}
-          </div>
+          )}
         </div>
       )}
 
@@ -132,10 +109,12 @@ export const ModernDateTimePicker: React.FC<ModernDateTimePickerProps> = ({
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
+          height: 38,
           background: 'var(--bg-app)',
           border: '1px solid var(--border-color)',
           borderRadius: 8,
-          padding: '2px 8px 2px 34px',
+          padding: '0 10px 0 34px',
+          boxSizing: 'border-box',
           transition: 'border-color 0.2s',
           boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.02)'
         }}
@@ -146,22 +125,23 @@ export const ModernDateTimePicker: React.FC<ModernDateTimePickerProps> = ({
           title={t('dateTimeHelper') || 'Buka Kalender & Jam'}
           style={{ 
             position: 'absolute', 
-            left: 6, 
+            left: 8, 
             top: '50%', 
             transform: 'translateY(-50%)', 
             background: 'none',
             border: 'none',
-            padding: 4,
+            padding: 2,
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 6,
+            color: color,
+            opacity: 0.85,
             transition: 'opacity 0.2s'
           }}
         >
           <Calendar 
-            size={16} 
+            size={15} 
             color={color} 
           />
         </button>
@@ -174,7 +154,8 @@ export const ModernDateTimePicker: React.FC<ModernDateTimePickerProps> = ({
           placeholder={placeholder || 'YYYY-MM-DDTHH:mm'}
           style={{
             width: '100%',
-            padding: '6px 0',
+            height: '100%',
+            padding: 0,
             background: 'transparent',
             border: 'none',
             color: 'var(--text-main)',

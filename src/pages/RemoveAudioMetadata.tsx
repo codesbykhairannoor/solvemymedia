@@ -117,9 +117,6 @@ export const RemoveAudioMetadata: React.FC<{ pseoData?: any }> = ({ pseoData }) 
                 <ShieldAlert size={18} color="#ef4444" />
                 <span>{t('rmaFileInspector') || 'Audio Metadata Scrubber'}</span>
               </h4>
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '4px 0 0 0' }}>
-                {t('rmaSubtitle') || 'Select audio tracking tags to strip without re-encoding.'}
-              </p>
             </div>
             {file && (
               <button

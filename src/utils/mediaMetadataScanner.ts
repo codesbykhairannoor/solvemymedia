@@ -140,23 +140,26 @@ export const cleanFilenameToTitle = (filename: string): { title: string; year?: 
   let year: string | undefined;
   let dateTime: string | undefined;
 
-  // Pattern 1: 2026-10-13 20-01-33 or 2026-10-13_20-01-33
-  const dtMatch1 = base.match(/(20\d{2})[-_](\d{2})[-_](\d{2})[ _-]([012]\d)[-_:]([0-5]\d)[-_:]([0-5]\d)/);
-  if (dtMatch1) {
-    year = dtMatch1[1];
-    dateTime = `${dtMatch1[1]}-${dtMatch1[2]}-${dtMatch1[3]} ${dtMatch1[4]}:${dtMatch1[5]}:${dtMatch1[6]}`;
+  // Pattern 1: WhatsApp audio/video / Screen recording / ISO timestamp with time:
+  // e.g. "WhatsApp Audio 2026-10-04 at 21.35.41", "2026-10-04 21-35-41", "2026_10_04_21_35_41"
+  const m1 = base.match(/(20\d{2})[-_.](\d{2})[-_.](\d{2})(?:[ _-]+(?:at[ _-]+)?)?([012]\d)[-_.:]([0-5]\d)(?:[-_.:]([0-5]\d))?/i);
+  if (m1) {
+    year = m1[1];
+    const sec = m1[6] || '00';
+    dateTime = `${m1[1]}-${m1[2]}-${m1[3]} ${m1[4]}:${m1[5]}:${sec}`;
   } else {
-    // Pattern 2: 202609081456 (YYYYMMDDHHmm)
-    const dtMatch2 = base.match(/\b(20\d{2})(\d{2})(\d{2})([012]\d)([0-5]\d)\b/);
-    if (dtMatch2) {
-      year = dtMatch2[1];
-      dateTime = `${dtMatch2[1]}-${dtMatch2[2]}-${dtMatch2[3]} ${dtMatch2[4]}:${dtMatch2[5]}:00`;
+    // Pattern 2: Compact timestamp: VID_20261004_213541, Recording_20261004_213541, 202609081456
+    const m2 = base.match(/(?:^|[^0-9])(20\d{2})(\d{2})(\d{2})[-_ ]?([012]\d)([0-5]\d)([0-5]\d)?(?:[^0-9]|$)/);
+    if (m2) {
+      year = m2[1];
+      const sec = m2[6] || '00';
+      dateTime = `${m2[1]}-${m2[2]}-${m2[3]} ${m2[4]}:${m2[5]}:${sec}`;
     } else {
-      // Pattern 3: 2026-09-08 (YYYY-MM-DD)
-      const dtMatch3 = base.match(/\b(20\d{2})[-_](\d{2})[-_](\d{2})\b/);
-      if (dtMatch3) {
-        year = dtMatch3[1];
-        dateTime = `${dtMatch3[1]}-${dtMatch3[2]}-${dtMatch3[3]} 12:00:00`;
+      // Pattern 3: Date only: 2026-10-04
+      const m3 = base.match(/(?:^|[^0-9])(20\d{2})[-_.](\d{2})[-_.](\d{2})(?:[^0-9]|$)/);
+      if (m3) {
+        year = m3[1];
+        dateTime = `${m3[1]}-${m3[2]}-${m3[3]} 12:00:00`;
       } else {
         const yearMatch = base.match(/\b(20\d{2}|19\d{2})\b/);
         if (yearMatch) {
@@ -169,8 +172,8 @@ export const cleanFilenameToTitle = (filename: string): { title: string; year?: 
 
   // Remove resolution and technical markers
   let cleaned = base
-    .replace(/[._-](1080p|720p|480p|4k|2160p|uhd|fhd|hd|320kbps|256kbps|128kbps|flac|wav|mp3)\b/gi, '')
-    .replace(/\b20\d{2}[-_]?\d{2}[-_]?\d{2}[-_ ]?[012]\d[-_:]?[0-5]\d[-_:]?[0-5]?\d?\b/g, '')
+    .replace(/[._-](1080p|720p|480p|4k|2160p|uhd|fhd|hd|320kbps|256kbps|128kbps|flac|wav|mp3|ogg|m4a|aac)\b/gi, '')
+    .replace(/\b20\d{2}[-_.]?\d{2}[-_.]?\d{2}(?:[ _-]+(?:at[ _-]+)?)?[012]\d[-_.:]?[0-5]\d[-_.:]?[0-5]?\d?\b/gi, '')
     .replace(/\b20\d{2}\d{6,10}\b/g, '')
     .replace(/[._-]+/g, ' ')
     .replace(/[…]+/g, '')
