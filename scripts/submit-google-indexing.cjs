@@ -273,14 +273,46 @@ async function main() {
   const submittedSet = new Set(state.submittedUrls || []);
   console.log(`📦 Previously submitted URLs in state file: ${submittedSet.size}`);
 
-  const pendingUrls = allUrls.filter((u) => !submittedSet.has(u));
-  console.log(`⏳ Remaining pending URLs to index: ${pendingUrls.length}`);
+// Priority URLs to re-verify fixes (301 redirects & recovered 404s)
+const PRIORITY_FIX_URLS = [
+  'https://solvemymedia.com/ar/%E5%B0%86%E5%A4%9A%E4%B8%AA%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95%E5%90%88%E5%B9%B6%E4%B8%BA%E4%B8%80%E4%B8%AA',
+  'https://solvemymedia.com/cs/%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E8%A7%86%E9%A2%91%E4%B8%AD%E7%9A%84%E5%A3%B0%E9%9F%B3',
+  'https://solvemymedia.com/ar/%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E5%BD%B1%E7%89%87%E4%B8%AD%E7%9A%84%E8%81%B2%E9%9F%B3',
+  'https://solvemymedia.com/cs/%E5%87%8F%E5%B0%8F%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%9A%84-mp4-%E8%A7%86%E9%A2%91%E5%A4%A7%E5%B0%8F',
+  'https://solvemymedia.com/%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E8%A7%86%E9%A2%91%E4%B8%AD%E7%9A%84%E5%A3%B0%E9%9F%B3',
+  'https://solvemymedia.com/%E5%B0%87%E5%A4%9A%E5%80%8B%E8%AA%9E%E9%9F%B3%E5%82%99%E5%BF%98%E9%8C%84%E5%90%88%E4%BD%B5%E7%82%BA%E4%B8%80%E5%80%8B',
+  'https://solvemymedia.com/%E9%9D%9C%E9%9F%B3%E5%BD%B1%E7%89%87',
+  'https://solvemymedia.com/fr/audio-recorder',
+  'https://solvemymedia.com/fr/speed-up-mp4',
+  'https://solvemymedia.com/vi/remove-audio-from-video',
+  'https://solvemymedia.com/compress-mov',
+  'https://solvemymedia.com/compress-'
+];
 
-  if (pendingUrls.length === 0) {
-    console.log('\n🎉 ALL SITEMAP URLS ARE 100% SUBMITTED TO GOOGLE INDEXING API!');
-    console.log('No remaining pages need submission today.');
-    return;
+  const isForceReset = args.includes('--reset') || args.includes('--force-reset');
+  if (isForceReset) {
+    console.log('🔄 Manual --reset flag detected: clearing state for fresh submission cycle.');
+    submittedSet.clear();
   }
+
+  let pendingUrls = allUrls.filter((u) => !submittedSet.has(u));
+
+  // If all sitemap URLs were submitted in previous runs, start rolling freshness rotation!
+  if (pendingUrls.length === 0) {
+    console.log('\n🔄 Cycle Complete! All 1,152 URLs have been submitted to Google Indexing API.');
+    console.log('🔄 Restarting rolling freshness cycle: submitting top priority updated pages...');
+    submittedSet.clear();
+    pendingUrls = [...allUrls];
+  }
+
+  // Prepend any unsubmitted priority fix URLs
+  const unsubmittedPriority = PRIORITY_FIX_URLS.filter((u) => !submittedSet.has(u));
+  if (unsubmittedPriority.length > 0) {
+    console.log(`⚡ Prepending ${unsubmittedPriority.length} High-Priority GSC Fix/Redirect URLs to batch...`);
+    pendingUrls = [...unsubmittedPriority, ...pendingUrls.filter(u => !unsubmittedPriority.includes(u))];
+  }
+
+  console.log(`⏳ Remaining pending URLs to index: ${pendingUrls.length}`);
 
   const batch = pendingUrls.slice(0, BATCH_SIZE);
   console.log(`🚀 Preparing daily batch of ${batch.length} URLs (Limit: ${BATCH_SIZE})...\n`);
