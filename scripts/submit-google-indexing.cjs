@@ -206,25 +206,30 @@ function parseSitemapUrls() {
     }
   }
 
-  // Priority sorting:
-  // 1. Language Homepages (https://solvemymedia.com, /id, /es, etc.)
-  // 2. High-Intent Core Tools (compress-video, compress-image, trim-video, etc.)
-  // 3. Informational Pages (about-us, privacy-policy, etc.)
+  // Smart Tiered Prioritization:
+  // Tier 0: Root Homepage (https://solvemymedia.com)
+  // Tier 1: 32 Language Roots (/id, /es, /de, /fr, etc.)
+  // Tier 2: Core Tools & High-Intent Localized Pages (compress-video, video-speed, etc.)
+  // Tier 3: Low-Priority Informational / Legal Pages (about-us, privacy-policy, etc.)
+  const LEGAL_PATTERNS = [
+    'about-us', 'privacy-policy', 'terms-of-service', 'security', 'pricing', 'compare', 'supported-languages'
+  ];
+
+  function getTierScore(url) {
+    const p = url.replace(/https?:\/\/[^\/]+/, '');
+    const isLegal = LEGAL_PATTERNS.some((pat) => p.includes(pat));
+    if (isLegal) return 3; // Tier 3
+
+    const segments = p.split('/').filter(Boolean);
+    if (segments.length === 0) return 0; // Tier 0: Global root
+    if (segments.length === 1 && (segments[0].length <= 5 || segments[0] === 'zh-TW')) return 1; // Tier 1: Language roots
+    return 2; // Tier 2: Core tools and localized pages
+  }
+
   return Array.from(collectedUrls).sort((a, b) => {
-    const pathA = a.replace(/https?:\/\/[^\/]+/, '').replace(/^\//, '');
-    const pathB = b.replace(/https?:\/\/[^\/]+/, '').replace(/^\//, '');
-
-    const segmentsA = pathA.split('/').filter(Boolean);
-    const segmentsB = pathB.split('/').filter(Boolean);
-
-    // Root home (https://solvemymedia.com)
-    if (segmentsA.length === 0 && segmentsB.length > 0) return -1;
-    if (segmentsB.length === 0 && segmentsA.length > 0) return 1;
-
-    // Language roots (e.g. /id, /es, /de)
-    if (segmentsA.length === 1 && segmentsB.length > 1) return -1;
-    if (segmentsB.length === 1 && segmentsA.length > 1) return 1;
-
+    const scoreA = getTierScore(a);
+    const scoreB = getTierScore(b);
+    if (scoreA !== scoreB) return scoreA - scoreB;
     return a.localeCompare(b);
   });
 }
