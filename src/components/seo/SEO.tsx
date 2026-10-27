@@ -286,17 +286,27 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     return `${domain}${path}`;
   };
 
+  const isLegalPage = ['/about-us', '/privacy-policy', '/terms-of-service', '/security', '/pricing', '/compare', '/supported-languages'].includes(cleanPath);
+
   const canonicalLocalSlug = standardSlug ? getLocalizedSlug(standardSlug, currentLang) : '';
-  const canonicalPathRaw = canonicalLocalSlug ? `/${canonicalLocalSlug}` : cleanPath;
+  const canonicalPathRaw = canonicalLocalSlug ? `/${canonicalLocalSlug}` : (isLegalPage ? cleanPath : '/');
   const canonicalPath = currentLang === 'en' ? canonicalPathRaw : `/${currentLang}${canonicalPathRaw === '/' ? '' : canonicalPathRaw}`;
   const canonicalUrl = formatUrl(canonicalPath);
 
   const linkMap = new Map<string, { rel: string; hreflang: string; href: string }>();
 
   languages.forEach(lang => {
-    const langLocalSlug = standardSlug ? getLocalizedSlug(standardSlug, lang.code) : '';
-    const langPathRaw = langLocalSlug ? `/${langLocalSlug}` : cleanPath;
-    const langPath = lang.code === 'en' ? langPathRaw : `/${lang.code}${langPathRaw === '/' ? '' : langPathRaw}`;
+    let langPath = '';
+    if (cleanPath === '/') {
+      langPath = lang.code === 'en' ? '/' : `/${lang.code}`;
+    } else if (isLegalPage) {
+      langPath = lang.code === 'en' ? cleanPath : `/${lang.code}${cleanPath}`;
+    } else if (standardSlug) {
+      const langLocalSlug = getLocalizedSlug(standardSlug, lang.code);
+      langPath = lang.code === 'en' ? `/${langLocalSlug}` : `/${lang.code}/${langLocalSlug}`;
+    } else {
+      return;
+    }
     const formatted = formatUrl(langPath);
     if (!linkMap.has(lang.code)) {
       linkMap.set(lang.code, {
@@ -307,7 +317,7 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     }
   });
   
-  const xDefaultUrl = formatUrl(standardSlug ? `/${standardSlug}` : cleanPath);
+  const xDefaultUrl = formatUrl(standardSlug ? `/${standardSlug}` : (isLegalPage ? cleanPath : '/'));
   linkMap.set('x-default', {
     rel: 'alternate',
     hreflang: 'x-default',

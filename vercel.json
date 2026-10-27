@@ -14,6 +14,86 @@
       "permanent": true
     },
     {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(完全去除视频中的声音|%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E8%A7%86%E9%A2%91%E4%B8%AD%E7%9A%84%E5%A3%B0%E9%9F%B3)",
+      "destination": "/zh/完全去除视频中的声音",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(完全去除视频中的声音|%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E8%A7%86%E9%A2%91%E4%B8%AD%E7%9A%84%E5%A3%B0%E9%9F%B3)",
+      "destination": "/zh/完全去除视频中的声音",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(完全去除影片中的聲音|%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E5%BD%B1%E7%89%87%E4%B8%AD%E7%9A%84%E8%81%B2%E9%9F%B3)",
+      "destination": "/zh-TW/完全去除影片中的聲音",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(完全去除影片中的聲音|%E5%AE%8C%E5%85%A8%E5%8E%BB%E9%99%A4%E5%BD%B1%E7%89%87%E4%B8%AD%E7%9A%84%E8%81%B2%E9%9F%B3)",
+      "destination": "/zh-TW/完全去除影片中的聲音",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(减小电子邮件的-mp4-视频大小|%E5%87%8F%E5%B0%8F%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%9A%84-mp4-%E8%A7%86%E9%A2%91%E5%A4%A7%E5%B0%8F)",
+      "destination": "/zh/减小电子邮件的-mp4-视频大小",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(减小电子邮件的-mp4-视频大小|%E5%87%8F%E5%B0%8F%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%9A%84-mp4-%E8%A7%86%E9%A2%91%E5%A4%A7%E5%B0%8F)",
+      "destination": "/zh/减小电子邮件的-mp4-视频大小",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(将多个语音备忘录合并为一个|%E5%B0%86%E5%A4%9A%E4%B8%AA%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95%E5%90%88%E5%B9%B6%E4%B8%BA%E4%B8%80%E4%B8%AA)",
+      "destination": "/zh/将多个语音备忘录合并为一个",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(将多个语音备忘录合并为一个|%E5%B0%86%E5%A4%9A%E4%B8%AA%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95%E5%90%88%E5%B9%B6%E4%B8%BA%E4%B8%80%E4%B8%AA)",
+      "destination": "/zh/将多个语音备忘录合并为一个",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(將多個語音備忘錄合併為一個|%E5%B0%87%E5%A4%9A%E5%80%8B%E8%AA%9E%E9%9F%B3%E5%82%99%E5%BF%98%E9%8C%84%E5%90%88%E4%BD%B5%E7%82%BA%E4%B8%80%E5%80%8B)",
+      "destination": "/zh-TW/將多個語音備忘錄合併為一個",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(將多個語音備忘錄合併為一個|%E5%B0%87%E5%A4%9A%E5%80%8B%E8%AA%9E%E9%9F%B3%E5%82%99%E5%BF%98%E9%8C%84%E5%90%88%E4%BD%B5%E7%82%BA%E4%B8%80%E5%80%8B)",
+      "destination": "/zh-TW/將多個語音備忘錄合併為一個",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(靜音影片|%E9%9D%9C%E9%9F%B3%E5%BD%B1%E7%89%87)",
+      "destination": "/zh-TW/靜音影片",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(靜音影片|%E9%9D%9C%E9%9F%B3%E5%BD%B1%E7%89%87)",
+      "destination": "/zh-TW/靜音影片",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:slug(在不损失质量的情况下缩小视频|%E5%9C%A8%E4%B8%8D%E6%8D%9F%E5%A4%B1%E8%B4%A8%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%BC%A9%E5%B0%8F%E8%A7%86%E9%A2%91)",
+      "destination": "/zh/在不损失质量的情况下缩小视频",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(在不损失质量的情况下缩小视频|%E5%9C%A8%E4%B8%8D%E6%8D%9F%E5%A4%B1%E8%B4%A8%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%BC%A9%E5%B0%8F%E8%A7%86%E9%A2%91)",
+      "destination": "/zh/在不损失质量的情况下缩小视频",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/compress-",
+      "destination": "/:lang/compress-video",
+      "permanent": true
+    },
+    {
+      "source": "/compress-",
+      "destination": "/compress-video",
+      "permanent": true
+    },
+    {
       "source": "/:lang(en|id|es|fr|de|it|pt|nl|pl|ru|ja|ko|zh|zh-TW|tr|vi|th|ar|hi|sv|no|da|fi|cs|hu|el|ro|uk|ms|tl|he|sk)/:tool(transcribe-mp3|transcribe-mp4)",
       "destination": "/:lang/transcribe",
       "permanent": true
@@ -137,11 +217,11 @@
   "rewrites": [
     {
       "source": "/assets/index-:hash(.*)\\.css",
-      "destination": "/assets/index-SU1hgLSr.css"
+      "destination": "/assets/index-gQzYtzfn.css"
     },
     {
       "source": "/assets/index-:hash(.*)\\.js",
-      "destination": "/assets/index-ZjfHQqWI.js"
+      "destination": "/assets/index--O6kZarv.js"
     }
   ],
   "headers": [

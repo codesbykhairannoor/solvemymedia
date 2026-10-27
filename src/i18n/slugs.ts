@@ -1831,7 +1831,14 @@ export const getLocalizedSlug = (standardSlug: string, lang: string): string => 
 };
 
 export const getStandardSlug = (localizedSlug: string, lang: string): string => {
-  if (!SLUGS_MAP[lang]) return localizedSlug;
-  const standardSlug = Object.keys(SLUGS_MAP[lang]).find(key => SLUGS_MAP[lang][key] === localizedSlug);
-  return standardSlug || localizedSlug;
+  if (SLUGS_MAP[lang]) {
+    const standardSlug = Object.keys(SLUGS_MAP[lang]).find(key => SLUGS_MAP[lang][key] === localizedSlug);
+    if (standardSlug) return standardSlug;
+  }
+  // Universal search across all languages so cross-language requests resolve to the standard slug
+  for (const l of Object.keys(SLUGS_MAP)) {
+    const standardSlug = Object.keys(SLUGS_MAP[l]).find(key => SLUGS_MAP[l][key] === localizedSlug);
+    if (standardSlug) return standardSlug;
+  }
+  return localizedSlug;
 };
