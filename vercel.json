@@ -226,6 +226,24 @@
   ],
   "headers": [
     {
+      "source": "/:lang(id|es|fr|de|ja|pt|ru|zh|zh-TW|ar|hi|it|ko|nl|tr|pl|vi|th|sv|cs|da|el|fi|he|hu|no|ro|sk|uk|ms|tl)/:path*",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</llms-:lang.txt>; rel=\"llms-txt\""
+        }
+      ]
+    },
+    {
+      "source": "/:lang(id|es|fr|de|ja|pt|ru|zh|zh-TW|ar|hi|it|ko|nl|tr|pl|vi|th|sv|cs|da|el|fi|he|hu|no|ro|sk|uk|ms|tl)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</llms-:lang.txt>; rel=\"llms-txt\""
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
