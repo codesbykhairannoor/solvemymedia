@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npx vite build && npx vite build --outDir dist/server --ssr src/entry-server.tsx && node scripts/generate-ssg.cjs && node scripts/generate-seo-files.cjs",
+    "indexnow": "node scripts/submit-indexnow.cjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

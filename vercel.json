@@ -277,7 +277,7 @@
       ]
     },
     {
-      "source": "/:file(favicon\\.svg|logoweb\\.png|robots\\.txt|llms.*\\.txt|sitemap.*\\.xml)",
+      "source": "/:file(favicon\\.svg|logoweb\\.png|robots\\.txt|llms.*\\.txt|sitemap.*\\.xml|indexnow\\.txt|[a-f0-9]{32}\\.txt)",
       "headers": [
         {
           "key": "Cache-Control",

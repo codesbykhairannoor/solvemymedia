@@ -435,6 +435,30 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     });
   }
 
+  // AEO & Voice Search: WebPage Schema with SpeakableSpecification (Apple Intelligence, Siri, Google Voice)
+  schemaGraph.push({
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description: description,
+    inLanguage: currentLang,
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${domain}/#website`,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: [
+        'h1',
+        '.hero-title',
+        '.hero-subtitle',
+        '.faq-answer',
+        '[data-speakable="true"]'
+      ],
+    },
+  });
+
   const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph });
 
   useHead({
