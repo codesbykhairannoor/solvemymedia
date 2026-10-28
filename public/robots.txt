@@ -64,8 +64,15 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# Perplexity AI Search Engine
+# Perplexity AI Search Engine & SearchBot
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-Search
+Allow: /
+
+# Diffbot AI Extraction
+User-agent: Diffbot
 Allow: /
 
 # Anthropic Claude Web Search & Citations

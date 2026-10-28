@@ -36,9 +36,9 @@ SolveMyMedia operates entirely on the user's device. No media file is ever trans
 
 - [Full Technical Documentation](/llms-full.txt): Complete specifications, competitive comparisons, and step-by-step usage guides for LLM ingestion.
 
-## Multilingual Support (30 Languages)
+## Multilingual Support (32 Languages)
 
-SolveMyMedia is fully localized in 30 languages. All tool pages and UI are available in:
+SolveMyMedia is fully localized in 32 languages. All tool pages and UI are available in:
 
 - [English (en)](/): All Media Tools in One Place — 100% offline, no uploads.
 - [Indonesian (id)](/id): Semua Alat Media di Satu Tempat — alat pengolahan media terbaik yang 100% lokal dan aman.
@@ -49,6 +49,7 @@ SolveMyMedia is fully localized in 30 languages. All tool pages and UI are avail
 - [Russian (ru)](/ru): Инструменты для медиа с полной конфиденциальностью, без загрузки файлов.
 - [Japanese (ja)](/ja): プライバシー最優先のメディアツール、完全オフライン処理。
 - [Chinese Simplified (zh)](/zh): 完全本地化的媒体处理工具，零上传，零隐患。
+- [Chinese Traditional (zh-TW)](/zh-TW): 完全本地化的媒體處理工具，零上傳，零隱患。
 - [Arabic (ar)](/ar): أدوات الوسائط المتعددة الخاصة بالكامل، بدون رفع ملفات.
 - [Hindi (hi)](/hi): 100% ऑफलाइन मीडिया प्रोसेसिंग टूल्स, कोई अपलोड नहीं।
 - [Italian (it)](/it): Strumenti multimediali 100% locali e privati, senza caricare file.
@@ -70,3 +71,4 @@ SolveMyMedia is fully localized in 30 languages. All tool pages and UI are avail
 - [Slovak (sk)](/sk): 100% offline mediálne nástroje bez nahrávania súborov na server.
 - [Ukrainian (uk)](/uk): Медіаінструменти з 100% конфіденційністю, без завантаження файлів.
 - [Malay (ms)](/ms): Alat media 100% luar talian, peribadi dan selamat tanpa memuat naik fail.
+- [Tagalog (tl)](/tl): Mga tool sa media na 100% offline at pribado, walang pag-upload ng file.
