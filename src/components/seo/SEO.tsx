@@ -184,7 +184,7 @@ const FALLBACK_LEGAL_SEOS: Record<string, { title: string; desc: string }> = {
 export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defaultDesc, customTitle, customDesc, faqItems }) => {
   const { currentLang, t, languages } = useLanguage();
   const location = useLocation();
-  
+
   let title = customTitle;
   if (!title) {
     const translated = t(titleKey as any);
@@ -257,15 +257,15 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     const lastSpace = trimmed.lastIndexOf(' ');
     description = (lastSpace > 100 ? trimmed.slice(0, lastSpace) : trimmed).trim() + '...';
   }
-  
+
   const domain = 'https://solvemymedia.com';
-  
+
   const currentPath = location.pathname;
   let cleanPath = currentPath;
   if (currentLang !== 'en' && cleanPath.startsWith(`/${currentLang}`)) {
     cleanPath = cleanPath.slice(currentLang.length + 1) || '/';
   }
-  
+
   if (!cleanPath.startsWith('/')) {
     cleanPath = '/' + cleanPath;
   }
@@ -316,7 +316,7 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
       });
     }
   });
-  
+
   const xDefaultUrl = formatUrl(standardSlug ? `/${standardSlug}` : (isLegalPage ? cleanPath : '/'));
   linkMap.set('x-default', {
     rel: 'alternate',
@@ -332,6 +332,7 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
       '@type': 'WebSite',
       '@id': `${domain}/#website`,
       name: 'SolveMyMedia',
+      alternateName: ['Solve My Media', 'SolveMyMedia.com', 'Solve My Media Online'],
       url: domain,
       description: 'Free, secure, 100% client-side video and audio processing tools powered by WebAssembly.',
       potentialAction: {
@@ -358,7 +359,7 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
         ratingValue: '4.9',
         ratingCount: '1250',
       },
-      creator: { '@type': 'Organization', name: 'SolveMyMedia', url: domain },
+      creator: { '@type': 'Organization', name: 'SolveMyMedia', alternateName: ['Solve My Media', 'SolveMyMedia.com'], url: domain },
     });
     schemaGraph.push({
       '@type': 'HowTo',
@@ -379,6 +380,8 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
       '@type': 'Organization',
       '@id': `${domain}/#org`,
       name: 'SolveMyMedia',
+      alternateName: ['Solve My Media', 'SolveMyMedia.com'],
+      logo: `${domain}/logoweb.png`,
       url: domain,
       description: 'Privacy-first, client-side media processing platform with 13 free tools.',
     });
@@ -406,7 +409,7 @@ export const SEO: React.FC<SEOProps> = ({ titleKey, descKey, defaultTitle, defau
     const isAudio = cleanPath.includes('audio') || cleanPath.includes('transcribe') || cleanPath.includes('recorder') || cleanPath.includes('podcast') || cleanPath.includes('voice') || cleanPath.includes('sound');
     const isLegal = cleanPath.includes('about') || cleanPath.includes('privacy') || cleanPath.includes('terms') || cleanPath.includes('security');
     const isResource = cleanPath.includes('pricing') || cleanPath.includes('compare') || cleanPath.includes('languages');
-    
+
     const categoryName = isAudio ? 'Audio Tools' : isLegal ? 'Legal & Safety' : isResource ? 'Resources' : 'Video Tools';
 
     schemaGraph.push({
