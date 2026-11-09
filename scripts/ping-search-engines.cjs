@@ -1,35 +1,60 @@
 /**
  * ping-search-engines.cjs
- * Submits the latest sitemap to IndexNow (Bing, Yandex, Seznam, Naver) and Google Sitemap Ping
+ * Submits the latest sitemap to IndexNow gateways with strict timeout.
+ * Note: Google & Bing deprecated /ping endpoints (return 404/410),
+ * so modern indexing uses IndexNow and Google Indexing API.
  */
 
 const https = require('https');
-const http = require('http');
 
 const DOMAIN = 'https://solvemymedia.com';
-const SITEMAP_URL = `${DOMAIN}/sitemap.xml`;
-
-// IndexNow key and location (SolveMyMedia)
-const INDEXNOW_KEY = '5e66496solvemymedia2026';
+const INDEXNOW_KEY = '8ec34957474f43cca685b8c711c72539';
 const INDEXNOW_KEY_LOCATION = `${DOMAIN}/${INDEXNOW_KEY}.txt`;
 
-async function pingUrl(url) {
+async function pingIndexNowEndpoint(endpoint, payload) {
   return new Promise((resolve) => {
-    const client = url.startsWith('https') ? https : http;
-    client.get(url, (res) => {
-      resolve({ url, status: res.statusCode });
-    }).on('error', (err) => {
-      resolve({ url, error: err.message });
-    });
+    try {
+      const urlObj = new URL(endpoint);
+      const req = https.request({
+        hostname: urlObj.hostname,
+        path: urlObj.pathname,
+        method: 'POST',
+        timeout: 8000, // 8 second strict timeout
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Content-Length': Buffer.byteLength(payload)
+        }
+      }, (res) => {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => {
+          console.log(`[IndexNow] ${urlObj.hostname}: HTTP ${res.statusCode}`);
+          resolve({ endpoint, status: res.statusCode });
+        });
+      });
+
+      req.on('timeout', () => {
+        req.destroy();
+        console.warn(`[IndexNow] ${urlObj.hostname} timed out after 8s`);
+        resolve({ endpoint, error: 'timeout' });
+      });
+
+      req.on('error', (e) => {
+        console.warn(`[IndexNow] ${urlObj.hostname} error:`, e.message);
+        resolve({ endpoint, error: e.message });
+      });
+
+      req.write(payload);
+      req.end();
+    } catch (e) {
+      console.warn(`[IndexNow] Exception on ${endpoint}:`, e.message);
+      resolve({ endpoint, error: e.message });
+    }
   });
 }
 
-async function pingIndexNow() {
-  const indexNowEndpoints = [
-    'https://api.indexnow.org/indexnow',
-    'https://www.bing.com/indexnow',
-    'https://yandex.com/indexnow'
-  ];
+async function run() {
+  console.log('📡 Pinging IndexNow gateways with core URLs...');
 
   const payload = JSON.stringify({
     host: 'solvemymedia.com',
@@ -51,47 +76,16 @@ async function pingIndexNow() {
     ]
   });
 
-  for (const endpoint of indexNowEndpoints) {
-    try {
-      const urlObj = new URL(endpoint);
-      const req = https.request({
-        hostname: urlObj.hostname,
-        path: urlObj.pathname,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-          'Content-Length': Buffer.byteLength(payload)
-        }
-      }, (res) => {
-        console.log(`[IndexNow] ${urlObj.hostname}: HTTP ${res.statusCode}`);
-      });
-      req.on('error', (e) => {
-        console.warn(`[IndexNow] ${urlObj.hostname} error:`, e.message);
-      });
-      req.write(payload);
-      req.end();
-    } catch (e) {
-      console.warn(`[IndexNow] Exception on ${endpoint}:`, e.message);
-    }
-  }
-}
-
-async function run() {
-  console.log('📡 Pinging Search Engines & IndexNow with latest sitemap...');
-  
-  // Google & Bing Sitemap ping endpoints
-  const sitemapEndpoints = [
-    `https://www.google.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}`,
-    `https://www.bing.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}`
+  const indexNowEndpoints = [
+    'https://api.indexnow.org/indexnow',
+    'https://www.bing.com/indexnow'
   ];
 
-  for (const ep of sitemapEndpoints) {
-    const res = await pingUrl(ep);
-    console.log(`[Sitemap Ping] ${res.url}: ${res.status || res.error}`);
+  for (const endpoint of indexNowEndpoints) {
+    await pingIndexNowEndpoint(endpoint, payload);
   }
 
-  await pingIndexNow();
-  console.log('✅ Search engine ping routines dispatched.');
+  console.log('✅ IndexNow ping routines completed.');
 }
 
 run();
